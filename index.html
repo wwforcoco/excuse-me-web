@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ExcuseMeWeb — Need a Tool? Excuse Me.</title>
-    <meta name="description" content="Simple, fast online tools for everyday tasks. Calculators, image tools, generators, converters, games, and templates. No downloads. Just useful tools that work.">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <meta name="description" content="Simple, fast online tools for everyday tasks. Calculators, image tools, generators, converters, games, and templates. Just useful tools that work.">
     <style>
         :root {
             --bg-primary: #ffffff;
@@ -24,7 +23,7 @@
             --card-hover: #f8fafc;
             --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.05);
             --shadow-hover: 0 4px 12px rgba(0,0,0,0.1), 0 8px 24px rgba(0,0,0,0.08);
-            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            --font-body: Arial, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             --radius: 12px;
             --radius-sm: 8px;
         }
@@ -61,7 +60,6 @@
         a { color: var(--accent); text-decoration: none; }
         a:hover { color: var(--accent-hover); }
 
-        /* ===== HEADER ===== */
         .header {
             background: var(--bg-primary);
             border-bottom: 1px solid var(--border);
@@ -98,7 +96,8 @@
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1rem;
+            font-size: 0.85rem;
+            font-weight: 700;
         }
         .nav-desktop { display: flex; align-items: center; gap: 4px; }
         .nav-item {
@@ -192,6 +191,7 @@
             left: 12px;
             color: var(--text-muted);
             font-size: 0.875rem;
+            font-style: normal;
         }
         .theme-btn {
             width: 36px;
@@ -204,7 +204,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1rem;
+            font-size: 0.9rem;
             transition: all 0.2s;
         }
         .theme-btn:hover {
@@ -247,7 +247,6 @@
             background: var(--bg-secondary);
         }
 
-        /* ===== HERO ===== */
         .hero {
             text-align: center;
             padding: 100px 24px 60px;
@@ -346,7 +345,6 @@
             border-color: var(--text-muted);
         }
 
-        /* ===== STATS ===== */
         .stats-bar {
             display: flex;
             justify-content: center;
@@ -371,7 +369,6 @@
             letter-spacing: 0.5px;
         }
 
-        /* ===== CATEGORIES ===== */
         .categories {
             max-width: 1280px;
             margin: 0 auto;
@@ -425,7 +422,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--accent);
             flex-shrink: 0;
         }
         .cat-card h3 {
@@ -454,7 +453,6 @@
             font-weight: 500;
         }
 
-        /* ===== FEATURED TOOLS ===== */
         .featured {
             background: var(--bg-secondary);
             padding: 80px 24px;
@@ -495,7 +493,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--accent);
             flex-shrink: 0;
         }
         .tool-mini h4 {
@@ -508,7 +508,6 @@
             color: var(--text-muted);
         }
 
-        /* ===== WHY SECTION ===== */
         .why {
             max-width: 1280px;
             margin: 0 auto;
@@ -532,7 +531,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--accent);
             margin: 0 auto 16px;
         }
         .why-item h3 {
@@ -547,7 +548,6 @@
             line-height: 1.6;
         }
 
-        /* ===== FOOTER ===== */
         .footer {
             background: var(--bg-secondary);
             border-top: 1px solid var(--border);
@@ -573,7 +573,7 @@
             align-items: center;
             gap: 8px;
         }
-        .footer-brand .logo-icon { width: 28px; height: 28px; font-size: 0.85rem; }
+        .footer-brand .logo-icon { width: 28px; height: 28px; font-size: 0.75rem; }
         .footer-desc {
             color: var(--text-secondary);
             font-size: 0.9rem;
@@ -619,7 +619,6 @@
         }
         .footer-legal a:hover { color: var(--accent); }
 
-        /* ===== SCROLL TOP ===== */
         .scroll-top {
             position: fixed;
             bottom: 24px;
@@ -643,7 +642,6 @@
         .scroll-top.visible { opacity: 1; }
         .scroll-top:hover { transform: scale(1.1); }
 
-        /* ===== RESPONSIVE ===== */
         @media (max-width: 900px) {
             .footer-top { grid-template-columns: 1fr 1fr; }
         }
@@ -665,12 +663,12 @@
     <header class="header">
         <div class="header-inner">
             <a href="/" class="logo">
-                <span class="logo-icon">🔧</span>
+                <span class="logo-icon">EM</span>
                 ExcuseMeWeb
             </a>
             <nav class="nav-desktop">
                 <div class="nav-item">
-                    <button class="nav-link">Tools <span class="arrow">▼</span></button>
+                    <button class="nav-link">Tools <span class="arrow">v</span></button>
                     <div class="dropdown">
                         <a href="/calculator">All Tools</a>
                         <a href="/calculator">Calculators</a>
@@ -681,7 +679,7 @@
                     </div>
                 </div>
                 <div class="nav-item">
-                    <button class="nav-link">Calculators <span class="arrow">▼</span></button>
+                    <button class="nav-link">Calculators <span class="arrow">v</span></button>
                     <div class="dropdown">
                         <a href="/calculator">Calculator</a>
                         <a href="/scientific-calculator">Scientific</a>
@@ -702,11 +700,11 @@
             </nav>
             <div class="header-right">
                 <div class="search-box">
-                    <span class="search-icon">🔍</span>
+                    <span class="search-icon">Q</span>
                     <input type="text" class="search-input" placeholder="Search tools...">
                 </div>
-                <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="Toggle theme">🌙</button>
-                <button class="hamburger" onclick="document.getElementById('mobileNav').classList.toggle('show')">☰</button>
+                <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="Toggle theme">D</button>
+                <button class="hamburger" onclick="document.getElementById('mobileNav').classList.toggle('show')">=</button>
             </div>
         </div>
         <nav class="mobile-nav" id="mobileNav">
@@ -720,31 +718,31 @@
     </header>
 
     <section class="hero">
-        <div class="hero-badge">✨ 50+ Free Online Tools</div>
+        <div class="hero-badge">Free Online Tools</div>
         <h1>Need a Tool?<br><span class="highlight">Excuse Me.</span></h1>
-        <p>Simple, fast, and free online tools for everyday tasks. No downloads. No signup. Just useful tools that work.</p>
+        <p>Simple, fast, and reliable online tools for everyday tasks. Calculators, image tools, generators, converters, games, and templates. Just useful tools that work.</p>
         <div class="hero-buttons">
-            <a href="#categories" class="btn-primary">Explore Tools →</a>
+            <a href="#categories" class="btn-primary">Explore Tools</a>
             <a href="/calculator" class="btn-secondary">Browse Calculators</a>
         </div>
     </section>
 
     <div class="stats-bar">
         <div class="stat-item">
-            <div class="stat-number">50+</div>
-            <div class="stat-label">Free Tools</div>
+            <div class="stat-number">Free</div>
+            <div class="stat-label">Tools</div>
         </div>
         <div class="stat-item">
             <div class="stat-number">Fast</div>
             <div class="stat-label">Browser Based</div>
         </div>
         <div class="stat-item">
-            <div class="stat-number">Open</div>
-            <div class="stat-label">No Signup</div>
+            <div class="stat-number">No Signup</div>
+            <div class="stat-label">Required</div>
         </div>
         <div class="stat-item">
-            <div class="stat-number">Any</div>
-            <div class="stat-label">Works Everywhere</div>
+            <div class="stat-number">Works</div>
+            <div class="stat-label">Everywhere</div>
         </div>
     </div>
 
@@ -756,7 +754,7 @@
         <div class="cat-grid">
             <a href="/calculator" class="cat-card">
                 <div class="cat-card-header">
-                    <div class="cat-icon">🧮</div>
+                    <div class="cat-icon">Ca</div>
                     <h3>Calculators</h3>
                 </div>
                 <p>Math, finance, health, and everyday calculations.</p>
@@ -768,7 +766,7 @@
             </a>
             <a href="/image-tools" class="cat-card">
                 <div class="cat-card-header">
-                    <div class="cat-icon">🖼</div>
+                    <div class="cat-icon">Im</div>
                     <h3>Image Tools</h3>
                 </div>
                 <p>Resize, compress, and convert images quickly.</p>
@@ -779,7 +777,7 @@
             </a>
             <a href="/generators" class="cat-card">
                 <div class="cat-card-header">
-                    <div class="cat-icon">🔐</div>
+                    <div class="cat-icon">Ge</div>
                     <h3>Generators</h3>
                 </div>
                 <p>Create useful things instantly.</p>
@@ -788,9 +786,20 @@
                     <span class="cat-tag">QR Code</span>
                 </div>
             </a>
+            <a href="/converters" class="cat-card">
+                <div class="cat-card-header">
+                    <div class="cat-icon">Co</div>
+                    <h3>Converters</h3>
+                </div>
+                <p>Convert between different units and formats.</p>
+                <div class="cat-examples">
+                    <span class="cat-tag">Unit</span>
+                    <span class="cat-tag">Currency</span>
+                </div>
+            </a>
             <a href="/time-tools" class="cat-card">
                 <div class="cat-card-header">
-                    <div class="cat-icon">⏱</div>
+                    <div class="cat-icon">Ti</div>
                     <h3>Time Tools</h3>
                 </div>
                 <p>Track and manage time.</p>
@@ -801,7 +810,7 @@
             </a>
             <a href="/games" class="cat-card">
                 <div class="cat-card-header">
-                    <div class="cat-icon">🎮</div>
+                    <div class="cat-icon">Ga</div>
                     <h3>Games</h3>
                 </div>
                 <p>Simple browser games.</p>
@@ -812,7 +821,7 @@
             </a>
             <a href="/templates" class="cat-card">
                 <div class="cat-card-header">
-                    <div class="cat-icon">📄</div>
+                    <div class="cat-icon">Te</div>
                     <h3>Templates</h3>
                 </div>
                 <p>Ready-made website templates.</p>
@@ -827,61 +836,61 @@
     <section class="featured">
         <div class="featured-inner">
             <div class="section-header">
-                <h2>Popular Tools</h2>
-                <p>The most used tools right now</p>
+                <h2>Featured Tools</h2>
+                <p>Handpicked tools for common tasks</p>
             </div>
             <div class="tools-row">
                 <a href="/calculator" class="tool-mini">
-                    <div class="tool-mini-icon">🔢</div>
+                    <div class="tool-mini-icon">Ca</div>
                     <div>
                         <h4>Calculator</h4>
                         <span>Basic math</span>
                     </div>
                 </a>
                 <a href="/image-resizer" class="tool-mini">
-                    <div class="tool-mini-icon">🖼</div>
+                    <div class="tool-mini-icon">Im</div>
                     <div>
                         <h4>Image Resizer</h4>
                         <span>Resize images</span>
                     </div>
                 </a>
                 <a href="/password-generator" class="tool-mini">
-                    <div class="tool-mini-icon">🔑</div>
+                    <div class="tool-mini-icon">Pa</div>
                     <div>
                         <h4>Password Generator</h4>
                         <span>Secure passwords</span>
                     </div>
                 </a>
                 <a href="/qr-code-generator" class="tool-mini">
-                    <div class="tool-mini-icon">📱</div>
+                    <div class="tool-mini-icon">QR</div>
                     <div>
                         <h4>QR Code Generator</h4>
                         <span>Create QR codes</span>
                     </div>
                 </a>
                 <a href="/scientific-calculator" class="tool-mini">
-                    <div class="tool-mini-icon">🔬</div>
+                    <div class="tool-mini-icon">Sc</div>
                     <div>
                         <h4>Scientific Calculator</h4>
                         <span>Advanced math</span>
                     </div>
                 </a>
                 <a href="/bmi-calculator" class="tool-mini">
-                    <div class="tool-mini-icon">⚖️</div>
+                    <div class="tool-mini-icon">BM</div>
                     <div>
                         <h4>BMI Calculator</h4>
                         <span>Body mass index</span>
                     </div>
                 </a>
                 <a href="/loan-calculator" class="tool-mini">
-                    <div class="tool-mini-icon">💰</div>
+                    <div class="tool-mini-icon">Lo</div>
                     <div>
                         <h4>Loan Calculator</h4>
                         <span>Monthly payments</span>
                     </div>
                 </a>
                 <a href="/tip-calculator" class="tool-mini">
-                    <div class="tool-mini-icon">💵</div>
+                    <div class="tool-mini-icon">Ti</div>
                     <div>
                         <h4>Tip Calculator</h4>
                         <span>Split bills</span>
@@ -898,24 +907,24 @@
         </div>
         <div class="why-grid">
             <div class="why-item">
-                <div class="why-icon">⚡</div>
+                <div class="why-icon">Fs</div>
                 <h3>Fast & Simple</h3>
                 <p>Tools open instantly and are easy to use. No learning curve. No clutter.</p>
             </div>
             <div class="why-item">
-                <div class="why-icon">🔒</div>
+                <div class="why-icon">Pf</div>
                 <h3>Privacy Friendly</h3>
                 <p>Most tools run directly in your browser. Your data stays on your device.</p>
             </div>
             <div class="why-item">
-                <div class="why-icon">📱</div>
+                <div class="why-icon">We</div>
                 <h3>Works Everywhere</h3>
                 <p>Desktop, tablet, and mobile friendly. Responsive on every screen.</p>
             </div>
             <div class="why-item">
-                <div class="why-icon">🌎</div>
-                <h3>Free Forever</h3>
-                <p>No account. No unnecessary barriers. Just tools that work when you need them.</p>
+                <div class="why-icon">Al</div>
+                <h3>Always Available</h3>
+                <p>Tools that work when you need them. No barriers. No unnecessary steps.</p>
             </div>
         </div>
     </section>
@@ -925,7 +934,7 @@
             <div class="footer-top">
                 <div>
                     <div class="footer-brand">
-                        <span class="logo-icon">🔧</span>
+                        <span class="logo-icon">EM</span>
                         ExcuseMeWeb
                     </div>
                     <p class="footer-desc">Simple, fast online tools for everyday tasks. Built for people who need things done.</p>
@@ -935,6 +944,7 @@
                     <a href="/calculator">Calculators</a>
                     <a href="/image-tools">Image Tools</a>
                     <a href="/generators">Generators</a>
+                    <a href="/converters">Converters</a>
                     <a href="/templates">Templates</a>
                     <a href="/games">Games</a>
                 </div>
@@ -943,6 +953,7 @@
                     <a href="/about">About</a>
                     <a href="/contact">Contact</a>
                     <a href="/privacy">Privacy Policy</a>
+                    <a href="/terms">Terms of Service</a>
                 </div>
                 <div class="footer-col">
                     <h4>Popular</h4>
@@ -953,7 +964,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <div class="footer-copy">© 2026 ExcuseMeWeb</div>
+                <div class="footer-copy">2026 ExcuseMeWeb</div>
                 <div class="footer-legal">
                     <a href="/privacy">Privacy</a>
                     <a href="/terms">Terms</a>
@@ -962,7 +973,7 @@
         </div>
     </footer>
 
-    <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+    <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">^</button>
 
     <script>
         function toggleTheme() {
@@ -970,18 +981,18 @@
             const btn = document.getElementById('themeBtn');
             if (body.classList.contains('theme-dark')) {
                 body.classList.remove('theme-dark');
-                btn.textContent = '🌙';
+                btn.textContent = 'D';
                 localStorage.setItem('homepageTheme', 'light');
             } else {
                 body.classList.add('theme-dark');
-                btn.textContent = '☀️';
+                btn.textContent = 'L';
                 localStorage.setItem('homepageTheme', 'dark');
             }
         }
         const saved = localStorage.getItem('homepageTheme');
         if (saved === 'dark') {
             document.body.classList.add('theme-dark');
-            document.getElementById('themeBtn').textContent = '☀️';
+            document.getElementById('themeBtn').textContent = 'L';
         }
         window.addEventListener('scroll', function() {
             document.getElementById('scrollTop').classList.toggle('visible', window.scrollY > 400);
