@@ -145,7 +145,7 @@
             box-shadow: var(--shadow-hover);
             z-index: 100;
         }
-        .nav-item:hover .dropdown { display: block; }
+        .nav-item:hover .dropdown, .dropdown:hover { display: block; }
         .dropdown a {
             display: block;
             padding: 10px 20px;
@@ -679,7 +679,7 @@
                     </div>
                 </div>
                 <div class="nav-item">
-                    <button class="nav-link">Calculators <span class="arrow">v</span></button>
+                    <a href="/calculator" class="nav-link">Calculators <span class="arrow">v</span></a>
                     <div class="dropdown">
                         <a href="/calculator">Calculator</a>
                         <a href="/scientific-calculator">Scientific</a>
@@ -695,6 +695,7 @@
                 </div>
                 <a href="/image-tools" class="nav-link">Image Tools</a>
                 <a href="/generators" class="nav-link">Generators</a>
+                <a href="/converters" class="nav-link">Converters</a>
                 <a href="/templates" class="nav-link">Templates</a>
                 <a href="/games" class="nav-link">Games</a>
             </nav>
@@ -712,6 +713,7 @@
             <a href="/calculator">Calculators</a>
             <a href="/image-tools">Image Tools</a>
             <a href="/generators">Generators</a>
+            <a href="/converters">Converters</a>
             <a href="/templates">Templates</a>
             <a href="/games">Games</a>
         </nav>
@@ -720,7 +722,7 @@
     <section class="hero">
         <div class="hero-badge">Free Online Tools</div>
         <h1>Need a Tool?<br><span class="highlight">Excuse Me.</span></h1>
-        <p>Simple, fast, and reliable online tools for everyday tasks. Calculators, image tools, generators, converters, games, and templates. Just useful tools that work.</p>
+        <p>Simple, fast, and reliable online tools for everyday tasks. No downloads, no signup, just tools that work.</p>
         <div class="hero-buttons">
             <a href="#categories" class="btn-primary">Explore Tools</a>
             <a href="/calculator" class="btn-secondary">Browse Calculators</a>
@@ -909,22 +911,22 @@
             <div class="why-item">
                 <div class="why-icon">Fs</div>
                 <h3>Fast & Simple</h3>
-                <p>Tools open instantly and are easy to use. No learning curve. No clutter.</p>
+                <p>Tools open instantly with no clutter.</p>
             </div>
             <div class="why-item">
                 <div class="why-icon">Pf</div>
                 <h3>Privacy Friendly</h3>
-                <p>Most tools run directly in your browser. Your data stays on your device.</p>
+                <p>Your data stays on your device.</p>
             </div>
             <div class="why-item">
                 <div class="why-icon">We</div>
                 <h3>Works Everywhere</h3>
-                <p>Desktop, tablet, and mobile friendly. Responsive on every screen.</p>
+                <p>Desktop, tablet, and mobile.</p>
             </div>
             <div class="why-item">
                 <div class="why-icon">Al</div>
                 <h3>Always Available</h3>
-                <p>Tools that work when you need them. No barriers. No unnecessary steps.</p>
+                <p>Free tools whenever you need them.</p>
             </div>
         </div>
     </section>
@@ -940,27 +942,19 @@
                     <p class="footer-desc">Simple, fast online tools for everyday tasks. Built for people who need things done.</p>
                 </div>
                 <div class="footer-col">
-                    <h4>Tools</h4>
-                    <a href="/calculator">Calculators</a>
-                    <a href="/image-tools">Image Tools</a>
-                    <a href="/generators">Generators</a>
-                    <a href="/converters">Converters</a>
-                    <a href="/templates">Templates</a>
-                    <a href="/games">Games</a>
+                    <h4>Product</h4>
+                    <a href="/calculator">Tools</a>
+                    <a href="#categories">Categories</a>
                 </div>
                 <div class="footer-col">
                     <h4>Company</h4>
                     <a href="/about">About</a>
                     <a href="/contact">Contact</a>
-                    <a href="/privacy">Privacy Policy</a>
-                    <a href="/terms">Terms of Service</a>
                 </div>
                 <div class="footer-col">
-                    <h4>Popular</h4>
-                    <a href="/calculator">Calculator</a>
-                    <a href="/password-generator">Password Generator</a>
-                    <a href="/image-resizer">Image Resizer</a>
-                    <a href="/qr-code-generator">QR Code</a>
+                    <h4>Legal</h4>
+                    <a href="/privacy">Privacy Policy</a>
+                    <a href="/terms">Terms of Service</a>
                 </div>
             </div>
             <div class="footer-bottom">
