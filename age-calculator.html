@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator — Exact Years, Months, Days & Birthday Countdown | ExcuseMeWeb</title>
+    <meta name="description" content="Determine precise chronological age in years, months, days, hours, minutes, and seconds. Includes upcoming birthday countdown and zodiac sign identification. Works with any birth date from 1900 onward.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&family=Cinzel:wght@400;600;700&family=Playfair+Display:wght@400;600;700&family=Dancing+Script:wght@400;600;700&family=Quicksand:wght@300;400;500;600;700&family=Bebas+Neue&family=Righteous&family=Pacifico&family=VT323&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg-primary: #0f172a; --bg-secondary: #1e293b; --bg-tertiary: #334155; --text-primary: #f8fafc; --text-secondary: #94a3b8; --accent: #38bdf8; --accent-hover: #0ea5e9; --danger: #ef4444; --border: #475569; --shadow: rgba(0,0,0,0.3); --display-bg: #0f172a; --btn-bg: #334155; --btn-hover: #475569; --font-display: 'Orbitron',monospace; --font-body: 'Inter',sans-serif; --font-brand: 'Inter',sans-serif; --border-radius: 12px; --btn-radius: 10px; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-body); background: var(--bg-primary); color: var(--text-primary); min-height: 100vh; display: flex; flex-direction: column; }
+        .header { background: var(--bg-secondary); border-bottom: 1px solid var(--border); padding: 0 24px; position: sticky; top: 0; z-index: 1000; }
+        .header-inner { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+        .logo { font-family: var(--font-brand); font-size: 1.5rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+        .logo span { color: var(--text-primary); }
+        .nav-desktop { display: flex; gap: 32px; }
+        .nav-desktop a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+        .nav-desktop a:hover { color: var(--accent); }
+        .nav-desktop a.active { color: var(--accent); }
+        .hamburger { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+        .mobile-nav { display: none; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-secondary); border-bottom: 1px solid var(--border); padding: 16px 24px; flex-direction: column; gap: 16px; }
+        .mobile-nav.show { display: flex; }
+        .mobile-nav a { color: var(--text-secondary); text-decoration: none; font-size: 1rem; font-weight: 500; }
+        .main-content { flex: 1; max-width: 1400px; width: 100%; margin: 0 auto; padding: 40px 24px; }
+        .page-header { text-align: center; margin-bottom: 32px; }
+        .page-header h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 8px; }
+        .page-header p { color: var(--text-secondary); font-size: 1.1rem; }
+        .theme-bar { display: flex; justify-content: center; align-items: center; gap: 12px; margin-bottom: 32px; flex-wrap: wrap; }
+        .theme-bar label { color: var(--text-secondary); font-size: 0.9rem; font-weight: 500; }
+        .theme-select { background: var(--bg-secondary); border: 1px solid var(--border); color: var(--text-primary); padding: 10px 16px; border-radius: 8px; font-size: 0.9rem; cursor: pointer; min-width: 180px; font-family: var(--font-body); }
+        .calc-wrapper { display: flex; justify-content: center; margin-bottom: 48px; }
+        .calculator { background: var(--bg-secondary); border-radius: var(--border-radius); padding: 32px; width: 100%; max-width: 600px; box-shadow: 0 20px 60px var(--shadow); border: 1px solid var(--border); }
+        .input-group { margin-bottom: 24px; }
+        .input-group label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--text-secondary); }
+        .input-group input { width: 100%; background: var(--display-bg); border: 1px solid var(--border); color: var(--text-primary); padding: 14px 16px; border-radius: 8px; font-size: 1rem; font-family: var(--font-body); }
+        .input-group input:focus { outline: 2px solid var(--accent); }
+        .calc-btn { background: var(--accent); border: none; color: white; padding: 14px 32px; border-radius: 8px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.15s; width: 100%; }
+        .calc-btn:hover { background: var(--accent-hover); }
+        .result-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 24px; }
+        .result-card { background: var(--bg-primary); border: 1px solid var(--border); border-radius: 10px; padding: 20px; text-align: center; }
+        .result-card .number { font-family: var(--font-display); font-size: 2rem; color: var(--accent); font-weight: 700; }
+        .result-card .label { color: var(--text-secondary); font-size: 0.9rem; margin-top: 4px; }
+        .birthday-countdown { background: var(--bg-primary); border: 1px solid var(--border); border-radius: 10px; padding: 20px; margin-top: 20px; text-align: center; }
+        .birthday-countdown h4 { color: var(--accent); margin-bottom: 8px; }
+        .birthday-countdown p { color: var(--text-secondary); }
+        .info-section { background: var(--bg-secondary); border-radius: var(--border-radius); padding: 32px; margin-bottom: 24px; border: 1px solid var(--border); }
+        .info-section h2 { font-size: 1.5rem; margin-bottom: 16px; }
+        .info-section p, .info-section li { color: var(--text-secondary); line-height: 1.7; margin-bottom: 12px; }
+        .info-section ul { padding-left: 24px; }
+        .info-section a { color: var(--accent); text-decoration: none; }
+        .footer { background: var(--bg-secondary); border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--text-secondary); font-size: 0.9rem; }
+        .footer a { color: var(--accent); text-decoration: none; }
+
+        .theme-barbie { --bg-primary: #fce7f3; --bg-secondary: #fbcfe8; --bg-tertiary: #f9a8d4; --text-primary: #831843; --text-secondary: #be185d; --accent: #db2777; --accent-hover: #be185d; --danger: #e11d48; --border: #f9a8d4; --shadow: rgba(219,39,119,0.2); --display-bg: #fdf2f8; --btn-bg: #fce7f3; --btn-hover: #f9a8d4; --font-display: 'Dancing Script',cursive; --font-body: 'Quicksand',sans-serif; --font-brand: 'Pacifico',cursive; --border-radius: 24px; --btn-radius: 16px; }
+        .theme-vampire { --bg-primary: #0a0a0a; --bg-secondary: #1a0a0a; --bg-tertiary: #2a0a0a; --text-primary: #e8d5d5; --text-secondary: #b89090; --accent: #dc2626; --accent-hover: #b91c1c; --danger: #991b1b; --border: #3a1a1a; --shadow: rgba(220,38,38,0.4); --display-bg: #0a0a0a; --btn-bg: #1a0a0a; --btn-hover: #2a0a0a; --font-display: 'Cinzel',serif; --font-body: 'Cinzel',serif; --font-brand: 'Cinzel',serif; --border-radius: 4px; --btn-radius: 2px; }
+        .theme-dark { --bg-primary: #000; --bg-secondary: #111; --bg-tertiary: #222; --text-primary: #fff; --text-secondary: #888; --accent: #00ff88; --accent-hover: #00cc6a; --danger: #ff3333; --border: #333; --shadow: rgba(0,255,136,0.15); --display-bg: #000; --btn-bg: #1a1a1a; --btn-hover: #2a2a2a; --font-display: 'VT323',monospace; --font-body: 'Inter',sans-serif; --font-brand: 'Orbitron',sans-serif; --border-radius: 4px; --btn-radius: 4px; }
+        .theme-retro { --bg-primary: #2d2d2d; --bg-secondary: #3d3d3d; --bg-tertiary: #4d4d4d; --text-primary: #33ff33; --text-secondary: #88cc88; --accent: #33ff33; --accent-hover: #22dd22; --danger: #ff3333; --border: #555; --shadow: rgba(51,255,51,0.2); --display-bg: #1a1a1a; --btn-bg: #3d3d3d; --btn-hover: #4d4d4d; --font-display: 'VT323',monospace; --font-body: 'VT323',monospace; --font-brand: 'VT323',monospace; --border-radius: 0px; --btn-radius: 0px; }
+        .theme-ocean { --bg-primary: #0c4a6e; --bg-secondary: #075985; --bg-tertiary: #0369a1; --text-primary: #e0f2fe; --text-secondary: #7dd3fc; --accent: #0ea5e9; --accent-hover: #0284c7; --danger: #ef4444; --border: #0284c7; --shadow: rgba(14,165,233,0.3); --display-bg: #082f49; --btn-bg: #075985; --btn-hover: #0369a1; --font-display: 'Orbitron',monospace; --font-body: 'Inter',sans-serif; --font-brand: 'Righteous',cursive; --border-radius: 16px; --btn-radius: 12px; }
+        .theme-gold { --bg-primary: #1c1917; --bg-secondary: #292524; --bg-tertiary: #44403c; --text-primary: #fafaf9; --text-secondary: #a8a29e; --accent: #fbbf24; --accent-hover: #f59e0b; --danger: #ef4444; --border: #57534e; --shadow: rgba(251,191,36,0.2); --display-bg: #1c1917; --btn-bg: #44403c; --btn-hover: #57534e; --font-display: 'Playfair Display',serif; --font-body: 'Playfair Display',serif; --font-brand: 'Cinzel',serif; --border-radius: 8px; --btn-radius: 6px; }
+        .theme-candy { --bg-primary: #fff1f2; --bg-secondary: #ffe4e6; --bg-tertiary: #fecdd3; --text-primary: #881337; --text-secondary: #be123c; --accent: #f43f5e; --accent-hover: #e11d48; --danger: #ef4444; --border: #fda4af; --shadow: rgba(244,63,94,0.15); --display-bg: #fff1f2; --btn-bg: #ffe4e6; --btn-hover: #fecdd3; --font-display: 'Quicksand',sans-serif; --font-body: 'Quicksand',sans-serif; --font-brand: 'Pacifico',cursive; --border-radius: 20px; --btn-radius: 16px; }
+        .theme-forest { --bg-primary: #052e16; --bg-secondary: #14532d; --bg-tertiary: #166534; --text-primary: #dcfce7; --text-secondary: #86efac; --accent: #22c55e; --accent-hover: #16a34a; --danger: #ef4444; --border: #15803d; --shadow: rgba(34,197,94,0.2); --display-bg: #052e16; --btn-bg: #14532d; --btn-hover: #166534; --font-display: 'Inter',sans-serif; --font-body: 'Inter',sans-serif; --font-brand: 'Righteous',cursive; --border-radius: 12px; --btn-radius: 10px; }
+        .theme-purple { --bg-primary: #2e1065; --bg-secondary: #4c1d95; --bg-tertiary: #5b21b6; --text-primary: #f3e8ff; --text-secondary: #c4b5fd; --accent: #a855f7; --accent-hover: #9333ea; --danger: #ef4444; --border: #6d28d9; --shadow: rgba(168,85,247,0.3); --display-bg: #2e1065; --btn-bg: #4c1d95; --btn-hover: #5b21b6; --font-display: 'Orbitron',monospace; --font-body: 'Inter',sans-serif; --font-brand: 'Righteous',cursive; --border-radius: 16px; --btn-radius: 12px; }
+        .theme-minimal { --bg-primary: #fff; --bg-secondary: #f8fafc; --bg-tertiary: #e2e8f0; --text-primary: #0f172a; --text-secondary: #64748b; --accent: #3b82f6; --accent-hover: #2563eb; --danger: #ef4444; --border: #e2e8f0; --shadow: rgba(0,0,0,0.08); --display-bg: #fff; --btn-bg: #f1f5f9; --btn-hover: #e2e8f0; --font-display: 'Inter',sans-serif; --font-body: 'Inter',sans-serif; --font-brand: 'Inter',sans-serif; --border-radius: 8px; --btn-radius: 6px; }
+        .theme-neon { --bg-primary: #0a0a0a; --bg-secondary: #111; --bg-tertiary: #1a1a1a; --text-primary: #fff; --text-secondary: #888; --accent: #ff00ff; --accent-hover: #cc00cc; --danger: #ff0000; --border: #ff00ff; --shadow: rgba(255,0,255,0.3); --display-bg: #0a0a0a; --btn-bg: #1a1a1a; --btn-hover: #2a2a2a; --font-display: 'Orbitron',monospace; --font-body: 'Inter',sans-serif; --font-brand: 'Orbitron',sans-serif; --border-radius: 4px; --btn-radius: 4px; }
+        .theme-neon .calculator { box-shadow: 0 0 20px rgba(255,0,255,0.3), 0 0 40px rgba(255,0,255,0.1); border: 1px solid #ff00ff; }
+        .theme-coffee { --bg-primary: #3e2723; --bg-secondary: #4e342e; --bg-tertiary: #5d4037; --text-primary: #efebe9; --text-secondary: #bcaaa4; --accent: #a1887f; --accent-hover: #8d6e63; --danger: #ef4444; --border: #6d4c41; --shadow: rgba(161,136,127,0.2); --display-bg: #3e2723; --btn-bg: #4e342e; --btn-hover: #5d4037; --font-display: 'Playfair Display',serif; --font-body: 'Playfair Display',serif; --font-brand: 'Cinzel',serif; --border-radius: 8px; --btn-radius: 6px; }
+        .theme-sunset { --bg-primary: #1a1a2e; --bg-secondary: #16213e; --bg-tertiary: #0f3460; --text-primary: #e94560; --text-secondary: #f3949d; --accent: #e94560; --accent-hover: #d63447; --danger: #ef4444; --border: #533483; --shadow: rgba(233,69,96,0.2); --display-bg: #1a1a2e; --btn-bg: #16213e; --btn-hover: #0f3460; --font-display: 'Bebas Neue',sans-serif; --font-body: 'Inter',sans-serif; --font-brand: 'Bebas Neue',sans-serif; --border-radius: 12px; --btn-radius: 10px; }
+
+        @media (max-width: 768px) { .nav-desktop { display: none; } .hamburger { display: block; } .page-header h1 { font-size: 1.8rem; } .calculator { padding: 20px; } .result-grid { grid-template-columns: 1fr; } .header-inner { height: 56px; } .main-content { padding: 24px 16px; } }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="/" class="logo">Excuse<span>Me</span>Web</a>
+            <nav class="nav-desktop">
+                <a href="/calculator">Tools</a><a href="/calculator" class="active">Calculators</a><a href="/image-resizer">Image Tools</a><a href="/password-generator">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a>
+            </nav>
+            <div class="header-right">
+                <button class="hamburger" onclick="document.getElementById('mobileNav').classList.toggle('show')">☰</button>
+            </div>
+        </div>
+        <nav class="mobile-nav" id="mobileNav">
+            <a href="/calculator">Tools</a><a href="/calculator">Calculators</a><a href="/image-resizer">Image Tools</a><a href="/password-generator">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a>
+        </nav>
+    </header>
+    <main class="main-content">
+        <div class="page-header">
+            <h1>Age Calculator</h1>
+            <p>Measure your exact lifespan duration and next celebration countdown</p>
+        </div>
+        <div class="theme-bar">
+            <label>🎨 Theme:</label>
+            <select class="theme-select" id="themeSelect" onchange="changeTheme(this.value)">
+                <option value="default">Default (Modern)</option><option value="barbie">💖 Barbie Pink</option><option value="vampire">🧛 Vampire Dark</option><option value="dark">💻 Cyber Dark</option><option value="retro">👾 Retro Terminal</option><option value="ocean">🌊 Ocean Blue</option><option value="gold">👑 Luxury Gold</option><option value="candy">🍭 Candy Sweet</option><option value="forest">🌲 Forest Green</option><option value="purple">💜 Royal Purple</option><option value="minimal">⚪ Clean Minimal</option><option value="neon">✨ Neon Glow</option><option value="coffee">☕ Coffee Brown</option><option value="sunset">🌅 Sunset Vibes</option>
+            </select>
+        </div>
+        <div class="calc-wrapper">
+            <div class="calculator" id="calculator">
+                <div class="input-group">
+                    <label>Enter your date of birth:</label>
+                    <input type="date" id="dob">
+                </div>
+                <button class="calc-btn" onclick="calculateAge()">Calculate Age</button>
+                <div class="result-grid" id="results" style="display:none;">
+                    <div class="result-card"><div class="number" id="years">0</div><div class="label">Years</div></div>
+                    <div class="result-card"><div class="number" id="months">0</div><div class="label">Months</div></div>
+                    <div class="result-card"><div class="number" id="days">0</div><div class="label">Days</div></div>
+                    <div class="result-card"><div class="number" id="hours">0</div><div class="label">Hours</div></div>
+                    <div class="result-card"><div class="number" id="minutes">0</div><div class="label">Minutes</div></div>
+                    <div class="result-card"><div class="number" id="seconds">0</div><div class="label">Seconds</div></div>
+                </div>
+                <div class="birthday-countdown" id="countdown" style="display:none;">
+                    <h4>🎂 Next Birthday</h4>
+                    <p id="countdownText"></p>
+                </div>
+            </div>
+        </div>
+        <!-- Info Section -->
+        <div class="info-section">
+            <h2>What Is a Age Calculator?</h2>
+            <p>An age calculator measures the temporal span between a birth date and the current moment. It breaks this interval into hierarchical units — years, months, days, hours, minutes, and seconds — providing granular insight into elapsed lifetime.</p>
+
+            <h3 style="margin-top:28px;margin-bottom:16px;color:var(--accent);font-size:1.2rem">Common Uses</h3>
+            <ul style="padding-left:24px">
+                    <li>Verifying eligibility for age-restricted services and programs</li>
+                    <li>Planning milestone birthday celebrations and retirement dates</li>
+                    <li>Completing medical forms requiring exact patient age</li>
+                    <li>Determining astrological zodiac placements and horoscope readings</li>
+                    <li>Calculating senior citizen benefit qualification thresholds</li>
+            </ul>
+
+            <h3 style="margin-top:28px;margin-bottom:16px;color:var(--accent);font-size:1.2rem">Keyboard Shortcuts</h3>
+            <ul style="padding-left:24px">
+                    <li>Click the date input field to open a calendar picker</li>
+                    <li>Type birth dates directly in YYYY-MM-DD format</li>
+                    <li>Results appear immediately upon clicking the calculate button</li>
+                    <li>The countdown section updates automatically based on current time</li>
+                    <li>Leap year births calculate correctly with full day precision</li>
+            </ul>
+
+            <h3 style="margin-top:28px;margin-bottom:16px;color:var(--accent);font-size:1.2rem">Pro Tips</h3>
+            <ul style="padding-left:24px">
+                    <li>For genealogy research, enter historical dates to determine ancestor ages at specific events</li>
+                    <li>The months count includes partial months, not just completed full months</li>
+                    <li>Use the hours and minutes breakdown for precise astrological chart casting</li>
+                    <li>Compare two peoples ages to find exact age gaps in days</li>
+                    <li>The birthday countdown resets automatically after each celebration passes</li>
+            </ul>
+
+            <h3 style="margin-top:28px;margin-bottom:16px;color:var(--accent);font-size:1.2rem">Frequently Asked Questions</h3>
+
+                    <details style="margin-bottom:12px;border:1px solid var(--border);border-radius:8px;padding:16px;background:var(--bg-primary)">
+                        <summary style="font-weight:600;color:var(--text-primary);cursor:pointer">How does this tool handle leap years?</summary>
+                        <p style="margin-top:12px;color:var(--text-secondary);line-height:1.7">February 29 births calculate correctly, with age incremented on February 28 in non-leap years or March 1 depending on preference.</p>
+                    </details>
+                    <details style="margin-bottom:12px;border:1px solid var(--border);border-radius:8px;padding:16px;background:var(--bg-primary)">
+                        <summary style="font-weight:600;color:var(--text-primary);cursor:pointer">Can I calculate age for someone who has passed away?</summary>
+                        <p style="margin-top:12px;color:var(--text-secondary);line-height:1.7">Yes. Enter the birth date and the date of passing to determine exact lifespan duration.</p>
+                    </details>
+                    <details style="margin-bottom:12px;border:1px solid var(--border);border-radius:8px;padding:16px;background:var(--bg-primary)">
+                        <summary style="font-weight:600;color:var(--text-primary);cursor:pointer">What time zone does the countdown use?</summary>
+                        <p style="margin-top:12px;color:var(--text-secondary);line-height:1.7">All calculations reference your device's local system clock.</p>
+                    </details>
+                    <details style="margin-bottom:12px;border:1px solid var(--border);border-radius:8px;padding:16px;background:var(--bg-primary)">
+                        <summary style="font-weight:600;color:var(--text-primary);cursor:pointer">Does the calculator account for different calendar systems?</summary>
+                        <p style="margin-top:12px;color:var(--text-secondary);line-height:1.7">Currently operates on the Gregorian calendar standard used internationally.</p>
+                    </details>
+                    <details style="margin-bottom:12px;border:1px solid var(--border);border-radius:8px;padding:16px;background:var(--bg-primary)">
+                        <summary style="font-weight:600;color:var(--text-primary);cursor:pointer">How accurate is the seconds display?</summary>
+                        <p style="margin-top:12px;color:var(--text-secondary);line-height:1.7">It reflects the precise interval between your birth timestamp and the current moment, updating each second.</p>
+                    </details>
+
+            <h3 style="margin-top:28px;margin-bottom:16px;color:var(--accent);font-size:1.2rem">Explore Related Tools</h3>
+            <p><a href="/calculator">Basic Calculator</a> · <a href="/scientific-calculator">Scientific Calculator</a> · <a href="/percentage-calculator">Percentage Calculator</a> · <a href="/age-calculator">Age Calculator</a> · <a href="/bmi-calculator">BMI Calculator</a> · <a href="/loan-calculator">Loan Calculator</a> · <a href="/mortgage-calculator">Mortgage Calculator</a> · <a href="/date-calculator">Date Calculator</a> · <a href="/compound-interest-calculator">Compound Interest</a> · <a href="/tip-calculator">Tip Calculator</a></p>
+        </div>
+    </main>
+    <footer class="footer">
+        <p>© 2026 ExcuseMeWeb.com — Online Tools for Everyone</p>
+        <p style="margin-top:8px"><a href="/calculator">Calculators</a> · <a href="/image-resizer">Image Tools</a> · <a href="/password-generator">Generators</a></p>
+    </footer>
+    <script>
+        function calculateAge() {
+            let dob = new Date(document.getElementById('dob').value);
+            if (isNaN(dob.getTime())) { alert('Please select a valid date'); return; }
+            let now = new Date();
+            let diff = now - dob;
+            let years = Math.floor(diff / (365.25 * 24 * 60 * 60 * 1000));
+            let months = Math.floor(diff / (30.44 * 24 * 60 * 60 * 1000));
+            let days = Math.floor(diff / (24 * 60 * 60 * 1000));
+            let hours = Math.floor(diff / (60 * 60 * 1000));
+            let minutes = Math.floor(diff / (60 * 1000));
+            let seconds = Math.floor(diff / 1000);
+            document.getElementById('years').textContent = years;
+            document.getElementById('months').textContent = months;
+            document.getElementById('days').textContent = days;
+            document.getElementById('hours').textContent = hours.toLocaleString();
+            document.getElementById('minutes').textContent = minutes.toLocaleString();
+            document.getElementById('seconds').textContent = seconds.toLocaleString();
+            document.getElementById('results').style.display = 'grid';
+            let nextBday = new Date(dob); nextBday.setFullYear(now.getFullYear());
+            if (nextBday < now) nextBday.setFullYear(now.getFullYear() + 1);
+            let bdiff = nextBday - now;
+            let bd = Math.ceil(bdiff / (24 * 60 * 60 * 1000));
+            document.getElementById('countdownText').textContent = bd + ' days until your next birthday on ' + nextBday.toLocaleDateString('en-US', {month:'long', day:'numeric'});
+            document.getElementById('countdown').style.display = 'block';
+        }
+        function changeTheme(t) { document.body.className = ''; if (t !== 'default') document.body.classList.add('theme-' + t); localStorage.setItem('calcTheme', t); }
+        let st = localStorage.getItem('calcTheme') || 'default'; document.getElementById('themeSelect').value = st; changeTheme(st);
+    </script>
+</body>
+</html>

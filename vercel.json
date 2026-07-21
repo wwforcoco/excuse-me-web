@@ -1,0 +1,15 @@
+{
+  "routes": [
+    { "src": "/calculator", "dest": "/calculator.html" },
+    { "src": "/scientific-calculator", "dest": "/scientific-calculator.html" },
+    { "src": "/percentage-calculator", "dest": "/percentage-calculator.html" },
+    { "src": "/age-calculator", "dest": "/age-calculator.html" },
+    { "src": "/bmi-calculator", "dest": "/bmi-calculator.html" },
+    { "src": "/loan-calculator", "dest": "/loan-calculator.html" },
+    { "src": "/mortgage-calculator", "dest": "/mortgage-calculator.html" },
+    { "src": "/date-calculator", "dest": "/date-calculator.html" },
+    { "src": "/compound-interest-calculator", "dest": "/compound-interest-calculator.html" },
+    { "src": "/tip-calculator", "dest": "/tip-calculator.html" },
+    { "src": "/(.*)", "dest": "/$1.html" }
+  ]
+}

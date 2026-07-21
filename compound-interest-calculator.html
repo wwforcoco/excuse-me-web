@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compound Interest Calculator — Investment Growth & Wealth Projection | ExcuseMeWeb</title>
+    <meta name="description" content="Visualize how investments multiply through compounding. Project final balances, total contributions, and accumulated interest across multiple years with adjustable frequencies and contribution rates.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&family=Cinzel:wght@400;600;700&family=Playfair+Display:wght@400;600;700&family=Dancing+Script:wght@400;600;700&family=Quicksand:wght@300;400;500;600;700&family=Bebas+Neue&family=Righteous&family=Pacifico&family=VT323&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg-primary: #0f172a; --bg-secondary: #1e293b; --bg-tertiary: #334155; --text-primary: #f8fafc; --text-secondary: #94a3b8; --accent: #38bdf8; --accent-hover: #0ea5e9; --danger: #ef4444; --border: #475569; --shadow: rgba(0,0,0,0.3); --display-bg: #0f172a; --btn-bg: #334155; --btn-hover: #475569; --font-display: 'Orbitron',monospace; --font-body: 'Inter',sans-serif; --font-brand: 'Inter',sans-serif; --border-radius: 12px; --btn-radius: 10px; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-body); background: var(--bg-primary); color: var(--text-primary); min-height: 100vh; display: flex; flex-direction: column; }
+        .header { background: var(--bg-secondary); border-bottom: 1px solid var(--border); padding: 0 24px; position: sticky; top: 0; z-index: 1000; }
+        .header-inner { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+        .logo { font-family: var(--font-brand); font-size: 1.5rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+        .logo span { color: var(--text-primary); }
+        .nav-desktop { display: flex; gap: 32px; }
+        .nav-desktop a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+        .nav-desktop a:hover { color: var(--accent); }
+        .nav-desktop a.active { color: var(--accent); }
+        .hamburger { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+        .mobile-nav { display: none; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-secondary); border-bottom: 1px solid var(--border); padding: 16px 24px; flex-direction: column; gap: 16px; }
+        .mobile-nav.show { display: flex; }
+        .mobile-nav a { color: var(--text-secondary); text-decoration: none; font-size: 1rem; font-weight: 500; }
+        .main-content { flex: 1; max-width: 1400px; width: 100%; margin: 0 auto; padding: 40px 24px; }
+        .page-header { text-align: center; margin-bottom: 32px; }
+        .page-header h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 8px; }
+        .page-header p { color: var(--text-secondary); font-size: 1.1rem; }
+        .theme-bar { display: flex; justify-content: center; align-items: center; gap: 12px; margin-bottom: 32px; flex-wrap: wrap; }
+        .theme-bar label { color: var(--text-secondary); font-size: 0.9rem; font-weight: 500; }
+        .theme-select { background: var(--bg-secondary); border: 1px solid var(--border); color: var(--text-primary); padding: 10px 16px; border-radius: 8px; font-size: 0.9rem; cursor: pointer; min-width: 180px; font-family: var(--font-body); }
+        .calc-wrapper { display: flex; justify-content: center; margin-bottom: 48px; }
+        .calculator { background: var(--bg-secondary); border-radius: var(--border-radius); padding: 32px; width: 100%; max-width: 600px; box-shadow: 0 20px 60px var(--shadow); border: 1px solid var(--border); }
+        .input-group { margin-bottom: 20px; }
+        .input-group label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--text-secondary); }
+        .input-group input, .input-group select { width: 100%; background: var(--display-bg); border: 1px solid var(--border); color: var(--text-primary); padding: 14px 16px; border-radius: 8px; font-size: 1rem; font-family: var(--font-body); }
+        .input-group input:focus, .input-group select:focus { outline: 2px solid var(--accent); }
+        .calc-btn { background: var(--accent); border: none; color: white; padding: 14px 32px; border-radius: 8px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.15s; width: 100%; margin-top: 8px; }
+        .calc-btn:hover { background: var(--accent-hover); }
+        .result-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 24px; }
+        .result-card { background: var(--bg-primary); border: 1px solid var(--border); border-radius: 10px; padding: 20px; text-align: center; }
+        .result-card .number { font-family: var(--font-display); font-size: 1.3rem; color: var(--accent); font-weight: 700; }
+        .result-card .label { color: var(--text-secondary); font-size: 0.8rem; margin-top: 4px; }
+        .growth-table { margin-top: 24px; max-height: 300px; overflow-y: auto; }
+        .growth-table table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+        .growth-table th, .growth-table td { padding: 10px; text-align: right; border-bottom: 1px solid var(--border); }
+        .growth-table th { color: var(--text-secondary); font-weight: 600; position: sticky; top: 0; background: var(--bg-secondary); }
+        .info-section { background: var(--bg-secondary); border-radius: var(--border-radius); padding: 32px; margin-bottom: 24px; border: 1px solid var(--border); }
+        .info-section h2 { font-size: 1.5rem; margin-bottom: 16px; }
+        .info-section p, .info-section li { color: var(--text-secondary); line-height: 1.7; margin-bottom: 12px; }
+        .info-section ul { padding-left: 24px; }
+        .info-section a { color: var(--accent); text-decoration: none; }
+        .footer { background: var(--bg-secondary); border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--text-secondary); font-size: 0.9rem; }
+        .footer a { color: var(--accent); text-decoration: none; }
+
+        .theme-barbie { --bg-primary: #fce7f3; --bg-secondary: #fbcfe8; --bg-tertiary: #f9a8d4; --text-primary: #831843; --text-secondary: #be185d; --accent: #db2777; --accent-hover: #be185d; --danger: #e11d48; --border: #f9a8d4; --shadow: rgba(219,39,119,0.2); --display-bg: #fdf2f8; --btn-bg: #fce7f3; --btn-hover: #f9a8d4; --font-display: 'Dancing Script',cursive; --font-body: 'Quicksand',sans-serif; --font-brand: 'Pacifico',cursive; --border-radius: 24px; --btn-radius: 16px; }
+        .theme-vampire { --bg-primary: #0a0a0a; --bg-secondary: #1a0a0a; --bg-tertiary: #2a0a0a; --text-primary: #e8d5d5; --text-secondary: #b89090; --accent: #dc2626; --accent-hover: #b91c1c; --danger: #991b1b; --border: #3a1a1a; --shadow: rgba(220,38,38,0.4); --display-bg: #0a0a0a; --btn-bg: #1a0a0a; --btn-hover: #2a0a0a; --font-display: 'Cinzel',serif; --font-body: 'Cinzel',serif; --font-brand: 'Cinzel',serif; --border-radius: 4px; --btn-radius: 2px; }
+        .theme-dark { --bg-primary: #000; --bg-secondary: #111; --bg-tertiary: #222; --text-primary: #fff; --text-secondary: #888; --accent: #00ff88; --accent-hover: #00cc6a; --danger: #ff3333; --border: #333; --shadow: rgba(0,255,136,0.15); --display-bg: #000; --btn-bg: #1a1a1a; --btn-hover: #2a2a2a; --font-display: 'VT323',monospace; --font-body: 'Inter',sans-serif; --font-brand: 'Orbitron',sans-serif; --border-radius: 4px; --btn-radius: 4px; }
+        .theme-retro { --bg-primary: #2d2d2d; --bg-secondary: #3d3d3d; --bg-tertiary: #4d4d4d; --text-primary: #33ff33; --text-secondary: #88cc88; --accent: #33ff33; --accent-hover: #22dd22; --danger: #ff3333; --border: #555; --shadow: rgba(51,255,51,0.2); --display-bg: #1a1a1a; --btn-bg: #3d3d3d; --btn-hover: #4d4d4d; --font-display: 'VT323',monospace; --font-body: 'VT323',monospace; --font-brand: 'VT323',monospace; --border-radius: 0px; --btn-radius: 0px; }
+        .theme-ocean { --bg-primary: #0c4a6e; --bg-secondary: #075985; --bg-tertiary: #0369a1; --text-primary: #e0f2fe; --text-secondary: #7dd3fc; --accent: #0ea5e9; --accent-hover: #0284c7; --danger: #ef4444; --border: #0284c7; --shadow: rgba(14,165,233,0.3); --display-bg: #082f49; --btn-bg: #075985; --btn-hover: #0369a1; --font-display: 'Orbitron',monospace; --font-body: 'Inter',sans-serif; --font-brand: 'Righteous',cursive; --border-radius: 16px; --btn-radius: 12px; }
+        .theme-gold { --bg-primary: #1c1917; --bg-secondary: #292524; --bg-tertiary: #44403c; --text-primary: #fafaf9; --text-secondary: #a8a29e; --accent: #fbbf24; --accent-hover: #f59e0b; --danger: #ef4444; --border: #57534e; --shadow: rgba(251,191,36,0.2); --display-bg: #1c1917; --btn-bg: #44403c; --btn-hover: #57534e; --font-display: 'Playfair Display',serif; --font-body: 'Playfair Display',serif; --font-brand: 'Cinzel',serif; --border-radius: 8px; --btn-radius: 6px; }
+        .theme-candy { --bg-primary: #fff1f2; --bg-secondary: #ffe4e6; --bg-tertiary: #fecdd3; --text-primary: #881337; --text-secondary: #be123c; --accent: #f43f5e; --accent-hover: #e11d48; --danger: #ef4444; --border: #fda4af; --shadow: rgba(244,63,94,0.15); --display-bg: #fff1f2; --btn-bg: #ffe4e6; --btn-hover: #fecdd3; --font-display: 'Quicksand',sans-serif; --font-body: 'Quicksand',sans-serif; --font-brand: 'Pacifico',cursive; --border-radius: 20px; --btn-radius: 16px; }
+        .theme-forest { --bg-primary: #052e16; --bg-secondary: #14532d; --bg-tertiary: #166534; --text-primary: #dcfce7; --text-secondary: #86efac; --accent: #22c55e; --accent-hover: #16a34a; --danger: #ef4444; --border: #15803d; --shadow: rgba(34,197,94,0.2); --display-bg: #052e16; --btn-bg: #14532d; --btn-hover: #166534; --font-display: 'Inter',sans-serif; --font-body: 'Inter',sans-serif; --font-brand: 'Righteous',cursive; --border-radius: 12px; --btn-radius: 10px; }
+        .theme-purple { --bg-primary: #2e1065; --bg-secondary: #4c1d95; --bg-tertiary: #5b21b6; --text-primary: #f3e8ff; --text-secondary: #c4b5fd; --accent: #a855f7; --accent-hover: #9333ea; --danger: #ef4444; --border: #6d28d9; --shadow: rgba(168,85,247,0.3); --display-bg: #2e1065; --btn-bg: #4c1d95; --btn-hover: #5b21b6; --font-display: 'Orbitron',monospace; --font-body: 'Inter',sans-serif; --font-brand: 'Righteous',cursive; --border-radius: 16px; --btn-radius: 12px; }
+        .theme-minimal { --bg-primary: #fff; --bg-secondary: #f8fafc; --bg-tertiary: #e2e8f0; --text-primary: #0f172a; --text-secondary: #64748b; --accent: #3b82f6; --accent-hover: #2563eb; --danger: #ef4444; --border: #e2e8f0; --shadow: rgba(0,0,0,0.08); --display-bg: #fff; --btn-bg: #f1f5f9; --btn-hover: #e2e8f0; --font-display: 'Inter',sans-serif; --font-body: 'Inter',sans-serif; --font-brand: 'Inter',sans-serif; --border-radius: 8px; --btn-radius: 6px; }
+        .theme-neon { --bg-primary: #0a0a0a; --bg-secondary: #111; --bg-tertiary: #1a1a1a; --text-primary: #fff; --text-secondary: #888; --accent: #ff00ff; --accent-hover: #cc00cc; --danger: #ff0000; --border: #ff00ff; --shadow: rgba(255,0,255,0.3); --display-bg: #0a0a0a; --btn-bg: #1a1a1a; --btn-hover: #2a2a2a; --font-display: 'Orbitron',monospace; --font-body: 'Inter',sans-serif; --font-brand: 'Orbitron',sans-serif; --border-radius: 4px; --btn-radius: 4px; }
+        .theme-neon .calculator { box-shadow: 0 0 20px rgba(255,0,255,0.3), 0 0 40px rgba(255,0,255,0.1); border: 1px solid #ff00ff; }
+        .theme-coffee { --bg-primary: #3e2723; --bg-secondary: #4e342e; --bg-tertiary: #5d4037; --text-primary: #efebe9; --text-secondary: #bcaaa4; --accent: #a1887f; --accent-hover: #8d6e63; --danger: #ef4444; --border: #6d4c41; --shadow: rgba(161,136,127,0.2); --display-bg: #3e2723; --btn-bg: #4e342e; --btn-hover: #5d4037; --font-display: 'Playfair Display',serif; --font-body: 'Playfair Display',serif; --font-brand: 'Cinzel',serif; --border-radius: 8px; --btn-radius: 6px; }
+        .theme-sunset { --bg-primary: #1a1a2e; --bg-secondary: #16213e; --bg-tertiary: #0f3460; --text-primary: #e94560; --text-secondary: #f3949d; --accent: #e94560; --accent-hover: #d63447; --danger: #ef4444; --border: #533483; --shadow: rgba(233,69,96,0.2); --display-bg: #1a1a2e; --btn-bg: #16213e; --btn-hover: #0f3460; --font-display: 'Bebas Neue',sans-serif; --font-body: 'Inter',sans-serif; --font-brand: 'Bebas Neue',sans-serif; --border-radius: 12px; --btn-radius: 10px; }
+
+        @media (max-width: 768px) { .nav-desktop { display: none; } .hamburger { display: block; } .page-header h1 { font-size: 1.8rem; } .calculator { padding: 20px; } .result-grid { grid-template-columns: 1fr; } .header-inner { height: 56px; } .main-content { padding: 24px 16px; } }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="/" class="logo">Excuse<span>Me</span>Web</a>
+            <nav class="nav-desktop">
+                <a href="/calculator">Tools</a><a href="/calculator" class="active">Calculators</a><a href="/image-resizer">Image Tools</a><a href="/password-generator">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a>
+            </nav>
+            <div class="header-right">
+                <button class="hamburger" onclick="document.getElementById('mobileNav').classList.toggle('show')">☰</button>
+            </div>
+        </div>
+        <nav class="mobile-nav" id="mobileNav">
+            <a href="/calculator">Tools</a><a href="/calculator">Calculators</a><a href="/image-resizer">Image Tools</a><a href="/password-generator">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a>
+        </nav>
+    </header>
+    <main class="main-content">
+        <div class="page-header">
+            <h1>Compound Interest Calculator</h1>
+            <p>Witness exponential growth: how reinvested earnings accelerate wealth accumulation</p>
+        </div>
+        <div class="theme-bar">
+            <label>🎨 Theme:</label>
+            <select class="theme-select" id="themeSelect" onchange="changeTheme(this.value)">
+                <option value="default">Default (Modern)</option><option value="barbie">💖 Barbie Pink</option><option value="vampire">🧛 Vampire Dark</option><option value="dark">💻 Cyber Dark</option><option value="retro">👾 Retro Terminal</option><option value="ocean">🌊 Ocean Blue</option><option value="gold">👑 Luxury Gold</option><option value="candy">🍭 Candy Sweet</option><option value="forest">🌲 Forest Green</option><option value="purple">💜 Royal Purple</option><option value="minimal">⚪ Clean Minimal</option><option value="neon">✨ Neon Glow</option><option value="coffee">☕ Coffee Brown</option><option value="sunset">🌅 Sunset Vibes</option>
+            </select>
+        </div>
+        <div class="calc-wrapper">
+            <div class="calculator" id="calculator">
+                <div class="input-group">
+                    <label>Initial Investment ($)</label>
+                    <input type="number" id="principal" placeholder="e.g. 10000" value="10000">
+                </div>
+                <div class="input-group">
+                    <label>Monthly Contribution ($)</label>
+                    <input type="number" id="monthly" placeholder="e.g. 500" value="500">
+                </div>
+                <div class="input-group">
+                    <label>Annual Interest Rate (%)</label>
+                    <input type="number" id="rate" placeholder="e.g. 7" value="7" step="0.1">
+                </div>
+                <div class="input-group">
+                    <label>Number of Years</label>
+                    <input type="number" id="years" placeholder="e.g. 20" value="20">
+                </div>
+                <div class="input-group">
+                    <label>Compound Frequency</label>
+                    <select id="frequency">
+                        <option value="1">Annually</option>
+                        <option value="4">Quarterly</option>
+                        <option value="12" selected>Monthly</option>
+                        <option value="365">Daily</option>
+                    </select>
+                </div>
+                <button class="calc-btn" onclick="calculateCompound()">Calculate Growth</button>
+                <div class="result-grid" id="results" style="display:none;">
+                    <div class="result-card"><div class="number" id="finalAmount">$0</div><div class="label">Final Amount</div></div>
+                    <div class="result-card"><div class="number" id="totalContributed">$0</div><div class="label">Total Contributed</div></div>
+                    <div class="result-card"><div class="number" id="totalInterest">$0</div><div class="label">Interest Earned</div></div>
+                </div>
+                <div class="growth-table" id="growthTable" style="display:none;">
+                    <h4 style="margin-bottom:12px;color:var(--accent)">Year-by-Year Growth</h4>
+                    <table><thead><tr><th>Year</th><th>Balance</th><th>Contributed</th><th>Interest</th></tr></thead><tbody id="growthBody"></tbody></table>
+                </div>
+            </div>
+        </div>
+        <!-- Info Section -->
+        <div class="info-section">
+            <h2>What Is a Compound Interest Calculator?</h2>
+            <p>Compound interest calculation demonstrates how earned returns generate additional returns in subsequent periods. Unlike simple interest, compounding applies growth to both the original principal and previously accumulated earnings, creating exponential expansion over time.</p>
+
+            <h3 style="margin-top:28px;margin-bottom:16px;color:var(--accent);font-size:1.2rem">Common Uses</h3>
+            <ul style="padding-left:24px">
+                    <li>Projecting retirement account balances after decades of consistent contributions</li>
+                    <li>Comparing savings account yields across different compounding frequencies</li>
+                    <li>Illustrating the cost of delaying investment contributions by several years</li>
+                    <li>Evaluating bond fund performance with reinvested dividend distributions</li>
+                    <li>Teaching financial literacy concepts about exponential growth visually</li>
+            </ul>
+
+            <h3 style="margin-top:28px;margin-bottom:16px;color:var(--accent);font-size:1.2rem">Keyboard Shortcuts</h3>
+            <ul style="padding-left:24px">
+                    <li>Enter starting principal as your initial lump sum investment</li>
+                    <li>Monthly contributions simulate dollar-cost averaging strategies</li>
+                    <li>Annual percentage rates convert automatically to periodic rates internally</li>
+                    <li>The year-by-year table reveals exactly when your interest exceeds contributions</li>
+                    <li>Switch compounding frequencies to see how daily versus monthly compounding affects outcomes</li>
+            </ul>
+
+            <h3 style="margin-top:28px;margin-bottom:16px;color:var(--accent);font-size:1.2rem">Pro Tips</h3>
+            <ul style="padding-left:24px">
+                    <li>Starting ten years earlier typically doubles your final balance due to exponential growth curves</li>
+                    <li>Daily compounding yields marginally more than monthly; the difference becomes significant only at very large balances</li>
+                    <li>The Rule of 72 estimates doubling time: divide 72 by your annual return percentage</li>
+                    <li>Increasing contributions by just 1% annually (escalation) dramatically improves outcomes</li>
+                    <li>Tax-advantaged accounts (IRAs, 401ks) compound more efficiently by deferring liability</li>
+            </ul>
+
+            <h3 style="margin-top:28px;margin-bottom:16px;color:var(--accent);font-size:1.2rem">Frequently Asked Questions</h3>
+
+                    <details style="margin-bottom:12px;border:1px solid var(--border);border-radius:8px;padding:16px;background:var(--bg-primary)">
+                        <summary style="font-weight:600;color:var(--text-primary);cursor:pointer">What distinguishes compound from simple interest?</summary>
+                        <p style="margin-top:12px;color:var(--text-secondary);line-height:1.7">Simple interest applies only to original principal. Compound interest applies to principal plus all previously earned returns.</p>
+                    </details>
+                    <details style="margin-bottom:12px;border:1px solid var(--border);border-radius:8px;padding:16px;background:var(--bg-primary)">
+                        <summary style="font-weight:600;color:var(--text-primary);cursor:pointer">How does contribution frequency affect results?</summary>
+                        <p style="margin-top:12px;color:var(--text-secondary);line-height:1.7">More frequent contributions (monthly versus annually) capture more compounding periods, slightly improving outcomes.</p>
+                    </details>
+                    <details style="margin-bottom:12px;border:1px solid var(--border);border-radius:8px;padding:16px;background:var(--bg-primary)">
+                        <summary style="font-weight:600;color:var(--text-primary);cursor:pointer">What is the formula behind these projections?</summary>
+                        <p style="margin-top:12px;color:var(--text-secondary);line-height:1.7">A = P(1 + r/n)^(nt) + PMT × [((1 + r/n)^(nt) - 1) / (r/n)], where PMT equals periodic contribution.</p>
+                    </details>
+                    <details style="margin-bottom:12px;border:1px solid var(--border);border-radius:8px;padding:16px;background:var(--bg-primary)">
+                        <summary style="font-weight:600;color:var(--text-primary);cursor:pointer">Can this predict stock market returns?</summary>
+                        <p style="margin-top:12px;color:var(--text-secondary);line-height:1.7">No. It uses fixed assumed rates. Actual investments fluctuate with market volatility.</p>
+                    </details>
+                    <details style="margin-bottom:12px;border:1px solid var(--border);border-radius:8px;padding:16px;background:var(--bg-primary)">
+                        <summary style="font-weight:600;color:var(--text-primary);cursor:pointer">Why does the table show interest exceeding contributions eventually?</summary>
+                        <p style="margin-top:12px;color:var(--text-secondary);line-height:1.7">That crossover point demonstrates the power of compounding — your money starts working harder than your new contributions.</p>
+                    </details>
+
+            <h3 style="margin-top:28px;margin-bottom:16px;color:var(--accent);font-size:1.2rem">Explore Related Tools</h3>
+            <p><a href="/calculator">Basic Calculator</a> · <a href="/scientific-calculator">Scientific Calculator</a> · <a href="/percentage-calculator">Percentage Calculator</a> · <a href="/age-calculator">Age Calculator</a> · <a href="/bmi-calculator">BMI Calculator</a> · <a href="/loan-calculator">Loan Calculator</a> · <a href="/mortgage-calculator">Mortgage Calculator</a> · <a href="/date-calculator">Date Calculator</a> · <a href="/compound-interest-calculator">Compound Interest</a> · <a href="/tip-calculator">Tip Calculator</a></p>
+        </div>
+    </main>
+    <footer class="footer">
+        <p>© 2026 ExcuseMeWeb.com — Online Tools for Everyone</p>
+        <p style="margin-top:8px"><a href="/calculator">Calculators</a> · <a href="/image-resizer">Image Tools</a> · <a href="/password-generator">Generators</a></p>
+    </footer>
+    <script>
+        function calculateCompound() {
+            let P = parseFloat(document.getElementById('principal').value) || 0;
+            let PMT = parseFloat(document.getElementById('monthly').value) || 0;
+            let r = parseFloat(document.getElementById('rate').value) || 0;
+            let t = parseInt(document.getElementById('years').value) || 0;
+            let n = parseInt(document.getElementById('frequency').value) || 12;
+            if (t <= 0) { alert('Please enter valid values'); return; }
+            let rate = r / 100 / n;
+            let periods = n * t;
+            let compoundPart = P * Math.pow(1 + rate, periods);
+            let contribPart = 0;
+            if (rate > 0) contribPart = PMT * (Math.pow(1 + rate, periods) - 1) / rate;
+            else contribPart = PMT * periods;
+            let final = compoundPart + contribPart;
+            let totalContrib = P + (PMT * periods);
+            let interest = final - totalContrib;
+            function fmt(x) { return '$' + x.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
+            document.getElementById('finalAmount').textContent = fmt(final);
+            document.getElementById('totalContributed').textContent = fmt(totalContrib);
+            document.getElementById('totalInterest').textContent = fmt(interest);
+            document.getElementById('results').style.display = 'grid';
+            let tbody = document.getElementById('growthBody');
+            tbody.innerHTML = '';
+            for (let y = 1; y <= t; y++) {
+                let py = n * y;
+                let cp = P * Math.pow(1 + rate, py);
+                let ctp = 0;
+                if (rate > 0) ctp = PMT * (Math.pow(1 + rate, py) - 1) / rate;
+                else ctp = PMT * py;
+                let bal = cp + ctp;
+                let tc = P + (PMT * py);
+                let intr = bal - tc;
+                tbody.innerHTML += '<tr><td>' + y + '</td><td>' + fmt(bal) + '</td><td>' + fmt(tc) + '</td><td>' + fmt(intr) + '</td></tr>';
+            }
+            document.getElementById('growthTable').style.display = 'block';
+        }
+        function changeTheme(t) { document.body.className = ''; if (t !== 'default') document.body.classList.add('theme-' + t); localStorage.setItem('calcTheme', t); }
+        let st = localStorage.getItem('calcTheme') || 'default'; document.getElementById('themeSelect').value = st; changeTheme(st);
+    </script>
+</body>
+</html>
