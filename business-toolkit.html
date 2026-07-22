@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business Toolkit — ExcuseMeWeb</title>
+<meta name="description" content="Six tools for pricing, invoicing, and quick financial math.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<style>
+:root {
+  --bg: #f7f8f6;
+  --surface: #ffffff;
+  --surface-2: #eef1ea;
+  --text: #1c2620;
+  --text-muted: #6b7a70;
+  --border: #dde5da;
+  --accent: #166534;
+  --accent-2: #b8860b;
+  --accent-soft: #e5efe2;
+  --radius: 14px;
+  --radius-sm: 9px;
+  --shadow: 0 1px 2px rgba(0,0,0,.06), 0 8px 24px rgba(0,0,0,.08);
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SFMono-Regular', Consolas, monospace;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; }
+button { font-family: inherit; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+/* header */
+.tk-header {
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  position: sticky; top: 0; z-index: 50;
+}
+.tk-header-inner {
+  max-width: 1120px; margin: 0 auto; padding: 16px 24px;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+}
+.tk-brand { display: flex; align-items: center; gap: 12px; }
+.tk-back {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 13px; font-weight: 600; color: var(--text-muted);
+  text-decoration: none; padding: 8px 12px; border-radius: 999px;
+  border: 1px solid var(--border); background: var(--bg); transition: .15s;
+}
+.tk-back:hover { color: var(--text); border-color: var(--accent); }
+.tk-icon {
+  width: 42px; height: 42px; border-radius: 12px; display: flex; align-items: center; justify-content: center;
+  font-size: 21px; background: var(--accent-soft); flex-shrink:0;
+}
+.tk-title { font-size: 18px; font-weight: 800; letter-spacing: -0.01em; }
+.tk-title span { display: block; font-size: 12px; font-weight: 500; color: var(--text-muted); margin-top: 1px; }
+.tk-actions { display: flex; gap: 10px; align-items: center; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px; cursor: pointer;
+  font-weight: 700; font-size: 13.5px; border-radius: 10px; border: 1px solid transparent;
+  padding: 10px 16px; transition: .15s; white-space: nowrap;
+}
+.btn-accent { background: var(--accent); color: #ffffff; }
+.btn-accent:hover { background: var(--accent-2); }
+.btn-ghost { background: var(--bg); color: var(--text); border-color: var(--border); }
+.btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+.btn-sm { padding: 7px 12px; font-size: 12.5px; border-radius: 8px; }
+.btn:active { transform: scale(.97); }
+
+/* hero */
+.tk-hero { padding: 44px 0 30px; }
+.tk-hero h1 { font-size: 32px; font-weight: 800; letter-spacing: -0.02em; margin: 0 0 8px; }
+.tk-hero p { font-size: 15.5px; color: var(--text-muted); max-width: 560px; margin: 0; }
+.tk-badges { display:flex; gap:8px; margin-top:16px; flex-wrap:wrap; }
+.tk-badge {
+  font-size: 12px; font-weight: 700; color: var(--accent); background: var(--accent-soft);
+  padding: 5px 11px; border-radius: 999px;
+}
+
+/* tool grid */
+.tool-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 16px; padding: 8px 0 56px;
+}
+.tool-card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 22px; cursor: pointer; text-align: left; transition: .18s; box-shadow: var(--shadow);
+}
+.tool-card:hover { transform: translateY(-3px); border-color: var(--accent); }
+.tool-card .ti {
+  width: 44px; height: 44px; border-radius: 11px; background: var(--accent-soft);
+  display: flex; align-items: center; justify-content: center; font-size: 21px; margin-bottom: 14px;
+}
+.tool-card h3 { font-size: 15.5px; font-weight: 700; margin: 0 0 5px; }
+.tool-card p { font-size: 13px; color: var(--text-muted); margin: 0; }
+
+/* panels */
+.panel { display: none; padding: 8px 0 70px; }
+.panel.active { display: block; }
+.panel-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 22px; flex-wrap: wrap; }
+.panel-head h2 { font-size: 23px; font-weight: 800; margin: 0; display:flex; align-items:center; gap:10px; }
+.panel-head p.desc { color: var(--text-muted); font-size: 13.5px; margin: 4px 0 0; }
+.panel-card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 26px; box-shadow: var(--shadow);
+}
+
+/* form basics */
+label.field-label { display: block; font-size: 12.5px; font-weight: 700; color: var(--text-muted); margin-bottom: 6px; text-transform: uppercase; letter-spacing: .02em; }
+input[type=text], input[type=number], input[type=date], input[type=datetime-local], select, textarea {
+  width: 100%; padding: 11px 13px; border-radius: 9px; border: 1px solid var(--border);
+  background: var(--bg); color: var(--text); font-size: 14px; font-family: inherit;
+}
+input:focus, select:focus, textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+textarea { resize: vertical; min-height: 110px; font-family: var(--font); line-height: 1.6; }
+.field { margin-bottom: 16px; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+@media (max-width: 640px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
+.row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.result-box {
+  background: var(--accent-soft); border: 1px solid var(--accent); border-radius: 11px;
+  padding: 18px 20px; margin-top: 18px;
+}
+.result-box .big { font-size: 28px; font-weight: 800; color: var(--accent-2); letter-spacing: -0.01em; }
+.result-box .lbl { font-size: 12px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: .03em; margin-bottom: 3px;}
+.hint { font-size: 12.5px; color: var(--text-muted); margin-top: 6px; }
+.divider { height: 1px; background: var(--border); margin: 22px 0; }
+.tabs { display: flex; gap: 6px; margin-bottom: 18px; flex-wrap: wrap; }
+.tab {
+  padding: 8px 15px; border-radius: 999px; border: 1px solid var(--border); background: var(--bg);
+  cursor: pointer; font-size: 13px; font-weight: 700; color: var(--text-muted);
+}
+.tab.active { background: var(--accent); border-color: var(--accent); color: #ffffff; }
+.chip {
+  display: inline-flex; align-items: center; gap: 6px; padding: 7px 12px; border-radius: 999px;
+  background: var(--surface-2); border: 1px solid var(--border); font-size: 13px; font-weight: 600;
+}
+.chip button { background: none; border: none; cursor: pointer; color: var(--text-muted); font-size: 13px; padding: 0; line-height:1;}
+.copy-ok { color: #16a34a !important; }
+table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--border); }
+th { font-size: 11.5px; text-transform: uppercase; letter-spacing: .03em; color: var(--text-muted); }
+.icon-btn {
+  width: 34px; height: 34px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg);
+  color: var(--text-muted); cursor: pointer; display: inline-flex; align-items: center; justify-content: center; font-size: 15px;
+}
+.icon-btn:hover { border-color: var(--accent); color: var(--accent); }
+.mono { font-family: var(--font-mono); }
+.swatch {
+  height: 74px; border-radius: 10px 10px 0 0; border: 1px solid var(--border); border-bottom: none;
+}
+.swatch-card { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; background: var(--surface); }
+.swatch-info { padding: 10px 12px; font-size: 12px; }
+.swatch-info .hex { font-weight: 700; font-family: var(--font-mono); }
+.list-item {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  padding: 11px 13px; border: 1px solid var(--border); border-radius: 9px; margin-bottom: 8px; background: var(--bg);
+}
+.list-item.done { opacity: .55; }
+.list-item.done .lt { text-decoration: line-through; }
+::placeholder { color: var(--text-muted); opacity:.7; }
+.toast {
+  position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%) translateY(20px);
+  background: var(--text); color: var(--bg); padding: 11px 20px; border-radius: 999px;
+  font-size: 13.5px; font-weight: 700; opacity: 0; pointer-events: none; transition: .25s; z-index: 999; box-shadow: 0 8px 24px rgba(0,0,0,.25);
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+.tk-footer { text-align: center; padding: 30px 0 50px; color: var(--text-muted); font-size: 12.5px; }
+.timer-display { font-size: 64px; font-weight: 800; font-family: var(--font-mono); letter-spacing: -1px; text-align: center; margin: 10px 0 22px; }
+@media (max-width: 640px) { .timer-display { font-size: 46px; } }
+
+
+.ivrow{display:grid;grid-template-columns:1fr 80px 100px 34px;gap:8px;margin-bottom:8px;}
+@media(max-width:640px){.ivrow{grid-template-columns:1fr;}}
+@media print {
+  body * { visibility: hidden; }
+  #ivPreview, #ivPreview * { visibility: visible; }
+  #ivPreview { position: absolute; left:0; top:0; width:100%; border:none !important; }
+}
+
+</style>
+</head>
+<body>
+<header class="tk-header">
+  <div class="tk-header-inner">
+    <div class="tk-brand">
+      <a href="all-in-one-toolkit.html" class="tk-back">&larr; All Toolkits</a>
+    </div>
+    <div class="tk-brand" onclick="showGrid()" style="cursor:pointer">
+      <div class="tk-icon">💼</div>
+      <div class="tk-title">Business Toolkit<span>For freelancers & owners</span></div>
+    </div>
+    <div class="tk-actions">
+      <button class="btn btn-ghost btn-sm" onclick="downloadHTML()">&#8681; Download HTML</button>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="tk-hero">
+    <h1>Business Toolkit</h1>
+    <p>Six tools for pricing, invoicing, and quick financial math.</p>
+    <div class="tk-badges">
+      <span class="tk-badge">No signup</span>
+      <span class="tk-badge">No account</span>
+      <span class="tk-badge">Works offline once downloaded</span>
+      <span class="tk-badge">Free forever</span>
+    </div>
+  </div>
+
+  <div class="tool-grid">
+    <button class="tool-card" onclick="showPanel('margin')">
+      <div class="ti">📈</div>
+      <h3>Profit Margin Calculator</h3>
+      <p>Margin, markup, and profit from cost & price.</p>
+    </button>
+<button class="tool-card" onclick="showPanel('invoice')">
+      <div class="ti">🧾</div>
+      <h3>Invoice Generator</h3>
+      <p>Build and print a simple invoice.</p>
+    </button>
+<button class="tool-card" onclick="showPanel('currency')">
+      <div class="ti">💱</div>
+      <h3>Currency Converter</h3>
+      <p>Convert using your own exchange rate.</p>
+    </button>
+<button class="tool-card" onclick="showPanel('roi')">
+      <div class="ti">📊</div>
+      <h3>ROI Calculator</h3>
+      <p>Return on investment, plain and annualized.</p>
+    </button>
+<button class="tool-card" onclick="showPanel('breakeven')">
+      <div class="ti">⚖️</div>
+      <h3>Break-Even Calculator</h3>
+      <p>Units and revenue needed to break even.</p>
+    </button>
+<button class="tool-card" onclick="showPanel('datecalc')">
+      <div class="ti">📅</div>
+      <h3>Date Calculator</h3>
+      <p>Difference between dates, or add/subtract days.</p>
+    </button>
+  </div>
+
+  <section class="panel" id="margin">
+    <div class="panel-head">
+      <div>
+        <h2>📈 Profit Margin Calculator</h2>
+        <p class="desc">Enter your cost and selling price.</p>
+      </div>
+      <button class="btn btn-ghost btn-sm" onclick="showGrid()">&larr; All tools</button>
+    </div>
+    <div class="panel-card">
+      
+<div class="grid-2">
+  <div class="field"><label class="field-label">Cost price</label><input type="number" id="mgCost" value="40" oninput="mgCalc()"></div>
+  <div class="field"><label class="field-label">Selling price</label><input type="number" id="mgPrice" value="60" oninput="mgCalc()"></div>
+</div>
+<div class="grid-3">
+  <div class="result-box" style="margin-top:0;"><div class="lbl">Profit</div><div class="big" id="mgProfit">$0</div></div>
+  <div class="result-box" style="margin-top:0;"><div class="lbl">Margin</div><div class="big" id="mgMargin">0%</div></div>
+  <div class="result-box" style="margin-top:0;"><div class="lbl">Markup</div><div class="big" id="mgMarkup">0%</div></div>
+</div>
+
+    </div>
+  </section>
+<section class="panel" id="invoice">
+    <div class="panel-head">
+      <div>
+        <h2>🧾 Invoice Generator</h2>
+        <p class="desc">Fill in the details, then print or save as PDF.</p>
+      </div>
+      <button class="btn btn-ghost btn-sm" onclick="showGrid()">&larr; All tools</button>
+    </div>
+    <div class="panel-card">
+      
+<div class="grid-2">
+  <div class="field"><label class="field-label">Your business name</label><input type="text" id="ivFrom" value="Your Business Name" oninput="ivRender()"></div>
+  <div class="field"><label class="field-label">Bill to</label><input type="text" id="ivTo" value="Client Name" oninput="ivRender()"></div>
+  <div class="field"><label class="field-label">Invoice #</label><input type="text" id="ivNum" value="INV-001" oninput="ivRender()"></div>
+  <div class="field"><label class="field-label">Date</label><input type="date" id="ivDate" oninput="ivRender()"></div>
+</div>
+<div id="ivItems"></div>
+<button class="btn btn-ghost btn-sm" onclick="ivAddItem()">+ Add line item</button>
+<div class="field" style="max-width:160px;margin-top:14px;"><label class="field-label">Tax %</label><input type="number" id="ivTax" value="0" oninput="ivRender()"></div>
+<div class="divider"></div>
+<div id="ivPreview" style="background:#fff;color:#111;border-radius:10px;padding:26px;border:1px solid var(--border);"></div>
+<div class="row" style="margin-top:14px;">
+  <button class="btn btn-accent" onclick="window.print()">🖨️ Print / Save as PDF</button>
+</div>
+<p class="hint">Use your browser's Print dialog and choose "Save as PDF" as the destination.</p>
+
+    </div>
+  </section>
+<section class="panel" id="currency">
+    <div class="panel-head">
+      <div>
+        <h2>💱 Currency Converter</h2>
+        <p class="desc">No live rates without a server — enter the rate you want to use.</p>
+      </div>
+      <button class="btn btn-ghost btn-sm" onclick="showGrid()">&larr; All tools</button>
+    </div>
+    <div class="panel-card">
+      
+<div class="grid-3">
+  <div class="field"><label class="field-label">Amount</label><input type="number" id="cvAmount" value="100" oninput="cvCalc()"></div>
+  <div class="field"><label class="field-label">From</label><input type="text" id="cvFrom" value="USD" oninput="cvCalc()"></div>
+  <div class="field"><label class="field-label">To</label><input type="text" id="cvTo" value="EUR" oninput="cvCalc()"></div>
+</div>
+<div class="field"><label class="field-label">Exchange rate (1 <span id="cvFromLbl">USD</span> = ? <span id="cvToLbl">EUR</span>)</label><input type="number" id="cvRate" value="0.92" step="0.0001" oninput="cvCalc()"></div>
+<div class="result-box">
+  <div class="lbl">Converted amount</div>
+  <div class="big" id="cvResult">92.00</div>
+  <button class="btn btn-ghost btn-sm" style="margin-top:10px;" onclick="copyText(document.getElementById('cvResult').textContent, this)">Copy</button>
+</div>
+<p class="hint">This tool works fully offline, so rates aren't fetched automatically — enter the current rate from your bank or a rate source.</p>
+
+    </div>
+  </section>
+<section class="panel" id="roi">
+    <div class="panel-head">
+      <div>
+        <h2>📊 ROI Calculator</h2>
+        <p class="desc">Investment cost, return, and optional time period.</p>
+      </div>
+      <button class="btn btn-ghost btn-sm" onclick="showGrid()">&larr; All tools</button>
+    </div>
+    <div class="panel-card">
+      
+<div class="grid-2">
+  <div class="field"><label class="field-label">Amount invested</label><input type="number" id="roiCost" value="1000" oninput="roiCalc()"></div>
+  <div class="field"><label class="field-label">Final value / return</label><input type="number" id="roiReturn" value="1300" oninput="roiCalc()"></div>
+  <div class="field"><label class="field-label">Time period (years)</label><input type="number" id="roiYears" value="1" step="0.1" oninput="roiCalc()"></div>
+</div>
+<div class="grid-2">
+  <div class="result-box" style="margin-top:0;"><div class="lbl">ROI</div><div class="big" id="roiPct">0%</div></div>
+  <div class="result-box" style="margin-top:0;"><div class="lbl">Annualized ROI</div><div class="big" id="roiAnnual">0%</div></div>
+</div>
+
+    </div>
+  </section>
+<section class="panel" id="breakeven">
+    <div class="panel-head">
+      <div>
+        <h2>⚖️ Break-Even Calculator</h2>
+        <p class="desc">Fixed costs, price, and variable cost per unit.</p>
+      </div>
+      <button class="btn btn-ghost btn-sm" onclick="showGrid()">&larr; All tools</button>
+    </div>
+    <div class="panel-card">
+      
+<div class="grid-3">
+  <div class="field"><label class="field-label">Fixed costs</label><input type="number" id="beFixed" value="5000" oninput="beCalc()"></div>
+  <div class="field"><label class="field-label">Price per unit</label><input type="number" id="bePrice" value="50" oninput="beCalc()"></div>
+  <div class="field"><label class="field-label">Variable cost / unit</label><input type="number" id="beVar" value="20" oninput="beCalc()"></div>
+</div>
+<div class="grid-2">
+  <div class="result-box" style="margin-top:0;"><div class="lbl">Break-even units</div><div class="big" id="beUnits">0</div></div>
+  <div class="result-box" style="margin-top:0;"><div class="lbl">Break-even revenue</div><div class="big" id="beRevenue">$0</div></div>
+</div>
+
+    </div>
+  </section>
+<section class="panel" id="datecalc">
+    <div class="panel-head">
+      <div>
+        <h2>📅 Date Calculator</h2>
+        <p class="desc">Find the days between two dates, or add/subtract days from a date.</p>
+      </div>
+      <button class="btn btn-ghost btn-sm" onclick="showGrid()">&larr; All tools</button>
+    </div>
+    <div class="panel-card">
+      
+<div class="tabs">
+  <div class="tab active" onclick="dcTab(0,this)">Difference between dates</div>
+  <div class="tab" onclick="dcTab(1,this)">Add / subtract days</div>
+</div>
+<div id="dc0">
+  <div class="grid-2">
+    <div class="field"><label class="field-label">Start date</label><input type="date" id="dcStart" oninput="dcCalc()"></div>
+    <div class="field"><label class="field-label">End date</label><input type="date" id="dcEnd" oninput="dcCalc()"></div>
+  </div>
+  <div class="result-box"><div class="lbl">Difference</div><div class="big" id="dcDiff">0 days</div></div>
+</div>
+<div id="dc1" style="display:none;">
+  <div class="grid-2">
+    <div class="field"><label class="field-label">Start date</label><input type="date" id="dcBase" oninput="dcCalc2()"></div>
+    <div class="field"><label class="field-label">Days to add (negative to subtract)</label><input type="number" id="dcDays" value="30" oninput="dcCalc2()"></div>
+  </div>
+  <div class="result-box"><div class="lbl">Resulting date</div><div class="big" id="dcResultDate">—</div></div>
+</div>
+
+    </div>
+  </section>
+
+  <div class="tk-footer">Part of the ExcuseMeWeb All-in-One Toolkit &middot; Everything runs in your browser &middot; Nothing is uploaded anywhere</div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+function showPanel(id){
+  document.querySelectorAll('.tool-grid').forEach(g=>g.style.display='none');
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  var p = document.getElementById(id);
+  if(p){ p.classList.add('active'); window.scrollTo({top:0,behavior:'smooth'}); }
+}
+function showGrid(){
+  document.querySelectorAll('.tool-grid').forEach(g=>g.style.display='');
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function toast(msg){
+  var t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  clearTimeout(window.__toastT);
+  window.__toastT = setTimeout(()=>t.classList.remove('show'), 1800);
+}
+function copyText(text, btn){
+  navigator.clipboard.writeText(text).then(()=>{
+    toast('Copied to clipboard');
+    if(btn){ var o = btn.textContent; btn.textContent = 'Copied!'; btn.classList.add('copy-ok'); setTimeout(()=>{btn.textContent=o; btn.classList.remove('copy-ok');}, 1200); }
+  }).catch(()=>{
+    var ta = document.createElement('textarea'); ta.value = text; document.body.appendChild(ta);
+    ta.select(); document.execCommand('copy'); document.body.removeChild(ta); toast('Copied to clipboard');
+  });
+}
+function downloadFile(filename, content, mime){
+  var blob = new Blob([content], {type: mime || 'text/plain'});
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a'); a.href = url; a.download = filename;
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  toast('Downloaded ' + filename);
+}
+function downloadHTML(){
+  var html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+  downloadFile('business-toolkit.html', html, 'text/html');
+}
+
+
+/* ---------- Profit Margin ---------- */
+function mgCalc(){
+  let cost=parseFloat(document.getElementById('mgCost').value)||0, price=parseFloat(document.getElementById('mgPrice').value)||0;
+  let profit = price-cost;
+  let margin = price ? (profit/price)*100 : 0;
+  let markup = cost ? (profit/cost)*100 : 0;
+  document.getElementById('mgProfit').textContent = '$'+profit.toFixed(2);
+  document.getElementById('mgMargin').textContent = margin.toFixed(1)+'%';
+  document.getElementById('mgMarkup').textContent = markup.toFixed(1)+'%';
+}
+mgCalc();
+
+/* ---------- Invoice Generator ---------- */
+let ivId=0;
+function ivAddItem(desc,qty,price){
+  ivId++;
+  document.getElementById('ivItems').insertAdjacentHTML('beforeend', `
+    <div class="ivrow" id="ivRow${ivId}">
+      <input type="text" placeholder="Item description" value="${desc||''}" oninput="ivRender()">
+      <input type="number" placeholder="Qty" value="${qty||1}" oninput="ivRender()">
+      <input type="number" placeholder="Price" value="${price||0}" oninput="ivRender()">
+      <button class="icon-btn" onclick="document.getElementById('ivRow${ivId}').remove(); ivRender();">&times;</button>
+    </div>`);
+  ivRender();
+}
+function ivRender(){
+  let rows = document.querySelectorAll('.ivrow');
+  let itemsHtml='', subtotal=0;
+  rows.forEach(r=>{
+    let desc=r.children[0].value||'Item', qty=parseFloat(r.children[1].value)||0, price=parseFloat(r.children[2].value)||0;
+    let line = qty*price; subtotal += line;
+    itemsHtml += `<tr><td style="padding:8px 0;">${desc}</td><td style="padding:8px 0;text-align:center;">${qty}</td><td style="padding:8px 0;text-align:right;">$${price.toFixed(2)}</td><td style="padding:8px 0;text-align:right;">$${line.toFixed(2)}</td></tr>`;
+  });
+  let tax = parseFloat(document.getElementById('ivTax').value)||0;
+  let taxAmt = subtotal * (tax/100);
+  let total = subtotal + taxAmt;
+  document.getElementById('ivPreview').innerHTML = `
+    <div style="display:flex;justify-content:space-between;margin-bottom:24px;flex-wrap:wrap;gap:12px;">
+      <div><h2 style="margin:0 0 4px;">${document.getElementById('ivFrom').value}</h2><div style="color:#666;font-size:13px;">Bill to: ${document.getElementById('ivTo').value}</div></div>
+      <div style="text-align:right;font-size:13px;color:#666;">Invoice #${document.getElementById('ivNum').value}<br>${document.getElementById('ivDate').value||''}</div>
+    </div>
+    <table style="width:100%;border-collapse:collapse;">
+      <thead><tr style="border-bottom:2px solid #ddd;font-size:12px;text-transform:uppercase;color:#666;"><th style="text-align:left;padding-bottom:6px;">Description</th><th style="padding-bottom:6px;">Qty</th><th style="text-align:right;padding-bottom:6px;">Price</th><th style="text-align:right;padding-bottom:6px;">Total</th></tr></thead>
+      <tbody style="border-bottom:1px solid #eee;">${itemsHtml}</tbody>
+    </table>
+    <div style="display:flex;justify-content:flex-end;margin-top:14px;">
+      <div style="width:220px;">
+        <div style="display:flex;justify-content:space-between;padding:4px 0;font-size:14px;"><span>Subtotal</span><span>$${subtotal.toFixed(2)}</span></div>
+        <div style="display:flex;justify-content:space-between;padding:4px 0;font-size:14px;"><span>Tax (${tax}%)</span><span>$${taxAmt.toFixed(2)}</span></div>
+        <div style="display:flex;justify-content:space-between;padding:8px 0;font-size:17px;font-weight:800;border-top:2px solid #ddd;margin-top:4px;"><span>Total</span><span>$${total.toFixed(2)}</span></div>
+      </div>
+    </div>`;
+}
+document.getElementById('ivDate').value = new Date().toISOString().slice(0,10);
+ivAddItem('Design services', 1, 500);
+ivAddItem('Consulting hours', 3, 75);
+
+/* ---------- Currency Converter ---------- */
+function cvCalc(){
+  let amt=parseFloat(document.getElementById('cvAmount').value)||0, rate=parseFloat(document.getElementById('cvRate').value)||0;
+  document.getElementById('cvFromLbl').textContent = document.getElementById('cvFrom').value.toUpperCase()||'—';
+  document.getElementById('cvToLbl').textContent = document.getElementById('cvTo').value.toUpperCase()||'—';
+  document.getElementById('cvResult').textContent = (amt*rate).toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2}) + ' ' + (document.getElementById('cvTo').value.toUpperCase()||'');
+}
+cvCalc();
+
+/* ---------- ROI Calculator ---------- */
+function roiCalc(){
+  let cost=parseFloat(document.getElementById('roiCost').value)||0, ret=parseFloat(document.getElementById('roiReturn').value)||0;
+  let years=parseFloat(document.getElementById('roiYears').value)||1;
+  let roi = cost ? ((ret-cost)/cost)*100 : 0;
+  let annual = years>0 ? (Math.pow((ret/cost),(1/years))-1)*100 : roi;
+  document.getElementById('roiPct').textContent = roi.toFixed(1)+'%';
+  document.getElementById('roiAnnual').textContent = (isFinite(annual)?annual.toFixed(1):'0')+'%';
+}
+roiCalc();
+
+/* ---------- Break-Even Calculator ---------- */
+function beCalc(){
+  let fixed=parseFloat(document.getElementById('beFixed').value)||0;
+  let price=parseFloat(document.getElementById('bePrice').value)||0;
+  let vcost=parseFloat(document.getElementById('beVar').value)||0;
+  let contribution = price - vcost;
+  let units = contribution>0 ? Math.ceil(fixed/contribution) : 0;
+  document.getElementById('beUnits').textContent = contribution>0 ? units.toLocaleString() : 'N/A';
+  document.getElementById('beRevenue').textContent = contribution>0 ? '$'+(units*price).toLocaleString(undefined,{maximumFractionDigits:2}) : 'N/A';
+}
+beCalc();
+
+/* ---------- Date Calculator ---------- */
+function dcTab(i, el){
+  document.querySelectorAll('#datecalc .tab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('dc0').style.display = i===0?'':'none';
+  document.getElementById('dc1').style.display = i===1?'':'none';
+}
+function dcCalc(){
+  let s=document.getElementById('dcStart').value, e=document.getElementById('dcEnd').value;
+  if(!s||!e){ document.getElementById('dcDiff').textContent='0 days'; return; }
+  let d1=new Date(s), d2=new Date(e);
+  let days = Math.round((d2-d1)/86400000);
+  document.getElementById('dcDiff').textContent = days + (days===1?' day':' days') + (days<0?' (in the past)':'');
+}
+function dcCalc2(){
+  let base=document.getElementById('dcBase').value;
+  let days=parseInt(document.getElementById('dcDays').value)||0;
+  if(!base){ document.getElementById('dcResultDate').textContent='—'; return; }
+  let d = new Date(base);
+  d.setDate(d.getDate()+days);
+  document.getElementById('dcResultDate').textContent = d.toLocaleDateString(undefined,{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+}
+let today = new Date().toISOString().slice(0,10);
+document.getElementById('dcStart').value = today;
+document.getElementById('dcBase').value = today;
+dcCalc(); dcCalc2();
+
+</script>
+</body>
+</html>

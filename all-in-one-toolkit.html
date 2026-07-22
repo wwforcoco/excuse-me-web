@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>All-in-One Toolkit — ExcuseMeWeb</title>
+<meta name="description" content="Six focused toolkits, 36 tools total. No signup, no account, no payment — everything runs in your browser.">
+<style>
+:root {
+  --bg:#faf9f7; --surface:#fff; --text:#1c1a17; --text-muted:#7a7369; --border:#eae6de;
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+}
+* { box-sizing:border-box; }
+body { margin:0; font-family:var(--font); background:var(--bg); color:var(--text); line-height:1.55; }
+.wrap { max-width:1180px; margin:0 auto; padding:0 24px; }
+header { padding:20px 0; border-bottom:1px solid var(--border); }
+.header-inner { max-width:1180px; margin:0 auto; padding:0 24px; display:flex; align-items:center; gap:10px; font-weight:800; font-size:16px; }
+.logo-dot { width:10px;height:10px;border-radius:50%;background:#e2266d; }
+.hero { padding:64px 0 40px; text-align:center; }
+.hero h1 { font-size:42px; font-weight:800; letter-spacing:-0.02em; margin:0 0 14px; }
+.hero p { font-size:17px; color:var(--text-muted); max-width:600px; margin:0 auto; }
+.hero-badges { display:flex; gap:10px; justify-content:center; margin-top:22px; flex-wrap:wrap; }
+.hero-badge { font-size:13px; font-weight:700; background:var(--surface); border:1px solid var(--border); padding:7px 14px; border-radius:999px; }
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:20px; padding:20px 0 70px; }
+.hub-card {
+  display:block; text-decoration:none; color:var(--text); background:var(--surface);
+  border:1px solid var(--border); border-radius:18px; padding:26px; transition:.18s;
+  box-shadow: 0 1px 2px rgba(0,0,0,.04);
+}
+.hub-card:hover { transform:translateY(-4px); border-color:var(--tk-accent); box-shadow: 0 12px 28px rgba(0,0,0,.08); }
+.hub-icon { width:52px;height:52px;border-radius:14px;background:var(--tk-soft); display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:16px; }
+.hub-card h3 { font-size:19px; font-weight:800; margin:0 0 6px; }
+.hub-card p { font-size:13.5px; color:var(--text-muted); margin:0 0 14px; }
+.tag-row { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:16px; }
+.tag { font-size:11px; font-weight:700; color:var(--tk-accent); background:var(--tk-soft); padding:4px 9px; border-radius:999px; }
+.hub-cta { font-size:13.5px; font-weight:800; color:var(--tk-accent); }
+footer { text-align:center; padding:30px 0 60px; color:var(--text-muted); font-size:12.5px; }
+</style>
+</head>
+<body>
+<header><div class="header-inner"><span class="logo-dot"></span> ExcuseMeWeb</div></header>
+<div class="wrap">
+  <div class="hero">
+    <h1>All-in-One Toolkit</h1>
+    <p>Six focused toolkits, 36 tools in total. Pick the one you need — everything runs right in your browser.</p>
+    <div class="hero-badges">
+      <span class="hero-badge">No signup</span>
+      <span class="hero-badge">No account</span>
+      <span class="hero-badge">No payment</span>
+      <span class="hero-badge">Download any toolkit as one HTML file</span>
+    </div>
+  </div>
+  <div class="grid">
+    
+    <a class="hub-card" href="everyday-toolkit.html" style="--tk-accent:#c2703d;--tk-soft:#f5e2d3;">
+      <div class="hub-icon">🗓️</div>
+      <h3>Everyday Toolkit</h3>
+      <p>Calculator, notes, clipboard, stopwatch, timer, reminders.</p>
+      <div class="tag-row"><span class="tag">Calculator</span><span class="tag">Notes</span><span class="tag">Clipboard</span><span class="tag">Stopwatch</span><span class="tag">Timer</span><span class="tag">Reminders</span></div>
+      <span class="hub-cta">Open toolkit &rarr;</span>
+    </a>
+    <a class="hub-card" href="student-toolkit.html" style="--tk-accent:#3b4fd9;--tk-soft:#e2e6fb;">
+      <div class="hub-icon">🎓</div>
+      <h3>Student Toolkit</h3>
+      <p>GPA, grades, percentages, pomodoro, study timer, name picker.</p>
+      <div class="tag-row"><span class="tag">GPA Calculator</span><span class="tag">Grade Calculator</span><span class="tag">Percentage Calculator</span><span class="tag">Pomodoro Timer</span><span class="tag">Study Timer</span><span class="tag">Random Name Picker</span></div>
+      <span class="hub-cta">Open toolkit &rarr;</span>
+    </a>
+    <a class="hub-card" href="creator-toolkit.html" style="--tk-accent:#9333ea;--tk-soft:#f3e3fc;">
+      <div class="hub-icon">🎨</div>
+      <h3>Creator Toolkit</h3>
+      <p>Color picker, palettes, gradients, word & character counters, lorem ipsum.</p>
+      <div class="tag-row"><span class="tag">Color Picker</span><span class="tag">Palette Generator</span><span class="tag">Gradient Generator</span><span class="tag">Word Counter</span><span class="tag">Character Counter</span><span class="tag">Lorem Ipsum Generator</span></div>
+      <span class="hub-cta">Open toolkit &rarr;</span>
+    </a>
+    <a class="hub-card" href="developer-toolkit.html" style="--tk-accent:#22c55e;--tk-soft:#173321;">
+      <div class="hub-icon">💻</div>
+      <h3>Developer Toolkit</h3>
+      <p>JSON tools, Base64, URL encoding, UUIDs, timestamps.</p>
+      <div class="tag-row"><span class="tag">JSON Formatter</span><span class="tag">JSON Validator</span><span class="tag">Base64 Encoder/Decoder</span><span class="tag">URL Encoder/Decoder</span><span class="tag">UUID Generator</span><span class="tag">Timestamp Converter</span></div>
+      <span class="hub-cta">Open toolkit &rarr;</span>
+    </a>
+    <a class="hub-card" href="social-media-toolkit.html" style="--tk-accent:#e2266d;--tk-soft:#fce3ec;">
+      <div class="hub-icon">📣</div>
+      <h3>Social Media Toolkit</h3>
+      <p>Usernames, hashtags, captions, emoji, bios, character limits.</p>
+      <div class="tag-row"><span class="tag">Username Generator</span><span class="tag">Hashtag Generator</span><span class="tag">Caption Generator</span><span class="tag">Random Emoji Generator</span><span class="tag">Bio Generator</span><span class="tag">Character Counter</span></div>
+      <span class="hub-cta">Open toolkit &rarr;</span>
+    </a>
+    <a class="hub-card" href="business-toolkit.html" style="--tk-accent:#166534;--tk-soft:#e5efe2;">
+      <div class="hub-icon">💼</div>
+      <h3>Business Toolkit</h3>
+      <p>Profit margin, invoices, currency, ROI, break-even, dates.</p>
+      <div class="tag-row"><span class="tag">Profit Margin Calculator</span><span class="tag">Invoice Generator</span><span class="tag">Currency Converter</span><span class="tag">ROI Calculator</span><span class="tag">Break-Even Calculator</span><span class="tag">Date Calculator</span></div>
+      <span class="hub-cta">Open toolkit &rarr;</span>
+    </a>
+  </div>
+</div>
+<footer>Free forever. Nothing you type ever leaves your device.</footer>
+</body>
+</html>
