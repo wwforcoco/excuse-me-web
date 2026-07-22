@@ -1,131 +1,567 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>All-in-One Toolkit — ExcuseMeWeb</title>
-<meta name="description" content="Six focused toolkits, 36 tools total. No signup, no account, no payment — everything runs in your browser.">
-<style>
-:root {
-  --bg:#faf9f7; --surface:#fff; --text:#1c1a17; --text-muted:#7a7369; --border:#eae6de;
-  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
-}
-* { box-sizing:border-box; }
-body { margin:0; font-family:var(--font); background:var(--bg); color:var(--text); line-height:1.55; }
-.wrap { max-width:1180px; margin:0 auto; padding:0 24px; }
-header { padding:20px 0; border-bottom:1px solid var(--border); }
-.header-inner { max-width:1180px; margin:0 auto; padding:0 24px; display:flex; align-items:center; gap:10px; font-weight:800; font-size:16px; }
-.logo-dot { width:10px;height:10px;border-radius:50%;background:#e2266d; }
-.hero { padding:64px 0 40px; text-align:center; }
-.hero h1 { font-size:42px; font-weight:800; letter-spacing:-0.02em; margin:0 0 14px; }
-.hero p { font-size:17px; color:var(--text-muted); max-width:600px; margin:0 auto; }
-.hero-badges { display:flex; gap:10px; justify-content:center; margin-top:22px; flex-wrap:wrap; }
-.hero-badge { font-size:13px; font-weight:700; background:var(--surface); border:1px solid var(--border); padding:7px 14px; border-radius:999px; }
-.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:20px; padding:20px 0 70px; }
-.hub-card {
-  display:block; text-decoration:none; color:var(--text); background:var(--surface);
-  border:1px solid var(--border); border-radius:18px; padding:26px; transition:.18s;
-  box-shadow: 0 1px 2px rgba(0,0,0,.04);
-}
-.hub-card:hover { transform:translateY(-4px); border-color:var(--tk-accent); box-shadow: 0 12px 28px rgba(0,0,0,.08); }
-.hub-icon { width:52px;height:52px;border-radius:14px;background:var(--tk-soft); display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:16px; }
-.hub-card h3 { font-size:19px; font-weight:800; margin:0 0 6px; }
-.hub-card p { font-size:13.5px; color:var(--text-muted); margin:0 0 14px; }
-.tag-row { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:16px; }
-.tag { font-size:11px; font-weight:700; color:var(--tk-accent); background:var(--tk-soft); padding:4px 9px; border-radius:999px; }
-.hub-cta { font-size:13.5px; font-weight:800; color:var(--tk-accent); }
-footer { text-align:center; padding:30px 0 60px; color:var(--text-muted); font-size:12.5px; }
-</style>
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-        {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://excusemeweb.com/"
-        },
-        {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "All-in-One Toolkit",
-            "item": "https://excusemeweb.com/all-in-one-toolkit"
-        }
-    ]
-}
-</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All-in-One Toolkit - 36 Free Browser Tools | ExcuseMeWeb</title>
+    <meta name="description" content="Six focused toolkits with 36 tools total: calculators, generators, dev tools, and more. Everything runs locally in your browser. Download as single HTML files.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://excusemeweb.com/all-in-one-toolkit">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="theme-color" content="#ffffff">
+    
+    <meta property="og:title" content="All-in-One Toolkit - 36 Free Tools | ExcuseMeWeb">
+    <meta property="og:description" content="Six toolkits with 36 tools: calculators, generators, dev tools. Runs locally in browser.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://excusemeweb.com/all-in-one-toolkit">
+    <meta property="og:image" content="https://excusemeweb.com/og-image.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="All-in-One Toolkit - 36 Free Browser Tools">
+    <meta name="twitter:description" content="6 toolkits, 36 tools. Calculators, generators, dev tools. Works offline.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-<style>
-.ew-breadcrumb { max-width: 1180px; margin: 14px auto 0; padding: 0 24px; display: flex; align-items: center; flex-wrap: wrap; gap: 6px; font-size: 0.85rem; color: var(--text-muted); }
-.ew-breadcrumb a { color: var(--text-muted); text-decoration: none; }
-.ew-breadcrumb a:hover { color: #e2266d; text-decoration: underline; }
-.ew-breadcrumb .bc-sep { color: var(--border); }
-.ew-breadcrumb .bc-current { color: var(--text); font-weight: 600; }
-</style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "All-in-One Toolkit",
+      "url": "https://excusemeweb.com/all-in-one-toolkit",
+      "description": "Collection of six focused toolkits containing 36 free browser-based tools.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "author": { "@type": "Organization", "name": "ExcuseMeWeb" },
+      "dateModified": "2026-07-22"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Toolkits Collection",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Everyday Toolkit", "url": "https://excusemeweb.com/everyday-toolkit" },
+        { "@type": "ListItem", "position": 2, "name": "Student Toolkit", "url": "https://excusemeweb.com/student-toolkit" },
+        { "@type": "ListItem", "position": 3, "name": "Creator Toolkit", "url": "https://excusemeweb.com/creator-toolkit" },
+        { "@type": "ListItem", "position": 4, "name": "Developer Toolkit", "url": "https://excusemeweb.com/developer-toolkit" },
+        { "@type": "ListItem", "position": 5, "name": "Social Media Toolkit", "url": "https://excusemeweb.com/social-media-toolkit" },
+        { "@type": "ListItem", "position": 6, "name": "Business Toolkit", "url": "https://excusemeweb.com/business-toolkit" }
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://excusemeweb.com/" },
+            { "@type": "ListItem", "position": 2, "name": "All-in-One Toolkit", "item": "https://excusemeweb.com/all-in-one-toolkit" }
+        ]
+    }
+    </script>
+
+    <style>
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-tertiary: #f1f5f9;
+            --text-primary: #0f172a;
+            --text-secondary: #64748b;
+            --accent: #6366f1;
+            --accent-hover: #4f46e5;
+            --border: #e2e8f0;
+            --shadow: rgba(0,0,0,0.08);
+            --font-body: 'Inter', sans-serif;
+            --border-radius: 12px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body { 
+            font-family: var(--font-body); 
+            background: var(--bg-primary); 
+            color: var(--text-primary); 
+            line-height: 1.6;
+        }
+
+        .header { 
+            background: var(--bg-secondary); 
+            border-bottom: 1px solid var(--border); 
+            padding: 0 24px; 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+        }
+
+        .header-inner { 
+            max-width: 1400px; 
+            margin: 0 auto; 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            height: 64px; 
+        }
+
+        .logo { 
+            font-size: 1.5rem; 
+            font-weight: 700; 
+            color: var(--accent); 
+            text-decoration: none; 
+        }
+        .logo span { color: var(--text-primary); }
+
+        .nav-desktop { display: flex; gap: 32px; }
+        .nav-desktop a { 
+            color: var(--text-secondary); 
+            text-decoration: none; 
+            font-size: 0.9rem; 
+            font-weight: 500; 
+            transition: color 0.2s; 
+        }
+        .nav-desktop a:hover { color: var(--accent); }
+        .nav-desktop a.active { color: var(--accent); font-weight: 600; }
+
+        .hamburger { display: none; background: none; border: none; cursor: pointer; font-size: 1.5rem; }
+        
+        .mobile-nav { 
+            display: none; 
+            position: absolute; 
+            top: 64px; 
+            left: 0; 
+            right: 0; 
+            background: var(--bg-secondary); 
+            border-bottom: 1px solid var(--border); 
+            padding: 16px 24px; 
+            flex-direction: column; 
+            gap: 16px; 
+        }
+        .mobile-nav.show { display: flex; }
+        .mobile-nav a { color: var(--text-secondary); text-decoration: none; font-size: 1rem; font-weight: 500; }
+
+        .main-content { 
+            max-width: 1200px; 
+            width: 100%; 
+            margin: 0 auto; 
+            padding: 40px 24px 60px; 
+        }
+
+        .breadcrumb { 
+            display: flex; 
+            align-items: center; 
+            flex-wrap: wrap; 
+            gap: 6px; 
+            font-size: 0.85rem; 
+            color: var(--text-secondary); 
+            margin-bottom: 24px; 
+        }
+        .breadcrumb a { color: var(--text-secondary); text-decoration: none; }
+        .breadcrumb a:hover { color: var(--accent); text-decoration: underline; }
+        .breadcrumb .bc-sep { color: var(--border); }
+        .breadcrumb .bc-current { color: var(--text-primary); font-weight: 600; }
+
+        .hero { text-align: center; margin-bottom: 48px; }
+        .hero h1 { 
+            font-size: 2.5rem; 
+            font-weight: 800; 
+            letter-spacing: -0.02em; 
+            margin-bottom: 16px; 
+            color: var(--text-primary);
+        }
+        .hero p { 
+            font-size: 1.15rem; 
+            color: var(--text-secondary); 
+            max-width: 650px; 
+            margin: 0 auto 28px; 
+            line-height: 1.7;
+        }
+
+        .hero-badges { 
+            display: flex; 
+            gap: 10px; 
+            justify-content: center; 
+            flex-wrap: wrap; 
+            margin-top: 24px; 
+        }
+        .hero-badge { 
+            font-size: 13px; 
+            font-weight: 600; 
+            background: var(--bg-secondary); 
+            border: 1px solid var(--border); 
+            padding: 8px 16px; 
+            border-radius: 999px; 
+            color: var(--text-secondary);
+        }
+
+        /* Info Section */
+        .info-section { 
+            background: var(--bg-secondary); 
+            border-radius: var(--border-radius); 
+            padding: 32px; 
+            margin-bottom: 40px; 
+            border: 1px solid var(--border); 
+        }
+        .info-section h2 { 
+            font-size: 1.5rem; 
+            margin-bottom: 16px; 
+            color: var(--text-primary);
+        }
+        .info-section h3 { 
+            margin-top: 24px; 
+            margin-bottom: 12px; 
+            color: var(--accent); 
+            font-size: 1.15rem;
+        }
+        .info-section p, .info-section li { 
+            color: var(--text-secondary); 
+            line-height: 1.7; 
+            margin-bottom: 12px;
+        }
+        .info-section ul, .info-section ol { padding-left: 24px; }
+        .info-section a { color: var(--accent); text-decoration: none; font-weight: 500; }
+        .info-section a:hover { text-decoration: underline; }
+
+        details {
+            margin-bottom: 12px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 14px;
+            background: var(--bg-primary);
+        }
+        summary {
+            font-weight: 600;
+            cursor: pointer;
+            color: var(--text-primary);
+            list-style: none;
+        }
+        summary::before { content: '▸ '; color: var(--accent); margin-right: 4px; }
+        details[open] summary::before { content: '▾ '; }
+        details p { margin-top: 10px; color: var(--text-secondary); line-height: 1.7; }
+
+        /* Cards Grid */
+        .toolkit-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); 
+            gap: 20px; 
+            margin-top: 32px;
+        }
+
+        .hub-card {
+            display: block; 
+            text-decoration: none; 
+            color: var(--text-primary); 
+            background: var(--bg-primary);
+            border: 1px solid var(--border); 
+            border-radius: var(--border-radius); 
+            padding: 28px; 
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hub-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--tk-accent, var(--accent));
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .hub-card:hover { 
+            transform: translateY(-4px); 
+            box-shadow: 0 12px 30px rgba(0,0,0,0.08); 
+            border-color: var(--tk-accent, var(--accent));
+        }
+        
+        .hub-card:hover::before { opacity: 1; }
+
+        .hub-icon { 
+            width: 56px; 
+            height: 56px; 
+            border-radius: 14px; 
+            background: var(--tk-soft, var(--bg-tertiary)); 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-size: 28px; 
+            margin-bottom: 18px; 
+        }
+
+        .hub-card h3 { 
+            font-size: 1.25rem; 
+            font-weight: 700; 
+            margin: 0 0 10px; 
+            color: var(--text-primary);
+        }
+
+        .hub-card p { 
+            font-size: 0.95rem; 
+            color: var(--text-secondary); 
+            margin: 0 0 16px; 
+            line-height: 1.6;
+        }
+
+        .tag-row { 
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 6px; 
+            margin-bottom: 18px; 
+        }
+        .tag { 
+            font-size: 11px; 
+            font-weight: 600; 
+            color: var(--tk-accent, var(--accent)); 
+            background: var(--tk-soft, var(--bg-tertiary)); 
+            padding: 4px 10px; 
+            border-radius: 999px; 
+        }
+
+        .hub-cta { 
+            font-size: 0.9rem; 
+            font-weight: 700; 
+            color: var(--tk-accent, var(--accent)); 
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .footer { 
+            background: var(--bg-secondary); 
+            border-top: 1px solid var(--border); 
+            padding: 32px 24px; 
+            text-align: center; 
+            color: var(--text-secondary); 
+            font-size: 0.9rem; 
+            margin-top: 60px;
+        }
+        .footer a { color: var(--accent); text-decoration: none; }
+        .footer a:hover { text-decoration: underline; }
+
+        @media (max-width: 768px) { 
+            .nav-desktop { display: none; } 
+            .hamburger { display: block; } 
+            .hero h1 { font-size: 1.8rem; } 
+            .toolkit-grid { grid-template-columns: 1fr; }
+            .main-content { padding: 24px 16px 40px; }
+        }
+    </style>
 </head>
 <body>
-<header><div class="header-inner"><span class="logo-dot"></span> ExcuseMeWeb</div></header>
-<nav class="ew-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="bc-sep">/</span><span class="bc-current">All-in-One Toolkit</span></nav>
-<div class="wrap">
-  <div class="hero">
-    <h1>All-in-One Toolkit</h1>
-    <p>Six focused toolkits, 36 tools in total. Pick the one you need — everything runs right in your browser.</p>
-    <div class="hero-badges">
-      <span class="hero-badge">No signup</span>
-      <span class="hero-badge">No account</span>
-      <span class="hero-badge">No payment</span>
-      <span class="hero-badge">Download any toolkit as one HTML file</span>
-    </div>
-  </div>
-  <div class="grid">
-    
-    <a class="hub-card" href="everyday-toolkit.html" style="--tk-accent:#c2703d;--tk-soft:#f5e2d3;">
-      <div class="hub-icon">🗓️</div>
-      <h3>Everyday Toolkit</h3>
-      <p>Calculator, notes, clipboard, stopwatch, timer, reminders.</p>
-      <div class="tag-row"><span class="tag">Calculator</span><span class="tag">Notes</span><span class="tag">Clipboard</span><span class="tag">Stopwatch</span><span class="tag">Timer</span><span class="tag">Reminders</span></div>
-      <span class="hub-cta">Open toolkit &rarr;</span>
-    </a>
-    <a class="hub-card" href="student-toolkit.html" style="--tk-accent:#3b4fd9;--tk-soft:#e2e6fb;">
-      <div class="hub-icon">🎓</div>
-      <h3>Student Toolkit</h3>
-      <p>GPA, grades, percentages, pomodoro, study timer, name picker.</p>
-      <div class="tag-row"><span class="tag">GPA Calculator</span><span class="tag">Grade Calculator</span><span class="tag">Percentage Calculator</span><span class="tag">Pomodoro Timer</span><span class="tag">Study Timer</span><span class="tag">Random Name Picker</span></div>
-      <span class="hub-cta">Open toolkit &rarr;</span>
-    </a>
-    <a class="hub-card" href="creator-toolkit.html" style="--tk-accent:#9333ea;--tk-soft:#f3e3fc;">
-      <div class="hub-icon">🎨</div>
-      <h3>Creator Toolkit</h3>
-      <p>Color picker, palettes, gradients, word & character counters, lorem ipsum.</p>
-      <div class="tag-row"><span class="tag">Color Picker</span><span class="tag">Palette Generator</span><span class="tag">Gradient Generator</span><span class="tag">Word Counter</span><span class="tag">Character Counter</span><span class="tag">Lorem Ipsum Generator</span></div>
-      <span class="hub-cta">Open toolkit &rarr;</span>
-    </a>
-    <a class="hub-card" href="developer-toolkit.html" style="--tk-accent:#22c55e;--tk-soft:#173321;">
-      <div class="hub-icon">💻</div>
-      <h3>Developer Toolkit</h3>
-      <p>JSON tools, Base64, URL encoding, UUIDs, timestamps.</p>
-      <div class="tag-row"><span class="tag">JSON Formatter</span><span class="tag">JSON Validator</span><span class="tag">Base64 Encoder/Decoder</span><span class="tag">URL Encoder/Decoder</span><span class="tag">UUID Generator</span><span class="tag">Timestamp Converter</span></div>
-      <span class="hub-cta">Open toolkit &rarr;</span>
-    </a>
-    <a class="hub-card" href="social-media-toolkit.html" style="--tk-accent:#e2266d;--tk-soft:#fce3ec;">
-      <div class="hub-icon">📣</div>
-      <h3>Social Media Toolkit</h3>
-      <p>Usernames, hashtags, captions, emoji, bios, character limits.</p>
-      <div class="tag-row"><span class="tag">Username Generator</span><span class="tag">Hashtag Generator</span><span class="tag">Caption Generator</span><span class="tag">Random Emoji Generator</span><span class="tag">Bio Generator</span><span class="tag">Character Counter</span></div>
-      <span class="hub-cta">Open toolkit &rarr;</span>
-    </a>
-    <a class="hub-card" href="business-toolkit.html" style="--tk-accent:#166534;--tk-soft:#e5efe2;">
-      <div class="hub-icon">💼</div>
-      <h3>Business Toolkit</h3>
-      <p>Profit margin, invoices, currency, ROI, break-even, dates.</p>
-      <div class="tag-row"><span class="tag">Profit Margin Calculator</span><span class="tag">Invoice Generator</span><span class="tag">Currency Converter</span><span class="tag">ROI Calculator</span><span class="tag">Break-Even Calculator</span><span class="tag">Date Calculator</span></div>
-      <span class="hub-cta">Open toolkit &rarr;</span>
-    </a>
-  </div>
-</div>
-<footer>Free forever. Nothing you type ever leaves your device.        <p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p>
+    <header class="header">
+        <div class="header-inner">
+            <a href="/" class="logo">Excuse<span>Me</span>Web</a>
+            <nav class="nav-desktop">
+                <a href="/">Tools</a>
+                <a href="/calculators">Calculators</a>
+                <a href="/converters">Converters</a>
+                <a href="/image-tools">Image Tools</a>
+                <a href="/generators">Generators</a>
+                <a href="/templates">Templates</a>
+                <a href="/games">Games</a>
+                <a href="/all-in-one-toolkit" class="active">Toolkits</a>
+            </nav>
+            <div style="display:flex;align-items:center;gap:16px;">
+                <button class="hamburger" onclick="document.getElementById('mobileNav').classList.toggle('show')">☰</button>
+            </div>
+        </div>
+        <nav class="mobile-nav" id="mobileNav">
+            <a href="/">Tools</a>
+            <a href="/calculators">Calculators</a>
+            <a href="/converters">Converters</a>
+            <a href="/image-tools">Image Tools</a>
+            <a href="/generators">Generators</a>
+            <a href="/templates">Templates</a>
+            <a href="/games">Games</a>
+            <a href="/all-in-one-toolkit" class="active">Toolkits</a>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="/">Home</a><span class="bc-sep">/</span><span class="bc-current">All-in-One Toolkit</span>
+        </nav>
+
+        <div class="hero">
+            <h1>All-in-One Toolkit</h1>
+            <p>Six focused toolkits containing <strong>36 tools total</strong>. Pick the category matching your workflow — everything runs locally in your browser.</p>
+            
+            <div class="hero-badges">
+                <span class="hero-badge">Works Offline</span>
+                <span class="hero-badge">Download as Single HTML File</span>
+                <span class="hero-badge">36 Tools Across 6 Categories</span>
+            </div>
+        </div>
+
+        <!-- INFO SECTION: General info only, NO tool lists -->
+        <div class="info-section">
+            
+            <h2>What Are These Toolkits?</h2>
+            <p>Instead of visiting separate websites for each small task, our toolkits group related tools into unified pages. Each toolkit is self-contained — download it as one HTML file and keep it on your computer for offline use.</p>
+
+            <h3>How to Use Them</h3>
+            <ol style="padding-left:24px;color:var(--text-secondary);line-height:1.8;">
+                <li>Browse the six categories below and select the one matching your current project or task</li>
+                <li>Click <strong>"Open toolkit"</strong> to launch all tools in that category at once</li>
+                <li>Switch between tools within the toolkit using the built-in navigation tabs</li>
+                <li>Save the page (Ctrl+S or Cmd+S) if you want permanent offline access</li>
+            </ol>
+
+            <h3>Technical Details</h3>
+            <ul>
+                <li>Each toolkit is a single HTML file with embedded CSS and JavaScript (no external dependencies after first load)</li>
+                <li>Data persists in your browser's localStorage between sessions (scores, notes, preferences)</li>
+                <li>No server-side processing occurs — calculations and generation happen on your device only</li>
+                <li>Compatible with Chrome, Firefox, Safari, Edge, and most mobile browsers</li>
+                <li>Total combined size of all six toolkits is under 500KB (lighter than most single web apps)</li>
+            </ul>
+
+            <h3>Frequently Asked Questions</h3>
+            
+            <details>
+                <summary>Can I modify the toolkits or add my own tools?</summary>
+                <p>Since each toolkit is a standard HTML file, you can open it in any text editor and customize the code, add new tools, or remove ones you don't need. The code is uncompressed and commented for readability.</p>
+            </details>
+
+            <details>
+                <summary>Do the tools sync across devices?</summary>
+                <p>Not automatically. Each device stores its own data locally. If you want synchronization, you could host the file on a private cloud storage service (like Dropbox or Google Drive) and access it from multiple browsers.</p>
+            </details>
+
+            <details>
+                <summary>What's the difference between these toolkits and your individual tool pages?</summary>
+                <p>The functionality is identical. Toolkits simply group related tools into a tabbed interface so you can switch between them without navigating to different URLs. Choose whichever interface you prefer — individual pages or grouped toolkits.</p>
+            </details>
+
+            <h3>Explore Other Categories</h3>
+            <p>
+                <a href="/calculators">Calculators</a> · 
+                <a href="/generators">Generators</a> · 
+                <a href="/converters">Converters</a> · 
+                <a href="/image-tools">Image Tools</a> · 
+                <a href="/games">Games</a> · 
+                <a href="/templates">Templates</a>
+            </p>
+        </div>
+
+        <!-- CARDS: Tool info lives HERE only (not repeated above) -->
+        <div class="toolkit-grid">
+            
+            <a class="hub-card" href="/everyday-toolkit" style="--tk-accent:#c2703d;--tk-soft:#fef3e8;">
+                <div class="hub-icon">🗓️</div>
+                <h3>Everyday Toolkit</h3>
+                <p>General productivity tools for daily tasks: quick math, notes, clipboard history, timers for cooking or exercise, and simple reminders.</p>
+                <div class="tag-row">
+                    <span class="tag">Calculator</span>
+                    <span class="tag">Notes</span>
+                    <span class="tag">Clipboard</span>
+                    <span class="tag">Stopwatch</span>
+                    <span class="tag">Timer</span>
+                    <span class="tag">Reminders</span>
+                </div>
+                <span class="hub-cta">Open toolkit →</span>
+            </a>
+
+            <a class="hub-card" href="/student-toolkit" style="--tk-accent:#3b4fd9;--tk-soft:#eef1ff;">
+                <div class="hub-icon">🎓</div>
+                <h3>Student Toolkit</h3>
+                <p>Academic tools for coursework: GPA tracking, grade calculation, percentage problems, pomodoro study sessions, and random selection for group activities.</p>
+                <div class="tag-row">
+                    <span class="tag">GPA Calculator</span>
+                    <span class="tag">Grade Calculator</span>
+                    <span class="tag">Percentage Calculator</span>
+                    <span class="tag">Pomodoro Timer</span>
+                    <span class="tag">Study Timer</span>
+                    <span class="tag">Name Picker</span>
+                </div>
+                <span class="hub-cta">Open toolkit →</span>
+            </a>
+
+            <a class="hub-card" href="/creator-toolkit" style="--tk-accent:#9333ea;--tk-soft:#faf4ff;">
+                <div class="hub-icon">🎨</div>
+                <h3>Creator Toolkit</h3>
+                <p>Design and writing workflow tools: color palette creation, gradient generation, word counting, character limits, and placeholder text generation.</p>
+                <div class="tag-row">
+                    <span class="tag">Color Picker</span>
+                    <span class="tag">Palette Generator</span>
+                    <span class="tag">Gradient Generator</span>
+                    <span class="tag">Word Counter</span>
+                    <span class="tag">Character Counter</span>
+                    <span class="tag">Lorem Ipsum</span>
+                </div>
+                <span class="hub-cta">Open toolkit →</span>
+            </a>
+
+            <a class="hub-card" href="/developer-toolkit" style="--tk-accent:#22c55e;--tk-soft:#ecfdf5;">
+                <div class="hub-icon">💻</div>
+                <h3>Developer Toolkit</h3>
+                <p>Coding utility belt: JSON formatting and validation, Base64/URL encoding conversions, UUID generation, and timestamp debugging.</p>
+                <div class="tag-row">
+                    <span class="tag">JSON Formatter</span>
+                    <span class="tag">Base64 Encoder</span>
+                    <span class="tag">URL Encoder</span>
+                    <span class="tag">UUID Generator</span>
+                    <span class="tag">Timestamp Converter</span>
+                </div>
+                <span class="hub-cta">Open toolkit →</span>
+            </a>
+
+            <a class="hub-card" href="/social-media-toolkit" style="--tk-accent:#e2266d;--tk-soft:#fff0f4;">
+                <div class="hub-icon">📣</div>
+                <h3>Social Media Toolkit</h3>
+                <p>Content planning assistance: username ideas, hashtag research, caption drafting, emoji selection, bio optimization, and platform-specific character limits.</p>
+                <div class="tag-row">
+                    <span class="tag">Username Generator</span>
+                    <span class="tag">Hashtag Generator</span>
+                    <span class="tag">Caption Generator</span>
+                    <span class="tag">Emoji Generator</span>
+                    <span class="tag">Bio Generator</span>
+                    <span class="tag">Char Counter</span>
+                </div>
+                <span class="hub-cta">Open toolkit →</span>
+            </a>
+
+            <a class="hub-card" href="/business-toolkit" style="--tk-accent:#166534;--tk-soft:#f0fdf4;">
+                <div class="hub-icon">💼</div>
+                <h3>Business Toolkit</h3>
+                <p>Financial quick-checks and office tools: profit margin calculation, invoice drafting, currency conversion, ROI assessment, break-even analysis, and date calculations.</p>
+                <div class="tag-row">
+                    <span class="tag">Profit Margin</span>
+                    <span class="tag">Invoice Generator</span>
+                    <span class="tag">Currency Converter</span>
+                    <span class="tag">ROI Calculator</span>
+                    <span class="tag">Break-Even Calc</span>
+                    <span class="tag">Date Calculator</span>
+                </div>
+                <span class="hub-cta">Open toolkit →</span>
+            </a>
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 ExcuseMeWeb — Online Tools for Everyone</p>
+        <p style="margin-top:8px">
+            <a href="/calculators">Calculators</a> · 
+            <a href="/generators">Generators</a> · 
+            <a href="/converters">Converters</a> · 
+            <a href="/image-tools">Image Tools</a> · 
+            <a href="/games">Games</a> · 
+            <a href="/all-in-one-toolkit">Toolkits</a>
+        </p>
+        <p style="margin-top:8px">
+            <a href="/sitemap">Sitemap</a> · 
+            <a href="/privacy">Privacy Policy</a>
+        </p>
     </footer>
 </body>
 </html>
