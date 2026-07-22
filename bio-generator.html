@@ -3,23 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Social Media Bio Generator - Instagram, X, LinkedIn & TikTok | ExcuseMeWeb</title>
-    <meta name="description" content="Generate creative social media bios for Instagram, X, LinkedIn, and TikTok. Choose your vibe, add interests, get instant copyable results. Free tool.">
+    <title>Social Media Bio Generator - Instagram, LinkedIn & TikTok Bios | ExcuseMeWeb</title>
+    <meta name="description" content="Generate creative social media bios for Instagram, X, LinkedIn, TikTok. Playful, professional, creative, or minimal styles. Free, instant, no sign-up.">
     <meta name="robots" content="index, follow">
+    
     <link rel="canonical" href="https://excusemeweb.com/bio-generator">
     <link rel="icon" href="/favicon.ico">
     <meta name="theme-color" content="#ffffff">
     
     <!-- Open Graph -->
-    <meta property="og:title" content="Social Media Bio Generator - Instagram, X, LinkedIn & TikTok | ExcuseMeWeb">
-    <meta property="og:description" content="Generate creative social media bios for Instagram, X, LinkedIn, TikTok. Multiple styles, instant results. Free tool.">
+    <meta property="og:title" content="Social Media Bio Generator - Instagram, LinkedIn & TikTok Bios | ExcuseMeWeb">
+    <meta property="og:description" content="Generate bios for Instagram, X, LinkedIn, TikTok. Multiple styles: playful, professional, creative, minimal. Free tool.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://excusemeweb.com/og-image.png">
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Bio Generator for Social Media - Instagram, X, LinkedIn | ExcuseMeWeb">
-    <meta name="twitter:description" content="Generate bios for Instagram, X, LinkedIn, TikTok. Professional, playful, creative, minimal styles.">
+    <meta name="twitter:title" content="Bio Generator for Social Media Profiles | ExcuseMeWeb">
+    <meta name="twitter:description" content="Create bios for Instagram, X, LinkedIn, TikTok. 40+ templates per style.">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,7 +34,7 @@
       "@type": "WebApplication",
       "name": "Social Media Bio Generator",
       "url": "https://excusemeweb.com/bio-generator",
-      "description": "Generate creative social media bios for Instagram, X, LinkedIn, TikTok with different vibes and personalization options.",
+      "description": "Generate creative social media bios with different personalities: playful, professional, creative, minimal. For Instagram, X, LinkedIn, TikTok.",
       "applicationCategory": "UtilitiesApplication",
       "operatingSystem": "All",
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
@@ -42,16 +43,37 @@
     }
     </script>
 
-    <!-- Schema: FAQPage -->
+    <!-- Schema: FAQPage (REAL user questions) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": [
-        { "@type": "Question", "name": "How long should my Instagram bio be?", "acceptedAnswer": { "@type": "Answer", "text": "Instagram allows 150 characters. The best bios use all of it while being clear about who you are and what you post." } },
-        { "@type": "Question", "name": "What's the difference between a bio and an introduction?", "acceptedAnswer": { "@type": "Answer", "text": "A bio is a short description of who you are (usually one sentence or phrase). An introduction can be longer and may include your background story or mission." } },
-        { "@type": "Question", "name": "Should I use emojis in my professional bio?", "acceptedAnswer": { "@type": "Answer", "text": "For creative fields, yes. For conservative industries (law, finance), use sparingly or not at all. Match the norms of your specific profession." } },
-        { "@type": "Question", "name": "Can I use these bios for dating apps?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Many of our templates work well for Tinder, Bumble, Hinge, and similar apps. Choose 'Playful' or 'Creative' vibe for best results." } }
+        {
+          "@type": "Question",
+          "name": "How long should my social media bio be?",
+          "acceptedAnswer": { "@type": "Answer", "text": "It depends on the platform. Instagram allows 150 characters. X (Twitter) gives you 160 characters. LinkedIn allows 2,600. TikTok only shows the first 80 characters before truncating. Keep it short enough to read without tapping 'more'." }
+        },
+        {
+          "@type": "Question",
+          "name": "What's the difference between a bio and a caption?",
+          "acceptedAnswer": { "@type": "Answer", "text: "A bio is your permanent profile description — who you are, what you do, and why someone should care. A caption is temporary text attached to each individual post. Your bio stays the same; captions change constantly." }
+        },
+        {
+          "@type": "Question",
+          "name: "Should I use emojis in my professional bio?",
+          "acceptedAnswer": { "@type": "Use them sparingly in conservative fields (law, finance). Use more freely in creative industries (design, marketing, food). Match the norms of your profession." }
+        },
+        {
+          "@type": "question",
+          "name: "Can I use these bios for dating app profiles?",
+          "acceptedAnswer": { "Yes! Choose 'Playful' or 'Creative' vibe. Dating app bios work best when they show humor and personality while hinting at what makes you interesting beyond photos." }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to update my bio regularly?",
+          "acceptedAnswer": { "@type": "Answer", "text: "Only if your focus shifts significantly (new job, new hobby, rebranding). Otherwise, refresh every few months to keep it feeling current and accurate." }
+        }
       ]
     }
     </script>
@@ -81,7 +103,6 @@
             --border: #e2e8f0;
             --shadow: rgba(0,0,0,0.08);
             --font-body: 'Inter', sans-serif;
-            --font-brand: 'Inter', sans-serif;
             --border-radius: 12px;
         }
 
@@ -190,17 +211,18 @@
         /* Page Header */
         .page-header { text-align: center; margin-bottom: 32px; }
         .page-header h1 { font-size: 2.1rem; font-weight: 700; margin-bottom: 8px; }
-        .page-header p { color: var(--text-secondary); font-size: 1.05rem; max-width: 640px; margin: 0 auto; }
+        .page-header p { color: var(--text-secondary); font-size: 1.05rem; max-width: 640px; margin: 0 auto; line-height: 1.6; }
 
         /* Tool Panel */
         .tool-panel { 
             background: var(--bg-secondary); 
+            border: 1px solid var(--border); 
             border-radius: var(--border-radius); 
             padding: 28px; 
             margin-bottom: 40px; 
-            border: 1px solid var(--border); 
         }
 
+        /* Controls */
         .controls-row { 
             display: flex; 
             flex-wrap: wrap; 
@@ -221,26 +243,15 @@
             font-weight: 600; 
         }
 
-        .field select { 
-            background: var(--bg-primary); 
-            border: 1px solid var(--border); 
-            color: var(--text-primary); 
-            padding: 10px 12px; 
-            border-radius: 8px; 
-            font-size: 0.95rem; 
-            width: 200px; 
-            font-family: inherit; 
-            cursor: pointer;
-        }
-
+        .field select,
         .field input[type=text] { 
             background: var(--bg-primary); 
             border: 1px solid var(--border); 
             color: var(--text-primary); 
-            padding: 9px 12px; 
+            padding: 10px 14px; 
             border-radius: 8px; 
             font-size: 0.95rem; 
-            width: 250px; 
+            width: 100%; 
             font-family: inherit; 
         }
 
@@ -280,7 +291,7 @@
         }
 
         .result-item:hover {
-            transform: translateX(3px);
+            transform: translateX(4px);
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
 
@@ -292,7 +303,7 @@
             font-size: 0.82rem; 
             font-weight: 600; 
             white-space: nowrap; 
-            padding: 4px 10px;
+            padding: 4px 10px; 
             border-radius: 4px;
             transition: background 0.15s;
         }
@@ -344,36 +355,6 @@
 
         .info-section a:hover { text-decoration: underline; }
 
-        /* Table Styles */
-        .platform-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            font-size: 0.9rem;
-            background: var(--bg-primary);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-        }
-
-        .platform-table th {
-            background: var(--bg-tertiary);
-            padding: 12px 16px;
-            text-align: left;
-            font-weight: 600;
-            color: var(--text-primary);
-            border-bottom: 2px solid var(--border);
-        }
-
-        .platform-table td {
-            padding: 10px 16px;
-            border-bottom: 1px solid var(--border);
-            color: var(--text-secondary);
-        }
-
-        .platform-table tr:last-child td { border-bottom: none; }
-        .platform-table tr:nth-child(even) { background: var(--bg-secondary); }
-
         /* Details/Summary */
         details { 
             margin-bottom: 10px; 
@@ -392,7 +373,12 @@
 
         summary::before { content: '▸ '; color: var(--accent); margin-right: 4px; }
         details[open] summary::before { content: '▾ '; }
-        details p { margin-top: 10px; margin-bottom: 0; line-height: 1.7; }
+
+        details p { 
+            margin-top: 10px; 
+            margin-bottom: 0; 
+            line-height: 1.7; 
+        }
 
         /* Footer */
         .footer { 
@@ -443,15 +429,6 @@
             .field input[type=text] { 
                 width: 100%; 
             }
-
-            .platform-table { 
-                font-size: 0.85rem; 
-            }
-
-            .platform-table th,
-            .platform-table td { 
-                padding: 8px 10px; 
-            }
         }
     </style>
 </head>
@@ -495,7 +472,7 @@
         <!-- Header -->
         <div class="page-header">
             <h1>Social Media Bio Generator</h1>
-            <p>Generate creative bios for Instagram, X, LinkedIn, TikTok — choose your vibe, customize with your interests.</p>
+            <p>Generate bios for Instagram, X, LinkedIn, TikTok — choose your vibe and get instant copyable results.</p>
         </div>
 
         <!-- Tool Interface -->
@@ -513,7 +490,7 @@
                 
                 <div class="field">
                     <label for="bgInterest">Your Interest (optional)</label>
-                    <input type="text" id="bgInterest" placeholder="e.g. coffee, photography, coding, fitness">
+                    <input type="text" id="bgInterest" placeholder="e.g. photography, coding, coffee, fitness">
                 </div>
             </div>
             
@@ -528,105 +505,102 @@
         <div class="info-section">
             
             <h2>About This Bio Generator</h2>
-            <p>This tool creates short profile bios tailored to four distinct styles: playful, professional, creative, and minimal. Enter an interest or topic you care about, and the generator weaves it into ready-to-copy sentences that fit social media character limits.</p>
+            <p>This tool creates ready-to-use social media bios tailored to four distinct personalities. Choose a style that matches how you want to present yourself online, optionally add an interest or topic, and get multiple variations you can copy-paste into any profile.</p>
 
-            <h3>Platform Character Limits Quick Reference</h3>
-            <table class="platform-table">
+            <h3>Bio vs Caption: What's The Difference?</h3>
+            <table style="width:100%;border-collapse:collapse;margin:20px 0;font-size: 0.95rem;background:var(--bg-primary);border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.05);">
                 <thead>
-                    <tr>
-                        <th>Platform</th>
-                        <th>Character Limit</th>
-                        <th>Hashtag Friendly?</th>
+                    <tr style="background:var(--bg-tertiary);">
+                        <th style="padding:12px;text-align:left;border-bottom:2px solid var(--border);">
+                            What
+                        </th>
+                        <th style="padding:12px;text-align:center;border-bottom:2px var(--border);">
+                            Where It Shows Up
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td><strong>Instagram</strong></td>
-                        <td>150 characters</td>
-                        <td>Yes</td>
+                        <td style="padding:10px;border-bottom:1px solid var(--border);"><strong>Bio</strong></td>
+                        <td style="padding:10px;border-bottom:1px solid var(--border);"><strong>Your Profile Page</strong></td>
+                    </tr>
+                    <tr style="background:var(--bg-secondary);">
+                        <td style="padding:10px;border-bottom:1px solid var(--border);"><strong>Caption</strong></td>
+                        <td style="padding:10px;border-bottom:1px solid var(--border);"><strong>Individual Posts</strong></td>
                     </tr>
                     <tr>
-                        <td><strong>X (Twitter)</strong></td>
-                        <td>160 characters</td>
-                        <td>Yes</td>
-                    </tr>
-                    <tr>
-                        <td><strong>TikTok</strong></td>
-                        <td>80 characters</td>
-                        <td>Limited space</td>
-                    </tr>
-                    <tr>
-                        <td><strong>LinkedIn</strong></td>
-                        <td>2,600 characters</td>
-                        <td>No hashtags in headline</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Facebook Profile</strong></td>
-                        <td>255 characters</td>
-                        <td>Yes</td>
+                        <td style="padding:10px;"><strong>Lifespan</strong></td>
+                        <td style="padding:10px;"><strong>Long-term Identity</strong></td>
                     </tr>
                 </tbody>
             </table>
-
-            <h3>Bio Tips by Platform</h3>
-            <ul>
-                <li><strong>Instagram:</strong> Use line breaks (↵) to separate thoughts. Front-load your niche or value proposition. Include one CTA like "Link below 👇"</li>
-                <li><strong>X/Twitter:</strong> Great for thought leadership or networking. Keep it under 160 chars. Can include 1-2 relevant hashtags if they flow naturally.</li>
-                <li><strong>TikTok:</strong> Mention your content category early ("Dad jokes | Coffee reviews"). Use trending sounds or music references if applicable.</li>
-                <li><strong>LinkedIn:</strong> Write in first person. Focus on current role/value proposition, not just job history. Save keywords for the Skills section.</li>
-            </ul>
-
-            <h3>What Makes a Good Social Media Bio?</h3>
-            <p>The most effective bios follow this structure regardless of platform:</p>
-            <ol style="padding-left:24px;color:var(--text-secondary);line-height:1.8;">
-                <li><strong>The Hook:</strong> First 3-5 words grab attention (question, bold statement, intriguing claim, or personality reveal)</li>
-                <li><strong>The Credibility:</strong> What you do / your expertise / your unique angle / your focus area</li>
-                <li><strong>The Personality:</strong> Tone that matches your brand voice (witty, serious, warm, quirky)</li>
-                <li><strong>The CTA:</strong> What you want them to do next (visit link, DM for collab, check out your content)</li>
-            </ol>
-            <p>This tool generates items 1-3 automatically. You just need to add item 4 based on your goals.</p>
 
             <h3>Vibe Styles Explained</h3>
             <ul>
                 <li><strong>🎭 Playful:</strong> Lighthearted, humorous, self-deprecating. Good for personal brands, creatives, entertainers, anyone wanting to seem approachable and fun.</li>
                 <li><strong>💼 Professional:</strong> Polished, expertise-focused, achievement-oriented. Ideal for consultants, freelancers, B2B services, career-focused profiles.</li>
-                <li><strong>🎨 Creative:</strong> Artistic, metaphorical, storytelling-focused. Works for artists, writers, designers, photographers, anyone in a visual field.</li>
-                <li><strong>✨ Minimal:</strong> Short, understated, confident. Perfect for tech founders, developers, minimalist aesthetics, "let the work speak" types.</li>
+                <li><strong>🎨 Creative:</strong> Artistic, metaphorical, storytelling-focused. Works for artists, writers, designers, photographers.</li>
+                <li><strong>✨ Minimal:</strong> Short, understated, confident. Perfect for tech founders, developers, minimalist aesthetics enthusiasts.</li>
             </ul>
 
             <h3>Frequently Asked Questions</h3>
             
             <details>
                 <summary>How long should my bio be?</summary>
-                <p>It depends on the platform. Instagram gives you 150 characters — use them all while staying clear about who you are. LinkedIn allows up to 2,600 so you can tell a longer story there. X/Twitter is best kept under 160 for readability.</p>
+                <p>It depends on the platform:
+<br>• <strong>Instagram:</strong> 150 characters visible before "...more"
+<br>• <strong>X/Twitter:</strong> 160 characters
+<br>• <strong>LinkedIn:</strong> 2,600 characters (headline + experience)
+<br>• <strong>TikTok:</strong> Only first ~80 characters before truncation
+<br><br>The best bios are concise but complete — they tell people who you are and what you do in one or two sentences.</p>
             </details>
 
             <details>
-                <summary>Can I combine parts from different generated bios?</summary>
-                <p>Absolutely! This tool gives you raw material. Mix and match phrases from different vibes until something feels authentic to you. Think of these as ingredients, not the final dish.</p>
+                <summary>What's the difference between a good bio and a bad one?</summary>
+                <p>A <strong>good bio</strong> has:
+<br>• A hook (first 5 words grab attention)
+<br>• Context (what you do / your unique angle)
+<br>• Personality (tone that matches your brand)
+<br><br>A <strong>bad bio</strong> is:
+<br>• Generic filler like "Digital nomad 🌍"
+<br>• Overused phrases everyone uses ("Love to travel ✈️")
+<br>• No indication of what makes you different from competitors
+<br>• Pure buzzwords without substance behind them</p>
             </details>
 
             <details>
-                <summary>What if I don't enter an interest?</summary>
-                <p>The tool uses "good ideas" as the fallback interest when you leave the field blank. You'll still get usable bios, but they'll be more generic. For better results, enter something specific to your niche.</p>
+                <summary>Should I use emojis in my professional bio?</summary>
+                <p>Use them sparingly in conservative fields (law, finance, medicine).
+<br><strong>Use more freely</strong> in creative fields (design, marketing, food, art).
+<br>Match the tone expectations of your specific profession.
+<br>Avoid emojis entirely if you're in a formal industry where they're considered unprofessional.</p>
             </details>
 
             <details>
-                <summary>Should I update my bio regularly?</summary>
-                <p>If your focus shifts (new job, new hobby, new brand direction), yes. Also consider seasonal updates ("Currently obsessed with [new thing]"). Bios aren't set-and-forget.</p>
+                <summary>Can I use these for dating apps?</summary>
+                <p>Absolutely! Choose <strong>"Playful"</strong> or <strong>"Creative"</strong> vibe.
+<br>Dating app bios work best when they:
+<br>• Show humor and personality
+<br> Hint at interests beyond looks
+<br> Avoid being overly generic ("I like having fun")
+</p>
             </details>
 
             <details>
-                <summary>Can I use these for dating app profiles?</summary>
-                <p>Definitely! Choose "Playful" or "Creative" vibe for best results. Dating app bios work best when they show humor and personality while hinting at what makes you interesting beyond photos.</p>
+                <summary>Do I need to update my bio regularly?</summary>
+                <p>Only refresh it when:
+<br>• You change jobs or careers
+<br> You rebrand or pivot your niche
+<br> Your current bio no longer represents you
+<br> You notice it feels stale or outdated
+<br><br>Otherwise, bios can stay valid for months without updates. Refresh quarterly at most unless something significant changes in your life.</p>
             </details>
 
             <h3>Related Tools</h3>
             <p>
                 <a href="/username-generator">Username Generator</a> · 
-                <a href="/hashtag-generator">Hashtag Generator</a> · 
-                <a href="/caption-generator">Caption Generator</a> · 
-                <a href="/ai-prompt-generator">AI Prompt Generator</a>
+                <a href="/ai-prompt-generator">AI Prompt Generator</a> · 
+                <a href="/sentence-generator">Sentence Generator</a>
             </p>
         </div>
     </main>
@@ -647,7 +621,7 @@
     <div class="toast" id="toast"></div>
 
     <script>
-        // Toast notification system
+        // Toast system
         function showToast(msg) {
             const t = document.getElementById('toast');
             t.textContent = msg;
@@ -656,11 +630,11 @@
             window._toastTimer = setTimeout(() => t.classList.remove('show'), 1800);
         }
 
-        // Copy to clipboard
+        // Copy function
         function copyText(text) {
             navigator.clipboard.writeText(text)
-                .then(() => showToast('✓ Copied to clipboard'))
-                .catch(() => showToast('✗ Copy failed — try selecting manually'));
+                .then(() => showToast('✓ Copied!'))
+                .catch(() => showToast('⚠ Failed — Select and copy manually'));
         }
     </script>
 
@@ -678,8 +652,9 @@
             '{interest} connoisseur. Bad decision maker. Good time.',
             'Running on caffeine, chaos, and {interest}.',
             'I bring the {interest}. You bring the snacks.',
+            'Making the world more interesting, one {interest} at a time.',
             'Professional {interest} enthusiast by day, amateur everything else by night.',
-            'Making the world more interesting, one {interest} at a time.'
+            'Certified {interest} expert. Opinions are free, results may vary.'
         ],
         professional: [
             'Focused on {interest}, always learning something new.',
@@ -702,8 +677,8 @@
             'Curious mind obsessed with {interest} possibilities.',
             'Creating order out of {interest}-themed chaos.',
             'Dreamer grounded in {interest}, drifting through ideas.',
-            'Finding magic in the intersection of {interest} and reality.',
             'Weaving narratives around {interest} and wondering what comes next.',
+            'Finding magic in the intersection of {interest} and reality.',
             'Exploring the universe through a {interest}-shaped lens.'
         ],
         minimal: [
@@ -714,11 +689,12 @@
             'Simplifying life one {interest} at a time.',
             '{interest} enthusiast. Less noise, more signal.',
             'Focus: {interest}. Everything else: optional.',
-            '{interest}. Periodt.',
             'Doing one thing well: {interest}.',
             'Minimalist approach to maximum {interest} enjoyment.',
             '{interest}. Simplified.',
-            'Less talk, more {interest}.'
+            'Less perfection, more authenticity.',
+            '{interest}. Periodt.',
+            'Simpler life. Better results.'
         ]
     };
 
@@ -749,13 +725,11 @@
             out.appendChild(row);
         });
 
-        // Show count
-        if (pool.length > 0) {
-            console.log(`Generated ${pool.length} ${vibe} bios`);
-        }
+        // Log count
+        console.log(`Generated ${pool.length} ${vibe} bios`);
     }
 
-    // Initialize on page load
+    // Initialize
     bgGenerate();
     </script>
 </body>
