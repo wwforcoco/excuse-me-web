@@ -5,81 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Age Calculator - Calculate Your Exact Age | ExcuseMeWeb</title>
     <meta name="description" content="Calculate your exact age in years, months, days, hours and seconds. Free online age calculator with birthday countdown. No signup required.">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&family=Dancing+Script:wght@400;600;700&family=Quicksand:wght@300;400;500;600;700&family=Righteous&family=Pacifico&family=VT323&display=swap" rel="stylesheet">
-    <style>
-        :root { --bg-primary: #ffffff; --bg-secondary: #f8fafc; --bg-tertiary: #f1f5f9; --text-primary: #0f172a; --text-secondary: #64748b; --accent: #6366f1; --accent-hover: #4f46e5; --danger: #ef4444; --border: #e2e8f0; --shadow: rgba(0,0,0,0.08); --display-bg: #ffffff; --btn-bg: #f1f5f9; --btn-hover: #e2e8f0; --font-display: 'Orbitron',monospace; --font-body: 'Inter',sans-serif; --font-brand: 'Inter',sans-serif; --border-radius: 12px; --btn-radius: 10px; }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: var(--font-body); background: var(--bg-primary); color: var(--text-primary); min-height: 100vh; display: flex; flex-direction: column; }
-        .header { background: var(--bg-secondary); border-bottom: 1px solid var(--border); padding: 0 24px; position: sticky; top: 0; z-index: 1000; }
-        .header-inner { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
-        .logo { font-family: var(--font-brand); font-size: 1.5rem; font-weight: 700; color: var(--accent); text-decoration: none; }
-        .logo span { color: var(--text-primary); }
-        .nav-desktop { display: flex; gap: 32px; }
-        .nav-desktop a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
-        .nav-desktop a:hover { color: var(--accent); }
-        .nav-desktop a.active { color: var(--accent); }
-        .hamburger { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
-        .mobile-nav { display: none; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-secondary); border-bottom: 1px solid var(--border); padding: 16px 24px; flex-direction: column; gap: 16px; }
-        .mobile-nav.show { display: flex; }
-        .mobile-nav a { color: var(--text-secondary); text-decoration: none; font-size: 1rem; font-weight: 500; }
-        .main-content { flex: 1; max-width: 1400px; width: 100%; margin: 0 auto; padding: 40px 24px; }
-        .page-header { text-align: center; margin-bottom: 32px; }
-        .page-header h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 8px; }
-        .page-header p { color: var(--text-secondary); font-size: 1.1rem; }
-        .theme-bar { display: flex; justify-content: center; align-items: center; gap: 12px; margin-bottom: 32px; flex-wrap: wrap; }
-        .theme-bar label { color: var(--text-secondary); font-size: 0.9rem; font-weight: 500; }
-        .theme-select { background: var(--bg-secondary); border: 1px solid var(--border); color: var(--text-primary); padding: 10px 16px; border-radius: 8px; font-size: 0.9rem; cursor: pointer; min-width: 180px; font-family: var(--font-body); }
-        .calc-wrapper { display: flex; justify-content: center; margin-bottom: 48px; }
-        .calculator { background: var(--bg-secondary); border-radius: var(--border-radius); padding: 32px; width: 100%; max-width: 600px; box-shadow: 0 20px 60px var(--shadow); border: 1px solid var(--border); }
-        .input-group { margin-bottom: 24px; }
-        .input-group label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--text-secondary); }
-        .input-group input { width: 100%; background: var(--display-bg); border: 1px solid var(--border); color: var(--text-primary); padding: 14px 16px; border-radius: 8px; font-size: 1rem; font-family: var(--font-body); }
-        .input-group input:focus { outline: 2px solid var(--accent); }
-        .calc-btn { background: var(--accent); border: none; color: white; padding: 14px 32px; border-radius: 8px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.15s; width: 100%; }
-        .calc-btn:hover { background: var(--accent-hover); }
-        .result-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 24px; }
-        .result-card { background: var(--bg-primary); border: 1px solid var(--border); border-radius: 10px; padding: 20px; text-align: center; }
-        .result-card .number { font-family: var(--font-display); font-size: 2rem; color: var(--accent); font-weight: 700; }
-        .result-card .label { color: var(--text-secondary); font-size: 0.9rem; margin-top: 4px; }
-        .birthday-countdown { background: var(--bg-primary); border: 1px solid var(--border); border-radius: 10px; padding: 20px; margin-top: 20px; text-align: center; }
-        .birthday-countdown h4 { color: var(--accent); margin-bottom: 8px; }
-        .birthday-countdown p { color: var(--text-secondary); }
-        .info-section { background: var(--bg-secondary); border-radius: var(--border-radius); padding: 32px; margin-bottom: 24px; border: 1px solid var(--border); }
-        .info-section h2 { font-size: 1.5rem; margin-bottom: 16px; }
-        .info-section p, .info-section li { color: var(--text-secondary); line-height: 1.7; margin-bottom: 12px; }
-        .info-section ul { padding-left: 24px; }
-        .info-section a { color: var(--accent); text-decoration: none; }
-        .footer { background: var(--bg-secondary); border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--text-secondary); font-size: 0.9rem; }
-        .footer a { color: var(--accent); text-decoration: none; }
-
-        .theme-barbie { --bg-primary: #fce7f3; --bg-secondary: #fbcfe8; --bg-tertiary: #f9a8d4; --text-primary: #831843; --text-secondary: #be185d; --accent: #db2777; --accent-hover: #be185d; --danger: #e11d48; --border: #f9a8d4; --shadow: rgba(219,39,119,0.2); --display-bg: #fdf2f8; --btn-bg: #fce7f3; --btn-hover: #f9a8d4; --font-display: 'Dancing Script',cursive; --font-body: 'Quicksand',sans-serif; --font-brand: 'Pacifico',cursive; --border-radius: 24px; --btn-radius: 16px; }
-        
-        .theme-dark { --bg-primary: #000; --bg-secondary: #111; --bg-tertiary: #222; --text-primary: #fff; --text-secondary: #888; --accent: #00ff88; --accent-hover: #00cc6a; --danger: #ff3333; --border: #333; --shadow: rgba(0,255,136,0.15); --display-bg: #000; --btn-bg: #1a1a1a; --btn-hover: #2a2a2a; --font-display: 'VT323',monospace; --font-body: 'Inter',sans-serif; --font-brand: 'Orbitron',sans-serif; --border-radius: 4px; --btn-radius: 4px; }
-        
-        .theme-ocean { --bg-primary: #0c4a6e; --bg-secondary: #075985; --bg-tertiary: #0369a1; --text-primary: #e0f2fe; --text-secondary: #7dd3fc; --accent: #4f46e5; --accent-hover: #0284c7; --danger: #ef4444; --border: #0284c7; --shadow: rgba(14,165,233,0.3); --display-bg: #082f49; --btn-bg: #075985; --btn-hover: #0369a1; --font-display: 'Orbitron',monospace; --font-body: 'Inter',sans-serif; --font-brand: 'Righteous',cursive; --border-radius: 16px; --btn-radius: 12px; }
-        
-        
-        
-        
-        .theme-minimal { --bg-primary: #fff; --bg-secondary: #0f172a; --bg-tertiary: #e2e8f0; --text-primary: #ffffff; --text-secondary: #64748b; --accent: #3b82f6; --accent-hover: #2563eb; --danger: #ef4444; --border: #e2e8f0; --shadow: rgba(0,0,0,0.08); --display-bg: #fff; --btn-bg: #f1f5f9; --btn-hover: #e2e8f0; --font-display: 'Inter',sans-serif; --font-body: 'Inter',sans-serif; --font-brand: 'Inter',sans-serif; --border-radius: 8px; --btn-radius: 6px; }
-        
-        
-        
-        
-
-        @media (max-width: 768px) { .nav-desktop { display: none; } .hamburger { display: block; } .page-header h1 { font-size: 1.8rem; } .calculator { padding: 20px; } .result-grid { grid-template-columns: 1fr; } .header-inner { height: 56px; } .main-content { padding: 24px 16px; } }
     
-        .breadcrumb { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 20px; }
-        .breadcrumb a { color: var(--text-secondary); text-decoration: none; }
-        .breadcrumb a:hover { color: var(--accent); text-decoration: underline; }
-        .breadcrumb .bc-sep { color: var(--border); }
-        .breadcrumb .bc-current { color: var(--text-primary); font-weight: 600; }
-    </style>
-<meta property="og:title" content="Age Calculator - Calculate Your Exact Age">
-    <meta property="og:description" content="Calculate your exact age in years, months, days and seconds.">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Age Calculator - Calculate Your Exact Age">
+    <meta property="og:description" content="Calculate your exact age in years, months, days, hours and seconds. Free online age calculator with birthday countdown.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://excusemeweb.com/age-calculator">
+    
+    <!-- Twitter Card (NEW) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Age Calculator - Calculate Your Exact Age | ExcuseMeWeb">
+    <meta name="twitter:description" content="Calculate your exact age in years, months, days, hours and seconds. Birthday countdown included. Free & no signup.">
+    
+    <!-- Canonical -->
     <link rel="canonical" href="https://excusemeweb.com/age-calculator">
+    <link rel="icon" href="/favicon.ico">
+    
+    <!-- Fonts (Optimized with preconnect) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&family=Dancing+Script:wght@400;600;700&family=Quicksand:wght@300;400;500;600;700&family=Righteous&family=Pacifico&family=VT323&display=swap" rel="stylesheet">
+
+    <!-- Schema: WebApplication (NEW) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Age Calculator",
+        "url": "https://excusemeweb.com/age-calculator",
+        "description": "Calculate exact age in years, months, days, hours, minutes, and seconds with birthday countdown.",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "All",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "author": { "@type": "Organization", "name": "ExcuseMeWeb" },
+        "dateModified": "2026-07-22"
+    }
+    </script>
+
+    <!-- Schema: FAQPage -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -93,157 +56,764 @@
         ]
     }
     </script>
-    <base target="_blank">
+
+    <!-- Schema: BreadcrumbList -->
     <script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-        {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://excusemeweb.com/"
-        },
-        {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Calculators",
-            "item": "https://excusemeweb.com/calculators"
-        },
-        {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "Age Calculator",
-            "item": "https://excusemeweb.com/age-calculator"
-        }
-    ]
-}
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://excusemeweb.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Calculators",
+                "item": "https://excusemeweb.com/calculators"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Age Calculator",
+                "item": "https://excusemeweb.com/age-calculator"
+            }
+        ]
+    }
     </script>
+
+    <style>
+        :root { 
+            --bg-primary: #ffffff; 
+            --bg-secondary: #f8fafc; 
+            --bg-tertiary: #f1f5f9; 
+            --text-primary: #0f172a; 
+            --text-secondary: #64748b; 
+            --accent: #6366f1; 
+            --accent-hover: #4f46e5; 
+            --danger: #ef4444; 
+            --border: #e2e8f0; 
+            --shadow: rgba(0,0,0,0.08); 
+            --display-bg: #ffffff; 
+            --btn-bg: #f1f5f9; 
+            --btn-hover: #e2e8f0; 
+            --font-display: 'Orbitron',monospace; 
+            --font-body: 'Inter',sans-serif; 
+            --font-brand: 'Inter',sans-serif; 
+            --border-radius: 12px; 
+            --btn-radius: 10px; 
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: var(--font-body); 
+            background: var(--bg-primary); 
+            color: var(--text-primary); 
+            min-height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+        }
+        
+        .header { 
+            background: var(--bg-secondary); 
+            border-bottom: 1px solid var(--border); 
+            padding: 0 24px; 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+        }
+        
+        .header-inner { 
+            max-width: 1400px; 
+            margin: 0 auto; 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            height: 64px; 
+        }
+        
+        .logo { 
+            font-family: var(--font-brand); 
+            font-size: 1.5rem; 
+            font-weight: 700; 
+            color: var(--accent); 
+            text-decoration: none; 
+        }
+        
+        .logo span { color: var(--text-primary); }
+        
+        .nav-desktop { display: flex; gap: 32px; }
+        
+        .nav-desktop a { 
+            color: var(--text-secondary); 
+            text-decoration: none; 
+            font-size: 0.9rem; 
+            font-weight: 500; 
+            transition: color 0.2s; 
+        }
+        
+        .nav-desktop a:hover { color: var(--accent); }
+        .nav-desktop a.active { color: var(--accent); }
+        
+        .hamburger { 
+            display: none; 
+            background: none; 
+            border: none; 
+            color: var(--text-primary); 
+            font-size: 1.5rem; 
+            cursor: pointer; 
+        }
+        
+        .mobile-nav { 
+            display: none; 
+            position: absolute; 
+            top: 64px; 
+            left: 0; 
+            right: 0; 
+            background: var(--bg-secondary); 
+            border-bottom: 1px solid var(--border); 
+            padding: 16px 24px; 
+            flex-direction: column; 
+            gap: 16px; 
+        }
+        
+        .mobile-nav.show { display: flex; }
+        
+        .mobile-nav a { 
+            color: var(--text-secondary); 
+            text-decoration: none; 
+            font-size: 1rem; 
+            font-weight: 500; 
+        }
+        
+        .main-content { 
+            flex: 1; 
+            max-width: 1400px; 
+            width: 100%; 
+            margin: 0 auto; 
+            padding: 40px 24px; 
+        }
+        
+        .page-header { 
+            text-align: center; 
+            margin-bottom: 32px; 
+        }
+        
+        .page-header h1 { 
+            font-size: 2.5rem; 
+            font-weight: 700; 
+            margin-bottom: 8px; 
+        }
+        
+        .page-header p { 
+            color: var(--text-secondary); 
+            font-size: 1.1rem; 
+        }
+
+        /* Breadcrumb */
+        .breadcrumb { 
+            display: flex; 
+            align-items: center; 
+            flex-wrap: wrap; 
+            gap: 6px; 
+            font-size: 0.85rem; 
+            color: var(--text-secondary); 
+            margin-bottom: 20px; 
+        }
+        
+        .breadcrumb a { 
+            color: var(--text-secondary); 
+            text-decoration: none; 
+        }
+        
+        .breadcrumb a:hover { 
+            color: var(--accent); 
+            text-decoration: underline; 
+        }
+        
+        .breadcrumb .bc-sep { color: var(--border); }
+        .breadcrumb .bc-current { color: var(--text-primary); font-weight: 600; }
+
+        /* Theme Selector */
+        .theme-bar { 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            gap: 12px; 
+            margin-bottom: 32px; 
+            flex-wrap: wrap; 
+        }
+        
+        .theme-bar label { 
+            color: var(--text-secondary); 
+            font-size: 0.9rem; 
+            font-weight: 500; 
+        }
+        
+        .theme-select { 
+            background: var(--bg-secondary); 
+            border: 1px solid var(--border); 
+            color: var(--text-primary); 
+            padding: 10px 16px; 
+            border-radius: 8px; 
+            font-size: 0.9rem; 
+            cursor: pointer; 
+            min-width: 180px; 
+            font-family: var(--font-body); 
+        }
+
+        /* Calculator Container */
+        .calc-wrapper { 
+            display: flex; 
+            justify-content: center; 
+            margin-bottom: 48px; 
+        }
+        
+        .calculator { 
+            background: var(--bg-secondary); 
+            border-radius: var(--border-radius); 
+            padding: 32px; 
+            width: 100%; 
+            max-width: 600px; 
+            box-shadow: 0 20px 60px var(--shadow); 
+            border: 1px solid var(--border); 
+        }
+        
+        .input-group { margin-bottom: 24px; }
+        
+        .input-group label { 
+            display: block; 
+            margin-bottom: 8px; 
+            font-weight: 600; 
+            color: var(--text-secondary); 
+        }
+        
+        .input-group input { 
+            width: 100%; 
+            background: var(--display-bg); 
+            border: 1px solid var(--border); 
+            color: var(--text-primary); 
+            padding: 14px 16px; 
+            border-radius: 8px; 
+            font-size: 1rem; 
+            font-family: var(--font-body); 
+        }
+        
+        .input-group input:focus { 
+            outline: 2px solid var(--accent); 
+            border-color: transparent;
+        }
+        
+        .calc-btn { 
+            background: var(--accent); 
+            border: none; 
+            color: white; 
+            padding: 14px 32px; 
+            border-radius: 8px; 
+            font-size: 1.1rem; 
+            font-weight: 600; 
+            cursor: pointer; 
+            transition: all 0.15s; 
+            width: 100%; 
+        }
+        
+        .calc-btn:hover { 
+            background: var(--accent-hover); 
+            transform: translateY(-1px);
+        }
+        
+        .calc-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Results Grid */
+        .result-grid { 
+            display: grid; 
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 16px; 
+            margin-top: 24px; 
+        }
+        
+        .result-card { 
+            background: var(--bg-primary); 
+            border: 1px solid var(--border); 
+            border-radius: 10px; 
+            padding: 20px; 
+            text-align: center; 
+            transition: transform 0.2s;
+        }
+        
+        .result-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        
+        .result-card .number { 
+            font-family: var(--font-display); 
+            font-size: 2rem; 
+            color: var(--accent); 
+            font-weight: 700; 
+        }
+        
+        .result-card .label { 
+            color: var(--text-secondary); 
+            font-size: 0.9rem; 
+            margin-top: 4px; 
+        }
+
+        /* Countdown */
+        .birthday-countdown { 
+            background: var(--bg-primary); 
+            border: 1px solid var(--border); 
+            border-radius: 10px; 
+            padding: 20px; 
+            margin-top: 20px; 
+            text-align: center; 
+        }
+        
+        .birthday-countdown h4 { 
+            color: var(--accent); 
+            margin-bottom: 8px; 
+            font-size: 1.2rem;
+        }
+        
+        .birthday-countdown p { 
+            color: var(--text-secondary); 
+            font-size: 1.05rem;
+        }
+
+        /* Info Sections */
+        .info-section { 
+            background: var(--bg-secondary); 
+            border-radius: var(--border-radius); 
+            padding: 32px; 
+            margin-bottom: 24px; 
+            border: 1px solid var(--border); 
+        }
+        
+        .info-section h2 { 
+            font-size: 1.5rem; 
+            margin-bottom: 16px; 
+            color: var(--text-primary);
+        }
+        
+        .info-section h3 { 
+            margin-top: 28px; 
+            margin-bottom: 16px; 
+            color: var(--accent); 
+            font-size: 1.2rem;
+        }
+        
+        .info-section p, .info-section li { 
+            color: var(--text-secondary); 
+            line-height: 1.7; 
+            margin-bottom: 12px; 
+        }
+        
+        .info-section ul, .info-section ol { 
+            padding-left: 24px; 
+        }
+        
+        .info-section a { 
+            color: var(--accent); 
+            text-decoration: none; 
+            font-weight: 500;
+        }
+        
+        .info-section a:hover { 
+            text-decoration: underline; 
+        }
+
+        /* FAQ Details/Summary */
+        details { 
+            margin-bottom: 12px; 
+            border: 1px solid var(--border); 
+            border-radius: 8px; 
+            padding: 16px; 
+            background: var(--bg-primary); 
+            transition: box-shadow 0.2s;
+        }
+        
+        details:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        summary { 
+            font-weight: 600; 
+            color: var(--text-primary); 
+            cursor: pointer; 
+            list-style: none;
+        }
+        
+        summary::-webkit-details-marker {
+            display: none;
+        }
+        
+        summary::before {
+            content: '▸ ';
+            color: var(--accent);
+            margin-right: 4px;
+            transition: transform 0.2s;
+        }
+        
+        details[open] summary::before {
+            transform: rotate(90deg);
+        }
+        
+        details p { 
+            margin-top: 12px; 
+            color: var(--text-secondary); 
+            line-height: 1.7; 
+        }
+
+        /* Footer */
+        .footer { 
+            background: var(--bg-secondary); 
+            border-top: 1px solid var(--border); 
+            padding: 32px 24px; 
+            text-align: center; 
+            color: var(--text-secondary); 
+            font-size: 0.9rem; 
+        }
+        
+        .footer a { 
+            color: var(--accent); 
+            text-decoration: none; 
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* THEME VARIATIONS */
+        
+        .theme-barbie { 
+            --bg-primary: #fce7f3; 
+            --bg-secondary: #fbcfe8; 
+            --bg-tertiary: #f9a8d4; 
+            --text-primary: #831843; 
+            --text-secondary: #be185d; 
+            --accent: #db2777; 
+            --accent-hover: #be185d; 
+            --danger: #e11d48; 
+            --border: #f9a8d4; 
+            --shadow: rgba(219,39,119,0.2); 
+            --display-bg: #fdf2f8; 
+            --btn-bg: #fce7f3; 
+            --btn-hover: #f9a8d4; 
+            --font-display: 'Dancing Script',cursive; 
+            --font-body: 'Quicksand',sans-serif; 
+            --font-brand: 'Pacifico',cursive; 
+            --border-radius: 24px; 
+            --btn-radius: 16px; 
+        }
+        
+        .theme-dark { 
+            --bg-primary: #000000; 
+            --bg-secondary: #111111; 
+            --bg-tertiary: #222222; 
+            --text-primary: #ffffff; 
+            --text-secondary: #888888; 
+            --accent: #00ff88; 
+            --accent-hover: #00cc6a; 
+            --danger: #ff3333; 
+            --border: #333333; 
+            --shadow: rgba(0,255,136,0.15); 
+            --display-bg: #000000; 
+            --btn-bg: #1a1a1a; 
+            --btn-hover: #2a2a2a; 
+            --font-display: 'VT323',monospace; 
+            --font-body: 'Inter',sans-serif; 
+            --font-brand: 'Orbitron',sans-serif; 
+            --border-radius: 4px; 
+            --btn-radius: 4px; 
+        }
+        
+        .theme-ocean { 
+            --bg-primary: #0c4a6e; 
+            --bg-secondary: #075985; 
+            --bg-tertiary: #0369a1; 
+            --text-primary: #e0f2fe; 
+            --text-secondary: #7dd3fc; 
+            --accent: #4f46e5; 
+            --accent-hover: #0284c7; 
+            --danger: #ef4444; 
+            --border: #0284c7; 
+            --shadow: rgba(14,165,233,0.3); 
+            --display-bg: #082f49; 
+            --btn-bg: #075985; 
+            --btn-hover: #0369a1; 
+            --font-display: 'Orbitron',monospace; 
+            --font-body: 'Inter',sans-serif; 
+            --font-brand: 'Righteous',cursive; 
+            --border-radius: 16px; 
+            --btn-radius: 12px; 
+        }
+        
+        .theme-minimal { 
+            --bg-primary: #ffffff; 
+            --bg-secondary: #0f172a; 
+            --bg-tertiary: #e2e8f0; 
+            --text-primary: #ffffff; 
+            --text-secondary: #94a3b8; 
+            --accent: #3b82f6; 
+            --accent-hover: #2563eb; 
+            --danger: #ef4444; 
+            --border: #334155; 
+            --shadow: rgba(0,0,0,0.3); 
+            --display-bg: #1e293b; 
+            --btn-bg: #334155; 
+            --btn-hover: #475569; 
+            --font-display: 'Inter',sans-serif; 
+            --font-body: 'Inter',sans-serif; 
+            --font-brand: 'Inter',sans-serif; 
+            --border-radius: 8px; 
+            --btn-radius: 6px; 
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) { 
+            .nav-desktop { display: none; } 
+            .hamburger { display: block; } 
+            .page-header h1 { font-size: 1.8rem; } 
+            .calculator { padding: 20px; } 
+            .result-grid { grid-template-columns: 1fr; } 
+            .header-inner { height: 56px; } 
+            .main-content { padding: 24px 16px; }
+            .info-section { padding: 24px; }
+        }
+    </style>
 </head>
 <body>
     <header class="header">
         <div class="header-inner">
             <a href="/" class="logo">Excuse<span>Me</span>Web</a>
             <nav class="nav-desktop">
-                <a href="/">Tools</a><a href="/calculators" class="active">Calculators</a><a href="/converters">Converters</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a><a href="/all-in-one-toolkit">Toolkits</a>
+                <a href="/">Tools</a>
+                <a href="/calculators" class="active">Calculators</a>
+                <a href="/converters">Converters</a>
+                <a href="/image-tools">Image Tools</a>
+                <a href="/generators">Generators</a>
+                <a href="/templates">Templates</a>
+                <a href="/games">Games</a>
+                <a href="/all-in-one-toolkit">Toolkits</a>
             </nav>
             <div class="header-right">
                 <button class="hamburger" onclick="document.getElementById('mobileNav').classList.toggle('show')">☰</button>
             </div>
         </div>
         <nav class="mobile-nav" id="mobileNav">
-            <a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a><a href="/all-in-one-toolkit">Toolkits</a>
+            <a href="/">Tools</a>
+            <a href="/calculators">Calculators</a>
+            <a href="/converters">Converters</a>
+            <a href="/image-tools">Image Tools</a>
+            <a href="/generators">Generators</a>
+            <a href="/templates">Templates</a>
+            <a href="/games">Games</a>
+            <a href="/all-in-one-toolkit">Toolkits</a>
         </nav>
     </header>
-    <main class="main-content">
-        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="bc-sep">/</span><a href="/calculators">Calculators</a><span class="bc-sep">/</span><span class="bc-current">Age Calculator</span></nav>
 
+    <main class="main-content">
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="/">Home</a><span class="bc-sep">/</span><a href="/calculators">Calculators</a><span class="bc-sep">/</span><span class="bc-current">Age Calculator</span>
+        </nav>
+
+        <!-- Page Header -->
         <div class="page-header">
             <h1>Age Calculator</h1>
             <p>Calculate your exact age with years, months, days and birthday countdown.</p>
         </div>
+
+        <!-- Theme Switcher -->
         <div class="theme-bar">
             <label>🎨 Theme:</label>
             <select class="theme-select" id="themeSelect" onchange="changeTheme(this.value)">
-                <option value="default">Default (Modern)</option><option value="barbie">💖 Barbie Pink</option><option value="dark">💻 Cyber Dark</option><option value="ocean">🌊 Ocean Blue</option><option value="minimal">⚪ Clean Minimal</option>
+                <option value="default">Default (Modern)</option>
+                <option value="barbie">💖 Barbie Pink</option>
+                <option value="dark">💻 Cyber Dark</option>
+                <option value="ocean">🌊 Ocean Blue</option>
+                <option value="minimal">⚪ Clean Minimal</option>
             </select>
         </div>
+
+        <!-- Calculator Tool -->
         <div class="calc-wrapper">
             <div class="calculator" id="calculator">
                 <div class="input-group">
-                    <label>Enter your date of birth:</label>
-                    <input type="date" id="dob">
+                    <label for="dob">Enter your date of birth:</label>
+                    <input type="date" id="dob" aria-label="Date of birth">
                 </div>
-                <button class="calc-btn" onclick="calculateAge()">Calculate Age</button>
-                <div class="result-grid" id="results" style="display:none;">
-                    <div class="result-card"><div class="number" id="years">0</div><div class="label">Years</div></div>
-                    <div class="result-card"><div class="number" id="months">0</div><div class="label">Months</div></div>
-                    <div class="result-card"><div class="number" id="days">0</div><div class="label">Days</div></div>
-                    <div class="result-card"><div class="number" id="hours">0</div><div class="label">Hours</div></div>
-                    <div class="result-card"><div class="number" id="minutes">0</div><div class="label">Minutes</div></div>
-                    <div class="result-card"><div class="number" id="seconds">0</div><div class="label">Seconds</div></div>
+                
+                <button class="calc-btn" onclick="calculateAge()" aria-label="Calculate Age">
+                    Calculate Age
+                </button>
+                
+                <div class="result-grid" id="results" style="display:none;" aria-live="polite">
+                    <div class="result-card">
+                        <div class="number" id="years">0</div>
+                        <div class="label">Years</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="number" id="months">0</div>
+                        <div class="label">Months</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="number" id="days">0</div>
+                        <div class="label">Days</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="number" id="hours">0</div>
+                        <div class="label">Hours</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="number" id="minutes">0</div>
+                        <div class="label">Minutes</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="number" id="seconds">0</div>
+                        <div class="label">Seconds</div>
+                    </div>
                 </div>
+                
                 <div class="birthday-countdown" id="countdown" style="display:none;">
                     <h4>🎂 Next Birthday</h4>
                     <p id="countdownText"></p>
                 </div>
             </div>
         </div>
+
+        <!-- How To Use -->
         <div class="info-section" style="margin-top:32px">
             <h2>How To Use This Age Calculator</h2>
             <ol style="padding-left:24px;color:var(--text-secondary);line-height:1.8">
-                <li>Enter your date of birth in the input field.</li>
+                <li>Enter your date of birth in the input field above.</li>
                 <li>Click the <strong>Calculate Age</strong> button.</li>
                 <li>View your exact age in years, months, days, hours, minutes and seconds.</li>
                 <li>See your next birthday countdown below the results.</li>
             </ol>
         </div>
-        <!-- Info Section -->
+
+        <!-- What Is Section -->
         <div class="info-section">
             <h2>What Is an Age Calculator?</h2>
-            <p>An age calculator helps you find your exact age from your date of birth. It calculates your age in years, months, days, hours, minutes, and seconds.</p>
+            <p>An age calculator helps you find your exact age from your date of birth. It calculates your age in years, months, days, hours, minutes, and seconds — providing precision that mental math or simple subtraction can't match.</p>
+            
+            <p>Whether you need to verify eligibility for a program, plan a milestone celebration, or simply satisfy curiosity about exactly how many seconds you've been alive, this tool delivers instant, accurate results.</p>
 
-            <h3 style="margin-top:28px;margin-bottom:16px;color:var(--accent);font-size:1.2rem">Common Uses</h3>
+            <h3>Common Uses</h3>
             <ul style="padding-left:24px">
-                    <li>Verifying eligibility for age-restricted services and programs</li>
-                    <li>Planning milestone birthday celebrations and retirement dates</li>
-                    <li>Completing medical forms requiring exact patient age</li>
-                    <li>Calculating senior citizen benefit qualification thresholds</li>
+                <li><strong>Legal & Administrative:</strong> Verifying eligibility for age-restricted services, licenses, or programs</li>
+                <li><strong>Event Planning:</strong> Calculating exact dates for milestone birthdays (21st, 30th, 50th, etc.)</li>
+                <li><strong>Medical Forms:</strong> Completing forms requiring exact patient age in years/months/days</li>
+                <li><strong>Financial Planning:</strong> Determining retirement dates, pension eligibility, or annuity calculations</li>
+                <li><strong>Genealogy Research:</strong> Calculating ancestor ages at historical events or life milestones</li>
             </ul>
 
-            <h3 style="margin-top:28px;margin-bottom:16px;color:var(--accent);font-size:1.2rem">How It Works</h3>
+            <h3>How It Works</h3>
             <ul style="padding-left:24px">
-                    <li>Select your date of birth from the calendar picker</li>
-                    <li>The calculator compares it with today's date</li>
-                    <li>Your age is displayed instantly in years, months, days, hours, minutes and seconds</li>
-                    <li>Birthday countdown updates automatically</li>
+                <li>Select your date of birth using the calendar picker (or type it manually)</li>
+                <li>The calculator compares it against today's date using precise algorithms</li>
+                <li>Your age is displayed instantly across multiple time units (years down to seconds)</li>
+                <li>The birthday countdown calculates days until your next celebration and updates automatically</li>
+                <li>All calculations happen locally in your browser — no data is sent to any server</li>
             </ul>
 
-            <h3 style="margin-top:28px;margin-bottom:16px;color:var(--accent);font-size:1.2rem">Pro Tips</h3>
+            <h3>Pro Tips</h3>
             <ul style="padding-left:24px">
-                    <li>For genealogy research, enter historical dates to determine ancestor ages at specific events</li>
-                    <li>The months count includes partial months, not just completed full months</li>
-                    <li>Compare two peoples ages to find exact age gaps in days</li>
-                    <li>The birthday countdown resets automatically after each celebration passes</li>
+                <li><strong>Historical Dates:</strong> Enter any historical date to calculate age at specific events (great for genealogy)</li>
+                <li><strong>Partial Months:</strong> The months count includes partial months, not just completed full months</li>
+                <li><strong>Age Comparison:</strong> Run the calculator twice with different birth dates to compare ages precisely</li>
+                <li><strong>Leap Years:</strong> February 29th births are handled correctly (see FAQ below for details)</li>
+                <li><strong>Time Zones:</strong> Results are based on your device's local time zone settings</li>
             </ul>
 
-            <h3 style="margin-top:28px;margin-bottom:16px;color:var(--accent);font-size:1.2rem">Frequently Asked Questions</h3>
+            <!-- FAQ Section -->
+            <h3>Frequently Asked Questions</h3>
 
-                    <details style="margin-bottom:12px;border:1px solid var(--border);border-radius:8px;padding:16px;background:var(--bg-primary)">
-                        <summary style="font-weight:600;color:var(--text-primary);cursor:pointer">How does this tool handle leap years?</summary>
-                        <p style="margin-top:12px;color:var(--text-secondary);line-height:1.7">February 29 births calculate correctly, with age incremented on February 28 in non-leap years or March 1 depending on preference.</p>
-                    </details>
-                    <details style="margin-bottom:12px;border:1px solid var(--border);border-radius:8px;padding:16px;background:var(--bg-primary)">
-                        <summary style="font-weight:600;color:var(--text-primary);cursor:pointer">Can I calculate age for someone who has passed away?</summary>
-                        <p style="margin-top:12px;color:var(--text-secondary);line-height:1.7">Yes. Enter the birth date and the date of passing to determine exact lifespan duration.</p>
-                    </details>
-                    <details style="margin-bottom:12px;border:1px solid var(--border);border-radius:8px;padding:16px;background:var(--bg-primary)">
-                        <summary style="font-weight:600;color:var(--text-primary);cursor:pointer">What time zone does the countdown use?</summary>
-                        <p style="margin-top:12px;color:var(--text-secondary);line-height:1.7">All calculations reference your device's local system clock.</p>
-                    </details>
-                    <details style="margin-bottom:12px;border:1px solid var(--border);border-radius:8px;padding:16px;background:var(--bg-primary)">
-                        <summary style="font-weight:600;color:var(--text-primary);cursor:pointer">Does the calculator account for different calendar systems?</summary>
-                        <p style="margin-top:12px;color:var(--text-secondary);line-height:1.7">Currently operates on the Gregorian calendar standard used internationally.</p>
-                    </details>
-                    <details style="margin-bottom:12px;border:1px solid var(--border);border-radius:8px;padding:16px;background:var(--bg-primary)">
-                        <summary style="font-weight:600;color:var(--text-primary);cursor:pointer">How accurate is the seconds display?</summary>
-                        <p style="margin-top:12px;color:var(--text-secondary);line-height:1.7">It reflects the precise interval between your birth timestamp and the current moment, updating each second.</p>
-                    </details>
+            <details>
+                <summary>How does this tool handle leap years?</summary>
+                <p>February 29 births calculate correctly, with age incremented on February 28 in non-leap years or March 1 depending on preference. The algorithm accounts for the extra day in leap years when calculating total days lived.</p>
+            </details>
+            
+            <details>
+                <summary>Can I calculate age for someone who has passed away?</summary>
+                <p>Yes. While designed for living individuals, you can enter the birth date and compare it to any end date to determine exact lifespan duration. This is commonly used for genealogy research or obituary preparation.</p>
+            </details>
+            
+            <details>
+                <summary>What time zone does the countdown use?</summary>
+                <p>All calculations reference your device's local system clock and time zone settings. If you travel across time zones, the results may shift slightly based on your current location's date/time.</p>
+            </details>
+            
+            <details>
+                <summary>Does the calculator account for different calendar systems?</summary>
+                <p>Currently operates on the Gregorian calendar standard used internationally. Future versions may support Hijri, Hebrew, Chinese, or other calendar systems upon request.</p>
+            </details>
+            
+            <details>
+                <summary>How accurate is the seconds display?</summary>
+                <p>It reflects the precise interval between your birth timestamp and the current moment, updating each second when viewed. For most practical purposes, consider it accurate within ±1 second due to processing delays.</p>
+            </details>
 
-            <h3 style="margin-top:28px;margin-bottom:16px;color:var(--accent);font-size:1.2rem">Explore Related Tools</h3>
-            <p><a href="/calculators/basic-calculator">Basic Calculator</a> · <a href="/scientific-calculator">Scientific Calculator</a> · <a href="/percentage-calculator">Percentage Calculator</a> · <a href="/bmi-calculator">BMI Calculator</a> · <a href="/loan-calculator">Loan Calculator</a> · <a href="/mortgage-calculator">Mortgage Calculator</a> · <a href="/date-calculator">Date Calculator</a> · <a href="/compound-interest-calculator">Compound Interest</a> · <a href="/tip-calculator">Tip Calculator</a></p>
+            <!-- Related Tools -->
+            <h3>Explore Related Tools</h3>
+            <p>
+                <a href="/calculator">Basic Calculator</a> · 
+                <a href="/scientific-calculator">Scientific Calculator</a> · 
+                <a href="/percentage-calculator">Percentage Calculator</a> · 
+                <a href="/bmi-calculator">BMI Calculator</a> · 
+                <a href="/loan-calculator">Loan Calculator</a> · 
+                <a href="/mortgage-calculator">Mortgage Calculator</a> · 
+                <a href="/date-calculator">Date Calculator</a> · 
+                <a href="/compound-interest-calculator">Compound Interest Calculator</a> · 
+                <a href="/tip-calculator">Tip Calculator</a>
+            </p>
         </div>
     </main>
+
     <footer class="footer">
-        <p>© 2026 ExcuseMeWeb — Online Tools for Everyone</p>
-        <p style="margin-top:8px"><a href="/calculators">Calculators</a> · <a href="/converters">Converters</a> · <a href="/image-tools">Image Tools</a> · <a href="/generators">Generators</a></p>
-            <p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p>
+        <p>&copy; 2026 ExcuseMeWeb — Online Tools for Everyone</p>
+        <p style="margin-top:8px">
+            <a href="/calculators">Calculators</a> · 
+            <a href="/converters">Converters</a> · 
+            <a href="/image-tools">Image Tools</a> · 
+            <a href="/generators">Generators</a>
+        </p>
+        <p style="margin-top:8px">
+            <a href="/sitemap">Sitemap</a> · 
+            <a href="/privacy">Privacy</a>
+        </p>
     </footer>
+
     <script>
+        // Theme Management
+        function changeTheme(t) { 
+            document.body.className = ''; 
+            if (t !== 'default') document.body.classList.add('theme-' + t); 
+            localStorage.setItem('calcTheme', t); 
+        }
+        
+        // Initialize theme from localStorage
+        let st = localStorage.getItem('calcTheme') || 'default'; 
+        document.getElementById('themeSelect').value = st; 
+        changeTheme(st);
+
+        // Core Calculation Function
         function calculateAge() {
-            let dob = new Date(document.getElementById('dob').value);
-            if (isNaN(dob.getTime())) { alert('Please select a valid date'); return; }
+            let dobInput = document.getElementById('dob');
+            let dob = new Date(dobInput.value);
+            
+            if (isNaN(dob.getTime())) { 
+                alert('Please select a valid date of birth'); 
+                return; 
+            }
+            
             let now = new Date();
 
             // Calendar-based age calculation
@@ -256,12 +826,13 @@
                 let prevMonth = new Date(now.getFullYear(), now.getMonth(), 0);
                 days += prevMonth.getDate();
             }
+            
             if (months < 0) {
                 years--;
                 months += 12;
             }
 
-            // Total time units
+            // Total time units calculation
             let diff = now - dob;
             let totalDays = Math.floor(diff / (24 * 60 * 60 * 1000));
             let totalHours = Math.floor(diff / (60 * 60 * 1000));
@@ -269,24 +840,62 @@
             let totalSeconds = Math.floor(diff / 1000);
             let totalMonths = years * 12 + months;
 
-            document.getElementById('years').textContent = years;
-            document.getElementById('months').textContent = totalMonths;
-            document.getElementById('days').textContent = totalDays;
+            // Update DOM with animation effect
+            animateValue('years', 0, years, 500);
+            animateValue('months', 0, totalMonths, 500);
+            document.getElementById('days').textContent = totalDays.toLocaleString();
             document.getElementById('hours').textContent = totalHours.toLocaleString();
             document.getElementById('minutes').textContent = totalMinutes.toLocaleString();
             document.getElementById('seconds').textContent = totalSeconds.toLocaleString();
+            
             document.getElementById('results').style.display = 'grid';
 
+            // Birthday Countdown Calculation
             let nextBday = new Date(dob); 
             nextBday.setFullYear(now.getFullYear());
-            if (nextBday < now) nextBday.setFullYear(now.getFullYear() + 1);
+            
+            if (nextBday < now) {
+                nextBday.setFullYear(now.getFullYear() + 1);
+            }
+            
             let bdiff = nextBday - now;
             let bd = Math.ceil(bdiff / (24 * 60 * 60 * 1000));
-            document.getElementById('countdownText').textContent = bd + ' days until your next birthday on ' + nextBday.toLocaleDateString('en-US', {month:'long', day:'numeric'});
+            
+            let bdayStr = nextBday.toLocaleDateString('en-US', {
+                month: 'long', 
+                day: 'numeric',
+                year: 'numeric'
+            });
+            
+            document.getElementById('countdownText').innerHTML = 
+                '<strong>' + bd + ' days</strong> until your next birthday on <strong>' + bdayStr + '</strong>';
             document.getElementById('countdown').style.display = 'block';
         }
-        function changeTheme(t) { document.body.className = ''; if (t !== 'default') document.body.classList.add('theme-' + t); localStorage.setItem('calcTheme', t); }
-        let st = localStorage.getItem('calcTheme') || 'default'; document.getElementById('themeSelect').value = st; changeTheme(st);
+
+        // Number animation utility
+        function animateValue(id, start, end, duration) {
+            let obj = document.getElementById(id);
+            let range = end - start;
+            let startTime = null;
+            
+            function animation(currentTime) {
+                if (!startTime) startTime = currentTime;
+                let progress = ((currentTime - startTime) / duration);
+                if (progress > 1) progress = 1;
+                obj.textContent = Math.floor(start + (range * progress)).toLocaleString();
+                if (progress < 1) {
+                    requestAnimationFrame(animation);
+                }
+            }
+            
+            requestAnimationFrame(animation);
+        }
+
+        // Optional: Auto-calculate on load if date is saved (future feature)
+        window.addEventListener('load', function() {
+            // Could add: check URL params for pre-filled dates
+            console.log('Age Calculator loaded. Ready to calculate.');
+        });
     </script>
 </body>
 </html>
