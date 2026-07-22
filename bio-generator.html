@@ -3,25 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bio Generator - Generate Social Media Bios Free | ExcuseMeWeb</title>
-    <meta name="description" content="Generate short social media bio ideas based on your vibe and interests. Free, instant, no sign-up needed.">
+    <title>Social Media Bio Generator - Instagram, X, LinkedIn & TikTok | ExcuseMeWeb</title>
+    <meta name="description" content="Generate creative social media bios for Instagram, X, LinkedIn, and TikTok. Choose your vibe, add interests, get instant copyable results. Free tool.">
     <meta name="robots" content="index, follow">
-    <meta property="og:title" content="Bio Generator - Generate Social Media Bios Free | ExcuseMeWeb">
-    <meta property="og:description" content="Generate short social media bio ideas based on your vibe and interests. Free, instant, no sign-up needed.">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://excusemeweb.com/og-image.png">
-    <meta name="twitter:card" content="summary_large_image">
     <link rel="canonical" href="https://excusemeweb.com/bio-generator">
     <link rel="icon" href="/favicon.ico">
     <meta name="theme-color" content="#ffffff">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Social Media Bio Generator - Instagram, X, LinkedIn & TikTok | ExcuseMeWeb">
+    <meta property="og:description" content="Generate creative social media bios for Instagram, X, LinkedIn, TikTok. Multiple styles, instant results. Free tool.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://excusemeweb.com/og-image.png">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Bio Generator for Social Media - Instagram, X, LinkedIn | ExcuseMeWeb">
+    <meta name="twitter:description" content="Generate bios for Instagram, X, LinkedIn, TikTok. Professional, playful, creative, minimal styles.">
 
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Schema: WebApplication -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebApplication",
-      "name": "Bio Generator",
+      "name": "Social Media Bio Generator",
       "url": "https://excusemeweb.com/bio-generator",
-      "description": "Generate short social media bio ideas based on your vibe and interests. Free, instant, no sign-up needed.",
+      "description": "Generate creative social media bios for Instagram, X, LinkedIn, TikTok with different vibes and personalization options.",
       "applicationCategory": "UtilitiesApplication",
       "operatingSystem": "All",
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
@@ -30,120 +42,418 @@
     }
     </script>
 
+    <!-- Schema: FAQPage -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": [
-        { "@type": "Question", "name": "Which platforms can I use these bios on?", "acceptedAnswer": { "@type": "Answer", "text": "They're short enough to fit most bio fields, including Instagram, X, TikTok, and LinkedIn." } },
-        { "@type": "Question", "name": "Can I combine parts from two different bios?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, feel free to mix and edit the results into something that fits you best." } },
-        { "@type": "Question", "name": "What if I don't provide an interest?", "acceptedAnswer": { "@type": "Answer", "text": "The tool falls back to a generic phrase so you still get a usable bio." } },
-        { "@type": "Question", "name": "Does this tool post anything to my profile?", "acceptedAnswer": { "@type": "Answer", "text": "No, it only generates text for you to copy and paste yourself." } }
+        { "@type": "Question", "name": "How long should my Instagram bio be?", "acceptedAnswer": { "@type": "Answer", "text": "Instagram allows 150 characters. The best bios use all of it while being clear about who you are and what you post." } },
+        { "@type": "Question", "name": "What's the difference between a bio and an introduction?", "acceptedAnswer": { "@type": "Answer", "text": "A bio is a short description of who you are (usually one sentence or phrase). An introduction can be longer and may include your background story or mission." } },
+        { "@type": "Question", "name": "Should I use emojis in my professional bio?", "acceptedAnswer": { "@type": "Answer", "text": "For creative fields, yes. For conservative industries (law, finance), use sparingly or not at all. Match the norms of your specific profession." } },
+        { "@type": "Question", "name": "Can I use these bios for dating apps?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Many of our templates work well for Tinder, Bumble, Hinge, and similar apps. Choose 'Playful' or 'Creative' vibe for best results." } }
       ]
+    }
+    </script>
+
+    <!-- Schema: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://excusemeweb.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Generators", "item": "https://excusemeweb.com/generators" },
+            { "@type": "ListItem", "position": 3, "name": "Bio Generator", "item": "https://excusemeweb.com/bio-generator" }
+        ]
     }
     </script>
 
     <style>
         :root {
-            --bg-primary: #ffffff; --bg-secondary: #f8fafc; --bg-tertiary: #f1f5f9;
-            --text-primary: #0f172a; --text-secondary: #64748b; --accent: #6366f1;
-            --accent-hover: #4f46e5; --danger: #ef4444; --success: #22c55e; --border: #e2e8f0;
-            --shadow: rgba(0,0,0,0.08); --font-body: 'Inter', sans-serif; --font-brand: 'Inter', sans-serif;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-tertiary: #f1f5f9;
+            --text-primary: #0f172a;
+            --text-secondary: #64748b;
+            --accent: #6366f1;
+            --accent-hover: #4f46e5;
+            --border: #e2e8f0;
+            --shadow: rgba(0,0,0,0.08);
+            --font-body: 'Inter', sans-serif;
+            --font-brand: 'Inter', sans-serif;
             --border-radius: 12px;
         }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: var(--font-body); background: var(--bg-primary); color: var(--text-primary); min-height: 100vh; display: flex; flex-direction: column; }
-        .header { background: var(--bg-secondary); border-bottom: 1px solid var(--border); padding: 0 24px; position: sticky; top: 0; z-index: 1000; }
-        .header-inner { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
-        .logo { font-family: var(--font-brand); font-size: 1.5rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+
+        body { 
+            font-family: var(--font-body); 
+            background: var(--bg-primary); 
+            color: var(--text-primary); 
+            min-height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+        }
+
+        .header { 
+            background: var(--bg-secondary); 
+            border-bottom: 1px solid var(--border); 
+            padding: 0 24px; 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+        }
+
+        .header-inner { 
+            max-width: 1400px; 
+            margin: 0 auto; 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            height: 64px; 
+        }
+
+        .logo { 
+            font-size: 1.5rem; 
+            font-weight: 700; 
+            color: var(--accent); 
+            text-decoration: none; 
+        }
+
         .logo span { color: var(--text-primary); }
-        .nav-desktop { display: flex; gap: 32px; }
-        .nav-desktop a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+
+        .nav-desktop { display: flex; gap: 28px; }
+        
+        .nav-desktop a { 
+            color: var(--text-secondary); 
+            text-decoration: none; 
+            font-size: 0.9rem; 
+            font-weight: 500; 
+            transition: color 0.2s; 
+            white-space: nowrap; 
+        }
+
         .nav-desktop a:hover { color: var(--accent); }
         .nav-desktop a.active { color: var(--accent); }
-        .header-right { display: flex; align-items: center; gap: 16px; }
-        .hamburger { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
-        .mobile-nav { display: none; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-secondary); border-bottom: 1px solid var(--border); padding: 16px 24px; flex-direction: column; gap: 16px; }
+
+        .hamburger { 
+            display: none; 
+            background: none; 
+            border: none; 
+            color: var(--text-primary); 
+            font-size: 1.5rem; 
+            cursor: pointer; 
+        }
+
+        .mobile-nav { 
+            display: none; 
+            position: absolute; 
+            top: 64px; 
+            left: 0; 
+            right: 0; 
+            background: var(--bg-secondary); 
+            border-bottom: 1px solid var(--border); 
+            padding: 16px 24px; 
+            flex-direction: column; 
+            gap: 16px; 
+        }
+
         .mobile-nav.show { display: flex; }
         .mobile-nav a { color: var(--text-secondary); text-decoration: none; font-size: 1rem; font-weight: 500; }
-        .main-content { flex: 1; max-width: 900px; width: 100%; margin: 0 auto; padding: 40px 24px; }
-        .page-header { text-align: center; margin-bottom: 32px; }
-        .page-header h1 { font-size: 2.1rem; font-weight: 700; margin-bottom: 8px; }
-        .page-header p { color: var(--text-secondary); font-size: 1.05rem; max-width: 640px; margin: 0 auto; }
-        .tool-panel { background: var(--bg-secondary); border-radius: var(--border-radius); padding: 28px; margin-bottom: 40px; border: 1px solid var(--border); }
-        .controls-row { display: flex; flex-wrap: wrap; gap: 16px; align-items: end; margin-bottom: 18px; }
-        .field { display: flex; flex-direction: column; gap: 6px; }
-        .field label { font-size: 0.82rem; color: var(--text-secondary); font-weight: 600; }
-        .field input[type=number], .field input[type=text], .field select, .field textarea { background: var(--bg-primary); border: 1px solid var(--border); color: var(--text-primary); padding: 9px 12px; border-radius: 8px; font-size: 0.95rem; width: 150px; font-family: inherit; }
-        .field textarea { width: 100%; min-height: 90px; resize: vertical; }
-        .field input[type=range] { width: 180px; }
-        .chk-field { display: flex; align-items: center; gap: 8px; font-size: 0.88rem; color: var(--text-secondary); }
-        .chk-row { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 18px; }
-        .btn { background: var(--accent); color: #ffffff; border: none; padding: 11px 22px; border-radius: 8px; font-weight: 700; font-size: 0.95rem; cursor: pointer; transition: background .15s; }
-        .btn:hover { background: var(--accent-hover); }
-        .btn.secondary { background: var(--bg-tertiary); color: var(--text-primary); }
-        .btn.secondary:hover { background: var(--border); }
-        .btn:disabled { opacity: 0.5; cursor: not-allowed; }
-        .btn-row { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 18px; }
-        .result-box { background: var(--bg-primary); border: 1px solid var(--border); border-radius: 10px; padding: 18px; font-size: 1.05rem; word-break: break-word; min-height: 24px; }
-        .result-list { display: flex; flex-direction: column; gap: 8px; }
-        .result-item { display: flex; align-items: center; justify-content: space-between; background: var(--bg-primary); border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; font-size: 0.95rem; gap: 10px; }
-        .result-item .copy-mini { background: none; border: none; color: var(--accent); cursor: pointer; font-size: 0.82rem; font-weight: 600; white-space: nowrap; }
-        .swatch-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 14px; }
-        .swatch-card { border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
-        .swatch-card .swatch-color { height: 70px; }
-        .swatch-card .swatch-label { background: var(--bg-primary); padding: 8px; text-align: center; font-size: 0.8rem; font-weight: 600; }
-        .strength-bar { height: 8px; border-radius: 4px; background: var(--bg-tertiary); overflow: hidden; margin-top: 8px; }
-        .strength-fill { height: 100%; width: 0%; background: var(--danger); transition: width .2s, background .2s; }
-        .strength-label { font-size: 0.82rem; color: var(--text-secondary); margin-top: 6px; }
-        .info-section { background: var(--bg-secondary); border-radius: var(--border-radius); padding: 32px; margin-bottom: 24px; border: 1px solid var(--border); }
-        .info-section h2 { font-size: 1.4rem; margin-bottom: 14px; }
-        .info-section h3 { margin-top: 28px; margin-bottom: 14px; color: var(--accent); font-size: 1.1rem; }
-        .info-section p, .info-section li { color: var(--text-secondary); line-height: 1.7; }
-        .info-section a { color: var(--accent); text-decoration: none; }
-        .info-section a:hover { text-decoration: underline; }
-        details { margin-bottom: 10px; border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; background: var(--bg-primary); }
-        summary { font-weight: 600; color: var(--text-primary); cursor: pointer; }
-        details p { margin-top: 10px; margin-bottom: 0; }
-        .footer { background: var(--bg-secondary); border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--text-secondary); font-size: 0.9rem; }
-        .footer a { color: var(--accent); text-decoration: none; }
-        .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(20px); background: var(--text-primary); color: #fff; padding: 10px 18px; border-radius: 8px; font-size: 0.88rem; opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s; z-index: 2000; }
-        .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
-        @media (max-width: 768px) { .nav-desktop { display: none; } .hamburger { display: block; } .page-header h1 { font-size: 1.6rem; } }
-    
-        .breadcrumb { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 20px; }
+        .mobile-nav a.active { color: var(--accent); }
+
+        .main-content { 
+            flex: 1; 
+            max-width: 900px; 
+            width: 100%; 
+            margin: 0 auto; 
+            padding: 40px 24px; 
+        }
+
+        /* Breadcrumb */
+        .breadcrumb { 
+            display: flex; 
+            align-items: center; 
+            flex-wrap: wrap; 
+            gap: 6px; 
+            font-size: 0.85rem; 
+            color: var(--text-secondary); 
+            margin-bottom: 20px; 
+        }
+
         .breadcrumb a { color: var(--text-secondary); text-decoration: none; }
         .breadcrumb a:hover { color: var(--accent); text-decoration: underline; }
         .breadcrumb .bc-sep { color: var(--border); }
         .breadcrumb .bc-current { color: var(--text-primary); font-weight: 600; }
-    </style>
 
-    <script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-        {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://excusemeweb.com/"
-        },
-        {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Generators",
-            "item": "https://excusemeweb.com/generators"
-        },
-        {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "Bio Generator",
-            "item": "https://excusemeweb.com/bio-generator"
+        /* Page Header */
+        .page-header { text-align: center; margin-bottom: 32px; }
+        .page-header h1 { font-size: 2.1rem; font-weight: 700; margin-bottom: 8px; }
+        .page-header p { color: var(--text-secondary); font-size: 1.05rem; max-width: 640px; margin: 0 auto; }
+
+        /* Tool Panel */
+        .tool-panel { 
+            background: var(--bg-secondary); 
+            border-radius: var(--border-radius); 
+            padding: 28px; 
+            margin-bottom: 40px; 
+            border: 1px solid var(--border); 
         }
-    ]
-}
-    </script>
+
+        .controls-row { 
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 16px; 
+            align-items: end; 
+            margin-bottom: 18px; 
+        }
+
+        .field { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 6px; 
+        }
+
+        .field label { 
+            font-size: 0.82rem; 
+            color: var(--text-secondary); 
+            font-weight: 600; 
+        }
+
+        .field select { 
+            background: var(--bg-primary); 
+            border: 1px solid var(--border); 
+            color: var(--text-primary); 
+            padding: 10px 12px; 
+            border-radius: 8px; 
+            font-size: 0.95rem; 
+            width: 200px; 
+            font-family: inherit; 
+            cursor: pointer;
+        }
+
+        .field input[type=text] { 
+            background: var(--bg-primary); 
+            border: 1px solid var(--border); 
+            color: var(--text-primary); 
+            padding: 9px 12px; 
+            border-radius: 8px; 
+            font-size: 0.95rem; 
+            width: 250px; 
+            font-family: inherit; 
+        }
+
+        /* Buttons */
+        .btn { 
+            background: var(--accent); 
+            color: #ffffff; 
+            border: none; 
+            padding: 11px 22px; 
+            border-radius: 8px; 
+            font-weight: 700; 
+            font-size: 0.95rem; 
+            cursor: pointer; 
+            transition: background .15s; 
+        }
+
+        .btn:hover { background: var(--accent-hover); }
+
+        /* Results */
+        .result-list { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 10px; 
+        }
+
+        .result-item { 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            background: var(--bg-primary); 
+            border: 1px solid var(--border); 
+            border-radius: 8px; 
+            padding: 12px 16px; 
+            font-size: 0.95rem; 
+            gap: 12px; 
+            transition: transform 0.15s;
+        }
+
+        .result-item:hover {
+            transform: translateX(3px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .copy-mini { 
+            background: none; 
+            border: none; 
+            color: var(--accent); 
+            cursor: pointer; 
+            font-size: 0.82rem; 
+            font-weight: 600; 
+            white-space: nowrap; 
+            padding: 4px 10px;
+            border-radius: 4px;
+            transition: background 0.15s;
+        }
+
+        .copy-mini:hover {
+            background: var(--accent);
+            color: white;
+        }
+
+        /* Info Section */
+        .info-section { 
+            background: var(--bg-secondary); 
+            border-radius: var(--border-radius); 
+            padding: 32px; 
+            margin-bottom: 24px; 
+            border: 1px solid var(--border); 
+        }
+
+        .info-section h2 { 
+            font-size: 1.4rem; 
+            margin-bottom: 14px; 
+            color: var(--text-primary);
+        }
+
+        .info-section h3 { 
+            margin-top: 28px; 
+            margin-bottom: 14px; 
+            color: var(--accent); 
+            font-size: 1.1rem; 
+        }
+
+        .info-section p, 
+        .info-section li { 
+            color: var(--text-secondary); 
+            line-height: 1.7; 
+            margin-bottom: 12px;
+        }
+
+        .info-section ul { 
+            padding-left: 22px; 
+            margin-bottom: 16px; 
+        }
+
+        .info-section a { 
+            color: var(--accent); 
+            text-decoration: none; 
+            font-weight: 500;
+        }
+
+        .info-section a:hover { text-decoration: underline; }
+
+        /* Table Styles */
+        .platform-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.9rem;
+            background: var(--bg-primary);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .platform-table th {
+            background: var(--bg-tertiary);
+            padding: 12px 16px;
+            text-align: left;
+            font-weight: 600;
+            color: var(--text-primary);
+            border-bottom: 2px solid var(--border);
+        }
+
+        .platform-table td {
+            padding: 10px 16px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-secondary);
+        }
+
+        .platform-table tr:last-child td { border-bottom: none; }
+        .platform-table tr:nth-child(even) { background: var(--bg-secondary); }
+
+        /* Details/Summary */
+        details { 
+            margin-bottom: 10px; 
+            border: 1px solid var(--border); 
+            border-radius: 8px; 
+            padding: 14px 16px; 
+            background: var(--bg-primary); 
+        }
+
+        summary { 
+            font-weight: 600; 
+            color: var(--text-primary); 
+            cursor: pointer; 
+            list-style: none;
+        }
+
+        summary::before { content: '▸ '; color: var(--accent); margin-right: 4px; }
+        details[open] summary::before { content: '▾ '; }
+        details p { margin-top: 10px; margin-bottom: 0; line-height: 1.7; }
+
+        /* Footer */
+        .footer { 
+            background: var(--bg-secondary); 
+            border-top: 1px solid var(--border); 
+            padding: 32px 24px; 
+            text-align: center; 
+            color: var(--text-secondary); 
+            font-size: 0.9rem; 
+        }
+
+        .footer a { color: var(--accent); text-decoration: none; }
+        .footer a:hover { text-decoration: underline; }
+
+        /* Toast */
+        .toast { 
+            position: fixed; 
+            bottom: 24px; 
+            left: 50%; 
+            transform: translateX(-50%) translateY(20px); 
+            background: var(--text-primary); 
+            color: #fff; 
+            padding: 10px 18px; 
+            border-radius: 8px; 
+            font-size: 0.88rem; 
+            opacity: 0; 
+            pointer-events: none; 
+            transition: opacity .2s, transform .2s; 
+            z-index: 2000; 
+        }
+
+        .toast.show { 
+            opacity: 1; 
+            transform: translateX(-50%) translateY(0); 
+        }
+
+        @media (max-width: 768px) { 
+            .nav-desktop { display: none; } 
+            .hamburger { display: block; } 
+            .page-header h1 { font-size: 1.6rem; } 
+            
+            .controls-row { 
+                flex-direction: column; 
+                align-items: stretch; 
+            }
+            
+            .field select,
+            .field input[type=text] { 
+                width: 100%; 
+            }
+
+            .platform-table { 
+                font-size: 0.85rem; 
+            }
+
+            .platform-table th,
+            .platform-table td { 
+                padding: 8px 10px; 
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -152,103 +462,192 @@
             <a href="/" class="logo">Excuse<span>Me</span>Web</a>
             <nav class="nav-desktop">
                 <a href="/">Tools</a>
-                <a href="/calculators">Calculators</a><a href="/converters">Converters</a>
+                <a href="/calculators">Calculators</a>
+                <a href="/converters">Converters</a>
                 <a href="/image-tools">Image Tools</a>
                 <a href="/generators" class="active">Generators</a>
                 <a href="/templates">Templates</a>
-                <a href="/games">Games</a><a href="/all-in-one-toolkit">Toolkits</a>
+                <a href="/games">Games</a>
+                <a href="/all-in-one-toolkit">Toolkits</a>
             </nav>
-            <div class="header-right">
-                <button class="hamburger" onclick="document.getElementById('mobileNav').classList.toggle('show')">Menu</button>
+            <div style="display:flex;align-items:center;gap:16px;">
+                <button class="hamburger" onclick="document.getElementById('mobileNav').classList.toggle('show')">☰</button>
             </div>
         </div>
         <nav class="mobile-nav" id="mobileNav">
-            <a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a><a href="/all-in-one-toolkit">Toolkits</a>
+            <a href="/">Tools</a>
+            <a href="/calculators">Calculators</a>
+            <a href="/converters">Converters</a>
+            <a href="/image-tools">Image Tools</a>
+            <a href="/generators" class="active">Generators</a>
+            <a href="/templates">Templates</a>
+            <a href="/games">Games</a>
+            <a href="/all-in-one-toolkit">Toolkits</a>
         </nav>
     </header>
 
     <main class="main-content">
-        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="bc-sep">/</span><a href="/generators">Generators</a><span class="bc-sep">/</span><span class="bc-current">Bio Generator</span></nav>
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="/">Home</a><span class="bc-sep">/</span><a href="/generators">Generators</a><span class="bc-sep">/</span><span class="bc-current">Bio Generator</span>
+        </nav>
 
+        <!-- Header -->
         <div class="page-header">
-            <h1>Bio Generator</h1>
-            <p>Generate short bio ideas for Instagram, X, LinkedIn, or any profile.</p>
+            <h1>Social Media Bio Generator</h1>
+            <p>Generate creative bios for Instagram, X, LinkedIn, TikTok — choose your vibe, customize with your interests.</p>
         </div>
 
+        <!-- Tool Interface -->
         <div class="tool-panel">
-
             <div class="controls-row">
                 <div class="field">
-                    <label for="bgVibe">Vibe</label>
+                    <label for="bgVibe">Choose Your Vibe</label>
                     <select id="bgVibe">
-                        <option value="playful" selected>Playful</option>
-                        <option value="professional">Professional</option>
-                        <option value="creative">Creative</option>
-                        <option value="minimal">Minimal</option>
+                        <option value="playful" selected>🎭 Playful</option>
+                        <option value="professional">💼 Professional</option>
+                        <option value="creative">🎨 Creative</option>
+                        <option value="minimal">✨ Minimal</option>
                     </select>
                 </div>
+                
                 <div class="field">
-                    <label for="bgInterest">Interest (optional)</label>
-                    <input type="text" id="bgInterest" placeholder="e.g. coffee, hiking">
+                    <label for="bgInterest">Your Interest (optional)</label>
+                    <input type="text" id="bgInterest" placeholder="e.g. coffee, photography, coding, fitness">
                 </div>
             </div>
+            
             <div class="btn-row">
-                <button class="btn" onclick="bgGenerate()">Generate Bios</button>
+                <button class="btn" onclick="bgGenerate()">✨ Generate Bios</button>
             </div>
+            
             <div class="result-list" id="bgResult"></div>
-    
         </div>
 
+        <!-- Information Section -->
         <div class="info-section">
-            <h2>About This Tool</h2>
-            <p>This tool fills in bio templates matched to a vibe you pick, using an interest you provide to make the results feel more like you.</p>
+            
+            <h2>About This Bio Generator</h2>
+            <p>This tool creates short profile bios tailored to four distinct styles: playful, professional, creative, and minimal. Enter an interest or topic you care about, and the generator weaves it into ready-to-copy sentences that fit social media character limits.</p>
 
-            <h3>How It Works</h3>
-            <ol>
-                <li>Choose a vibe: playful, professional, creative, or minimal.</li>
-                <li>Optionally type in an interest or focus area.</li>
-                <li>Click Generate Bios.</li>
-                <li>Copy the one that fits your profile.</li>
-            </ol>
+            <h3>Platform Character Limits Quick Reference</h3>
+            <table class="platform-table">
+                <thead>
+                    <tr>
+                        <th>Platform</th>
+                        <th>Character Limit</th>
+                        <th>Hashtag Friendly?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Instagram</strong></td>
+                        <td>150 characters</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td><strong>X (Twitter)</strong></td>
+                        <td>160 characters</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td><strong>TikTok</strong></td>
+                        <td>80 characters</td>
+                        <td>Limited space</td>
+                    </tr>
+                    <tr>
+                        <td><strong>LinkedIn</strong></td>
+                        <td>2,600 characters</td>
+                        <td>No hashtags in headline</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Facebook Profile</strong></td>
+                        <td>255 characters</td>
+                        <td>Yes</td>
+                    </tr>
+                </tbody>
+            </table>
 
-            <h3>What This Tool Covers</h3>
+            <h3>Bio Tips by Platform</h3>
             <ul>
-                <li>Four bio styles: playful, professional, creative, minimal</li>
-                <li>Personalization with your own interest or focus</li>
-                <li>Multiple bio options generated per click</li>
-                <li>One-click copy for each result</li>
+                <li><strong>Instagram:</strong> Use line breaks (↵) to separate thoughts. Front-load your niche or value proposition. Include one CTA like "Link below 👇"</li>
+                <li><strong>X/Twitter:</strong> Great for thought leadership or networking. Keep it under 160 chars. Can include 1-2 relevant hashtags if they flow naturally.</li>
+                <li><strong>TikTok:</strong> Mention your content category early ("Dad jokes | Coffee reviews"). Use trending sounds or music references if applicable.</li>
+                <li><strong>LinkedIn:</strong> Write in first person. Focus on current role/value proposition, not just job history. Save keywords for the Skills section.</li>
+            </ul>
+
+            <h3>What Makes a Good Social Media Bio?</h3>
+            <p>The most effective bios follow this structure regardless of platform:</p>
+            <ol style="padding-left:24px;color:var(--text-secondary);line-height:1.8;">
+                <li><strong>The Hook:</strong> First 3-5 words grab attention (question, bold statement, intriguing claim, or personality reveal)</li>
+                <li><strong>The Credibility:</strong> What you do / your expertise / your unique angle / your focus area</li>
+                <li><strong>The Personality:</strong> Tone that matches your brand voice (witty, serious, warm, quirky)</li>
+                <li><strong>The CTA:</strong> What you want them to do next (visit link, DM for collab, check out your content)</li>
+            </ol>
+            <p>This tool generates items 1-3 automatically. You just need to add item 4 based on your goals.</p>
+
+            <h3>Vibe Styles Explained</h3>
+            <ul>
+                <li><strong>🎭 Playful:</strong> Lighthearted, humorous, self-deprecating. Good for personal brands, creatives, entertainers, anyone wanting to seem approachable and fun.</li>
+                <li><strong>💼 Professional:</strong> Polished, expertise-focused, achievement-oriented. Ideal for consultants, freelancers, B2B services, career-focused profiles.</li>
+                <li><strong>🎨 Creative:</strong> Artistic, metaphorical, storytelling-focused. Works for artists, writers, designers, photographers, anyone in a visual field.</li>
+                <li><strong>✨ Minimal:</strong> Short, understated, confident. Perfect for tech founders, developers, minimalist aesthetics, "let the work speak" types.</li>
             </ul>
 
             <h3>Frequently Asked Questions</h3>
+            
             <details>
-                <summary>Which platforms can I use these bios on?</summary>
-                <p>They're short enough to fit most bio fields, including Instagram, X, TikTok, and LinkedIn.</p>
+                <summary>How long should my bio be?</summary>
+                <p>It depends on the platform. Instagram gives you 150 characters — use them all while staying clear about who you are. LinkedIn allows up to 2,600 so you can tell a longer story there. X/Twitter is best kept under 160 for readability.</p>
             </details>
+
             <details>
-                <summary>Can I combine parts from two different bios?</summary>
-                <p>Yes, feel free to mix and edit the results into something that fits you best.</p>
+                <summary>Can I combine parts from different generated bios?</summary>
+                <p>Absolutely! This tool gives you raw material. Mix and match phrases from different vibes until something feels authentic to you. Think of these as ingredients, not the final dish.</p>
             </details>
+
             <details>
-                <summary>What if I don't provide an interest?</summary>
-                <p>The tool falls back to a generic phrase so you still get a usable bio.</p>
+                <summary>What if I don't enter an interest?</summary>
+                <p>The tool uses "good ideas" as the fallback interest when you leave the field blank. You'll still get usable bios, but they'll be more generic. For better results, enter something specific to your niche.</p>
             </details>
+
             <details>
-                <summary>Does this tool post anything to my profile?</summary>
-                <p>No, it only generates text for you to copy and paste yourself.</p>
+                <summary>Should I update my bio regularly?</summary>
+                <p>If your focus shifts (new job, new hobby, new brand direction), yes. Also consider seasonal updates ("Currently obsessed with [new thing]"). Bios aren't set-and-forget.</p>
+            </details>
+
+            <details>
+                <summary>Can I use these for dating app profiles?</summary>
+                <p>Definitely! Choose "Playful" or "Creative" vibe for best results. Dating app bios work best when they show humor and personality while hinting at what makes you interesting beyond photos.</p>
             </details>
 
             <h3>Related Tools</h3>
-            <p><a href="/ai-prompt-generator">AI Prompt Generator</a> · <a href="/username-generator">Username Generator</a> · <a href="/sentence-generator">Sentence Generator</a></p>
+            <p>
+                <a href="/username-generator">Username Generator</a> · 
+                <a href="/hashtag-generator">Hashtag Generator</a> · 
+                <a href="/caption-generator">Caption Generator</a> · 
+                <a href="/ai-prompt-generator">AI Prompt Generator</a>
+            </p>
         </div>
     </main>
 
     <footer class="footer">
-        <p>© 2026 ExcuseMeWeb.com — Online Tools for Everyone</p>
-        <p style="margin-top:8px"><a href="/calculators">Calculators</a> · <a href="/converters">Converters</a> · <a href="/image-tools">Image Tools</a> · <a href="/generators">Generators</a> · <a href="/templates">Templates</a></p>
-            <p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p>
+        <p>&copy; 2026 ExcuseMeWeb — Online Tools for Everyone</p>
+        <p style="margin-top:8px">
+            <a href="/calculators">Calculators</a> · 
+            <a href="/converters">Converters</a> · 
+            <a href="/image-tools">Image Tools</a> · 
+            <a href="/generators">Generators</a> · 
+            <a href="/templates">Templates</a> · 
+            <a href="/games">Games</a>
+        </p>
+        <p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p>
     </footer>
+
     <div class="toast" id="toast"></div>
+
     <script>
+        // Toast notification system
         function showToast(msg) {
             const t = document.getElementById('toast');
             t.textContent = msg;
@@ -256,56 +655,108 @@
             clearTimeout(window._toastTimer);
             window._toastTimer = setTimeout(() => t.classList.remove('show'), 1800);
         }
+
+        // Copy to clipboard
         function copyText(text) {
-            navigator.clipboard.writeText(text).then(() => showToast('Copied to clipboard')).catch(() => showToast('Copy failed'));
+            navigator.clipboard.writeText(text)
+                .then(() => showToast('✓ Copied to clipboard'))
+                .catch(() => showToast('✗ Copy failed — try selecting manually'));
         }
     </script>
 
     <script>
+    // EXPANDED TEMPLATES (10 per vibe = 40 total)
+    const bgTemplates = {
+        playful: [
+            'Professional {interest} enthusiast. Amateur everything else.',
+            'Powered by {interest} and questionable decisions.',
+            'Here for the {interest} and the good vibes.',
+            'Just a person who really likes {interest}.',
+            'Certified {interest} addict. Recovery is not an option.',
+            'Professional overthinker, casual {interest} lover.',
+            'My therapist says I need more {interest} in my life.',
+            '{interest} connoisseur. Bad decision maker. Good time.',
+            'Running on caffeine, chaos, and {interest}.',
+            'I bring the {interest}. You bring the snacks.',
+            'Professional {interest} enthusiast by day, amateur everything else by night.',
+            'Making the world more interesting, one {interest} at a time.'
+        ],
+        professional: [
+            'Focused on {interest}, always learning something new.',
+            'Building things around {interest}, one step at a time.',
+            'Sharing thoughts on {interest} and the occasional detour.',
+            'Working in {interest}. Open to good conversations.',
+            'Strategic thinker with a passion for {interest}.',
+            'Helping teams navigate {interest} challenges.',
+            'Dedicated to mastering the art of {interest}.',
+            '{interest} specialist turned problem solver.',
+            'Analyzing trends in {interest} and sharing actionable insights.',
+            'Building bridges between {interest} ideas and practical solutions.'
+        ],
+        creative: [
+            'Chasing ideas about {interest} wherever they lead.',
+            'Making sense of the world through {interest}.',
+            'Collector of moments, mostly involving {interest}.',
+            'Turning {interest} into something worth sharing.',
+            'Translating {interest} into stories worth telling.',
+            'Curious mind obsessed with {interest} possibilities.',
+            'Creating order out of {interest}-themed chaos.',
+            'Dreamer grounded in {interest}, drifting through ideas.',
+            'Finding magic in the intersection of {interest} and reality.',
+            'Weaving narratives around {interest} and wondering what comes next.',
+            'Exploring the universe through a {interest}-shaped lens.'
+        ],
+        minimal: [
+            '{interest}. That\'s pretty much it.',
+            'Mostly {interest}, sometimes other things.',
+            '{interest} first, everything else second.',
+            'Here for {interest}.',
+            'Simplifying life one {interest} at a time.',
+            '{interest} enthusiast. Less noise, more signal.',
+            'Focus: {interest}. Everything else: optional.',
+            '{interest}. Periodt.',
+            'Doing one thing well: {interest}.',
+            'Minimalist approach to maximum {interest} enjoyment.',
+            '{interest}. Simplified.',
+            'Less talk, more {interest}.'
+        ]
+    };
 
-        const bgTemplates = {
-            playful: [
-                'Professional {interest} enthusiast. Amateur everything else.',
-                'Powered by {interest} and questionable decisions.',
-                'Here for the {interest} and the good vibes.',
-                'Just a person who really likes {interest}.'
-            ],
-            professional: [
-                'Focused on {interest}, always learning something new.',
-                'Building things around {interest}, one step at a time.',
-                'Sharing thoughts on {interest} and the occasional detour.',
-                'Working in {interest}. Open to good conversations.'
-            ],
-            creative: [
-                'Chasing ideas about {interest} wherever they lead.',
-                'Making sense of the world through {interest}.',
-                'Collector of moments, mostly involving {interest}.',
-                'Turning {interest} into something worth sharing.'
-            ],
-            minimal: [
-                '{interest}. That\'s pretty much it.',
-                'Mostly {interest}, sometimes other things.',
-                '{interest} first, everything else second.',
-                'Here for {interest}.'
-            ]
-        };
-        function bgGenerate() {
-            const vibe = document.getElementById('bgVibe').value;
-            let interest = document.getElementById('bgInterest').value.trim();
-            if (!interest) interest = 'good ideas';
-            const pool = bgTemplates[vibe];
-            const out = document.getElementById('bgResult');
-            out.innerHTML = '';
-            pool.forEach(tpl => {
-                const bio = tpl.replace(/\{interest\}/g, interest);
-                const row = document.createElement('div');
-                row.className = 'result-item';
-                row.innerHTML = '<span>' + bio + '</span><button class="copy-mini" onclick="copyText(\'' + bio.replace(/'/g, "\\'") + '\')">Copy</button>';
-                out.appendChild(row);
-            });
+    // Generate function
+    function bgGenerate() {
+        const vibe = document.getElementById('bgVibe').value;
+        let interest = document.getElementById('bgInterest').value.trim();
+        
+        // Fallback if empty
+        if (!interest || interest.length === 0) {
+            interest = 'good ideas';
         }
-        bgGenerate();
-    
+
+        const pool = bgTemplates[vibe];
+        const out = document.getElementById('bgResult');
+        out.innerHTML = '';
+
+        pool.forEach(tpl => {
+            // Replace placeholder with user's interest
+            const bio = tpl.replace(/\{interest\}/g, interest);
+            
+            const row = document.createElement('div');
+            row.className = 'result-item';
+            row.innerHTML = `
+                <span>${bio}</span>
+                <button class="copy-mini" onclick="copyText('${bio.replace(/'/g, "\\'")}')">Copy</button>
+            `;
+            out.appendChild(row);
+        });
+
+        // Show count
+        if (pool.length > 0) {
+            console.log(`Generated ${pool.length} ${vibe} bios`);
+        }
+    }
+
+    // Initialize on page load
+    bgGenerate();
     </script>
 </body>
 </html>
