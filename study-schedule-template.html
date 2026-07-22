@@ -144,7 +144,39 @@ details p{margin-top:10px;margin-bottom:0;}
 @media (max-width:900px){.tpl-grid{grid-template-columns:1fr;}.preview-wrap{position:static;}}
 @media (max-width:768px){.nav-desktop{display:none;}.hamburger{display:block;}.page-header h1{font-size:1.6rem;}.doc-preview{padding:22px;}}
 @media print{body *{visibility:hidden;}.doc-preview,.doc-preview *{visibility:visible;}.doc-preview{position:absolute;top:0;left:0;width:100%;max-height:none;box-shadow:none;border:none;}}
-</style>
+
+        .breadcrumb { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 20px; }
+        .breadcrumb a { color: var(--text-secondary); text-decoration: none; }
+        .breadcrumb a:hover { color: var(--accent); text-decoration: underline; }
+        .breadcrumb .bc-sep { color: var(--border); }
+        .breadcrumb .bc-current { color: var(--text-primary); font-weight: 600; }
+    </style>
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://excusemeweb.com/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Templates",
+            "item": "https://excusemeweb.com/templates"
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Study Schedule Template",
+            "item": "https://excusemeweb.com/study-schedule-template"
+        }
+    ]
+}
+    </script>
 </head>
 <body>
     <header class="header">
@@ -159,6 +191,8 @@ details p{margin-top:10px;margin-bottom:0;}
     </header>
 
     <main class="main-content">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="bc-sep">/</span><a href="/templates">Templates</a><span class="bc-sep">/</span><span class="bc-current">Study Schedule Template</span></nav>
+
         <div class="page-header">
             <h1>Study Schedule Template</h1>
             <p>Plan exam or coursework study sessions by day, subject, and topic.</p>
@@ -226,6 +260,7 @@ Fri Jul 31 | Biology | 5:00-6:30 PM | Review weak areas from practice test</text
     <footer class="footer">
         <p>© 2026 ExcuseMeWeb.com — Online Tools for Everyone</p>
         <p style="margin-top:8px"><a href="/calculators">Calculators</a> · <a href="/converters">Converters</a> · <a href="/image-tools">Image Tools</a> · <a href="/generators">Generators</a> · <a href="/templates">Templates</a></p>
+            <p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p>
     </footer>
 </body>
 </html>

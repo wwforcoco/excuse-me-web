@@ -68,23 +68,18 @@
         
 
         @media (max-width: 768px) { .nav-desktop { display: none; } .hamburger { display: block; } .page-header h1 { font-size: 1.8rem; } .calculator { padding: 20px; } .result-grid { grid-template-columns: 1fr; } .header-inner { height: 56px; } .main-content { padding: 24px 16px; } }
+    
+        .breadcrumb { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 20px; }
+        .breadcrumb a { color: var(--text-secondary); text-decoration: none; }
+        .breadcrumb a:hover { color: var(--accent); text-decoration: underline; }
+        .breadcrumb .bc-sep { color: var(--border); }
+        .breadcrumb .bc-current { color: var(--text-primary); font-weight: 600; }
     </style>
 <meta property="og:title" content="Age Calculator - Calculate Your Exact Age">
     <meta property="og:description" content="Calculate your exact age in years, months, days and seconds.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://excusemeweb.com/age-calculator">
     <link rel="canonical" href="https://excusemeweb.com/age-calculator">
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://excusemeweb.com/"},
-            {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://excusemeweb.com/calculators"},
-            {"@type": "ListItem", "position": 3, "name": "Age Calculator", "item": "https://excusemeweb.com/age-calculator"}
-        ]
-    }
-    </script>
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -99,6 +94,32 @@
     }
     </script>
     <base target="_blank">
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://excusemeweb.com/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Calculators",
+            "item": "https://excusemeweb.com/calculators"
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Age Calculator",
+            "item": "https://excusemeweb.com/age-calculator"
+        }
+    ]
+}
+    </script>
 </head>
 <body>
     <header class="header">
@@ -116,6 +137,8 @@
         </nav>
     </header>
     <main class="main-content">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="bc-sep">/</span><a href="/calculators">Calculators</a><span class="bc-sep">/</span><span class="bc-current">Age Calculator</span></nav>
+
         <div class="page-header">
             <h1>Age Calculator</h1>
             <p>Calculate your exact age with years, months, days and birthday countdown.</p>
@@ -215,6 +238,7 @@
     <footer class="footer">
         <p>© 2026 ExcuseMeWeb — Online Tools for Everyone</p>
         <p style="margin-top:8px"><a href="/calculators">Calculators</a> · <a href="/converters">Converters</a> · <a href="/image-tools">Image Tools</a> · <a href="/generators">Generators</a></p>
+            <p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p>
     </footer>
     <script>
         function calculateAge() {

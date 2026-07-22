@@ -140,7 +140,39 @@ details p { margin-top: 10px; margin-bottom: 0; }
 .dpad .down { grid-column: 2; grid-row: 3; }
 @media (min-width: 769px) { .dpad { display: none; } }
 
+    
+        .breadcrumb { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 20px; }
+        .breadcrumb a { color: var(--text-secondary); text-decoration: none; }
+        .breadcrumb a:hover { color: var(--accent); text-decoration: underline; }
+        .breadcrumb .bc-sep { color: var(--border); }
+        .breadcrumb .bc-current { color: var(--text-primary); font-weight: 600; }
     </style>
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://excusemeweb.com/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Games",
+            "item": "https://excusemeweb.com/games"
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Snake Game",
+            "item": "https://excusemeweb.com/snake-game"
+        }
+    ]
+}
+    </script>
 </head>
 <body>
     <header class="header">
@@ -163,6 +195,8 @@ details p { margin-top: 10px; margin-bottom: 0; }
         </nav>
     </header>
     <main class="main-content">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="bc-sep">/</span><a href="/games">Games</a><span class="bc-sep">/</span><span class="bc-current">Snake Game</span></nav>
+
         <div class="page-header">
             <h1>Snake Game</h1>
             <p>Guide the snake around the board, eat to grow, and avoid the walls and your own tail.</p>
@@ -243,6 +277,7 @@ details p { margin-top: 10px; margin-bottom: 0; }
     <footer class="footer">
         <p>&copy; 2026 ExcuseMeWeb.com &mdash; Online Tools for Everyone</p>
         <p style="margin-top:8px"><a href="/calculators">Calculators</a> · <a href="/converters">Converters</a> &middot; <a href="/image-tools">Image Tools</a> &middot; <a href="/generators">Generators</a> &middot; <a href="/templates">Templates</a> &middot; <a href="/games">Games</a> · <a href="/all-in-one-toolkit">Toolkits</a></p>
+            <p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p>
     </footer>
     <script>
 

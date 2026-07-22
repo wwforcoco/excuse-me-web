@@ -179,6 +179,40 @@ th { font-size: 11.5px; text-transform: uppercase; letter-spacing: .03em; color:
 
 .tag-chip{background:var(--accent-soft);color:var(--accent2);font-weight:700;padding:6px 12px;border-radius:999px;font-size:13px;cursor:pointer;} .emoji-cat-btn{}
 </style>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://excusemeweb.com/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Toolkits",
+            "item": "https://excusemeweb.com/all-in-one-toolkit"
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Social Media Toolkit",
+            "item": "https://excusemeweb.com/social-media-toolkit"
+        }
+    ]
+}
+</script>
+
+<style>
+.ew-breadcrumb { max-width: 1120px; margin: 14px auto 0; padding: 0 24px; display: flex; align-items: center; flex-wrap: wrap; gap: 6px; font-size: 0.85rem; color: var(--text-muted); }
+.ew-breadcrumb a { color: var(--text-muted); text-decoration: none; }
+.ew-breadcrumb a:hover { color: var(--accent); text-decoration: underline; }
+.ew-breadcrumb .bc-sep { color: var(--border); }
+.ew-breadcrumb .bc-current { color: var(--text); font-weight: 600; }
+</style>
 </head>
 <body>
 <header class="tk-header">
@@ -195,6 +229,7 @@ th { font-size: 11.5px; text-transform: uppercase; letter-spacing: .03em; color:
     </div>
   </div>
 </header>
+<nav class="ew-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="bc-sep">/</span><a href="/all-in-one-toolkit">Toolkits</a><span class="bc-sep">/</span><span class="bc-current">Social Media Toolkit</span></nav>
 
 <div class="wrap">
   <div class="tk-hero">
@@ -539,5 +574,8 @@ function clUpdate(){
 clUpdate();
 
 </script>
+<footer style="max-width:1120px;margin:40px auto 0;padding:20px 24px;border-top:1px solid var(--border);text-align:center;color:var(--text-muted);font-size:0.9rem;">
+  <p><a href="/all-in-one-toolkit" style="color:var(--accent);text-decoration:none;">&larr; All Toolkits</a> &middot; <a href="/sitemap" style="color:var(--accent);text-decoration:none;">Sitemap</a></p>
+</footer>
 </body>
 </html>

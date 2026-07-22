@@ -297,6 +297,10 @@
       "dest": "/wedding-invitation-template.html"
     },
     {
+      "src": "/sitemap",
+      "dest": "/sitemap.html"
+    },
+    {
       "src": "/(.*)",
       "dest": "/$1.html"
     }

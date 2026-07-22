@@ -36,9 +36,38 @@ header { padding:20px 0; border-bottom:1px solid var(--border); }
 .hub-cta { font-size:13.5px; font-weight:800; color:var(--tk-accent); }
 footer { text-align:center; padding:30px 0 60px; color:var(--text-muted); font-size:12.5px; }
 </style>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://excusemeweb.com/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "All-in-One Toolkit",
+            "item": "https://excusemeweb.com/all-in-one-toolkit"
+        }
+    ]
+}
+</script>
+
+<style>
+.ew-breadcrumb { max-width: 1180px; margin: 14px auto 0; padding: 0 24px; display: flex; align-items: center; flex-wrap: wrap; gap: 6px; font-size: 0.85rem; color: var(--text-muted); }
+.ew-breadcrumb a { color: var(--text-muted); text-decoration: none; }
+.ew-breadcrumb a:hover { color: #e2266d; text-decoration: underline; }
+.ew-breadcrumb .bc-sep { color: var(--border); }
+.ew-breadcrumb .bc-current { color: var(--text); font-weight: 600; }
+</style>
 </head>
 <body>
 <header><div class="header-inner"><span class="logo-dot"></span> ExcuseMeWeb</div></header>
+<nav class="ew-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="bc-sep">/</span><span class="bc-current">All-in-One Toolkit</span></nav>
 <div class="wrap">
   <div class="hero">
     <h1>All-in-One Toolkit</h1>
@@ -96,6 +125,7 @@ footer { text-align:center; padding:30px 0 60px; color:var(--text-muted); font-s
     </a>
   </div>
 </div>
-<footer>Free forever. Nothing you type ever leaves your device.</footer>
+<footer>Free forever. Nothing you type ever leaves your device.        <p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p>
+    </footer>
 </body>
 </html>

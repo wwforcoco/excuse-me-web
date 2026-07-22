@@ -152,7 +152,39 @@
         .theme-sunset { --bg-primary: #1a1a2e; --bg-secondary: #16213e; --bg-tertiary: #0f3460; --text-primary: #e94560; --text-secondary: #f3949d; --accent: #e94560; --accent-hover: #d63447; --danger: #ef4444; --border: #533483; --shadow: rgba(233,69,96,0.2); --display-bg: #1a1a2e; --btn-bg: #16213e; --btn-hover: #0f3460; --font-display: 'Bebas Neue',sans-serif; --font-body: 'Inter',sans-serif; --font-brand: 'Bebas Neue',sans-serif; --border-radius: 12px; --btn-radius: 10px; }
 
         @media (max-width: 768px) { .nav-desktop { display: none; } .hamburger { display: block; } .page-header h1 { font-size: 1.8rem; } .calculator { padding: 20px; } .result-grid { grid-template-columns: 1fr; } .compare-row { flex-direction: column; } .header-inner { height: 56px; } .main-content { padding: 24px 16px; } }
+    
+        .breadcrumb { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 20px; }
+        .breadcrumb a { color: var(--text-secondary); text-decoration: none; }
+        .breadcrumb a:hover { color: var(--accent); text-decoration: underline; }
+        .breadcrumb .bc-sep { color: var(--border); }
+        .breadcrumb .bc-current { color: var(--text-primary); font-weight: 600; }
     </style>
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://excusemeweb.com/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Calculators",
+            "item": "https://excusemeweb.com/calculators"
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Mortgage Calculator",
+            "item": "https://excusemeweb.com/mortgage-calculator"
+        }
+    ]
+}
+    </script>
 </head>
 <body>
     <header class="header">
@@ -170,6 +202,8 @@
         </nav>
     </header>
     <main class="main-content">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="bc-sep">/</span><a href="/calculators">Calculators</a><span class="bc-sep">/</span><span class="bc-current">Mortgage Calculator</span></nav>
+
         <div class="page-header">
             <h1>Mortgage Calculator</h1>
             <p>Project housing costs, compare loan durations, and visualize equity building</p>
@@ -285,6 +319,7 @@
     <footer class="footer">
         <p>© 2026 ExcuseMeWeb.com — Online Tools for Everyone</p>
         <p style="margin-top:8px"><a href="/calculators">Calculators</a> · <a href="/converters">Converters</a> · <a href="/image-tools">Image Tools</a> · <a href="/generators">Generators</a></p>
+            <p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p>
     </footer>
     <script>
         function calculateMortgage() {
