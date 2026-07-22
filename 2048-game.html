@@ -14,9 +14,13 @@
     <link rel="canonical" href="https://excusemeweb.com/2048-game">
     <link rel="icon" href="/favicon.ico">
     <meta name="theme-color" content="#ffffff">
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Schema: WebApplication -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -31,6 +35,8 @@
       "dateModified": "2026-07-22"
     }
     </script>
+
+    <!-- Schema: FAQPage -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -38,136 +44,433 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "How do I play 2048?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Use the arrow keys, or swipe on mobile, to slide every tile on the board in one direction. Tiles with the same number merge into one tile with double the value." }
+          "name": "Can I keep playing after reaching 2048?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes! The game doesn't stop at 2048. You can continue merging tiles to reach 4096, 8192, and beyond to maximize your score." }
         },
         {
           "@type": "Question",
-          "name": "What is the goal of the game?",
-          "acceptedAnswer": { "@type": "Answer", "text": "The traditional goal is to create a tile worth 2048, but you can keep playing after that to push your score even higher." }
+          "name": "Does the game work on mobile phones?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes, fully optimized for touch screens. Swipe in any direction to move tiles. Works on iOS Safari, Android Chrome, and all modern mobile browsers." }
         },
         {
           "@type": "Question",
-          "name": "What happens when the board fills up?",
-          "acceptedAnswer": { "@type": "Answer", "text": "The game ends once the board is full and no adjacent tiles share the same value, meaning no move can create a merge." }
+          "name": "Is my score saved if I close the tab?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Your best score is saved automatically in your browser's local storage. It persists even after closing the tab or browser, unless you clear your browsing data." }
         },
         {
           "@type": "Question",
-          "name": "Is my best score saved?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes, your best score is stored locally in your browser so it stays available the next time you visit, without any account or sign-up." }
+          "name": "What is the highest possible tile in 2048?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Theoretically, you can reach tile 131,072 (2^17), but most players aim for 2048 or 4096 as major milestones. The game supports displaying any value." }
+        },
+        {
+          "@type": "Question",
+          "name": "Are there keyboard shortcuts besides arrow keys?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes! You can use W/A/S/D keys as an alternative to arrow keys. W=Up, S=Down, A=Left, D=Right. This is especially helpful on compact keyboards." }
         }
       ]
     }
     </script>
+
+    <!-- Schema: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://excusemeweb.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Games", "item": "https://excusemeweb.com/games" },
+            { "@type": "ListItem", "position": 3, "name": "2048 Game", "item": "https://excusemeweb.com/2048-game" }
+        ]
+    }
+    </script>
+
     <style>
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-tertiary: #f1f5f9;
+            --text-primary: #0f172a;
+            --text-secondary: #64748b;
+            --accent: #6366f1;
+            --accent-hover: #4f46e5;
+            --danger: #ef4444;
+            --success: #22c55e;
+            --border: #e2e8f0;
+            --shadow: rgba(0,0,0,0.08);
+            --font-body: 'Inter', sans-serif;
+            --font-brand: 'Inter', sans-serif;
+            --border-radius: 12px;
+        }
 
-:root {
-    --bg-primary: #ffffff; --bg-secondary: #f8fafc; --bg-tertiary: #f1f5f9;
-    --text-primary: #0f172a; --text-secondary: #64748b; --accent: #6366f1;
-    --accent-hover: #4f46e5; --danger: #ef4444; --success: #22c55e; --border: #e2e8f0;
-    --shadow: rgba(0,0,0,0.08); --font-body: 'Inter', sans-serif; --font-brand: 'Inter', sans-serif;
-    --border-radius: 12px;
-}
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: var(--font-body); background: var(--bg-primary); color: var(--text-primary); min-height: 100vh; display: flex; flex-direction: column; -webkit-tap-highlight-color: transparent; }
-.header { background: var(--bg-secondary); border-bottom: 1px solid var(--border); padding: 0 24px; position: sticky; top: 0; z-index: 1000; }
-.header-inner { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
-.logo { font-family: var(--font-brand); font-size: 1.5rem; font-weight: 700; color: var(--accent); text-decoration: none; }
-.logo span { color: var(--text-primary); }
-.nav-desktop { display: flex; gap: 32px; }
-.nav-desktop a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
-.nav-desktop a:hover { color: var(--accent); }
-.nav-desktop a.active { color: var(--accent); }
-.header-right { display: flex; align-items: center; gap: 16px; }
-.hamburger { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
-.mobile-nav { display: none; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-secondary); border-bottom: 1px solid var(--border); padding: 16px 24px; flex-direction: column; gap: 16px; }
-.mobile-nav.show { display: flex; }
-.mobile-nav a { color: var(--text-secondary); text-decoration: none; font-size: 1rem; font-weight: 500; }
-.main-content { flex: 1; max-width: 1100px; width: 100%; margin: 0 auto; padding: 40px 24px; }
-.page-header { text-align: center; margin-bottom: 28px; }
-.page-header h1 { font-size: 2.3rem; font-weight: 700; margin-bottom: 8px; }
-.page-header p { color: var(--text-secondary); font-size: 1.05rem; max-width: 640px; margin: 0 auto; }
-.info-section { background: var(--bg-secondary); border-radius: var(--border-radius); padding: 32px; margin-bottom: 24px; border: 1px solid var(--border); }
-.info-section h2 { font-size: 1.4rem; margin-bottom: 14px; }
-.info-section h3 { margin-top: 28px; margin-bottom: 14px; color: var(--accent); font-size: 1.1rem; }
-.info-section p, .info-section li { color: var(--text-secondary); line-height: 1.7; }
-.info-section ul, .info-section ol { padding-left: 24px; margin-bottom: 12px; }
-.info-section a { color: var(--accent); text-decoration: none; }
-.info-section a:hover { text-decoration: underline; }
-details { margin-bottom: 10px; border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; background: var(--bg-primary); }
-summary { font-weight: 600; color: var(--text-primary); cursor: pointer; }
-details p { margin-top: 10px; margin-bottom: 0; }
-.footer { background: var(--bg-secondary); border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--text-secondary); font-size: 0.9rem; }
-.footer a { color: var(--accent); text-decoration: none; }
-.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 18px; margin-bottom: 40px; }
-.tool-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--border-radius); padding: 22px; text-decoration: none; color: var(--text-primary); transition: transform .15s, border-color .15s; }
-.tool-card:hover { transform: translateY(-3px); border-color: var(--accent); }
-.tool-card .icon { font-size: 1.8rem; margin-bottom: 10px; }
-.tool-card h3 { font-size: 1.05rem; margin-bottom: 6px; }
-.tool-card p { color: var(--text-secondary); font-size: 0.85rem; line-height: 1.5; }
-.game-wrapper { display: flex; flex-direction: column; align-items: center; margin-bottom: 40px; }
-.game-toolbar { display: flex; gap: 12px; align-items: center; justify-content: center; flex-wrap: wrap; margin-bottom: 18px; }
-.game-stats { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-bottom: 18px; }
-.stat-box { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 10px; padding: 10px 18px; text-align: center; min-width: 90px; }
-.stat-box .stat-label { font-size: 0.72rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.04em; }
-.stat-box .stat-value { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); }
-.btn { background: var(--accent); border: none; color: #fff; padding: 11px 22px; border-radius: 8px; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: background .15s, transform .1s; font-family: var(--font-body); }
-.btn:hover { background: var(--accent-hover); }
-.btn:active { transform: scale(0.97); }
-.btn-secondary { background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border); }
-.btn-secondary:hover { background: var(--border); }
-.btn-secondary.active { background: var(--accent); color: #fff; border-color: var(--accent); }
-.btn-group { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
-.game-message { text-align: center; font-weight: 600; margin-bottom: 14px; min-height: 1.4em; color: var(--accent); }
-@media (max-width: 768px) {
-    .nav-desktop { display: none; }
-    .hamburger { display: block; }
-    .page-header h1 { font-size: 1.7rem; }
-    .main-content { padding: 24px 16px; }
-}
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
+        body { 
+            font-family: var(--font-body); 
+            background: var(--bg-primary); 
+            color: var(--text-primary); 
+            min-height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+            -webkit-tap-highlight-color: transparent;
+        }
 
-.game-2048-board { position: relative; background: var(--bg-tertiary); border-radius: 10px; padding: 10px; display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 1fr); gap: 10px; width: min(90vw, 420px); aspect-ratio: 1/1; touch-action: none; }
-.g2048-cell { background: rgba(0,0,0,0.04); border-radius: 6px; }
-.g2048-tile { position: absolute; display: flex; align-items: center; justify-content: center; border-radius: 6px; font-weight: 700; font-family: var(--font-body); transition: left 0.1s ease, top 0.1s ease, transform 0.1s ease; }
-.g2048-overlay { position: absolute; inset: 0; background: rgba(255,255,255,0.85); border-radius: 10px; display: none; align-items: center; justify-content: center; flex-direction: column; gap: 12px; z-index: 5; text-align: center; }
-.g2048-overlay.show { display: flex; }
-.g2048-overlay h3 { font-size: 1.4rem; }
-.hint-row { text-align: center; color: var(--text-secondary); font-size: 0.85rem; margin-top: 14px; }
+        /* Header */
+        .header { 
+            background: var(--bg-secondary); 
+            border-bottom: 1px solid var(--border); 
+            padding: 0 24px; 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+        }
 
-    
-        .breadcrumb { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 20px; }
+        .header-inner { 
+            max-width: 1400px; 
+            margin: 0 auto; 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            height: 64px; 
+        }
+
+        .logo { 
+            font-family: var(--font-brand); 
+            font-size: 1.5rem; 
+            font-weight: 700; 
+            color: var(--accent); 
+            text-decoration: none; 
+        }
+
+        .logo span { color: var(--text-primary); }
+
+        .nav-desktop { display: flex; gap: 32px; }
+
+        .nav-desktop a { 
+            color: var(--text-secondary); 
+            text-decoration: none; 
+            font-size: 0.9rem; 
+            font-weight: 500; 
+            transition: color 0.2s; 
+        }
+
+        .nav-desktop a:hover { color: var(--accent); }
+        .nav-desktop a.active { color: var(--accent); }
+
+        .hamburger { 
+            display: none; 
+            background: none; 
+            border: none; 
+            color: var(--text-primary); 
+            font-size: 1.5rem; 
+            cursor: pointer; 
+        }
+
+        .mobile-nav { 
+            display: none; 
+            position: absolute; 
+            top: 64px; 
+            left: 0; 
+            right: 0; 
+            background: var(--bg-secondary); 
+            border-bottom: 1px solid var(--border); 
+            padding: 16px 24px; 
+            flex-direction: column; 
+            gap: 16px; 
+        }
+
+        .mobile-nav.show { display: flex; }
+
+        .mobile-nav a { 
+            color: var(--text-secondary); 
+            text-decoration: none; 
+            font-size: 1rem; 
+            font-weight: 500; 
+        }
+
+        /* Main Content */
+        .main-content { 
+            flex: 1; 
+            max-width: 1100px; 
+            width: 100%; 
+            margin: 0 auto; 
+            padding: 40px 24px; 
+        }
+
+        /* Breadcrumb */
+        .breadcrumb { 
+            display: flex; 
+            align-items: center; 
+            flex-wrap: wrap; 
+            gap: 6px; 
+            font-size: 0.85rem; 
+            color: var(--text-secondary); 
+            margin-bottom: 20px; 
+        }
+
         .breadcrumb a { color: var(--text-secondary); text-decoration: none; }
         .breadcrumb a:hover { color: var(--accent); text-decoration: underline; }
         .breadcrumb .bc-sep { color: var(--border); }
         .breadcrumb .bc-current { color: var(--text-primary); font-weight: 600; }
-    </style>
-    <script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-        {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://excusemeweb.com/"
-        },
-        {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Games",
-            "item": "https://excusemeweb.com/games"
-        },
-        {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "2048 Game",
-            "item": "https://excusemeweb.com/2048-game"
+
+        /* Page Header */
+        .page-header { text-align: center; margin-bottom: 28px; }
+        .page-header h1 { font-size: 2.3rem; font-weight: 700; margin-bottom: 8px; }
+        .page-header p { color: var(--text-secondary); font-size: 1.05rem; max-width: 640px; margin: 0 auto; }
+
+        /* Game Container */
+        .game-wrapper { 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            margin-bottom: 40px; 
         }
-    ]
-}
-    </script>
+
+        .game-toolbar { 
+            display: flex; 
+            gap: 12px; 
+            align-items: center; 
+            justify-content: center; 
+            flex-wrap: wrap; 
+            margin-bottom: 18px; 
+        }
+
+        .game-stats { 
+            display: flex; 
+            gap: 10px; 
+            flex-wrap: wrap; 
+            justify-content: center; 
+            margin-bottom: 18px; 
+        }
+
+        .stat-box { 
+            background: var(--bg-secondary); 
+            border: 1px solid var(--border); 
+            border-radius: 10px; 
+            padding: 10px 18px; 
+            text-align: center; 
+            min-width: 90px; 
+        }
+
+        .stat-box .stat-label { 
+            font-size: 0.72rem; 
+            color: var(--text-secondary); 
+            text-transform: uppercase; 
+            letter-spacing: 0.04em; 
+        }
+
+        .stat-box .stat-value { 
+            font-size: 1.3rem; 
+            font-weight: 700; 
+            color: var(--text-primary); 
+        }
+
+        /* Buttons */
+        .btn { 
+            background: var(--accent); 
+            border: none; 
+            color: #fff; 
+            padding: 11px 22px; 
+            border-radius: 8px; 
+            font-size: 0.95rem; 
+            font-weight: 600; 
+            cursor: pointer; 
+            transition: background .15s, transform .1s; 
+            font-family: var(--font-body);
+            touch-action: manipulation;
+        }
+
+        .btn:hover { background: var(--accent-hover); }
+        .btn:active { transform: scale(0.97); }
+
+        .keyboard-hint {
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            color: #1e40af;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        /* 2048 BOARD */
+        .game-2048-container {
+            position: relative;
+            width: min(90vw, 420px);
+            aspect-ratio: 1/1;
+        }
+
+        .g2048-board { 
+            position: absolute;
+            inset: 0;
+            background: var(--bg-tertiary); 
+            border-radius: 10px; 
+            padding: 10px;
+            display: grid; 
+            grid-template-columns: repeat(4, 1fr); 
+            grid-template-rows: repeat(4, 1fr); 
+            gap: 10px;
+            touch-action: none;
+            user-select: none;
+            -webkit-user-select: none;
+            outline: none;
+        }
+
+        .g2048-board:focus {
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.3);
+        }
+
+        .g2048-cell { 
+            background: rgba(0,0,0,0.06); 
+            border-radius: 6px;
+            aspect-ratio: 1/1;
+        }
+
+        .g2048-tile { 
+            position: absolute;
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            border-radius: 6px; 
+            font-weight: 700; 
+            font-family: var(--font-body);
+            transition: left 0.12s ease-out, top 0.12s ease-out;
+            user-select: none;
+            -webkit-user-select: none;
+            z-index: 2;
+        }
+
+        /* Overlay */
+        .g2048-overlay { 
+            position: absolute;
+            inset: 0;
+            background: rgba(255,255,255,0.92); 
+            border-radius: 10px; 
+            display: none; 
+            align-items: center; 
+            justify-content: center; 
+            flex-direction: column; 
+            gap: 16px; 
+            z-index: 10; 
+            text-align: center;
+            backdrop-filter: blur(2px);
+        }
+
+        .g2048-overlay.show { display: flex; animation: fadeIn 0.3s ease; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .g2048-overlay h3 { 
+            font-size: 1.6rem; 
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .hint-row { 
+            text-align: center; 
+            color: var(--text-secondary); 
+            font-size: 0.85rem; 
+            margin-top: 14px; 
+        }
+
+        /* Info Sections */
+        .info-section { 
+            background: var(--bg-secondary); 
+            border-radius: var(--border-radius); 
+            padding: 32px; 
+            margin-bottom: 24px; 
+            border: 1px solid var(--border); 
+        }
+
+        .info-section h2 { font-size: 1.4rem; margin-bottom: 14px; }
+        
+        .info-section h3 { 
+            margin-top: 28px; 
+            margin-bottom: 14px; 
+            color: var(--accent); 
+            font-size: 1.1rem; 
+        }
+
+        .info-section p, .info-section li { 
+            color: var(--text-secondary); 
+            line-height: 1.7; 
+        }
+
+        .info-section ul, .info-section ol { 
+            padding-left: 24px; 
+            margin-bottom: 12px; 
+        }
+
+        .info-section a { color: var(--accent); text-decoration: none; font-weight: 500;}
+        .info-section a:hover { text-decoration: underline; }
+
+        details { 
+            margin-bottom: 10px; 
+            border: 1px solid var(--border); 
+            border-radius: 8px; 
+            padding: 14px 16px; 
+            background: var(--bg-primary); 
+            transition: box-shadow 0.2s;
+        }
+
+        details:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        summary { 
+            font-weight: 600; 
+            color: var(--text-primary); 
+            cursor: pointer; 
+            list-style: none;
+        }
+
+        summary::-webkit-details-marker { display: none; }
+        summary::before { content: '▸ '; color: var(--accent); margin-right: 4px; transition: transform 0.2s; }
+        details[open] summary::before { transform: rotate(90deg); }
+        details p { margin-top: 10px; margin-bottom: 0; }
+
+        /* Footer */
+        .footer { 
+            background: var(--bg-secondary); 
+            border-top: 1px solid var(--border); 
+            padding: 32px 24px; 
+            text-align: center; 
+            color: var(--text-secondary); 
+            font-size: 0.9rem; 
+        }
+
+        .footer a { color: var(--accent); text-decoration: none; }
+        .footer a:hover { text-decoration: underline; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-desktop { display: none; }
+            .hamburger { display: block; }
+            .page-header h1 { font-size: 1.7rem; }
+            .main-content { padding: 24px 16px; }
+            .game-2048-container { width: 95vw; max-width: 400px; }
+        }
+
+        /* Animations */
+        @keyframes popIn {
+            0% { transform: scale(0); opacity: 0; }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes mergePulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+            100% { transform: scale(1); }
+        }
+
+        .tile-new { animation: popIn 0.2s ease-out; }
+        .tile-merged { animation: mergePulse 0.15s ease-out; }
+    </style>
 </head>
 <body>
     <header class="header">
@@ -175,331 +478,618 @@ details p { margin-top: 10px; margin-bottom: 0; }
             <a href="/" class="logo">Excuse<span>Me</span>Web</a>
             <nav class="nav-desktop">
                 <a href="/">Tools</a>
-                <a href="/calculators">Calculators</a><a href="/converters">Converters</a>
+                <a href="/calculators">Calculators</a>
+                <a href="/converters">Converters</a>
                 <a href="/image-tools">Image Tools</a>
                 <a href="/generators">Generators</a>
                 <a href="/templates">Templates</a>
-                <a href="/games" class="active">Games</a><a href="/all-in-one-toolkit">Toolkits</a>
+                <a href="/games" class="active">Games</a>
+                <a href="/all-in-one-toolkit">Toolkits</a>
             </nav>
             <div class="header-right">
                 <button class="hamburger" onclick="document.getElementById('mobileNav').classList.toggle('show')">Menu</button>
             </div>
         </div>
         <nav class="mobile-nav" id="mobileNav">
-            <a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games" class="active">Games</a><a href="/all-in-one-toolkit">Toolkits</a>
+            <a href="/">Tools</a>
+            <a href="/calculators">Calculators</a>
+            <a href="/converters">Converters</a>
+            <a href="/image-tools">Image Tools</a>
+            <a href="/generators">Generators</a>
+            <a href="/templates">Templates</a>
+            <a href="/games" class="active">Games</a>
+            <a href="/all-in-one-toolkit">Toolkits</a>
         </nav>
     </header>
-    <main class="main-content">
-        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="bc-sep">/</span><a href="/games">Games</a><span class="bc-sep">/</span><span class="bc-current">2048 Game</span></nav>
 
+    <main class="main-content">
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="/">Home</a><span class="bc-sep">/</span><a href="/games">Games</a><span class="bc-sep">/</span><span class="bc-current">2048 Game</span>
+        </nav>
+
+        <!-- Header -->
         <div class="page-header">
             <h1>2048 Game</h1>
             <p>Slide tiles with arrow keys or swipes, merge matching numbers, and try to reach 2048.</p>
         </div>
 
+        <!-- Game Area -->
         <div class="game-wrapper">
             <div class="game-stats">
-                <div class="stat-box"><div class="stat-label">Score</div><div class="stat-value" id="score">0</div></div>
-                <div class="stat-box"><div class="stat-label">Best</div><div class="stat-value" id="best">0</div></div>
+                <div class="stat-box">
+                    <div class="stat-label">Score</div>
+                    <div class="stat-value" id="score">0</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">Best</div>
+                    <div class="stat-value" id="best">0</div>
+                </div>
             </div>
+            
             <div class="game-toolbar">
                 <button class="btn" onclick="newGame()">New Game</button>
             </div>
-            <div class="g2048-board" id="board" style="position:relative;">
-                <div class="g2048-overlay" id="overlay">
-                    <h3 id="overlayText">Game Over</h3>
-                    <button class="btn" onclick="newGame()">Try Again</button>
+
+            <!-- Keyboard hint -->
+            <div class="keyboard-hint" id="keyboardHint">
+                ⌨️ Click board then press <strong>Arrow Keys</strong> or <strong>WASD</strong> to play
+            </div>
+
+            <!-- Board wrapper -->
+            <div class="game-2048-container">
+                <div class="g2048-board" id="board" tabindex="0" role="application" aria-label="2048 Game Board">
+                    <!-- Background cells rendered by JS -->
+                    <div class="g2048-overlay" id="overlay">
+                        <h3 id="overlayText">Game Over</h3>
+                        <button class="btn" onclick="newGame()">Try Again</button>
+                    </div>
                 </div>
             </div>
-            <p class="hint-row">Use arrow keys or swipe on the board to move tiles.</p>
+
+            <p class="hint-row"><strong>Desktop:</strong> Arrow Keys or WASD &nbsp;|&nbsp; <strong>Mobile:</strong> Swipe in any direction</p>
         </div>
 
+        <!-- Information Section - NO DUPLICATES -->
         <div class="info-section">
             <h2>What Is 2048?</h2>
-            <p>2048 is a single-player sliding tile puzzle played on a 4x4 grid. Every move slides all tiles as far as possible in the chosen direction, and any two tiles that touch with the same number combine into one tile with double the value. The game adds a new tile after each move, so the challenge is managing space while chasing bigger numbers.</p>
+            <p>2048 is a single-player sliding tile puzzle played on a 4×4 grid. Every move slides all tiles as far as possible in the chosen direction, and any two tiles that touch with the same number combine into one tile with double the value. The game adds a new tile (2 or 4) after each move, creating increasing pressure as the board fills up.</p>
 
             <h3>How to Play</h3>
-            <ul>
-                <li>Press an arrow key, or swipe on a touchscreen, to slide every tile in that direction</li>
-                <li>Matching tiles that collide merge into a single tile worth their combined value</li>
-                <li>A new tile (2 or 4) appears in an empty spot after each successful move</li>
-                <li>The round ends when the grid is full and no merges are possible</li>
-            </ul>
+            <ol>
+                <li><strong>Click the game board once</strong> to ensure it has focus (you'll see a blue highlight)</li>
+                <li><strong>Press Arrow Keys</strong> (↑ ↓ ← →) or <strong>WASD</strong> to slide all tiles simultaneously in one direction</li>
+                <li><strong>Watch tiles merge</strong> — when two tiles with the same number collide, they combine into one tile worth double the value (e.g., two 4s become an 8)</li>
+                <li><strong>A new tile appears</strong> randomly after each move (90% chance it's a 2, 10% chance it's a 4)</li>
+                <li><strong>Keep merging</strong> until you create the <strong>2048 tile</strong> — or go further if you can!</li>
+                <li>The game ends when the board is full and no adjacent tiles can merge</li>
+            </ol>
 
             <h3>Strategy Tips</h3>
             <ul>
-                <li>Keep your highest tile anchored in one corner instead of chasing merges across the board</li>
-                <li>Build in one general direction so tiles stack predictably instead of scattering</li>
-                <li>Avoid moves that only shuffle tiles without creating a merge when possible</li>
-                <li>Plan two moves ahead rather than reacting to just the current board</li>
+                <li><strong>Corner Strategy:</strong> Pick one corner (usually bottom-right) and keep your highest-value tile there permanently. Never move it away.</li>
+                <li><strong>Build in One Direction:</strong> Try to fill rows sequentially. Don't scatter high-value tiles across the entire board.</li>
+                <li><strong>Avoid Wasted Moves:</strong> Only press a key if it creates a merge or sets up a future merge. Random shuffling fills the board faster.</li>
+                <li><strong>Plan Two Moves Ahead:</strong> Before pressing Left, think "After this, will I be able to press Down safely?"</li>
+                <li><strong>The Snake Pattern:</strong> Advanced players build tiles in a snaking pattern (fill bottom row left-to-right, then row above right-to-left, etc.)</li>
             </ul>
+
             <h3>Frequently Asked Questions</h3>
+            
             <details>
-                <summary>How do I play 2048?</summary>
-                <p>Use the arrow keys, or swipe on mobile, to slide every tile on the board in one direction. Tiles with the same number merge into one tile with double the value.</p>
+                <summary>Can I keep playing after reaching 2048?</summary>
+                <p>Absolutely! The game doesn't stop at 2048. You can continue playing to build 4096, 8192, 16384, and beyond. Many players treat 2048 as just the first milestone rather than the end goal. Your score keeps climbing as long as you can make moves.</p>
             </details>
+
             <details>
-                <summary>What is the goal of the game?</summary>
-                <p>The traditional goal is to create a tile worth 2048, but you can keep playing after that to push your score even higher.</p>
+                <summary>Does the game work on mobile phones?</summary>
+                <p>Yes, fully optimized for touch screens. Swipe in any direction on the game board to move tiles. The touch detection is tuned to ignore accidental light touches while responding to deliberate swipes. Works on iPhone Safari, Android Chrome, iPads, and tablets.</p>
             </details>
+
             <details>
-                <summary>What happens when the board fills up?</summary>
-                <p>The game ends once the board is full and no adjacent tiles share the same value, meaning no move can create a merge.</p>
+                <summary>Is my score saved if I close the browser?</summary>
+                <p>Your personal best score is saved automatically in your browser's local storage. It persists even after closing the tab, restarting the browser, or shutting down your computer. The only way to lose it is if you manually clear your browser data/cache or use incognito/private browsing mode.</p>
             </details>
+
             <details>
-                <summary>Is my best score saved?</summary>
-                <p>Yes, your best score is stored locally in your browser so it stays available the next time you visit, without any account or sign-up.</p>
+                <summary>What is the highest possible tile in 2048?</summary>
+                <p>Theoretically, the maximum tile is 131,072 (which is 2^17), but reaching it requires nearly perfect play over thousands of moves. For most players, reaching 2048 takes practice, 4096 is impressive, and 8192 is expert-level. Our game displays any value correctly no matter how high you go.</p>
+            </details>
+
+            <details>
+                <summary>Why do I sometimes get a 4 tile instead of 2?</summary>
+                <p>The game randomly spawns either a 2 (90% probability) or a 4 (10% probability) after each move. Getting more 4s earlier in the game actually helps you reach higher scores faster, since you're starting with bigger building blocks. It's purely luck — there's no skill involved in which number appears.</p>
             </details>
 
             <h3>Related Games</h3>
-            <p><a href="/tetris-game">Tetris Game</a> &middot; <a href="/snake-game">Snake Game</a> &middot; <a href="/sudoku">Sudoku</a> &middot; <a href="/minesweeper">Minesweeper</a></p>
+            <p>
+                <a href="/tetris-game">Tetris Game</a> · 
+                <a href="/snake-game">Snake Game</a> · 
+                <a href="/sudoku">Sudoku</a> · 
+                <a href="/minesweeper">Minesweeper</a>
+            </p>
 
             <h3>Explore More on ExcuseMeWeb</h3>
-            <p><a href="/games">All Games</a> &middot; <a href="/calculators">Calculators</a> · <a href="/converters">Converters</a> &middot; <a href="/generators">Generators</a> &middot; <a href="/templates">Templates</a></p>
+            <p>
+                <a href="/games">All Games</a> · 
+                <a href="/calculators">Calculators</a> · 
+                <a href="/converters">Converters</a> · 
+                <a href="/generators">Generators</a> · 
+                <a href="/templates">Templates</a>
+            </p>
         </div>
     </main>
+
     <footer class="footer">
-        <p>&copy; 2026 ExcuseMeWeb.com &mdash; Online Tools for Everyone</p>
-        <p style="margin-top:8px"><a href="/calculators">Calculators</a> · <a href="/converters">Converters</a> &middot; <a href="/image-tools">Image Tools</a> &middot; <a href="/generators">Generators</a> &middot; <a href="/templates">Templates</a> &middot; <a href="/games">Games</a> · <a href="/all-in-one-toolkit">Toolkits</a></p>
-            <p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p>
+        <p>&copy; 2026 ExcuseMeWeb.com — Online Tools for Everyone</p>
+        <p style="margin-top:8px">
+            <a href="/calculators">Calculators</a> · 
+            <a href="/converters">Converters</a> · 
+            <a href="/image-tools">Image Tools</a> · 
+            <a href="/generators">Generators</a> · 
+            <a href="/templates">Templates</a> · 
+            <a href="/games">Games</a> · 
+            <a href="/all-in-one-toolkit">Toolkits</a>
+        </p>
+        <p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p>
     </footer>
+
+    <!-- GAME SCRIPT - KEYBOARD FIXED -->
     <script>
+    (function() {
+        // Configuration
+        const SIZE = 4;
+        const GAP = 10;
+        const PADDING = 10;
+        
+        // State
+        let grid = [];
+        let score = 0;
+        let best = 0;
+        let tileIdCounter = 0;
+        const tiles = {};
+        let isGameOver = false;
+        
+        // DOM Elements
+        const boardEl = document.getElementById('board');
+        const scoreEl = document.getElementById('score');
+        const bestEl = document.getElementById('best');
+        const overlayEl = document.getElementById('overlay');
+        const overlayText = document.getElementById('overlayText');
+        const keyboardHint = document.getElementById('keyboardHint');
 
-(function() {
-    var SIZE = 4, GAP = 10, PAD = 10;
-    var grid, score = 0, best = 0, tileId = 0, tiles = {};
-    var boardEl = document.getElementById('board');
-    var scoreEl = document.getElementById('score');
-    var bestEl = document.getElementById('best');
-    var overlayEl = document.getElementById('overlay');
-    var overlayText = document.getElementById('overlayText');
+        // Tile Colors
+        const TILE_COLORS = {
+            2:    ['#eee4da', '#776e65'],
+            4:    ['#ede0c8', '#776e65'],
+            8:    ['#f2b179', '#f9f6f2'],
+            16:   ['#f59563', '#f9f6f2'],
+            32:   ['#f67c5f', '#f9f6f2'],
+            64:   ['#f65e3b', '#f9f6f2'],
+            128:  ['#edcf72', '#f9f6f2'],
+            256:  ['#edcc61', '#f9f6f2'],
+            512:  ['#edc850', '#f9f6f2'],
+            1024: ['#edc53f', '#f9f6f2'],
+            2048: ['#edc22e', '#f9f6f2'],
+            super: ['#3c3a32', '#f9f6f2']
+        };
 
-    var colors = {
-        2:['#eef2ff','#3730a3'], 4:['#e0e7ff','#3730a3'], 8:['#c7d2fe','#312e81'],
-        16:['#a5b4fc','#1e1b4b'], 32:['#818cf8','#ffffff'], 64:['#6366f1','#ffffff'],
-        128:['#4f46e5','#ffffff'], 256:['#4338ca','#ffffff'], 512:['#3730a3','#ffffff'],
-        1024:['#312e81','#ffffff'], 2048:['#f59e0b','#ffffff']
-    };
-
-    function cellSize() {
-        var total = boardEl.clientWidth - PAD * 2;
-        return (total - GAP * (SIZE - 1)) / SIZE;
-    }
-
-    function loadBest() { best = parseInt(localStorage.getItem('g2048Best') || '0', 10); bestEl.textContent = best; }
-    loadBest();
-
-    function drawStaticCells() {
-        for (var i = 0; i < SIZE * SIZE; i++) {
-            var c = document.createElement('div');
-            c.className = 'g2048-cell';
-            boardEl.appendChild(c);
-        }
-    }
-    drawStaticCells();
-
-    function emptyCells() {
-        var res = [];
-        for (var r = 0; r < SIZE; r++) for (var c = 0; c < SIZE; c++) if (!grid[r][c]) res.push([r, c]);
-        return res;
-    }
-
-    function addRandomTile() {
-        var cells = emptyCells();
-        if (!cells.length) return;
-        var pick = cells[Math.floor(Math.random() * cells.length)];
-        var value = Math.random() < 0.9 ? 2 : 4;
-        var id = 't' + (tileId++);
-        grid[pick[0]][pick[1]] = { id: id, value: value };
-        renderTile(id, pick[0], pick[1], value, true);
-    }
-
-    function renderTile(id, r, c, value, isNew, merged) {
-        var cs = cellSize();
-        var el = tiles[id];
-        if (!el) {
-            el = document.createElement('div');
-            el.className = 'g2048-tile';
-            el.id = id;
-            boardEl.appendChild(el);
-            tiles[id] = el;
-        }
-        el.style.width = cs + 'px';
-        el.style.height = cs + 'px';
-        el.style.left = (PAD + c * (cs + GAP)) + 'px';
-        el.style.top = (PAD + r * (cs + GAP)) + 'px';
-        el.style.fontSize = (cs * 0.42) + 'px';
-        el.textContent = value;
-        var col = colors[value] || ['#1e1b4b', '#ffffff'];
-        el.style.background = col[0];
-        el.style.color = col[1];
-        if (isNew) {
-            el.style.transform = 'scale(0.3)';
-            requestAnimationFrame(function() { el.style.transform = 'scale(1)'; });
-        } else if (merged) {
-            el.style.transform = 'scale(1.15)';
-            setTimeout(function() { el.style.transform = 'scale(1)'; }, 100);
-        }
-    }
-
-    function removeTile(id) {
-        var el = tiles[id];
-        if (el) { el.remove(); delete tiles[id]; }
-    }
-
-    function clearBoard() {
-        Object.keys(tiles).forEach(removeTile);
-        grid = [];
-        for (var r = 0; r < SIZE; r++) { grid.push([null, null, null, null]); }
-    }
-
-    function newGame() {
-        clearBoard();
-        score = 0;
-        scoreEl.textContent = 0;
-        overlayEl.classList.remove('show');
-        addRandomTile();
-        addRandomTile();
-    }
-    window.newGame = newGame;
-
-    function slideLine(cellsWithPos) {
-        // cellsWithPos: array of {pos, cell} ordered from far edge inward
-        var vals = cellsWithPos.filter(function(x) { return x.cell; });
-        var moved = false;
-        var resultCells = [];
-        var i = 0;
-        while (i < vals.length) {
-            if (i + 1 < vals.length && vals[i].cell.value === vals[i + 1].cell.value) {
-                var newVal = vals[i].cell.value * 2;
-                score += newVal;
-                resultCells.push({ cell: { id: vals[i].cell.id, value: newVal, mergedFrom: vals[i+1].cell.id }, merged: true });
-                i += 2;
-                moved = true;
-            } else {
-                resultCells.push({ cell: vals[i].cell, merged: false });
-                i++;
-            }
-        }
-        for (var k = 0; k < resultCells.length; k++) {
-            if (cellsWithPos[k].cell !== resultCells[k].cell) moved = true;
-        }
-        return { resultCells: resultCells, moved: moved };
-    }
-
-    function move(dir) {
-        // dir: 'up','down','left','right'
-        var anyMoved = false;
-        var toRemove = [];
-        var newGrid = [];
-        for (var r = 0; r < SIZE; r++) newGrid.push([null, null, null, null]);
-
-        function getLine(idx) {
-            var line = [];
-            for (var k = 0; k < SIZE; k++) {
-                var r, c;
-                if (dir === 'left') { r = idx; c = k; }
-                else if (dir === 'right') { r = idx; c = SIZE - 1 - k; }
-                else if (dir === 'up') { r = k; c = idx; }
-                else { r = SIZE - 1 - k; c = idx; }
-                line.push({ r: r, c: c, cell: grid[r][c] });
-            }
-            return line;
+        /**
+         * Calculate cell size based on current board width
+         */
+        function getCellSize() {
+            const boardWidth = boardEl.clientWidth - (PADDING * 2);
+            return (boardWidth - (GAP * (SIZE - 1))) / SIZE;
         }
 
-        for (var idx = 0; idx < SIZE; idx++) {
-            var line = getLine(idx);
-            var out = slideLine(line);
-            if (out.moved) anyMoved = true;
-            for (var k = 0; k < out.resultCells.length; k++) {
-                var pos = line[k];
-                var cell = out.resultCells[k].cell;
-                if (out.resultCells[k].merged && cell.mergedFrom) {
-                    toRemove.push(cell.mergedFrom);
+        /**
+         * Get pixel position for row/column
+         */
+        function getPosition(row, col) {
+            const size = getCellSize();
+            return {
+                left: PADDING + col * (size + GAP),
+                top: PADDING + row * (size + GAP)
+            };
+        }
+
+        /**
+         * Load best score from localStorage
+         */
+        function loadBestScore() {
+            best = parseInt(localStorage.getItem('g2048_best') || '0', 10);
+            bestEl.textContent = best;
+        }
+
+        /**
+         * Create background grid cells (visual only)
+         */
+        function createBackgroundGrid() {
+            Array.from(boardEl.children).forEach(child => {
+                if (!child.classList.contains('g2048-overlay')) {
+                    child.remove();
                 }
-                newGrid[pos.r][pos.c] = { id: cell.id, value: cell.value };
+            });
+
+            for (let i = 0; i < SIZE * SIZE; i++) {
+                const cell = document.createElement('div');
+                cell.className = 'g2048-cell';
+                boardEl.appendChild(cell);
             }
         }
 
-        if (!anyMoved) return;
+        /**
+         * Initialize empty grid array
+         */
+        function initGrid() {
+            grid = [];
+            for (let r = 0; r < SIZE; r++) {
+                grid.push(new Array(SIZE).fill(null));
+            }
+        }
 
-        grid = newGrid;
-        toRemove.forEach(removeTile);
-
-        var seen = {};
-        for (var r = 0; r < SIZE; r++) {
-            for (var c = 0; c < SIZE; c++) {
-                var cell = grid[r][c];
-                if (cell) {
-                    seen[cell.id] = true;
-                    var wasMerge = toRemove.length > 0 && document.getElementById(cell.id) && tiles[cell.id] && tiles[cell.id].textContent != cell.value;
-                    renderTile(cell.id, r, c, cell.value, false, wasMerge);
+        /**
+         * Get list of empty cells [row, col]
+         */
+        function getEmptyCells() {
+            const empty = [];
+            for (let r = 0; r < SIZE; r++) {
+                for (let c = 0; c < SIZE; c++) {
+                    if (!grid[r][c]) empty.push([r, c]);
                 }
             }
+            return empty;
         }
 
-        scoreEl.textContent = score;
-        if (score > best) { best = score; bestEl.textContent = best; localStorage.setItem('g2048Best', best); }
+        /**
+         * Add random tile (90% chance of 2, 10% chance of 4)
+         */
+        function addRandomTile() {
+            const emptyCells = getEmptyCells();
+            if (emptyCells.length === 0) return;
 
-        setTimeout(function() {
+            const [row, col] = emptyCells[Math.floor(Math.random() * emptyCells.length)];
+            const value = Math.random() < 0.9 ? 2 : 4;
+            const id = 'tile_' + (tileIdCounter++);
+
+            grid[row][col] = { id, value };
+            renderTile(id, row, col, value, true);
+        }
+
+        /**
+         * Render/create a tile element at position
+         */
+        function renderTile(id, row, col, value, isNew = false, isMerged = false) {
+            const size = getCellSize();
+            const pos = getPosition(row, col);
+            const colors = TILE_COLORS[value] || TILE_COLORS.super;
+
+            let el = tiles[id];
+
+            if (!el) {
+                el = document.createElement('div');
+                el.className = 'g2048-tile';
+                el.id = id;
+                boardEl.appendChild(el);
+                tiles[id] = el;
+            }
+
+            // Update properties
+            el.style.width = size + 'px';
+            el.style.height = size + 'px';
+            el.style.left = pos.left + 'px';
+            el.style.top = pos.top + 'px';
+            el.style.fontSize = Math.max(size * 0.4, 16) + 'px';
+            el.textContent = value;
+            el.style.background = colors[0];
+            el.style.color = colors[1];
+
+            // Animations
+            el.classList.remove('tile-new', 'tile-merged');
+            if (isNew) {
+                el.classList.add('tile-new');
+            } else if (isMerged) {
+                el.classList.add('tile-merged');
+            }
+        }
+
+        /**
+         * Remove tile element and clean up
+         */
+        function removeTile(id) {
+            const el = tiles[id];
+            if (el) {
+                el.remove();
+                delete tiles[id];
+            }
+        }
+
+        /**
+         * Clear all tiles from board and state
+         */
+        function clearBoard() {
+            Object.keys(tiles).forEach(removeTile);
+            initGrid();
+        }
+
+        /**
+         * Start new game
+         */
+        function newGame() {
+            clearBoard();
+            score = 0;
+            isGameOver = false;
+            scoreEl.textContent = '0';
+            overlayEl.classList.remove('show');
+            
             addRandomTile();
-            checkGameState();
-        }, 120);
-    }
+            addRandomTile();
 
-    function checkGameState() {
-        var cells = emptyCells();
-        var has2048 = false;
-        for (var r = 0; r < SIZE; r++) for (var c = 0; c < SIZE; c++) if (grid[r][c] && grid[r][c].value >= 2048) has2048 = true;
-        if (has2048 && !boardEl.dataset.won) {
-            boardEl.dataset.won = '1';
-            overlayText.textContent = 'You reached 2048!';
-            overlayEl.classList.add('show');
-            return;
+            // Focus the board so keyboard works immediately
+            setTimeout(() => boardEl.focus(), 100);
         }
-        if (cells.length) return;
-        // check for any possible merge
-        for (var r = 0; r < SIZE; r++) {
-            for (var c = 0; c < SIZE; c++) {
-                var v = grid[r][c].value;
-                if (c < SIZE - 1 && grid[r][c+1] && grid[r][c+1].value === v) return;
-                if (r < SIZE - 1 && grid[r+1][c] && grid[r+1][c].value === v) return;
+
+        window.newGame = newGame;
+
+        /**
+         * Process a move in given direction
+         */
+        function move(direction) {
+            if (isGameOver) return;
+
+            // Hide keyboard hint after first move
+            if (keyboardHint) {
+                keyboardHint.style.display = 'none';
             }
+
+            let moved = false;
+            const tilesToRemove = [];
+            const newGrid = [];
+            
+            for (let r = 0; r < SIZE; r++) {
+                newGrid.push(new Array(SIZE).fill(null));
+            }
+
+            for (let i = 0; i < SIZE; i++) {
+                const line = [];
+
+                for (let j = 0; j < SIZE; j++) {
+                    let r, c;
+                    switch (direction) {
+                        case 'left':  r = i; c = j; break;
+                        case 'right': r = i; c = SIZE - 1 - j; break;
+                        case 'up':    r = j; c = i; break;
+                        case 'down':  r = SIZE - 1 - j; c = i; break;
+                    }
+
+                    const cell = grid[r][c];
+                    if (cell) line.push(cell);
+                }
+
+                const result = slideAndMerge(line);
+                if (result.moved) moved = true;
+
+                for (let k = 0; k < result.tiles.length; k++) {
+                    const tile = result.tiles[k];
+                    let targetR, targetC;
+
+                    switch (direction) {
+                        case 'left':  targetR = i; targetC = k; break;
+                        case 'right': targetR = i; targetC = SIZE - 1 - k; break;
+                        case 'up':    targetR = k; targetC = i; break;
+                        case 'down':  targetR = SIZE - 1 - k; targetC = i; break;
+                    }
+
+                    newGrid[targetR][targetC] = {
+                        id: tile.id,
+                        value: tile.value,
+                        merged: tile.merged
+                    };
+
+                    if (tile.mergedFrom) {
+                        tilesToRemove.push(tile.mergedFrom);
+                    }
+                }
+            }
+
+            if (!moved) return;
+
+            grid = newGrid;
+            tilesToRemove.forEach(id => removeTile(id));
+
+            for (let r = 0; r < SIZE; r++) {
+                for (let c = 0; c < SIZE; c++) {
+                    const cell = grid[r][c];
+                    if (cell) {
+                        renderTile(cell.id, r, c, cell.value, false, cell.merged);
+                    }
+                }
+            }
+
+            scoreEl.textContent = score.toLocaleString();
+
+            if (score > best) {
+                best = score;
+                bestEl.textContent = best.toLocaleString();
+                localStorage.setItem('g2048_best', best);
+            }
+
+            setTimeout(() => {
+                addRandomTile();
+                checkGameState();
+            }, 150);
         }
-        overlayText.textContent = 'Game Over';
-        overlayEl.classList.add('show');
-    }
 
-    document.addEventListener('keydown', function(e) {
-        var map = { ArrowUp: 'up', ArrowDown: 'down', ArrowLeft: 'left', ArrowRight: 'right' };
-        if (map[e.key]) { e.preventDefault(); move(map[e.key]); }
-    });
+        /**
+         * Slide and merge a line of tiles
+         */
+        function slideAndMerge(line) {
+            const resultTiles = [];
+            let moved = false;
+            let i = 0;
 
-    var touchStartX = 0, touchStartY = 0;
-    boardEl.addEventListener('touchstart', function(e) {
-        touchStartX = e.touches[0].clientX;
-        touchStartY = e.touches[0].clientY;
-    }, { passive: true });
-    boardEl.addEventListener('touchend', function(e) {
-        var dx = e.changedTouches[0].clientX - touchStartX;
-        var dy = e.changedTouches[0].clientY - touchStartY;
-        if (Math.max(Math.abs(dx), Math.abs(dy)) < 20) return;
-        if (Math.abs(dx) > Math.abs(dy)) move(dx > 0 ? 'right' : 'left');
-        else move(dy > 0 ? 'down' : 'up');
-    }, { passive: true });
+            while (i < line.length) {
+                const current = line[i];
 
-    window.addEventListener('resize', function() {
-        for (var r = 0; r < SIZE; r++) for (var c = 0; c < SIZE; c++) {
-            var cell = grid[r][c];
-            if (cell) renderTile(cell.id, r, c, cell.value, false, false);
+                if (i + 1 < line.length && line[i + 1].value === current.value) {
+                    const newValue = current.value * 2;
+                    score += newValue;
+                    resultTiles.push({
+                        id: current.id,
+                        value: newValue,
+                        merged: true,
+                        mergedFrom: line[i + 1].id
+                    });
+                    i += 2;
+                    moved = true;
+                } else {
+                    resultTiles.push({
+                        id: current.id,
+                        value: current.value,
+                        merged: false
+                    });
+                    i++;
+                }
+            }
+
+            if (resultTiles.length !== line.length || 
+                resultTiles.some((t, idx) => t.id !== line[idx].id)) {
+                moved = true;
+            }
+
+            return { tiles: resultTiles, moved };
         }
-    });
 
-    delete window.newGame;
-    window.newGame = newGame;
-    newGame();
-})();
+        /**
+         * Check win/lose conditions
+         */
+        function checkGameState() {
+            for (let r = 0; r < SIZE; r++) {
+                for (let c = 0; c < SIZE; c++) {
+                    if (grid[r][c] && grid[r][c].value >= 2048) {
+                        if (!boardEl.dataset.won) {
+                            boardEl.dataset.won = 'true';
+                            showOverlay('🎉 You reached 2048!');
+                            return;
+                        }
+                    }
+                }
+            }
 
+            if (getEmptyCells().length > 0) return;
+
+            for (let r = 0; r < SIZE; r++) {
+                for (let c = 0; c < SIZE; c++) {
+                    const val = grid[r][c]?.value;
+                    if (!val) continue;
+                    if (c < SIZE - 1 && grid[r][c + 1]?.value === val) return;
+                    if (r < SIZE - 1 && grid[r + 1][c]?.value === val) return;
+                }
+            }
+
+            isGameOver = true;
+            showOverlay('💀 Game Over');
+        }
+
+        /**
+         * Show overlay message
+         */
+        function showOverlay(message) {
+            overlayText.textContent = message;
+            overlayEl.classList.add('show');
+        }
+
+        // ====================
+        // KEYBOARD INPUT - FIXED
+        // ====================
+        
+        document.addEventListener('keydown', function(e) {
+            // Only capture arrow keys and WASD
+            const keyMap = {
+                'ArrowUp': 'up',
+                'ArrowDown': 'down',
+                'ArrowLeft': 'left',
+                'ArrowRight': 'right',
+                'w': 'up',
+                'W': 'up',
+                's': 'down',
+                'S': 'down',
+                'a': 'left',
+                'A': 'left',
+                'd': 'right',
+                'D': 'right'
+            };
+
+            if (keyMap[e.key]) {
+                // Prevent default browser behavior (scrolling)
+                e.preventDefault();
+                
+                // Stop propagation to prevent other handlers
+                e.stopPropagation();
+                
+                // Make the move
+                move(keyMap[e.key]);
+            }
+        }, { passive: false }); // passive: false allows preventDefault()
+
+        // Also allow clicking board to focus (for accessibility)
+        boardEl.addEventListener('click', function() {
+            boardEl.focus();
+        });
+
+        // ====================
+        // TOUCH/SWIPE INPUT
+        // ====================
+
+        let touchStartX = 0;
+        let touchStartY = 0;
+
+        boardEl.addEventListener('touchstart', function(e) {
+            touchStartX = e.touches[0].clientX;
+            touchStartY = e.touches[0].clientY;
+        }, { passive: true });
+
+        boardEl.addEventListener('touchend', function(e) {
+            const dx = e.changedTouches[0].clientX - touchStartX;
+            const dy = e.changedTouches[0].clientY - touchStartY;
+            const minSwipeDistance = 30;
+
+            if (Math.abs(dx) < minSwipeDistance && Math.abs(dy) < minSwipeDistance) {
+                return;
+            }
+
+            if (Math.abs(dx) > Math.abs(dy)) {
+                move(dx > 0 ? 'right' : 'left');
+            } else {
+                move(dy > 0 ? 'down' : 'up');
+            }
+        }, { passive: true });
+
+        // Handle resize
+        let resizeTimeout;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                for (let r = 0; r < SIZE; r++) {
+                    for (let c = 0; c < SIZE; c++) {
+                        const cell = grid[r][c];
+                        if (cell) {
+                            renderTile(cell.id, r, c, cell.value, false, false);
+                        }
+                    }
+                }
+            }, 100);
+        });
+
+        // ====================
+        // INITIALIZATION
+        // ====================
+
+        loadBestScore();
+        createBackgroundGrid();
+        newGame();
+
+    })();
     </script>
 </body>
 </html>
