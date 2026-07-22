@@ -1,48 +1,304 @@
 {
   "routes": [
-    { "src": "/calculators", "dest": "/calculators.html" },
-    { "src": "/calculator", "dest": "/calculator.html" },
-    { "src": "/scientific-calculator", "dest": "/scientific-calculator.html" },
-    { "src": "/percentage-calculator", "dest": "/percentage-calculator.html" },
-    { "src": "/age-calculator", "dest": "/age-calculator.html" },
-    { "src": "/bmi-calculator", "dest": "/bmi-calculator.html" },
-    { "src": "/loan-calculator", "dest": "/loan-calculator.html" },
-    { "src": "/mortgage-calculator", "dest": "/mortgage-calculator.html" },
-    { "src": "/date-calculator", "dest": "/date-calculator.html" },
-    { "src": "/compound-interest-calculator", "dest": "/compound-interest-calculator.html" },
-    { "src": "/tip-calculator", "dest": "/tip-calculator.html" },
-    { "src": "/image-tools", "dest": "/image-tools.html" },
-    { "src": "/image-resizer", "dest": "/image-resizer.html" },
-    { "src": "/image-compressor", "dest": "/image-compressor.html" },
-    { "src": "/image-cropper", "dest": "/image-cropper.html" },
-    { "src": "/image-rotator", "dest": "/image-rotator.html" },
-    { "src": "/image-flip", "dest": "/image-flip.html" },
-    { "src": "/image-color-picker", "dest": "/image-color-picker.html" },
-    { "src": "/image-metadata-viewer", "dest": "/image-metadata-viewer.html" },
-    { "src": "/meme-generator", "dest": "/meme-generator.html" },
-    { "src": "/jpg-to-png", "dest": "/jpg-to-png.html" },
-    { "src": "/png-to-jpg", "dest": "/png-to-jpg.html" },
-    { "src": "/webp-converter", "dest": "/webp-converter.html" },
-    { "src": "/generators", "dest": "/generators.html" },
-    { "src": "/password-generator", "dest": "/password-generator.html" },
-    { "src": "/username-generator", "dest": "/username-generator.html" },
-    { "src": "/random-number-generator", "dest": "/random-number-generator.html" },
-    { "src": "/random-name-generator", "dest": "/random-name-generator.html" },
-    { "src": "/fake-name-generator", "dest": "/fake-name-generator.html" },
-    { "src": "/strong-password-generator", "dest": "/strong-password-generator.html" },
-    { "src": "/pin-generator", "dest": "/pin-generator.html" },
-    { "src": "/uuid-generator", "dest": "/uuid-generator.html" },
-    { "src": "/qr-code-generator", "dest": "/qr-code-generator.html" },
-    { "src": "/lorem-ipsum-generator", "dest": "/lorem-ipsum-generator.html" },
-    { "src": "/word-generator", "dest": "/word-generator.html" },
-    { "src": "/sentence-generator", "dest": "/sentence-generator.html" },
-    { "src": "/random-letter-generator", "dest": "/random-letter-generator.html" },
-    { "src": "/random-color-generator", "dest": "/random-color-generator.html" },
-    { "src": "/ai-prompt-generator", "dest": "/ai-prompt-generator.html" },
-    { "src": "/email-generator", "dest": "/email-generator.html" },
-    { "src": "/bio-generator", "dest": "/bio-generator.html" },
-    { "src": "/team-generator", "dest": "/team-generator.html" },
-    { "src": "/random-decision-generator", "dest": "/random-decision-generator.html" },
-    { "src": "/(.*)", "dest": "/$1.html" }
+    {
+      "src": "/calculators",
+      "dest": "/calculators.html"
+    },
+    {
+      "src": "/calculator",
+      "dest": "/calculator.html"
+    },
+    {
+      "src": "/scientific-calculator",
+      "dest": "/scientific-calculator.html"
+    },
+    {
+      "src": "/percentage-calculator",
+      "dest": "/percentage-calculator.html"
+    },
+    {
+      "src": "/age-calculator",
+      "dest": "/age-calculator.html"
+    },
+    {
+      "src": "/bmi-calculator",
+      "dest": "/bmi-calculator.html"
+    },
+    {
+      "src": "/loan-calculator",
+      "dest": "/loan-calculator.html"
+    },
+    {
+      "src": "/mortgage-calculator",
+      "dest": "/mortgage-calculator.html"
+    },
+    {
+      "src": "/date-calculator",
+      "dest": "/date-calculator.html"
+    },
+    {
+      "src": "/compound-interest-calculator",
+      "dest": "/compound-interest-calculator.html"
+    },
+    {
+      "src": "/tip-calculator",
+      "dest": "/tip-calculator.html"
+    },
+    {
+      "src": "/image-tools",
+      "dest": "/image-tools.html"
+    },
+    {
+      "src": "/image-resizer",
+      "dest": "/image-resizer.html"
+    },
+    {
+      "src": "/image-compressor",
+      "dest": "/image-compressor.html"
+    },
+    {
+      "src": "/image-cropper",
+      "dest": "/image-cropper.html"
+    },
+    {
+      "src": "/image-rotator",
+      "dest": "/image-rotator.html"
+    },
+    {
+      "src": "/image-flip",
+      "dest": "/image-flip.html"
+    },
+    {
+      "src": "/image-color-picker",
+      "dest": "/image-color-picker.html"
+    },
+    {
+      "src": "/image-metadata-viewer",
+      "dest": "/image-metadata-viewer.html"
+    },
+    {
+      "src": "/meme-generator",
+      "dest": "/meme-generator.html"
+    },
+    {
+      "src": "/jpg-to-png",
+      "dest": "/jpg-to-png.html"
+    },
+    {
+      "src": "/png-to-jpg",
+      "dest": "/png-to-jpg.html"
+    },
+    {
+      "src": "/webp-converter",
+      "dest": "/webp-converter.html"
+    },
+    {
+      "src": "/generators",
+      "dest": "/generators.html"
+    },
+    {
+      "src": "/password-generator",
+      "dest": "/password-generator.html"
+    },
+    {
+      "src": "/username-generator",
+      "dest": "/username-generator.html"
+    },
+    {
+      "src": "/random-number-generator",
+      "dest": "/random-number-generator.html"
+    },
+    {
+      "src": "/random-name-generator",
+      "dest": "/random-name-generator.html"
+    },
+    {
+      "src": "/fake-name-generator",
+      "dest": "/fake-name-generator.html"
+    },
+    {
+      "src": "/strong-password-generator",
+      "dest": "/strong-password-generator.html"
+    },
+    {
+      "src": "/pin-generator",
+      "dest": "/pin-generator.html"
+    },
+    {
+      "src": "/uuid-generator",
+      "dest": "/uuid-generator.html"
+    },
+    {
+      "src": "/qr-code-generator",
+      "dest": "/qr-code-generator.html"
+    },
+    {
+      "src": "/lorem-ipsum-generator",
+      "dest": "/lorem-ipsum-generator.html"
+    },
+    {
+      "src": "/word-generator",
+      "dest": "/word-generator.html"
+    },
+    {
+      "src": "/sentence-generator",
+      "dest": "/sentence-generator.html"
+    },
+    {
+      "src": "/random-letter-generator",
+      "dest": "/random-letter-generator.html"
+    },
+    {
+      "src": "/random-color-generator",
+      "dest": "/random-color-generator.html"
+    },
+    {
+      "src": "/ai-prompt-generator",
+      "dest": "/ai-prompt-generator.html"
+    },
+    {
+      "src": "/email-generator",
+      "dest": "/email-generator.html"
+    },
+    {
+      "src": "/bio-generator",
+      "dest": "/bio-generator.html"
+    },
+    {
+      "src": "/team-generator",
+      "dest": "/team-generator.html"
+    },
+    {
+      "src": "/random-decision-generator",
+      "dest": "/random-decision-generator.html"
+    },
+    {
+      "src": "/templates",
+      "dest": "/templates.html"
+    },
+    {
+      "src": "/resume-template",
+      "dest": "/resume-template.html"
+    },
+    {
+      "src": "/cv-template",
+      "dest": "/cv-template.html"
+    },
+    {
+      "src": "/cover-letter-template",
+      "dest": "/cover-letter-template.html"
+    },
+    {
+      "src": "/invoice-template",
+      "dest": "/invoice-template.html"
+    },
+    {
+      "src": "/receipt-template",
+      "dest": "/receipt-template.html"
+    },
+    {
+      "src": "/business-letter-template",
+      "dest": "/business-letter-template.html"
+    },
+    {
+      "src": "/meeting-agenda-template",
+      "dest": "/meeting-agenda-template.html"
+    },
+    {
+      "src": "/meeting-minutes-template",
+      "dest": "/meeting-minutes-template.html"
+    },
+    {
+      "src": "/business-plan-template",
+      "dest": "/business-plan-template.html"
+    },
+    {
+      "src": "/project-proposal-template",
+      "dest": "/project-proposal-template.html"
+    },
+    {
+      "src": "/project-report-template",
+      "dest": "/project-report-template.html"
+    },
+    {
+      "src": "/marketing-plan-template",
+      "dest": "/marketing-plan-template.html"
+    },
+    {
+      "src": "/budget-template",
+      "dest": "/budget-template.html"
+    },
+    {
+      "src": "/expense-report-template",
+      "dest": "/expense-report-template.html"
+    },
+    {
+      "src": "/timesheet-template",
+      "dest": "/timesheet-template.html"
+    },
+    {
+      "src": "/schedule-template",
+      "dest": "/schedule-template.html"
+    },
+    {
+      "src": "/todo-list-template",
+      "dest": "/todo-list-template.html"
+    },
+    {
+      "src": "/checklist-template",
+      "dest": "/checklist-template.html"
+    },
+    {
+      "src": "/planner-template",
+      "dest": "/planner-template.html"
+    },
+    {
+      "src": "/calendar-template",
+      "dest": "/calendar-template.html"
+    },
+    {
+      "src": "/study-schedule-template",
+      "dest": "/study-schedule-template.html"
+    },
+    {
+      "src": "/lesson-plan-template",
+      "dest": "/lesson-plan-template.html"
+    },
+    {
+      "src": "/certificate-template",
+      "dest": "/certificate-template.html"
+    },
+    {
+      "src": "/thank-you-letter-template",
+      "dest": "/thank-you-letter-template.html"
+    },
+    {
+      "src": "/recommendation-letter-template",
+      "dest": "/recommendation-letter-template.html"
+    },
+    {
+      "src": "/resignation-letter-template",
+      "dest": "/resignation-letter-template.html"
+    },
+    {
+      "src": "/job-application-letter-template",
+      "dest": "/job-application-letter-template.html"
+    },
+    {
+      "src": "/complaint-letter-template",
+      "dest": "/complaint-letter-template.html"
+    },
+    {
+      "src": "/invitation-template",
+      "dest": "/invitation-template.html"
+    },
+    {
+      "src": "/wedding-invitation-template",
+      "dest": "/wedding-invitation-template.html"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1.html"
+    }
   ]
 }
