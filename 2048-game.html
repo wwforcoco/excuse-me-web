@@ -14,7 +14,7 @@
     <link rel="canonical" href="https://excusemeweb.com/2048-game">
     <link rel="icon" href="/favicon.ico">
     <meta name="theme-color" content="#ffffff">
-    
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -821,7 +821,8 @@
             isGameOver = false;
             scoreEl.textContent = '0';
             overlayEl.classList.remove('show');
-            
+            delete boardEl.dataset.won;
+
             addRandomTile();
             addRandomTile();
 
@@ -842,7 +843,6 @@
                 keyboardHint.style.display = 'none';
             }
 
-            let moved = false;
             const tilesToRemove = [];
             const newGrid = [];
             
@@ -867,7 +867,6 @@
                 }
 
                 const result = slideAndMerge(line);
-                if (result.moved) moved = true;
 
                 for (let k = 0; k < result.tiles.length; k++) {
                     const tile = result.tiles[k];
@@ -888,6 +887,23 @@
 
                     if (tile.mergedFrom) {
                         tilesToRemove.push(tile.mergedFrom);
+                    }
+                }
+            }
+
+            // FIX: determine whether anything actually changed by comparing the
+            // full before/after grid (by cell id), not just the order of tiles
+            // within each compressed line. The old logic missed cases where
+            // tiles needed to slide across empty gaps without merging or
+            // reordering, so many valid keypresses were silently ignored.
+            let moved = false;
+            for (let r = 0; r < SIZE && !moved; r++) {
+                for (let c = 0; c < SIZE; c++) {
+                    const oldId = grid[r][c] ? grid[r][c].id : null;
+                    const newId = newGrid[r][c] ? newGrid[r][c].id : null;
+                    if (oldId !== newId) {
+                        moved = true;
+                        break;
                     }
                 }
             }
@@ -925,7 +941,6 @@
          */
         function slideAndMerge(line) {
             const resultTiles = [];
-            let moved = false;
             let i = 0;
 
             while (i < line.length) {
@@ -941,7 +956,6 @@
                         mergedFrom: line[i + 1].id
                     });
                     i += 2;
-                    moved = true;
                 } else {
                     resultTiles.push({
                         id: current.id,
@@ -952,12 +966,7 @@
                 }
             }
 
-            if (resultTiles.length !== line.length || 
-                resultTiles.some((t, idx) => t.id !== line[idx].id)) {
-                moved = true;
-            }
-
-            return { tiles: resultTiles, moved };
+            return { tiles: resultTiles };
         }
 
         /**
@@ -1000,7 +1009,7 @@
         }
 
         // ====================
-        // KEYBOARD INPUT - FIXED
+        // KEYBOARD INPUT
         // ====================
         
         document.addEventListener('keydown', function(e) {
