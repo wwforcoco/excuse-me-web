@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Tools - Resize, Compress, Convert & Edit Photos Online | ExcuseMeWeb</title>
+    <meta name="description" content="A collection of browser-based image tools: resize, compress, crop, rotate, flip, convert formats, pick colors, view metadata, and build memes.">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Image Tools - Edit Photos Online">
+    <meta property="og:description" content="Resize, compress, crop, convert, and edit pictures with a set of browser-based image tools.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://excusemeweb.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://excusemeweb.com/image-tools">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="theme-color" content="#0f172a">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Image Tools",
+      "url": "https://excusemeweb.com/image-tools",
+      "description": "A collection of browser-based tools for resizing, compressing, converting, and editing images.",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "All",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "author": { "@type": "Organization", "name": "ExcuseMeWeb" },
+      "dateModified": "2026-07-22"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Which tool should I start with?",
+          "acceptedAnswer": { "@type": "Answer", "text": "If you just need a picture smaller in dimensions or file weight, start with the Image Resizer or Image Compressor. Everything else covers a more specific task." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is there any setup needed before using a tool?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. Open any tool page and start working with a picture right away." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I chain tools together, like resizing then compressing?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes, download the result from one tool and load it into the next." }
+        },
+        {
+          "@type": "Question",
+          "name": "Are these tools mobile-friendly?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes, each page is responsive and works on a phone or tablet browser, though drag-based tools like the cropper are easier with a mouse or trackpad." }
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        :root {
+            --bg-primary: #0f172a; --bg-secondary: #1e293b; --bg-tertiary: #334155;
+            --text-primary: #f8fafc; --text-secondary: #94a3b8; --accent: #38bdf8;
+            --accent-hover: #0ea5e9; --danger: #ef4444; --success: #22c55e; --border: #475569;
+            --shadow: rgba(0,0,0,0.3); --font-body: 'Inter', sans-serif; --font-brand: 'Inter', sans-serif;
+            --border-radius: 12px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-body); background: var(--bg-primary); color: var(--text-primary); min-height: 100vh; display: flex; flex-direction: column; }
+        .header { background: var(--bg-secondary); border-bottom: 1px solid var(--border); padding: 0 24px; position: sticky; top: 0; z-index: 1000; }
+        .header-inner { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+        .logo { font-family: var(--font-brand); font-size: 1.5rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+        .logo span { color: var(--text-primary); }
+        .nav-desktop { display: flex; gap: 32px; }
+        .nav-desktop a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+        .nav-desktop a:hover { color: var(--accent); }
+        .nav-desktop a.active { color: var(--accent); }
+        .header-right { display: flex; align-items: center; gap: 16px; }
+        .hamburger { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+        .mobile-nav { display: none; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-secondary); border-bottom: 1px solid var(--border); padding: 16px 24px; flex-direction: column; gap: 16px; }
+        .mobile-nav.show { display: flex; }
+        .mobile-nav a { color: var(--text-secondary); text-decoration: none; font-size: 1rem; font-weight: 500; }
+        .main-content { flex: 1; max-width: 1100px; width: 100%; margin: 0 auto; padding: 40px 24px; }
+        .page-header { text-align: center; margin-bottom: 32px; }
+        .page-header h1 { font-size: 2.3rem; font-weight: 700; margin-bottom: 8px; }
+        .page-header p { color: var(--text-secondary); font-size: 1.05rem; max-width: 640px; margin: 0 auto; }
+        .tool-panel { background: var(--bg-secondary); border-radius: var(--border-radius); padding: 28px; margin-bottom: 40px; border: 1px solid var(--border); }
+        .dropzone { border: 2px dashed var(--border); border-radius: 10px; padding: 48px 24px; text-align: center; cursor: pointer; transition: border-color .2s, background .2s; }
+        .dropzone:hover, .dropzone.drag { border-color: var(--accent); background: rgba(56,189,248,0.06); }
+        .dropzone .icon { font-size: 2.4rem; margin-bottom: 12px; }
+        .dropzone .main-txt { font-weight: 600; margin-bottom: 6px; }
+        .dropzone .sub-txt { color: var(--text-secondary); font-size: 0.85rem; }
+        .workspace { display: none; }
+        .workspace.active { display: block; }
+        .preview-wrap { display: flex; justify-content: center; margin-bottom: 20px; }
+        canvas, .crop-img { max-width: 100%; border-radius: 8px; background: repeating-conic-gradient(#33415580 0% 25%, transparent 0% 50%) 50% / 20px 20px; }
+        .controls-row { display: flex; flex-wrap: wrap; gap: 16px; align-items: end; margin-bottom: 18px; }
+        .field { display: flex; flex-direction: column; gap: 6px; }
+        .field label { font-size: 0.82rem; color: var(--text-secondary); font-weight: 600; }
+        .field input[type=number], .field input[type=text], .field select { background: var(--bg-primary); border: 1px solid var(--border); color: var(--text-primary); padding: 9px 12px; border-radius: 8px; font-size: 0.95rem; width: 130px; }
+        .field input[type=range] { width: 180px; }
+        .field input[type=color] { width: 50px; height: 38px; border: 1px solid var(--border); border-radius: 8px; background: var(--bg-primary); padding: 2px; }
+        .chk-field { display: flex; align-items: center; gap: 8px; font-size: 0.88rem; color: var(--text-secondary); }
+        .btn { background: var(--accent); color: #06202f; border: none; padding: 11px 22px; border-radius: 8px; font-weight: 700; font-size: 0.95rem; cursor: pointer; transition: background .15s; }
+        .btn:hover { background: var(--accent-hover); }
+        .btn.secondary { background: var(--bg-tertiary); color: var(--text-primary); }
+        .btn.secondary:hover { background: var(--border); }
+        .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+        .btn-row { display: flex; flex-wrap: wrap; gap: 12px; }
+        .file-meta { color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 14px; display: flex; flex-wrap: wrap; gap: 16px; }
+        .swatch-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+        .swatch { width: 44px; height: 44px; border-radius: 8px; border: 1px solid var(--border); cursor: pointer; }
+        .meta-table { width: 100%; border-collapse: collapse; margin-top: 6px; font-size: 0.9rem; }
+        .meta-table td { padding: 8px 10px; border-bottom: 1px solid var(--border); color: var(--text-secondary); }
+        .meta-table td:first-child { color: var(--text-primary); font-weight: 600; width: 40%; }
+        .info-section { background: var(--bg-secondary); border-radius: var(--border-radius); padding: 32px; margin-bottom: 24px; border: 1px solid var(--border); }
+        .info-section h2 { font-size: 1.4rem; margin-bottom: 14px; }
+        .info-section h3 { margin-top: 28px; margin-bottom: 14px; color: var(--accent); font-size: 1.1rem; }
+        .info-section p, .info-section li { color: var(--text-secondary); line-height: 1.7; margin-bottom: 10px; }
+        .info-section ol, .info-section ul { padding-left: 22px; }
+        .info-section a { color: var(--accent); text-decoration: none; }
+        .info-section a:hover { text-decoration: underline; }
+        details { margin-bottom: 10px; border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; background: var(--bg-primary); }
+        summary { font-weight: 600; color: var(--text-primary); cursor: pointer; }
+        details p { margin-top: 10px; margin-bottom: 0; }
+        .footer { background: var(--bg-secondary); border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--text-secondary); font-size: 0.9rem; }
+        .footer a { color: var(--accent); text-decoration: none; }
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 18px; margin-bottom: 40px; }
+        .tool-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--border-radius); padding: 22px; text-decoration: none; color: var(--text-primary); transition: transform .15s, border-color .15s; }
+        .tool-card:hover { transform: translateY(-3px); border-color: var(--accent); }
+        .tool-card .icon { font-size: 1.8rem; margin-bottom: 10px; }
+        .tool-card h3 { font-size: 1.05rem; margin-bottom: 6px; }
+        .tool-card p { color: var(--text-secondary); font-size: 0.85rem; line-height: 1.5; }
+        @media (max-width: 768px) { .nav-desktop { display: none; } .hamburger { display: block; } .page-header h1 { font-size: 1.7rem; } }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="/" class="logo">Excuse<span>Me</span>Web</a>
+            <nav class="nav-desktop">
+                <a href="/calculator">Tools</a>
+                <a href="/calculator">Calculators</a>
+                <a href="/image-tools" class="active">Image Tools</a>
+                <a href="/password-generator">Generators</a>
+                <a href="/templates">Templates</a>
+                <a href="/games">Games</a>
+            </nav>
+            <div class="header-right">
+                <button class="hamburger" onclick="document.getElementById('mobileNav').classList.toggle('show')">Menu</button>
+            </div>
+        </div>
+        <nav class="mobile-nav" id="mobileNav">
+            <a href="/calculator">Tools</a><a href="/calculator">Calculators</a><a href="/image-tools">Image Tools</a><a href="/password-generator">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a>
+        </nav>
+    </header>
+    <main class="main-content">
+        <div class="page-header">
+            <h1>Image Tools</h1>
+            <p>A set of browser-based tools for resizing, compressing, converting, and editing pictures.</p>
+        </div>
+
+
+        <div class="card-grid">
+            <a class="tool-card" href="/image-resizer">
+<h3>Image Resizer</h3><p>Set an exact width, height, or percentage scale.</p></a>
+            <a class="tool-card" href="/image-compressor">
+<h3>Image Compressor</h3><p>Shrink file size with an adjustable quality slider.</p></a>
+            <a class="tool-card" href="/jpg-to-png">
+<h3>JPG to PNG Converter</h3><p>Turn a JPG photo into a lossless PNG.</p></a>
+            <a class="tool-card" href="/png-to-jpg">
+<h3>PNG to JPG Converter</h3><p>Convert PNG to JPG with a custom background fill.</p></a>
+            <a class="tool-card" href="/webp-converter">
+<h3>WebP Converter</h3><p>Convert to WebP for smaller files, or back to JPG/PNG.</p></a>
+            <a class="tool-card" href="/image-cropper">
+<h3>Image Cropper</h3><p>Drag a box to keep only the part you want.</p></a>
+            <a class="tool-card" href="/image-rotator">
+<h3>Image Rotator</h3><p>Turn a picture 90° at a time or to a custom angle.</p></a>
+            <a class="tool-card" href="/image-flip">
+<h3>Image Flip Tool</h3><p>Mirror a picture horizontally or vertically.</p></a>
+            <a class="tool-card" href="/image-color-picker">
+<h3>Image Color Picker</h3><p>Click a pixel to read its HEX, RGB, and HSL value.</p></a>
+            <a class="tool-card" href="/image-metadata-viewer">
+<h3>Image Metadata Viewer</h3><p>Check file details and embedded EXIF camera data.</p></a>
+            <a class="tool-card" href="/meme-generator">
+<h3>Meme Generator</h3><p>Add bold top and bottom caption text to a picture.</p></a>
+        </div>
+
+
+        <div class="info-section">
+            <h2>About This Collection</h2>
+            <p>Each tool below opens its own page and handles one specific task on a picture, from changing its pixel dimensions to overlaying meme text. Every tool processes the file inside your browser tab rather than on a remote server, so nothing you load here is transmitted elsewhere.</p>
+
+            <h3>How to Pick the Right Tool</h3>
+            <ol>
+                <li>Changing dimensions or file weight → Image Resizer or Image Compressor</li>
+                <li>Switching between JPG, PNG, and WebP → the three converter tools below</li>
+                <li>Cutting, turning, or mirroring a picture → Image Cropper, Rotator, or Flip Tool</li>
+                <li>Reading a picture rather than editing it → Color Picker or Metadata Viewer</li>
+            </ol>
+
+            <h3>What This Category Covers</h3>
+            <ul>
+                <li>Eleven single-purpose tools, each on its own dedicated page</li>
+                <li>No installation, plugin, or desktop software required</li>
+                <li>Consistent, straightforward controls across every tool</li>
+                <li>Processing stays local to your device in every tool listed here</li>
+            </ul>
+
+            <h3>Frequently Asked Questions</h3>
+            <details>
+                <summary>Which tool should I start with?</summary>
+                <p>If you just need a picture smaller in dimensions or file weight, start with the Image Resizer or Image Compressor. Everything else covers a more specific task.</p>
+            </details>
+            <details>
+                <summary>Is there any setup needed before using a tool?</summary>
+                <p>No. Open any tool page and start working with a picture right away.</p>
+            </details>
+            <details>
+                <summary>Can I chain tools together, like resizing then compressing?</summary>
+                <p>Yes, download the result from one tool and load it into the next.</p>
+            </details>
+            <details>
+                <summary>Are these tools mobile-friendly?</summary>
+                <p>Yes, each page is responsive and works on a phone or tablet browser, though drag-based tools like the cropper are easier with a mouse or trackpad.</p>
+            </details>
+
+            <h3>Related Tools</h3>
+            <p><a href="/calculator">Calculators</a> · <a href="/password-generator">Generators</a> · <a href="/templates">Templates</a></p>
+        </div>
+    </main>
+    <footer class="footer">
+        <p>© 2026 ExcuseMeWeb.com — Online Tools for Everyone</p>
+        <p style="margin-top:8px"><a href="/calculator">Calculators</a> · <a href="/image-tools">Image Tools</a> · <a href="/password-generator">Generators</a> · <a href="/templates">Templates</a></p>
+    </footer>
+    <script>
+// category page has no interactive canvas logic
+    </script>
+</body>
+</html>

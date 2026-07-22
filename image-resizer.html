@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Resizer - Resize Photos to Exact Pixels or Percentage | ExcuseMeWeb</title>
+    <meta name="description" content="Resize any JPG, PNG, or WebP image to an exact width and height, or scale it by percentage, right in your browser. Lock the aspect ratio and export instantly.">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Image Resizer - Resize Photos Online">
+    <meta property="og:description" content="Set an exact pixel size or a percentage and resize your image instantly in the browser.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://excusemeweb.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://excusemeweb.com/image-resizer">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="theme-color" content="#0f172a">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Image Resizer",
+      "url": "https://excusemeweb.com/image-resizer",
+      "description": "A browser-based tool that resizes images to a specific width and height or by percentage scale.",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "All",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "author": { "@type": "Organization", "name": "ExcuseMeWeb" },
+      "dateModified": "2026-07-22"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Will resizing blur my picture?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Making an image larger than its original resolution can soften fine detail because the browser is inventing new pixels. Shrinking a picture rarely causes noticeable blur." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between pixel mode and percentage mode?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Pixel mode sets an exact width and height in pixels. Percentage mode scales the current size up or down by a ratio, so 50% produces an image half as wide and half as tall." }
+        },
+        {
+          "@type": "Question",
+          "name": "Does the ratio lock change my picture's proportions?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. With the lock on, changing the width automatically recalculates the height so the picture is not stretched or squashed." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I resize a screenshot or a photo taken on a phone?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Any JPG, PNG, or WebP file works, regardless of where it came from or how large the file is." }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens to the picture after I close this page?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Nothing is kept. The resizing happens in your browser memory and is discarded the moment you navigate away." }
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        :root {
+            --bg-primary: #0f172a; --bg-secondary: #1e293b; --bg-tertiary: #334155;
+            --text-primary: #f8fafc; --text-secondary: #94a3b8; --accent: #38bdf8;
+            --accent-hover: #0ea5e9; --danger: #ef4444; --success: #22c55e; --border: #475569;
+            --shadow: rgba(0,0,0,0.3); --font-body: 'Inter', sans-serif; --font-brand: 'Inter', sans-serif;
+            --border-radius: 12px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-body); background: var(--bg-primary); color: var(--text-primary); min-height: 100vh; display: flex; flex-direction: column; }
+        .header { background: var(--bg-secondary); border-bottom: 1px solid var(--border); padding: 0 24px; position: sticky; top: 0; z-index: 1000; }
+        .header-inner { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+        .logo { font-family: var(--font-brand); font-size: 1.5rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+        .logo span { color: var(--text-primary); }
+        .nav-desktop { display: flex; gap: 32px; }
+        .nav-desktop a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+        .nav-desktop a:hover { color: var(--accent); }
+        .nav-desktop a.active { color: var(--accent); }
+        .header-right { display: flex; align-items: center; gap: 16px; }
+        .hamburger { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+        .mobile-nav { display: none; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-secondary); border-bottom: 1px solid var(--border); padding: 16px 24px; flex-direction: column; gap: 16px; }
+        .mobile-nav.show { display: flex; }
+        .mobile-nav a { color: var(--text-secondary); text-decoration: none; font-size: 1rem; font-weight: 500; }
+        .main-content { flex: 1; max-width: 1100px; width: 100%; margin: 0 auto; padding: 40px 24px; }
+        .page-header { text-align: center; margin-bottom: 32px; }
+        .page-header h1 { font-size: 2.3rem; font-weight: 700; margin-bottom: 8px; }
+        .page-header p { color: var(--text-secondary); font-size: 1.05rem; max-width: 640px; margin: 0 auto; }
+        .tool-panel { background: var(--bg-secondary); border-radius: var(--border-radius); padding: 28px; margin-bottom: 40px; border: 1px solid var(--border); }
+        .dropzone { border: 2px dashed var(--border); border-radius: 10px; padding: 48px 24px; text-align: center; cursor: pointer; transition: border-color .2s, background .2s; }
+        .dropzone:hover, .dropzone.drag { border-color: var(--accent); background: rgba(56,189,248,0.06); }
+        .dropzone .icon { font-size: 2.4rem; margin-bottom: 12px; }
+        .dropzone .main-txt { font-weight: 600; margin-bottom: 6px; }
+        .dropzone .sub-txt { color: var(--text-secondary); font-size: 0.85rem; }
+        .workspace { display: none; }
+        .workspace.active { display: block; }
+        .preview-wrap { display: flex; justify-content: center; margin-bottom: 20px; }
+        canvas, .crop-img { max-width: 100%; border-radius: 8px; background: repeating-conic-gradient(#33415580 0% 25%, transparent 0% 50%) 50% / 20px 20px; }
+        .controls-row { display: flex; flex-wrap: wrap; gap: 16px; align-items: end; margin-bottom: 18px; }
+        .field { display: flex; flex-direction: column; gap: 6px; }
+        .field label { font-size: 0.82rem; color: var(--text-secondary); font-weight: 600; }
+        .field input[type=number], .field input[type=text], .field select { background: var(--bg-primary); border: 1px solid var(--border); color: var(--text-primary); padding: 9px 12px; border-radius: 8px; font-size: 0.95rem; width: 130px; }
+        .field input[type=range] { width: 180px; }
+        .field input[type=color] { width: 50px; height: 38px; border: 1px solid var(--border); border-radius: 8px; background: var(--bg-primary); padding: 2px; }
+        .chk-field { display: flex; align-items: center; gap: 8px; font-size: 0.88rem; color: var(--text-secondary); }
+        .btn { background: var(--accent); color: #06202f; border: none; padding: 11px 22px; border-radius: 8px; font-weight: 700; font-size: 0.95rem; cursor: pointer; transition: background .15s; }
+        .btn:hover { background: var(--accent-hover); }
+        .btn.secondary { background: var(--bg-tertiary); color: var(--text-primary); }
+        .btn.secondary:hover { background: var(--border); }
+        .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+        .btn-row { display: flex; flex-wrap: wrap; gap: 12px; }
+        .file-meta { color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 14px; display: flex; flex-wrap: wrap; gap: 16px; }
+        .swatch-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+        .swatch { width: 44px; height: 44px; border-radius: 8px; border: 1px solid var(--border); cursor: pointer; }
+        .meta-table { width: 100%; border-collapse: collapse; margin-top: 6px; font-size: 0.9rem; }
+        .meta-table td { padding: 8px 10px; border-bottom: 1px solid var(--border); color: var(--text-secondary); }
+        .meta-table td:first-child { color: var(--text-primary); font-weight: 600; width: 40%; }
+        .info-section { background: var(--bg-secondary); border-radius: var(--border-radius); padding: 32px; margin-bottom: 24px; border: 1px solid var(--border); }
+        .info-section h2 { font-size: 1.4rem; margin-bottom: 14px; }
+        .info-section h3 { margin-top: 28px; margin-bottom: 14px; color: var(--accent); font-size: 1.1rem; }
+        .info-section p, .info-section li { color: var(--text-secondary); line-height: 1.7; margin-bottom: 10px; }
+        .info-section ol, .info-section ul { padding-left: 22px; }
+        .info-section a { color: var(--accent); text-decoration: none; }
+        .info-section a:hover { text-decoration: underline; }
+        details { margin-bottom: 10px; border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; background: var(--bg-primary); }
+        summary { font-weight: 600; color: var(--text-primary); cursor: pointer; }
+        details p { margin-top: 10px; margin-bottom: 0; }
+        .footer { background: var(--bg-secondary); border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--text-secondary); font-size: 0.9rem; }
+        .footer a { color: var(--accent); text-decoration: none; }
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 18px; margin-bottom: 40px; }
+        .tool-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--border-radius); padding: 22px; text-decoration: none; color: var(--text-primary); transition: transform .15s, border-color .15s; }
+        .tool-card:hover { transform: translateY(-3px); border-color: var(--accent); }
+        .tool-card .icon { font-size: 1.8rem; margin-bottom: 10px; }
+        .tool-card h3 { font-size: 1.05rem; margin-bottom: 6px; }
+        .tool-card p { color: var(--text-secondary); font-size: 0.85rem; line-height: 1.5; }
+        @media (max-width: 768px) { .nav-desktop { display: none; } .hamburger { display: block; } .page-header h1 { font-size: 1.7rem; } }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="/" class="logo">Excuse<span>Me</span>Web</a>
+            <nav class="nav-desktop">
+                <a href="/calculator">Tools</a>
+                <a href="/calculator">Calculators</a>
+                <a href="/image-tools" class="active">Image Tools</a>
+                <a href="/password-generator">Generators</a>
+                <a href="/templates">Templates</a>
+                <a href="/games">Games</a>
+            </nav>
+            <div class="header-right">
+                <button class="hamburger" onclick="document.getElementById('mobileNav').classList.toggle('show')">Menu</button>
+            </div>
+        </div>
+        <nav class="mobile-nav" id="mobileNav">
+            <a href="/calculator">Tools</a><a href="/calculator">Calculators</a><a href="/image-tools">Image Tools</a><a href="/password-generator">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a>
+        </nav>
+    </header>
+    <main class="main-content">
+        <div class="page-header">
+            <h1>Image Resizer</h1>
+            <p>Set an exact width and height, or scale by percentage, and export the resized file.</p>
+        </div>
+
+
+        <div class="tool-panel">
+            <div class="dropzone" id="dz">
+                <div class="main-txt">Drop a picture here, or click to choose one</div>
+                <div class="sub-txt">JPG, PNG, or WebP</div>
+                <input type="file" id="fileInput" accept="image/*" hidden>
+            </div>
+            <div class="workspace" id="ws">
+                <div class="preview-wrap"><canvas id="canvas"></canvas></div>
+                <div class="file-meta"><span id="origDims"></span><span id="fileName"></span></div>
+                <div class="controls-row">
+                    <div class="field"><label>Width (px)</label><input type="number" id="wIn" min="1"></div>
+                    <div class="field"><label>Height (px)</label><input type="number" id="hIn" min="1"></div>
+                    <div class="chk-field"><input type="checkbox" id="lockRatio" checked> Lock ratio</div>
+                    <div class="field"><label>Or scale by %</label><input type="number" id="pctIn" min="1" max="400" placeholder="e.g. 50"></div>
+                    <div class="field"><label>Export as</label><select id="fmtSel"><option value="image/jpeg">JPG</option><option value="image/png" selected>PNG</option><option value="image/webp">WebP</option></select></div>
+                    <div class="field" id="qualityField"><label>Quality</label><input type="range" id="qIn" min="10" max="100" value="90"></div>
+                </div>
+                <div class="btn-row">
+                    <button class="btn" id="resizeBtn">Resize</button>
+                    <button class="btn secondary" id="downloadBtn" disabled>Download</button>
+                    <button class="btn secondary" id="resetBtn">Start Over</button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="info-section">
+            <h2>What This Tool Does</h2>
+            <p>This resizer changes the pixel dimensions of a picture. Load a file, choose a target width and height (or a percentage of the original), and the browser redraws the pixels onto a canvas at the new size before you save the result.</p>
+
+            <h3>Steps to Resize a Picture</h3>
+            <ol>
+                <li>Drop a picture into the box above, or click it to browse your device</li>
+                <li>Type the width and height you want in pixels, or switch to percentage mode</li>
+                <li>Toggle the ratio lock if you want height to follow width automatically</li>
+                <li>Press Resize, then Download to save the new file</li>
+            </ol>
+
+            <h3>What You Can Control</h3>
+            <ul>
+                <li>Exact pixel width and height, entered separately or locked to one ratio</li>
+                <li>Percentage scaling from 1% up to 400% of the original size</li>
+                <li>Export as JPG, PNG, or WebP regardless of the source format</li>
+                <li>A live preview so you see the new dimensions before saving</li>
+                <li>Runs fully in your browser tab, so the picture never leaves your device</li>
+            </ul>
+
+            <h3>Frequently Asked Questions</h3>
+            <details>
+                <summary>Will resizing blur my picture?</summary>
+                <p>Making an image larger than its original resolution can soften fine detail because the browser is inventing new pixels. Shrinking a picture rarely causes noticeable blur.</p>
+            </details>
+            <details>
+                <summary>What is the difference between pixel mode and percentage mode?</summary>
+                <p>Pixel mode sets an exact width and height in pixels. Percentage mode scales the current size up or down by a ratio, so 50% produces an image half as wide and half as tall.</p>
+            </details>
+            <details>
+                <summary>Does the ratio lock change my picture's proportions?</summary>
+                <p>No. With the lock on, changing the width automatically recalculates the height so the picture is not stretched or squashed.</p>
+            </details>
+            <details>
+                <summary>Can I resize a screenshot or a photo taken on a phone?</summary>
+                <p>Yes. Any JPG, PNG, or WebP file works, regardless of where it came from or how large the file is.</p>
+            </details>
+            <details>
+                <summary>What happens to the picture after I close this page?</summary>
+                <p>Nothing is kept. The resizing happens in your browser memory and is discarded the moment you navigate away.</p>
+            </details>
+
+            <h3>Related Tools</h3>
+            <p><a href="/image-compressor">Image Compressor</a> · <a href="/image-cropper">Image Cropper</a> · <a href="/jpg-to-png">JPG to PNG</a> · <a href="/webp-converter">WebP Converter</a> · <a href="/image-tools">All Image Tools</a></p>
+        </div>
+    </main>
+    <footer class="footer">
+        <p>© 2026 ExcuseMeWeb.com — Online Tools for Everyone</p>
+        <p style="margin-top:8px"><a href="/calculator">Calculators</a> · <a href="/image-tools">Image Tools</a> · <a href="/password-generator">Generators</a> · <a href="/templates">Templates</a></p>
+    </footer>
+    <script>
+
+(function(){
+  const dz=document.getElementById('dz'), fi=document.getElementById('fileInput'), ws=document.getElementById('ws');
+  const canvas=document.getElementById('canvas'), ctx=canvas.getContext('2d');
+  const wIn=document.getElementById('wIn'), hIn=document.getElementById('hIn'), pctIn=document.getElementById('pctIn');
+  const lockRatio=document.getElementById('lockRatio'), fmtSel=document.getElementById('fmtSel'), qIn=document.getElementById('qIn');
+  const resizeBtn=document.getElementById('resizeBtn'), downloadBtn=document.getElementById('downloadBtn'), resetBtn=document.getElementById('resetBtn');
+  const origDims=document.getElementById('origDims'), fileName=document.getElementById('fileName'), qualityField=document.getElementById('qualityField');
+  let img=new Image(), origW=0, origH=0, srcName='image', resultBlob=null;
+
+  function openFile(){ fi.click(); }
+  dz.addEventListener('click', openFile);
+  dz.addEventListener('dragover', e=>{ e.preventDefault(); dz.classList.add('drag'); });
+  dz.addEventListener('dragleave', ()=> dz.classList.remove('drag'));
+  dz.addEventListener('drop', e=>{ e.preventDefault(); dz.classList.remove('drag'); if(e.dataTransfer.files[0]) loadFile(e.dataTransfer.files[0]); });
+  fi.addEventListener('change', e=>{ if(e.target.files[0]) loadFile(e.target.files[0]); });
+
+  function loadFile(file){
+    srcName = file.name.replace(/\.[^.]+$/, '') || 'image';
+    const url = URL.createObjectURL(file);
+    img = new Image();
+    img.onload = ()=>{
+      origW = img.naturalWidth; origH = img.naturalHeight;
+      wIn.value = origW; hIn.value = origH;
+      origDims.textContent = 'Original: ' + origW + ' × ' + origH + 'px';
+      fileName.textContent = file.name;
+      canvas.width = origW; canvas.height = origH;
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      ctx.drawImage(img,0,0);
+      ws.classList.add('active');
+      downloadBtn.disabled = true;
+    };
+    img.src = url;
+  }
+
+  wIn.addEventListener('input', ()=>{ if(lockRatio.checked && origW) hIn.value = Math.round(wIn.value * (origH/origW)); });
+  hIn.addEventListener('input', ()=>{ if(lockRatio.checked && origH) wIn.value = Math.round(hIn.value * (origW/origH)); });
+  pctIn.addEventListener('input', ()=>{ if(!pctIn.value) return; wIn.value = Math.round(origW * pctIn.value/100); hIn.value = Math.round(origH * pctIn.value/100); });
+  fmtSel.addEventListener('change', ()=>{ qualityField.style.display = fmtSel.value==='image/png' ? 'none':'flex'; });
+
+  resizeBtn.addEventListener('click', ()=>{
+    const w = parseInt(wIn.value)||origW, h = parseInt(hIn.value)||origH;
+    canvas.width = w; canvas.height = h;
+    ctx.clearRect(0,0,w,h);
+    ctx.drawImage(img,0,0,w,h);
+    canvas.toBlob(blob=>{ resultBlob = blob; downloadBtn.disabled=false; }, fmtSel.value, (qIn.value/100));
+  });
+
+  downloadBtn.addEventListener('click', ()=>{
+    if(!resultBlob) return;
+    const ext = fmtSel.value==='image/jpeg'?'jpg':fmtSel.value==='image/png'?'png':'webp';
+    const a=document.createElement('a'); a.href=URL.createObjectURL(resultBlob); a.download = srcName+'-resized.'+ext; a.click();
+  });
+
+  resetBtn.addEventListener('click', ()=>{ ws.classList.remove('active'); fi.value=''; resultBlob=null; });
+})();
+
+    </script>
+</body>
+</html>

@@ -10,6 +10,7 @@
     { "src": "/date-calculator", "dest": "/date-calculator.html" },
     { "src": "/compound-interest-calculator", "dest": "/compound-interest-calculator.html" },
     { "src": "/tip-calculator", "dest": "/tip-calculator.html" },
+    { "src": "/image-resizer", "dest": "/image-resizer.html" },
     { "src": "/(.*)", "dest": "/$1.html" }
   ]
 }

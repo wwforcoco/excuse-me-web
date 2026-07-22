@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Rotator - Rotate Photos Online | ExcuseMeWeb</title>
+    <meta name="description" content="Rotate a JPG, PNG, or WebP image 90 degrees at a time or to any custom angle, then save the corrected picture.">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Image Rotator - Rotate Photos Online">
+    <meta property="og:description" content="Rotate your picture 90 degrees at a time, or dial in a custom angle, right in your browser.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://excusemeweb.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://excusemeweb.com/image-rotator">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="theme-color" content="#0f172a">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Image Rotator",
+      "url": "https://excusemeweb.com/image-rotator",
+      "description": "A browser-based tool that rotates images by 90-degree steps or a custom angle.",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "All",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "author": { "@type": "Organization", "name": "ExcuseMeWeb" },
+      "dateModified": "2026-07-22"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why does the canvas size change after rotating?",
+          "acceptedAnswer": { "@type": "Answer", "text": "At angles other than 0, 90, 180, or 270 degrees, a rotated rectangle needs a larger bounding box to fit without cutting off corners, so the canvas expands to hold the whole picture." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I rotate by an exact number like 15 degrees?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes, the angle slider lets you pick any whole-degree value in that range." }
+        },
+        {
+          "@type": "Question",
+          "name": "Will rotating fill the empty corners with a color?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The corners left empty by a non-90-degree rotation are transparent for PNG or WebP output, or white for JPG output." }
+        },
+        {
+          "@type": "Question",
+          "name": "Does rotating affect picture quality?",
+          "acceptedAnswer": { "@type": "Answer", "text": "A 90, 180, or 270 degree turn does not lose any detail. Other angles involve some pixel resampling, similar to resizing." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I rotate a picture back after saving it?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes, load the downloaded file back into this tool and rotate it the opposite direction." }
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        :root {
+            --bg-primary: #0f172a; --bg-secondary: #1e293b; --bg-tertiary: #334155;
+            --text-primary: #f8fafc; --text-secondary: #94a3b8; --accent: #38bdf8;
+            --accent-hover: #0ea5e9; --danger: #ef4444; --success: #22c55e; --border: #475569;
+            --shadow: rgba(0,0,0,0.3); --font-body: 'Inter', sans-serif; --font-brand: 'Inter', sans-serif;
+            --border-radius: 12px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-body); background: var(--bg-primary); color: var(--text-primary); min-height: 100vh; display: flex; flex-direction: column; }
+        .header { background: var(--bg-secondary); border-bottom: 1px solid var(--border); padding: 0 24px; position: sticky; top: 0; z-index: 1000; }
+        .header-inner { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+        .logo { font-family: var(--font-brand); font-size: 1.5rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+        .logo span { color: var(--text-primary); }
+        .nav-desktop { display: flex; gap: 32px; }
+        .nav-desktop a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+        .nav-desktop a:hover { color: var(--accent); }
+        .nav-desktop a.active { color: var(--accent); }
+        .header-right { display: flex; align-items: center; gap: 16px; }
+        .hamburger { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+        .mobile-nav { display: none; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-secondary); border-bottom: 1px solid var(--border); padding: 16px 24px; flex-direction: column; gap: 16px; }
+        .mobile-nav.show { display: flex; }
+        .mobile-nav a { color: var(--text-secondary); text-decoration: none; font-size: 1rem; font-weight: 500; }
+        .main-content { flex: 1; max-width: 1100px; width: 100%; margin: 0 auto; padding: 40px 24px; }
+        .page-header { text-align: center; margin-bottom: 32px; }
+        .page-header h1 { font-size: 2.3rem; font-weight: 700; margin-bottom: 8px; }
+        .page-header p { color: var(--text-secondary); font-size: 1.05rem; max-width: 640px; margin: 0 auto; }
+        .tool-panel { background: var(--bg-secondary); border-radius: var(--border-radius); padding: 28px; margin-bottom: 40px; border: 1px solid var(--border); }
+        .dropzone { border: 2px dashed var(--border); border-radius: 10px; padding: 48px 24px; text-align: center; cursor: pointer; transition: border-color .2s, background .2s; }
+        .dropzone:hover, .dropzone.drag { border-color: var(--accent); background: rgba(56,189,248,0.06); }
+        .dropzone .icon { font-size: 2.4rem; margin-bottom: 12px; }
+        .dropzone .main-txt { font-weight: 600; margin-bottom: 6px; }
+        .dropzone .sub-txt { color: var(--text-secondary); font-size: 0.85rem; }
+        .workspace { display: none; }
+        .workspace.active { display: block; }
+        .preview-wrap { display: flex; justify-content: center; margin-bottom: 20px; }
+        canvas, .crop-img { max-width: 100%; border-radius: 8px; background: repeating-conic-gradient(#33415580 0% 25%, transparent 0% 50%) 50% / 20px 20px; }
+        .controls-row { display: flex; flex-wrap: wrap; gap: 16px; align-items: end; margin-bottom: 18px; }
+        .field { display: flex; flex-direction: column; gap: 6px; }
+        .field label { font-size: 0.82rem; color: var(--text-secondary); font-weight: 600; }
+        .field input[type=number], .field input[type=text], .field select { background: var(--bg-primary); border: 1px solid var(--border); color: var(--text-primary); padding: 9px 12px; border-radius: 8px; font-size: 0.95rem; width: 130px; }
+        .field input[type=range] { width: 180px; }
+        .field input[type=color] { width: 50px; height: 38px; border: 1px solid var(--border); border-radius: 8px; background: var(--bg-primary); padding: 2px; }
+        .chk-field { display: flex; align-items: center; gap: 8px; font-size: 0.88rem; color: var(--text-secondary); }
+        .btn { background: var(--accent); color: #06202f; border: none; padding: 11px 22px; border-radius: 8px; font-weight: 700; font-size: 0.95rem; cursor: pointer; transition: background .15s; }
+        .btn:hover { background: var(--accent-hover); }
+        .btn.secondary { background: var(--bg-tertiary); color: var(--text-primary); }
+        .btn.secondary:hover { background: var(--border); }
+        .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+        .btn-row { display: flex; flex-wrap: wrap; gap: 12px; }
+        .file-meta { color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 14px; display: flex; flex-wrap: wrap; gap: 16px; }
+        .swatch-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+        .swatch { width: 44px; height: 44px; border-radius: 8px; border: 1px solid var(--border); cursor: pointer; }
+        .meta-table { width: 100%; border-collapse: collapse; margin-top: 6px; font-size: 0.9rem; }
+        .meta-table td { padding: 8px 10px; border-bottom: 1px solid var(--border); color: var(--text-secondary); }
+        .meta-table td:first-child { color: var(--text-primary); font-weight: 600; width: 40%; }
+        .info-section { background: var(--bg-secondary); border-radius: var(--border-radius); padding: 32px; margin-bottom: 24px; border: 1px solid var(--border); }
+        .info-section h2 { font-size: 1.4rem; margin-bottom: 14px; }
+        .info-section h3 { margin-top: 28px; margin-bottom: 14px; color: var(--accent); font-size: 1.1rem; }
+        .info-section p, .info-section li { color: var(--text-secondary); line-height: 1.7; margin-bottom: 10px; }
+        .info-section ol, .info-section ul { padding-left: 22px; }
+        .info-section a { color: var(--accent); text-decoration: none; }
+        .info-section a:hover { text-decoration: underline; }
+        details { margin-bottom: 10px; border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; background: var(--bg-primary); }
+        summary { font-weight: 600; color: var(--text-primary); cursor: pointer; }
+        details p { margin-top: 10px; margin-bottom: 0; }
+        .footer { background: var(--bg-secondary); border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--text-secondary); font-size: 0.9rem; }
+        .footer a { color: var(--accent); text-decoration: none; }
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 18px; margin-bottom: 40px; }
+        .tool-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--border-radius); padding: 22px; text-decoration: none; color: var(--text-primary); transition: transform .15s, border-color .15s; }
+        .tool-card:hover { transform: translateY(-3px); border-color: var(--accent); }
+        .tool-card .icon { font-size: 1.8rem; margin-bottom: 10px; }
+        .tool-card h3 { font-size: 1.05rem; margin-bottom: 6px; }
+        .tool-card p { color: var(--text-secondary); font-size: 0.85rem; line-height: 1.5; }
+        @media (max-width: 768px) { .nav-desktop { display: none; } .hamburger { display: block; } .page-header h1 { font-size: 1.7rem; } }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="/" class="logo">Excuse<span>Me</span>Web</a>
+            <nav class="nav-desktop">
+                <a href="/calculator">Tools</a>
+                <a href="/calculator">Calculators</a>
+                <a href="/image-tools" class="active">Image Tools</a>
+                <a href="/password-generator">Generators</a>
+                <a href="/templates">Templates</a>
+                <a href="/games">Games</a>
+            </nav>
+            <div class="header-right">
+                <button class="hamburger" onclick="document.getElementById('mobileNav').classList.toggle('show')">Menu</button>
+            </div>
+        </div>
+        <nav class="mobile-nav" id="mobileNav">
+            <a href="/calculator">Tools</a><a href="/calculator">Calculators</a><a href="/image-tools">Image Tools</a><a href="/password-generator">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a>
+        </nav>
+    </header>
+    <main class="main-content">
+        <div class="page-header">
+            <h1>Image Rotator</h1>
+            <p>Turn a sideways photo the right way up, or set a custom rotation angle.</p>
+        </div>
+
+
+        <div class="tool-panel">
+            <div class="dropzone" id="dz">
+                <div class="main-txt">Drop a picture here, or click to choose one</div>
+                <div class="sub-txt">JPG, PNG, or WebP</div>
+                <input type="file" id="fileInput" accept="image/*" hidden>
+            </div>
+            <div class="workspace" id="ws">
+                <div class="preview-wrap"><canvas id="canvas"></canvas></div>
+                <div class="controls-row">
+                    <div class="field"><label>Quick turn</label>
+                        <div class="btn-row"><button class="btn secondary" id="rotLeft">Rotate Left</button><button class="btn secondary" id="rotRight">Rotate Right</button></div>
+                    </div>
+                    <div class="field"><label>Custom angle: <span id="angleVal">0</span>°</label><input type="range" id="angleIn" min="-180" max="180" value="0"></div>
+                </div>
+                <div class="btn-row">
+                    <button class="btn secondary" id="downloadBtn">Download</button>
+                    <button class="btn secondary" id="resetBtn">Start Over</button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="info-section">
+            <h2>What This Tool Does</h2>
+            <p>Photos taken with a phone held sideways, or scanned pages fed in wrong, often need to be turned before they look correct. This tool spins the picture in 90 degree steps or to any exact angle you set, and redraws the canvas so the rotated result is what gets saved.</p>
+
+            <h3>Steps to Rotate a Picture</h3>
+            <ol>
+                <li>Load a picture into the box above</li>
+                <li>Click Rotate Left or Rotate Right to turn it a quarter turn at a time</li>
+                <li>Or drag the angle slider for a precise custom rotation</li>
+                <li>Click Download once the picture looks right</li>
+            </ol>
+
+            <h3>What You Can Control</h3>
+            <ul>
+                <li>One-click 90 degree turns in either direction</li>
+                <li>A free-angle slider from -180 to 180 degrees for fine adjustments</li>
+                <li>The canvas automatically expands so nothing gets clipped at odd angles</li>
+                <li>Keeps the source format for the downloaded file</li>
+                <li>Runs entirely in your browser with no upload step</li>
+            </ul>
+
+            <h3>Frequently Asked Questions</h3>
+            <details>
+                <summary>Why does the canvas size change after rotating?</summary>
+                <p>At angles other than 0, 90, 180, or 270 degrees, a rotated rectangle needs a larger bounding box to fit without cutting off corners, so the canvas expands to hold the whole picture.</p>
+            </details>
+            <details>
+                <summary>Can I rotate by an exact number like 15 degrees?</summary>
+                <p>Yes, the angle slider lets you pick any whole-degree value in that range.</p>
+            </details>
+            <details>
+                <summary>Will rotating fill the empty corners with a color?</summary>
+                <p>The corners left empty by a non-90-degree rotation are transparent for PNG or WebP output, or white for JPG output.</p>
+            </details>
+            <details>
+                <summary>Does rotating affect picture quality?</summary>
+                <p>A 90, 180, or 270 degree turn does not lose any detail. Other angles involve some pixel resampling, similar to resizing.</p>
+            </details>
+            <details>
+                <summary>Can I rotate a picture back after saving it?</summary>
+                <p>Yes, load the downloaded file back into this tool and rotate it the opposite direction.</p>
+            </details>
+
+            <h3>Related Tools</h3>
+            <p><a href="/image-flip">Image Flip Tool</a> · <a href="/image-cropper">Image Cropper</a> · <a href="/image-resizer">Image Resizer</a> · <a href="/image-compressor">Image Compressor</a> · <a href="/image-tools">All Image Tools</a></p>
+        </div>
+    </main>
+    <footer class="footer">
+        <p>© 2026 ExcuseMeWeb.com — Online Tools for Everyone</p>
+        <p style="margin-top:8px"><a href="/calculator">Calculators</a> · <a href="/image-tools">Image Tools</a> · <a href="/password-generator">Generators</a> · <a href="/templates">Templates</a></p>
+    </footer>
+    <script>
+
+(function(){
+  const dz=document.getElementById('dz'), fi=document.getElementById('fileInput'), ws=document.getElementById('ws');
+  const canvas=document.getElementById('canvas'), ctx=canvas.getContext('2d');
+  const rotLeft=document.getElementById('rotLeft'), rotRight=document.getElementById('rotRight');
+  const angleIn=document.getElementById('angleIn'), angleVal=document.getElementById('angleVal');
+  const downloadBtn=document.getElementById('downloadBtn'), resetBtn=document.getElementById('resetBtn');
+  let img=new Image(), srcName='image', baseAngle=0, mime='image/png';
+
+  dz.addEventListener('click', ()=>fi.click());
+  dz.addEventListener('dragover', e=>{ e.preventDefault(); dz.classList.add('drag'); });
+  dz.addEventListener('dragleave', ()=> dz.classList.remove('drag'));
+  dz.addEventListener('drop', e=>{ e.preventDefault(); dz.classList.remove('drag'); if(e.dataTransfer.files[0]) loadFile(e.dataTransfer.files[0]); });
+  fi.addEventListener('change', e=>{ if(e.target.files[0]) loadFile(e.target.files[0]); });
+
+  function loadFile(file){
+    srcName = file.name.replace(/\.[^.]+$/, '') || 'image';
+    mime = file.type === 'image/jpeg' ? 'image/jpeg' : (file.type === 'image/webp' ? 'image/webp' : 'image/png');
+    const url = URL.createObjectURL(file);
+    img = new Image();
+    img.onload = ()=>{ baseAngle=0; angleIn.value=0; angleVal.textContent='0'; render(); ws.classList.add('active'); };
+    img.src = url;
+  }
+
+  function render(){
+    const total = (baseAngle + parseInt(angleIn.value)) * Math.PI/180;
+    const w = img.naturalWidth, h = img.naturalHeight;
+    const cos = Math.abs(Math.cos(total)), sin = Math.abs(Math.sin(total));
+    const newW = Math.ceil(w*cos + h*sin), newH = Math.ceil(w*sin + h*cos);
+    canvas.width = newW; canvas.height = newH;
+    ctx.clearRect(0,0,newW,newH);
+    if(mime==='image/jpeg'){ ctx.fillStyle='#ffffff'; ctx.fillRect(0,0,newW,newH); }
+    ctx.save();
+    ctx.translate(newW/2, newH/2);
+    ctx.rotate(total);
+    ctx.drawImage(img, -w/2, -h/2);
+    ctx.restore();
+  }
+
+  rotLeft.addEventListener('click', ()=>{ baseAngle -= 90; angleIn.value=0; angleVal.textContent='0'; render(); });
+  rotRight.addEventListener('click', ()=>{ baseAngle += 90; angleIn.value=0; angleVal.textContent='0'; render(); });
+  angleIn.addEventListener('input', ()=>{ angleVal.textContent = angleIn.value; render(); });
+
+  downloadBtn.addEventListener('click', ()=>{
+    canvas.toBlob(blob=>{
+      const ext = mime==='image/jpeg'?'jpg':mime==='image/webp'?'webp':'png';
+      const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download = srcName+'-rotated.'+ext; a.click();
+    }, mime, 0.92);
+  });
+
+  resetBtn.addEventListener('click', ()=>{ ws.classList.remove('active'); fi.value=''; });
+})();
+
+    </script>
+</body>
+</html>

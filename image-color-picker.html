@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Color Picker - Get HEX & RGB from a Photo | ExcuseMeWeb</title>
+    <meta name="description" content="Click anywhere on an uploaded picture to read the exact HEX, RGB, and HSL color value of that pixel, and build a small palette of saved swatches.">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Image Color Picker">
+    <meta property="og:description" content="Click anywhere on a picture to pull the exact HEX and RGB color value.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://excusemeweb.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://excusemeweb.com/image-color-picker">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="theme-color" content="#0f172a">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Image Color Picker",
+      "url": "https://excusemeweb.com/image-color-picker",
+      "description": "A browser-based tool that reads the color value of any pixel in an uploaded image.",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "All",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "author": { "@type": "Organization", "name": "ExcuseMeWeb" },
+      "dateModified": "2026-07-22"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why does the color look slightly different from what I expected?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Zoomed-out previews can blend nearby pixels visually, but the tool always reads the exact underlying pixel value, not a blended average." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I pick colors from a photo, not just a graphic?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes, this works on any picture, including photographs, screenshots, and illustrations." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between HEX, RGB, and HSL?",
+          "acceptedAnswer": { "@type": "Answer", "text": "HEX and RGB both describe a color using red, green, and blue amounts, just in different notations. HSL describes the same color using hue, saturation, and lightness instead." }
+        },
+        {
+          "@type": "Question",
+          "name": "How many colors can I save?",
+          "acceptedAnswer": { "@type": "Answer", "text": "There is no fixed limit. Each click adds another swatch to the list for that session." }
+        },
+        {
+          "@type": "Question",
+          "name": "Do the swatches stay after I close the tab?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No, the swatch list is only kept in memory for the current session and clears when you leave or reload the page." }
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        :root {
+            --bg-primary: #0f172a; --bg-secondary: #1e293b; --bg-tertiary: #334155;
+            --text-primary: #f8fafc; --text-secondary: #94a3b8; --accent: #38bdf8;
+            --accent-hover: #0ea5e9; --danger: #ef4444; --success: #22c55e; --border: #475569;
+            --shadow: rgba(0,0,0,0.3); --font-body: 'Inter', sans-serif; --font-brand: 'Inter', sans-serif;
+            --border-radius: 12px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-body); background: var(--bg-primary); color: var(--text-primary); min-height: 100vh; display: flex; flex-direction: column; }
+        .header { background: var(--bg-secondary); border-bottom: 1px solid var(--border); padding: 0 24px; position: sticky; top: 0; z-index: 1000; }
+        .header-inner { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+        .logo { font-family: var(--font-brand); font-size: 1.5rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+        .logo span { color: var(--text-primary); }
+        .nav-desktop { display: flex; gap: 32px; }
+        .nav-desktop a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+        .nav-desktop a:hover { color: var(--accent); }
+        .nav-desktop a.active { color: var(--accent); }
+        .header-right { display: flex; align-items: center; gap: 16px; }
+        .hamburger { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+        .mobile-nav { display: none; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-secondary); border-bottom: 1px solid var(--border); padding: 16px 24px; flex-direction: column; gap: 16px; }
+        .mobile-nav.show { display: flex; }
+        .mobile-nav a { color: var(--text-secondary); text-decoration: none; font-size: 1rem; font-weight: 500; }
+        .main-content { flex: 1; max-width: 1100px; width: 100%; margin: 0 auto; padding: 40px 24px; }
+        .page-header { text-align: center; margin-bottom: 32px; }
+        .page-header h1 { font-size: 2.3rem; font-weight: 700; margin-bottom: 8px; }
+        .page-header p { color: var(--text-secondary); font-size: 1.05rem; max-width: 640px; margin: 0 auto; }
+        .tool-panel { background: var(--bg-secondary); border-radius: var(--border-radius); padding: 28px; margin-bottom: 40px; border: 1px solid var(--border); }
+        .dropzone { border: 2px dashed var(--border); border-radius: 10px; padding: 48px 24px; text-align: center; cursor: pointer; transition: border-color .2s, background .2s; }
+        .dropzone:hover, .dropzone.drag { border-color: var(--accent); background: rgba(56,189,248,0.06); }
+        .dropzone .icon { font-size: 2.4rem; margin-bottom: 12px; }
+        .dropzone .main-txt { font-weight: 600; margin-bottom: 6px; }
+        .dropzone .sub-txt { color: var(--text-secondary); font-size: 0.85rem; }
+        .workspace { display: none; }
+        .workspace.active { display: block; }
+        .preview-wrap { display: flex; justify-content: center; margin-bottom: 20px; }
+        canvas, .crop-img { max-width: 100%; border-radius: 8px; background: repeating-conic-gradient(#33415580 0% 25%, transparent 0% 50%) 50% / 20px 20px; }
+        .controls-row { display: flex; flex-wrap: wrap; gap: 16px; align-items: end; margin-bottom: 18px; }
+        .field { display: flex; flex-direction: column; gap: 6px; }
+        .field label { font-size: 0.82rem; color: var(--text-secondary); font-weight: 600; }
+        .field input[type=number], .field input[type=text], .field select { background: var(--bg-primary); border: 1px solid var(--border); color: var(--text-primary); padding: 9px 12px; border-radius: 8px; font-size: 0.95rem; width: 130px; }
+        .field input[type=range] { width: 180px; }
+        .field input[type=color] { width: 50px; height: 38px; border: 1px solid var(--border); border-radius: 8px; background: var(--bg-primary); padding: 2px; }
+        .chk-field { display: flex; align-items: center; gap: 8px; font-size: 0.88rem; color: var(--text-secondary); }
+        .btn { background: var(--accent); color: #06202f; border: none; padding: 11px 22px; border-radius: 8px; font-weight: 700; font-size: 0.95rem; cursor: pointer; transition: background .15s; }
+        .btn:hover { background: var(--accent-hover); }
+        .btn.secondary { background: var(--bg-tertiary); color: var(--text-primary); }
+        .btn.secondary:hover { background: var(--border); }
+        .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+        .btn-row { display: flex; flex-wrap: wrap; gap: 12px; }
+        .file-meta { color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 14px; display: flex; flex-wrap: wrap; gap: 16px; }
+        .swatch-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+        .swatch { width: 44px; height: 44px; border-radius: 8px; border: 1px solid var(--border); cursor: pointer; }
+        .meta-table { width: 100%; border-collapse: collapse; margin-top: 6px; font-size: 0.9rem; }
+        .meta-table td { padding: 8px 10px; border-bottom: 1px solid var(--border); color: var(--text-secondary); }
+        .meta-table td:first-child { color: var(--text-primary); font-weight: 600; width: 40%; }
+        .info-section { background: var(--bg-secondary); border-radius: var(--border-radius); padding: 32px; margin-bottom: 24px; border: 1px solid var(--border); }
+        .info-section h2 { font-size: 1.4rem; margin-bottom: 14px; }
+        .info-section h3 { margin-top: 28px; margin-bottom: 14px; color: var(--accent); font-size: 1.1rem; }
+        .info-section p, .info-section li { color: var(--text-secondary); line-height: 1.7; margin-bottom: 10px; }
+        .info-section ol, .info-section ul { padding-left: 22px; }
+        .info-section a { color: var(--accent); text-decoration: none; }
+        .info-section a:hover { text-decoration: underline; }
+        details { margin-bottom: 10px; border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; background: var(--bg-primary); }
+        summary { font-weight: 600; color: var(--text-primary); cursor: pointer; }
+        details p { margin-top: 10px; margin-bottom: 0; }
+        .footer { background: var(--bg-secondary); border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--text-secondary); font-size: 0.9rem; }
+        .footer a { color: var(--accent); text-decoration: none; }
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 18px; margin-bottom: 40px; }
+        .tool-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--border-radius); padding: 22px; text-decoration: none; color: var(--text-primary); transition: transform .15s, border-color .15s; }
+        .tool-card:hover { transform: translateY(-3px); border-color: var(--accent); }
+        .tool-card .icon { font-size: 1.8rem; margin-bottom: 10px; }
+        .tool-card h3 { font-size: 1.05rem; margin-bottom: 6px; }
+        .tool-card p { color: var(--text-secondary); font-size: 0.85rem; line-height: 1.5; }
+        @media (max-width: 768px) { .nav-desktop { display: none; } .hamburger { display: block; } .page-header h1 { font-size: 1.7rem; } }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="/" class="logo">Excuse<span>Me</span>Web</a>
+            <nav class="nav-desktop">
+                <a href="/calculator">Tools</a>
+                <a href="/calculator">Calculators</a>
+                <a href="/image-tools" class="active">Image Tools</a>
+                <a href="/password-generator">Generators</a>
+                <a href="/templates">Templates</a>
+                <a href="/games">Games</a>
+            </nav>
+            <div class="header-right">
+                <button class="hamburger" onclick="document.getElementById('mobileNav').classList.toggle('show')">Menu</button>
+            </div>
+        </div>
+        <nav class="mobile-nav" id="mobileNav">
+            <a href="/calculator">Tools</a><a href="/calculator">Calculators</a><a href="/image-tools">Image Tools</a><a href="/password-generator">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a>
+        </nav>
+    </header>
+    <main class="main-content">
+        <div class="page-header">
+            <h1>Image Color Picker</h1>
+            <p>Click any spot on a picture to read its exact color value.</p>
+        </div>
+
+
+        <div class="tool-panel">
+            <div class="dropzone" id="dz">
+                <div class="main-txt">Drop a picture here, or click to choose one</div>
+                <div class="sub-txt">Then click anywhere on it to read a color</div>
+                <input type="file" id="fileInput" accept="image/*" hidden>
+            </div>
+            <div class="workspace" id="ws">
+                <div class="preview-wrap"><canvas id="canvas" style="cursor:crosshair"></canvas></div>
+                <div class="controls-row" style="align-items:center">
+                    <div style="width:56px;height:56px;border-radius:10px;border:1px solid var(--border)" id="colorSwatch"></div>
+                    <div class="field"><label>HEX</label><input type="text" id="hexOut" readonly style="width:120px"></div>
+                    <div class="field"><label>RGB</label><input type="text" id="rgbOut" readonly style="width:160px"></div>
+                    <div class="field"><label>HSL</label><input type="text" id="hslOut" readonly style="width:170px"></div>
+                    <button class="btn secondary" id="copyBtn">Copy HEX</button>
+                </div>
+                <div class="swatch-row" id="swatchRow"></div>
+                <div class="btn-row" style="margin-top:18px"><button class="btn secondary" id="resetBtn">Start Over</button></div>
+            </div>
+        </div>
+
+
+        <div class="info-section">
+            <h2>What This Tool Does</h2>
+            <p>Every pixel in a digital picture is a specific color. This tool reads the pixel under your cursor when you click on the canvas and reports it as a HEX code, RGB values, and HSL values, so you can match colors for design work.</p>
+
+            <h3>Steps to Pick a Color</h3>
+            <ol>
+                <li>Load a picture into the box above</li>
+                <li>Move your mouse over the picture to see a live preview of the color under the cursor</li>
+                <li>Click to lock in a color and add it to your saved swatches</li>
+                <li>Click any saved swatch to copy its HEX code</li>
+            </ol>
+
+            <h3>What You Get</h3>
+            <ul>
+                <li>HEX, RGB, and HSL values shown for every picked pixel</li>
+                <li>A running list of saved swatches from the same picture</li>
+                <li>One-click copy of any color code to your clipboard</li>
+                <li>A live color preview that follows your cursor before you click</li>
+                <li>No part of the picture is uploaded to a server</li>
+            </ul>
+
+            <h3>Frequently Asked Questions</h3>
+            <details>
+                <summary>Why does the color look slightly different from what I expected?</summary>
+                <p>Zoomed-out previews can blend nearby pixels visually, but the tool always reads the exact underlying pixel value, not a blended average.</p>
+            </details>
+            <details>
+                <summary>Can I pick colors from a photo, not just a graphic?</summary>
+                <p>Yes, this works on any picture, including photographs, screenshots, and illustrations.</p>
+            </details>
+            <details>
+                <summary>What is the difference between HEX, RGB, and HSL?</summary>
+                <p>HEX and RGB both describe a color using red, green, and blue amounts, just in different notations. HSL describes the same color using hue, saturation, and lightness instead.</p>
+            </details>
+            <details>
+                <summary>How many colors can I save?</summary>
+                <p>There is no fixed limit. Each click adds another swatch to the list for that session.</p>
+            </details>
+            <details>
+                <summary>Do the swatches stay after I close the tab?</summary>
+                <p>No, the swatch list is only kept in memory for the current session and clears when you leave or reload the page.</p>
+            </details>
+
+            <h3>Related Tools</h3>
+            <p><a href="/image-metadata-viewer">Metadata Viewer</a> · <a href="/image-cropper">Image Cropper</a> · <a href="/png-to-jpg">PNG to JPG</a> · <a href="/image-resizer">Image Resizer</a> · <a href="/image-tools">All Image Tools</a></p>
+        </div>
+    </main>
+    <footer class="footer">
+        <p>© 2026 ExcuseMeWeb.com — Online Tools for Everyone</p>
+        <p style="margin-top:8px"><a href="/calculator">Calculators</a> · <a href="/image-tools">Image Tools</a> · <a href="/password-generator">Generators</a> · <a href="/templates">Templates</a></p>
+    </footer>
+    <script>
+
+(function(){
+  const dz=document.getElementById('dz'), fi=document.getElementById('fileInput'), ws=document.getElementById('ws');
+  const canvas=document.getElementById('canvas'), ctx=canvas.getContext('2d');
+  const colorSwatch=document.getElementById('colorSwatch'), hexOut=document.getElementById('hexOut'), rgbOut=document.getElementById('rgbOut'), hslOut=document.getElementById('hslOut');
+  const copyBtn=document.getElementById('copyBtn'), swatchRow=document.getElementById('swatchRow'), resetBtn=document.getElementById('resetBtn');
+
+  dz.addEventListener('click', ()=>fi.click());
+  dz.addEventListener('dragover', e=>{ e.preventDefault(); dz.classList.add('drag'); });
+  dz.addEventListener('dragleave', ()=> dz.classList.remove('drag'));
+  dz.addEventListener('drop', e=>{ e.preventDefault(); dz.classList.remove('drag'); if(e.dataTransfer.files[0]) loadFile(e.dataTransfer.files[0]); });
+  fi.addEventListener('change', e=>{ if(e.target.files[0]) loadFile(e.target.files[0]); });
+
+  function loadFile(file){
+    const url = URL.createObjectURL(file);
+    const img = new Image();
+    img.onload = ()=>{
+      const maxW=900; const scale = img.naturalWidth>maxW ? maxW/img.naturalWidth : 1;
+      canvas.width = Math.round(img.naturalWidth*scale); canvas.height = Math.round(img.naturalHeight*scale);
+      ctx.drawImage(img,0,0,canvas.width,canvas.height);
+      ws.classList.add('active'); swatchRow.innerHTML='';
+    };
+    img.src = url;
+  }
+
+  function rgbToHex(r,g,b){ return '#' + [r,g,b].map(x=>x.toString(16).padStart(2,'0')).join(''); }
+  function rgbToHsl(r,g,b){
+    r/=255; g/=255; b/=255;
+    const max=Math.max(r,g,b), min=Math.min(r,g,b); let h,s,l=(max+min)/2;
+    if(max===min){ h=s=0; } else {
+      const d=max-min; s = l>0.5 ? d/(2-max-min) : d/(max+min);
+      switch(max){ case r: h=(g-b)/d+(g<b?6:0); break; case g: h=(b-r)/d+2; break; default: h=(r-g)/d+4; }
+      h/=6;
+    }
+    return [Math.round(h*360), Math.round(s*100), Math.round(l*100)];
+  }
+
+  function readAt(x,y){
+    const p = ctx.getImageData(x,y,1,1).data;
+    const hex = rgbToHex(p[0],p[1],p[2]);
+    const [h,s,l] = rgbToHsl(p[0],p[1],p[2]);
+    colorSwatch.style.background = hex;
+    hexOut.value = hex.toUpperCase();
+    rgbOut.value = 'rgb(' + p[0] + ', ' + p[1] + ', ' + p[2] + ')';
+    hslOut.value = 'hsl(' + h + ', ' + s + '%, ' + l + '%)';
+    return hex;
+  }
+
+  canvas.addEventListener('mousemove', e=>{
+    const r = canvas.getBoundingClientRect();
+    readAt(Math.floor(e.clientX-r.left), Math.floor(e.clientY-r.top));
+  });
+  canvas.addEventListener('click', e=>{
+    const r = canvas.getBoundingClientRect();
+    const hex = readAt(Math.floor(e.clientX-r.left), Math.floor(e.clientY-r.top));
+    const sw = document.createElement('div');
+    sw.className='swatch'; sw.style.background=hex; sw.title=hex.toUpperCase();
+    sw.addEventListener('click', ()=> navigator.clipboard && navigator.clipboard.writeText(hex.toUpperCase()));
+    swatchRow.appendChild(sw);
+  });
+
+  copyBtn.addEventListener('click', ()=>{ if(hexOut.value && navigator.clipboard) navigator.clipboard.writeText(hexOut.value); });
+  resetBtn.addEventListener('click', ()=>{ ws.classList.remove('active'); fi.value=''; swatchRow.innerHTML=''; });
+})();
+
+    </script>
+</body>
+</html>

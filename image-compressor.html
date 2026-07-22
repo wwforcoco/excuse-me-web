@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Compressor - Reduce Photo File Size Online | ExcuseMeWeb</title>
+    <meta name="description" content="Shrink the file size of a JPG, PNG, or WebP image by adjusting compression quality. Compare the original and compressed size before you save.">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Image Compressor - Shrink Photo File Size">
+    <meta property="og:description" content="Adjust a quality slider to shrink your image file size and see the before-and-after comparison instantly.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://excusemeweb.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://excusemeweb.com/image-compressor">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="theme-color" content="#0f172a">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Image Compressor",
+      "url": "https://excusemeweb.com/image-compressor",
+      "description": "A browser-based tool that reduces image file size by adjusting compression quality.",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "All",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "author": { "@type": "Organization", "name": "ExcuseMeWeb" },
+      "dateModified": "2026-07-22"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much smaller can a file get?",
+          "acceptedAnswer": { "@type": "Answer", "text": "It depends on the picture and the quality you choose. Photos with lots of fine detail compress less than simple graphics, but a drop from 100 to 70 quality often cuts the size by more than half." }
+        },
+        {
+          "@type": "Question",
+          "name": "Will lowering quality make my picture look worse?",
+          "acceptedAnswer": { "@type": "Answer", "text": "At very low settings you may notice blocky patches or color banding. Settings between 60 and 85 usually keep the picture looking clean while still shrinking the file." }
+        },
+        {
+          "@type": "Question",
+          "name": "Why is PNG output not shrinking much?",
+          "acceptedAnswer": { "@type": "Answer", "text": "PNG uses lossless compression, so there is no quality slider to trade against size. For a smaller file, export as JPG or WebP instead." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I compress a picture I already resized?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Resize it first with the resizer tool, then bring the result here to compress it further." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is there a limit to how many pictures I can compress?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. You can compress as many files as you like, one at a time, with no daily cap." }
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        :root {
+            --bg-primary: #0f172a; --bg-secondary: #1e293b; --bg-tertiary: #334155;
+            --text-primary: #f8fafc; --text-secondary: #94a3b8; --accent: #38bdf8;
+            --accent-hover: #0ea5e9; --danger: #ef4444; --success: #22c55e; --border: #475569;
+            --shadow: rgba(0,0,0,0.3); --font-body: 'Inter', sans-serif; --font-brand: 'Inter', sans-serif;
+            --border-radius: 12px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-body); background: var(--bg-primary); color: var(--text-primary); min-height: 100vh; display: flex; flex-direction: column; }
+        .header { background: var(--bg-secondary); border-bottom: 1px solid var(--border); padding: 0 24px; position: sticky; top: 0; z-index: 1000; }
+        .header-inner { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+        .logo { font-family: var(--font-brand); font-size: 1.5rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+        .logo span { color: var(--text-primary); }
+        .nav-desktop { display: flex; gap: 32px; }
+        .nav-desktop a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+        .nav-desktop a:hover { color: var(--accent); }
+        .nav-desktop a.active { color: var(--accent); }
+        .header-right { display: flex; align-items: center; gap: 16px; }
+        .hamburger { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+        .mobile-nav { display: none; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-secondary); border-bottom: 1px solid var(--border); padding: 16px 24px; flex-direction: column; gap: 16px; }
+        .mobile-nav.show { display: flex; }
+        .mobile-nav a { color: var(--text-secondary); text-decoration: none; font-size: 1rem; font-weight: 500; }
+        .main-content { flex: 1; max-width: 1100px; width: 100%; margin: 0 auto; padding: 40px 24px; }
+        .page-header { text-align: center; margin-bottom: 32px; }
+        .page-header h1 { font-size: 2.3rem; font-weight: 700; margin-bottom: 8px; }
+        .page-header p { color: var(--text-secondary); font-size: 1.05rem; max-width: 640px; margin: 0 auto; }
+        .tool-panel { background: var(--bg-secondary); border-radius: var(--border-radius); padding: 28px; margin-bottom: 40px; border: 1px solid var(--border); }
+        .dropzone { border: 2px dashed var(--border); border-radius: 10px; padding: 48px 24px; text-align: center; cursor: pointer; transition: border-color .2s, background .2s; }
+        .dropzone:hover, .dropzone.drag { border-color: var(--accent); background: rgba(56,189,248,0.06); }
+        .dropzone .icon { font-size: 2.4rem; margin-bottom: 12px; }
+        .dropzone .main-txt { font-weight: 600; margin-bottom: 6px; }
+        .dropzone .sub-txt { color: var(--text-secondary); font-size: 0.85rem; }
+        .workspace { display: none; }
+        .workspace.active { display: block; }
+        .preview-wrap { display: flex; justify-content: center; margin-bottom: 20px; }
+        canvas, .crop-img { max-width: 100%; border-radius: 8px; background: repeating-conic-gradient(#33415580 0% 25%, transparent 0% 50%) 50% / 20px 20px; }
+        .controls-row { display: flex; flex-wrap: wrap; gap: 16px; align-items: end; margin-bottom: 18px; }
+        .field { display: flex; flex-direction: column; gap: 6px; }
+        .field label { font-size: 0.82rem; color: var(--text-secondary); font-weight: 600; }
+        .field input[type=number], .field input[type=text], .field select { background: var(--bg-primary); border: 1px solid var(--border); color: var(--text-primary); padding: 9px 12px; border-radius: 8px; font-size: 0.95rem; width: 130px; }
+        .field input[type=range] { width: 180px; }
+        .field input[type=color] { width: 50px; height: 38px; border: 1px solid var(--border); border-radius: 8px; background: var(--bg-primary); padding: 2px; }
+        .chk-field { display: flex; align-items: center; gap: 8px; font-size: 0.88rem; color: var(--text-secondary); }
+        .btn { background: var(--accent); color: #06202f; border: none; padding: 11px 22px; border-radius: 8px; font-weight: 700; font-size: 0.95rem; cursor: pointer; transition: background .15s; }
+        .btn:hover { background: var(--accent-hover); }
+        .btn.secondary { background: var(--bg-tertiary); color: var(--text-primary); }
+        .btn.secondary:hover { background: var(--border); }
+        .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+        .btn-row { display: flex; flex-wrap: wrap; gap: 12px; }
+        .file-meta { color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 14px; display: flex; flex-wrap: wrap; gap: 16px; }
+        .swatch-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+        .swatch { width: 44px; height: 44px; border-radius: 8px; border: 1px solid var(--border); cursor: pointer; }
+        .meta-table { width: 100%; border-collapse: collapse; margin-top: 6px; font-size: 0.9rem; }
+        .meta-table td { padding: 8px 10px; border-bottom: 1px solid var(--border); color: var(--text-secondary); }
+        .meta-table td:first-child { color: var(--text-primary); font-weight: 600; width: 40%; }
+        .info-section { background: var(--bg-secondary); border-radius: var(--border-radius); padding: 32px; margin-bottom: 24px; border: 1px solid var(--border); }
+        .info-section h2 { font-size: 1.4rem; margin-bottom: 14px; }
+        .info-section h3 { margin-top: 28px; margin-bottom: 14px; color: var(--accent); font-size: 1.1rem; }
+        .info-section p, .info-section li { color: var(--text-secondary); line-height: 1.7; margin-bottom: 10px; }
+        .info-section ol, .info-section ul { padding-left: 22px; }
+        .info-section a { color: var(--accent); text-decoration: none; }
+        .info-section a:hover { text-decoration: underline; }
+        details { margin-bottom: 10px; border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; background: var(--bg-primary); }
+        summary { font-weight: 600; color: var(--text-primary); cursor: pointer; }
+        details p { margin-top: 10px; margin-bottom: 0; }
+        .footer { background: var(--bg-secondary); border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--text-secondary); font-size: 0.9rem; }
+        .footer a { color: var(--accent); text-decoration: none; }
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 18px; margin-bottom: 40px; }
+        .tool-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--border-radius); padding: 22px; text-decoration: none; color: var(--text-primary); transition: transform .15s, border-color .15s; }
+        .tool-card:hover { transform: translateY(-3px); border-color: var(--accent); }
+        .tool-card .icon { font-size: 1.8rem; margin-bottom: 10px; }
+        .tool-card h3 { font-size: 1.05rem; margin-bottom: 6px; }
+        .tool-card p { color: var(--text-secondary); font-size: 0.85rem; line-height: 1.5; }
+        @media (max-width: 768px) { .nav-desktop { display: none; } .hamburger { display: block; } .page-header h1 { font-size: 1.7rem; } }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="/" class="logo">Excuse<span>Me</span>Web</a>
+            <nav class="nav-desktop">
+                <a href="/calculator">Tools</a>
+                <a href="/calculator">Calculators</a>
+                <a href="/image-tools" class="active">Image Tools</a>
+                <a href="/password-generator">Generators</a>
+                <a href="/templates">Templates</a>
+                <a href="/games">Games</a>
+            </nav>
+            <div class="header-right">
+                <button class="hamburger" onclick="document.getElementById('mobileNav').classList.toggle('show')">Menu</button>
+            </div>
+        </div>
+        <nav class="mobile-nav" id="mobileNav">
+            <a href="/calculator">Tools</a><a href="/calculator">Calculators</a><a href="/image-tools">Image Tools</a><a href="/password-generator">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a>
+        </nav>
+    </header>
+    <main class="main-content">
+        <div class="page-header">
+            <h1>Image Compressor</h1>
+            <p>Shrink a picture's file size with an adjustable quality slider, then compare before and after.</p>
+        </div>
+
+
+        <div class="tool-panel">
+            <div class="dropzone" id="dz">
+                <div class="main-txt">Drop a picture here, or click to choose one</div>
+                <div class="sub-txt">Works with JPG, PNG, and WebP</div>
+                <input type="file" id="fileInput" accept="image/*" hidden>
+            </div>
+            <div class="workspace" id="ws">
+                <div class="preview-wrap"><canvas id="canvas"></canvas></div>
+                <div class="file-meta">
+                    <span id="origSize"></span>
+                    <span id="newSize"></span>
+                    <span id="savings"></span>
+                </div>
+                <div class="controls-row">
+                    <div class="field"><label>Output format</label><select id="fmtSel"><option value="image/jpeg" selected>JPG</option><option value="image/webp">WebP</option><option value="image/png">PNG (lossless)</option></select></div>
+                    <div class="field" id="qualityField"><label>Quality: <span id="qVal">70</span></label><input type="range" id="qIn" min="10" max="100" value="70"></div>
+                </div>
+                <div class="btn-row">
+                    <button class="btn" id="compressBtn">Compress</button>
+                    <button class="btn secondary" id="downloadBtn" disabled>Download</button>
+                    <button class="btn secondary" id="resetBtn">Start Over</button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="info-section">
+            <h2>What This Tool Does</h2>
+            <p>This tool re-encodes a picture at a lower quality setting so the file takes up less storage space and loads faster on a page. It keeps the pixel dimensions the same and only changes how tightly the colors are compressed.</p>
+
+            <h3>Steps to Shrink a File</h3>
+            <ol>
+                <li>Load a JPG, PNG, or WebP file into the box above</li>
+                <li>Move the quality slider until the preview looks acceptable to you</li>
+                <li>Watch the size counter update as you adjust the slider</li>
+                <li>Click Compress, then Download to save the smaller file</li>
+            </ol>
+
+            <h3>What You Can Control</h3>
+            <ul>
+                <li>A quality slider from 10 to 100 with a live estimated output size</li>
+                <li>Side-by-side comparison of the starting size and the new size</li>
+                <li>Option to output as JPG or WebP, both of which compress better than PNG for photos</li>
+                <li>No pixel dimensions are altered, only the compression level</li>
+                <li>Processing happens on your device, not on a remote server</li>
+            </ul>
+
+            <h3>Frequently Asked Questions</h3>
+            <details>
+                <summary>How much smaller can a file get?</summary>
+                <p>It depends on the picture and the quality you choose. Photos with lots of fine detail compress less than simple graphics, but a drop from 100 to 70 quality often cuts the size by more than half.</p>
+            </details>
+            <details>
+                <summary>Will lowering quality make my picture look worse?</summary>
+                <p>At very low settings you may notice blocky patches or color banding. Settings between 60 and 85 usually keep the picture looking clean while still shrinking the file.</p>
+            </details>
+            <details>
+                <summary>Why is PNG output not shrinking much?</summary>
+                <p>PNG uses lossless compression, so there is no quality slider to trade against size. For a smaller file, export as JPG or WebP instead.</p>
+            </details>
+            <details>
+                <summary>Can I compress a picture I already resized?</summary>
+                <p>Yes. Resize it first with the resizer tool, then bring the result here to compress it further.</p>
+            </details>
+            <details>
+                <summary>Is there a limit to how many pictures I can compress?</summary>
+                <p>No. You can compress as many files as you like, one at a time, with no daily cap.</p>
+            </details>
+
+            <h3>Related Tools</h3>
+            <p><a href="/image-resizer">Image Resizer</a> · <a href="/webp-converter">WebP Converter</a> · <a href="/jpg-to-png">JPG to PNG</a> · <a href="/png-to-jpg">PNG to JPG</a> · <a href="/image-tools">All Image Tools</a></p>
+        </div>
+    </main>
+    <footer class="footer">
+        <p>© 2026 ExcuseMeWeb.com — Online Tools for Everyone</p>
+        <p style="margin-top:8px"><a href="/calculator">Calculators</a> · <a href="/image-tools">Image Tools</a> · <a href="/password-generator">Generators</a> · <a href="/templates">Templates</a></p>
+    </footer>
+    <script>
+
+(function(){
+  const dz=document.getElementById('dz'), fi=document.getElementById('fileInput'), ws=document.getElementById('ws');
+  const canvas=document.getElementById('canvas'), ctx=canvas.getContext('2d');
+  const fmtSel=document.getElementById('fmtSel'), qIn=document.getElementById('qIn'), qVal=document.getElementById('qVal');
+  const compressBtn=document.getElementById('compressBtn'), downloadBtn=document.getElementById('downloadBtn'), resetBtn=document.getElementById('resetBtn');
+  const origSize=document.getElementById('origSize'), newSize=document.getElementById('newSize'), savings=document.getElementById('savings'), qualityField=document.getElementById('qualityField');
+  let img=new Image(), srcName='image', origBytes=0, resultBlob=null;
+
+  function fmtBytes(b){ if(b<1024) return b+' B'; if(b<1024*1024) return (b/1024).toFixed(1)+' KB'; return (b/1024/1024).toFixed(2)+' MB'; }
+
+  dz.addEventListener('click', ()=>fi.click());
+  dz.addEventListener('dragover', e=>{ e.preventDefault(); dz.classList.add('drag'); });
+  dz.addEventListener('dragleave', ()=> dz.classList.remove('drag'));
+  dz.addEventListener('drop', e=>{ e.preventDefault(); dz.classList.remove('drag'); if(e.dataTransfer.files[0]) loadFile(e.dataTransfer.files[0]); });
+  fi.addEventListener('change', e=>{ if(e.target.files[0]) loadFile(e.target.files[0]); });
+
+  function loadFile(file){
+    srcName = file.name.replace(/\.[^.]+$/, '') || 'image';
+    origBytes = file.size;
+    origSize.textContent = 'Original: ' + fmtBytes(origBytes);
+    newSize.textContent = ''; savings.textContent='';
+    const url = URL.createObjectURL(file);
+    img = new Image();
+    img.onload = ()=>{
+      canvas.width = img.naturalWidth; canvas.height = img.naturalHeight;
+      ctx.drawImage(img,0,0);
+      ws.classList.add('active');
+      downloadBtn.disabled = true;
+    };
+    img.src = url;
+  }
+
+  qIn.addEventListener('input', ()=> qVal.textContent = qIn.value);
+  fmtSel.addEventListener('change', ()=>{ qualityField.style.display = fmtSel.value==='image/png' ? 'none':'flex'; });
+
+  compressBtn.addEventListener('click', ()=>{
+    canvas.toBlob(blob=>{
+      resultBlob = blob;
+      newSize.textContent = 'Compressed: ' + fmtBytes(blob.size);
+      const diff = origBytes ? Math.round((1 - blob.size/origBytes)*100) : 0;
+      savings.textContent = diff>0 ? ('Saved ' + diff + '%') : 'No reduction at this setting';
+      downloadBtn.disabled = false;
+    }, fmtSel.value, qIn.value/100);
+  });
+
+  downloadBtn.addEventListener('click', ()=>{
+    if(!resultBlob) return;
+    const ext = fmtSel.value==='image/jpeg'?'jpg':fmtSel.value==='image/png'?'png':'webp';
+    const a=document.createElement('a'); a.href=URL.createObjectURL(resultBlob); a.download = srcName+'-compressed.'+ext; a.click();
+  });
+
+  resetBtn.addEventListener('click', ()=>{ ws.classList.remove('active'); fi.value=''; resultBlob=null; });
+})();
+
+    </script>
+</body>
+</html>
