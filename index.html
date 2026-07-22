@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ExcuseMeWeb — Need a Tool? Excuse Me.</title>
-    <meta name="description" content="Simple, fast online tools for everyday tasks. Calculators, image tools, generators, converters, games, and templates. No downloads. Just useful tools that work.">
+    <meta name="description" content="Simple, fast online tools for everyday tasks. Calculators, image tools, generators, converters, games, and templates. Just useful tools that work.">
     <meta name="robots" content="index, follow">
     <meta property="og:title" content="ExcuseMeWeb — Need a Tool? Excuse Me.">
-    <meta property="og:description" content="Simple, fast online tools for everyday tasks. No downloads. Just useful tools that work.">
+    <meta property="og:description" content="Simple, fast online tools for everyday tasks. Just useful tools that work.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://excusemeweb.com/og-image.png">
     <meta name="twitter:card" content="summary_large_image">
@@ -156,14 +156,16 @@
             position: absolute;
             top: 100%;
             left: 0;
-            margin-top: 8px;
+            padding-top: 8px;
+            z-index: 100;
+        }
+        .dropdown-inner {
             background: var(--card-bg);
             border: 1px solid var(--border);
             border-radius: var(--radius);
             padding: 8px 0;
             min-width: 220px;
             box-shadow: var(--shadow-hover);
-            z-index: 100;
         }
         .nav-item:hover .dropdown, .dropdown:hover { display: block; }
         .dropdown a {
@@ -682,14 +684,16 @@
                 <div class="nav-item">
                     <button class="nav-link">Tools <span class="arrow">v</span></button>
                     <div class="dropdown">
-                        <a href="/calculator">All Tools</a>
-                        <a href="/calculator">Calculators</a>
-                        <a href="/image-tools">Image Tools</a>
-                        <a href="/generators">Generators</a>
-                        <a href="/converters">Converters</a>
-                        <a href="/time-tools">Time Tools</a>
-                        <a href="/games">Games</a>
-                        <a href="/templates">Templates</a>
+                        <div class="dropdown-inner">
+                            <a href="/calculator">All Tools</a>
+                            <a href="/calculator">Calculators</a>
+                            <a href="/image-tools">Image Tools</a>
+                            <a href="/generators">Generators</a>
+                            <a href="/converters">Converters</a>
+                            <a href="/time-tools">Time Tools</a>
+                            <a href="/games">Games</a>
+                            <a href="/templates">Templates</a>
+                        </div>
                     </div>
                 </div>
                 <a href="/calculator" class="nav-link">Calculators</a>
@@ -722,7 +726,7 @@
     <section class="hero">
         <div class="hero-badge">Useful Online Tools</div>
         <h1>Need a Tool?<br><span class="highlight">Excuse Me.</span></h1>
-        <p>Simple, fast, and reliable online tools for everyday tasks. No downloads, no signup, just tools that work.</p>
+        <p>Simple, fast, and reliable online tools for everyday tasks.</p>
         <div class="hero-buttons">
             <a href="#categories" class="btn-primary">Explore Tools</a>
             <a href="/calculator" class="btn-secondary">Browse Calculators</a>
@@ -739,8 +743,8 @@
             <div class="stat-label">Browser Based</div>
         </div>
         <div class="stat-item">
-            <div class="stat-number">No Signup</div>
-            <div class="stat-label">Required</div>
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Free to Use</div>
         </div>
         <div class="stat-item">
             <div class="stat-number">Works</div>
