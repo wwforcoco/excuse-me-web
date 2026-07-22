@@ -116,6 +116,12 @@
         .breadcrumb a:hover { color: var(--accent); text-decoration: underline; }
         .breadcrumb .bc-sep { color: var(--border); }
         .breadcrumb .bc-current { color: var(--text-primary); font-weight: 600; }
+
+        .ap-platform-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin: 16px 0; }
+        .ap-platform-card { background: var(--bg-primary); padding: 14px; border-radius: 8px; border: 1px solid var(--border); }
+        .ap-platform-card strong { color: var(--accent); }
+        .ap-platform-card p { font-size: 0.9rem; margin-top: 4px; }
+        .ap-pro-tip { margin-top: 16px; font-size: 0.9rem; color: var(--text-secondary); }
     </style>
 
     <script type="application/ld+json">
@@ -217,6 +223,34 @@
                 <li>Code prompt ideas for functions, tests, and explanations</li>
                 <li>Randomized combinations for fresh ideas every click</li>
             </ul>
+
+            <h3>Compatible AI Platforms</h3>
+            <p>These generated prompts work with all major AI tools. Simply copy a prompt and paste it into any of these platforms:</p>
+            <div class="ap-platform-grid">
+                <div class="ap-platform-card">
+                    <strong>🎨 Image Generation</strong>
+                    <p>Midjourney, DALL-E 3, Stable Diffusion, Leonardo.ai, Adobe Firefly</p>
+                </div>
+                <div class="ap-platform-card">
+                    <strong>✍️ Writing &amp; Chat</strong>
+                    <p>ChatGPT, Claude, Gemini, Jasper, Copy.ai</p>
+                </div>
+                <div class="ap-platform-card">
+                    <strong>💻 Coding Assistants</strong>
+                    <p>GitHub Copilot, ChatGPT Code Interpreter, Cursor, Amazon CodeWhisperer</p>
+                </div>
+            </div>
+
+            <h3>Tips for Better AI Prompts</h3>
+            <ul>
+                <li><strong>Start specific, then iterate:</strong> Begin with detailed prompts rather than vague ones</li>
+                <li><strong>Include artistic styles:</strong> Mention "Studio Ghibli style", "cyberpunk aesthetic", or "vintage photography" for images</li>
+                <li><strong>Add technical details:</strong> For images, specify lighting ("golden hour"), camera angle ("bird's eye view"), or mood ("melancholic atmosphere")</li>
+                <li><strong>Set constraints for writing:</strong> Include word count, tone (professional/casual), or format (bullet points, essay)</li>
+                <li><strong>Chain prompts:</strong> Use output from one prompt as input for another to build complex results</li>
+                <li><strong>Save good prompts:</strong> Bookmark or note which generated prompts produce the best results for your use case</li>
+            </ul>
+            <p class="ap-pro-tip"><em>💡 Pro tip: Generate multiple prompts, then mix-and-match elements from different results to create your perfect custom prompt.</em></p>
 
             <h3>Frequently Asked Questions</h3>
             <details>
