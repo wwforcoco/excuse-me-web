@@ -5,9 +5,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Compound Interest Calculator — Investment Growth & Wealth Projection | ExcuseMeWeb</title>
     <meta name="description" content="Visualize how investments multiply through compounding. Project final balances, total contributions, and accumulated interest across multiple years with adjustable frequencies and contribution rates.">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Compound Interest Calculator — Investment Growth & Wealth Projection">
+    <meta property="og:description" content="Visualize how investments multiply through compounding. Project final balances, total contributions, and accumulated interest across multiple years with adjustable frequencies and contribution rates.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://excusemeweb.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="canonical" href="https://excusemeweb.com/compound-interest-calculator">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="theme-color" content="#ffffff">
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Compound Interest Calculator",
+  "url": "https://excusemeweb.com/compound-interest-calculator",
+  "description": "Visualize how investments multiply through compounding. Project final balances, total contributions, and accumulated interest across multiple years with adjustable frequencies and contribution rates.",
+  "applicationCategory": "Calculator",
+  "operatingSystem": "All",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "ExcuseMeWeb"
+  },
+  "dateModified": "2026-07-22"
+}
+    </script>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What distinguishes compound from simple interest?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Simple interest applies only to original principal. Compound interest applies to principal plus all previously earned returns."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does contribution frequency affect results?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "More frequent contributions (monthly versus annually) capture more compounding periods, slightly improving outcomes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the formula behind these projections?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A = P(1 + r/n)^(nt) + PMT × [((1 + r/n)^(nt) - 1) / (r/n)], where PMT equals periodic contribution."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can this predict stock market returns?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. It uses fixed assumed rates. Actual investments fluctuate with market volatility."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does the table show interest exceeding contributions eventually?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "That crossover point demonstrates the power of compounding — your money starts working harder than your new contributions."
+      }
+    }
+  ]
+}
+    </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&family=Cinzel:wght@400;600;700&family=Playfair+Display:wght@400;600;700&family=Dancing+Script:wght@400;600;700&family=Quicksand:wght@300;400;500;600;700&family=Bebas+Neue&family=Righteous&family=Pacifico&family=VT323&display=swap" rel="stylesheet">
     <style>
-        :root { --bg-primary: #0f172a; --bg-secondary: #1e293b; --bg-tertiary: #334155; --text-primary: #f8fafc; --text-secondary: #94a3b8; --accent: #38bdf8; --accent-hover: #0ea5e9; --danger: #ef4444; --border: #475569; --shadow: rgba(0,0,0,0.3); --display-bg: #0f172a; --btn-bg: #334155; --btn-hover: #475569; --font-display: 'Orbitron',monospace; --font-body: 'Inter',sans-serif; --font-brand: 'Inter',sans-serif; --border-radius: 12px; --btn-radius: 10px; }
+        :root { --bg-primary: #ffffff; --bg-secondary: #f8fafc; --bg-tertiary: #e2e8f0; --text-primary: #0f172a; --text-secondary: #64748b; --accent: #3b82f6; --accent-hover: #2563eb; --danger: #ef4444; --border: #e2e8f0; --shadow: rgba(0,0,0,0.08); --display-bg: #ffffff; --btn-bg: #f1f5f9; --btn-hover: #e2e8f0; --font-display: 'Orbitron',monospace; --font-body: 'Inter',sans-serif; --font-brand: 'Inter',sans-serif; --border-radius: 12px; --btn-radius: 10px; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: var(--font-body); background: var(--bg-primary); color: var(--text-primary); min-height: 100vh; display: flex; flex-direction: column; }
         .header { background: var(--bg-secondary); border-bottom: 1px solid var(--border); padding: 0 24px; position: sticky; top: 0; z-index: 1000; }

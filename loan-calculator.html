@@ -5,9 +5,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loan Calculator — Monthly Payments, Interest & Amortization Schedule | ExcuseMeWeb</title>
     <meta name="description" content="Compute monthly installments, total interest costs, and complete amortization tables for personal loans, auto financing, and student debt. Adjustable term lengths and interest rates.">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Loan Calculator — Monthly Payments, Interest & Amortization Schedule">
+    <meta property="og:description" content="Compute monthly installments, total interest costs, and complete amortization tables for personal loans, auto financing, and student debt. Adjustable term lengths and interest rates.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://excusemeweb.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="canonical" href="https://excusemeweb.com/loan-calculator">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="theme-color" content="#ffffff">
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Loan Calculator",
+  "url": "https://excusemeweb.com/loan-calculator",
+  "description": "Compute monthly installments, total interest costs, and complete amortization tables for personal loans, auto financing, and student debt. Adjustable term lengths and interest rates.",
+  "applicationCategory": "Calculator",
+  "operatingSystem": "All",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "ExcuseMeWeb"
+  },
+  "dateModified": "2026-07-22"
+}
+    </script>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What does amortization mean?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It describes the gradual elimination of debt through regular payments covering both principal and interest over time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does the calculator determine monthly payments?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It applies the standard amortization formula: P × [r(1+r)^n] ÷ [(1+r)^n - 1], where P equals principal, r equals monthly rate, and n equals total payments."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I see how much goes to interest versus principal?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The amortization table breaks down every single payment into interest portion and principal reduction."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if I increase my monthly payment?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Higher payments reduce principal faster, shortening the repayment period and decreasing total interest."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this include origination fees or insurance?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. This tool computes principal and interest only. Add taxes, insurance, and fees separately for complete payment estimates."
+      }
+    }
+  ]
+}
+    </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&family=Cinzel:wght@400;600;700&family=Playfair+Display:wght@400;600;700&family=Dancing+Script:wght@400;600;700&family=Quicksand:wght@300;400;500;600;700&family=Bebas+Neue&family=Righteous&family=Pacifico&family=VT323&display=swap" rel="stylesheet">
     <style>
-        :root { --bg-primary: #0f172a; --bg-secondary: #1e293b; --bg-tertiary: #334155; --text-primary: #f8fafc; --text-secondary: #94a3b8; --accent: #38bdf8; --accent-hover: #0ea5e9; --danger: #ef4444; --border: #475569; --shadow: rgba(0,0,0,0.3); --display-bg: #0f172a; --btn-bg: #334155; --btn-hover: #475569; --font-display: 'Orbitron',monospace; --font-body: 'Inter',sans-serif; --font-brand: 'Inter',sans-serif; --border-radius: 12px; --btn-radius: 10px; }
+        :root { --bg-primary: #ffffff; --bg-secondary: #f8fafc; --bg-tertiary: #e2e8f0; --text-primary: #0f172a; --text-secondary: #64748b; --accent: #3b82f6; --accent-hover: #2563eb; --danger: #ef4444; --border: #e2e8f0; --shadow: rgba(0,0,0,0.08); --display-bg: #ffffff; --btn-bg: #f1f5f9; --btn-hover: #e2e8f0; --font-display: 'Orbitron',monospace; --font-body: 'Inter',sans-serif; --font-brand: 'Inter',sans-serif; --border-radius: 12px; --btn-radius: 10px; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: var(--font-body); background: var(--bg-primary); color: var(--text-primary); min-height: 100vh; display: flex; flex-direction: column; }
         .header { background: var(--bg-secondary); border-bottom: 1px solid var(--border); padding: 0 24px; position: sticky; top: 0; z-index: 1000; }

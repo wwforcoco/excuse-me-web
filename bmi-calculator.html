@@ -3,11 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BMI Calculator — Body Mass Index with Metric & Imperial Units | ExcuseMeWeb</title>
-    <meta name="description" content="Assess Body Mass Index using kilograms/centimeters or pounds/feet-inches. Visual gauge shows underweight, normal, overweight, and obese categories with health context.">
+    <title>BMI Calculator - Calculate Your Body Mass Index Online (Metric & Imperial)</title>
+    <meta name="description" content="Calculate your BMI using height and weight with metric or imperial units. Visual gauge shows underweight, normal, overweight, and obese categories with health context.">
+
+    <meta property="og:title" content="BMI Calculator - Calculate Your Body Mass Index">
+    <meta property="og:description" content="Calculate BMI using metric or imperial units with instant results.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://excusemeweb.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical" href="https://excusemeweb.com/bmi-calculator">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="theme-color" content="#0f172a">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&family=Cinzel:wght@400;600;700&family=Playfair+Display:wght@400;600;700&family=Dancing+Script:wght@400;600;700&family=Quicksand:wght@300;400;500;600;700&family=Bebas+Neue&family=Righteous&family=Pacifico&family=VT323&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "BMI Calculator",
+      "url": "https://excusemeweb.com/bmi-calculator",
+      "description": "Calculate your Body Mass Index using metric and imperial units.",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "Web",
+      "author": {
+        "@type": "Organization",
+        "name": "ExcuseMeWeb"
+      },
+      "dateModified": "2026-07-22"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What BMI range indicates healthy weight?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Adults generally fall within healthy parameters between 18.5 and 24.9."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does my BMI differ between metric and imperial?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It should not differ. Both formulas produce identical results when converted accurately."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can BMI accurately assess bodybuilders?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Dense muscle tissue weighs more than fat, potentially skewing results toward overweight categories."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the formula used here?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Metric: weight(kg) divided by height(m) squared. Imperial: 703 multiplied by weight(lbs), divided by height(in) squared."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should elderly individuals use standard BMI ranges?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Older adults may benefit from slightly higher BMI ranges (23-27) as some extra weight provides protective benefits against illness."
+          }
+        }
+      ]
+    }
+    </script>
+
     <style>
-        :root { --bg-primary: #0f172a; --bg-secondary: #1e293b; --bg-tertiary: #334155; --text-primary: #f8fafc; --text-secondary: #94a3b8; --accent: #38bdf8; --accent-hover: #0ea5e9; --danger: #ef4444; --border: #475569; --shadow: rgba(0,0,0,0.3); --display-bg: #0f172a; --btn-bg: #334155; --btn-hover: #475569; --font-display: 'Orbitron',monospace; --font-body: 'Inter',sans-serif; --font-brand: 'Inter',sans-serif; --border-radius: 12px; --btn-radius: 10px; }
+        :root { --bg-primary: #0f172a; --bg-secondary: #1e293b; --bg-tertiary: #334155; --text-primary: #f8fafc; --text-secondary: #94a3b8; --accent: #38bdf8; --accent-hover: #0ea5e9; --danger: #ef4444; --border: #475569; --shadow: rgba(0,0,0,0.3); --display-bg: #0f172a; --btn-bg: #334155; --btn-hover: #475569; --font-display: 'Orbitron',monospace; --font-body: 'Inter',sans-serif; --font-brand: 'Inter',sans-serif; --border-radius: 12px; --btn-radius: 10px; --gauge-under: #3b82f6; --gauge-normal: #22c55e; --gauge-over: #f59e0b; --gauge-obese: #ef4444; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: var(--font-body); background: var(--bg-primary); color: var(--text-primary); min-height: 100vh; display: flex; flex-direction: column; }
         .header { background: var(--bg-secondary); border-bottom: 1px solid var(--border); padding: 0 24px; position: sticky; top: 0; z-index: 1000; }
@@ -45,7 +126,7 @@
         .result-box .bmi-category { font-size: 1.3rem; font-weight: 600; margin-top: 8px; }
         .result-box .bmi-desc { color: var(--text-secondary); margin-top: 8px; font-size: 0.95rem; }
         .bmi-chart { margin-top: 20px; }
-        .bmi-bar { height: 24px; border-radius: 12px; background: linear-gradient(to right, #3b82f6 0%, #3b82f6 18.5%, #22c55e 18.5%, #22c55e 25%, #f59e0b 25%, #f59e0b 30%, #ef4444 30%, #ef4444 100%); position: relative; margin-top: 8px; }
+        .bmi-bar { height: 24px; border-radius: 12px; background: linear-gradient(to right, var(--gauge-under) 0%, var(--gauge-under) 18.5%, var(--gauge-normal) 18.5%, var(--gauge-normal) 25%, var(--gauge-over) 25%, var(--gauge-over) 30%, var(--gauge-obese) 30%, var(--gauge-obese) 100%); position: relative; margin-top: 8px; }
         .bmi-marker { position: absolute; top: -8px; width: 4px; height: 40px; background: white; border-radius: 2px; transform: translateX(-50%); }
         .bmi-labels { display: flex; justify-content: space-between; margin-top: 8px; font-size: 0.75rem; color: var(--text-secondary); }
         .info-section { background: var(--bg-secondary); border-radius: var(--border-radius); padding: 32px; margin-bottom: 24px; border: 1px solid var(--border); }
@@ -71,7 +152,7 @@
         .theme-coffee { --bg-primary: #3e2723; --bg-secondary: #4e342e; --bg-tertiary: #5d4037; --text-primary: #efebe9; --text-secondary: #bcaaa4; --accent: #a1887f; --accent-hover: #8d6e63; --danger: #ef4444; --border: #6d4c41; --shadow: rgba(161,136,127,0.2); --display-bg: #3e2723; --btn-bg: #4e342e; --btn-hover: #5d4037; --font-display: 'Playfair Display',serif; --font-body: 'Playfair Display',serif; --font-brand: 'Cinzel',serif; --border-radius: 8px; --btn-radius: 6px; }
         .theme-sunset { --bg-primary: #1a1a2e; --bg-secondary: #16213e; --bg-tertiary: #0f3460; --text-primary: #e94560; --text-secondary: #f3949d; --accent: #e94560; --accent-hover: #d63447; --danger: #ef4444; --border: #533483; --shadow: rgba(233,69,96,0.2); --display-bg: #1a1a2e; --btn-bg: #16213e; --btn-hover: #0f3460; --font-display: 'Bebas Neue',sans-serif; --font-body: 'Inter',sans-serif; --font-brand: 'Bebas Neue',sans-serif; --border-radius: 12px; --btn-radius: 10px; }
 
-        @media (max-width: 768px) { .nav-desktop { display: none; } .hamburger { display: block; } .page-header h1 { font-size: 1.8rem; } .calculator { padding: 20px; } .header-inner { height: 56px; } .main-content { padding: 24px 16px; } }
+        @media (max-width: 768px) { .nav-desktop { display: none; } .hamburger { display: block; } .page-header h1 { font-size: 1.8rem; } .calculator { padding: 20px; } .header-inner { height: 56px; } .main-content { padding: 24px 16px; } .calc-btn { font-size: 1rem; padding: 16px; } }
     </style>
 </head>
 <body>
@@ -92,7 +173,7 @@
     <main class="main-content">
         <div class="page-header">
             <h1>BMI Calculator</h1>
-            <p>Evaluate body composition relative to height and mass</p>
+            <p>Calculate your BMI using height and weight with metric or imperial units.</p>
         </div>
         <div class="theme-bar">
             <label>🎨 Theme:</label>
@@ -103,25 +184,26 @@
         <div class="calc-wrapper">
             <div class="calculator" id="calculator">
                 <div class="unit-toggle">
-                    <button class="active" id="btnMetric" onclick="setUnit('metric')">Metric (kg, cm)</button>
-                    <button id="btnImperial" onclick="setUnit('imperial')">Imperial (lbs, ft)</button>
+                    <button class="active" id="btnMetric" onclick="setUnit('metric')" aria-label="Use metric units">Metric (kg, cm)</button>
+                    <button id="btnImperial" onclick="setUnit('imperial')" aria-label="Use imperial units">Imperial (lbs, ft)</button>
                 </div>
                 <div class="input-group">
                     <label id="weightLabel">Weight (kg)</label>
-                    <input type="number" id="weight" placeholder="Enter weight" step="0.1">
+                    <input type="number" id="weight" placeholder="Enter weight" step="0.1" autocomplete="off" aria-label="Weight">
                 </div>
                 <div class="input-group" id="heightCmGroup">
                     <label>Height (cm)</label>
-                    <input type="number" id="heightCm" placeholder="Enter height in cm" step="0.1">
+                    <input type="number" id="heightCm" placeholder="Enter height in cm" step="0.1" autocomplete="off" aria-label="Height in centimeters">
                 </div>
                 <div class="input-group" id="heightFtGroup" style="display:none;">
                     <label>Height</label>
                     <div style="display:flex;gap:10px;">
-                        <input type="number" id="heightFt" placeholder="Feet" style="flex:1;">
-                        <input type="number" id="heightIn" placeholder="Inches" style="flex:1;">
+                        <input type="number" id="heightFt" placeholder="Feet" style="flex:1;" autocomplete="off" aria-label="Height in feet">
+                        <input type="number" id="heightIn" placeholder="Inches" style="flex:1;" autocomplete="off" aria-label="Height in inches">
                     </div>
                 </div>
-                <button class="calc-btn" onclick="calculateBMI()">Calculate BMI</button>
+                <button class="calc-btn" onclick="calculateBMI()" aria-label="Calculate BMI">Calculate BMI</button>
+                <div id="errorMsg" style="display:none;color:var(--danger);font-size:0.9rem;font-weight:600;margin-top:12px;text-align:center;">⚠ Please enter a valid height and weight</div>
                 <div class="result-box" id="resultBox">
                     <div class="bmi-number" id="bmiValue">0</div>
                     <div class="bmi-category" id="bmiCategory">Category</div>
@@ -130,7 +212,56 @@
                         <div class="bmi-bar"><div class="bmi-marker" id="bmiMarker" style="left:0%"></div></div>
                         <div class="bmi-labels"><span>Underweight</span><span>Normal</span><span>Overweight</span><span>Obese</span></div>
                     </div>
+                    <div style="display:flex;gap:8px;margin-top:16px;">
+                        <button type="button" onclick="copyResult()" aria-label="Copy BMI result" style="flex:1;background:var(--btn-bg);border:1px solid var(--border);color:var(--text-primary);padding:10px;border-radius:8px;cursor:pointer;font-weight:600;font-size:0.85rem;">📋 Copy</button>
+                        <button type="button" onclick="shareResult()" aria-label="Share BMI result" style="flex:1;background:var(--btn-bg);border:1px solid var(--border);color:var(--text-primary);padding:10px;border-radius:8px;cursor:pointer;font-weight:600;font-size:0.85rem;">🔗 Share</button>
+                    </div>
                 </div>
+            </div>
+        </div>
+        <!-- How To Use Section -->
+        <div class="info-section">
+            <h2>How To Use This BMI Calculator</h2>
+            <ol style="padding-left:24px;color:var(--text-secondary);line-height:1.8">
+                <li>Select Metric or Imperial units.</li>
+                <li>Enter your weight and height.</li>
+                <li>Click Calculate BMI.</li>
+                <li>Your BMI category will appear instantly.</li>
+            </ol>
+        </div>
+        <!-- BMI Formula & Chart Section -->
+        <div class="info-section">
+            <h2>BMI Calculator Formula</h2>
+            <p>BMI is calculated by dividing weight in kilograms by height in meters squared (BMI = kg / m²). In imperial units, BMI equals weight in pounds multiplied by 703, divided by height in inches squared.</p>
+
+            <h3 style="margin-top:28px;margin-bottom:16px;color:var(--accent);font-size:1.2rem">BMI Chart for Adults</h3>
+            <div style="overflow-x:auto">
+                <table style="width:100%;border-collapse:collapse;margin-top:8px">
+                    <thead>
+                        <tr style="border-bottom:1px solid var(--border)">
+                            <th style="text-align:left;padding:10px 12px;color:var(--text-primary)">BMI</th>
+                            <th style="text-align:left;padding:10px 12px;color:var(--text-primary)">Category</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom:1px solid var(--border)">
+                            <td style="padding:10px 12px;color:var(--text-secondary)">Below 18.5</td>
+                            <td style="padding:10px 12px;color:var(--text-secondary)">Underweight</td>
+                        </tr>
+                        <tr style="border-bottom:1px solid var(--border)">
+                            <td style="padding:10px 12px;color:var(--text-secondary)">18.5 – 24.9</td>
+                            <td style="padding:10px 12px;color:var(--text-secondary)">Normal</td>
+                        </tr>
+                        <tr style="border-bottom:1px solid var(--border)">
+                            <td style="padding:10px 12px;color:var(--text-secondary)">25 – 29.9</td>
+                            <td style="padding:10px 12px;color:var(--text-secondary)">Overweight</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:10px 12px;color:var(--text-secondary)">30 and above</td>
+                            <td style="padding:10px 12px;color:var(--text-secondary)">Obese</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
         <!-- Info Section -->
@@ -165,6 +296,18 @@
                     <li>Consult healthcare providers before making significant lifestyle changes based on BMI alone</li>
             </ul>
 
+            <h3 style="margin-top:28px;margin-bottom:16px;color:var(--accent);font-size:1.2rem">BMI Limitations</h3>
+            <p>BMI does not distinguish between muscle, bone, and fat mass, so it can misclassify very muscular people as overweight and underestimate risk in people with low muscle mass. It also does not account for fat distribution, which matters for cardiovascular risk, or for factors like frame size, pregnancy, and ethnicity-specific health thresholds.</p>
+
+            <h3 style="margin-top:28px;margin-bottom:16px;color:var(--accent);font-size:1.2rem">BMI for Women and Men</h3>
+            <p>The standard BMI formula and category thresholds are the same for adult women and men, since BMI does not adjust for sex-based differences in body composition. Women naturally tend to carry a higher percentage of body fat than men at the same BMI, which is one reason many clinicians pair BMI with waist circumference or body fat percentage for a fuller picture.</p>
+
+            <h3 style="margin-top:28px;margin-bottom:16px;color:var(--accent);font-size:1.2rem">BMI for Children</h3>
+            <p>Standard adult BMI categories do not apply to children and teenagers. Pediatric BMI is plotted on age- and sex-specific growth charts as a percentile compared to other children of the same age, rather than using the fixed underweight/normal/overweight/obese cutoffs used for adults.</p>
+
+            <h3 style="margin-top:28px;margin-bottom:16px;color:var(--accent);font-size:1.2rem">BMI vs Body Fat Percentage</h3>
+            <p>BMI is a simple ratio of weight to height and is easy to calculate from two measurements, but it does not directly measure fat. Body fat percentage, measured through methods like skinfold calipers, bioelectrical impedance, or DEXA scans, more accurately reflects how much of a person's weight is fat versus lean tissue, making it a useful complement to BMI rather than a replacement for it.</p>
+
             <h3 style="margin-top:28px;margin-bottom:16px;color:var(--accent);font-size:1.2rem">Frequently Asked Questions</h3>
 
                     <details style="margin-bottom:12px;border:1px solid var(--border);border-radius:8px;padding:16px;background:var(--bg-primary)">
@@ -188,8 +331,11 @@
                         <p style="margin-top:12px;color:var(--text-secondary);line-height:1.7">Older adults may benefit from slightly higher BMI ranges (23-27) as some extra weight provides protective benefits against illness.</p>
                     </details>
 
+            <h3 style="margin-top:28px;margin-bottom:16px;color:var(--accent);font-size:1.2rem">Related Health Calculators</h3>
+            <p><a href="/ideal-weight-calculator">Ideal Weight Calculator</a> · <a href="/calorie-calculator">Calorie Calculator</a> · <a href="/body-fat-calculator">Body Fat Calculator</a> · <a href="/water-intake-calculator">Water Intake Calculator</a> · <a href="/age-calculator">Age Calculator</a></p>
+
             <h3 style="margin-top:28px;margin-bottom:16px;color:var(--accent);font-size:1.2rem">Explore Related Tools</h3>
-            <p><a href="/calculator">Basic Calculator</a> · <a href="/scientific-calculator">Scientific Calculator</a> · <a href="/percentage-calculator">Percentage Calculator</a> · <a href="/age-calculator">Age Calculator</a> · <a href="/bmi-calculator">BMI Calculator</a> · <a href="/loan-calculator">Loan Calculator</a> · <a href="/mortgage-calculator">Mortgage Calculator</a> · <a href="/date-calculator">Date Calculator</a> · <a href="/compound-interest-calculator">Compound Interest</a> · <a href="/tip-calculator">Tip Calculator</a></p>
+            <p><a href="/calculator">Basic Calculator</a> · <a href="/scientific-calculator">Scientific Calculator</a> · <a href="/percentage-calculator">Percentage Calculator</a> · <a href="/loan-calculator">Loan Calculator</a> · <a href="/mortgage-calculator">Mortgage Calculator</a> · <a href="/date-calculator">Date Calculator</a> · <a href="/compound-interest-calculator">Compound Interest</a> · <a href="/tip-calculator">Tip Calculator</a></p>
         </div>
     </main>
     <footer class="footer">
@@ -209,17 +355,19 @@
         function calculateBMI() {
             let w = parseFloat(document.getElementById('weight').value);
             let h, bmi;
+            let errorEl = document.getElementById('errorMsg');
             if (unit === 'metric') {
                 h = parseFloat(document.getElementById('heightCm').value) / 100;
-                if (!w || !h || h <= 0) { alert('Please enter valid weight and height'); return; }
+                if (isNaN(w) || w <= 0 || isNaN(h) || h <= 0) { errorEl.style.display = 'block'; document.getElementById('resultBox').style.display = 'none'; return; }
                 bmi = w / (h * h);
             } else {
                 let ft = parseFloat(document.getElementById('heightFt').value) || 0;
                 let inc = parseFloat(document.getElementById('heightIn').value) || 0;
                 h = ft * 12 + inc;
-                if (!w || !h || h <= 0) { alert('Please enter valid weight and height'); return; }
+                if (isNaN(w) || w <= 0 || isNaN(h) || h <= 0) { errorEl.style.display = 'block'; document.getElementById('resultBox').style.display = 'none'; return; }
                 bmi = 703 * w / (h * h);
             }
+            errorEl.style.display = 'none';
             bmi = parseFloat(bmi.toFixed(1));
             document.getElementById('bmiValue').textContent = bmi;
             let cat, desc, color;
@@ -234,8 +382,34 @@
             document.getElementById('bmiMarker').style.left = pct + '%';
             document.getElementById('resultBox').style.display = 'block';
         }
-        function changeTheme(t) { document.body.className = ''; if (t !== 'default') document.body.classList.add('theme-' + t); localStorage.setItem('calcTheme', t); }
-        let st = localStorage.getItem('calcTheme') || 'default'; document.getElementById('themeSelect').value = st; changeTheme(st);
+        function changeTheme(t) { document.body.className = ''; if (t !== 'default') document.body.classList.add('theme-' + t); localStorage.setItem('bmiTheme', t); }
+        let st = localStorage.getItem('bmiTheme') || 'default'; document.getElementById('themeSelect').value = st; changeTheme(st);
+
+        ['weight', 'heightCm', 'heightFt', 'heightIn'].forEach(function(id) {
+            document.getElementById(id).addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') { e.preventDefault(); calculateBMI(); }
+            });
+        });
+
+        function copyResult() {
+            let bmi = document.getElementById('bmiValue').textContent;
+            let cat = document.getElementById('bmiCategory').textContent;
+            let text = 'My BMI is ' + bmi + ' (' + cat + ') — calculated at excusemeweb.com/bmi-calculator';
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(function() { alert('Result copied to clipboard'); });
+            }
+        }
+
+        function shareResult() {
+            let bmi = document.getElementById('bmiValue').textContent;
+            let cat = document.getElementById('bmiCategory').textContent;
+            let text = 'My BMI is ' + bmi + ' (' + cat + ')';
+            if (navigator.share) {
+                navigator.share({ title: 'My BMI Result', text: text, url: 'https://excusemeweb.com/bmi-calculator' });
+            } else {
+                copyResult();
+            }
+        }
     </script>
 </body>
 </html>

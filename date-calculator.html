@@ -5,9 +5,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Date Calculator — Days Between Dates, Add/Subtract & Weekday Finder | ExcuseMeWeb</title>
     <meta name="description" content="Measure intervals between calendar dates, add or subtract days from any timestamp, and identify the weekday for historical or future events. Handles leap years and timezone-aware calculations.">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Date Calculator — Days Between Dates, Add/Subtract & Weekday Finder">
+    <meta property="og:description" content="Measure intervals between calendar dates, add or subtract days from any timestamp, and identify the weekday for historical or future events. Handles leap years and timezone-aware calculations.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://excusemeweb.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="canonical" href="https://excusemeweb.com/date-calculator">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="theme-color" content="#ffffff">
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Date Calculator",
+  "url": "https://excusemeweb.com/date-calculator",
+  "description": "Measure intervals between calendar dates, add or subtract days from any timestamp, and identify the weekday for historical or future events. Handles leap years and timezone-aware calculations.",
+  "applicationCategory": "Calculator",
+  "operatingSystem": "All",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "ExcuseMeWeb"
+  },
+  "dateModified": "2026-07-22"
+}
+    </script>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How does this handle daylight saving time changes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Daylight saving transitions do not affect day-count calculations since they measure whole 24-hour periods."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I calculate dates before 1900?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The current implementation focuses on modern Gregorian calendar dates from 1900 onward."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between calendar days and business days?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Calendar days include all seven weekdays. Business days exclude Saturdays, Sundays, and observed holidays."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I find what day of the week I was born?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Enter your birth date in the weekday finder section to reveal the corresponding day name."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the calculator account for different time zones?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It uses midnight boundaries in your local timezone. For precise cross-zone coordination, specify UTC references."
+      }
+    }
+  ]
+}
+    </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&family=Cinzel:wght@400;600;700&family=Playfair+Display:wght@400;600;700&family=Dancing+Script:wght@400;600;700&family=Quicksand:wght@300;400;500;600;700&family=Bebas+Neue&family=Righteous&family=Pacifico&family=VT323&display=swap" rel="stylesheet">
     <style>
-        :root { --bg-primary: #0f172a; --bg-secondary: #1e293b; --bg-tertiary: #334155; --text-primary: #f8fafc; --text-secondary: #94a3b8; --accent: #38bdf8; --accent-hover: #0ea5e9; --danger: #ef4444; --border: #475569; --shadow: rgba(0,0,0,0.3); --display-bg: #0f172a; --btn-bg: #334155; --btn-hover: #475569; --font-display: 'Orbitron',monospace; --font-body: 'Inter',sans-serif; --font-brand: 'Inter',sans-serif; --border-radius: 12px; --btn-radius: 10px; }
+        :root { --bg-primary: #ffffff; --bg-secondary: #f8fafc; --bg-tertiary: #e2e8f0; --text-primary: #0f172a; --text-secondary: #64748b; --accent: #3b82f6; --accent-hover: #2563eb; --danger: #ef4444; --border: #e2e8f0; --shadow: rgba(0,0,0,0.08); --display-bg: #ffffff; --btn-bg: #f1f5f9; --btn-hover: #e2e8f0; --font-display: 'Orbitron',monospace; --font-body: 'Inter',sans-serif; --font-brand: 'Inter',sans-serif; --border-radius: 12px; --btn-radius: 10px; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: var(--font-body); background: var(--bg-primary); color: var(--text-primary); min-height: 100vh; display: flex; flex-direction: column; }
         .header { background: var(--bg-secondary); border-bottom: 1px solid var(--border); padding: 0 24px; position: sticky; top: 0; z-index: 1000; }
