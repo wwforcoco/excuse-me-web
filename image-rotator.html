@@ -13,7 +13,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <link rel="canonical" href="https://excusemeweb.com/image-rotator">
     <link rel="icon" href="/favicon.ico">
-    <meta name="theme-color" content="#0f172a">
+    <meta name="theme-color" content="#ffffff">
 
     <script type="application/ld+json">
     {
@@ -66,10 +66,10 @@
 
     <style>
         :root {
-            --bg-primary: #0f172a; --bg-secondary: #1e293b; --bg-tertiary: #334155;
-            --text-primary: #f8fafc; --text-secondary: #94a3b8; --accent: #38bdf8;
-            --accent-hover: #0ea5e9; --danger: #ef4444; --success: #22c55e; --border: #475569;
-            --shadow: rgba(0,0,0,0.3); --font-body: 'Inter', sans-serif; --font-brand: 'Inter', sans-serif;
+            --bg-primary: #ffffff; --bg-secondary: #f8fafc; --bg-tertiary: #f1f5f9;
+            --text-primary: #0f172a; --text-secondary: #64748b; --accent: #6366f1;
+            --accent-hover: #4f46e5; --danger: #ef4444; --success: #22c55e; --border: #e2e8f0;
+            --shadow: rgba(0,0,0,0.08); --font-body: 'Inter', sans-serif; --font-brand: 'Inter', sans-serif;
             --border-radius: 12px;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -93,14 +93,14 @@
         .page-header p { color: var(--text-secondary); font-size: 1.05rem; max-width: 640px; margin: 0 auto; }
         .tool-panel { background: var(--bg-secondary); border-radius: var(--border-radius); padding: 28px; margin-bottom: 40px; border: 1px solid var(--border); }
         .dropzone { border: 2px dashed var(--border); border-radius: 10px; padding: 48px 24px; text-align: center; cursor: pointer; transition: border-color .2s, background .2s; }
-        .dropzone:hover, .dropzone.drag { border-color: var(--accent); background: rgba(56,189,248,0.06); }
+        .dropzone:hover, .dropzone.drag { border-color: var(--accent); background: rgba(99, 102, 241,0.06); }
         .dropzone .icon { font-size: 2.4rem; margin-bottom: 12px; }
         .dropzone .main-txt { font-weight: 600; margin-bottom: 6px; }
         .dropzone .sub-txt { color: var(--text-secondary); font-size: 0.85rem; }
         .workspace { display: none; }
         .workspace.active { display: block; }
         .preview-wrap { display: flex; justify-content: center; margin-bottom: 20px; }
-        canvas, .crop-img { max-width: 100%; border-radius: 8px; background: repeating-conic-gradient(#33415580 0% 25%, transparent 0% 50%) 50% / 20px 20px; }
+        canvas, .crop-img { max-width: 100%; border-radius: 8px; background: repeating-conic-gradient(#f1f5f980 0% 25%, transparent 0% 50%) 50% / 20px 20px; }
         .controls-row { display: flex; flex-wrap: wrap; gap: 16px; align-items: end; margin-bottom: 18px; }
         .field { display: flex; flex-direction: column; gap: 6px; }
         .field label { font-size: 0.82rem; color: var(--text-secondary); font-weight: 600; }
@@ -147,9 +147,9 @@
             <a href="/" class="logo">Excuse<span>Me</span>Web</a>
             <nav class="nav-desktop">
                 <a href="/calculator">Tools</a>
-                <a href="/calculator">Calculators</a>
+                <a href="/calculators">Calculators</a>
                 <a href="/image-tools" class="active">Image Tools</a>
-                <a href="/password-generator">Generators</a>
+                <a href="/generators">Generators</a>
                 <a href="/templates">Templates</a>
                 <a href="/games">Games</a>
             </nav>
@@ -158,7 +158,7 @@
             </div>
         </div>
         <nav class="mobile-nav" id="mobileNav">
-            <a href="/calculator">Tools</a><a href="/calculator">Calculators</a><a href="/image-tools">Image Tools</a><a href="/password-generator">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a>
+            <a href="/calculator">Tools</a><a href="/calculators">Calculators</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a>
         </nav>
     </header>
     <main class="main-content">
@@ -239,7 +239,7 @@
     </main>
     <footer class="footer">
         <p>© 2026 ExcuseMeWeb.com — Online Tools for Everyone</p>
-        <p style="margin-top:8px"><a href="/calculator">Calculators</a> · <a href="/image-tools">Image Tools</a> · <a href="/password-generator">Generators</a> · <a href="/templates">Templates</a></p>
+        <p style="margin-top:8px"><a href="/calculators">Calculators</a> · <a href="/image-tools">Image Tools</a> · <a href="/generators">Generators</a> · <a href="/templates">Templates</a></p>
     </footer>
     <script>
 

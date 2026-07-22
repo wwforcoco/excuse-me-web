@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Username Generator - Create Unique Usernames Free | ExcuseMeWeb</title>
+    <meta name="description" content="Generate unique, available-sounding usernames by combining adjectives, nouns, and numbers. Free, instant, no sign-up.">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Username Generator - Create Unique Usernames Free | ExcuseMeWeb">
+    <meta property="og:description" content="Generate unique, available-sounding usernames by combining adjectives, nouns, and numbers. Free, instant, no sign-up.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://excusemeweb.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://excusemeweb.com/username-generator">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="theme-color" content="#ffffff">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Username Generator",
+      "url": "https://excusemeweb.com/username-generator",
+      "description": "Generate unique, available-sounding usernames by combining adjectives, nouns, and numbers. Free, instant, no sign-up.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "author": { "@type": "Organization", "name": "ExcuseMeWeb" },
+      "dateModified": "2026-07-22"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Are these usernames guaranteed to be available?", "acceptedAnswer": { "@type": "Answer", "text": "No tool can guarantee availability on a specific platform, but combining random words with numbers makes collisions less likely." } },
+        { "@type": "Question", "name": "Can I use my own word in the username?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, type it into the keyword field and it will be combined with a random adjective." } },
+        { "@type": "Question", "name": "Does this work for gaming and social media both?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, the generated names are generic enough to use on games, forums, or social platforms." } },
+        { "@type": "Question", "name": "Is anything I type saved?", "acceptedAnswer": { "@type": "Answer", "text": "No, everything runs locally in your browser and nothing is stored." } }
+      ]
+    }
+    </script>
+
+    <style>
+        :root {
+            --bg-primary: #ffffff; --bg-secondary: #f8fafc; --bg-tertiary: #f1f5f9;
+            --text-primary: #0f172a; --text-secondary: #64748b; --accent: #6366f1;
+            --accent-hover: #4f46e5; --danger: #ef4444; --success: #22c55e; --border: #e2e8f0;
+            --shadow: rgba(0,0,0,0.08); --font-body: 'Inter', sans-serif; --font-brand: 'Inter', sans-serif;
+            --border-radius: 12px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-body); background: var(--bg-primary); color: var(--text-primary); min-height: 100vh; display: flex; flex-direction: column; }
+        .header { background: var(--bg-secondary); border-bottom: 1px solid var(--border); padding: 0 24px; position: sticky; top: 0; z-index: 1000; }
+        .header-inner { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+        .logo { font-family: var(--font-brand); font-size: 1.5rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+        .logo span { color: var(--text-primary); }
+        .nav-desktop { display: flex; gap: 32px; }
+        .nav-desktop a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+        .nav-desktop a:hover { color: var(--accent); }
+        .nav-desktop a.active { color: var(--accent); }
+        .header-right { display: flex; align-items: center; gap: 16px; }
+        .hamburger { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+        .mobile-nav { display: none; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-secondary); border-bottom: 1px solid var(--border); padding: 16px 24px; flex-direction: column; gap: 16px; }
+        .mobile-nav.show { display: flex; }
+        .mobile-nav a { color: var(--text-secondary); text-decoration: none; font-size: 1rem; font-weight: 500; }
+        .main-content { flex: 1; max-width: 900px; width: 100%; margin: 0 auto; padding: 40px 24px; }
+        .page-header { text-align: center; margin-bottom: 32px; }
+        .page-header h1 { font-size: 2.1rem; font-weight: 700; margin-bottom: 8px; }
+        .page-header p { color: var(--text-secondary); font-size: 1.05rem; max-width: 640px; margin: 0 auto; }
+        .tool-panel { background: var(--bg-secondary); border-radius: var(--border-radius); padding: 28px; margin-bottom: 40px; border: 1px solid var(--border); }
+        .controls-row { display: flex; flex-wrap: wrap; gap: 16px; align-items: end; margin-bottom: 18px; }
+        .field { display: flex; flex-direction: column; gap: 6px; }
+        .field label { font-size: 0.82rem; color: var(--text-secondary); font-weight: 600; }
+        .field input[type=number], .field input[type=text], .field select, .field textarea { background: var(--bg-primary); border: 1px solid var(--border); color: var(--text-primary); padding: 9px 12px; border-radius: 8px; font-size: 0.95rem; width: 150px; font-family: inherit; }
+        .field textarea { width: 100%; min-height: 90px; resize: vertical; }
+        .field input[type=range] { width: 180px; }
+        .chk-field { display: flex; align-items: center; gap: 8px; font-size: 0.88rem; color: var(--text-secondary); }
+        .chk-row { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 18px; }
+        .btn { background: var(--accent); color: #ffffff; border: none; padding: 11px 22px; border-radius: 8px; font-weight: 700; font-size: 0.95rem; cursor: pointer; transition: background .15s; }
+        .btn:hover { background: var(--accent-hover); }
+        .btn.secondary { background: var(--bg-tertiary); color: var(--text-primary); }
+        .btn.secondary:hover { background: var(--border); }
+        .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+        .btn-row { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 18px; }
+        .result-box { background: var(--bg-primary); border: 1px solid var(--border); border-radius: 10px; padding: 18px; font-size: 1.05rem; word-break: break-word; min-height: 24px; }
+        .result-list { display: flex; flex-direction: column; gap: 8px; }
+        .result-item { display: flex; align-items: center; justify-content: space-between; background: var(--bg-primary); border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; font-size: 0.95rem; gap: 10px; }
+        .result-item .copy-mini { background: none; border: none; color: var(--accent); cursor: pointer; font-size: 0.82rem; font-weight: 600; white-space: nowrap; }
+        .swatch-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 14px; }
+        .swatch-card { border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+        .swatch-card .swatch-color { height: 70px; }
+        .swatch-card .swatch-label { background: var(--bg-primary); padding: 8px; text-align: center; font-size: 0.8rem; font-weight: 600; }
+        .strength-bar { height: 8px; border-radius: 4px; background: var(--bg-tertiary); overflow: hidden; margin-top: 8px; }
+        .strength-fill { height: 100%; width: 0%; background: var(--danger); transition: width .2s, background .2s; }
+        .strength-label { font-size: 0.82rem; color: var(--text-secondary); margin-top: 6px; }
+        .info-section { background: var(--bg-secondary); border-radius: var(--border-radius); padding: 32px; margin-bottom: 24px; border: 1px solid var(--border); }
+        .info-section h2 { font-size: 1.4rem; margin-bottom: 14px; }
+        .info-section h3 { margin-top: 28px; margin-bottom: 14px; color: var(--accent); font-size: 1.1rem; }
+        .info-section p, .info-section li { color: var(--text-secondary); line-height: 1.7; }
+        .info-section a { color: var(--accent); text-decoration: none; }
+        .info-section a:hover { text-decoration: underline; }
+        details { margin-bottom: 10px; border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; background: var(--bg-primary); }
+        summary { font-weight: 600; color: var(--text-primary); cursor: pointer; }
+        details p { margin-top: 10px; margin-bottom: 0; }
+        .footer { background: var(--bg-secondary); border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--text-secondary); font-size: 0.9rem; }
+        .footer a { color: var(--accent); text-decoration: none; }
+        .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(20px); background: var(--text-primary); color: #fff; padding: 10px 18px; border-radius: 8px; font-size: 0.88rem; opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s; z-index: 2000; }
+        .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+        @media (max-width: 768px) { .nav-desktop { display: none; } .hamburger { display: block; } .page-header h1 { font-size: 1.6rem; } }
+    </style>
+
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-inner">
+            <a href="/" class="logo">Excuse<span>Me</span>Web</a>
+            <nav class="nav-desktop">
+                <a href="/">Tools</a>
+                <a href="/calculators">Calculators</a>
+                <a href="/image-tools">Image Tools</a>
+                <a href="/generators" class="active">Generators</a>
+                <a href="/templates">Templates</a>
+                <a href="/games">Games</a>
+            </nav>
+            <div class="header-right">
+                <button class="hamburger" onclick="document.getElementById('mobileNav').classList.toggle('show')">Menu</button>
+            </div>
+        </div>
+        <nav class="mobile-nav" id="mobileNav">
+            <a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="page-header">
+            <h1>Username Generator</h1>
+            <p>Generate unique username ideas for games, forums, or social media.</p>
+        </div>
+
+        <div class="tool-panel">
+
+            <div class="controls-row">
+                <div class="field">
+                    <label for="ugCount">How many</label>
+                    <input type="number" id="ugCount" min="1" max="30" value="10">
+                </div>
+                <div class="field">
+                    <label for="ugKeyword">Include word (optional)</label>
+                    <input type="text" id="ugKeyword" placeholder="e.g. dragon">
+                </div>
+            </div>
+            <div class="chk-row">
+                <label class="chk-field"><input type="checkbox" id="ugNumbers" checked> Add numbers</label>
+                <label class="chk-field"><input type="checkbox" id="ugCaps"> Title Case</label>
+            </div>
+            <div class="btn-row">
+                <button class="btn" onclick="ugGenerate()">Generate Usernames</button>
+            </div>
+            <div class="result-list" id="ugResult"></div>
+    
+        </div>
+
+        <div class="info-section">
+            <h2>About This Tool</h2>
+            <p>This tool combines adjectives, nouns, and optional numbers to suggest usernames that are memorable and less likely to already be taken. Add your own keyword to personalize the results.</p>
+
+            <h3>How It Works</h3>
+            <ol>
+                <li>Set how many usernames you want to generate.</li>
+                <li>Optionally type in a keyword you'd like included, like a hobby or name.</li>
+                <li>Choose whether to add numbers or use Title Case.</li>
+                <li>Click Generate Usernames and copy any you like.</li>
+            </ol>
+
+            <h3>What This Tool Covers</h3>
+            <ul>
+                <li>Combines adjectives and nouns for unique-sounding results</li>
+                <li>Optional custom keyword to personalize suggestions</li>
+                <li>Optional trailing numbers to reduce collisions</li>
+                <li>One-click copy for each generated username</li>
+            </ul>
+
+            <h3>Frequently Asked Questions</h3>
+            <details>
+                <summary>Are these usernames guaranteed to be available?</summary>
+                <p>No tool can guarantee availability on a specific platform, but combining random words with numbers makes collisions less likely.</p>
+            </details>
+            <details>
+                <summary>Can I use my own word in the username?</summary>
+                <p>Yes, type it into the keyword field and it will be combined with a random adjective.</p>
+            </details>
+            <details>
+                <summary>Does this work for gaming and social media both?</summary>
+                <p>Yes, the generated names are generic enough to use on games, forums, or social platforms.</p>
+            </details>
+            <details>
+                <summary>Is anything I type saved?</summary>
+                <p>No, everything runs locally in your browser and nothing is stored.</p>
+            </details>
+
+            <h3>Related Tools</h3>
+            <p><a href="/fake-name-generator">Fake Name Generator</a> · <a href="/password-generator">Password Generator</a> · <a href="/email-generator">Email Generator</a></p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 ExcuseMeWeb.com — Online Tools for Everyone</p>
+        <p style="margin-top:8px"><a href="/calculators">Calculators</a> · <a href="/image-tools">Image Tools</a> · <a href="/generators">Generators</a> · <a href="/templates">Templates</a></p>
+    </footer>
+    <div class="toast" id="toast"></div>
+    <script>
+        function showToast(msg) {
+            const t = document.getElementById('toast');
+            t.textContent = msg;
+            t.classList.add('show');
+            clearTimeout(window._toastTimer);
+            window._toastTimer = setTimeout(() => t.classList.remove('show'), 1800);
+        }
+        function copyText(text) {
+            navigator.clipboard.writeText(text).then(() => showToast('Copied to clipboard')).catch(() => showToast('Copy failed'));
+        }
+    </script>
+
+    <script>
+
+        const ugAdj = ['Swift','Silent','Golden','Crimson','Lunar','Iron','Shadow','Electric','Frozen','Rapid','Bold','Cosmic','Wild','Silver','Mighty','Clever','Brave','Hidden','Solar','Neon'];
+        const ugNoun = ['Falcon','Tiger','Wolf','Phoenix','Ranger','Comet','Fox','Dragon','Storm','Panther','Hawk','Raven','Ninja','Knight','Pilot','Rider','Wizard','Nomad','Otter','Viper'];
+        function ugGenerate() {
+            const count = Math.min(30, Math.max(1, parseInt(document.getElementById('ugCount').value, 10) || 10));
+            const keyword = document.getElementById('ugKeyword').value.trim();
+            const addNum = document.getElementById('ugNumbers').checked;
+            const caps = document.getElementById('ugCaps').checked;
+            const out = document.getElementById('ugResult');
+            out.innerHTML = '';
+            const used = new Set();
+            let tries = 0;
+            while (used.size < count && tries < count * 20) {
+                tries++;
+                const a = ugAdj[Math.floor(Math.random() * ugAdj.length)];
+                const n = keyword ? (keyword.charAt(0).toUpperCase() + keyword.slice(1)) : ugNoun[Math.floor(Math.random() * ugNoun.length)];
+                let name = a + n;
+                if (addNum) name += Math.floor(Math.random() * 900 + 10);
+                if (!caps) name = name.toLowerCase();
+                if (used.has(name)) continue;
+                used.add(name);
+                const row = document.createElement('div');
+                row.className = 'result-item';
+                row.innerHTML = '<span>' + name + '</span><button class="copy-mini" onclick="copyText(\'' + name + '\')">Copy</button>';
+                out.appendChild(row);
+            }
+        }
+        ugGenerate();
+    
+    </script>
+</body>
+</html>
