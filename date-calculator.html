@@ -152,14 +152,14 @@
         <div class="header-inner">
             <a href="/" class="logo">Excuse<span>Me</span>Web</a>
             <nav class="nav-desktop">
-                <a href="/calculator">Tools</a><a href="/calculators" class="active">Calculators</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a>
+                <a href="/calculator">Tools</a><a href="/calculators" class="active">Calculators</a><a href="/converters">Converters</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a><a href="/all-in-one-toolkit">Toolkits</a>
             </nav>
             <div class="header-right">
                 <button class="hamburger" onclick="document.getElementById('mobileNav').classList.toggle('show')">☰</button>
             </div>
         </div>
         <nav class="mobile-nav" id="mobileNav">
-            <a href="/calculator">Tools</a><a href="/calculators">Calculators</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a>
+            <a href="/calculator">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a><a href="/all-in-one-toolkit">Toolkits</a>
         </nav>
     </header>
     <main class="main-content">
@@ -262,7 +262,7 @@
     </main>
     <footer class="footer">
         <p>© 2026 ExcuseMeWeb.com — Online Tools for Everyone</p>
-        <p style="margin-top:8px"><a href="/calculators">Calculators</a> · <a href="/image-tools">Image Tools</a> · <a href="/generators">Generators</a></p>
+        <p style="margin-top:8px"><a href="/calculators">Calculators</a> · <a href="/converters">Converters</a> · <a href="/image-tools">Image Tools</a> · <a href="/generators">Generators</a></p>
     </footer>
     <script>
         function calcDaysBetween() { let d1 = new Date(document.getElementById('date1').value); let d2 = new Date(document.getElementById('date2').value); if (isNaN(d1)||isNaN(d2)) { document.getElementById('resBetween').textContent = 'Please select both dates'; return; } let diff = Math.abs(d2 - d1); let days = Math.ceil(diff / (1000 * 60 * 60 * 24)); document.getElementById('resBetween').textContent = days + ' days between ' + d1.toLocaleDateString() + ' and ' + d2.toLocaleDateString(); }

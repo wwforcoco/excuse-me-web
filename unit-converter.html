@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Unit Converter Online — Length, Weight, Temperature & More | ExcuseMeWeb</title>
+    <meta name="description" content="Convert length, weight, temperature, area, volume, speed, time, data, energy, pressure, power, frequency, fuel economy, and angles instantly, all in one free browser-based unit converter.">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Free Unit Converter Online — Length, Weight, Temperature & More | ExcuseMeWeb">
+    <meta property="og:description" content="Convert length, weight, temperature, area, volume, speed, time, data, energy, pressure, power, frequency, fuel economy, and angles instantly, all in one free browser-based unit converter.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://excusemeweb.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://excusemeweb.com/unit-converter">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="theme-color" content="#ffffff">
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Free Unit Converter Online \u2014 Length, Weight, Temperature & More | ExcuseMeWeb",
+  "url": "https://excusemeweb.com/unit-converter",
+  "description": "Convert length, weight, temperature, area, volume, speed, time, data, energy, pressure, power, frequency, fuel economy, and angles instantly, all in one free browser-based unit converter.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "All",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "ExcuseMeWeb"
+  },
+  "dateModified": "2026-07-22"
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What can I convert with this tool?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This converter covers length, weight, temperature, area, volume, speed, time, data storage, energy, pressure, power, frequency, fuel consumption, and angle conversions, all from a single page."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does switching categories reset my number?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The value you entered stays in the input box; only the unit dropdowns and result update to match the newly selected category."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this converter accurate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, it uses standard international conversion factors (SI and imperial definitions) for every category except currency, which changes daily."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why isn't currency included here?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Currency exchange rates change constantly and need a live data feed, so we built a dedicated Currency Converter for that."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need an account to use this?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. There's no sign-up, login, or payment required for any conversion on this page."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my data sent anywhere?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. All math runs directly in your browser tab, so nothing you type is transmitted or stored on a server."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use this converter on my phone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, the layout adapts to smaller screens so it works well on phones and tablets."
+      }
+    }
+  ]
+}
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+:root {
+    --bg-primary: #ffffff; --bg-secondary: #f8fafc; --bg-tertiary: #f1f5f9;
+    --text-primary: #0f172a; --text-secondary: #64748b; --accent: #6366f1;
+    --accent-hover: #4f46e5; --danger: #ef4444; --success: #22c55e; --border: #e2e8f0;
+    --shadow: rgba(0,0,0,0.08); --font-body: 'Inter', sans-serif; --font-brand: 'Inter', sans-serif;
+    --border-radius: 12px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--font-body); background: var(--bg-primary); color: var(--text-primary); min-height: 100vh; display: flex; flex-direction: column; }
+.header { background: var(--bg-secondary); border-bottom: 1px solid var(--border); padding: 0 24px; position: sticky; top: 0; z-index: 1000; }
+.header-inner { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+.logo { font-family: var(--font-brand); font-size: 1.5rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+.logo span { color: var(--text-primary); }
+.nav-desktop { display: flex; gap: 28px; }
+.nav-desktop a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; white-space: nowrap; }
+.nav-desktop a:hover { color: var(--accent); }
+.nav-desktop a.active { color: var(--accent); }
+.header-right { display: flex; align-items: center; gap: 16px; }
+.hamburger { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+.mobile-nav { display: none; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-secondary); border-bottom: 1px solid var(--border); padding: 16px 24px; flex-direction: column; gap: 16px; }
+.mobile-nav.show { display: flex; }
+.mobile-nav a { color: var(--text-secondary); text-decoration: none; font-size: 1rem; font-weight: 500; }
+.mobile-nav a.active { color: var(--accent); }
+.main-content { flex: 1; max-width: 1100px; width: 100%; margin: 0 auto; padding: 40px 24px; }
+.page-header { text-align: center; margin-bottom: 28px; }
+.page-header h1 { font-size: 2.3rem; font-weight: 700; margin-bottom: 8px; }
+.page-header p { color: var(--text-secondary); font-size: 1.05rem; max-width: 640px; margin: 0 auto; }
+.info-section { background: var(--bg-secondary); border-radius: var(--border-radius); padding: 32px; margin-bottom: 24px; border: 1px solid var(--border); }
+.info-section h2 { font-size: 1.4rem; margin-bottom: 14px; }
+.info-section h3 { margin-top: 28px; margin-bottom: 14px; color: var(--accent); font-size: 1.1rem; }
+.info-section p, .info-section li { color: var(--text-secondary); line-height: 1.7; }
+.info-section ul, .info-section ol { padding-left: 22px; margin-bottom: 10px;}
+.info-section a { color: var(--accent); text-decoration: none; }
+.info-section a:hover { text-decoration: underline; }
+details { margin-bottom: 10px; border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; background: var(--bg-primary); }
+summary { font-weight: 600; color: var(--text-primary); cursor: pointer; }
+details p { margin-top: 10px; margin-bottom: 0; }
+.footer { background: var(--bg-secondary); border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--text-secondary); font-size: 0.9rem; }
+.footer a { color: var(--accent); text-decoration: none; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 18px; margin-bottom: 40px; }
+.tool-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--border-radius); padding: 22px; text-decoration: none; color: var(--text-primary); transition: transform .15s, border-color .15s; }
+.tool-card:hover { transform: translateY(-3px); border-color: var(--accent); }
+.tool-card .icon { font-size: 1.8rem; margin-bottom: 10px; }
+.tool-card h3 { font-size: 1.05rem; margin-bottom: 6px; }
+.tool-card p { color: var(--text-secondary); font-size: 0.85rem; line-height: 1.5; }
+/* Converter widget */
+.converter-box { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--border-radius); padding: 28px; max-width: 660px; margin: 0 auto 20px; box-shadow: 0 20px 60px var(--shadow); }
+.cat-select-row { margin-bottom: 20px; }
+.cat-select-row label { display:block; font-size:.8rem; font-weight:600; color:var(--text-secondary); text-transform:uppercase; letter-spacing:.03em; margin-bottom:8px; }
+.cat-select-row select { width: 100%; font-size: 1rem; padding: 12px 14px; border-radius: 10px; border: 1px solid var(--border); background: var(--bg-primary); color: var(--text-primary); cursor: pointer; font-family: var(--font-body); }
+.conv-row { display: flex; align-items: flex-end; gap: 14px; }
+.conv-field { flex: 1; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.conv-field label { font-size: .8rem; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: .03em; }
+.conv-field input[type=number], .conv-field input[type=text] { font-size: 1.3rem; padding: 12px 14px; border-radius: 10px; border: 1px solid var(--border); background: var(--bg-primary); color: var(--text-primary); font-family: var(--font-body); width: 100%; }
+.conv-field input:focus, .conv-field select:focus { outline: 2px solid var(--accent); }
+.conv-field select { font-size: .92rem; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--border); background: var(--bg-primary); color: var(--text-primary); width: 100%; cursor: pointer; font-family: var(--font-body); }
+.result-display { font-size: 1.3rem; font-weight: 700; padding: 12px 14px; border-radius: 10px; border: 1px solid var(--border); background: var(--bg-primary); color: var(--accent); min-height: 48px; display: flex; align-items: center; word-break: break-all; }
+.swap-btn { background: var(--accent); color: #fff; border: none; width: 44px; height: 44px; min-width:44px; border-radius: 50%; font-size: 1.3rem; cursor: pointer; flex-shrink: 0; margin-bottom: 6px; transition: .15s; }
+.swap-btn:hover { background: var(--accent-hover); transform: rotate(180deg); }
+.conv-note { text-align:center; font-size:.82rem; color: var(--text-secondary); margin-top: 16px; }
+.fx-badge { display:inline-flex; align-items:center; gap:6px; font-size:.78rem; color: var(--text-secondary); background: var(--bg-primary); border:1px solid var(--border); padding:5px 10px; border-radius: 999px; }
+.fx-badge.live { color: var(--success); }
+@media (max-width: 768px) {
+    .nav-desktop { display: none; } .hamburger { display: block; }
+    .page-header h1 { font-size: 1.7rem; }
+    .main-content { padding: 24px 16px; }
+    .conv-row { flex-direction: column; align-items: stretch; }
+    .swap-btn { align-self: center; transform: rotate(90deg); margin: 0; }
+    .swap-btn:hover { transform: rotate(270deg); }
+}
+</style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="/" class="logo">Excuse<span>Me</span>Web</a>
+            <nav class="nav-desktop">
+                <a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters" class="active">Converters</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a><a href="/all-in-one-toolkit">Toolkits</a>
+            </nav>
+            <div class="header-right">
+                <button class="hamburger" onclick="document.getElementById('mobileNav').classList.toggle('show')">Menu</button>
+            </div>
+        </div>
+        <nav class="mobile-nav" id="mobileNav">
+            <a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters" class="active">Converters</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a><a href="/all-in-one-toolkit">Toolkits</a>
+        </nav>
+    </header>
+    <main class="main-content">
+        <div class="page-header">
+            <h1>Unit Converter</h1>
+            <p>One tool for 14 categories of everyday unit conversions — pick a category, enter a value, and get an instant result.</p>
+        </div>
+
+        <div class="converter-box">
+            <div class="cat-select-row">
+                <label>Category</label>
+                <select id="categorySelect" onchange="onCategoryChange()">
+<option value="length">Length</option>
+<option value="weight">Weight</option>
+<option value="temperature">Temperature</option>
+<option value="area">Area</option>
+<option value="volume">Volume</option>
+<option value="speed">Speed</option>
+<option value="time">Time</option>
+<option value="data">Data Storage</option>
+<option value="energy">Energy</option>
+<option value="pressure">Pressure</option>
+<option value="power">Power</option>
+<option value="frequency">Frequency</option>
+<option value="fuel">Fuel Consumption</option>
+<option value="angle">Angle</option>
+                </select>
+            </div>
+            <div class="conv-row">
+                <div class="conv-field">
+                    <label>Value</label>
+                    <input type="number" id="inputValue" value="1" step="any" oninput="convert()">
+                    <select id="fromUnit" onchange="convert()"></select>
+                </div>
+                <button class="swap-btn" onclick="swapUnits()" title="Swap units" type="button">&#8646;</button>
+                <div class="conv-field">
+                    <label>Result</label>
+                    <div class="result-display" id="resultDisplay">&mdash;</div>
+                    <select id="toUnit" onchange="convert()"></select>
+                </div>
+            </div>
+            <p class="conv-note">Covers 14 categories in one tool. Need currency? Try the <a href="/currency-converter">Currency Converter</a>.</p>
+        </div>
+        <div class="info-section">
+            <h2>An All-in-One Unit Converter</h2>
+            <p>This unit converter combines fourteen of the most commonly needed conversion categories into a single tool: length, weight, temperature, area, volume, speed, time, data storage, energy, pressure, power, frequency, fuel consumption, and angle. Instead of hunting for a separate page for each measurement type, pick a category from the dropdown, choose your units, and see the converted value update instantly.</p>
+            <p>Every calculation happens locally in your browser using standard, internationally recognized conversion factors, so results are accurate whether you're working in metric or imperial units.</p>
+
+            <h3>Why Use This Converter</h3>
+            <ul>
+                <li>Works entirely in your browser &mdash; no sign-up, account, or payment</li>
+                <li>Instant results as you type, no submit button required</li>
+                <li>Mobile-friendly layout that works on phones, tablets, and desktops</li>
+                <li>No ads blocking the tool, no pop-ups interrupting your conversion</li>
+            </ul>
+            <h3>Frequently Asked Questions</h3>
+            <details>
+                <summary>What can I convert with this tool?</summary>
+                <p>This converter covers length, weight, temperature, area, volume, speed, time, data storage, energy, pressure, power, frequency, fuel consumption, and angle conversions, all from a single page.</p>
+            </details>
+            <details>
+                <summary>Does switching categories reset my number?</summary>
+                <p>The value you entered stays in the input box; only the unit dropdowns and result update to match the newly selected category.</p>
+            </details>
+            <details>
+                <summary>Is this converter accurate?</summary>
+                <p>Yes, it uses standard international conversion factors (SI and imperial definitions) for every category except currency, which changes daily.</p>
+            </details>
+            <details>
+                <summary>Why isn't currency included here?</summary>
+                <p>Currency exchange rates change constantly and need a live data feed, so we built a dedicated Currency Converter for that.</p>
+            </details>
+            <details>
+                <summary>Do I need an account to use this?</summary>
+                <p>No. There's no sign-up, login, or payment required for any conversion on this page.</p>
+            </details>
+            <details>
+                <summary>Is my data sent anywhere?</summary>
+                <p>No. All math runs directly in your browser tab, so nothing you type is transmitted or stored on a server.</p>
+            </details>
+            <details>
+                <summary>Can I use this converter on my phone?</summary>
+                <p>Yes, the layout adapts to smaller screens so it works well on phones and tablets.</p>
+            </details>
+
+            <h3>Related Converters</h3>
+            <p><a href="/length-converter">Length Converter</a> &middot; <a href="/weight-converter">Weight Converter</a> &middot; <a href="/temperature-converter">Temperature Converter</a> &middot; <a href="/currency-converter">Currency Converter</a> &middot; <a href="/area-converter">Area Converter</a> &middot; <a href="/volume-converter">Volume Converter</a></p>
+        </div>
+    </main>
+    <footer class="footer">
+        <p>&copy; 2026 ExcuseMeWeb.com &mdash; Online Tools for Everyone</p>
+        <p style="margin-top:8px"><a href="/calculators">Calculators</a> &middot; <a href="/converters">Converters</a> &middot; <a href="/image-tools">Image Tools</a> &middot; <a href="/generators">Generators</a> &middot; <a href="/templates">Templates</a> &middot; <a href="/games">Games</a> &middot; <a href="/all-in-one-toolkit">Toolkits</a></p>
+    </footer>
+    <script>
+
+function fmtNum(n) {
+    if (!isFinite(n)) return String(n);
+    if (n === 0) return '0';
+    var abs = Math.abs(n);
+    if (abs >= 1e12 || abs < 1e-9) return n.toExponential(6);
+    var s = parseFloat(n.toPrecision(10)).toString();
+    return s;
+}
+
+var CATS = {"length": {"type": "factor", "units": [["mm", "Millimeter (mm)", 0.001], ["cm", "Centimeter (cm)", 0.01], ["m", "Meter (m)", 1], ["km", "Kilometer (km)", 1000], ["in", "Inch (in)", 0.0254], ["ft", "Foot (ft)", 0.3048], ["yd", "Yard (yd)", 0.9144], ["mi", "Mile (mi)", 1609.344], ["nmi", "Nautical Mile (nmi)", 1852]]}, "weight": {"type": "factor", "units": [["mg", "Milligram (mg)", 1e-06], ["g", "Gram (g)", 0.001], ["kg", "Kilogram (kg)", 1], ["t", "Metric Ton (t)", 1000], ["oz", "Ounce (oz)", 0.028349523125], ["lb", "Pound (lb)", 0.45359237], ["st", "Stone (st)", 6.35029318], ["uston", "US Ton (short ton)", 907.18474]]}, "temperature": {"type": "temperature", "units": [["c", "Celsius (\u00b0C)"], ["f", "Fahrenheit (\u00b0F)"], ["k", "Kelvin (K)"]]}, "area": {"type": "factor", "units": [["mm2", "Square Millimeter (mm\u00b2)", 1e-06], ["cm2", "Square Centimeter (cm\u00b2)", 0.0001], ["m2", "Square Meter (m\u00b2)", 1], ["ha", "Hectare (ha)", 10000], ["km2", "Square Kilometer (km\u00b2)", 1000000.0], ["in2", "Square Inch (in\u00b2)", 0.00064516], ["ft2", "Square Foot (ft\u00b2)", 0.09290304], ["yd2", "Square Yard (yd\u00b2)", 0.83612736], ["acre", "Acre", 4046.8564224], ["mi2", "Square Mile (mi\u00b2)", 2589988.110336]]}, "volume": {"type": "factor", "units": [["ml", "Milliliter (ml)", 0.001], ["l", "Liter (L)", 1], ["m3", "Cubic Meter (m\u00b3)", 1000], ["tsp", "US Teaspoon (tsp)", 0.00492892159375], ["tbsp", "US Tablespoon (tbsp)", 0.01478676478125], ["floz", "US Fluid Ounce (fl oz)", 0.0295735295625], ["cup", "US Cup", 0.2365882365], ["pint", "US Pint", 0.473176473], ["quart", "US Quart", 0.946352946], ["usgal", "US Gallon", 3.785411784], ["ukgal", "UK Gallon", 4.54609]]}, "speed": {"type": "factor", "units": [["mps", "Meters per Second (m/s)", 1], ["kph", "Kilometers per Hour (km/h)", 0.2777777777778], ["mph", "Miles per Hour (mph)", 0.44704], ["knot", "Knot (nautical mph)", 0.5144444444], ["fps", "Feet per Second (ft/s)", 0.3048]]}, "time": {"type": "factor", "units": [["ms", "Millisecond (ms)", 0.001], ["s", "Second (s)", 1], ["min", "Minute (min)", 60], ["hr", "Hour (hr)", 3600], ["day", "Day", 86400], ["week", "Week", 604800], ["month", "Month (30.44 days)", 2629800], ["year", "Year (365.25 days)", 31557600]]}, "data": {"type": "factor", "units": [["bit", "Bit", 0.125], ["byte", "Byte (B)", 1], ["kb", "Kilobyte (KB)", 1024], ["mb", "Megabyte (MB)", 1048576], ["gb", "Gigabyte (GB)", 1073741824], ["tb", "Terabyte (TB)", 1099511627776], ["pb", "Petabyte (PB)", 1125899906842624]]}, "energy": {"type": "factor", "units": [["j", "Joule (J)", 1], ["kj", "Kilojoule (kJ)", 1000], ["cal", "Calorie (cal)", 4.184], ["kcal", "Kilocalorie / food Calorie (kcal)", 4184], ["wh", "Watt-hour (Wh)", 3600], ["kwh", "Kilowatt-hour (kWh)", 3600000], ["btu", "British Thermal Unit (BTU)", 1055.05585262], ["ftlb", "Foot-pound (ft\u00b7lb)", 1.3558179483314]]}, "pressure": {"type": "factor", "units": [["pa", "Pascal (Pa)", 1], ["kpa", "Kilopascal (kPa)", 1000], ["bar", "Bar", 100000], ["atm", "Atmosphere (atm)", 101325], ["psi", "PSI (lb/in\u00b2)", 6894.757293168], ["mmhg", "Millimeter of Mercury (mmHg)", 133.322387415], ["torr", "Torr", 133.32236842105]]}, "power": {"type": "factor", "units": [["w", "Watt (W)", 1], ["kw", "Kilowatt (kW)", 1000], ["mw", "Megawatt (MW)", 1000000], ["hp", "Mechanical Horsepower (hp)", 745.6998715822702], ["ps", "Metric Horsepower (PS)", 735.49875], ["btuh", "BTU per Hour", 0.29307107017222]]}, "frequency": {"type": "factor", "units": [["hz", "Hertz (Hz)", 1], ["khz", "Kilohertz (kHz)", 1000], ["mhz", "Megahertz (MHz)", 1000000], ["ghz", "Gigahertz (GHz)", 1000000000], ["rpm", "RPM (revolutions/min)", 0.0166666666667]]}, "fuel": {"type": "fuel", "units": [["l100km", "Liters per 100km (L/100km)"], ["mpgus", "Miles per Gallon (US)"], ["mpguk", "Miles per Gallon (UK)"], ["kml", "Kilometers per Liter (km/L)"]]}, "angle": {"type": "factor", "units": [["deg", "Degree (\u00b0)", 1], ["rad", "Radian (rad)", 57.29577951308232], ["grad", "Gradian (grad)", 0.9], ["arcmin", "Arcminute (\u2032)", 0.0166666666667], ["arcsec", "Arcsecond (\u2033)", 0.0002777777778]]}};
+function toCelsius(v, u) {
+    if (u === 'c') return v;
+    if (u === 'f') return (v - 32) * 5 / 9;
+    if (u === 'k') return v - 273.15;
+}
+function fromCelsius(c, u) {
+    if (u === 'c') return c;
+    if (u === 'f') return c * 9 / 5 + 32;
+    if (u === 'k') return c + 273.15;
+}
+function toKmL(v, u) {
+    if (u === 'kml') return v;
+    if (u === 'l100km') return v === 0 ? Infinity : 100 / v;
+    if (u === 'mpgus') return v * 0.4251437075;
+    if (u === 'mpguk') return v * 0.3540061;
+}
+function fromKmL(kml, u) {
+    if (u === 'kml') return kml;
+    if (u === 'l100km') return kml === 0 ? Infinity : 100 / kml;
+    if (u === 'mpgus') return kml / 0.4251437075;
+    if (u === 'mpguk') return kml / 0.3540061;
+}
+function populateUnits(catKey) {
+    var cat = CATS[catKey];
+    var fromSel = document.getElementById('fromUnit');
+    var toSel = document.getElementById('toUnit');
+    fromSel.innerHTML = '';
+    toSel.innerHTML = '';
+    cat.units.forEach(function(u) {
+        var o1 = document.createElement('option');
+        o1.value = u[0]; o1.textContent = u[1];
+        if (u.length > 2) o1.dataset.factor = u[2];
+        var o2 = o1.cloneNode(true);
+        fromSel.appendChild(o1);
+        toSel.appendChild(o2);
+    });
+    if (fromSel.options.length > 1) { fromSel.selectedIndex = 0; toSel.selectedIndex = 1; }
+}
+function convert() {
+    var catKey = document.getElementById('categorySelect').value;
+    var cat = CATS[catKey];
+    var val = parseFloat(document.getElementById('inputValue').value);
+    var out = document.getElementById('resultDisplay');
+    var fromU = document.getElementById('fromUnit').value;
+    var toU = document.getElementById('toUnit').value;
+    if (isNaN(val)) { out.textContent = '—'; return; }
+    var result;
+    if (cat.type === 'temperature') {
+        result = fromCelsius(toCelsius(val, fromU), toU);
+    } else if (cat.type === 'fuel') {
+        if (val < 0) { out.textContent = '—'; return; }
+        result = fromKmL(toKmL(val, fromU), toU);
+    } else {
+        var fromSel = document.getElementById('fromUnit'), toSel = document.getElementById('toUnit');
+        var ff = parseFloat(fromSel.selectedOptions[0].dataset.factor);
+        var tf = parseFloat(toSel.selectedOptions[0].dataset.factor);
+        result = (val * ff) / tf;
+    }
+    out.textContent = fmtNum(result);
+}
+function onCategoryChange() {
+    populateUnits(document.getElementById('categorySelect').value);
+    convert();
+}
+function swapUnits() {
+    var f = document.getElementById('fromUnit');
+    var t = document.getElementById('toUnit');
+    var tmp = f.value; f.value = t.value; t.value = tmp;
+    convert();
+}
+populateUnits('length');
+convert();
+
+    </script>
+</body>
+</html>

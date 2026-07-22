@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequency Converter — Convert Hz, kHz, MHz, GHz & RPM | ExcuseMeWeb</title>
+    <meta name="description" content="Free frequency converter for hertz, kilohertz, megahertz, gigahertz, and RPM. Instant, accurate results with no sign-up.">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Frequency Converter — Convert Hz, kHz, MHz, GHz & RPM | ExcuseMeWeb">
+    <meta property="og:description" content="Free frequency converter for hertz, kilohertz, megahertz, gigahertz, and RPM. Instant, accurate results with no sign-up.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://excusemeweb.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://excusemeweb.com/frequency-converter">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="theme-color" content="#ffffff">
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Frequency Converter \u2014 Convert Hz, kHz, MHz, GHz & RPM | ExcuseMeWeb",
+  "url": "https://excusemeweb.com/frequency-converter",
+  "description": "Free frequency converter for hertz, kilohertz, megahertz, gigahertz, and RPM. Instant, accurate results with no sign-up.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "All",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "ExcuseMeWeb"
+  },
+  "dateModified": "2026-07-22"
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many hertz are in a kilohertz?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There are 1,000 hertz in one kilohertz."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does RPM mean in this converter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "RPM stands for revolutions per minute; since frequency in hertz is cycles per second, 1 Hz equals 60 RPM."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I convert GHz to MHz for a processor spec?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, select gigahertz as the source unit and megahertz as the target for an instant conversion."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this useful for radio frequency conversions?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, hertz through gigahertz cover the range typically used for radio, Wi-Fi, and other wireless frequency specifications."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I convert engine RPM to hertz?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, select RPM as the source unit and hertz as the target to see the equivalent rotational frequency."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this tool free to use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, completely free with no sign-up or account required."
+      }
+    }
+  ]
+}
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+:root {
+    --bg-primary: #ffffff; --bg-secondary: #f8fafc; --bg-tertiary: #f1f5f9;
+    --text-primary: #0f172a; --text-secondary: #64748b; --accent: #6366f1;
+    --accent-hover: #4f46e5; --danger: #ef4444; --success: #22c55e; --border: #e2e8f0;
+    --shadow: rgba(0,0,0,0.08); --font-body: 'Inter', sans-serif; --font-brand: 'Inter', sans-serif;
+    --border-radius: 12px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--font-body); background: var(--bg-primary); color: var(--text-primary); min-height: 100vh; display: flex; flex-direction: column; }
+.header { background: var(--bg-secondary); border-bottom: 1px solid var(--border); padding: 0 24px; position: sticky; top: 0; z-index: 1000; }
+.header-inner { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+.logo { font-family: var(--font-brand); font-size: 1.5rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+.logo span { color: var(--text-primary); }
+.nav-desktop { display: flex; gap: 28px; }
+.nav-desktop a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; white-space: nowrap; }
+.nav-desktop a:hover { color: var(--accent); }
+.nav-desktop a.active { color: var(--accent); }
+.header-right { display: flex; align-items: center; gap: 16px; }
+.hamburger { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+.mobile-nav { display: none; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-secondary); border-bottom: 1px solid var(--border); padding: 16px 24px; flex-direction: column; gap: 16px; }
+.mobile-nav.show { display: flex; }
+.mobile-nav a { color: var(--text-secondary); text-decoration: none; font-size: 1rem; font-weight: 500; }
+.mobile-nav a.active { color: var(--accent); }
+.main-content { flex: 1; max-width: 1100px; width: 100%; margin: 0 auto; padding: 40px 24px; }
+.page-header { text-align: center; margin-bottom: 28px; }
+.page-header h1 { font-size: 2.3rem; font-weight: 700; margin-bottom: 8px; }
+.page-header p { color: var(--text-secondary); font-size: 1.05rem; max-width: 640px; margin: 0 auto; }
+.info-section { background: var(--bg-secondary); border-radius: var(--border-radius); padding: 32px; margin-bottom: 24px; border: 1px solid var(--border); }
+.info-section h2 { font-size: 1.4rem; margin-bottom: 14px; }
+.info-section h3 { margin-top: 28px; margin-bottom: 14px; color: var(--accent); font-size: 1.1rem; }
+.info-section p, .info-section li { color: var(--text-secondary); line-height: 1.7; }
+.info-section ul, .info-section ol { padding-left: 22px; margin-bottom: 10px;}
+.info-section a { color: var(--accent); text-decoration: none; }
+.info-section a:hover { text-decoration: underline; }
+details { margin-bottom: 10px; border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; background: var(--bg-primary); }
+summary { font-weight: 600; color: var(--text-primary); cursor: pointer; }
+details p { margin-top: 10px; margin-bottom: 0; }
+.footer { background: var(--bg-secondary); border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--text-secondary); font-size: 0.9rem; }
+.footer a { color: var(--accent); text-decoration: none; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 18px; margin-bottom: 40px; }
+.tool-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--border-radius); padding: 22px; text-decoration: none; color: var(--text-primary); transition: transform .15s, border-color .15s; }
+.tool-card:hover { transform: translateY(-3px); border-color: var(--accent); }
+.tool-card .icon { font-size: 1.8rem; margin-bottom: 10px; }
+.tool-card h3 { font-size: 1.05rem; margin-bottom: 6px; }
+.tool-card p { color: var(--text-secondary); font-size: 0.85rem; line-height: 1.5; }
+/* Converter widget */
+.converter-box { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--border-radius); padding: 28px; max-width: 660px; margin: 0 auto 20px; box-shadow: 0 20px 60px var(--shadow); }
+.cat-select-row { margin-bottom: 20px; }
+.cat-select-row label { display:block; font-size:.8rem; font-weight:600; color:var(--text-secondary); text-transform:uppercase; letter-spacing:.03em; margin-bottom:8px; }
+.cat-select-row select { width: 100%; font-size: 1rem; padding: 12px 14px; border-radius: 10px; border: 1px solid var(--border); background: var(--bg-primary); color: var(--text-primary); cursor: pointer; font-family: var(--font-body); }
+.conv-row { display: flex; align-items: flex-end; gap: 14px; }
+.conv-field { flex: 1; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.conv-field label { font-size: .8rem; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: .03em; }
+.conv-field input[type=number], .conv-field input[type=text] { font-size: 1.3rem; padding: 12px 14px; border-radius: 10px; border: 1px solid var(--border); background: var(--bg-primary); color: var(--text-primary); font-family: var(--font-body); width: 100%; }
+.conv-field input:focus, .conv-field select:focus { outline: 2px solid var(--accent); }
+.conv-field select { font-size: .92rem; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--border); background: var(--bg-primary); color: var(--text-primary); width: 100%; cursor: pointer; font-family: var(--font-body); }
+.result-display { font-size: 1.3rem; font-weight: 700; padding: 12px 14px; border-radius: 10px; border: 1px solid var(--border); background: var(--bg-primary); color: var(--accent); min-height: 48px; display: flex; align-items: center; word-break: break-all; }
+.swap-btn { background: var(--accent); color: #fff; border: none; width: 44px; height: 44px; min-width:44px; border-radius: 50%; font-size: 1.3rem; cursor: pointer; flex-shrink: 0; margin-bottom: 6px; transition: .15s; }
+.swap-btn:hover { background: var(--accent-hover); transform: rotate(180deg); }
+.conv-note { text-align:center; font-size:.82rem; color: var(--text-secondary); margin-top: 16px; }
+.fx-badge { display:inline-flex; align-items:center; gap:6px; font-size:.78rem; color: var(--text-secondary); background: var(--bg-primary); border:1px solid var(--border); padding:5px 10px; border-radius: 999px; }
+.fx-badge.live { color: var(--success); }
+@media (max-width: 768px) {
+    .nav-desktop { display: none; } .hamburger { display: block; }
+    .page-header h1 { font-size: 1.7rem; }
+    .main-content { padding: 24px 16px; }
+    .conv-row { flex-direction: column; align-items: stretch; }
+    .swap-btn { align-self: center; transform: rotate(90deg); margin: 0; }
+    .swap-btn:hover { transform: rotate(270deg); }
+}
+</style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="/" class="logo">Excuse<span>Me</span>Web</a>
+            <nav class="nav-desktop">
+                <a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters" class="active">Converters</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a><a href="/all-in-one-toolkit">Toolkits</a>
+            </nav>
+            <div class="header-right">
+                <button class="hamburger" onclick="document.getElementById('mobileNav').classList.toggle('show')">Menu</button>
+            </div>
+        </div>
+        <nav class="mobile-nav" id="mobileNav">
+            <a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters" class="active">Converters</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a><a href="/all-in-one-toolkit">Toolkits</a>
+        </nav>
+    </header>
+    <main class="main-content">
+        <div class="page-header">
+            <h1>Frequency Converter</h1>
+            <p>Convert between hertz, kilohertz, megahertz, gigahertz, and RPM instantly.</p>
+        </div>
+
+        <div class="converter-box">
+            <div class="conv-row">
+                <div class="conv-field">
+                    <label>Value</label>
+                    <input type="number" id="inputValue" value="1" step="any" oninput="convert()">
+                    <select id="fromUnit" onchange="convert()">
+<option value="hz" data-factor="1" selected>Hertz (Hz)</option>
+<option value="khz" data-factor="1000">Kilohertz (kHz)</option>
+<option value="mhz" data-factor="1000000">Megahertz (MHz)</option>
+<option value="ghz" data-factor="1000000000">Gigahertz (GHz)</option>
+<option value="rpm" data-factor="0.0166666666667">RPM (revolutions/min)</option>
+                    </select>
+                </div>
+                <button class="swap-btn" onclick="swapUnits()" title="Swap units" type="button">&#8646;</button>
+                <div class="conv-field">
+                    <label>Result</label>
+                    <div class="result-display" id="resultDisplay">&mdash;</div>
+                    <select id="toUnit" onchange="convert()">
+<option value="hz" data-factor="1">Hertz (Hz)</option>
+<option value="khz" data-factor="1000" selected>Kilohertz (kHz)</option>
+<option value="mhz" data-factor="1000000">Megahertz (MHz)</option>
+<option value="ghz" data-factor="1000000000">Gigahertz (GHz)</option>
+<option value="rpm" data-factor="0.0166666666667">RPM (revolutions/min)</option>
+                    </select>
+                </div>
+            </div>
+            <p class="conv-note">Conversions run instantly in your browser &mdash; nothing is uploaded or stored.</p>
+        </div>
+        <div class="info-section">
+            <h2>Convert Frequency Units Instantly</h2>
+            <p>This frequency converter switches between hertz, kilohertz, megahertz, gigahertz, and RPM (revolutions per minute). Enter a value, choose your units, and see the converted frequency calculated immediately.</p>
+            <p>Useful for understanding processor clock speeds, radio and wireless frequency bands, audio signal specifications, or motor and engine rotational speed.</p>
+
+            <h3>Why Use This Converter</h3>
+            <ul>
+                <li>Works entirely in your browser &mdash; no sign-up, account, or payment</li>
+                <li>Instant results as you type, no submit button required</li>
+                <li>Mobile-friendly layout that works on phones, tablets, and desktops</li>
+                <li>No ads blocking the tool, no pop-ups interrupting your conversion</li>
+            </ul>
+            <h3>Frequently Asked Questions</h3>
+            <details>
+                <summary>How many hertz are in a kilohertz?</summary>
+                <p>There are 1,000 hertz in one kilohertz.</p>
+            </details>
+            <details>
+                <summary>What does RPM mean in this converter?</summary>
+                <p>RPM stands for revolutions per minute; since frequency in hertz is cycles per second, 1 Hz equals 60 RPM.</p>
+            </details>
+            <details>
+                <summary>Can I convert GHz to MHz for a processor spec?</summary>
+                <p>Yes, select gigahertz as the source unit and megahertz as the target for an instant conversion.</p>
+            </details>
+            <details>
+                <summary>Is this useful for radio frequency conversions?</summary>
+                <p>Yes, hertz through gigahertz cover the range typically used for radio, Wi-Fi, and other wireless frequency specifications.</p>
+            </details>
+            <details>
+                <summary>Can I convert engine RPM to hertz?</summary>
+                <p>Yes, select RPM as the source unit and hertz as the target to see the equivalent rotational frequency.</p>
+            </details>
+            <details>
+                <summary>Is this tool free to use?</summary>
+                <p>Yes, completely free with no sign-up or account required.</p>
+            </details>
+
+            <h3>Related Converters</h3>
+            <p><a href="/time-converter">Time Converter</a> &middot; <a href="/data-storage-converter">Data Storage Converter</a> &middot; <a href="/power-converter">Power Converter</a> &middot; <a href="/unit-converter">Unit Converter</a></p>
+        </div>
+    </main>
+    <footer class="footer">
+        <p>&copy; 2026 ExcuseMeWeb.com &mdash; Online Tools for Everyone</p>
+        <p style="margin-top:8px"><a href="/calculators">Calculators</a> &middot; <a href="/converters">Converters</a> &middot; <a href="/image-tools">Image Tools</a> &middot; <a href="/generators">Generators</a> &middot; <a href="/templates">Templates</a> &middot; <a href="/games">Games</a> &middot; <a href="/all-in-one-toolkit">Toolkits</a></p>
+    </footer>
+    <script>
+
+function fmtNum(n) {
+    if (!isFinite(n)) return String(n);
+    if (n === 0) return '0';
+    var abs = Math.abs(n);
+    if (abs >= 1e12 || abs < 1e-9) return n.toExponential(6);
+    var s = parseFloat(n.toPrecision(10)).toString();
+    return s;
+}
+
+function convert() {
+    var val = parseFloat(document.getElementById('inputValue').value);
+    var fromSel = document.getElementById('fromUnit');
+    var toSel = document.getElementById('toUnit');
+    var fromFactor = parseFloat(fromSel.selectedOptions[0].dataset.factor);
+    var toFactor = parseFloat(toSel.selectedOptions[0].dataset.factor);
+    var out = document.getElementById('resultDisplay');
+    if (isNaN(val)) { out.textContent = '—'; return; }
+    var result = (val * fromFactor) / toFactor;
+    out.textContent = fmtNum(result);
+}
+function swapUnits() {
+    var f = document.getElementById('fromUnit');
+    var t = document.getElementById('toUnit');
+    var tmp = f.value; f.value = t.value; t.value = tmp;
+    convert();
+}
+convert();
+
+    </script>
+</body>
+</html>
