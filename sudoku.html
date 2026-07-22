@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Sudoku - Play Free Online, No Sign-Up | ExcuseMeWeb</title>
+    <meta name="description" content="Play free Sudoku online with easy, medium, and hard puzzles. Fill the 9x9 grid using the keypad or keyboard, check your progress, and start new puzzles instantly.">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Sudoku - Play Free Online">
+    <meta property="og:description" content="Fill the 9x9 grid so every row, column, and box holds one to nine. Free, instant, no sign-up.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://excusemeweb.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://excusemeweb.com/sudoku">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Sudoku",
+      "url": "https://excusemeweb.com/sudoku",
+      "description": "A browser-based number placement puzzle where players fill a 9x9 grid across easy, medium, and hard difficulties.",
+      "applicationCategory": "GameApplication",
+      "operatingSystem": "Web",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "author": { "@type": "Organization", "name": "ExcuseMeWeb" },
+      "dateModified": "2026-07-22"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What are the rules of Sudoku?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Fill the 9x9 grid so every row, every column, and each of the nine 3x3 boxes contains the digits 1 through 9 exactly once." }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I enter numbers?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Click or tap an empty cell to select it, then choose a number from the keypad below the board or type a digit on your keyboard." }
+        },
+        {
+          "@type": "Question",
+          "name": "What do the difficulty levels change?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Easy, Medium, and Hard change how many starting numbers are already filled in, with fewer given numbers making Hard puzzles more challenging." }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens if I enter a wrong number?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The cell turns red and your mistake counter goes up, but you can keep playing and correct it at any time before finishing." }
+        }
+      ]
+    }
+    </script>
+    <style>
+
+:root {
+    --bg-primary: #ffffff; --bg-secondary: #f8fafc; --bg-tertiary: #f1f5f9;
+    --text-primary: #0f172a; --text-secondary: #64748b; --accent: #6366f1;
+    --accent-hover: #4f46e5; --danger: #ef4444; --success: #22c55e; --border: #e2e8f0;
+    --shadow: rgba(0,0,0,0.08); --font-body: 'Inter', sans-serif; --font-brand: 'Inter', sans-serif;
+    --border-radius: 12px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--font-body); background: var(--bg-primary); color: var(--text-primary); min-height: 100vh; display: flex; flex-direction: column; -webkit-tap-highlight-color: transparent; }
+.header { background: var(--bg-secondary); border-bottom: 1px solid var(--border); padding: 0 24px; position: sticky; top: 0; z-index: 1000; }
+.header-inner { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+.logo { font-family: var(--font-brand); font-size: 1.5rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+.logo span { color: var(--text-primary); }
+.nav-desktop { display: flex; gap: 32px; }
+.nav-desktop a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+.nav-desktop a:hover { color: var(--accent); }
+.nav-desktop a.active { color: var(--accent); }
+.header-right { display: flex; align-items: center; gap: 16px; }
+.hamburger { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+.mobile-nav { display: none; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-secondary); border-bottom: 1px solid var(--border); padding: 16px 24px; flex-direction: column; gap: 16px; }
+.mobile-nav.show { display: flex; }
+.mobile-nav a { color: var(--text-secondary); text-decoration: none; font-size: 1rem; font-weight: 500; }
+.main-content { flex: 1; max-width: 1100px; width: 100%; margin: 0 auto; padding: 40px 24px; }
+.page-header { text-align: center; margin-bottom: 28px; }
+.page-header h1 { font-size: 2.3rem; font-weight: 700; margin-bottom: 8px; }
+.page-header p { color: var(--text-secondary); font-size: 1.05rem; max-width: 640px; margin: 0 auto; }
+.info-section { background: var(--bg-secondary); border-radius: var(--border-radius); padding: 32px; margin-bottom: 24px; border: 1px solid var(--border); }
+.info-section h2 { font-size: 1.4rem; margin-bottom: 14px; }
+.info-section h3 { margin-top: 28px; margin-bottom: 14px; color: var(--accent); font-size: 1.1rem; }
+.info-section p, .info-section li { color: var(--text-secondary); line-height: 1.7; }
+.info-section ul, .info-section ol { padding-left: 24px; margin-bottom: 12px; }
+.info-section a { color: var(--accent); text-decoration: none; }
+.info-section a:hover { text-decoration: underline; }
+details { margin-bottom: 10px; border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; background: var(--bg-primary); }
+summary { font-weight: 600; color: var(--text-primary); cursor: pointer; }
+details p { margin-top: 10px; margin-bottom: 0; }
+.footer { background: var(--bg-secondary); border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--text-secondary); font-size: 0.9rem; }
+.footer a { color: var(--accent); text-decoration: none; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 18px; margin-bottom: 40px; }
+.tool-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--border-radius); padding: 22px; text-decoration: none; color: var(--text-primary); transition: transform .15s, border-color .15s; }
+.tool-card:hover { transform: translateY(-3px); border-color: var(--accent); }
+.tool-card .icon { font-size: 1.8rem; margin-bottom: 10px; }
+.tool-card h3 { font-size: 1.05rem; margin-bottom: 6px; }
+.tool-card p { color: var(--text-secondary); font-size: 0.85rem; line-height: 1.5; }
+.game-wrapper { display: flex; flex-direction: column; align-items: center; margin-bottom: 40px; }
+.game-toolbar { display: flex; gap: 12px; align-items: center; justify-content: center; flex-wrap: wrap; margin-bottom: 18px; }
+.game-stats { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-bottom: 18px; }
+.stat-box { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 10px; padding: 10px 18px; text-align: center; min-width: 90px; }
+.stat-box .stat-label { font-size: 0.72rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.04em; }
+.stat-box .stat-value { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); }
+.btn { background: var(--accent); border: none; color: #fff; padding: 11px 22px; border-radius: 8px; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: background .15s, transform .1s; font-family: var(--font-body); }
+.btn:hover { background: var(--accent-hover); }
+.btn:active { transform: scale(0.97); }
+.btn-secondary { background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border); }
+.btn-secondary:hover { background: var(--border); }
+.btn-secondary.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+.btn-group { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+.game-message { text-align: center; font-weight: 600; margin-bottom: 14px; min-height: 1.4em; color: var(--accent); }
+@media (max-width: 768px) {
+    .nav-desktop { display: none; }
+    .hamburger { display: block; }
+    .page-header h1 { font-size: 1.7rem; }
+    .main-content { padding: 24px 16px; }
+}
+
+
+.sudoku-board { display: grid; grid-template-columns: repeat(9, 1fr); grid-template-rows: repeat(9, 1fr); width: min(92vw, 430px); aspect-ratio: 1/1; background: var(--text-primary); gap: 1px; border-radius: 8px; overflow: hidden; }
+.sd-cell { background: var(--bg-primary); display: flex; align-items: center; justify-content: center; font-size: clamp(0.9rem, 3.2vw, 1.15rem); font-weight: 600; cursor: pointer; color: var(--text-primary); position: relative; }
+.sd-cell.given { background: var(--bg-tertiary); color: var(--text-primary); cursor: default; }
+.sd-cell.selected { background: #e0e7ff; }
+.sd-cell.error { color: var(--danger); }
+.sd-cell.thick-right { border-right: 2px solid var(--text-primary); }
+.sd-cell.thick-bottom { border-bottom: 2px solid var(--text-primary); }
+.sd-keypad { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; max-width: 430px; width: min(92vw, 430px); margin-top: 18px; }
+.sd-keypad button { background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: 8px; padding: 12px 0; font-size: 1.1rem; font-weight: 600; cursor: pointer; color: var(--text-primary); }
+.sd-keypad button:hover { background: var(--border); }
+.sd-keypad button.erase { grid-column: span 2; font-size: 0.9rem; }
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="/" class="logo">Excuse<span>Me</span>Web</a>
+            <nav class="nav-desktop">
+                <a href="/">Tools</a>
+                <a href="/calculators">Calculators</a>
+                <a href="/image-tools">Image Tools</a>
+                <a href="/generators">Generators</a>
+                <a href="/templates">Templates</a>
+                <a href="/games" class="active">Games</a>
+            </nav>
+            <div class="header-right">
+                <button class="hamburger" onclick="document.getElementById('mobileNav').classList.toggle('show')">Menu</button>
+            </div>
+        </div>
+        <nav class="mobile-nav" id="mobileNav">
+            <a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games" class="active">Games</a>
+        </nav>
+    </header>
+    <main class="main-content">
+        <div class="page-header">
+            <h1>Sudoku</h1>
+            <p>Fill the 9x9 grid so every row, column, and box holds the digits 1 through 9.</p>
+        </div>
+
+        <div class="game-wrapper">
+            <div class="game-toolbar">
+                <div class="btn-group" id="diffGroup">
+                    <button class="btn-secondary btn active" data-d="easy" onclick="setDifficulty('easy',this)">Easy</button>
+                    <button class="btn-secondary btn" data-d="medium" onclick="setDifficulty('medium',this)">Medium</button>
+                    <button class="btn-secondary btn" data-d="hard" onclick="setDifficulty('hard',this)">Hard</button>
+                </div>
+            </div>
+            <div class="game-stats">
+                <div class="stat-box"><div class="stat-label">Time</div><div class="stat-value" id="timer">0</div></div>
+                <div class="stat-box"><div class="stat-label">Mistakes</div><div class="stat-value" id="mistakes">0</div></div>
+            </div>
+            <p class="game-message" id="message"></p>
+            <div class="game-toolbar">
+                <button class="btn" onclick="newGame()">New Puzzle</button>
+                <button class="btn btn-secondary" onclick="checkBoard()">Check</button>
+            </div>
+            <div class="sudoku-board" id="board"></div>
+            <div class="sd-keypad" id="keypad"></div>
+        </div>
+
+        <div class="info-section">
+            <h2>What Is Sudoku?</h2>
+            <p>Sudoku is a number placement puzzle played on a 9x9 grid split into nine 3x3 boxes. Starting from a partially filled board, the goal is to fill every empty cell so each row, column, and box contains the digits 1 through 9 with no repeats.</p>
+
+            <h3>How to Play</h3>
+            <ul>
+                <li>Select an empty cell, then tap a number on the keypad or type it on your keyboard</li>
+                <li>Every row, column, and 3x3 box must end up containing 1 through 9 exactly once</li>
+                <li>Use Check at any time to see whether your current entries are correct</li>
+                <li>Given starting numbers are locked and cannot be changed</li>
+            </ul>
+
+            <h3>Strategy Tips</h3>
+            <ul>
+                <li>Scan rows, columns, and boxes for numbers that can only fit in one remaining cell</li>
+                <li>Work on the box with the most given numbers first, since it has the fewest options left</li>
+                <li>Use pencil-in logic in your head: note which numbers are already ruled out before guessing</li>
+                <li>If you get stuck, step back and look for a different row or box rather than guessing randomly</li>
+            </ul>
+            <h3>Frequently Asked Questions</h3>
+            <details>
+                <summary>What are the rules of Sudoku?</summary>
+                <p>Fill the 9x9 grid so every row, every column, and each of the nine 3x3 boxes contains the digits 1 through 9 exactly once.</p>
+            </details>
+            <details>
+                <summary>How do I enter numbers?</summary>
+                <p>Click or tap an empty cell to select it, then choose a number from the keypad below the board or type a digit on your keyboard.</p>
+            </details>
+            <details>
+                <summary>What do the difficulty levels change?</summary>
+                <p>Easy, Medium, and Hard change how many starting numbers are already filled in, with fewer given numbers making Hard puzzles more challenging.</p>
+            </details>
+            <details>
+                <summary>What happens if I enter a wrong number?</summary>
+                <p>The cell turns red and your mistake counter goes up, but you can keep playing and correct it at any time before finishing.</p>
+            </details>
+
+            <h3>Related Games</h3>
+            <p><a href="/minesweeper">Minesweeper</a> &middot; <a href="/2048-game">2048 Game</a> &middot; <a href="/wordle">Wordle</a> &middot; <a href="/tic-tac-toe">Tic Tac Toe</a></p>
+
+            <h3>Explore More on ExcuseMeWeb</h3>
+            <p><a href="/games">All Games</a> &middot; <a href="/calculators">Calculators</a> &middot; <a href="/generators">Generators</a> &middot; <a href="/templates">Templates</a></p>
+        </div>
+    </main>
+    <footer class="footer">
+        <p>&copy; 2026 ExcuseMeWeb.com &mdash; Online Tools for Everyone</p>
+        <p style="margin-top:8px"><a href="/calculators">Calculators</a> &middot; <a href="/image-tools">Image Tools</a> &middot; <a href="/generators">Generators</a> &middot; <a href="/templates">Templates</a> &middot; <a href="/games">Games</a></p>
+    </footer>
+    <script>
+
+(function() {
+    var boardEl = document.getElementById('board');
+    var keypadEl = document.getElementById('keypad');
+    var timerEl = document.getElementById('timer');
+    var mistakesEl = document.getElementById('mistakes');
+    var messageEl = document.getElementById('message');
+    var DIFF = { easy: 36, medium: 46, hard: 54 };
+    var current = 'easy';
+    var puzzle, solution, given, selected = null, mistakes, timeElapsed, timerInt, solved;
+
+    function setDifficulty(d, btn) {
+        current = d;
+        document.querySelectorAll('#diffGroup .btn-secondary').forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        newGame();
+    }
+    window.setDifficulty = setDifficulty;
+
+    function emptyGrid() {
+        var g = [];
+        for (var i = 0; i < 9; i++) g.push(new Array(9).fill(0));
+        return g;
+    }
+
+    function isValid(g, r, c, v) {
+        for (var i = 0; i < 9; i++) {
+            if (g[r][i] === v || g[i][c] === v) return false;
+        }
+        var br = Math.floor(r / 3) * 3, bc = Math.floor(c / 3) * 3;
+        for (var i = 0; i < 3; i++) for (var j = 0; j < 3; j++) {
+            if (g[br + i][bc + j] === v) return false;
+        }
+        return true;
+    }
+
+    function shuffle(arr) {
+        for (var i = arr.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var t = arr[i]; arr[i] = arr[j]; arr[j] = t;
+        }
+        return arr;
+    }
+
+    function fillGrid(g) {
+        for (var pos = 0; pos < 81; pos++) {
+            var r = Math.floor(pos / 9), c = pos % 9;
+            if (g[r][c] !== 0) continue;
+            var nums = shuffle([1,2,3,4,5,6,7,8,9]);
+            for (var k = 0; k < nums.length; k++) {
+                if (isValid(g, r, c, nums[k])) {
+                    g[r][c] = nums[k];
+                    if (fillGrid(g)) return true;
+                    g[r][c] = 0;
+                }
+            }
+            return false;
+        }
+        return true;
+    }
+
+    function generatePuzzle(removeCount) {
+        var full = emptyGrid();
+        fillGrid(full);
+        var p = full.map(function(row) { return row.slice(); });
+        var positions = shuffle(Array.from({ length: 81 }, function(_, i) { return i; }));
+        var removed = 0;
+        for (var i = 0; i < positions.length && removed < removeCount; i++) {
+            var r = Math.floor(positions[i] / 9), c = positions[i] % 9;
+            p[r][c] = 0;
+            removed++;
+        }
+        return { puzzle: p, solution: full };
+    }
+
+    function newGame() {
+        var result = generatePuzzle(DIFF[current]);
+        puzzle = result.puzzle.map(function(row) { return row.slice(); });
+        solution = result.solution;
+        given = result.puzzle.map(function(row) { return row.map(function(v) { return v !== 0; }); });
+        mistakes = 0; timeElapsed = 0; solved = false; selected = null;
+        mistakesEl.textContent = 0; timerEl.textContent = 0;
+        messageEl.textContent = '';
+        clearInterval(timerInt);
+        timerInt = setInterval(function() { timeElapsed++; timerEl.textContent = timeElapsed; }, 1000);
+        renderBoard();
+    }
+    window.newGame = newGame;
+
+    function renderBoard() {
+        boardEl.innerHTML = '';
+        for (var r = 0; r < 9; r++) {
+            for (var c = 0; c < 9; c++) {
+                var cell = document.createElement('div');
+                cell.className = 'sd-cell';
+                if ((c + 1) % 3 === 0 && c !== 8) cell.classList.add('thick-right');
+                if ((r + 1) % 3 === 0 && r !== 8) cell.classList.add('thick-bottom');
+                if (given[r][c]) { cell.classList.add('given'); cell.textContent = puzzle[r][c]; }
+                cell.dataset.r = r; cell.dataset.c = c;
+                cell.addEventListener('click', function() {
+                    if (given[this.dataset.r][this.dataset.c]) return;
+                    document.querySelectorAll('.sd-cell.selected').forEach(function(el) { el.classList.remove('selected'); });
+                    this.classList.add('selected');
+                    selected = { r: parseInt(this.dataset.r), c: parseInt(this.dataset.c) };
+                });
+                boardEl.appendChild(cell);
+            }
+        }
+        renderKeypad();
+    }
+
+    function renderKeypad() {
+        keypadEl.innerHTML = '';
+        for (var n = 1; n <= 9; n++) {
+            var b = document.createElement('button');
+            b.textContent = n;
+            b.addEventListener('click', function() { placeNumber(parseInt(this.textContent)); });
+            keypadEl.appendChild(b);
+        }
+        var erase = document.createElement('button');
+        erase.className = 'erase';
+        erase.textContent = 'Erase';
+        erase.addEventListener('click', function() { placeNumber(0); });
+        keypadEl.appendChild(erase);
+    }
+
+    function cellEl(r, c) { return boardEl.children[r * 9 + c]; }
+
+    function placeNumber(v) {
+        if (!selected || solved) return;
+        var r = selected.r, c = selected.c;
+        if (given[r][c]) return;
+        puzzle[r][c] = v;
+        var el = cellEl(r, c);
+        el.classList.remove('error');
+        el.textContent = v || '';
+        if (v && v !== solution[r][c]) {
+            mistakes++;
+            mistakesEl.textContent = mistakes;
+            el.classList.add('error');
+        }
+        checkComplete();
+    }
+
+    function checkComplete() {
+        for (var r = 0; r < 9; r++) for (var c = 0; c < 9; c++) {
+            if (puzzle[r][c] !== solution[r][c]) return;
+        }
+        solved = true;
+        clearInterval(timerInt);
+        messageEl.textContent = 'Solved! Great work.';
+        messageEl.style.color = 'var(--success)';
+    }
+
+    function checkBoard() {
+        var allFilled = true, anyWrong = false;
+        for (var r = 0; r < 9; r++) for (var c = 0; c < 9; c++) {
+            if (puzzle[r][c] === 0) allFilled = false;
+            if (puzzle[r][c] !== 0 && puzzle[r][c] !== solution[r][c]) anyWrong = true;
+        }
+        if (anyWrong) { messageEl.textContent = 'Some entries are incorrect — look for red cells.'; messageEl.style.color = 'var(--danger)'; }
+        else if (!allFilled) { messageEl.textContent = 'Looking good so far — keep going.'; messageEl.style.color = 'var(--accent)'; }
+        else { messageEl.textContent = 'Solved! Great work.'; messageEl.style.color = 'var(--success)'; solved = true; clearInterval(timerInt); }
+    }
+    window.checkBoard = checkBoard;
+
+    document.addEventListener('keydown', function(e) {
+        if (!selected) return;
+        if (e.key >= '1' && e.key <= '9') placeNumber(parseInt(e.key));
+        else if (e.key === 'Backspace' || e.key === 'Delete' || e.key === '0') placeNumber(0);
+    });
+
+    newGame();
+})();
+
+    </script>
+</body>
+</html>

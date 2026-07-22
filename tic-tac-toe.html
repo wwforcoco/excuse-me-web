@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Tic Tac Toe - Play Free Online, No Sign-Up | ExcuseMeWeb</title>
+    <meta name="description" content="Play free Tic Tac Toe online against a friend or the computer. Simple 3x3 grid, instant rounds, and score tracking. No sign-up, works on mobile and desktop.">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Tic Tac Toe - Play Free Online">
+    <meta property="og:description" content="Get three in a row against a friend or the computer on a simple 3x3 grid. Free and instant.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://excusemeweb.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://excusemeweb.com/tic-tac-toe">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Tic Tac Toe",
+      "url": "https://excusemeweb.com/tic-tac-toe",
+      "description": "A browser-based Tic Tac Toe game supporting two local players or a single player against the computer.",
+      "applicationCategory": "GameApplication",
+      "operatingSystem": "Web",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "author": { "@type": "Organization", "name": "ExcuseMeWeb" },
+      "dateModified": "2026-07-22"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How does the Vs Computer mode work?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The computer plays as O and always makes the strongest available move, so a perfectly played game against it will end in a draw." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can two people play on the same device?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes, switch to 2 Players mode and take turns tapping the board on the same screen, with X always going first." }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I win a round?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Get three of your marks in a row, horizontally, vertically, or diagonally, before your opponent does." }
+        },
+        {
+          "@type": "Question",
+          "name": "Does the game keep score across rounds?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes, wins for X, wins for O, and draws are tracked above the board until you press Reset Scores." }
+        }
+      ]
+    }
+    </script>
+    <style>
+
+:root {
+    --bg-primary: #ffffff; --bg-secondary: #f8fafc; --bg-tertiary: #f1f5f9;
+    --text-primary: #0f172a; --text-secondary: #64748b; --accent: #6366f1;
+    --accent-hover: #4f46e5; --danger: #ef4444; --success: #22c55e; --border: #e2e8f0;
+    --shadow: rgba(0,0,0,0.08); --font-body: 'Inter', sans-serif; --font-brand: 'Inter', sans-serif;
+    --border-radius: 12px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--font-body); background: var(--bg-primary); color: var(--text-primary); min-height: 100vh; display: flex; flex-direction: column; -webkit-tap-highlight-color: transparent; }
+.header { background: var(--bg-secondary); border-bottom: 1px solid var(--border); padding: 0 24px; position: sticky; top: 0; z-index: 1000; }
+.header-inner { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+.logo { font-family: var(--font-brand); font-size: 1.5rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+.logo span { color: var(--text-primary); }
+.nav-desktop { display: flex; gap: 32px; }
+.nav-desktop a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+.nav-desktop a:hover { color: var(--accent); }
+.nav-desktop a.active { color: var(--accent); }
+.header-right { display: flex; align-items: center; gap: 16px; }
+.hamburger { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+.mobile-nav { display: none; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-secondary); border-bottom: 1px solid var(--border); padding: 16px 24px; flex-direction: column; gap: 16px; }
+.mobile-nav.show { display: flex; }
+.mobile-nav a { color: var(--text-secondary); text-decoration: none; font-size: 1rem; font-weight: 500; }
+.main-content { flex: 1; max-width: 1100px; width: 100%; margin: 0 auto; padding: 40px 24px; }
+.page-header { text-align: center; margin-bottom: 28px; }
+.page-header h1 { font-size: 2.3rem; font-weight: 700; margin-bottom: 8px; }
+.page-header p { color: var(--text-secondary); font-size: 1.05rem; max-width: 640px; margin: 0 auto; }
+.info-section { background: var(--bg-secondary); border-radius: var(--border-radius); padding: 32px; margin-bottom: 24px; border: 1px solid var(--border); }
+.info-section h2 { font-size: 1.4rem; margin-bottom: 14px; }
+.info-section h3 { margin-top: 28px; margin-bottom: 14px; color: var(--accent); font-size: 1.1rem; }
+.info-section p, .info-section li { color: var(--text-secondary); line-height: 1.7; }
+.info-section ul, .info-section ol { padding-left: 24px; margin-bottom: 12px; }
+.info-section a { color: var(--accent); text-decoration: none; }
+.info-section a:hover { text-decoration: underline; }
+details { margin-bottom: 10px; border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; background: var(--bg-primary); }
+summary { font-weight: 600; color: var(--text-primary); cursor: pointer; }
+details p { margin-top: 10px; margin-bottom: 0; }
+.footer { background: var(--bg-secondary); border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--text-secondary); font-size: 0.9rem; }
+.footer a { color: var(--accent); text-decoration: none; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 18px; margin-bottom: 40px; }
+.tool-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--border-radius); padding: 22px; text-decoration: none; color: var(--text-primary); transition: transform .15s, border-color .15s; }
+.tool-card:hover { transform: translateY(-3px); border-color: var(--accent); }
+.tool-card .icon { font-size: 1.8rem; margin-bottom: 10px; }
+.tool-card h3 { font-size: 1.05rem; margin-bottom: 6px; }
+.tool-card p { color: var(--text-secondary); font-size: 0.85rem; line-height: 1.5; }
+.game-wrapper { display: flex; flex-direction: column; align-items: center; margin-bottom: 40px; }
+.game-toolbar { display: flex; gap: 12px; align-items: center; justify-content: center; flex-wrap: wrap; margin-bottom: 18px; }
+.game-stats { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-bottom: 18px; }
+.stat-box { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 10px; padding: 10px 18px; text-align: center; min-width: 90px; }
+.stat-box .stat-label { font-size: 0.72rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.04em; }
+.stat-box .stat-value { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); }
+.btn { background: var(--accent); border: none; color: #fff; padding: 11px 22px; border-radius: 8px; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: background .15s, transform .1s; font-family: var(--font-body); }
+.btn:hover { background: var(--accent-hover); }
+.btn:active { transform: scale(0.97); }
+.btn-secondary { background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border); }
+.btn-secondary:hover { background: var(--border); }
+.btn-secondary.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+.btn-group { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+.game-message { text-align: center; font-weight: 600; margin-bottom: 14px; min-height: 1.4em; color: var(--accent); }
+@media (max-width: 768px) {
+    .nav-desktop { display: none; }
+    .hamburger { display: block; }
+    .page-header h1 { font-size: 1.7rem; }
+    .main-content { padding: 24px 16px; }
+}
+
+
+.ttt-board { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(3, 1fr); gap: 8px; width: min(80vw, 320px); aspect-ratio: 1/1; }
+.ttt-cell { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: clamp(2rem, 8vw, 3rem); font-weight: 700; cursor: pointer; }
+.ttt-cell.x { color: var(--accent); }
+.ttt-cell.o { color: var(--danger); }
+.ttt-cell.win { background: #fef3c7; }
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="/" class="logo">Excuse<span>Me</span>Web</a>
+            <nav class="nav-desktop">
+                <a href="/">Tools</a>
+                <a href="/calculators">Calculators</a>
+                <a href="/image-tools">Image Tools</a>
+                <a href="/generators">Generators</a>
+                <a href="/templates">Templates</a>
+                <a href="/games" class="active">Games</a>
+            </nav>
+            <div class="header-right">
+                <button class="hamburger" onclick="document.getElementById('mobileNav').classList.toggle('show')">Menu</button>
+            </div>
+        </div>
+        <nav class="mobile-nav" id="mobileNav">
+            <a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games" class="active">Games</a>
+        </nav>
+    </header>
+    <main class="main-content">
+        <div class="page-header">
+            <h1>Tic Tac Toe</h1>
+            <p>Get three in a row against a friend or the computer on a simple 3x3 grid.</p>
+        </div>
+
+        <div class="game-wrapper">
+            <div class="game-toolbar">
+                <div class="btn-group" id="modeGroup">
+                    <button class="btn-secondary btn active" data-m="cpu" onclick="setMode('cpu',this)">Vs Computer</button>
+                    <button class="btn-secondary btn" data-m="two" onclick="setMode('two',this)">2 Players</button>
+                </div>
+            </div>
+            <div class="game-stats">
+                <div class="stat-box"><div class="stat-label">X Wins</div><div class="stat-value" id="xWins">0</div></div>
+                <div class="stat-box"><div class="stat-label">O Wins</div><div class="stat-value" id="oWins">0</div></div>
+                <div class="stat-box"><div class="stat-label">Draws</div><div class="stat-value" id="draws">0</div></div>
+            </div>
+            <p class="game-message" id="message">X's turn</p>
+            <div class="ttt-board" id="board"></div>
+            <div class="game-toolbar" style="margin-top:20px">
+                <button class="btn" onclick="newRound()">New Round</button>
+                <button class="btn btn-secondary" onclick="resetScores()">Reset Scores</button>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h2>What Is Tic Tac Toe?</h2>
+            <p>Tic Tac Toe is a two-player strategy game played on a 3x3 grid. Players take turns placing their mark, X or O, and the first to line up three marks in a row, column, or diagonal wins the round.</p>
+
+            <h3>How to Play</h3>
+            <ul>
+                <li>Choose 2 Players to play locally with a friend, or Vs Computer to play against the built-in opponent</li>
+                <li>Tap any empty square to place your mark; X always moves first</li>
+                <li>Line up three matching marks in a row, column, or diagonal to win</li>
+                <li>Start New Round to play again, or Reset Scores to clear the running tally</li>
+            </ul>
+
+            <h3>Strategy Tips</h3>
+            <ul>
+                <li>Taking the center square early gives you the most possible winning lines</li>
+                <li>Watch for two-in-a-row threats from your opponent and block them before completing your own</li>
+                <li>Corners are generally stronger opening moves than edge squares</li>
+                <li>Against the computer, a perfect opening from the center usually leads to a draw at best</li>
+            </ul>
+            <h3>Frequently Asked Questions</h3>
+            <details>
+                <summary>How does the Vs Computer mode work?</summary>
+                <p>The computer plays as O and always makes the strongest available move, so a perfectly played game against it will end in a draw.</p>
+            </details>
+            <details>
+                <summary>Can two people play on the same device?</summary>
+                <p>Yes, switch to 2 Players mode and take turns tapping the board on the same screen, with X always going first.</p>
+            </details>
+            <details>
+                <summary>How do I win a round?</summary>
+                <p>Get three of your marks in a row, horizontally, vertically, or diagonally, before your opponent does.</p>
+            </details>
+            <details>
+                <summary>Does the game keep score across rounds?</summary>
+                <p>Yes, wins for X, wins for O, and draws are tracked above the board until you press Reset Scores.</p>
+            </details>
+
+            <h3>Related Games</h3>
+            <p><a href="/rock-paper-scissors">Rock Paper Scissors</a> &middot; <a href="/memory-game">Memory Game</a> &middot; <a href="/wordle">Wordle</a> &middot; <a href="/sudoku">Sudoku</a></p>
+
+            <h3>Explore More on ExcuseMeWeb</h3>
+            <p><a href="/games">All Games</a> &middot; <a href="/calculators">Calculators</a> &middot; <a href="/generators">Generators</a> &middot; <a href="/templates">Templates</a></p>
+        </div>
+    </main>
+    <footer class="footer">
+        <p>&copy; 2026 ExcuseMeWeb.com &mdash; Online Tools for Everyone</p>
+        <p style="margin-top:8px"><a href="/calculators">Calculators</a> &middot; <a href="/image-tools">Image Tools</a> &middot; <a href="/generators">Generators</a> &middot; <a href="/templates">Templates</a> &middot; <a href="/games">Games</a></p>
+    </footer>
+    <script>
+
+(function() {
+    var boardEl = document.getElementById('board');
+    var messageEl = document.getElementById('message');
+    var xWinsEl = document.getElementById('xWins');
+    var oWinsEl = document.getElementById('oWins');
+    var drawsEl = document.getElementById('draws');
+    var cells, turn, over, mode = 'cpu';
+    var xWins = 0, oWins = 0, draws = 0;
+
+    var LINES = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+
+    function setMode(m, btn) {
+        mode = m;
+        document.querySelectorAll('#modeGroup .btn-secondary').forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        newRound();
+    }
+    window.setMode = setMode;
+
+    function newRound() {
+        cells = new Array(9).fill(null);
+        turn = 'X';
+        over = false;
+        messageEl.textContent = "X's turn";
+        messageEl.style.color = 'var(--accent)';
+        renderBoard();
+    }
+    window.newRound = newRound;
+
+    function resetScores() {
+        xWins = 0; oWins = 0; draws = 0;
+        xWinsEl.textContent = 0; oWinsEl.textContent = 0; drawsEl.textContent = 0;
+        newRound();
+    }
+    window.resetScores = resetScores;
+
+    function renderBoard() {
+        boardEl.innerHTML = '';
+        cells.forEach(function(v, i) {
+            var cell = document.createElement('div');
+            cell.className = 'ttt-cell' + (v ? ' ' + v.toLowerCase() : '');
+            cell.textContent = v || '';
+            cell.addEventListener('click', function() { onCellClick(i); });
+            boardEl.appendChild(cell);
+        });
+    }
+
+    function checkResult(bd) {
+        for (var i = 0; i < LINES.length; i++) {
+            var l = LINES[i];
+            if (bd[l[0]] && bd[l[0]] === bd[l[1]] && bd[l[1]] === bd[l[2]]) return { winner: bd[l[0]], line: l };
+        }
+        if (bd.every(function(v) { return v; })) return { winner: 'draw' };
+        return null;
+    }
+
+    function highlightWin(line) {
+        line.forEach(function(i) { boardEl.children[i].classList.add('win'); });
+    }
+
+    function endRound(result) {
+        over = true;
+        if (result.winner === 'draw') {
+            draws++; drawsEl.textContent = draws;
+            messageEl.textContent = "It's a draw!";
+            messageEl.style.color = 'var(--text-secondary)';
+        } else {
+            if (result.winner === 'X') { xWins++; xWinsEl.textContent = xWins; } else { oWins++; oWinsEl.textContent = oWins; }
+            messageEl.textContent = result.winner + ' wins!';
+            messageEl.style.color = 'var(--success)';
+            highlightWin(result.line);
+        }
+    }
+
+    function onCellClick(i) {
+        if (over || cells[i]) return;
+        cells[i] = turn;
+        renderBoard();
+        var result = checkResult(cells);
+        if (result) { endRound(result); return; }
+        turn = turn === 'X' ? 'O' : 'X';
+        messageEl.textContent = turn + "'s turn";
+        if (mode === 'cpu' && turn === 'O') {
+            messageEl.textContent = "Computer's turn";
+            setTimeout(cpuMove, 400);
+        }
+    }
+
+    function emptyIndices(bd) {
+        var res = [];
+        bd.forEach(function(v, i) { if (!v) res.push(i); });
+        return res;
+    }
+
+    function minimax(bd, player) {
+        var result = checkResult(bd);
+        if (result) {
+            if (result.winner === 'draw') return { score: 0 };
+            return { score: result.winner === 'O' ? 10 : -10 };
+        }
+        var moves = emptyIndices(bd);
+        var best = null;
+        moves.forEach(function(idx) {
+            var copy = bd.slice();
+            copy[idx] = player;
+            var out = minimax(copy, player === 'O' ? 'X' : 'O');
+            var score = out.score;
+            if (best === null || (player === 'O' && score > best.score) || (player === 'X' && score < best.score)) {
+                best = { score: score, index: idx };
+            }
+        });
+        return best;
+    }
+
+    function cpuMove() {
+        if (over) return;
+        var move = minimax(cells, 'O');
+        if (move && move.index !== undefined) {
+            cells[move.index] = 'O';
+            renderBoard();
+            var result = checkResult(cells);
+            if (result) { endRound(result); return; }
+            turn = 'X';
+            messageEl.textContent = "X's turn";
+            messageEl.style.color = 'var(--accent)';
+        }
+    }
+
+    newRound();
+})();
+
+    </script>
+</body>
+</html>

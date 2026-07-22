@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Tetris Game - Play Free Online, No Sign-Up | ExcuseMeWeb</title>
+    <meta name="description" content="Play a free browser Tetris-style game. Move and rotate falling blocks with arrow keys or touch controls to clear lines. No sign-up, no downloads.">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Tetris Game - Play Free Online">
+    <meta property="og:description" content="Rotate and drop falling blocks to clear lines before the stack tops out. Free and instant to play.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://excusemeweb.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://excusemeweb.com/tetris-game">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Tetris Game",
+      "url": "https://excusemeweb.com/tetris-game",
+      "description": "A browser-based falling block puzzle game where players rotate and place pieces to clear full lines.",
+      "applicationCategory": "GameApplication",
+      "operatingSystem": "Web",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "author": { "@type": "Organization", "name": "ExcuseMeWeb" },
+      "dateModified": "2026-07-22"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I control the falling blocks?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Use the left and right arrow keys to move, the up arrow to rotate, the down arrow to soft drop, and space bar to hard drop. On mobile, use the on-screen arrow buttons or swipe and tap on the board." }
+        },
+        {
+          "@type": "Question",
+          "name": "How does scoring work?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Points are awarded for soft and hard drops and, most importantly, for clearing full horizontal lines, with bigger bonuses for clearing multiple lines at once." }
+        },
+        {
+          "@type": "Question",
+          "name": "Does the game get faster over time?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes, blocks fall progressively faster as you clear more lines, increasing the challenge as your line count grows." }
+        },
+        {
+          "@type": "Question",
+          "name": "What ends the game?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The game ends when a new piece has no room to appear at the top of the board, meaning the stack has reached the top." }
+        }
+      ]
+    }
+    </script>
+    <style>
+
+:root {
+    --bg-primary: #ffffff; --bg-secondary: #f8fafc; --bg-tertiary: #f1f5f9;
+    --text-primary: #0f172a; --text-secondary: #64748b; --accent: #6366f1;
+    --accent-hover: #4f46e5; --danger: #ef4444; --success: #22c55e; --border: #e2e8f0;
+    --shadow: rgba(0,0,0,0.08); --font-body: 'Inter', sans-serif; --font-brand: 'Inter', sans-serif;
+    --border-radius: 12px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--font-body); background: var(--bg-primary); color: var(--text-primary); min-height: 100vh; display: flex; flex-direction: column; -webkit-tap-highlight-color: transparent; }
+.header { background: var(--bg-secondary); border-bottom: 1px solid var(--border); padding: 0 24px; position: sticky; top: 0; z-index: 1000; }
+.header-inner { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+.logo { font-family: var(--font-brand); font-size: 1.5rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+.logo span { color: var(--text-primary); }
+.nav-desktop { display: flex; gap: 32px; }
+.nav-desktop a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+.nav-desktop a:hover { color: var(--accent); }
+.nav-desktop a.active { color: var(--accent); }
+.header-right { display: flex; align-items: center; gap: 16px; }
+.hamburger { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+.mobile-nav { display: none; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-secondary); border-bottom: 1px solid var(--border); padding: 16px 24px; flex-direction: column; gap: 16px; }
+.mobile-nav.show { display: flex; }
+.mobile-nav a { color: var(--text-secondary); text-decoration: none; font-size: 1rem; font-weight: 500; }
+.main-content { flex: 1; max-width: 1100px; width: 100%; margin: 0 auto; padding: 40px 24px; }
+.page-header { text-align: center; margin-bottom: 28px; }
+.page-header h1 { font-size: 2.3rem; font-weight: 700; margin-bottom: 8px; }
+.page-header p { color: var(--text-secondary); font-size: 1.05rem; max-width: 640px; margin: 0 auto; }
+.info-section { background: var(--bg-secondary); border-radius: var(--border-radius); padding: 32px; margin-bottom: 24px; border: 1px solid var(--border); }
+.info-section h2 { font-size: 1.4rem; margin-bottom: 14px; }
+.info-section h3 { margin-top: 28px; margin-bottom: 14px; color: var(--accent); font-size: 1.1rem; }
+.info-section p, .info-section li { color: var(--text-secondary); line-height: 1.7; }
+.info-section ul, .info-section ol { padding-left: 24px; margin-bottom: 12px; }
+.info-section a { color: var(--accent); text-decoration: none; }
+.info-section a:hover { text-decoration: underline; }
+details { margin-bottom: 10px; border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; background: var(--bg-primary); }
+summary { font-weight: 600; color: var(--text-primary); cursor: pointer; }
+details p { margin-top: 10px; margin-bottom: 0; }
+.footer { background: var(--bg-secondary); border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--text-secondary); font-size: 0.9rem; }
+.footer a { color: var(--accent); text-decoration: none; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 18px; margin-bottom: 40px; }
+.tool-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--border-radius); padding: 22px; text-decoration: none; color: var(--text-primary); transition: transform .15s, border-color .15s; }
+.tool-card:hover { transform: translateY(-3px); border-color: var(--accent); }
+.tool-card .icon { font-size: 1.8rem; margin-bottom: 10px; }
+.tool-card h3 { font-size: 1.05rem; margin-bottom: 6px; }
+.tool-card p { color: var(--text-secondary); font-size: 0.85rem; line-height: 1.5; }
+.game-wrapper { display: flex; flex-direction: column; align-items: center; margin-bottom: 40px; }
+.game-toolbar { display: flex; gap: 12px; align-items: center; justify-content: center; flex-wrap: wrap; margin-bottom: 18px; }
+.game-stats { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-bottom: 18px; }
+.stat-box { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 10px; padding: 10px 18px; text-align: center; min-width: 90px; }
+.stat-box .stat-label { font-size: 0.72rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.04em; }
+.stat-box .stat-value { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); }
+.btn { background: var(--accent); border: none; color: #fff; padding: 11px 22px; border-radius: 8px; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: background .15s, transform .1s; font-family: var(--font-body); }
+.btn:hover { background: var(--accent-hover); }
+.btn:active { transform: scale(0.97); }
+.btn-secondary { background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border); }
+.btn-secondary:hover { background: var(--border); }
+.btn-secondary.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+.btn-group { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+.game-message { text-align: center; font-weight: 600; margin-bottom: 14px; min-height: 1.4em; color: var(--accent); }
+@media (max-width: 768px) {
+    .nav-desktop { display: none; }
+    .hamburger { display: block; }
+    .page-header h1 { font-size: 1.7rem; }
+    .main-content { padding: 24px 16px; }
+}
+
+
+.tetris-layout { display: flex; gap: 20px; align-items: flex-start; justify-content: center; flex-wrap: wrap; }
+.tetris-wrap { position: relative; }
+#tetrisCanvas { background: #0f172a; border-radius: 10px; display: block; touch-action: none; }
+.tetris-overlay { position: absolute; inset: 0; background: rgba(15,23,42,0.85); border-radius: 10px; display: none; align-items: center; justify-content: center; flex-direction: column; gap: 12px; text-align: center; color: #fff; }
+.tetris-overlay.show { display: flex; }
+.tetris-side { display: flex; flex-direction: column; gap: 14px; min-width: 130px; }
+.next-box { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 10px; padding: 10px; text-align: center; }
+.next-box .stat-label { font-size: 0.72rem; color: var(--text-secondary); text-transform: uppercase; margin-bottom: 6px; }
+#nextCanvas { background: #0f172a; border-radius: 6px; }
+.tetris-controls { display: grid; grid-template-columns: repeat(4, 52px); gap: 6px; margin-top: 16px; justify-content: center; }
+.tetris-controls button { background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: 8px; font-size: 1.1rem; cursor: pointer; padding: 12px 0; color: var(--text-primary); }
+.tetris-controls button:active { background: var(--accent); color: #fff; }
+@media (min-width: 769px) { .tetris-controls { display: none; } }
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="/" class="logo">Excuse<span>Me</span>Web</a>
+            <nav class="nav-desktop">
+                <a href="/">Tools</a>
+                <a href="/calculators">Calculators</a>
+                <a href="/image-tools">Image Tools</a>
+                <a href="/generators">Generators</a>
+                <a href="/templates">Templates</a>
+                <a href="/games" class="active">Games</a>
+            </nav>
+            <div class="header-right">
+                <button class="hamburger" onclick="document.getElementById('mobileNav').classList.toggle('show')">Menu</button>
+            </div>
+        </div>
+        <nav class="mobile-nav" id="mobileNav">
+            <a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games" class="active">Games</a>
+        </nav>
+    </header>
+    <main class="main-content">
+        <div class="page-header">
+            <h1>Tetris Game</h1>
+            <p>Rotate and drop falling blocks to clear full lines before the stack reaches the top.</p>
+        </div>
+
+        <div class="game-wrapper">
+            <div class="game-stats">
+                <div class="stat-box"><div class="stat-label">Score</div><div class="stat-value" id="score">0</div></div>
+                <div class="stat-box"><div class="stat-label">Lines</div><div class="stat-value" id="lines">0</div></div>
+                <div class="stat-box"><div class="stat-label">Best</div><div class="stat-value" id="best">0</div></div>
+            </div>
+            <div class="game-toolbar">
+                <button class="btn" onclick="newGame()">New Game</button>
+                <button class="btn btn-secondary" id="pauseBtn" onclick="togglePause()">Pause</button>
+            </div>
+            <div class="tetris-layout">
+                <div class="tetris-wrap">
+                    <canvas id="tetrisCanvas" width="240" height="480"></canvas>
+                    <div class="tetris-overlay" id="overlay">
+                        <h3 id="overlayText">Game Over</h3>
+                        <button class="btn" onclick="newGame()">Play Again</button>
+                    </div>
+                </div>
+                <div class="tetris-side">
+                    <div class="next-box"><div class="stat-label">Next</div><canvas id="nextCanvas" width="100" height="100"></canvas></div>
+                </div>
+            </div>
+            <div class="tetris-controls">
+                <button ontouchstart="event.preventDefault();moveH(-1)" onclick="moveH(-1)">&larr;</button>
+                <button ontouchstart="event.preventDefault();rotatePiece()" onclick="rotatePiece()">&#8635;</button>
+                <button ontouchstart="event.preventDefault();moveH(1)" onclick="moveH(1)">&rarr;</button>
+                <button ontouchstart="event.preventDefault();softDrop()" onclick="softDrop()">&darr;</button>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h2>What Is Tetris Game?</h2>
+            <p>This Tetris-style game drops seven classic block shapes, one at a time, down a 10-wide board. Move and rotate each falling piece to fit it against the stack, and clear points by completing full horizontal rows before the stack reaches the top.</p>
+
+            <h3>How to Play</h3>
+            <ul>
+                <li>Move the falling piece left or right and rotate it to fit gaps in the stack</li>
+                <li>Complete a full horizontal row to clear it and score points</li>
+                <li>Clearing multiple rows at once earns a larger score bonus</li>
+                <li>The drop speed increases as your line count grows, so plan placements quickly</li>
+            </ul>
+
+            <h3>Strategy Tips</h3>
+            <ul>
+                <li>Keep the stack flat and avoid leaving gaps that are hard to fill later</li>
+                <li>Save the long straight piece for clearing multiple lines at once when possible</li>
+                <li>Watch the Next preview so you can plan your current placement around it</li>
+                <li>Use soft drop for control and hard drop only when you are confident in the placement</li>
+            </ul>
+            <h3>Frequently Asked Questions</h3>
+            <details>
+                <summary>How do I control the falling blocks?</summary>
+                <p>Use the left and right arrow keys to move, the up arrow to rotate, the down arrow to soft drop, and space bar to hard drop. On mobile, use the on-screen arrow buttons or swipe and tap on the board.</p>
+            </details>
+            <details>
+                <summary>How does scoring work?</summary>
+                <p>Points are awarded for soft and hard drops and, most importantly, for clearing full horizontal lines, with bigger bonuses for clearing multiple lines at once.</p>
+            </details>
+            <details>
+                <summary>Does the game get faster over time?</summary>
+                <p>Yes, blocks fall progressively faster as you clear more lines, increasing the challenge as your line count grows.</p>
+            </details>
+            <details>
+                <summary>What ends the game?</summary>
+                <p>The game ends when a new piece has no room to appear at the top of the board, meaning the stack has reached the top.</p>
+            </details>
+
+            <h3>Related Games</h3>
+            <p><a href="/snake-game">Snake Game</a> &middot; <a href="/2048-game">2048 Game</a> &middot; <a href="/minesweeper">Minesweeper</a> &middot; <a href="/sudoku">Sudoku</a></p>
+
+            <h3>Explore More on ExcuseMeWeb</h3>
+            <p><a href="/games">All Games</a> &middot; <a href="/calculators">Calculators</a> &middot; <a href="/generators">Generators</a> &middot; <a href="/templates">Templates</a></p>
+        </div>
+    </main>
+    <footer class="footer">
+        <p>&copy; 2026 ExcuseMeWeb.com &mdash; Online Tools for Everyone</p>
+        <p style="margin-top:8px"><a href="/calculators">Calculators</a> &middot; <a href="/image-tools">Image Tools</a> &middot; <a href="/generators">Generators</a> &middot; <a href="/templates">Templates</a> &middot; <a href="/games">Games</a></p>
+    </footer>
+    <script>
+
+(function() {
+    var COLS = 10, ROWS = 20, CELL = 24;
+    var canvas = document.getElementById('tetrisCanvas');
+    var ctx = canvas.getContext('2d');
+    var nextCanvas = document.getElementById('nextCanvas');
+    var nctx = nextCanvas.getContext('2d');
+    canvas.width = COLS * CELL; canvas.height = ROWS * CELL;
+
+    var COLORS = { I:'#22d3ee', O:'#facc15', T:'#a855f7', S:'#22c55e', Z:'#ef4444', J:'#3b82f6', L:'#f97316' };
+    var SHAPES = {
+        I: [[0,1],[1,1],[2,1],[3,1]],
+        O: [[1,0],[2,0],[1,1],[2,1]],
+        T: [[1,0],[0,1],[1,1],[2,1]],
+        S: [[1,0],[2,0],[0,1],[1,1]],
+        Z: [[0,0],[1,0],[1,1],[2,1]],
+        J: [[0,0],[0,1],[1,1],[2,1]],
+        L: [[2,0],[0,1],[1,1],[2,1]]
+    };
+    var TYPES = Object.keys(SHAPES);
+
+    var board, cur, next, score, lines, best, dropInterval, dropTimer, running, paused, gameOver;
+    var scoreEl = document.getElementById('score');
+    var linesEl = document.getElementById('lines');
+    var bestEl = document.getElementById('best');
+    var overlayEl = document.getElementById('overlay');
+    var overlayText = document.getElementById('overlayText');
+    var pauseBtn = document.getElementById('pauseBtn');
+
+    best = parseInt(localStorage.getItem('tetrisBest') || '0', 10);
+    bestEl.textContent = best;
+
+    function emptyBoard() {
+        var b = [];
+        for (var r = 0; r < ROWS; r++) b.push(new Array(COLS).fill(null));
+        return b;
+    }
+
+    function randomPiece() {
+        var t = TYPES[Math.floor(Math.random() * TYPES.length)];
+        return { type: t, cells: SHAPES[t].map(function(c) { return c.slice(); }), x: 3, y: -1, color: COLORS[t] };
+    }
+
+    function rotateCells(cells) {
+        // rotate around approx center (1.5,1.5) then normalize
+        var rotated = cells.map(function(c) {
+            var x = c[0], y = c[1];
+            return [ (1.5 + (y - 1.5)), (1.5 - (x - 1.5)) ];
+        });
+        return rotated.map(function(c) { return [Math.round(c[0]), Math.round(c[1])]; });
+    }
+
+    function collides(cells, offX, offY) {
+        for (var i = 0; i < cells.length; i++) {
+            var x = cells[i][0] + offX, y = cells[i][1] + offY;
+            if (x < 0 || x >= COLS || y >= ROWS) return true;
+            if (y >= 0 && board[y][x]) return true;
+        }
+        return false;
+    }
+
+    function newGame() {
+        board = emptyBoard();
+        score = 0; lines = 0;
+        scoreEl.textContent = 0; linesEl.textContent = 0;
+        cur = randomPiece();
+        next = randomPiece();
+        running = true; paused = false; gameOver = false;
+        pauseBtn.textContent = 'Pause';
+        overlayEl.classList.remove('show');
+        clearInterval(dropTimer);
+        dropInterval = 700;
+        dropTimer = setInterval(tick, dropInterval);
+        draw();
+    }
+    window.newGame = newGame;
+
+    function lockPiece() {
+        cur.cells.forEach(function(c) {
+            var x = c[0] + cur.x, y = c[1] + cur.y;
+            if (y >= 0) board[y][x] = cur.color;
+        });
+        clearLines();
+        cur = next;
+        cur.x = 3; cur.y = -1;
+        next = randomPiece();
+        if (collides(cur.cells, cur.x, cur.y)) {
+            endGame();
+        }
+    }
+
+    function clearLines() {
+        var cleared = 0;
+        for (var r = ROWS - 1; r >= 0; r--) {
+            if (board[r].every(function(v) { return v; })) {
+                board.splice(r, 1);
+                board.unshift(new Array(COLS).fill(null));
+                cleared++;
+                r++;
+            }
+        }
+        if (cleared) {
+            var pts = [0, 100, 300, 500, 800][cleared] || cleared * 200;
+            score += pts;
+            lines += cleared;
+            scoreEl.textContent = score;
+            linesEl.textContent = lines;
+            if (score > best) { best = score; bestEl.textContent = best; localStorage.setItem('tetrisBest', best); }
+            dropInterval = Math.max(150, 700 - Math.floor(lines / 10) * 60);
+            clearInterval(dropTimer);
+            dropTimer = setInterval(tick, dropInterval);
+        }
+    }
+
+    function tick() {
+        if (paused || gameOver) return;
+        if (!collides(cur.cells, cur.x, cur.y + 1)) {
+            cur.y++;
+        } else {
+            lockPiece();
+        }
+        draw();
+    }
+
+    function softDrop() {
+        if (paused || gameOver) return;
+        if (!collides(cur.cells, cur.x, cur.y + 1)) { cur.y++; score += 1; scoreEl.textContent = score; }
+        else lockPiece();
+        draw();
+    }
+    window.softDrop = softDrop;
+
+    function hardDrop() {
+        if (paused || gameOver) return;
+        while (!collides(cur.cells, cur.x, cur.y + 1)) { cur.y++; score += 2; }
+        scoreEl.textContent = score;
+        lockPiece();
+        draw();
+    }
+
+    function moveH(dx) {
+        if (paused || gameOver) return;
+        if (!collides(cur.cells, cur.x + dx, cur.y)) { cur.x += dx; draw(); }
+    }
+    window.moveH = moveH;
+
+    function rotatePiece() {
+        if (paused || gameOver) return;
+        if (cur.type === 'O') return;
+        var rotated = rotateCells(cur.cells);
+        if (!collides(rotated, cur.x, cur.y)) { cur.cells = rotated; }
+        else if (!collides(rotated, cur.x - 1, cur.y)) { cur.cells = rotated; cur.x -= 1; }
+        else if (!collides(rotated, cur.x + 1, cur.y)) { cur.cells = rotated; cur.x += 1; }
+        draw();
+    }
+    window.rotatePiece = rotatePiece;
+
+    function togglePause() {
+        if (gameOver) return;
+        paused = !paused;
+        pauseBtn.textContent = paused ? 'Resume' : 'Pause';
+    }
+    window.togglePause = togglePause;
+
+    function endGame() {
+        gameOver = true;
+        running = false;
+        clearInterval(dropTimer);
+        overlayText.textContent = 'Game Over — Score ' + score;
+        overlayEl.classList.add('show');
+    }
+
+    function drawCell(context, x, y, size, color) {
+        context.fillStyle = color;
+        context.fillRect(x * size + 1, y * size + 1, size - 2, size - 2);
+    }
+
+    function draw() {
+        ctx.fillStyle = '#0f172a';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        for (var r = 0; r < ROWS; r++) {
+            for (var c = 0; c < COLS; c++) {
+                if (board[r][c]) drawCell(ctx, c, r, CELL, board[r][c]);
+            }
+        }
+        if (cur) {
+            cur.cells.forEach(function(cell) {
+                var x = cell[0] + cur.x, y = cell[1] + cur.y;
+                if (y >= 0) drawCell(ctx, x, y, CELL, cur.color);
+            });
+        }
+        nctx.fillStyle = '#0f172a';
+        nctx.fillRect(0, 0, nextCanvas.width, nextCanvas.height);
+        if (next) {
+            var ncell = 20;
+            next.cells.forEach(function(cell) {
+                drawCell(nctx, cell[0], cell[1], ncell, next.color);
+            });
+        }
+    }
+
+    document.addEventListener('keydown', function(e) {
+        if (!running) return;
+        if (e.key === 'ArrowLeft') { e.preventDefault(); moveH(-1); }
+        else if (e.key === 'ArrowRight') { e.preventDefault(); moveH(1); }
+        else if (e.key === 'ArrowDown') { e.preventDefault(); softDrop(); }
+        else if (e.key === 'ArrowUp') { e.preventDefault(); rotatePiece(); }
+        else if (e.key === ' ') { e.preventDefault(); hardDrop(); }
+        else if (e.key === 'p' || e.key === 'P') { togglePause(); }
+    });
+
+    var touchStartX = 0, touchStartY = 0, touchMoved = false;
+    canvas.addEventListener('touchstart', function(e) {
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+        touchMoved = false;
+    }, { passive: true });
+    canvas.addEventListener('touchend', function(e) {
+        var dx = e.changedTouches[0].clientX - touchStartX;
+        var dy = e.changedTouches[0].clientY - touchStartY;
+        if (Math.abs(dx) < 15 && Math.abs(dy) < 15) { rotatePiece(); return; }
+        if (Math.abs(dx) > Math.abs(dy)) moveH(dx > 0 ? 1 : -1);
+        else if (dy > 15) softDrop();
+    }, { passive: true });
+
+    newGame();
+})();
+
+    </script>
+</body>
+</html>

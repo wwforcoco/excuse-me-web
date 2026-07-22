@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Free Online Games - Play Instantly, No Sign-Up | ExcuseMeWeb</title>
+    <meta name="description" content="Play 10 free browser games including 2048, Snake, Tetris, Minesweeper, Sudoku, Solitaire, Tic Tac Toe, Memory, Wordle, and Rock Paper Scissors. No sign-up, no downloads.">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Free Online Games - Play Instantly, No Sign-Up">
+    <meta property="og:description" content="10 free browser games: 2048, Snake, Tetris, Minesweeper, Sudoku, Solitaire, Tic Tac Toe, Memory, Wordle, and Rock Paper Scissors.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://excusemeweb.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://excusemeweb.com/games">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Games",
+      "url": "https://excusemeweb.com/games",
+      "description": "A collection of ten free browser-based games covering puzzles, cards, arcade action, and quick casual play.",
+      "applicationCategory": "GameApplication",
+      "operatingSystem": "Web",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "author": { "@type": "Organization", "name": "ExcuseMeWeb" },
+      "dateModified": "2026-07-22"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Do I need to sign up to play these games?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. Every game on this page loads and plays instantly in your browser with no account, sign-up, or download." }
+        },
+        {
+          "@type": "Question",
+          "name": "Do the games work on mobile phones and tablets?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Each game is built to respond to both keyboard and touch input, so it works on phones, tablets, and desktop browsers." }
+        },
+        {
+          "@type": "Question",
+          "name": "Are any of these games paid or do they have hidden costs?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. Every game listed here is completely free, with no paid tiers, subscriptions, or unlockable features." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my progress saved anywhere?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Some games save a local best score or streak directly in your browser's storage on your device. Nothing is uploaded to a server or shared with anyone else." }
+        }
+      ]
+    }
+    </script>
+    <style>
+
+:root {
+    --bg-primary: #ffffff; --bg-secondary: #f8fafc; --bg-tertiary: #f1f5f9;
+    --text-primary: #0f172a; --text-secondary: #64748b; --accent: #6366f1;
+    --accent-hover: #4f46e5; --danger: #ef4444; --success: #22c55e; --border: #e2e8f0;
+    --shadow: rgba(0,0,0,0.08); --font-body: 'Inter', sans-serif; --font-brand: 'Inter', sans-serif;
+    --border-radius: 12px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--font-body); background: var(--bg-primary); color: var(--text-primary); min-height: 100vh; display: flex; flex-direction: column; -webkit-tap-highlight-color: transparent; }
+.header { background: var(--bg-secondary); border-bottom: 1px solid var(--border); padding: 0 24px; position: sticky; top: 0; z-index: 1000; }
+.header-inner { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+.logo { font-family: var(--font-brand); font-size: 1.5rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+.logo span { color: var(--text-primary); }
+.nav-desktop { display: flex; gap: 32px; }
+.nav-desktop a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+.nav-desktop a:hover { color: var(--accent); }
+.nav-desktop a.active { color: var(--accent); }
+.header-right { display: flex; align-items: center; gap: 16px; }
+.hamburger { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+.mobile-nav { display: none; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-secondary); border-bottom: 1px solid var(--border); padding: 16px 24px; flex-direction: column; gap: 16px; }
+.mobile-nav.show { display: flex; }
+.mobile-nav a { color: var(--text-secondary); text-decoration: none; font-size: 1rem; font-weight: 500; }
+.main-content { flex: 1; max-width: 1100px; width: 100%; margin: 0 auto; padding: 40px 24px; }
+.page-header { text-align: center; margin-bottom: 28px; }
+.page-header h1 { font-size: 2.3rem; font-weight: 700; margin-bottom: 8px; }
+.page-header p { color: var(--text-secondary); font-size: 1.05rem; max-width: 640px; margin: 0 auto; }
+.info-section { background: var(--bg-secondary); border-radius: var(--border-radius); padding: 32px; margin-bottom: 24px; border: 1px solid var(--border); }
+.info-section h2 { font-size: 1.4rem; margin-bottom: 14px; }
+.info-section h3 { margin-top: 28px; margin-bottom: 14px; color: var(--accent); font-size: 1.1rem; }
+.info-section p, .info-section li { color: var(--text-secondary); line-height: 1.7; }
+.info-section ul, .info-section ol { padding-left: 24px; margin-bottom: 12px; }
+.info-section a { color: var(--accent); text-decoration: none; }
+.info-section a:hover { text-decoration: underline; }
+details { margin-bottom: 10px; border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; background: var(--bg-primary); }
+summary { font-weight: 600; color: var(--text-primary); cursor: pointer; }
+details p { margin-top: 10px; margin-bottom: 0; }
+.footer { background: var(--bg-secondary); border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--text-secondary); font-size: 0.9rem; }
+.footer a { color: var(--accent); text-decoration: none; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 18px; margin-bottom: 40px; }
+.tool-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--border-radius); padding: 22px; text-decoration: none; color: var(--text-primary); transition: transform .15s, border-color .15s; }
+.tool-card:hover { transform: translateY(-3px); border-color: var(--accent); }
+.tool-card .icon { font-size: 1.8rem; margin-bottom: 10px; }
+.tool-card h3 { font-size: 1.05rem; margin-bottom: 6px; }
+.tool-card p { color: var(--text-secondary); font-size: 0.85rem; line-height: 1.5; }
+.game-wrapper { display: flex; flex-direction: column; align-items: center; margin-bottom: 40px; }
+.game-toolbar { display: flex; gap: 12px; align-items: center; justify-content: center; flex-wrap: wrap; margin-bottom: 18px; }
+.game-stats { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-bottom: 18px; }
+.stat-box { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 10px; padding: 10px 18px; text-align: center; min-width: 90px; }
+.stat-box .stat-label { font-size: 0.72rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.04em; }
+.stat-box .stat-value { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); }
+.btn { background: var(--accent); border: none; color: #fff; padding: 11px 22px; border-radius: 8px; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: background .15s, transform .1s; font-family: var(--font-body); }
+.btn:hover { background: var(--accent-hover); }
+.btn:active { transform: scale(0.97); }
+.btn-secondary { background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border); }
+.btn-secondary:hover { background: var(--border); }
+.btn-secondary.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+.btn-group { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+.game-message { text-align: center; font-weight: 600; margin-bottom: 14px; min-height: 1.4em; color: var(--accent); }
+@media (max-width: 768px) {
+    .nav-desktop { display: none; }
+    .hamburger { display: block; }
+    .page-header h1 { font-size: 1.7rem; }
+    .main-content { padding: 24px 16px; }
+}
+
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="/" class="logo">Excuse<span>Me</span>Web</a>
+            <nav class="nav-desktop">
+                <a href="/">Tools</a>
+                <a href="/calculators">Calculators</a>
+                <a href="/image-tools">Image Tools</a>
+                <a href="/generators">Generators</a>
+                <a href="/templates">Templates</a>
+                <a href="/games" class="active">Games</a>
+            </nav>
+            <div class="header-right">
+                <button class="hamburger" onclick="document.getElementById('mobileNav').classList.toggle('show')">Menu</button>
+            </div>
+        </div>
+        <nav class="mobile-nav" id="mobileNav">
+            <a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games" class="active">Games</a>
+        </nav>
+    </header>
+    <main class="main-content">
+        <div class="page-header">
+            <h1>Games</h1>
+            <p>Ten free browser games you can play right now. No sign-up, no downloads, nothing to install.</p>
+        </div>
+
+        <div class="card-grid">
+            <a class="tool-card" href="/2048-game">
+<h3>2048 Game</h3><p>Slide numbered tiles and combine matching pairs to reach 2048 and beyond.</p></a>
+            <a class="tool-card" href="/snake-game">
+<h3>Snake Game</h3><p>Guide a growing snake around the board without hitting the walls or itself.</p></a>
+            <a class="tool-card" href="/tetris-game">
+<h3>Tetris Game</h3><p>Rotate and drop falling blocks to clear full lines before the stack tops out.</p></a>
+            <a class="tool-card" href="/minesweeper">
+<h3>Minesweeper</h3><p>Clear the board without triggering a hidden mine, using number clues.</p></a>
+            <a class="tool-card" href="/sudoku">
+<h3>Sudoku</h3><p>Fill the 9x9 grid so every row, column, and box holds one to nine.</p></a>
+            <a class="tool-card" href="/solitaire">
+<h3>Solitaire</h3><p>Classic Klondike card game — sort a shuffled deck into four foundations.</p></a>
+            <a class="tool-card" href="/tic-tac-toe">
+<h3>Tic Tac Toe</h3><p>Get three in a row against a friend or the computer on a simple 3x3 grid.</p></a>
+            <a class="tool-card" href="/memory-game">
+<h3>Memory Game</h3><p>Flip cards two at a time and remember where each matching pair is hiding.</p></a>
+            <a class="tool-card" href="/wordle">
+<h3>Wordle</h3><p>Guess the hidden five-letter word in six tries using color-coded clues.</p></a>
+            <a class="tool-card" href="/rock-paper-scissors">
+<h3>Rock Paper Scissors</h3><p>Pick rock, paper, or scissors and try to outscore the computer.</p></a>
+        </div>
+
+        <div class="info-section">
+            <h2>About This Collection</h2>
+            <p>Each game below opens on its own page and runs entirely in your browser tab, using plain HTML, CSS, and JavaScript with original shapes, colors, and layouts. Nothing to install, no plugin required, and no account needed before you start playing.</p>
+
+            <h3>How to Pick a Game</h3>
+            <ol>
+                <li>Quick reflex challenge &rarr; Snake Game or Tetris Game</li>
+                <li>Number and logic puzzles &rarr; 2048 Game, Sudoku, or Minesweeper</li>
+                <li>Classic card play &rarr; Solitaire</li>
+                <li>Quick word or logic challenge &rarr; Wordle or Tic Tac Toe</li>
+                <li>Light, casual fun &rarr; Memory Game or Rock Paper Scissors</li>
+            </ol>
+
+            <h3>What This Category Covers</h3>
+            <ul>
+                <li>Ten single-purpose browser games, each on its own dedicated page</li>
+                <li>Full keyboard support on desktop and touch controls on mobile</li>
+                <li>Restart and new game buttons built into every game</li>
+                <li>No sign-up, no downloads, and no paid features anywhere in this category</li>
+            </ul>
+            <h3>Frequently Asked Questions</h3>
+            <details>
+                <summary>Do I need to sign up to play these games?</summary>
+                <p>No. Every game on this page loads and plays instantly in your browser with no account, sign-up, or download.</p>
+            </details>
+            <details>
+                <summary>Do the games work on mobile phones and tablets?</summary>
+                <p>Yes. Each game is built to respond to both keyboard and touch input, so it works on phones, tablets, and desktop browsers.</p>
+            </details>
+            <details>
+                <summary>Are any of these games paid or do they have hidden costs?</summary>
+                <p>No. Every game listed here is completely free, with no paid tiers, subscriptions, or unlockable features.</p>
+            </details>
+            <details>
+                <summary>Is my progress saved anywhere?</summary>
+                <p>Some games save a local best score or streak directly in your browser's storage on your device. Nothing is uploaded to a server or shared with anyone else.</p>
+            </details>
+
+            <h3>Related Games</h3>
+            <p><a href="/calculators">Calculators</a> &middot; <a href="/generators">Generators</a> &middot; <a href="/templates">Templates</a> &middot; <a href="/image-tools">Image Tools</a></p>
+
+            <h3>Explore More on ExcuseMeWeb</h3>
+            <p><a href="/games">All Games</a> &middot; <a href="/calculators">Calculators</a> &middot; <a href="/generators">Generators</a> &middot; <a href="/templates">Templates</a></p>
+        </div>
+    </main>
+    <footer class="footer">
+        <p>&copy; 2026 ExcuseMeWeb.com &mdash; Online Tools for Everyone</p>
+        <p style="margin-top:8px"><a href="/calculators">Calculators</a> &middot; <a href="/image-tools">Image Tools</a> &middot; <a href="/generators">Generators</a> &middot; <a href="/templates">Templates</a> &middot; <a href="/games">Games</a></p>
+    </footer>
+    <script>
+
+    </script>
+</body>
+</html>

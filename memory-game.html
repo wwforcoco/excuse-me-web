@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Memory Game - Play Free Online, No Sign-Up | ExcuseMeWeb</title>
+    <meta name="description" content="Play a free browser memory matching game. Flip cards, find pairs, and beat your best time across easy, medium, and hard difficulty. No sign-up needed.">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Memory Game - Play Free Online">
+    <meta property="og:description" content="Flip cards two at a time and remember where each matching pair is hiding. Free and instant, works on mobile.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://excusemeweb.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://excusemeweb.com/memory-game">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Memory Game",
+      "url": "https://excusemeweb.com/memory-game",
+      "description": "A browser-based card matching memory game with adjustable difficulty, move counting, and a timer.",
+      "applicationCategory": "GameApplication",
+      "operatingSystem": "Web",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "author": { "@type": "Organization", "name": "ExcuseMeWeb" },
+      "dateModified": "2026-07-22"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I play the memory game?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Tap two cards to flip them. If the symbols match, the pair stays face up. If they don't match, both cards flip back so you can try again." }
+        },
+        {
+          "@type": "Question",
+          "name": "What do the difficulty levels change?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Easy uses 12 cards (6 pairs), Medium uses 16 cards (8 pairs), and Hard uses 20 cards (10 pairs), each adding more symbols to remember." }
+        },
+        {
+          "@type": "Question",
+          "name": "How is my performance measured?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The game tracks your move count and elapsed time, so you can try to clear the board in fewer moves or less time on your next attempt." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I restart at any point?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes, press New Game at any time to reshuffle the board and start a fresh round at your current difficulty." }
+        }
+      ]
+    }
+    </script>
+    <style>
+
+:root {
+    --bg-primary: #ffffff; --bg-secondary: #f8fafc; --bg-tertiary: #f1f5f9;
+    --text-primary: #0f172a; --text-secondary: #64748b; --accent: #6366f1;
+    --accent-hover: #4f46e5; --danger: #ef4444; --success: #22c55e; --border: #e2e8f0;
+    --shadow: rgba(0,0,0,0.08); --font-body: 'Inter', sans-serif; --font-brand: 'Inter', sans-serif;
+    --border-radius: 12px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--font-body); background: var(--bg-primary); color: var(--text-primary); min-height: 100vh; display: flex; flex-direction: column; -webkit-tap-highlight-color: transparent; }
+.header { background: var(--bg-secondary); border-bottom: 1px solid var(--border); padding: 0 24px; position: sticky; top: 0; z-index: 1000; }
+.header-inner { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+.logo { font-family: var(--font-brand); font-size: 1.5rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+.logo span { color: var(--text-primary); }
+.nav-desktop { display: flex; gap: 32px; }
+.nav-desktop a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+.nav-desktop a:hover { color: var(--accent); }
+.nav-desktop a.active { color: var(--accent); }
+.header-right { display: flex; align-items: center; gap: 16px; }
+.hamburger { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+.mobile-nav { display: none; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-secondary); border-bottom: 1px solid var(--border); padding: 16px 24px; flex-direction: column; gap: 16px; }
+.mobile-nav.show { display: flex; }
+.mobile-nav a { color: var(--text-secondary); text-decoration: none; font-size: 1rem; font-weight: 500; }
+.main-content { flex: 1; max-width: 1100px; width: 100%; margin: 0 auto; padding: 40px 24px; }
+.page-header { text-align: center; margin-bottom: 28px; }
+.page-header h1 { font-size: 2.3rem; font-weight: 700; margin-bottom: 8px; }
+.page-header p { color: var(--text-secondary); font-size: 1.05rem; max-width: 640px; margin: 0 auto; }
+.info-section { background: var(--bg-secondary); border-radius: var(--border-radius); padding: 32px; margin-bottom: 24px; border: 1px solid var(--border); }
+.info-section h2 { font-size: 1.4rem; margin-bottom: 14px; }
+.info-section h3 { margin-top: 28px; margin-bottom: 14px; color: var(--accent); font-size: 1.1rem; }
+.info-section p, .info-section li { color: var(--text-secondary); line-height: 1.7; }
+.info-section ul, .info-section ol { padding-left: 24px; margin-bottom: 12px; }
+.info-section a { color: var(--accent); text-decoration: none; }
+.info-section a:hover { text-decoration: underline; }
+details { margin-bottom: 10px; border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; background: var(--bg-primary); }
+summary { font-weight: 600; color: var(--text-primary); cursor: pointer; }
+details p { margin-top: 10px; margin-bottom: 0; }
+.footer { background: var(--bg-secondary); border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--text-secondary); font-size: 0.9rem; }
+.footer a { color: var(--accent); text-decoration: none; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 18px; margin-bottom: 40px; }
+.tool-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--border-radius); padding: 22px; text-decoration: none; color: var(--text-primary); transition: transform .15s, border-color .15s; }
+.tool-card:hover { transform: translateY(-3px); border-color: var(--accent); }
+.tool-card .icon { font-size: 1.8rem; margin-bottom: 10px; }
+.tool-card h3 { font-size: 1.05rem; margin-bottom: 6px; }
+.tool-card p { color: var(--text-secondary); font-size: 0.85rem; line-height: 1.5; }
+.game-wrapper { display: flex; flex-direction: column; align-items: center; margin-bottom: 40px; }
+.game-toolbar { display: flex; gap: 12px; align-items: center; justify-content: center; flex-wrap: wrap; margin-bottom: 18px; }
+.game-stats { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-bottom: 18px; }
+.stat-box { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 10px; padding: 10px 18px; text-align: center; min-width: 90px; }
+.stat-box .stat-label { font-size: 0.72rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.04em; }
+.stat-box .stat-value { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); }
+.btn { background: var(--accent); border: none; color: #fff; padding: 11px 22px; border-radius: 8px; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: background .15s, transform .1s; font-family: var(--font-body); }
+.btn:hover { background: var(--accent-hover); }
+.btn:active { transform: scale(0.97); }
+.btn-secondary { background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border); }
+.btn-secondary:hover { background: var(--border); }
+.btn-secondary.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+.btn-group { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+.game-message { text-align: center; font-weight: 600; margin-bottom: 14px; min-height: 1.4em; color: var(--accent); }
+@media (max-width: 768px) {
+    .nav-desktop { display: none; }
+    .hamburger { display: block; }
+    .page-header h1 { font-size: 1.7rem; }
+    .main-content { padding: 24px 16px; }
+}
+
+
+.memory-board { display: grid; gap: 10px; width: 100%; max-width: 480px; }
+.mem-card { aspect-ratio: 1/1; border-radius: 10px; cursor: pointer; position: relative; perspective: 600px; }
+.mem-card-inner { width: 100%; height: 100%; position: relative; transform-style: preserve-3d; transition: transform 0.35s; }
+.mem-card.flipped .mem-card-inner, .mem-card.matched .mem-card-inner { transform: rotateY(180deg); }
+.mem-face { position: absolute; inset: 0; border-radius: 10px; display: flex; align-items: center; justify-content: center; backface-visibility: hidden; font-size: clamp(1.4rem, 5vw, 2.2rem); }
+.mem-face.back { background: var(--accent); color: #fff; }
+.mem-face.front { background: var(--bg-secondary); border: 1px solid var(--border); transform: rotateY(180deg); }
+.mem-card.matched .mem-face.front { background: #dcfce7; border-color: #22c55e; }
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="/" class="logo">Excuse<span>Me</span>Web</a>
+            <nav class="nav-desktop">
+                <a href="/">Tools</a>
+                <a href="/calculators">Calculators</a>
+                <a href="/image-tools">Image Tools</a>
+                <a href="/generators">Generators</a>
+                <a href="/templates">Templates</a>
+                <a href="/games" class="active">Games</a>
+            </nav>
+            <div class="header-right">
+                <button class="hamburger" onclick="document.getElementById('mobileNav').classList.toggle('show')">Menu</button>
+            </div>
+        </div>
+        <nav class="mobile-nav" id="mobileNav">
+            <a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games" class="active">Games</a>
+        </nav>
+    </header>
+    <main class="main-content">
+        <div class="page-header">
+            <h1>Memory Game</h1>
+            <p>Flip cards two at a time and remember where each matching pair is hiding.</p>
+        </div>
+
+        <div class="game-wrapper">
+            <div class="game-toolbar">
+                <div class="btn-group" id="sizeGroup">
+                    <button class="btn-secondary btn active" data-p="6" onclick="setSize(6,this)">Easy (12)</button>
+                    <button class="btn-secondary btn" data-p="8" onclick="setSize(8,this)">Medium (16)</button>
+                    <button class="btn-secondary btn" data-p="10" onclick="setSize(10,this)">Hard (20)</button>
+                </div>
+            </div>
+            <div class="game-stats">
+                <div class="stat-box"><div class="stat-label">Moves</div><div class="stat-value" id="moves">0</div></div>
+                <div class="stat-box"><div class="stat-label">Time</div><div class="stat-value" id="timer">0</div></div>
+                <div class="stat-box"><div class="stat-label">Matches</div><div class="stat-value" id="matches">0</div></div>
+            </div>
+            <p class="game-message" id="message"></p>
+            <div class="game-toolbar">
+                <button class="btn" onclick="newGame()">New Game</button>
+            </div>
+            <div class="memory-board" id="board"></div>
+        </div>
+
+        <div class="info-section">
+            <h2>What Is the Memory Game?</h2>
+            <p>The Memory Game, also known as Concentration, is a card matching game played with a grid of face-down cards. Flip two cards at a time, and if their symbols match, they stay face up. If not, they flip back over, so remembering each card's location and symbol is key to clearing the board quickly.</p>
+
+            <h3>How to Play</h3>
+            <ul>
+                <li>Tap any face-down card to reveal its symbol</li>
+                <li>Tap a second card to see if the two symbols match</li>
+                <li>Matched pairs stay face up; unmatched pairs flip back over after a short pause</li>
+                <li>Clear every pair on the board to finish the round</li>
+            </ul>
+
+            <h3>Strategy Tips</h3>
+            <ul>
+                <li>Build a mental map of the grid instead of flipping cards at random</li>
+                <li>When you reveal a new symbol, remember its position in case you see its match later</li>
+                <li>Work through unexplored cards first before re-checking ones you've already seen</li>
+                <li>Start on Easy to build the habit, then move to Medium or Hard as your recall improves</li>
+            </ul>
+            <h3>Frequently Asked Questions</h3>
+            <details>
+                <summary>How do I play the memory game?</summary>
+                <p>Tap two cards to flip them. If the symbols match, the pair stays face up. If they don't match, both cards flip back so you can try again.</p>
+            </details>
+            <details>
+                <summary>What do the difficulty levels change?</summary>
+                <p>Easy uses 12 cards (6 pairs), Medium uses 16 cards (8 pairs), and Hard uses 20 cards (10 pairs), each adding more symbols to remember.</p>
+            </details>
+            <details>
+                <summary>How is my performance measured?</summary>
+                <p>The game tracks your move count and elapsed time, so you can try to clear the board in fewer moves or less time on your next attempt.</p>
+            </details>
+            <details>
+                <summary>Can I restart at any point?</summary>
+                <p>Yes, press New Game at any time to reshuffle the board and start a fresh round at your current difficulty.</p>
+            </details>
+
+            <h3>Related Games</h3>
+            <p><a href="/tic-tac-toe">Tic Tac Toe</a> &middot; <a href="/solitaire">Solitaire</a> &middot; <a href="/wordle">Wordle</a> &middot; <a href="/rock-paper-scissors">Rock Paper Scissors</a></p>
+
+            <h3>Explore More on ExcuseMeWeb</h3>
+            <p><a href="/games">All Games</a> &middot; <a href="/calculators">Calculators</a> &middot; <a href="/generators">Generators</a> &middot; <a href="/templates">Templates</a></p>
+        </div>
+    </main>
+    <footer class="footer">
+        <p>&copy; 2026 ExcuseMeWeb.com &mdash; Online Tools for Everyone</p>
+        <p style="margin-top:8px"><a href="/calculators">Calculators</a> &middot; <a href="/image-tools">Image Tools</a> &middot; <a href="/generators">Generators</a> &middot; <a href="/templates">Templates</a> &middot; <a href="/games">Games</a></p>
+    </footer>
+    <script>
+
+(function() {
+    var SYMBOLS = ['●','▲','■','★','♥','♦','♠','♣','✦','✨','◆','⬢','➡','⭐','❤','♾'];
+    var boardEl = document.getElementById('board');
+    var movesEl = document.getElementById('moves');
+    var timerEl = document.getElementById('timer');
+    var matchesEl = document.getElementById('matches');
+    var messageEl = document.getElementById('message');
+    var pairCount = 6;
+    var cards, flipped = [], moves, matches, locked = false, timeElapsed, timerInt;
+
+    function setSize(p, btn) {
+        pairCount = p;
+        document.querySelectorAll('#sizeGroup .btn-secondary').forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        newGame();
+    }
+    window.setSize = setSize;
+
+    function shuffle(arr) {
+        for (var i = arr.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var t = arr[i]; arr[i] = arr[j]; arr[j] = t;
+        }
+        return arr;
+    }
+
+    function newGame() {
+        var chosen = SYMBOLS.slice(0, pairCount);
+        var deck = shuffle(chosen.concat(chosen).map(function(sym, i) { return { sym: sym, id: i }; }));
+        cards = deck;
+        flipped = []; moves = 0; matches = 0; locked = false; timeElapsed = 0;
+        movesEl.textContent = 0; matchesEl.textContent = 0; timerEl.textContent = 0;
+        messageEl.textContent = '';
+        clearInterval(timerInt);
+        timerInt = setInterval(function() { timeElapsed++; timerEl.textContent = timeElapsed; }, 1000);
+        var cols = pairCount <= 6 ? 4 : (pairCount <= 8 ? 4 : 5);
+        boardEl.style.gridTemplateColumns = 'repeat(' + cols + ', 1fr)';
+        renderBoard();
+    }
+    window.newGame = newGame;
+
+    function renderBoard() {
+        boardEl.innerHTML = '';
+        cards.forEach(function(card, i) {
+            var el = document.createElement('div');
+            el.className = 'mem-card';
+            el.innerHTML = '<div class="mem-card-inner"><div class="mem-face back">?</div><div class="mem-face front">' + card.sym + '</div></div>';
+            el.addEventListener('click', function() { onCardClick(i, el); });
+            card.el = el;
+            boardEl.appendChild(el);
+        });
+    }
+
+    function onCardClick(i, el) {
+        if (locked || el.classList.contains('flipped') || el.classList.contains('matched')) return;
+        el.classList.add('flipped');
+        flipped.push({ i: i, el: el });
+        if (flipped.length === 2) {
+            moves++;
+            movesEl.textContent = moves;
+            locked = true;
+            var a = flipped[0], b = flipped[1];
+            if (cards[a.i].sym === cards[b.i].sym) {
+                a.el.classList.add('matched');
+                b.el.classList.add('matched');
+                matches++;
+                matchesEl.textContent = matches;
+                flipped = [];
+                locked = false;
+                if (matches === pairCount) {
+                    clearInterval(timerInt);
+                    messageEl.textContent = 'Solved in ' + moves + ' moves and ' + timeElapsed + ' seconds!';
+                    messageEl.style.color = 'var(--success)';
+                }
+            } else {
+                setTimeout(function() {
+                    a.el.classList.remove('flipped');
+                    b.el.classList.remove('flipped');
+                    flipped = [];
+                    locked = false;
+                }, 700);
+            }
+        }
+    }
+
+    newGame();
+})();
+
+    </script>
+</body>
+</html>

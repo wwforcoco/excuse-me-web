@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Wordle - Play Free Online Word Guessing Game | ExcuseMeWeb</title>
+    <meta name="description" content="Play a free Wordle-style word guessing game online. Guess the hidden five-letter word in six tries using color-coded clues. No sign-up, no downloads.">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Wordle - Play Free Online Word Game">
+    <meta property="og:description" content="Guess the hidden five-letter word in six tries using color-coded clues. Free and instant.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://excusemeweb.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://excusemeweb.com/wordle">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Wordle",
+      "url": "https://excusemeweb.com/wordle",
+      "description": "A browser-based five-letter word guessing game with six attempts and color-coded letter feedback.",
+      "applicationCategory": "GameApplication",
+      "operatingSystem": "Web",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "author": { "@type": "Organization", "name": "ExcuseMeWeb" },
+      "dateModified": "2026-07-22"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How many guesses do I get?",
+          "acceptedAnswer": { "@type": "Answer", "text": "You have six attempts to guess the hidden five-letter word." }
+        },
+        {
+          "@type": "Question",
+          "name": "What do the tile colors mean?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Green means the letter is correct and in the right spot, yellow means the letter is in the word but in a different spot, and gray means the letter is not in the word." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use my keyboard to type guesses?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes, you can type letters directly on a physical keyboard, or tap the on-screen keyboard shown below the grid on any device." }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I start a new word?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Press New Word at any time to get a fresh five-letter word and reset the board." }
+        }
+      ]
+    }
+    </script>
+    <style>
+
+:root {
+    --bg-primary: #ffffff; --bg-secondary: #f8fafc; --bg-tertiary: #f1f5f9;
+    --text-primary: #0f172a; --text-secondary: #64748b; --accent: #6366f1;
+    --accent-hover: #4f46e5; --danger: #ef4444; --success: #22c55e; --border: #e2e8f0;
+    --shadow: rgba(0,0,0,0.08); --font-body: 'Inter', sans-serif; --font-brand: 'Inter', sans-serif;
+    --border-radius: 12px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--font-body); background: var(--bg-primary); color: var(--text-primary); min-height: 100vh; display: flex; flex-direction: column; -webkit-tap-highlight-color: transparent; }
+.header { background: var(--bg-secondary); border-bottom: 1px solid var(--border); padding: 0 24px; position: sticky; top: 0; z-index: 1000; }
+.header-inner { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+.logo { font-family: var(--font-brand); font-size: 1.5rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+.logo span { color: var(--text-primary); }
+.nav-desktop { display: flex; gap: 32px; }
+.nav-desktop a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+.nav-desktop a:hover { color: var(--accent); }
+.nav-desktop a.active { color: var(--accent); }
+.header-right { display: flex; align-items: center; gap: 16px; }
+.hamburger { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+.mobile-nav { display: none; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg-secondary); border-bottom: 1px solid var(--border); padding: 16px 24px; flex-direction: column; gap: 16px; }
+.mobile-nav.show { display: flex; }
+.mobile-nav a { color: var(--text-secondary); text-decoration: none; font-size: 1rem; font-weight: 500; }
+.main-content { flex: 1; max-width: 1100px; width: 100%; margin: 0 auto; padding: 40px 24px; }
+.page-header { text-align: center; margin-bottom: 28px; }
+.page-header h1 { font-size: 2.3rem; font-weight: 700; margin-bottom: 8px; }
+.page-header p { color: var(--text-secondary); font-size: 1.05rem; max-width: 640px; margin: 0 auto; }
+.info-section { background: var(--bg-secondary); border-radius: var(--border-radius); padding: 32px; margin-bottom: 24px; border: 1px solid var(--border); }
+.info-section h2 { font-size: 1.4rem; margin-bottom: 14px; }
+.info-section h3 { margin-top: 28px; margin-bottom: 14px; color: var(--accent); font-size: 1.1rem; }
+.info-section p, .info-section li { color: var(--text-secondary); line-height: 1.7; }
+.info-section ul, .info-section ol { padding-left: 24px; margin-bottom: 12px; }
+.info-section a { color: var(--accent); text-decoration: none; }
+.info-section a:hover { text-decoration: underline; }
+details { margin-bottom: 10px; border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; background: var(--bg-primary); }
+summary { font-weight: 600; color: var(--text-primary); cursor: pointer; }
+details p { margin-top: 10px; margin-bottom: 0; }
+.footer { background: var(--bg-secondary); border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--text-secondary); font-size: 0.9rem; }
+.footer a { color: var(--accent); text-decoration: none; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 18px; margin-bottom: 40px; }
+.tool-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--border-radius); padding: 22px; text-decoration: none; color: var(--text-primary); transition: transform .15s, border-color .15s; }
+.tool-card:hover { transform: translateY(-3px); border-color: var(--accent); }
+.tool-card .icon { font-size: 1.8rem; margin-bottom: 10px; }
+.tool-card h3 { font-size: 1.05rem; margin-bottom: 6px; }
+.tool-card p { color: var(--text-secondary); font-size: 0.85rem; line-height: 1.5; }
+.game-wrapper { display: flex; flex-direction: column; align-items: center; margin-bottom: 40px; }
+.game-toolbar { display: flex; gap: 12px; align-items: center; justify-content: center; flex-wrap: wrap; margin-bottom: 18px; }
+.game-stats { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-bottom: 18px; }
+.stat-box { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 10px; padding: 10px 18px; text-align: center; min-width: 90px; }
+.stat-box .stat-label { font-size: 0.72rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.04em; }
+.stat-box .stat-value { font-size: 1.3rem; font-weight: 700; color: var(--text-primary); }
+.btn { background: var(--accent); border: none; color: #fff; padding: 11px 22px; border-radius: 8px; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: background .15s, transform .1s; font-family: var(--font-body); }
+.btn:hover { background: var(--accent-hover); }
+.btn:active { transform: scale(0.97); }
+.btn-secondary { background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border); }
+.btn-secondary:hover { background: var(--border); }
+.btn-secondary.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+.btn-group { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+.game-message { text-align: center; font-weight: 600; margin-bottom: 14px; min-height: 1.4em; color: var(--accent); }
+@media (max-width: 768px) {
+    .nav-desktop { display: none; }
+    .hamburger { display: block; }
+    .page-header h1 { font-size: 1.7rem; }
+    .main-content { padding: 24px 16px; }
+}
+
+
+.wordle-grid { display: grid; grid-template-rows: repeat(6, 1fr); gap: 6px; margin-bottom: 20px; }
+.wordle-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; }
+.wordle-tile { width: 52px; height: 52px; border: 2px solid var(--border); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; text-transform: uppercase; background: var(--bg-primary); transition: transform 0.15s; }
+.wordle-tile.filled { border-color: var(--text-secondary); }
+.wordle-tile.correct { background: #22c55e; border-color: #22c55e; color: #fff; }
+.wordle-tile.present { background: #f59e0b; border-color: #f59e0b; color: #fff; }
+.wordle-tile.absent { background: #94a3b8; border-color: #94a3b8; color: #fff; }
+.wordle-keyboard { display: flex; flex-direction: column; gap: 8px; width: 100%; max-width: 480px; }
+.wordle-key-row { display: flex; gap: 6px; justify-content: center; }
+.wkey { flex: 1; max-width: 44px; height: 48px; border: none; border-radius: 6px; background: var(--bg-tertiary); color: var(--text-primary); font-weight: 700; font-size: 0.85rem; cursor: pointer; display: flex; align-items: center; justify-content: center; text-transform: uppercase; }
+.wkey.wide { max-width: 68px; font-size: 0.7rem; }
+.wkey.correct { background: #22c55e; color: #fff; }
+.wkey.present { background: #f59e0b; color: #fff; }
+.wkey.absent { background: #475569; color: #fff; }
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="/" class="logo">Excuse<span>Me</span>Web</a>
+            <nav class="nav-desktop">
+                <a href="/">Tools</a>
+                <a href="/calculators">Calculators</a>
+                <a href="/image-tools">Image Tools</a>
+                <a href="/generators">Generators</a>
+                <a href="/templates">Templates</a>
+                <a href="/games" class="active">Games</a>
+            </nav>
+            <div class="header-right">
+                <button class="hamburger" onclick="document.getElementById('mobileNav').classList.toggle('show')">Menu</button>
+            </div>
+        </div>
+        <nav class="mobile-nav" id="mobileNav">
+            <a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games" class="active">Games</a>
+        </nav>
+    </header>
+    <main class="main-content">
+        <div class="page-header">
+            <h1>Wordle</h1>
+            <p>Guess the hidden five-letter word in six tries using color-coded clues.</p>
+        </div>
+
+        <div class="game-wrapper">
+            <p class="game-message" id="message"></p>
+            <div class="wordle-grid" id="grid"></div>
+            <div class="wordle-keyboard" id="keyboard"></div>
+            <div class="game-toolbar" style="margin-top:20px">
+                <button class="btn" onclick="newGame()">New Word</button>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h2>What Is Wordle?</h2>
+            <p>Wordle is a word-guessing puzzle where you try to identify a hidden five-letter word within six guesses. After each guess, every letter is colored to show whether it's correct, present elsewhere in the word, or not in the word at all, guiding your next attempt.</p>
+
+            <h3>How to Play</h3>
+            <ul>
+                <li>Type a five-letter word using your keyboard or the on-screen keys, then press Enter</li>
+                <li>Green tiles mean that letter is in the correct spot</li>
+                <li>Yellow tiles mean the letter is in the word, but in a different position</li>
+                <li>Gray tiles mean the letter does not appear in the word at all</li>
+            </ul>
+
+            <h3>Strategy Tips</h3>
+            <ul>
+                <li>Open with a word that uses common vowels and consonants to gather the most information</li>
+                <li>Use the colored feedback from every guess to narrow down letter positions before your next try</li>
+                <li>Avoid repeating a gray letter in later guesses since it has already been ruled out</li>
+                <li>Save any letter that shows both yellow and green clues for a priority spot in your next word</li>
+            </ul>
+            <h3>Frequently Asked Questions</h3>
+            <details>
+                <summary>How many guesses do I get?</summary>
+                <p>You have six attempts to guess the hidden five-letter word.</p>
+            </details>
+            <details>
+                <summary>What do the tile colors mean?</summary>
+                <p>Green means the letter is correct and in the right spot, yellow means the letter is in the word but in a different spot, and gray means the letter is not in the word.</p>
+            </details>
+            <details>
+                <summary>Can I use my keyboard to type guesses?</summary>
+                <p>Yes, you can type letters directly on a physical keyboard, or tap the on-screen keyboard shown below the grid on any device.</p>
+            </details>
+            <details>
+                <summary>How do I start a new word?</summary>
+                <p>Press New Word at any time to get a fresh five-letter word and reset the board.</p>
+            </details>
+
+            <h3>Related Games</h3>
+            <p><a href="/tic-tac-toe">Tic Tac Toe</a> &middot; <a href="/sudoku">Sudoku</a> &middot; <a href="/memory-game">Memory Game</a> &middot; <a href="/rock-paper-scissors">Rock Paper Scissors</a></p>
+
+            <h3>Explore More on ExcuseMeWeb</h3>
+            <p><a href="/games">All Games</a> &middot; <a href="/calculators">Calculators</a> &middot; <a href="/generators">Generators</a> &middot; <a href="/templates">Templates</a></p>
+        </div>
+    </main>
+    <footer class="footer">
+        <p>&copy; 2026 ExcuseMeWeb.com &mdash; Online Tools for Everyone</p>
+        <p style="margin-top:8px"><a href="/calculators">Calculators</a> &middot; <a href="/image-tools">Image Tools</a> &middot; <a href="/generators">Generators</a> &middot; <a href="/templates">Templates</a> &middot; <a href="/games">Games</a></p>
+    </footer>
+    <script>
+
+(function() {
+    var WORDS = ["ABOUT","ABOVE","ABUSE","ACTOR","ACUTE","ADMIT","ADOPT","ADULT","AFTER","AGAIN",
+    "AGENT","AGREE","AHEAD","ALARM","ALBUM","ALERT","ALIKE","ALIVE","ALLOW","ALONE",
+    "ALONG","ALTER","AMONG","ANGER","ANGLE","ANGRY","APART","APPLE","APPLY","ARENA",
+    "ARGUE","ARISE","ARRAY","ASIDE","ASSET","AUDIO","AUDIT","AVOID","AWAKE","AWARD",
+    "AWARE","BADLY","BAKER","BASIC","BEACH","BEGAN","BEGIN","BEGUN","BEING","BELOW",
+    "BENCH","BILLY","BIRTH","BLACK","BLAME","BLANK","BLAST","BLIND","BLOCK","BLOOD",
+    "BOARD","BOAST","BOBBY","BOOST","BOOTH","BOUND","BRAIN","BRAND","BREAD","BREAK",
+    "BREED","BRIEF","BRING","BROAD","BROKE","BROWN","BUILD","BUILT","BUYER","CABLE",
+    "CANDY","CARRY","CATCH","CAUSE","CHAIN","CHAIR","CHART","CHASE","CHEAP","CHECK",
+    "CHEST","CHIEF","CHILD","CHINA","CHOSE","CIVIL","CLAIM","CLASS","CLEAN","CLEAR",
+    "CLICK","CLOCK","CLOSE","COACH","COAST","COULD","COUNT","COURT","COVER","CRAFT",
+    "CRASH","CRAZY","CREAM","CRIME","CROSS","CROWD","CROWN","CURVE","CYCLE","DAILY",
+    "DANCE","DATED","DEALT","DEATH","DEBUT","DELAY","DEPTH","DOUBT","DOZEN","DRAFT",
+    "DRAMA","DRANK","DREAM","DRESS","DRILL","DRINK","DRIVE","DROVE","DYING","EAGER",
+    "EARLY","EARTH","EIGHT","ELITE","EMPTY","ENEMY","ENJOY","ENTER","ENTRY","EQUAL",
+    "ERROR","EVENT","EVERY","EXACT","EXIST","EXTRA","FAITH","FALSE","FAULT","FIBER",
+    "FIELD","FIFTH","FIFTY","FIGHT","FINAL","FIRST","FIXED","FLASH","FLEET","FLOOR",
+    "FLUID","FOCUS","FORCE","FORTH","FORTY","FORUM","FOUND","FRAME","FRANK","FRAUD",
+    "FRESH","FRONT","FROST","FRUIT","FULLY","FUNNY","GIANT","GIVEN","GLASS","GLOBE",
+    "GOING","GRACE","GRADE","GRAND","GRANT","GRASS","GREAT","GREEN","GROSS","GROUP",
+    "GROWN","GUARD","GUESS","GUEST","GUIDE","HAPPY","HARSH","HEART","HEAVY","HENRY",
+    "HORSE","HOTEL","HOUSE","HUMAN","IDEAL","IMAGE","INDEX","INNER","INPUT","ISSUE",
+    "JAPAN","JOINT","JUDGE","KNOWN","LABEL","LARGE","LASER","LATER","LAUGH","LAYER",
+    "LEARN","LEAST","LEAVE","LEGAL","LEVEL","LIGHT","LIMIT","LINKS","LIVES","LOCAL",
+    "LOOSE","LOWER","LUCKY","LUNCH","LYING","MAGIC","MAJOR","MAKER","MARCH","MATCH",
+    "MAYOR","MEANT","MEDIA","METAL","MIGHT","MINOR","MINUS","MIXED","MODEL","MONEY",
+    "MONTH","MORAL","MOTOR","MOUNT","MOUSE","MOUTH","MOVIE","MUSIC","NEEDS","NEVER",
+    "NEWLY","NIGHT","NOISE","NORTH","NOTED","NOVEL","NURSE","OCCUR","OCEAN","OFFER",
+    "OFTEN","ORDER","OTHER","OUGHT","PAINT","PANEL","PAPER","PARTY","PEACE","PANIC",
+    "PHASE","PHONE","PHOTO","PIANO","PIECE","PILOT","PITCH","PLACE","PLAIN","PLANE",
+    "PLANT","PLATE","POINT","POUND","POWER","PRESS","PRICE","PRIDE","PRIME","PRINT",
+    "PRIOR","PRIZE","PROOF","PROUD","PROVE","QUEEN","QUICK","QUIET","QUITE","RADIO",
+    "RAISE","RANGE","RAPID","RATIO","REACH","READY","REFER","RIGHT","RIVAL","RIVER",
+    "ROBOT","ROGER","ROMAN","ROUGH","ROUND","ROUTE","ROYAL","RURAL","SCALE","SCENE",
+    "SCOPE","SCORE","SENSE","SERVE","SEVEN","SHALL","SHAPE","SHARE","SHARP","SHEET",
+    "SHELF","SHELL","SHIFT","SHINE","SHIRT","SHOCK","SHOOT","SHORT","SHOWN","SIGHT",
+    "SIMPLE","SINCE","SIXTH","SIXTY","SIZED","SKILL","SLEEP","SLIDE","SMALL","SMART",
+    "SMILE","SMITH","SMOKE","SOLID","SOLVE","SORRY","SOUND","SOUTH","SPACE","SPARE",
+    "SPEAK","SPEED","SPEND","SPENT","SPLIT","SPOKE","SPORT","STAFF","STAGE","STAKE",
+    "STAND","START","STATE","STEAM","STEEL","STICK","STILL","STOCK","STONE","STOOD",
+    "STORE","STORM","STORY","STRIP","STUCK","STUDY","STUFF","STYLE","SUGAR","SUITE",
+    "SUPER","SWEET","TABLE","TAKEN","TASTE","TAXES","TEACH","TEETH","TERRY","THANK",
+    "THEFT","THEIR","THEME","THERE","THESE","THICK","THING","THINK","THIRD","THOSE",
+    "THREE","THREW","THROW","TIGHT","TIMER","TIRED","TITLE","TODAY","TOPIC","TOTAL",
+    "TOUCH","TOUGH","TOWER","TRACK","TRADE","TRAIN","TREAT","TREND","TRIAL","TRIED",
+    "TRIES","TRUCK","TRULY","TRUNK","TRUST","TRUTH","TWICE","UNDER","UNDUE","UNION",
+    "UNITY","UNTIL","UPPER","UPSET","URBAN","USAGE","USUAL","VALID","VALUE","VIDEO",
+    "VIRUS","VISIT","VITAL","VOICE","WASTE","WATCH","WATER","WHEEL","WHERE","WHICH",
+    "WHILE","WHITE","WHOLE","WHOSE","WOMAN","WOMEN","WORLD","WORRY","WORSE","WORST",
+    "WORTH","WOULD","WOUND","WRITE","WRONG","WROTE","YIELD","YOUNG","YOUTH"].filter(function(w){return w.length===5;});
+
+    var gridEl = document.getElementById('grid');
+    var keyboardEl = document.getElementById('keyboard');
+    var messageEl = document.getElementById('message');
+    var answer, guesses, current, over, keyStates;
+
+    var ROWS_LAYOUT = ['QWERTYUIOP', 'ASDFGHJKL', 'ZXCVBNM'];
+
+    function newGame() {
+        answer = WORDS[Math.floor(Math.random() * WORDS.length)];
+        guesses = [];
+        current = '';
+        over = false;
+        keyStates = {};
+        messageEl.textContent = '';
+        renderGrid();
+        renderKeyboard();
+    }
+    window.newGame = newGame;
+
+    function renderGrid() {
+        gridEl.innerHTML = '';
+        for (var r = 0; r < 6; r++) {
+            var rowEl = document.createElement('div');
+            rowEl.className = 'wordle-row';
+            var word = guesses[r] ? guesses[r].word : (r === guesses.length ? current : '');
+            var result = guesses[r] ? guesses[r].result : null;
+            for (var c = 0; c < 5; c++) {
+                var tile = document.createElement('div');
+                tile.className = 'wordle-tile';
+                var ch = word[c] || '';
+                if (ch) tile.classList.add('filled');
+                if (result) tile.classList.add(result[c]);
+                tile.textContent = ch;
+                rowEl.appendChild(tile);
+            }
+            gridEl.appendChild(rowEl);
+        }
+    }
+
+    function renderKeyboard() {
+        keyboardEl.innerHTML = '';
+        ROWS_LAYOUT.forEach(function(rowStr, ri) {
+            var rowEl = document.createElement('div');
+            rowEl.className = 'wordle-key-row';
+            if (ri === 2) {
+                var enterKey = makeKey('ENTER', true);
+                rowEl.appendChild(enterKey);
+            }
+            rowStr.split('').forEach(function(ch) {
+                rowEl.appendChild(makeKey(ch, false));
+            });
+            if (ri === 2) {
+                rowEl.appendChild(makeKey('DEL', true));
+            }
+            keyboardEl.appendChild(rowEl);
+        });
+    }
+
+    function makeKey(label, wide) {
+        var btn = document.createElement('button');
+        btn.className = 'wkey' + (wide ? ' wide' : '');
+        if (keyStates[label]) btn.classList.add(keyStates[label]);
+        btn.textContent = label;
+        btn.addEventListener('click', function() { handleKey(label); });
+        return btn;
+    }
+
+    function handleKey(label) {
+        if (over) return;
+        if (label === 'ENTER') { submitGuess(); return; }
+        if (label === 'DEL') { current = current.slice(0, -1); renderGrid(); return; }
+        if (current.length < 5 && /^[A-Z]$/.test(label)) {
+            current += label;
+            renderGrid();
+        }
+    }
+
+    function submitGuess() {
+        if (current.length !== 5) {
+            messageEl.textContent = 'Enter a 5-letter word first.';
+            messageEl.style.color = 'var(--danger)';
+            return;
+        }
+        var result = scoreGuess(current, answer);
+        guesses.push({ word: current, result: result });
+        current.split('').forEach(function(ch, i) {
+            var state = result[i];
+            var rank = { absent: 0, present: 1, correct: 2 };
+            if (!keyStates[ch] || rank[state] > rank[keyStates[ch]]) keyStates[ch] = state;
+        });
+        var won = current === answer;
+        current = '';
+        renderGrid();
+        renderKeyboard();
+        if (won) {
+            over = true;
+            messageEl.textContent = 'You got it! The word was ' + answer + '.';
+            messageEl.style.color = 'var(--success)';
+        } else if (guesses.length === 6) {
+            over = true;
+            messageEl.textContent = 'Out of guesses. The word was ' + answer + '.';
+            messageEl.style.color = 'var(--danger)';
+        } else {
+            messageEl.textContent = '';
+        }
+    }
+
+    function scoreGuess(guess, ans) {
+        var result = new Array(5).fill('absent');
+        var ansArr = ans.split('');
+        var used = new Array(5).fill(false);
+        for (var i = 0; i < 5; i++) {
+            if (guess[i] === ansArr[i]) { result[i] = 'correct'; used[i] = true; }
+        }
+        for (var i = 0; i < 5; i++) {
+            if (result[i] === 'correct') continue;
+            for (var j = 0; j < 5; j++) {
+                if (!used[j] && guess[i] === ansArr[j]) { result[i] = 'present'; used[j] = true; break; }
+            }
+        }
+        return result;
+    }
+
+    document.addEventListener('keydown', function(e) {
+        if (over) return;
+        if (e.key === 'Enter') { handleKey('ENTER'); return; }
+        if (e.key === 'Backspace') { handleKey('DEL'); return; }
+        var ch = e.key.toUpperCase();
+        if (/^[A-Z]$/.test(ch)) handleKey(ch);
+    });
+
+    newGame();
+})();
+
+    </script>
+</body>
+</html>
