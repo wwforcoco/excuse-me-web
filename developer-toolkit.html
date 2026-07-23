@@ -78,28 +78,17 @@ button { font-family: inherit; }
 .tk-hero { padding: 44px 0 30px; }
 .tk-hero h1 { font-size: 32px; font-weight: 800; letter-spacing: -0.02em; margin: 0 0 8px; }
 .tk-hero p { font-size: 15.5px; color: var(--text-muted); max-width: 560px; margin: 0; }
-.tk-badges { display:flex; gap:8px; margin-top:16px; flex-wrap:wrap; }
-.tk-badge {
-  font-size: 12px; font-weight: 700; color: var(--accent); background: var(--accent-soft);
-  padding: 5px 11px; border-radius: 999px;
-}
 
-/* tool grid */
-.tool-grid {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 16px; padding: 8px 0 56px;
+/* tab bar */
+.tk-tabbar-wrap { border-top: 1px solid var(--border); overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.tk-tabbar { display: flex; gap: 6px; padding: 10px 24px; max-width: 1120px; margin: 0 auto; width: max-content; min-width: 100%; }
+.tk-tab {
+  flex-shrink: 0; display: inline-flex; align-items: center; gap: 6px;
+  padding: 9px 15px; border-radius: 999px; border: 1px solid var(--border); background: var(--bg);
+  color: var(--text-muted); font-size: 13px; font-weight: 700; cursor: pointer; white-space: nowrap; transition: .15s;
 }
-.tool-card {
-  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
-  padding: 22px; cursor: pointer; text-align: left; transition: .18s; box-shadow: var(--shadow);
-}
-.tool-card:hover { transform: translateY(-3px); border-color: var(--accent); }
-.tool-card .ti {
-  width: 44px; height: 44px; border-radius: 11px; background: var(--accent-soft);
-  display: flex; align-items: center; justify-content: center; font-size: 21px; margin-bottom: 14px;
-}
-.tool-card h3 { font-size: 15.5px; font-weight: 700; margin: 0 0 5px; }
-.tool-card p { font-size: 13px; color: var(--text-muted); margin: 0; }
+.tk-tab:hover { border-color: var(--accent); color: var(--text); }
+.tk-tab.active { background: var(--accent); border-color: var(--accent); color: #fff; }
 
 /* panels */
 .panel { display: none; padding: 8px 0 70px; }
@@ -220,12 +209,22 @@ th { font-size: 11.5px; text-transform: uppercase; letter-spacing: .03em; color:
     <div class="tk-brand">
       <a href="all-in-one-toolkit.html" class="tk-back">&larr; All Toolkits</a>
     </div>
-    <div class="tk-brand" onclick="showGrid()" style="cursor:pointer">
+    <div class="tk-brand">
       <div class="tk-icon">💻</div>
       <div class="tk-title">Developer Toolkit<span>For everyday dev tasks</span></div>
     </div>
     <div class="tk-actions">
       <button class="btn btn-ghost btn-sm" onclick="downloadHTML()">&#8681; Download HTML</button>
+    </div>
+  </div>
+  <div class="tk-tabbar-wrap">
+    <div class="tk-tabbar">
+      <button class="tk-tab active" data-tool="jsonfmt" onclick="showPanel('jsonfmt', this)">{ } JSON Formatter</button>
+      <button class="tk-tab" data-tool="jsonval" onclick="showPanel('jsonval', this)">✔ JSON Validator</button>
+      <button class="tk-tab" data-tool="b64" onclick="showPanel('b64', this)">⇄ Base64 Encoder/Decoder</button>
+      <button class="tk-tab" data-tool="urlenc" onclick="showPanel('urlenc', this)">% URL Encoder/Decoder</button>
+      <button class="tk-tab" data-tool="uuid" onclick="showPanel('uuid', this)"># UUID Generator</button>
+      <button class="tk-tab" data-tool="ts" onclick="showPanel('ts', this)">⏱ Timestamp Converter</button>
     </div>
   </div>
 </header>
@@ -235,54 +234,14 @@ th { font-size: 11.5px; text-transform: uppercase; letter-spacing: .03em; color:
   <div class="tk-hero">
     <h1>Developer Toolkit</h1>
     <p>Six no-nonsense utilities for JSON, encoding, and IDs.</p>
-    <div class="tk-badges">
-      <span class="tk-badge">No signup</span>
-      <span class="tk-badge">No account</span>
-      <span class="tk-badge">Works offline once downloaded</span>
-      <span class="tk-badge">Free forever</span>
-    </div>
   </div>
 
-  <div class="tool-grid">
-    <button class="tool-card" onclick="showPanel('jsonfmt')">
-      <div class="ti">{ }</div>
-      <h3>JSON Formatter</h3>
-      <p>Pretty-print or minify JSON.</p>
-    </button>
-<button class="tool-card" onclick="showPanel('jsonval')">
-      <div class="ti">✔</div>
-      <h3>JSON Validator</h3>
-      <p>Check JSON syntax with error details.</p>
-    </button>
-<button class="tool-card" onclick="showPanel('b64')">
-      <div class="ti">⇄</div>
-      <h3>Base64 Encoder/Decoder</h3>
-      <p>Encode or decode Base64 text.</p>
-    </button>
-<button class="tool-card" onclick="showPanel('urlenc')">
-      <div class="ti">%</div>
-      <h3>URL Encoder/Decoder</h3>
-      <p>Encode or decode URL components.</p>
-    </button>
-<button class="tool-card" onclick="showPanel('uuid')">
-      <div class="ti">#</div>
-      <h3>UUID Generator</h3>
-      <p>Generate v4 UUIDs in bulk.</p>
-    </button>
-<button class="tool-card" onclick="showPanel('ts')">
-      <div class="ti">⏱</div>
-      <h3>Timestamp Converter</h3>
-      <p>Unix timestamp &harr; readable date.</p>
-    </button>
-  </div>
-
-  <section class="panel" id="jsonfmt">
+  <section class="panel active" id="jsonfmt">
     <div class="panel-head">
       <div>
         <h2>{ } JSON Formatter</h2>
         <p class="desc">Paste JSON and format or minify it.</p>
       </div>
-      <button class="btn btn-ghost btn-sm" onclick="showGrid()">&larr; All tools</button>
     </div>
     <div class="panel-card">
       
@@ -307,7 +266,6 @@ th { font-size: 11.5px; text-transform: uppercase; letter-spacing: .03em; color:
         <h2>✔ JSON Validator</h2>
         <p class="desc">Paste JSON to check whether it parses cleanly.</p>
       </div>
-      <button class="btn btn-ghost btn-sm" onclick="showGrid()">&larr; All tools</button>
     </div>
     <div class="panel-card">
       
@@ -323,7 +281,6 @@ th { font-size: 11.5px; text-transform: uppercase; letter-spacing: .03em; color:
         <h2>⇄ Base64 Encoder/Decoder</h2>
         <p class="desc">Convert text to and from Base64.</p>
       </div>
-      <button class="btn btn-ghost btn-sm" onclick="showGrid()">&larr; All tools</button>
     </div>
     <div class="panel-card">
       
@@ -347,7 +304,6 @@ th { font-size: 11.5px; text-transform: uppercase; letter-spacing: .03em; color:
         <h2>% URL Encoder/Decoder</h2>
         <p class="desc">Convert text to and from URL-encoded form.</p>
       </div>
-      <button class="btn btn-ghost btn-sm" onclick="showGrid()">&larr; All tools</button>
     </div>
     <div class="panel-card">
       
@@ -370,7 +326,6 @@ th { font-size: 11.5px; text-transform: uppercase; letter-spacing: .03em; color:
         <h2># UUID Generator</h2>
         <p class="desc">Generate one or many version-4 UUIDs.</p>
       </div>
-      <button class="btn btn-ghost btn-sm" onclick="showGrid()">&larr; All tools</button>
     </div>
     <div class="panel-card">
       
@@ -394,7 +349,6 @@ th { font-size: 11.5px; text-transform: uppercase; letter-spacing: .03em; color:
         <h2>⏱ Timestamp Converter</h2>
         <p class="desc">Convert between Unix timestamps and readable dates.</p>
       </div>
-      <button class="btn btn-ghost btn-sm" onclick="showGrid()">&larr; All tools</button>
     </div>
     <div class="panel-card">
       
@@ -426,16 +380,12 @@ th { font-size: 11.5px; text-transform: uppercase; letter-spacing: .03em; color:
 <div class="toast" id="toast"></div>
 
 <script>
-function showPanel(id){
-  document.querySelectorAll('.tool-grid').forEach(g=>g.style.display='none');
+function showPanel(id, btn){
+  document.querySelectorAll('.tk-tab').forEach(t=>t.classList.remove('active'));
+  if(btn){ btn.classList.add('active'); } else { var t=document.querySelector('.tk-tab[data-tool="'+id+'"]'); if(t) t.classList.add('active'); }
   document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
   var p = document.getElementById(id);
   if(p){ p.classList.add('active'); window.scrollTo({top:0,behavior:'smooth'}); }
-}
-function showGrid(){
-  document.querySelectorAll('.tool-grid').forEach(g=>g.style.display='');
-  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
-  window.scrollTo({top:0,behavior:'smooth'});
 }
 function toast(msg){
   var t = document.getElementById('toast');
