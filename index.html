@@ -32,9 +32,11 @@
             --bg-tertiary: #f1f5f9;
             --text-primary: #0f172a;
             --text-secondary: #64748b;
-            --text-muted: #94a3b8;
-            --accent: #6366f1;
-            --accent-hover: #4f46e5;
+            --text-muted: #5b6b82;
+            --accent: #4f46e5;
+            --accent-hover: #4338ca;
+            --accent-solid: #4f46e5;
+            --accent-solid-hover: #4338ca;
             --accent-light: #e0e7ff;
             --accent-glow: rgba(99, 102, 241, 0.12);
             --border: #e2e8f0;
@@ -54,9 +56,11 @@
             --bg-tertiary: #334155;
             --text-primary: #f8fafc;
             --text-secondary: #94a3b8;
-            --text-muted: #64748b;
+            --text-muted: #8b98ac;
             --accent: #818cf8;
             --accent-hover: #a5b4fc;
+            --accent-solid: #4338ca;
+            --accent-solid-hover: #3730a3;
             --accent-light: rgba(129, 140, 248, 0.15);
             --accent-glow: rgba(129, 140, 248, 0.1);
             --border: #334155;
@@ -110,7 +114,7 @@
         .logo-icon {
             width: 32px;
             height: 32px;
-            background: var(--accent);
+            background: var(--accent-solid);
             border-radius: 8px;
             display: flex;
             align-items: center;
@@ -328,7 +332,7 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: var(--accent);
+            background: var(--accent-solid);
             color: white;
             padding: 14px 28px;
             border-radius: 100px;
@@ -341,7 +345,7 @@
             text-decoration: none;
         }
         .btn-primary:hover {
-            background: var(--accent-hover);
+            background: var(--accent-solid-hover);
             transform: translateY(-2px);
             box-shadow: 0 8px 24px var(--accent-glow);
             color: white;
@@ -638,7 +642,7 @@
             right: 24px;
             width: 44px;
             height: 44px;
-            background: var(--accent);
+            background: var(--accent-solid);
             border: none;
             border-radius: 50%;
             color: white;
