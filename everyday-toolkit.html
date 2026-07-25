@@ -3,8 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Everyday Toolkit — ExcuseMeWeb</title>
-<meta name="description" content="Six quick tools for the little tasks that come up every day.">
+<title>Everyday Toolkit — Calculator, Notes, Timer, Stopwatch & Reminders | ExcuseMeWeb</title>
+<meta name="description" content="A calculator, notes, clipboard slots, stopwatch, countdown timer, and reminders in one page. Everything saves locally in your browser.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Everyday Toolkit — Calculator, Notes, Timer, Stopwatch & Reminders">
+<meta property="og:description" content="A calculator, notes, clipboard slots, stopwatch, countdown timer, and reminders in one page.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://excusemeweb.com/everyday-toolkit">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://excusemeweb.com/everyday-toolkit">
+<meta name="theme-color" content="#fbfaf8">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <style>
 :root {
@@ -174,6 +182,27 @@ th { font-size: 11.5px; text-transform: uppercase; letter-spacing: .03em; color:
 </style>
 <script type="application/ld+json">
 {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Everyday Toolkit",
+  "url": "https://excusemeweb.com/everyday-toolkit",
+  "description": "A calculator, notes, clipboard slots, stopwatch, countdown timer, and reminders in one page.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "All",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "ExcuseMeWeb"
+  },
+  "dateModified": "2026-07-25"
+}
+</script>
+<script type="application/ld+json">
+{
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
@@ -237,7 +266,7 @@ th { font-size: 11.5px; text-transform: uppercase; letter-spacing: .03em; color:
 <div class="wrap">
   <div class="tk-hero">
     <h1>Everyday Toolkit</h1>
-    <p>Six quick tools for the little tasks that come up every day.</p>
+    <p>A calculator, notes, clipboard, stopwatch, timer, and reminders — switch between them with the tabs above.</p>
   </div>
 
   <section class="panel active" id="calc">
@@ -308,7 +337,6 @@ th { font-size: 11.5px; text-transform: uppercase; letter-spacing: .03em; color:
     <textarea id="noteBody" placeholder="Start typing..." style="min-height:260px;" oninput="noteSave()"></textarea>
   </div>
 </div>
-<p class="hint">Notes are stored only in this browser (localStorage) — they never leave your device.</p>
 
     </div>
   </section>
@@ -325,7 +353,6 @@ th { font-size: 11.5px; text-transform: uppercase; letter-spacing: .03em; color:
   <button class="btn btn-accent btn-sm" onclick="clipAdd()">+ Add slot</button>
 </div>
 <div id="clipList"></div>
-<p class="hint">Slots are saved to this browser automatically.</p>
 
     </div>
   </section>
@@ -397,7 +424,7 @@ th { font-size: 11.5px; text-transform: uppercase; letter-spacing: .03em; color:
     </div>
   </section>
 
-  <div class="tk-footer">Part of the ExcuseMeWeb All-in-One Toolkit &middot; Everything runs in your browser &middot; Nothing is uploaded anywhere</div>
+  <div class="tk-footer">Part of the ExcuseMeWeb All-in-One Toolkit &middot; Everything on this page runs and saves locally in your browser</div>
 </div>
 
 <div class="toast" id="toast"></div>
