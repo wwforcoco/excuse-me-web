@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Energy Converter — Convert Joules, Calories, kWh, BTU | ExcuseMeWeb</title>
-    <meta name="description" content="Free energy converter for joules, kilojoules, calories, kilocalories, watt-hours, kilowatt-hours, BTU, and foot-pounds. Instant results, no sign-up.">
+    <title>Energy Converter — Joules, Calories, kWh, BTU, Foot-Pounds | ExcuseMeWeb</title>
+    <meta name="description" content="Convert joules, calories, kilocalories, watt-hours, kilowatt-hours, BTU, and foot-pounds instantly. Accurate energy unit conversion for nutrition, electricity bills, and heating/cooling specs.">
     <meta name="robots" content="index, follow">
-    <meta property="og:title" content="Energy Converter — Convert Joules, Calories, kWh, BTU | ExcuseMeWeb">
-    <meta property="og:description" content="Free energy converter for joules, kilojoules, calories, kilocalories, watt-hours, kilowatt-hours, BTU, and foot-pounds. Instant results, no sign-up.">
+    <meta property="og:title" content="Energy Converter — Joules, Calories, kWh, BTU, Foot-Pounds">
+    <meta property="og:description" content="Convert joules, calories, kilocalories, watt-hours, kilowatt-hours, BTU, and foot-pounds instantly.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://excusemeweb.com/og-image.png">
+    <meta property="og:url" content="https://excusemeweb.com/energy-converter">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="canonical" href="https://excusemeweb.com/energy-converter">
     <link rel="icon" href="/favicon.ico">
@@ -19,9 +20,9 @@
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "name": "Energy Converter \u2014 Convert Joules, Calories, kWh, BTU | ExcuseMeWeb",
+  "name": "Energy Converter — Joules, Calories, kWh, BTU, Foot-Pounds",
   "url": "https://excusemeweb.com/energy-converter",
-  "description": "Free energy converter for joules, kilojoules, calories, kilocalories, watt-hours, kilowatt-hours, BTU, and foot-pounds. Instant results, no sign-up.",
+  "description": "Convert joules, calories, kilocalories, watt-hours, kilowatt-hours, BTU, and foot-pounds instantly.",
   "applicationCategory": "UtilitiesApplication",
   "operatingSystem": "All",
   "offers": {
@@ -33,7 +34,7 @@
     "@type": "Organization",
     "name": "ExcuseMeWeb"
   },
-  "dateModified": "2026-07-22"
+  "dateModified": "2026-07-25"
 }
     </script>
     <script type="application/ld+json">
@@ -46,7 +47,7 @@
       "name": "Is a food Calorie the same as a calorie?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A food 'Calorie' (capital C) is actually a kilocalorie, equal to 1,000 small calories. This converter's 'kilocalorie' option matches food-label Calories."
+        "text": "No. A food 'Calorie' (capital C) printed on nutrition labels is actually a kilocalorie, equal to 1,000 small calories. This converter's 'kilocalorie' option is the one that matches food-label Calories."
       }
     },
     {
@@ -54,39 +55,31 @@
       "name": "How many joules are in a kilocalorie?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "One kilocalorie equals 4,184 joules."
+        "text": "One kilocalorie equals 4,184 joules. That's the figure used behind the scenes whenever you convert between kilocalories and any other energy unit here."
       }
     },
     {
       "@type": "Question",
-      "name": "How do I convert my electricity bill's kWh to joules?",
+      "name": "How many BTU are in a kilowatt-hour?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Select kilowatt-hour as the source unit and joule as the target; 1 kWh equals 3,600,000 joules."
+        "text": "1 kilowatt-hour equals approximately 3,412.14 BTU. This is the conversion most often used to compare an appliance's electrical energy use with a heating or cooling rating given in BTU."
       }
     },
     {
       "@type": "Question",
-      "name": "What is a BTU used for?",
+      "name": "What's the difference between BTU and BTU/h?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "BTU (British Thermal Unit) commonly measures heating and cooling capacity, such as air conditioner or furnace output."
+        "text": "BTU measures a fixed amount of energy, while BTU/h (BTU per hour) measures a rate of power over time. An air conditioner rated at 10,000 BTU/h uses 10,000 BTU for every hour it runs, not 10,000 BTU total. This converter works with BTU as an energy amount."
       }
     },
     {
       "@type": "Question",
-      "name": "Can I convert watt-hours to kilowatt-hours?",
+      "name": "What is a foot-pound?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, select watt-hour as the source and kilowatt-hour as the target for an instant conversion."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is this tool free to use?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, completely free with no sign-up or payment required."
+        "text": "A foot-pound is the energy needed to move a one-pound force through a distance of one foot. It's common in mechanical and engineering contexts in the US, such as torque and impact energy ratings."
       }
     }
   ]
@@ -154,7 +147,6 @@ details p { margin-top: 10px; margin-bottom: 0; }
 .result-display { font-size: 1.3rem; font-weight: 700; padding: 12px 14px; border-radius: 10px; border: 1px solid var(--border); background: var(--bg-primary); color: var(--accent); min-height: 48px; display: flex; align-items: center; word-break: break-all; }
 .swap-btn { background: var(--accent); color: #fff; border: none; width: 44px; height: 44px; min-width:44px; border-radius: 50%; font-size: 1.3rem; cursor: pointer; flex-shrink: 0; margin-bottom: 6px; transition: .15s; }
 .swap-btn:hover { background: var(--accent-hover); transform: rotate(180deg); }
-.conv-note { text-align:center; font-size:.82rem; color: var(--text-secondary); margin-top: 16px; }
 .fx-badge { display:inline-flex; align-items:center; gap:6px; font-size:.78rem; color: var(--text-secondary); background: var(--bg-primary); border:1px solid var(--border); padding:5px 10px; border-radius: 999px; }
 .fx-badge.live { color: var(--success); }
 @media (max-width: 768px) {
@@ -219,7 +211,7 @@ details p { margin-top: 10px; margin-bottom: 0; }
 
         <div class="page-header">
             <h1>Energy Converter</h1>
-            <p>Convert between joules, calories, kilowatt-hours, BTU, and more, instantly.</p>
+            <p>Convert between joules, calories, kilowatt-hours, BTU, and more.</p>
         </div>
 
         <div class="converter-box">
@@ -254,44 +246,32 @@ details p { margin-top: 10px; margin-bottom: 0; }
                     </select>
                 </div>
             </div>
-            <p class="conv-note">Conversions run instantly in your browser &mdash; nothing is uploaded or stored.</p>
         </div>
         <div class="info-section">
-            <h2>Convert Energy Units Instantly</h2>
-            <p>This energy converter switches between eight common units, including joules, kilocalories (food Calories), watt-hours, kilowatt-hours, and BTU. Enter a value, choose your units, and get an accurate conversion immediately.</p>
-            <p>Useful for comparing nutrition labels that use kilocalories to scientific units in joules, understanding home energy bills in kWh, or converting heating and cooling capacity listed in BTU.</p>
+            <h2>Convert Energy Units</h2>
+            <p>This tool switches between eight energy units: joules, kilojoules, calories, kilocalories (food Calories), watt-hours, kilowatt-hours, BTU, and foot-pounds. Enter a value and choose your units for an accurate conversion.</p>
+            <p>Common uses include matching nutrition labels (kilocalories) to scientific measurements (joules), reading a home electricity bill in kWh, and comparing heating or cooling equipment rated in BTU.</p>
 
-            <h3>Why Use This Converter</h3>
-            <ul>
-                <li>Works entirely in your browser &mdash; no sign-up, account, or payment</li>
-                <li>Instant results as you type, no submit button required</li>
-                <li>Mobile-friendly layout that works on phones, tablets, and desktops</li>
-                <li>No ads blocking the tool, no pop-ups interrupting your conversion</li>
-            </ul>
             <h3>Frequently Asked Questions</h3>
             <details>
                 <summary>Is a food Calorie the same as a calorie?</summary>
-                <p>A food 'Calorie' (capital C) is actually a kilocalorie, equal to 1,000 small calories. This converter's 'kilocalorie' option matches food-label Calories.</p>
+                <p>No. A food "Calorie" (capital C) printed on nutrition labels is actually a kilocalorie, equal to 1,000 small calories. The "kilocalorie" option in this converter is the one that matches food-label Calories.</p>
             </details>
             <details>
                 <summary>How many joules are in a kilocalorie?</summary>
-                <p>One kilocalorie equals 4,184 joules.</p>
+                <p>One kilocalorie equals 4,184 joules. That's the figure used behind the scenes whenever you convert between kilocalories and any other energy unit here.</p>
             </details>
             <details>
-                <summary>How do I convert my electricity bill's kWh to joules?</summary>
-                <p>Select kilowatt-hour as the source unit and joule as the target; 1 kWh equals 3,600,000 joules.</p>
+                <summary>How many BTU are in a kilowatt-hour?</summary>
+                <p>1 kilowatt-hour equals approximately 3,412.14 BTU. This is the conversion most often used to compare an appliance's electrical energy use with a heating or cooling rating given in BTU.</p>
             </details>
             <details>
-                <summary>What is a BTU used for?</summary>
-                <p>BTU (British Thermal Unit) commonly measures heating and cooling capacity, such as air conditioner or furnace output.</p>
+                <summary>What's the difference between BTU and BTU/h?</summary>
+                <p>BTU measures a fixed amount of energy, while BTU/h (BTU per hour) measures a rate of power over time. An air conditioner rated at 10,000 BTU/h uses 10,000 BTU for every hour it runs, not 10,000 BTU total. This converter works with BTU as an energy amount, not a rate.</p>
             </details>
             <details>
-                <summary>Can I convert watt-hours to kilowatt-hours?</summary>
-                <p>Yes, select watt-hour as the source and kilowatt-hour as the target for an instant conversion.</p>
-            </details>
-            <details>
-                <summary>Is this tool free to use?</summary>
-                <p>Yes, completely free with no sign-up or payment required.</p>
+                <summary>What is a foot-pound?</summary>
+                <p>A foot-pound is the energy needed to move a one-pound force through a distance of one foot. It's common in US mechanical and engineering contexts, such as torque and impact energy ratings.</p>
             </details>
 
             <h3>Related Converters</h3>
