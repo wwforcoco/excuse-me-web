@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fuel Consumption Converter — MPG to L/100km & km/L | ExcuseMeWeb</title>
-    <meta name="description" content="Free fuel economy converter between liters per 100km, miles per gallon (US and UK), and kilometers per liter. Instant, accurate results, no sign-up.">
+    <meta name="description" content="Convert between liters per 100km, miles per gallon (US and UK), and kilometers per liter. Accurate fuel economy conversion, including the US/UK gallon difference.">
     <meta name="robots" content="index, follow">
-    <meta property="og:title" content="Fuel Consumption Converter — MPG to L/100km & km/L | ExcuseMeWeb">
-    <meta property="og:description" content="Free fuel economy converter between liters per 100km, miles per gallon (US and UK), and kilometers per liter. Instant, accurate results, no sign-up.">
+    <meta property="og:title" content="Fuel Consumption Converter — MPG to L/100km & km/L">
+    <meta property="og:description" content="Convert between liters per 100km, miles per gallon (US and UK), and kilometers per liter.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://excusemeweb.com/og-image.png">
+    <meta property="og:url" content="https://excusemeweb.com/fuel-consumption-converter">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="canonical" href="https://excusemeweb.com/fuel-consumption-converter">
     <link rel="icon" href="/favicon.ico">
@@ -19,9 +20,9 @@
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "name": "Fuel Consumption Converter \u2014 MPG to L/100km & km/L | ExcuseMeWeb",
+  "name": "Fuel Consumption Converter — MPG to L/100km & km/L",
   "url": "https://excusemeweb.com/fuel-consumption-converter",
-  "description": "Free fuel economy converter between liters per 100km, miles per gallon (US and UK), and kilometers per liter. Instant, accurate results, no sign-up.",
+  "description": "Convert between liters per 100km, miles per gallon (US and UK), and kilometers per liter.",
   "applicationCategory": "UtilitiesApplication",
   "operatingSystem": "All",
   "offers": {
@@ -33,7 +34,7 @@
     "@type": "Organization",
     "name": "ExcuseMeWeb"
   },
-  "dateModified": "2026-07-22"
+  "dateModified": "2026-07-25"
 }
     </script>
     <script type="application/ld+json">
@@ -71,22 +72,6 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "A higher MPG value means better fuel economy, since the vehicle travels farther per gallon of fuel."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I convert km/L to MPG?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, select kilometers per liter as the source unit and either US or UK miles per gallon as the target."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is this converter free to use?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, completely free with no sign-up or account required."
       }
     }
   ]
@@ -154,7 +139,6 @@ details p { margin-top: 10px; margin-bottom: 0; }
 .result-display { font-size: 1.3rem; font-weight: 700; padding: 12px 14px; border-radius: 10px; border: 1px solid var(--border); background: var(--bg-primary); color: var(--accent); min-height: 48px; display: flex; align-items: center; word-break: break-all; }
 .swap-btn { background: var(--accent); color: #fff; border: none; width: 44px; height: 44px; min-width:44px; border-radius: 50%; font-size: 1.3rem; cursor: pointer; flex-shrink: 0; margin-bottom: 6px; transition: .15s; }
 .swap-btn:hover { background: var(--accent-hover); transform: rotate(180deg); }
-.conv-note { text-align:center; font-size:.82rem; color: var(--text-secondary); margin-top: 16px; }
 .fx-badge { display:inline-flex; align-items:center; gap:6px; font-size:.78rem; color: var(--text-secondary); background: var(--bg-primary); border:1px solid var(--border); padding:5px 10px; border-radius: 999px; }
 .fx-badge.live { color: var(--success); }
 @media (max-width: 768px) {
@@ -219,7 +203,7 @@ details p { margin-top: 10px; margin-bottom: 0; }
 
         <div class="page-header">
             <h1>Fuel Consumption Converter</h1>
-            <p>Convert between L/100km, MPG (US and UK), and km/L instantly.</p>
+            <p>Convert between L/100km, MPG (US and UK), and km/L.</p>
         </div>
 
         <div class="converter-box">
@@ -246,20 +230,11 @@ details p { margin-top: 10px; margin-bottom: 0; }
                     </select>
                 </div>
             </div>
-            <p class="conv-note">L/100km and MPG measure fuel use in opposite directions, so results are calculated, not just scaled.</p>
         </div>
         <div class="info-section">
             <h2>Convert Fuel Economy Figures</h2>
-            <p>Fuel economy is reported differently around the world: Europe typically uses liters per 100 kilometers (L/100km), the US uses miles per gallon (MPG), the UK uses its own imperial MPG, and some countries use kilometers per liter (km/L). Because L/100km measures fuel used per distance while MPG and km/L measure distance per fuel, converting between them isn't a simple multiplication — this tool handles the math correctly.</p>
-            <p>Enter a fuel economy figure, choose your source and target units, and get an accurate converted value instantly. Useful when comparing a car's specifications between US, UK, and metric-market listings.</p>
+            <p>Fuel economy is reported differently around the world: Europe typically uses liters per 100 kilometers (L/100km), the US uses miles per gallon (MPG), the UK uses its own imperial MPG, and some countries use kilometers per liter (km/L). Enter a figure, choose your source and target units, and get an accurate converted value — useful when comparing a car's specs between US, UK, and metric-market listings.</p>
 
-            <h3>Why Use This Converter</h3>
-            <ul>
-                <li>Works entirely in your browser &mdash; no sign-up, account, or payment</li>
-                <li>Instant results as you type, no submit button required</li>
-                <li>Mobile-friendly layout that works on phones, tablets, and desktops</li>
-                <li>No ads blocking the tool, no pop-ups interrupting your conversion</li>
-            </ul>
             <h3>Frequently Asked Questions</h3>
             <details>
                 <summary>Why isn't converting MPG to L/100km a simple multiplication?</summary>
@@ -276,14 +251,6 @@ details p { margin-top: 10px; margin-bottom: 0; }
             <details>
                 <summary>What does a higher MPG number mean?</summary>
                 <p>A higher MPG value means better fuel economy, since the vehicle travels farther per gallon of fuel.</p>
-            </details>
-            <details>
-                <summary>Can I convert km/L to MPG?</summary>
-                <p>Yes, select kilometers per liter as the source unit and either US or UK miles per gallon as the target.</p>
-            </details>
-            <details>
-                <summary>Is this converter free to use?</summary>
-                <p>Yes, completely free with no sign-up or account required.</p>
             </details>
 
             <h3>Related Converters</h3>
