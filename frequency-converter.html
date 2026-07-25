@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Frequency Converter — Convert Hz, kHz, MHz, GHz & RPM | ExcuseMeWeb</title>
-    <meta name="description" content="Free frequency converter for hertz, kilohertz, megahertz, gigahertz, and RPM. Instant, accurate results with no sign-up.">
+    <title>Frequency Converter — Hz, kHz, MHz, GHz & RPM | ExcuseMeWeb</title>
+    <meta name="description" content="Convert hertz, kilohertz, megahertz, gigahertz, and RPM instantly. Accurate frequency conversion for processor speeds, radio bands, and rotational speed.">
     <meta name="robots" content="index, follow">
-    <meta property="og:title" content="Frequency Converter — Convert Hz, kHz, MHz, GHz & RPM | ExcuseMeWeb">
-    <meta property="og:description" content="Free frequency converter for hertz, kilohertz, megahertz, gigahertz, and RPM. Instant, accurate results with no sign-up.">
+    <meta property="og:title" content="Frequency Converter — Hz, kHz, MHz, GHz & RPM">
+    <meta property="og:description" content="Convert hertz, kilohertz, megahertz, gigahertz, and RPM instantly.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://excusemeweb.com/og-image.png">
+    <meta property="og:url" content="https://excusemeweb.com/frequency-converter">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="canonical" href="https://excusemeweb.com/frequency-converter">
     <link rel="icon" href="/favicon.ico">
@@ -19,9 +20,9 @@
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "name": "Frequency Converter \u2014 Convert Hz, kHz, MHz, GHz & RPM | ExcuseMeWeb",
+  "name": "Frequency Converter — Hz, kHz, MHz, GHz & RPM",
   "url": "https://excusemeweb.com/frequency-converter",
-  "description": "Free frequency converter for hertz, kilohertz, megahertz, gigahertz, and RPM. Instant, accurate results with no sign-up.",
+  "description": "Convert hertz, kilohertz, megahertz, gigahertz, and RPM instantly.",
   "applicationCategory": "UtilitiesApplication",
   "operatingSystem": "All",
   "offers": {
@@ -33,7 +34,7 @@
     "@type": "Organization",
     "name": "ExcuseMeWeb"
   },
-  "dateModified": "2026-07-22"
+  "dateModified": "2026-07-25"
 }
     </script>
     <script type="application/ld+json">
@@ -51,42 +52,26 @@
     },
     {
       "@type": "Question",
-      "name": "What does RPM mean in this converter?",
+      "name": "How do you convert RPM to hertz?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "RPM stands for revolutions per minute; since frequency in hertz is cycles per second, 1 Hz equals 60 RPM."
+        "text": "Divide the RPM value by 60. RPM measures revolutions per minute, while hertz measures cycles per second, so 1 Hz equals 60 RPM. It's a common conversion for motors, hard drives, and turntables."
       }
     },
     {
       "@type": "Question",
-      "name": "Can I convert GHz to MHz for a processor spec?",
+      "name": "What's the difference between MHz and GHz for a processor?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, select gigahertz as the source unit and megahertz as the target for an instant conversion."
+        "text": "1 gigahertz equals 1,000 megahertz. Modern processor clock speeds are usually listed in GHz; older or embedded chips are often listed in MHz."
       }
     },
     {
       "@type": "Question",
-      "name": "Is this useful for radio frequency conversions?",
+      "name": "What frequency range do Wi-Fi and radio use?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, hertz through gigahertz cover the range typically used for radio, Wi-Fi, and other wireless frequency specifications."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I convert engine RPM to hertz?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, select RPM as the source unit and hertz as the target to see the equivalent rotational frequency."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is this tool free to use?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, completely free with no sign-up or account required."
+        "text": "Most consumer Wi-Fi runs at 2.4 GHz or 5 GHz, while AM/FM radio broadcasts in the kHz and MHz range. This converter covers all of those units."
       }
     }
   ]
@@ -154,7 +139,6 @@ details p { margin-top: 10px; margin-bottom: 0; }
 .result-display { font-size: 1.3rem; font-weight: 700; padding: 12px 14px; border-radius: 10px; border: 1px solid var(--border); background: var(--bg-primary); color: var(--accent); min-height: 48px; display: flex; align-items: center; word-break: break-all; }
 .swap-btn { background: var(--accent); color: #fff; border: none; width: 44px; height: 44px; min-width:44px; border-radius: 50%; font-size: 1.3rem; cursor: pointer; flex-shrink: 0; margin-bottom: 6px; transition: .15s; }
 .swap-btn:hover { background: var(--accent-hover); transform: rotate(180deg); }
-.conv-note { text-align:center; font-size:.82rem; color: var(--text-secondary); margin-top: 16px; }
 .fx-badge { display:inline-flex; align-items:center; gap:6px; font-size:.78rem; color: var(--text-secondary); background: var(--bg-primary); border:1px solid var(--border); padding:5px 10px; border-radius: 999px; }
 .fx-badge.live { color: var(--success); }
 @media (max-width: 768px) {
@@ -219,7 +203,7 @@ details p { margin-top: 10px; margin-bottom: 0; }
 
         <div class="page-header">
             <h1>Frequency Converter</h1>
-            <p>Convert between hertz, kilohertz, megahertz, gigahertz, and RPM instantly.</p>
+            <p>Convert between hertz, kilohertz, megahertz, gigahertz, and RPM.</p>
         </div>
 
         <div class="converter-box">
@@ -248,44 +232,28 @@ details p { margin-top: 10px; margin-bottom: 0; }
                     </select>
                 </div>
             </div>
-            <p class="conv-note">Conversions run instantly in your browser &mdash; nothing is uploaded or stored.</p>
         </div>
         <div class="info-section">
-            <h2>Convert Frequency Units Instantly</h2>
-            <p>This frequency converter switches between hertz, kilohertz, megahertz, gigahertz, and RPM (revolutions per minute). Enter a value, choose your units, and see the converted frequency calculated immediately.</p>
+            <h2>Convert Frequency Units</h2>
+            <p>This converter switches between hertz, kilohertz, megahertz, gigahertz, and RPM (revolutions per minute). Enter a value and choose your units for an instant, accurate result.</p>
             <p>Useful for understanding processor clock speeds, radio and wireless frequency bands, audio signal specifications, or motor and engine rotational speed.</p>
 
-            <h3>Why Use This Converter</h3>
-            <ul>
-                <li>Works entirely in your browser &mdash; no sign-up, account, or payment</li>
-                <li>Instant results as you type, no submit button required</li>
-                <li>Mobile-friendly layout that works on phones, tablets, and desktops</li>
-                <li>No ads blocking the tool, no pop-ups interrupting your conversion</li>
-            </ul>
             <h3>Frequently Asked Questions</h3>
             <details>
                 <summary>How many hertz are in a kilohertz?</summary>
                 <p>There are 1,000 hertz in one kilohertz.</p>
             </details>
             <details>
-                <summary>What does RPM mean in this converter?</summary>
-                <p>RPM stands for revolutions per minute; since frequency in hertz is cycles per second, 1 Hz equals 60 RPM.</p>
+                <summary>How do you convert RPM to hertz?</summary>
+                <p>Divide the RPM value by 60. RPM measures revolutions per minute, while hertz measures cycles per second, so 1 Hz equals 60 RPM. It's a common conversion for motors, hard drives, and turntables.</p>
             </details>
             <details>
-                <summary>Can I convert GHz to MHz for a processor spec?</summary>
-                <p>Yes, select gigahertz as the source unit and megahertz as the target for an instant conversion.</p>
+                <summary>What's the difference between MHz and GHz for a processor?</summary>
+                <p>1 gigahertz equals 1,000 megahertz. Modern processor clock speeds are usually listed in GHz; older or embedded chips are often listed in MHz.</p>
             </details>
             <details>
-                <summary>Is this useful for radio frequency conversions?</summary>
-                <p>Yes, hertz through gigahertz cover the range typically used for radio, Wi-Fi, and other wireless frequency specifications.</p>
-            </details>
-            <details>
-                <summary>Can I convert engine RPM to hertz?</summary>
-                <p>Yes, select RPM as the source unit and hertz as the target to see the equivalent rotational frequency.</p>
-            </details>
-            <details>
-                <summary>Is this tool free to use?</summary>
-                <p>Yes, completely free with no sign-up or account required.</p>
+                <summary>What frequency range do Wi-Fi and radio use?</summary>
+                <p>Most consumer Wi-Fi runs at 2.4 GHz or 5 GHz, while AM/FM radio broadcasts in the kHz and MHz range. This converter covers all of those units.</p>
             </details>
 
             <h3>Related Converters</h3>
