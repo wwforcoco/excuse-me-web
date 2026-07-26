@@ -27,7 +27,7 @@
       "operatingSystem": "All",
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
       "author": { "@type": "Organization", "name": "ExcuseMeWeb" },
-      "dateModified": "2026-07-22"
+      "dateModified": "2026-07-26"
     }
     </script>
 
@@ -48,18 +48,23 @@
         },
         {
           "@type": "Question",
+          "name": "Does resizing also reduce the file size?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Usually, yes, since fewer pixels generally means fewer bytes, but resizing and compressing are different things. If a form or site caps the file size in KB rather than pixels, use the quality slider or a dedicated compressor after resizing to hit that target." }
+        },
+        {
+          "@type": "Question",
           "name": "Does the ratio lock change my picture's proportions?",
           "acceptedAnswer": { "@type": "Answer", "text": "No. With the lock on, changing the width automatically recalculates the height so the picture is not stretched or squashed." }
         },
         {
           "@type": "Question",
-          "name": "Can I resize a screenshot or a photo taken on a phone?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Any JPG, PNG, or WebP file works, regardless of where it came from or how large the file is." }
+          "name": "Can I resize a photo to match a spec like a profile picture or passport photo?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes, as long as you know the required pixel dimensions. Enter that exact width and height in pixel mode and the image is redrawn to fit, whether it's a social media profile picture, a passport photo, or a size a form asks for." }
         },
         {
           "@type": "Question",
-          "name": "What happens to the picture after I close this page?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Nothing is kept. The resizing happens in your browser memory and is discarded the moment you navigate away." }
+          "name": "Is my photo uploaded to a server?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. The resizing happens entirely in your browser's memory. The file is never sent anywhere, and nothing is kept once you close or navigate away from the page." }
         }
       ]
     }
@@ -140,7 +145,7 @@
         .tool-card h3 { font-size: 1.05rem; margin-bottom: 6px; }
         .tool-card p { color: var(--text-secondary); font-size: 0.85rem; line-height: 1.5; }
         @media (max-width: 768px) { .nav-desktop { display: none; } .hamburger { display: block; } .page-header h1 { font-size: 1.7rem; } }
-    
+
         .breadcrumb { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 20px; }
         .breadcrumb a { color: var(--text-secondary); text-decoration: none; }
         .breadcrumb a:hover { color: var(--accent); text-decoration: underline; }
@@ -202,7 +207,6 @@
             <p>Set an exact width and height, or scale by percentage, and export the resized file.</p>
         </div>
 
-
         <div class="tool-panel">
             <div class="dropzone" id="dz">
                 <div class="main-txt">Drop a picture here, or click to choose one</div>
@@ -213,6 +217,44 @@
                 <div class="preview-wrap"><canvas id="canvas"></canvas></div>
                 <div class="file-meta"><span id="origDims"></span><span id="fileName"></span></div>
                 <div class="controls-row">
+                    <div class="field" style="width:220px">
+                        <label>Preset size</label>
+                        <select id="presetSel" style="width:100%">
+                            <option value="">Custom</option>
+                            <optgroup label="Instagram">
+                                <option value="1080x1080">Square post — 1080×1080</option>
+                                <option value="1080x1350">Portrait post — 1080×1350</option>
+                                <option value="1080x1920">Story / Reel — 1080×1920</option>
+                                <option value="320x320">Profile picture — 320×320</option>
+                            </optgroup>
+                            <optgroup label="Facebook">
+                                <option value="1200x630">Shared post / link — 1200×630</option>
+                                <option value="851x315">Cover photo — 851×315</option>
+                                <option value="320x320">Profile picture — 320×320</option>
+                            </optgroup>
+                            <optgroup label="X (Twitter)">
+                                <option value="1600x900">In-stream image — 1600×900</option>
+                                <option value="1500x500">Header photo — 1500×500</option>
+                                <option value="400x400">Profile picture — 400×400</option>
+                            </optgroup>
+                            <optgroup label="LinkedIn">
+                                <option value="1200x1200">Single image post — 1200×1200</option>
+                                <option value="1584x396">Personal banner — 1584×396</option>
+                                <option value="1128x191">Company page cover — 1128×191</option>
+                            </optgroup>
+                            <optgroup label="YouTube">
+                                <option value="1280x720">Video thumbnail — 1280×720</option>
+                                <option value="2560x1440">Channel banner — 2560×1440</option>
+                            </optgroup>
+                            <optgroup label="Pinterest">
+                                <option value="1000x1500">Standard pin — 1000×1500</option>
+                            </optgroup>
+                            <optgroup label="TikTok">
+                                <option value="1080x1920">Photo post / cover — 1080×1920</option>
+                                <option value="400x400">Profile picture — 400×400</option>
+                            </optgroup>
+                        </select>
+                    </div>
                     <div class="field"><label>Width (px)</label><input type="number" id="wIn" min="1"></div>
                     <div class="field"><label>Height (px)</label><input type="number" id="hIn" min="1"></div>
                     <div class="chk-field"><input type="checkbox" id="lockRatio" checked> Lock ratio</div>
@@ -228,10 +270,9 @@
             </div>
         </div>
 
-
         <div class="info-section">
             <h2>What This Tool Does</h2>
-            <p>This resizer changes the pixel dimensions of a picture. Load a file, choose a target width and height (or a percentage of the original), and the browser redraws the pixels onto a canvas at the new size before you save the result.</p>
+            <p>This resizer changes a picture's pixel dimensions. Load a file, choose a target width and height (or a percentage of the original), and the browser redraws the pixels onto a canvas at the new size before you save the result.</p>
 
             <h3>Steps to Resize a Picture</h3>
             <ol>
@@ -246,9 +287,31 @@
                 <li>Exact pixel width and height, entered separately or locked to one ratio</li>
                 <li>Percentage scaling from 1% up to 400% of the original size</li>
                 <li>Export as JPG, PNG, or WebP regardless of the source format</li>
+                <li>One-click presets for common platform sizes like Instagram, Facebook, LinkedIn, and YouTube</li>
                 <li>A live preview so you see the new dimensions before saving</li>
-                <li>Runs fully in your browser tab, so the picture never leaves your device</li>
             </ul>
+
+            <h3>Common Sizes for Popular Platforms</h3>
+            <p>Pick a preset from the dropdown in the tool above to fill in the exact width and height automatically, or use this table as a reference.</p>
+            <table class="meta-table">
+                <tr><td>Instagram — square post</td><td>1080 × 1080 px (1:1)</td></tr>
+                <tr><td>Instagram — portrait post</td><td>1080 × 1350 px (4:5)</td></tr>
+                <tr><td>Instagram — Story / Reel</td><td>1080 × 1920 px (9:16)</td></tr>
+                <tr><td>Instagram / Facebook — profile picture</td><td>320 × 320 px (1:1)</td></tr>
+                <tr><td>Facebook — shared post / link image</td><td>1200 × 630 px (1.91:1)</td></tr>
+                <tr><td>Facebook — cover photo</td><td>851 × 315 px (2.7:1)</td></tr>
+                <tr><td>X (Twitter) — in-stream image</td><td>1600 × 900 px (16:9)</td></tr>
+                <tr><td>X (Twitter) — header photo</td><td>1500 × 500 px (3:1)</td></tr>
+                <tr><td>X / TikTok — profile picture</td><td>400 × 400 px (1:1)</td></tr>
+                <tr><td>LinkedIn — single image post</td><td>1200 × 1200 px (1:1)</td></tr>
+                <tr><td>LinkedIn — personal banner</td><td>1584 × 396 px (4:1)</td></tr>
+                <tr><td>LinkedIn — company page cover</td><td>1128 × 191 px</td></tr>
+                <tr><td>YouTube — video thumbnail</td><td>1280 × 720 px (16:9)</td></tr>
+                <tr><td>YouTube — channel banner</td><td>2560 × 1440 px (16:9, center-safe 1546 × 423)</td></tr>
+                <tr><td>Pinterest — standard pin</td><td>1000 × 1500 px (2:3)</td></tr>
+                <tr><td>TikTok — photo post / cover</td><td>1080 × 1920 px (9:16)</td></tr>
+            </table>
+            <p style="margin-top:10px">Platforms adjust these from time to time and may display images slightly differently across desktop and mobile. For anything mission-critical, double-check against the platform's current help documentation before publishing.</p>
 
             <h3>Frequently Asked Questions</h3>
             <details>
@@ -260,16 +323,20 @@
                 <p>Pixel mode sets an exact width and height in pixels. Percentage mode scales the current size up or down by a ratio, so 50% produces an image half as wide and half as tall.</p>
             </details>
             <details>
+                <summary>Does resizing also reduce the file size?</summary>
+                <p>Usually, yes, since fewer pixels generally means fewer bytes, but resizing and compressing are different things. If a form or site caps the file size in KB rather than pixels, use the quality slider or a dedicated compressor after resizing to hit that target.</p>
+            </details>
+            <details>
                 <summary>Does the ratio lock change my picture's proportions?</summary>
                 <p>No. With the lock on, changing the width automatically recalculates the height so the picture is not stretched or squashed.</p>
             </details>
             <details>
-                <summary>Can I resize a screenshot or a photo taken on a phone?</summary>
-                <p>Yes. Any JPG, PNG, or WebP file works, regardless of where it came from or how large the file is.</p>
+                <summary>Can I resize a photo to match a spec like a profile picture or passport photo?</summary>
+                <p>Yes, as long as you know the required pixel dimensions. Enter that exact width and height in pixel mode and the image is redrawn to fit, whether it's a social media profile picture, a passport photo, or a size a form asks for.</p>
             </details>
             <details>
-                <summary>What happens to the picture after I close this page?</summary>
-                <p>Nothing is kept. The resizing happens in your browser memory and is discarded the moment you navigate away.</p>
+                <summary>Is my photo uploaded to a server?</summary>
+                <p>No. The resizing happens entirely in your browser's memory. The file is never sent anywhere, and nothing is kept once you close or navigate away from the page.</p>
             </details>
 
             <h3>Related Tools</h3>
@@ -279,14 +346,14 @@
     <footer class="footer">
         <p>© 2026 ExcuseMeWeb.com — Online Tools for Everyone</p>
         <p style="margin-top:8px"><a href="/calculators">Calculators</a> · <a href="/converters">Converters</a> · <a href="/image-tools">Image Tools</a> · <a href="/generators">Generators</a> · <a href="/templates">Templates</a></p>
-            <p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p>
+        <p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p>
     </footer>
     <script>
 
 (function(){
   const dz=document.getElementById('dz'), fi=document.getElementById('fileInput'), ws=document.getElementById('ws');
   const canvas=document.getElementById('canvas'), ctx=canvas.getContext('2d');
-  const wIn=document.getElementById('wIn'), hIn=document.getElementById('hIn'), pctIn=document.getElementById('pctIn');
+  const wIn=document.getElementById('wIn'), hIn=document.getElementById('hIn'), pctIn=document.getElementById('pctIn'), presetSel=document.getElementById('presetSel');
   const lockRatio=document.getElementById('lockRatio'), fmtSel=document.getElementById('fmtSel'), qIn=document.getElementById('qIn');
   const resizeBtn=document.getElementById('resizeBtn'), downloadBtn=document.getElementById('downloadBtn'), resetBtn=document.getElementById('resetBtn');
   const origDims=document.getElementById('origDims'), fileName=document.getElementById('fileName'), qualityField=document.getElementById('qualityField');
@@ -321,6 +388,13 @@
   hIn.addEventListener('input', ()=>{ if(lockRatio.checked && origH) wIn.value = Math.round(hIn.value * (origW/origH)); });
   pctIn.addEventListener('input', ()=>{ if(!pctIn.value) return; wIn.value = Math.round(origW * pctIn.value/100); hIn.value = Math.round(origH * pctIn.value/100); });
   fmtSel.addEventListener('change', ()=>{ qualityField.style.display = fmtSel.value==='image/png' ? 'none':'flex'; });
+
+  presetSel.addEventListener('change', ()=>{
+    if(!presetSel.value) return;
+    const [w,h] = presetSel.value.split('x').map(Number);
+    lockRatio.checked = false;
+    wIn.value = w; hIn.value = h;
+  });
 
   resizeBtn.addEventListener('click', ()=>{
     const w = parseInt(wIn.value)||origW, h = parseInt(hIn.value)||origH;
