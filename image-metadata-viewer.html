@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Metadata Viewer - Check File Info & EXIF Data | ExcuseMeWeb</title>
-    <meta name="description" content="Inspect a picture's file details and, for JPG files, any embedded EXIF data such as camera make, model, and capture date.">
+    <meta name="description" content="View a photo's file details and, for JPG images, embedded EXIF data like camera make, model, and capture date. Runs entirely in your browser.">
     <meta name="robots" content="index, follow">
     <meta property="og:title" content="Image Metadata Viewer">
     <meta property="og:description" content="Check a picture's file details and any embedded EXIF camera data.">
@@ -27,7 +27,7 @@
       "operatingSystem": "All",
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
       "author": { "@type": "Organization", "name": "ExcuseMeWeb" },
-      "dateModified": "2026-07-22"
+      "dateModified": "2026-07-26"
     }
     </script>
 
@@ -38,8 +38,8 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "Why do some pictures show no EXIF data?",
-          "acceptedAnswer": { "@type": "Answer", "text": "EXIF is only embedded by certain devices and software, and many websites strip it out when a photo is uploaded or edited. PNG and WebP files typically don't carry EXIF at all." }
+          "name": "What is EXIF data?",
+          "acceptedAnswer": { "@type": "Answer", "text": "EXIF (Exchangeable Image File Format) is metadata that cameras and phones write directly into a JPG file. It can include the camera make and model, the date and time a photo was taken, exposure settings, and sometimes GPS coordinates." }
         },
         {
           "@type": "Question",
@@ -48,18 +48,23 @@
         },
         {
           "@type": "Question",
-          "name": "Can I remove EXIF data with this tool?",
-          "acceptedAnswer": { "@type": "Answer", "text": "This tool only reads and displays metadata. To strip it, resave the picture through the resizer or compressor tool, which produces a fresh file without the original EXIF block." }
+          "name": "Why do some pictures show no EXIF data?",
+          "acceptedAnswer": { "@type": "Answer", "text": "EXIF is only embedded by certain devices and software, and many websites and messaging apps strip it out when a photo is uploaded, shared, or edited. PNG and WebP files typically don't carry EXIF at all." }
         },
         {
           "@type": "Question",
-          "name": "Why is the file size shown here different from what my computer reports?",
-          "acceptedAnswer": { "@type": "Answer", "text": "They should match exactly, since both read the same underlying file. A mismatch usually means a different file was loaded than expected." }
+          "name": "Does this tool read PNG, WebP, or HEIC files?",
+          "acceptedAnswer": { "@type": "Answer", "text": "File details like size and dimensions are shown for any image type. Camera EXIF data is only read from JPG files, since that's the format cameras and phones actually embed it in. Convert a HEIC photo to JPG first if you need to check its EXIF data." }
         },
         {
           "@type": "Question",
-          "name": "Does this work for screenshots?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes, though screenshots rarely contain camera EXIF data since they aren't captured by a camera sensor." }
+          "name": "Is my photo uploaded to a server?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. This tool reads the file entirely in your browser using JavaScript. The image itself is never sent anywhere, so private photo details stay on your device." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I remove EXIF data from a photo?",
+          "acceptedAnswer": { "@type": "Answer", "text": "This tool only reads and displays metadata. To strip it, resave the picture through an image resizer or compressor, which produces a fresh file without the original EXIF block." }
         }
       ]
     }
@@ -109,7 +114,7 @@
         .field input[type=range] { width: 180px; }
         .field input[type=color] { width: 50px; height: 38px; border: 1px solid var(--border); border-radius: 8px; background: var(--bg-primary); padding: 2px; }
         .chk-field { display: flex; align-items: center; gap: 8px; font-size: 0.88rem; color: var(--text-secondary); }
-        .btn { background: var(--accent); color: #06202f; border: none; padding: 11px 22px; border-radius: 8px; font-weight: 700; font-size: 0.95rem; cursor: pointer; transition: background .15s; }
+        .btn { background: var(--accent); color: #ffffff; border: none; padding: 11px 22px; border-radius: 8px; font-weight: 700; font-size: 0.95rem; cursor: pointer; transition: background .15s; }
         .btn:hover { background: var(--accent-hover); }
         .btn.secondary { background: var(--bg-tertiary); color: var(--text-primary); }
         .btn.secondary:hover { background: var(--border); }
@@ -140,7 +145,7 @@
         .tool-card h3 { font-size: 1.05rem; margin-bottom: 6px; }
         .tool-card p { color: var(--text-secondary); font-size: 0.85rem; line-height: 1.5; }
         @media (max-width: 768px) { .nav-desktop { display: none; } .hamburger { display: block; } .page-header h1 { font-size: 1.7rem; } }
-    
+
         .breadcrumb { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 20px; }
         .breadcrumb a { color: var(--text-secondary); text-decoration: none; }
         .breadcrumb a:hover { color: var(--accent); text-decoration: underline; }
@@ -202,7 +207,6 @@
             <p>Check a picture's file details and any embedded camera data.</p>
         </div>
 
-
         <div class="tool-panel">
             <div class="dropzone" id="dz">
                 <div class="main-txt">Drop a picture here, or click to choose one</div>
@@ -219,10 +223,9 @@
             </div>
         </div>
 
-
         <div class="info-section">
             <h2>What This Tool Does</h2>
-            <p>Beyond the pixels you can see, an image file carries details such as its size, dimensions, and format. JPG files often also carry EXIF data written by a camera or phone, like the make, model, and date a photo was taken. This tool reads and lists whatever of that information is present in your file.</p>
+            <p>An image file carries more than pixels. It also stores basic file properties such as size, dimensions, and format, and JPG files often carry EXIF data written by a camera or phone, including the make, model, and the date a photo was taken. This tool reads and lists whatever of that information is present in your file, entirely in your browser.</p>
 
             <h3>Steps to Check a File</h3>
             <ol>
@@ -236,31 +239,35 @@
             <ul>
                 <li>File name, type, size, and last modified date</li>
                 <li>Pixel width and height read directly from the image</li>
-                <li>EXIF fields such as camera make, model, and capture date when present in a JPG</li>
+                <li>EXIF fields such as camera make, model, exposure, and capture date when present in a JPG</li>
+                <li>GPS coordinates, if the photo has location data embedded</li>
                 <li>A clear note when no EXIF data is found, rather than a blank screen</li>
-                <li>Everything is read locally, so private photo details are never sent anywhere</li>
             </ul>
 
             <h3>Frequently Asked Questions</h3>
             <details>
-                <summary>Why do some pictures show no EXIF data?</summary>
-                <p>EXIF is only embedded by certain devices and software, and many websites strip it out when a photo is uploaded or edited. PNG and WebP files typically don't carry EXIF at all.</p>
+                <summary>What is EXIF data?</summary>
+                <p>EXIF (Exchangeable Image File Format) is metadata that cameras and phones write directly into a JPG file. It can include the camera make and model, the date and time a photo was taken, exposure settings, and sometimes GPS coordinates.</p>
             </details>
             <details>
                 <summary>Does this show my location if the photo has GPS data?</summary>
                 <p>If GPS coordinates are embedded in the file, they will be listed. Be careful sharing such photos publicly if you'd rather not reveal where they were taken.</p>
             </details>
             <details>
-                <summary>Can I remove EXIF data with this tool?</summary>
-                <p>This tool only reads and displays metadata. To strip it, resave the picture through the resizer or compressor tool, which produces a fresh file without the original EXIF block.</p>
+                <summary>Why do some pictures show no EXIF data?</summary>
+                <p>EXIF is only embedded by certain devices and software, and many websites and messaging apps strip it out when a photo is uploaded, shared, or edited. PNG and WebP files typically don't carry EXIF at all.</p>
             </details>
             <details>
-                <summary>Why is the file size shown here different from what my computer reports?</summary>
-                <p>They should match exactly, since both read the same underlying file. A mismatch usually means a different file was loaded than expected.</p>
+                <summary>Does this tool read PNG, WebP, or HEIC files?</summary>
+                <p>File details like size and dimensions are shown for any image type. Camera EXIF data is only read from JPG files, since that's the format cameras and phones actually embed it in. Convert a HEIC photo to JPG first if you need to check its EXIF data.</p>
             </details>
             <details>
-                <summary>Does this work for screenshots?</summary>
-                <p>Yes, though screenshots rarely contain camera EXIF data since they aren't captured by a camera sensor.</p>
+                <summary>Is my photo uploaded to a server?</summary>
+                <p>No. This tool reads the file entirely in your browser using JavaScript. The image itself is never sent anywhere, so private photo details stay on your device.</p>
+            </details>
+            <details>
+                <summary>Can I remove EXIF data from a photo?</summary>
+                <p>This tool only reads and displays metadata. To strip it, resave the picture through an image resizer or compressor, which produces a fresh file without the original EXIF block.</p>
             </details>
 
             <h3>Related Tools</h3>
@@ -270,7 +277,7 @@
     <footer class="footer">
         <p>© 2026 ExcuseMeWeb.com — Online Tools for Everyone</p>
         <p style="margin-top:8px"><a href="/calculators">Calculators</a> · <a href="/converters">Converters</a> · <a href="/image-tools">Image Tools</a> · <a href="/generators">Generators</a> · <a href="/templates">Templates</a></p>
-            <p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p>
+        <p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p>
     </footer>
     <script>
 
