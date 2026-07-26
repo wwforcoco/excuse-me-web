@@ -27,7 +27,7 @@
       "operatingSystem": "All",
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
       "author": { "@type": "Organization", "name": "ExcuseMeWeb" },
-      "dateModified": "2026-07-22"
+      "dateModified": "2026-07-26"
     }
     </script>
 
@@ -38,13 +38,13 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "Why does the canvas size change after rotating?",
-          "acceptedAnswer": { "@type": "Answer", "text": "At angles other than 0, 90, 180, or 270 degrees, a rotated rectangle needs a larger bounding box to fit without cutting off corners, so the canvas expands to hold the whole picture." }
+          "name": "Does rotating affect picture quality?",
+          "acceptedAnswer": { "@type": "Answer", "text": "A 90, 180, or 270 degree turn does not lose any detail, since each pixel just moves to a new grid position. Other angles involve some pixel resampling, similar to resizing, which can slightly soften fine detail." }
         },
         {
           "@type": "Question",
-          "name": "Can I rotate by an exact number like 15 degrees?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes, the angle slider lets you pick any whole-degree value in that range." }
+          "name": "Why does the canvas size change after rotating?",
+          "acceptedAnswer": { "@type": "Answer", "text": "At angles other than 0, 90, 180, or 270 degrees, a rotated rectangle needs a larger bounding box to fit without cutting off corners, so the canvas expands to hold the whole picture." }
         },
         {
           "@type": "Question",
@@ -53,13 +53,18 @@
         },
         {
           "@type": "Question",
-          "name": "Does rotating affect picture quality?",
-          "acceptedAnswer": { "@type": "Answer", "text": "A 90, 180, or 270 degree turn does not lose any detail. Other angles involve some pixel resampling, similar to resizing." }
+          "name": "Can I rotate by an exact number like 15 degrees?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes, the angle slider lets you pick any whole-degree value from -180 to 180." }
         },
         {
           "@type": "Question",
-          "name": "Can I rotate a picture back after saving it?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes, load the downloaded file back into this tool and rotate it the opposite direction." }
+          "name": "Can I flip my image as well as rotate it?",
+          "acceptedAnswer": { "@type": "Answer", "text": "This tool handles rotation only. For a horizontal or vertical mirror flip, use the separate Image Flip tool, either before or after rotating." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my photo uploaded to a server?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. Rotation happens entirely in your browser using the Canvas API. The file is never sent anywhere, and nothing is kept once you close or navigate away from the page." }
         }
       ]
     }
@@ -140,7 +145,7 @@
         .tool-card h3 { font-size: 1.05rem; margin-bottom: 6px; }
         .tool-card p { color: var(--text-secondary); font-size: 0.85rem; line-height: 1.5; }
         @media (max-width: 768px) { .nav-desktop { display: none; } .hamburger { display: block; } .page-header h1 { font-size: 1.7rem; } }
-    
+
         .breadcrumb { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 20px; }
         .breadcrumb a { color: var(--text-secondary); text-decoration: none; }
         .breadcrumb a:hover { color: var(--accent); text-decoration: underline; }
@@ -202,7 +207,6 @@
             <p>Turn a sideways photo the right way up, or set a custom rotation angle.</p>
         </div>
 
-
         <div class="tool-panel">
             <div class="dropzone" id="dz">
                 <div class="main-txt">Drop a picture here, or click to choose one</div>
@@ -224,7 +228,6 @@
             </div>
         </div>
 
-
         <div class="info-section">
             <h2>What This Tool Does</h2>
             <p>Photos taken with a phone held sideways, or scanned pages fed in wrong, often need to be turned before they look correct. This tool spins the picture in 90 degree steps or to any exact angle you set, and redraws the canvas so the rotated result is what gets saved.</p>
@@ -243,29 +246,32 @@
                 <li>A free-angle slider from -180 to 180 degrees for fine adjustments</li>
                 <li>The canvas automatically expands so nothing gets clipped at odd angles</li>
                 <li>Keeps the source format for the downloaded file</li>
-                <li>Runs entirely in your browser with no upload step</li>
             </ul>
 
             <h3>Frequently Asked Questions</h3>
             <details>
-                <summary>Why does the canvas size change after rotating?</summary>
-                <p>At angles other than 0, 90, 180, or 270 degrees, a rotated rectangle needs a larger bounding box to fit without cutting off corners, so the canvas expands to hold the whole picture.</p>
+                <summary>Does rotating affect picture quality?</summary>
+                <p>A 90, 180, or 270 degree turn does not lose any detail, since each pixel just moves to a new grid position. Other angles involve some pixel resampling, similar to resizing, which can slightly soften fine detail.</p>
             </details>
             <details>
-                <summary>Can I rotate by an exact number like 15 degrees?</summary>
-                <p>Yes, the angle slider lets you pick any whole-degree value in that range.</p>
+                <summary>Why does the canvas size change after rotating?</summary>
+                <p>At angles other than 0, 90, 180, or 270 degrees, a rotated rectangle needs a larger bounding box to fit without cutting off corners, so the canvas expands to hold the whole picture.</p>
             </details>
             <details>
                 <summary>Will rotating fill the empty corners with a color?</summary>
                 <p>The corners left empty by a non-90-degree rotation are transparent for PNG or WebP output, or white for JPG output.</p>
             </details>
             <details>
-                <summary>Does rotating affect picture quality?</summary>
-                <p>A 90, 180, or 270 degree turn does not lose any detail. Other angles involve some pixel resampling, similar to resizing.</p>
+                <summary>Can I rotate by an exact number like 15 degrees?</summary>
+                <p>Yes, the angle slider lets you pick any whole-degree value from -180 to 180.</p>
             </details>
             <details>
-                <summary>Can I rotate a picture back after saving it?</summary>
-                <p>Yes, load the downloaded file back into this tool and rotate it the opposite direction.</p>
+                <summary>Can I flip my image as well as rotate it?</summary>
+                <p>This tool handles rotation only. For a horizontal or vertical mirror flip, use the separate Image Flip tool, either before or after rotating.</p>
+            </details>
+            <details>
+                <summary>Is my photo uploaded to a server?</summary>
+                <p>No. Rotation happens entirely in your browser using the Canvas API. The file is never sent anywhere, and nothing is kept once you close or navigate away from the page.</p>
             </details>
 
             <h3>Related Tools</h3>
@@ -275,7 +281,7 @@
     <footer class="footer">
         <p>© 2026 ExcuseMeWeb.com — Online Tools for Everyone</p>
         <p style="margin-top:8px"><a href="/calculators">Calculators</a> · <a href="/converters">Converters</a> · <a href="/image-tools">Image Tools</a> · <a href="/generators">Generators</a> · <a href="/templates">Templates</a></p>
-            <p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p>
+        <p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p>
     </footer>
     <script>
 
