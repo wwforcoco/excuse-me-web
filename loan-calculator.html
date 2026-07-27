@@ -8,7 +8,7 @@
     <meta name="description" content="Compute monthly installments, total interest costs, and complete amortization tables for personal loans, auto financing, and student debt. Adjustable term lengths and interest rates.">
     <meta name="robots" content="index, follow">
     <meta property="og:title" content="Loan Calculator — Monthly Payments, Interest & Amortization Schedule">
-    <meta property="og:description" content="Compute monthly installments, total interest costs, and complete amortization tables for personal loans, auto financing, and student debt. Adjustable term lengths and interest rates.">
+    <meta property="og:description" content="Compute monthly installments, total interest costs, and complete amortization tables for personal loans, auto financing, and student debt.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://excusemeweb.com/og-image.png">
     <meta name="twitter:card" content="summary_large_image">
@@ -35,7 +35,7 @@
     "@type": "Organization",
     "name": "ExcuseMeWeb"
   },
-  "dateModified": "2026-07-22"
+  "dateModified": "2026-07-26"
 }
     </script>
 
@@ -58,6 +58,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "It applies the standard amortization formula: P × [r(1+r)^n] ÷ [(1+r)^n - 1], where P equals principal, r equals monthly rate, and n equals total payments."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the difference between interest rate and APR?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The interest rate reflects only the cost of borrowing the principal. APR (annual percentage rate) rolls in lender fees and other required charges on top of that, so it's usually a little higher and is the better number to use when comparing offers from different lenders."
       }
     },
     {
@@ -247,30 +255,27 @@
             <h2>What Is a Loan Calculator?</h2>
             <p>A loan calculator applies amortization mathematics to determine periodic payment amounts required to retire debt over a specified timeframe. It reveals how much interest accumulates and how principal balances diminish with each installment.</p>
 
+            <h3 style="margin-top:28px;margin-bottom:16px;color:var(--accent);font-size:1.2rem">How to Use This Calculator</h3>
+            <ul style="padding-left:24px">
+                    <li>Enter the loan amount without dollar signs or commas — the tool formats results automatically</li>
+                    <li>Enter the term in years, months, or a combination of both</li>
+                    <li>Enter the interest rate as a percentage (5.5 for 5.5%), not a decimal</li>
+                    <li>Click Calculate to see your monthly payment plus the full amortization table below it</li>
+            </ul>
+
             <h3 style="margin-top:28px;margin-bottom:16px;color:var(--accent);font-size:1.2rem">Common Uses</h3>
             <ul style="padding-left:24px">
                     <li>Comparing monthly affordability across different borrowing amounts</li>
                     <li>Evaluating whether refinancing existing debt would reduce total interest</li>
                     <li>Planning major purchases like vehicles, education, or home improvements</li>
-                    <li>Understanding how extra principal payments accelerate payoff timelines</li>
                     <li>Budgeting for consistent monthly outflows over multi-year periods</li>
             </ul>
 
-            <h3 style="margin-top:28px;margin-bottom:16px;color:var(--accent);font-size:1.2rem">Keyboard Shortcuts</h3>
-            <ul style="padding-left:24px">
-                    <li>Enter loan amount without dollar signs or commas — the tool formats automatically</li>
-                    <li>Specify terms in years; the calculator converts to monthly periods internally</li>
-                    <li>Input interest rates as whole numbers (5.5 for 5.5%) rather than decimals</li>
-                    <li>The amortization table reveals exactly how each payment splits between principal and interest</li>
-                    <li>Export the schedule mentally by noting the monthly payment and total interest figures</li>
-            </ul>
-
-            <h3 style="margin-top:28px;margin-bottom:16px;color:var(--accent);font-size:1.2rem">Pro Tips</h3>
+            <h3 style="margin-top:28px;margin-bottom:16px;color:var(--accent);font-size:1.2rem">Tips to Reduce Interest</h3>
             <ul style="padding-left:24px">
                     <li>Shorter loan terms dramatically reduce total interest paid despite higher monthly obligations</li>
-                    <li>Even small extra principal payments in early years yield substantial long-term savings</li>
-                    <li>Compare APR versus nominal interest rates when shopping for credit products</li>
-                    <li>Biweekly payments (half the monthly amount every two weeks) create an extra full payment annually</li>
+                    <li>Even small extra principal payments in early years yield substantial long-term savings — try adding a fixed amount and see how much sooner the balance hits zero</li>
+                    <li>Biweekly payments (half the monthly amount every two weeks) create an extra full payment annually, which can shave years off longer loans</li>
                     <li>Refinancing makes sense when current rates drop at least 1-2 percentage points below your existing rate</li>
             </ul>
 
@@ -283,6 +288,10 @@
                     <details style="margin-bottom:12px;border:1px solid var(--border);border-radius:8px;padding:16px;background:var(--bg-primary)">
                         <summary style="font-weight:600;color:var(--text-primary);cursor:pointer">How does the calculator determine monthly payments?</summary>
                         <p style="margin-top:12px;color:var(--text-secondary);line-height:1.7">It applies the standard amortization formula: P × [r(1+r)^n] ÷ [(1+r)^n - 1], where P equals principal, r equals monthly rate, and n equals total payments.</p>
+                    </details>
+                    <details style="margin-bottom:12px;border:1px solid var(--border);border-radius:8px;padding:16px;background:var(--bg-primary)">
+                        <summary style="font-weight:600;color:var(--text-primary);cursor:pointer">What's the difference between interest rate and APR?</summary>
+                        <p style="margin-top:12px;color:var(--text-secondary);line-height:1.7">The interest rate reflects only the cost of borrowing the principal. APR (annual percentage rate) rolls in lender fees and other required charges on top of that, so it's usually a little higher and is the better number to use when comparing offers from different lenders.</p>
                     </details>
                     <details style="margin-bottom:12px;border:1px solid var(--border);border-radius:8px;padding:16px;background:var(--bg-primary)">
                         <summary style="font-weight:600;color:var(--text-primary);cursor:pointer">Can I see how much goes to interest versus principal?</summary>
@@ -298,7 +307,7 @@
                     </details>
 
             <h3 style="margin-top:28px;margin-bottom:16px;color:var(--accent);font-size:1.2rem">Explore Related Tools</h3>
-            <p><a href="/calculator">Basic Calculator</a> · <a href="/scientific-calculator">Scientific Calculator</a> · <a href="/percentage-calculator">Percentage Calculator</a> · <a href="/age-calculator">Age Calculator</a> · <a href="/bmi-calculator">BMI Calculator</a> · <a href="/loan-calculator">Loan Calculator</a> · <a href="/mortgage-calculator">Mortgage Calculator</a> · <a href="/date-calculator">Date Calculator</a> · <a href="/compound-interest-calculator">Compound Interest</a> · <a href="/tip-calculator">Tip Calculator</a></p>
+            <p><a href="/calculator">Basic Calculator</a> · <a href="/scientific-calculator">Scientific Calculator</a> · <a href="/percentage-calculator">Percentage Calculator</a> · <a href="/age-calculator">Age Calculator</a> · <a href="/bmi-calculator">BMI Calculator</a> · <a href="/mortgage-calculator">Mortgage Calculator</a> · <a href="/date-calculator">Date Calculator</a> · <a href="/compound-interest-calculator">Compound Interest</a> · <a href="/tip-calculator">Tip Calculator</a></p>
         </div>
     </main>
     <footer class="footer">
