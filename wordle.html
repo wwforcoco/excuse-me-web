@@ -4,11 +4,11 @@
     <script defer src="https://cloud.umami.is/script.js" data-website-id="fa026cc1-8f84-44f5-b2fb-9ccf29374a38"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Wordle - Play Free Online Word Guessing Game | ExcuseMeWeb</title>
-    <meta name="description" content="Play a free Wordle-style word guessing game online. Guess the hidden five-letter word in six tries using color-coded clues. No sign-up, no downloads.">
+    <title>Wordle — Online Word Guessing Game | ExcuseMeWeb</title>
+    <meta name="description" content="Guess the hidden five-letter word in six tries using color-coded clues, then start a new word any time — unlimited play, no daily limit.">
     <meta name="robots" content="index, follow">
-    <meta property="og:title" content="Wordle - Play Free Online Word Game">
-    <meta property="og:description" content="Guess the hidden five-letter word in six tries using color-coded clues. Free and instant.">
+    <meta property="og:title" content="Wordle — Online Word Guessing Game | ExcuseMeWeb">
+    <meta property="og:description" content="Guess the hidden five-letter word in six tries using color-coded clues, then start a new word any time.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://excusemeweb.com/og-image.png">
     <meta name="twitter:card" content="summary_large_image">
@@ -29,7 +29,7 @@
       "operatingSystem": "Web",
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
       "author": { "@type": "Organization", "name": "ExcuseMeWeb" },
-      "dateModified": "2026-07-22"
+      "dateModified": "2026-08-01"
     }
     </script>
     <script type="application/ld+json">
@@ -39,8 +39,13 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "How many guesses do I get?",
-          "acceptedAnswer": { "@type": "Answer", "text": "You have six attempts to guess the hidden five-letter word." }
+          "name": "Can I play more than once?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Unlike the original daily Wordle, this version lets you press New Word any time for a fresh puzzle, so you can play as many rounds as you want." }
+        },
+        {
+          "@type": "Question",
+          "name": "What's a good starting word?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Pick a word with several different common letters, especially vowels — words like CRANE or ADIEU work well because they test a lot of frequently used letters in one guess." }
         },
         {
           "@type": "Question",
@@ -49,13 +54,13 @@
         },
         {
           "@type": "Question",
-          "name": "Can I use my keyboard to type guesses?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes, you can type letters directly on a physical keyboard, or tap the on-screen keyboard shown below the grid on any device." }
+          "name": "How does scoring work when a letter appears more than once in the word?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Correct-position matches are marked green first. Any remaining copies of that letter in your guess are marked yellow only up to how many times it actually appears in the answer — extra copies beyond that are marked gray." }
         },
         {
           "@type": "Question",
-          "name": "How do I start a new word?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Press New Word at any time to get a fresh five-letter word and reset the board." }
+          "name": "Can I use my keyboard to type guesses?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes, you can type letters directly on a physical keyboard, or tap the on-screen keyboard shown below the grid on any device." }
         }
       ]
     }
@@ -216,15 +221,14 @@ details p { margin-top: 10px; margin-bottom: 0; }
 
         <div class="info-section">
             <h2>What Is Wordle?</h2>
-            <p>Wordle is a word-guessing puzzle where you try to identify a hidden five-letter word within six guesses. After each guess, every letter is colored to show whether it's correct, present elsewhere in the word, or not in the word at all, guiding your next attempt.</p>
+            <p>Wordle is a word-guessing puzzle where you try to identify a hidden five-letter word within six guesses. After each guess, every letter is colored to show whether it's correct, present elsewhere in the word, or not in the word at all, guiding your next attempt. This version isn't limited to one puzzle a day — press New Word whenever you want another round.</p>
 
             <h3>How to Play</h3>
-            <ul>
+            <ol>
                 <li>Type a five-letter word using your keyboard or the on-screen keys, then press Enter</li>
-                <li>Green tiles mean that letter is in the correct spot</li>
-                <li>Yellow tiles mean the letter is in the word, but in a different position</li>
-                <li>Gray tiles mean the letter does not appear in the word at all</li>
-            </ul>
+                <li>Check the tile colors after each guess and use them to narrow down the word</li>
+                <li>Keep guessing until you find the word or run out of your six attempts</li>
+            </ol>
 
             <h3>Strategy Tips</h3>
             <ul>
@@ -235,20 +239,24 @@ details p { margin-top: 10px; margin-bottom: 0; }
             </ul>
             <h3>Frequently Asked Questions</h3>
             <details>
-                <summary>How many guesses do I get?</summary>
-                <p>You have six attempts to guess the hidden five-letter word.</p>
+                <summary>Can I play more than once?</summary>
+                <p>Yes. Unlike the original daily Wordle, this version lets you press New Word any time for a fresh puzzle, so you can play as many rounds as you want.</p>
+            </details>
+            <details>
+                <summary>What's a good starting word?</summary>
+                <p>Pick a word with several different common letters, especially vowels — words like CRANE or ADIEU work well because they test a lot of frequently used letters in one guess.</p>
             </details>
             <details>
                 <summary>What do the tile colors mean?</summary>
                 <p>Green means the letter is correct and in the right spot, yellow means the letter is in the word but in a different spot, and gray means the letter is not in the word.</p>
             </details>
             <details>
-                <summary>Can I use my keyboard to type guesses?</summary>
-                <p>Yes, you can type letters directly on a physical keyboard, or tap the on-screen keyboard shown below the grid on any device.</p>
+                <summary>How does scoring work when a letter appears more than once in the word?</summary>
+                <p>Correct-position matches are marked green first. Any remaining copies of that letter in your guess are marked yellow only up to how many times it actually appears in the answer — extra copies beyond that are marked gray.</p>
             </details>
             <details>
-                <summary>How do I start a new word?</summary>
-                <p>Press New Word at any time to get a fresh five-letter word and reset the board.</p>
+                <summary>Can I use my keyboard to type guesses?</summary>
+                <p>Yes, you can type letters directly on a physical keyboard, or tap the on-screen keyboard shown below the grid on any device.</p>
             </details>
 
             <h3>Related Games</h3>
