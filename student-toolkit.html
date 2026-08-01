@@ -4,8 +4,18 @@
     <script defer src="https://cloud.umami.is/script.js" data-website-id="fa026cc1-8f84-44f5-b2fb-9ccf29374a38"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Student Toolkit — ExcuseMeWeb</title>
-<meta name="description" content="Six tools built for classwork, study sessions, and group projects.">
+<title>Student Toolkit — GPA, Grade & Study Tools | ExcuseMeWeb</title>
+<meta name="description" content="Six free tools for classwork and study: GPA calculator, grade calculator, percentage calculator, Pomodoro timer, study timer, and random name picker.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Student Toolkit — GPA, Grade & Study Tools | ExcuseMeWeb">
+<meta property="og:description" content="Six free tools for classwork and study: GPA calculator, grade calculator, percentage calculator, Pomodoro timer, study timer, and random name picker.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://excusemeweb.com/student-toolkit">
+<meta property="og:image" content="https://excusemeweb.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://excusemeweb.com/student-toolkit">
+<link rel="icon" href="/favicon.ico">
+<meta name="theme-color" content="#f7f9fc">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <style>
 :root {
@@ -168,6 +178,13 @@ th { font-size: 11.5px; text-transform: uppercase; letter-spacing: .03em; color:
 @media (max-width: 640px) { .timer-display { font-size: 46px; } }
 
 .course-row{display:grid;grid-template-columns:1fr 90px 100px 34px;gap:8px;margin-bottom:8px;align-items:center;} .grade-row{display:grid;grid-template-columns:1fr 90px 90px 34px;gap:8px;margin-bottom:8px;align-items:center;} @media(max-width:640px){.course-row,.grade-row{grid-template-columns:1fr;}}
+
+.tk-info { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 30px; margin: 6px 0 40px; }
+.tk-info h2 { font-size: 20px; margin: 0 0 6px; }
+.tk-info p { color: var(--text-muted); font-size: 14px; line-height: 1.7; }
+.tk-info details { margin-top: 10px; border: 1px solid var(--border); border-radius: 9px; padding: 13px 15px; background: var(--bg); }
+.tk-info summary { font-weight: 700; font-size: 14px; cursor: pointer; }
+.tk-info details p { margin: 8px 0 0; }
 </style>
 <script type="application/ld+json">
 {
@@ -193,6 +210,35 @@ th { font-size: 11.5px; text-transform: uppercase; letter-spacing: .03em; color:
             "item": "https://excusemeweb.com/student-toolkit"
         }
     ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Student Toolkit",
+  "url": "https://excusemeweb.com/student-toolkit",
+  "description": "Six free tools for classwork and study: GPA calculator, grade calculator, percentage calculator, Pomodoro timer, study timer, and random name picker.",
+  "applicationCategory": "EducationApplication",
+  "operatingSystem": "All",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": { "@type": "Organization", "name": "ExcuseMeWeb" },
+  "dateModified": "2026-07-29"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "What's the difference between a weighted and unweighted GPA?", "acceptedAnswer": { "@type": "Answer", "text": "An unweighted GPA gives every course the same value regardless of difficulty. A weighted GPA, which this calculator produces, factors in credit hours so a 4-credit course counts for more than a 1-credit course in your overall average." } },
+    { "@type": "Question", "name": "Why do my grade category weights need to add up to 100%?", "acceptedAnswer": { "@type": "Answer", "text": "The grade calculator turns each category's weight into a share of your final grade. If the weights don't total 100%, the categories you've entered don't represent your whole grade yet, so the result will be off until they do." } },
+    { "@type": "Question", "name": "What is a good GPA?", "acceptedAnswer": { "@type": "Answer", "text": "On the standard 4.0 scale, a 3.5 or higher is generally considered strong, and a 3.7+ is competitive for selective programs. What counts as 'good' still depends on your school's grading scale and the courses you're taking." } },
+    { "@type": "Question", "name": "How does the Pomodoro Technique actually help with studying?", "acceptedAnswer": { "@type": "Answer", "text": "Working in short, focused intervals with regular breaks reduces mental fatigue and makes it easier to sustain concentration over a long study session, rather than burning out partway through." } },
+    { "@type": "Question", "name": "Is my data saved anywhere when I use these tools?", "acceptedAnswer": { "@type": "Answer", "text": "Everything runs locally in your browser. Your study log is kept only on your own device so you can review past sessions, and none of your course, grade, or name-list data is sent anywhere." } }
+  ]
 }
 </script>
 
@@ -402,7 +448,32 @@ Riley</textarea>
     </div>
   </section>
 
-  <div class="tk-footer">Part of the ExcuseMeWeb All-in-One Toolkit &middot; Everything runs in your browser &middot; Nothing is uploaded anywhere</div>
+  <div class="tk-info">
+    <h2>About This Toolkit</h2>
+    <p>Each tool above runs entirely in your browser, so course names, grades, and your study log stay on your own device.</p>
+
+    <details>
+      <summary>What's the difference between a weighted and unweighted GPA?</summary>
+      <p>An unweighted GPA gives every course the same value regardless of difficulty. A weighted GPA, which this calculator produces, factors in credit hours so a 4-credit course counts for more than a 1-credit course in your overall average.</p>
+    </details>
+    <details>
+      <summary>Why do my grade category weights need to add up to 100%?</summary>
+      <p>The grade calculator turns each category's weight into a share of your final grade. If the weights don't total 100%, the categories you've entered don't represent your whole grade yet, so the result will be off until they do.</p>
+    </details>
+    <details>
+      <summary>What is a good GPA?</summary>
+      <p>On the standard 4.0 scale, a 3.5 or higher is generally considered strong, and a 3.7+ is competitive for selective programs. What counts as "good" still depends on your school's grading scale and the courses you're taking.</p>
+    </details>
+    <details>
+      <summary>How does the Pomodoro Technique actually help with studying?</summary>
+      <p>Working in short, focused intervals with regular breaks reduces mental fatigue and makes it easier to sustain concentration over a long study session, rather than burning out partway through.</p>
+    </details>
+    <details>
+      <summary>Is my data saved anywhere when I use these tools?</summary>
+      <p>Everything runs locally in your browser. Your study log is kept only on your own device so you can review past sessions, and none of your course, grade, or name-list data is sent anywhere.</p>
+    </details>
+  </div>
+
 </div>
 
 <div class="toast" id="toast"></div>
