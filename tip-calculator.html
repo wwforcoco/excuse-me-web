@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tip Calculator — Gratuity Splitter & Bill Divider | ExcuseMeWeb</title>
-    <meta name="description" content="Determine appropriate gratuity amounts for dining, delivery, and personal services. Split bills evenly among groups and calculate per-person contributions including tip.">
+    <meta name="description" content="Calculate gratuity for dining, delivery, and personal services, and split the bill evenly among a group with per-person totals.">
     <meta name="robots" content="index, follow">
     <meta property="og:title" content="Tip Calculator — Gratuity Splitter & Bill Divider">
-    <meta property="og:description" content="Determine appropriate gratuity amounts for dining, delivery, and personal services. Split bills evenly among groups and calculate per-person contributions including tip.">
+    <meta property="og:description" content="Calculate gratuity for dining, delivery, and personal services, and split the bill evenly among a group with per-person totals.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://excusemeweb.com/og-image.png">
     <meta name="twitter:card" content="summary_large_image">
@@ -23,7 +23,7 @@
   "@type": "WebApplication",
   "name": "Tip Calculator",
   "url": "https://excusemeweb.com/tip-calculator",
-  "description": "Determine appropriate gratuity amounts for dining, delivery, and personal services. Split bills evenly among groups and calculate per-person contributions including tip.",
+  "description": "Calculate gratuity for dining, delivery, and personal services, and split the bill evenly among a group with per-person totals.",
   "applicationCategory": "Calculator",
   "operatingSystem": "All",
   "offers": {
@@ -35,7 +35,7 @@
     "@type": "Organization",
     "name": "ExcuseMeWeb"
   },
-  "dateModified": "2026-07-22"
+  "dateModified": "2026-08-01"
 }
     </script>
 
@@ -46,10 +46,10 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "What percentage should I tip at restaurants?",
+      "name": "What percentage should I tip at a restaurant?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Most diners leave 15-20% for standard service, 25%+ for exceptional experiences, and 10% for subpar encounters."
+        "text": "The old 15% rule has mostly been retired. 18-20% is now the standard baseline for sit-down service in the U.S., with 20%+ for exceptional service and 15% reserved for service that fell short."
       }
     },
     {
@@ -57,23 +57,31 @@
       "name": "Should I tip on the pre-tax or post-tax amount?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Etiquette generally suggests calculating gratuity on the pre-tax subtotal, though many tip on the total for convenience."
+        "text": "Technically the pre-tax subtotal, since the tip is meant to reward the service and tax isn't part of that. In practice the difference is usually pennies, so tipping on the total is fine too."
       }
     },
     {
       "@type": "Question",
-      "name": "How do I split a bill when some people ordered more expensive items?",
+      "name": "Do I still need to tip if gratuity is already included?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "This tool divides evenly. For itemized splits, request separate checks or use a spreadsheet approach."
+        "text": "No, not on top of it. Restaurants often add an automatic gratuity for large parties (usually 8 or more), so check your bill for a service charge line before adding an additional tip."
       }
     },
     {
       "@type": "Question",
-      "name": "Is tipping expected for takeout orders?",
+      "name": "Is tipping expected for takeout or counter service?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Not traditionally required, though 10% or a few dollars acknowledges kitchen staff preparation effort."
+        "text": "It's optional, not required. A few dollars or 10% is a generous way to acknowledge the staff, but no one expects a full restaurant-level tip for a counter order."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much should I tip a delivery driver?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "15-20% is standard, with a $4-6 minimum on smaller orders. Drivers usually cover their own gas and vehicle costs, so a flat percentage on a cheap order can end up too low."
       }
     },
     {
@@ -81,7 +89,7 @@
       "name": "What about tipping in other countries?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Tipping customs vary dramatically. Research local norms before traveling, as some cultures view gratuity as insulting."
+        "text": "Customs vary a lot by country. Some places build a service charge into the bill, and in a few, such as Japan, offering a tip can come across as rude. Look up local norms before you travel."
       }
     }
   ]
@@ -128,9 +136,16 @@
         .result-card .label { color: var(--text-secondary); font-size: 0.85rem; margin-top: 4px; }
         .info-section { background: var(--bg-secondary); border-radius: var(--border-radius); padding: 32px; margin-bottom: 24px; border: 1px solid var(--border); }
         .info-section h2 { font-size: 1.5rem; margin-bottom: 16px; }
+        .info-section h3 { margin-top: 28px; margin-bottom: 16px; color: var(--accent); font-size: 1.2rem; }
         .info-section p, .info-section li { color: var(--text-secondary); line-height: 1.7; margin-bottom: 12px; }
         .info-section ul { padding-left: 24px; }
         .info-section a { color: var(--accent); text-decoration: none; }
+        .tip-table { width: 100%; border-collapse: collapse; margin: 8px 0 20px; }
+        .tip-table th, .tip-table td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); color: var(--text-secondary); font-size: 0.95rem; }
+        .tip-table th { color: var(--text-primary); font-weight: 600; }
+        .faq-item { margin-bottom: 12px; border: 1px solid var(--border); border-radius: 8px; padding: 16px; background: var(--bg-primary); }
+        .faq-item summary { font-weight: 600; color: var(--text-primary); cursor: pointer; }
+        .faq-item p { margin-top: 12px; margin-bottom: 0; }
         .footer { background: var(--bg-secondary); border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--text-secondary); font-size: 0.9rem; }
         .footer a { color: var(--accent); text-decoration: none; }
 
@@ -245,60 +260,50 @@
         <!-- Info Section -->
         <div class="info-section">
             <h2>What Is a Tip Calculator?</h2>
-            <p>A tip calculator determines appropriate gratuity amounts based on service bill totals and cultural percentage norms. It further divides the complete obligation (meal plus tip) among multiple diners to ensure equitable financial contribution.</p>
+            <p>A tip calculator works out how much gratuity to leave based on your bill and a chosen percentage, then splits the total — meal plus tip — evenly across everyone at the table.</p>
 
-            <h3 style="margin-top:28px;margin-bottom:16px;color:var(--accent);font-size:1.2rem">Common Uses</h3>
-            <ul style="padding-left:24px">
-                    <li>Calculating restaurant gratuity after group dining experiences</li>
-                    <li>Determining fair compensation for food delivery personnel</li>
-                    <li>Splitting hospitality bills among friends with different budget constraints</li>
-                    <li>Estimating service charges for salon, spa, and personal care appointments</li>
-                    <li>Budgeting entertainment expenses with accurate tip projections</li>
-            </ul>
+            <h3>How Much Should You Tip?</h3>
+            <table class="tip-table">
+                <thead><tr><th>Service</th><th>Typical tip</th></tr></thead>
+                <tbody>
+                    <tr><td>Sit-down restaurant</td><td>18-20% (pre-tax), more for exceptional service</td></tr>
+                    <tr><td>Counter service / takeout</td><td>Optional — 10% or a few dollars</td></tr>
+                    <tr><td>Food delivery</td><td>15-20%, $4-6 minimum on smaller orders</td></tr>
+                    <tr><td>Taxi / rideshare</td><td>15-20% of the fare</td></tr>
+                    <tr><td>Bartenders</td><td>$1-2 per drink, or 15-20% of the tab</td></tr>
+                    <tr><td>Salon, spa, barber</td><td>15-20% of the service cost</td></tr>
+                </tbody>
+            </table>
+            <p>Always check the bill first — many restaurants add an automatic gratuity for parties of 8 or more, in which case no extra tip is needed on top.</p>
 
-            <h3 style="margin-top:28px;margin-bottom:16px;color:var(--accent);font-size:1.2rem">Keyboard Shortcuts</h3>
-            <ul style="padding-left:24px">
-                    <li>Preset buttons immediately apply 10%, 15%, 18%, 20%, or 25% gratuity rates</li>
-                    <li>Enter custom percentages for specialized service contexts</li>
-                    <li>Adjust the people counter to split obligations evenly or unevenly</li>
-                    <li>Results update in real-time as you modify the bill amount</li>
-                    <li>Round up to the nearest dollar for cleaner cash transactions</li>
-            </ul>
+            <h3>Frequently Asked Questions</h3>
+            <details class="faq-item">
+                <summary>What percentage should I tip at a restaurant?</summary>
+                <p>The old 15% rule has mostly been retired. 18-20% is now the standard baseline for sit-down service in the U.S., with 20%+ for exceptional service and 15% reserved for service that fell short.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Should I tip on the pre-tax or post-tax amount?</summary>
+                <p>Technically the pre-tax subtotal, since the tip is meant to reward the service and tax isn't part of that. In practice the difference is usually pennies, so tipping on the total is fine too.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Do I still need to tip if gratuity is already included?</summary>
+                <p>No, not on top of it. Restaurants often add an automatic gratuity for large parties (usually 8 or more), so check your bill for a service charge line before adding an additional tip.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Is tipping expected for takeout or counter service?</summary>
+                <p>It's optional, not required. A few dollars or 10% is a generous way to acknowledge the staff, but no one expects a full restaurant-level tip for a counter order.</p>
+            </details>
+            <details class="faq-item">
+                <summary>How much should I tip a delivery driver?</summary>
+                <p>15-20% is standard, with a $4-6 minimum on smaller orders. Drivers usually cover their own gas and vehicle costs, so a flat percentage on a cheap order can end up too low.</p>
+            </details>
+            <details class="faq-item">
+                <summary>What about tipping in other countries?</summary>
+                <p>Customs vary a lot by country. Some places build a service charge into the bill, and in a few, such as Japan, offering a tip can come across as rude. Look up local norms before you travel.</p>
+            </details>
 
-            <h3 style="margin-top:28px;margin-bottom:16px;color:var(--accent);font-size:1.2rem">Pro Tips</h3>
-            <ul style="padding-left:24px">
-                    <li>In the United States, 15-20% represents standard restaurant gratuity for satisfactory service</li>
-                    <li>Tip delivery drivers 10-15% or a minimum of $2-3 regardless of order size</li>
-                    <li>For large parties (8+), verify whether gratuity was already included in the check total</li>
-                    <li>Bar service typically warrants $1-2 per drink or 15-20% of the total tab</li>
-                    <li>When service falls below expectations, address concerns with management rather than withholding tip entirely</li>
-            </ul>
-
-            <h3 style="margin-top:28px;margin-bottom:16px;color:var(--accent);font-size:1.2rem">Frequently Asked Questions</h3>
-
-                    <details style="margin-bottom:12px;border:1px solid var(--border);border-radius:8px;padding:16px;background:var(--bg-primary)">
-                        <summary style="font-weight:600;color:var(--text-primary);cursor:pointer">What percentage should I tip at restaurants?</summary>
-                        <p style="margin-top:12px;color:var(--text-secondary);line-height:1.7">Most diners leave 15-20% for standard service, 25%+ for exceptional experiences, and 10% for subpar encounters.</p>
-                    </details>
-                    <details style="margin-bottom:12px;border:1px solid var(--border);border-radius:8px;padding:16px;background:var(--bg-primary)">
-                        <summary style="font-weight:600;color:var(--text-primary);cursor:pointer">Should I tip on the pre-tax or post-tax amount?</summary>
-                        <p style="margin-top:12px;color:var(--text-secondary);line-height:1.7">Etiquette generally suggests calculating gratuity on the pre-tax subtotal, though many tip on the total for convenience.</p>
-                    </details>
-                    <details style="margin-bottom:12px;border:1px solid var(--border);border-radius:8px;padding:16px;background:var(--bg-primary)">
-                        <summary style="font-weight:600;color:var(--text-primary);cursor:pointer">How do I split a bill when some people ordered more expensive items?</summary>
-                        <p style="margin-top:12px;color:var(--text-secondary);line-height:1.7">This tool divides evenly. For itemized splits, request separate checks or use a spreadsheet approach.</p>
-                    </details>
-                    <details style="margin-bottom:12px;border:1px solid var(--border);border-radius:8px;padding:16px;background:var(--bg-primary)">
-                        <summary style="font-weight:600;color:var(--text-primary);cursor:pointer">Is tipping expected for takeout orders?</summary>
-                        <p style="margin-top:12px;color:var(--text-secondary);line-height:1.7">Not traditionally required, though 10% or a few dollars acknowledges kitchen staff preparation effort.</p>
-                    </details>
-                    <details style="margin-bottom:12px;border:1px solid var(--border);border-radius:8px;padding:16px;background:var(--bg-primary)">
-                        <summary style="font-weight:600;color:var(--text-primary);cursor:pointer">What about tipping in other countries?</summary>
-                        <p style="margin-top:12px;color:var(--text-secondary);line-height:1.7">Tipping customs vary dramatically. Research local norms before traveling, as some cultures view gratuity as insulting.</p>
-                    </details>
-
-            <h3 style="margin-top:28px;margin-bottom:16px;color:var(--accent);font-size:1.2rem">Explore Related Tools</h3>
-            <p><a href="/calculator">Basic Calculator</a> · <a href="/scientific-calculator">Scientific Calculator</a> · <a href="/percentage-calculator">Percentage Calculator</a> · <a href="/age-calculator">Age Calculator</a> · <a href="/bmi-calculator">BMI Calculator</a> · <a href="/loan-calculator">Loan Calculator</a> · <a href="/mortgage-calculator">Mortgage Calculator</a> · <a href="/date-calculator">Date Calculator</a> · <a href="/compound-interest-calculator">Compound Interest</a> · <a href="/tip-calculator">Tip Calculator</a></p>
+            <h3>Explore Related Tools</h3>
+            <p><a href="/calculator">Basic Calculator</a> · <a href="/scientific-calculator">Scientific Calculator</a> · <a href="/percentage-calculator">Percentage Calculator</a> · <a href="/age-calculator">Age Calculator</a> · <a href="/bmi-calculator">BMI Calculator</a> · <a href="/loan-calculator">Loan Calculator</a> · <a href="/mortgage-calculator">Mortgage Calculator</a> · <a href="/date-calculator">Date Calculator</a> · <a href="/compound-interest-calculator">Compound Interest</a></p>
         </div>
     </main>
     <footer class="footer">
