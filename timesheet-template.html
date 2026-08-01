@@ -4,11 +4,11 @@
     <script defer src="https://cloud.umami.is/script.js" data-website-id="fa026cc1-8f84-44f5-b2fb-9ccf29374a38"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Timesheet Template — Free, Editable & Ready to Download | ExcuseMeWeb</title>
-    <meta name="description" content="Free weekly timesheet template with automatic hour totals. Log daily hours, then edit and download instantly — no sign-up required.">
+    <title>Weekly Timesheet Template | ExcuseMeWeb</title>
+    <meta name="description" content="Editable weekly timesheet template that totals hours automatically as you enter them. Fill in employee, day, task, and hours, then print or download.">
     <meta name="robots" content="index, follow">
-    <meta property="og:title" content="Timesheet Template — Free, Editable & Ready to Download | ExcuseMeWeb">
-    <meta property="og:description" content="Free weekly timesheet template with automatic hour totals. Log daily hours, then edit and download instantly — no sign-up required.">
+    <meta property="og:title" content="Weekly Timesheet Template | ExcuseMeWeb">
+    <meta property="og:description" content="Editable weekly timesheet template that totals hours automatically as you enter them. Fill in employee, day, task, and hours, then print or download.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://excusemeweb.com/og-image.png">
     <meta name="twitter:card" content="summary_large_image">
@@ -21,7 +21,7 @@
   "@type": "WebApplication",
   "name": "Timesheet Template",
   "url": "https://excusemeweb.com/timesheet-template",
-  "description": "Free weekly timesheet template with automatic hour totals. Log daily hours, then edit and download instantly \u2014 no sign-up required.",
+  "description": "Editable weekly timesheet template that totals hours automatically as you enter them.",
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "All",
   "offers": {
@@ -33,7 +33,7 @@
     "@type": "Organization",
     "name": "ExcuseMeWeb"
   },
-  "dateModified": "2026-07-22"
+  "dateModified": "2026-08-01"
 }
     </script>
     <script type="application/ld+json">
@@ -43,34 +43,42 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Does the weekly total calculate automatically?",
+      "name": "What should a timesheet include?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Enter each entry as Day | Task | Hours and the preview sums the hours column when you click Update Preview."
+        "text": "A basic timesheet needs the employee's name, the week or pay period, and a row for each day showing the task or project worked on and the hours logged. If you bill clients, add a project name to each entry so hours can be tied back to specific work."
       }
     },
     {
       "@type": "Question",
-      "name": "Can I use this for hourly billing to clients?",
+      "name": "How do you calculate total hours on a timesheet?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes \u2014 include the project or task name in each entry so hours can be tied back to specific billable work."
+        "text": "Add up the hours logged for each day in the pay period to get the weekly total. Most employers round entries to the nearest quarter hour (15 minutes) so the totals stay consistent across employees."
       }
     },
     {
       "@type": "Question",
-      "name": "Is this suitable for salaried employees too?",
+      "name": "What's the difference between a timesheet and a time card?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, though it's most commonly used for hourly employees, contractors, or client billing."
+        "text": "A time card typically records the exact clock-in and clock-out times for each shift, while a timesheet summarizes total hours worked per day or task. Timesheets are more common for salaried staff, contractors, and project-based billing."
       }
     },
     {
       "@type": "Question",
-      "name": "Can I download this to submit for payroll?",
+      "name": "Do I need to track overtime separately?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, download as .txt or use Print \u2192 Save as PDF for a formatted timesheet."
+        "text": "If your total for the week goes over your standard schedule (commonly 40 hours), note the extra hours as overtime in a separate entry or column. Check your local labor rules, since overtime pay requirements vary by region."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use this template for client billing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Enter the project or task name alongside the hours for each day, and the weekly total will reflect all billable time so it can be matched against an invoice."
       }
     }
   ]
@@ -98,8 +106,6 @@ body{font-family:var(--font-body);background:var(--bg-primary);color:var(--text-
 .page-header{text-align:center;margin-bottom:28px;}
 .page-header h1{font-size:2.2rem;font-weight:700;margin-bottom:8px;}
 .page-header p{color:var(--text-secondary);font-size:1.05rem;max-width:680px;margin:0 auto;}
-.badges{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:28px;}
-.badge{background:var(--bg-secondary);border:1px solid var(--border);color:var(--text-secondary);font-size:.78rem;font-weight:600;padding:6px 12px;border-radius:20px;}
 .tpl-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;margin-bottom:40px;}
 .panel{background:var(--bg-secondary);border:1px solid var(--border);border-radius:var(--border-radius);padding:24px;}
 .panel h2{font-size:1.1rem;margin-bottom:16px;}
@@ -198,12 +204,6 @@ details p{margin-top:10px;margin-bottom:0;}
             <h1>Timesheet Template</h1>
             <p>Log hours worked each day, with the weekly total calculated automatically.</p>
         </div>
-        <div class="badges">
-            <span class="badge">100% Free</span>
-            <span class="badge">No Sign-Up</span>
-            <span class="badge">No Account Needed</span>
-            <span class="badge">Edit &amp; Download Instantly</span>
-        </div>
 
         <div class="tpl-grid">
             <div class="panel">
@@ -229,29 +229,22 @@ Friday | Client calls | 4</textarea></div>
 
         <div class="info-section">
             <h2>What Is a Timesheet Template?</h2>
-            <p>A timesheet records how many hours were worked on which days and tasks, typically for payroll, billing, or client reporting. This template totals the hours automatically as you enter them.</p>
+            <p>A timesheet records how many hours were worked, on which days, and on which tasks — typically for payroll, client billing, or project reporting. Fill in the fields above and the preview updates with a live total, ready to print or download.</p>
 
-            <h3>How to Use This Template</h3>
-            <ol>
-                <li>Fill in the fields on the left — your entries appear in the live preview.</li>
-                <li>Click "Update Preview" any time you change a field.</li>
-                <li>Click directly inside the preview to fine-tune wording, spacing, or line breaks.</li>
-                <li>Download as a text file, or use Print → Save as PDF for a polished document.</li>
-            </ol>
-
-            <h3>Tips</h3>
+            <h3>Tips for Logging Hours</h3>
             <ul>
                 <li>Log hours daily rather than trying to remember them at the end of the week.</li>
-<li>Note the task or project alongside hours if you bill clients by project.</li>
-<li>Round to the nearest quarter hour for consistency across entries.</li>
-<li>Double-check the weekly total against your own records before submitting.</li>
+                <li>Note the task or project alongside hours if you bill clients by project.</li>
+                <li>Round to the nearest quarter hour for consistency across entries.</li>
+                <li>Double-check the weekly total against your own records before submitting.</li>
             </ul>
 
             <h3>Frequently Asked Questions</h3>
-            <details><summary>Does the weekly total calculate automatically?</summary><p>Yes. Enter each entry as Day | Task | Hours and the preview sums the hours column when you click Update Preview.</p></details>
-<details><summary>Can I use this for hourly billing to clients?</summary><p>Yes — include the project or task name in each entry so hours can be tied back to specific billable work.</p></details>
-<details><summary>Is this suitable for salaried employees too?</summary><p>Yes, though it&#x27;s most commonly used for hourly employees, contractors, or client billing.</p></details>
-<details><summary>Can I download this to submit for payroll?</summary><p>Yes, download as .txt or use Print → Save as PDF for a formatted timesheet.</p></details>
+            <details><summary>What should a timesheet include?</summary><p>A basic timesheet needs the employee's name, the week or pay period, and a row for each day showing the task or project worked on and the hours logged. If you bill clients, add a project name to each entry so hours can be tied back to specific work.</p></details>
+<details><summary>How do you calculate total hours on a timesheet?</summary><p>Add up the hours logged for each day in the pay period to get the weekly total. Most employers round entries to the nearest quarter hour (15 minutes) so the totals stay consistent across employees.</p></details>
+<details><summary>What's the difference between a timesheet and a time card?</summary><p>A time card typically records the exact clock-in and clock-out times for each shift, while a timesheet summarizes total hours worked per day or task. Timesheets are more common for salaried staff, contractors, and project-based billing.</p></details>
+<details><summary>Do I need to track overtime separately?</summary><p>If your total for the week goes over your standard schedule (commonly 40 hours), note the extra hours as overtime in a separate entry or column. Check your local labor rules, since overtime pay requirements vary by region.</p></details>
+<details><summary>Can I use this template for client billing?</summary><p>Yes. Enter the project or task name alongside the hours for each day, and the weekly total will reflect all billable time so it can be matched against an invoice.</p></details>
 
             <h3>Explore Related Templates</h3>
             <p><a href="/expense-report-template">Expense Report Template</a> · <a href="/schedule-template">Schedule Template</a> · <a href="/budget-template">Budget Template</a> · <a href="/templates">All Templates</a></p>
@@ -262,8 +255,7 @@ Friday | Client calls | 4</textarea></div>
         <p style="margin-top:8px"><a href="/calculators">Calculators</a> · <a href="/converters">Converters</a> · <a href="/image-tools">Image Tools</a> · <a href="/generators">Generators</a> · <a href="/templates">Templates</a></p>
             <p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p>
     </footer>
-</body>
-</html>
+
     <script>
 
 function esc(s){ return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
@@ -301,3 +293,5 @@ document.getElementById('txtBtn').addEventListener('click', function(){ download
 window.addEventListener('DOMContentLoaded', renderPreview);
 
     </script>
+</body>
+</html>
