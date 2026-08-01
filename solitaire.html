@@ -4,11 +4,11 @@
     <script defer src="https://cloud.umami.is/script.js" data-website-id="fa026cc1-8f84-44f5-b2fb-9ccf29374a38"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Solitaire - Play Free Klondike Card Game Online | ExcuseMeWeb</title>
-    <meta name="description" content="Play free Klondike Solitaire in your browser. Tap to move cards, build foundations from Ace to King, and use Auto-Complete to finish. No sign-up or downloads.">
+    <title>Solitaire | ExcuseMeWeb</title>
+    <meta name="description" content="Play Klondike Solitaire in your browser. Tap to move cards, build foundations from Ace to King, and use Auto-Complete to finish.">
     <meta name="robots" content="index, follow">
-    <meta property="og:title" content="Solitaire - Play Free Klondike Card Game">
-    <meta property="og:description" content="Classic Klondike card game. Sort a shuffled deck into four foundations. Free and instant, works on mobile.">
+    <meta property="og:title" content="Solitaire | ExcuseMeWeb">
+    <meta property="og:description" content="Classic Klondike card game. Sort a shuffled deck into four foundations, right in your browser.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://excusemeweb.com/og-image.png">
     <meta name="twitter:card" content="summary_large_image">
@@ -128,14 +128,15 @@ details p { margin-top: 10px; margin-bottom: 0; }
 }
 
 
+:root { --sol-card-w: clamp(34px, 12.2vw, 58px); --sol-card-h: calc(var(--sol-card-w) * 1.4138); }
 .sol-board { width: 100%; max-width: 900px; }
-.sol-top-row { display: flex; justify-content: space-between; gap: 8px; margin-bottom: 18px; flex-wrap: wrap; }
-.sol-stock-waste { display: flex; gap: 8px; }
-.sol-foundations { display: flex; gap: 8px; }
-.sol-pile { width: 58px; height: 82px; border-radius: 6px; border: 2px dashed var(--border); position: relative; flex-shrink: 0; }
-.sol-tableau { display: flex; gap: 8px; justify-content: center; }
-.sol-column { width: 58px; min-height: 82px; position: relative; }
-.sol-card { width: 58px; height: 82px; border-radius: 6px; background: var(--bg-primary); border: 1px solid var(--border); box-shadow: 0 1px 3px var(--shadow); position: absolute; left: 0; display: flex; flex-direction: column; justify-content: space-between; padding: 4px 5px; font-weight: 700; font-size: 0.85rem; cursor: pointer; font-family: var(--font-body); }
+.sol-top-row { display: flex; justify-content: space-between; gap: clamp(4px, 1.5vw, 8px); margin-bottom: 18px; flex-wrap: nowrap; }
+.sol-stock-waste { display: flex; gap: clamp(4px, 1.5vw, 8px); }
+.sol-foundations { display: flex; gap: clamp(4px, 1.5vw, 8px); }
+.sol-pile { width: var(--sol-card-w); height: var(--sol-card-h); border-radius: 6px; border: 2px dashed var(--border); position: relative; flex-shrink: 0; }
+.sol-tableau { display: flex; gap: clamp(4px, 1.5vw, 8px); justify-content: center; }
+.sol-column { width: var(--sol-card-w); min-height: var(--sol-card-h); position: relative; flex-shrink: 0; }
+.sol-card { width: var(--sol-card-w); height: var(--sol-card-h); border-radius: 6px; background: var(--bg-primary); border: 1px solid var(--border); box-shadow: 0 1px 3px var(--shadow); position: absolute; left: 0; display: flex; flex-direction: column; justify-content: space-between; padding: 4px 5px; font-weight: 700; font-size: clamp(0.62rem, 2.6vw, 0.85rem); cursor: pointer; font-family: var(--font-body); }
 .sol-card.red { color: #dc2626; }
 .sol-card.black { color: #0f172a; }
 .sol-card.back { background: var(--accent); background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.1) 0 6px, transparent 6px 12px); border-color: var(--accent-hover); cursor: pointer; }
@@ -388,12 +389,12 @@ details p { margin-top: 10px; margin-bottom: 0; }
         });
 
         tableauEl.innerHTML = '';
+        var cardH = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--sol-card-h')) || 82;
+        var OFFSET_STEP = cardH * 0.268;
         tableau.forEach(function(col, ci) {
             var colEl = document.createElement('div');
             colEl.className = 'sol-column';
-            var offset = 0;
-            var OFFSET_STEP = 22;
-            colEl.style.height = (82 + Math.max(0, col.length - 1) * OFFSET_STEP) + 'px';
+            colEl.style.height = (cardH + Math.max(0, col.length - 1) * OFFSET_STEP) + 'px';
             if (!col.length) {
                 colEl.addEventListener('click', function() { onColumnEmptyClick(ci); });
             }
