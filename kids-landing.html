@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Giggle Patch — Kids Brand Landing Page Template</title>
+<meta name="description" content="A playful, colorful landing page template for kids brands, learning apps and play spaces. Free to preview and download as a single HTML file.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://excusemeweb.com/kids-landing">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+    :root{
+        --yellow:#ffd93d; --pink:#ff6b9d; --blue:#4ecdc4; --green:#95e1a3;
+        --cream:#fff9f0; --ink:#2b2440; --muted:#6b6280;
+        --radius:26px; --shadow:0 8px 0 rgba(43,36,64,.12);
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--ink);line-height:1.6;}
+    h1,h2,h3,h4{font-family:'Baloo 2',sans-serif;font-weight:700;}
+    a{color:inherit;text-decoration:none;}
+    .wrap{max-width:1140px;margin:0 auto;padding:0 24px;}
+    section{padding:80px 0;}
+
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:'Baloo 2',sans-serif;font-weight:700;font-size:1.05rem;padding:16px 32px;border-radius:100px;border:3px solid var(--ink);cursor:pointer;box-shadow:0 6px 0 var(--ink);transition:transform .15s,box-shadow .15s;}
+    .btn:active,.btn:hover{transform:translateY(3px);box-shadow:0 3px 0 var(--ink);}
+    .btn.yellow{background:var(--yellow);color:var(--ink);}
+    .btn.pink{background:var(--pink);color:#fff;}
+    .btn.ghost{background:#fff;color:var(--ink);}
+
+    header{position:sticky;top:0;z-index:100;background:var(--cream);border-bottom:3px solid var(--ink);}
+    .hdr{display:flex;align-items:center;justify-content:space-between;padding:16px 0;}
+    .brand{font-size:1.5rem;color:var(--ink);}
+    nav{display:flex;gap:28px;}
+    nav a{font-weight:700;font-size:.95rem;}
+    nav a:hover{color:var(--pink);}
+
+    .hero{text-align:center;padding:80px 0 60px;background:radial-gradient(circle at 20% 20%,var(--yellow) 0,transparent 40%),radial-gradient(circle at 85% 30%,var(--blue) 0,transparent 35%),var(--cream);}
+    .eyebrow{display:inline-flex;background:#fff;border:3px solid var(--ink);padding:8px 18px;border-radius:100px;font-weight:700;font-size:.85rem;text-transform:uppercase;letter-spacing:1px;box-shadow:var(--shadow);margin-bottom:26px;}
+    .hero h1{font-size:clamp(2.6rem,6vw,4rem);line-height:1.1;margin-bottom:20px;}
+    .hero h1 span{color:var(--pink);}
+    .hero p{max-width:520px;margin:0 auto 34px;color:var(--muted);font-size:1.1rem;font-weight:600;}
+    .hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+
+    .section-head{text-align:center;max-width:560px;margin:0 auto 50px;}
+    .section-head .eyebrow{background:var(--green);}
+    .section-head h2{font-size:clamp(1.9rem,4vw,2.6rem);margin-top:16px;}
+
+    .feature-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+    .feature-card{background:#fff;border:3px solid var(--ink);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow);text-align:center;}
+    .feature-icon{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;margin:0 auto 14px;border:3px solid var(--ink);}
+    .feature-card h3{font-size:1.1rem;margin-bottom:8px;}
+    .feature-card p{font-size:.85rem;color:var(--muted);font-weight:600;}
+
+    .path{background:var(--blue);}
+    .path-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+    .path-card{background:var(--cream);border:3px solid var(--ink);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);}
+    .path-card h4{margin-bottom:8px;}
+    .path-card p{font-size:.85rem;color:var(--muted);font-weight:600;}
+
+    .parents{text-align:center;}
+    .parents-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:20px;}
+    .p-card{background:#fff;border:3px solid var(--ink);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow);}
+    .p-card p{font-size:.9rem;color:var(--muted);font-weight:600;font-style:italic;margin-bottom:14px;}
+    .p-name{font-weight:800;}
+
+    .cta{text-align:center;background:var(--pink);color:#fff;border-top:3px solid var(--ink);border-bottom:3px solid var(--ink);}
+    .cta h2{font-size:2.2rem;margin-bottom:14px;}
+    .cta p{margin-bottom:28px;font-weight:600;}
+
+    footer{padding:40px 0;text-align:center;}
+    footer .foot-links{display:flex;gap:22px;justify-content:center;margin-bottom:16px;font-weight:700;font-size:.9rem;}
+    footer .foot-copy{font-size:.85rem;color:var(--muted);font-weight:600;}
+
+    .dl-btn{position:fixed;bottom:22px;right:22px;z-index:200;background:var(--yellow);color:var(--ink);border:3px solid var(--ink);padding:14px 22px;border-radius:100px;font-weight:800;font-size:.9rem;font-family:'Baloo 2',sans-serif;cursor:pointer;box-shadow:0 5px 0 var(--ink);}
+    .dl-btn:hover{transform:translateY(3px);box-shadow:0 2px 0 var(--ink);}
+
+    @media(max-width:860px){
+        nav{display:none;}
+        .feature-grid{grid-template-columns:repeat(2,1fr);}
+        .path-grid{grid-template-columns:1fr;}
+        .parents-grid{grid-template-columns:1fr;}
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <div class="wrap hdr">
+        <div class="brand">Giggle Patch</div>
+        <nav>
+            <a href="#features">What's Inside</a>
+            <a href="#paths">Learning Paths</a>
+            <a href="#parents">For Parents</a>
+        </nav>
+        <a href="#join" class="btn pink" style="padding:10px 22px;font-size:.85rem;box-shadow:0 4px 0 var(--ink);">Start Free</a>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="wrap">
+        <div class="eyebrow">Ages 3 to 10</div>
+        <h1>Learning that feels<br>like <span>playtime.</span></h1>
+        <p>Reading, math, and creativity games built for curious kids, and a dashboard parents actually understand.</p>
+        <div class="hero-btns">
+            <a href="#join" class="btn pink">Start Free Trial</a>
+            <a href="#features" class="btn ghost">See What's Inside</a>
+        </div>
+    </div>
+</section>
+
+<section id="features">
+    <div class="wrap">
+        <div class="section-head">
+            <div class="eyebrow">What's Inside</div>
+            <h2>One app, five subjects</h2>
+        </div>
+        <div class="feature-grid">
+            <div class="feature-card"><div class="feature-icon" style="background:var(--yellow);">Rd</div><h3>Reading</h3><p>Phonics and stories that adjust to reading level.</p></div>
+            <div class="feature-card"><div class="feature-icon" style="background:var(--blue);">Mt</div><h3>Math</h3><p>Number sense games from counting to fractions.</p></div>
+            <div class="feature-card"><div class="feature-icon" style="background:var(--green);">Sc</div><h3>Science</h3><p>Hands-on experiments explained simply.</p></div>
+            <div class="feature-card"><div class="feature-icon" style="background:var(--pink);">Ar</div><h3>Art & Music</h3><p>Drawing, rhythm and creative challenges.</p></div>
+        </div>
+    </div>
+</section>
+
+<section class="path" id="paths">
+    <div class="wrap">
+        <div class="section-head">
+            <div class="eyebrow">How It Works</div>
+            <h2>A path built around your kid</h2>
+        </div>
+        <div class="path-grid">
+            <div class="path-card"><h4>1. Quick Placement</h4><p>A five-minute check finds the right starting point.</p></div>
+            <div class="path-card"><h4>2. Daily Missions</h4><p>Short, game-like lessons that fit into any afternoon.</p></div>
+            <div class="path-card"><h4>3. Progress Reports</h4><p>Parents get a simple weekly summary, no jargon.</p></div>
+        </div>
+    </div>
+</section>
+
+<section class="parents" id="parents">
+    <div class="wrap">
+        <div class="section-head">
+            <div class="eyebrow">For Parents</div>
+            <h2>Ad-free and screen-time friendly</h2>
+        </div>
+        <div class="parents-grid">
+            <div class="p-card"><p>"My daughter asks to do her 'math game' before I even bring it up."</p><div class="p-name">Sarah, mom of 2</div></div>
+            <div class="p-card"><p>"No ads, no pop-ups, no in-app purchases. That alone sold me."</p><div class="p-name">Marcus, dad of 1</div></div>
+            <div class="p-card"><p>"The weekly report actually tells me something useful."</p><div class="p-name">Elena, mom of 3</div></div>
+        </div>
+    </div>
+</section>
+
+<section class="cta" id="join">
+    <div class="wrap">
+        <h2>Ready to give it a try?</h2>
+        <p>Free for 14 days. No credit card needed to start.</p>
+        <a href="#" class="btn yellow">Start Free Trial</a>
+    </div>
+</section>
+
+<footer>
+    <div class="wrap">
+        <div class="foot-links">
+            <a href="#features">What's Inside</a>
+            <a href="#paths">Learning Paths</a>
+            <a href="#parents">For Parents</a>
+        </div>
+        <div class="foot-copy">Template by <a href="https://excusemeweb.com/landing-pages">ExcuseMeWeb</a></div>
+    </div>
+</footer>
+
+<button class="dl-btn" onclick="downloadPage()">Download HTML</button>
+
+<script>
+function downloadPage(){
+    const html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+    const blob = new Blob([html], {type:'text/html'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'kids-landing-page.html';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+}
+</script>
+</body>
+</html>

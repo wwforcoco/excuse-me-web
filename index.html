@@ -4,11 +4,11 @@
     <script defer src="https://cloud.umami.is/script.js" data-website-id="fa026cc1-8f84-44f5-b2fb-9ccf29374a38"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ExcuseMeWeb — Need a Tool? Excuse Me.</title>
-    <meta name="description" content="Simple, fast online tools for everyday tasks. Calculators, image tools, generators, converters, games, and templates. Just useful tools that work.">
+    <title>ExcuseMeWeb — 103 Free Online Tools & Landing Pages</title>
+    <meta name="description" content="A toolbox of 103 browser-based tools across calculators, image tools, generators, converters, templates and games, plus ready-made landing page designs for restaurants, kids brands, beauty and more.">
     <meta name="robots" content="index, follow">
-    <meta property="og:title" content="ExcuseMeWeb — Need a Tool? Excuse Me.">
-    <meta property="og:description" content="Simple, fast online tools for everyday tasks. Just useful tools that work.">
+    <meta property="og:title" content="ExcuseMeWeb — 103 Free Online Tools & Landing Pages">
+    <meta property="og:description" content="Calculators, image tools, generators, converters, templates, games and downloadable landing pages, all in one place.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://excusemeweb.com/og-image.png">
     <meta name="twitter:card" content="summary_large_image">
@@ -23,7 +23,23 @@
       "@type": "WebSite",
       "name": "ExcuseMeWeb",
       "url": "https://excusemeweb.com/",
-      "description": "Simple, fast online tools for everyday tasks. Calculators, image tools, generators, converters, games, and templates."
+      "description": "103 browser-based tools across calculators, image tools, generators, converters, templates and games, plus downloadable landing page designs."
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Do I need an account to use these tools?", "acceptedAnswer": { "@type": "Answer", "text": "No. Every calculator, converter, generator and template opens directly in your browser with nothing to install and no account to create." } },
+        { "@type": "Question", "name": "Are my photos or files uploaded to a server?", "acceptedAnswer": { "@type": "Answer", "text": "The image tools run locally in your browser using the Canvas API. A photo you resize, compress or convert never leaves your device." } },
+        { "@type": "Question", "name": "Are the calculators accurate?", "acceptedAnswer": { "@type": "Answer", "text": "Each calculator uses the standard formula for its task, such as amortization math for loans and mortgages or the standard BMI formula. For major financial or medical decisions, treat the result as a starting point and confirm with a professional." } },
+        { "@type": "Question", "name": "What format do the templates download in?", "acceptedAnswer": { "@type": "Answer", "text": "Templates are web pages you fill in directly. When finished, use your browser's print option and choose Save as PDF to export a ready-to-send document." } },
+        { "@type": "Question", "name": "Can I download the landing page designs?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every landing page has a download button that saves the full HTML file so you can host it yourself or hand it to a developer." } },
+        { "@type": "Question", "name": "Can I use these tools on my phone?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every page is built to work on phones, tablets and desktops without a separate app." } },
+        { "@type": "Question", "name": "Why does each tool have its own short URL?", "acceptedAnswer": { "@type": "Answer", "text": "Short, permanent URLs such as excusemeweb.com/bmi-calculator are easy to bookmark, share or type from memory, and keep each page focused on one task." } },
+        { "@type": "Question", "name": "How many tools does ExcuseMeWeb have?", "acceptedAnswer": { "@type": "Answer", "text": "103 tools across 7 categories: calculators, image tools, generators, converters, templates, games and toolkits, plus a growing set of landing page designs." } }
+      ]
     }
     </script>
     <style>
@@ -663,6 +679,51 @@
         @media (max-width: 900px) {
             .footer-top { grid-template-columns: 1fr 1fr; }
         }
+        .faq {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 80px 24px;
+        }
+        .faq-item {
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            margin-bottom: 12px;
+            background: var(--card-bg);
+            overflow: hidden;
+        }
+        .faq-q {
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            padding: 18px 22px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            font-family: var(--font-body);
+        }
+        .faq-q .faq-arrow { transition: transform 0.2s; color: var(--text-muted); flex-shrink: 0; }
+        .faq-item.open .faq-q .faq-arrow { transform: rotate(180deg); }
+        .faq-a {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.25s ease;
+            padding: 0 22px;
+        }
+        .faq-item.open .faq-a {
+            max-height: 300px;
+            padding: 0 22px 18px;
+        }
+        .faq-a p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
         @media (max-width: 768px) {
             .nav-desktop, .search-box { display: none; }
             .hamburger { display: block; }
@@ -686,22 +747,6 @@
                 ExcuseMeWeb
             </a>
             <nav class="nav-desktop">
-                <div class="nav-item">
-                    <button class="nav-link">Tools <span class="arrow">v</span></button>
-                    <div class="dropdown">
-                        <div class="dropdown-inner">
-                            <a href="/calculator">All Tools</a>
-                            <a href="/calculators">Calculators</a>
-                            <a href="/image-tools">Image Tools</a>
-                            <a href="/generators">Generators</a>
-                            <a href="/converters">Converters</a>
-                            <a href="/time-tools">Time Tools</a>
-                            <a href="/games">Games</a>
-                            <a href="/templates">Templates</a>
-                            <a href="/all-in-one-toolkit">Toolkits</a>
-                        </div>
-                    </div>
-                </div>
                 <div class="nav-item">
                     <button class="nav-link">Calculators <span class="arrow">v</span></button>
                     <div class="dropdown">
@@ -739,11 +784,105 @@
                         </div>
                     </div>
                 </div>
-                <a href="/generators" class="nav-link">Generators</a>
-                <a href="/converters" class="nav-link">Converters</a>
-                <a href="/templates" class="nav-link">Templates</a>
+                <div class="nav-item">
+                    <button class="nav-link">Generators <span class="arrow">v</span></button>
+                    <div class="dropdown">
+                        <div class="dropdown-inner">
+                            <a href="/generators">All Generators</a>
+                            <a href="/password-generator">Password Generator</a>
+                            <a href="/strong-password-generator">Strong Password Generator</a>
+                            <a href="/pin-generator">PIN Generator</a>
+                            <a href="/qr-code-generator">QR Code Generator</a>
+                            <a href="/uuid-generator">UUID Generator</a>
+                            <a href="/random-number-generator">Random Number Generator</a>
+                            <a href="/random-color-generator">Random Color Generator</a>
+                            <a href="/random-name-generator">Random Name Generator</a>
+                            <a href="/random-letter-generator">Random Letter Generator</a>
+                            <a href="/random-decision-generator">Random Decision Generator</a>
+                            <a href="/fake-name-generator">Fake Name Generator</a>
+                            <a href="/username-generator">Username Generator</a>
+                            <a href="/team-generator">Team Generator</a>
+                            <a href="/bio-generator">Bio Generator</a>
+                            <a href="/email-generator">Email Generator</a>
+                            <a href="/word-generator">Word Generator</a>
+                            <a href="/sentence-generator">Sentence Generator</a>
+                            <a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a>
+                            <a href="/ai-prompt-generator">AI Prompt Generator</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <button class="nav-link">Converters <span class="arrow">v</span></button>
+                    <div class="dropdown">
+                        <div class="dropdown-inner">
+                            <a href="/converters">All Converters</a>
+                            <a href="/unit-converter">Unit Converter</a>
+                            <a href="/length-converter">Length Converter</a>
+                            <a href="/weight-converter">Weight Converter</a>
+                            <a href="/temperature-converter">Temperature Converter</a>
+                            <a href="/speed-converter">Speed Converter</a>
+                            <a href="/area-converter">Area Converter</a>
+                            <a href="/volume-converter">Volume Converter</a>
+                            <a href="/time-converter">Time Converter</a>
+                            <a href="/currency-converter">Currency Converter</a>
+                            <a href="/angle-converter">Angle Converter</a>
+                            <a href="/pressure-converter">Pressure Converter</a>
+                            <a href="/energy-converter">Energy Converter</a>
+                            <a href="/power-converter">Power Converter</a>
+                            <a href="/frequency-converter">Frequency Converter</a>
+                            <a href="/data-storage-converter">Data Storage Converter</a>
+                            <a href="/fuel-consumption-converter">Fuel Consumption Converter</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <button class="nav-link">Templates <span class="arrow">v</span></button>
+                    <div class="dropdown">
+                        <div class="dropdown-inner">
+                            <a href="/templates">All Templates</a>
+                            <a href="/resume-template">Resume Template</a>
+                            <a href="/cv-template">CV Template</a>
+                            <a href="/cover-letter-template">Cover Letter Template</a>
+                            <a href="/invoice-template">Invoice Template</a>
+                            <a href="/receipt-template">Receipt Template</a>
+                            <a href="/budget-template">Budget Template</a>
+                            <a href="/planner-template">Planner Template</a>
+                            <a href="/schedule-template">Schedule Template</a>
+                            <a href="/todo-list-template">To-Do List Template</a>
+                            <a href="/checklist-template">Checklist Template</a>
+                            <a href="/business-plan-template">Business Plan Template</a>
+                            <a href="/wedding-invitation-template">Wedding Invitation Template</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <button class="nav-link">Toolkits <span class="arrow">v</span></button>
+                    <div class="dropdown">
+                        <div class="dropdown-inner">
+                            <a href="/all-in-one-toolkit">All-in-One Toolkit</a>
+                            <a href="/business-toolkit">Business Toolkit</a>
+                            <a href="/student-toolkit">Student Toolkit</a>
+                            <a href="/developer-toolkit">Developer Toolkit</a>
+                            <a href="/creator-toolkit">Creator Toolkit</a>
+                            <a href="/social-media-toolkit">Social Media Toolkit</a>
+                            <a href="/everyday-toolkit">Everyday Toolkit</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <button class="nav-link">Landing Pages <span class="arrow">v</span></button>
+                    <div class="dropdown">
+                        <div class="dropdown-inner">
+                            <a href="/landing-pages">All Landing Pages</a>
+                            <a href="/restaurant-landing">Restaurant</a>
+                            <a href="/kids-landing">Kids Brand</a>
+                            <a href="/makeup-landing">Makeup & Beauty</a>
+                            <a href="/fitness-landing">Fitness & Gym</a>
+                            <a href="/real-estate-landing">Real Estate</a>
+                        </div>
+                    </div>
+                </div>
                 <a href="/games" class="nav-link">Games</a>
-                <a href="/all-in-one-toolkit" class="nav-link">Toolkits</a>
             </nav>
             <div class="header-right">
                 <div class="search-box">
@@ -755,43 +894,43 @@
             </div>
         </div>
         <nav class="mobile-nav" id="mobileNav">
-            <a href="/calculator">Tools</a>
             <a href="/calculators">Calculators</a>
             <a href="/image-tools">Image Tools</a>
             <a href="/generators">Generators</a>
             <a href="/converters">Converters</a>
             <a href="/templates">Templates</a>
-            <a href="/games">Games</a>
             <a href="/all-in-one-toolkit">Toolkits</a>
+            <a href="/landing-pages">Landing Pages</a>
+            <a href="/games">Games</a>
         </nav>
     </header>
 
     <section class="hero">
-        <div class="hero-badge">Useful Online Tools</div>
+        <div class="hero-badge">103 Tools, One Site</div>
         <h1>Need a Tool?<br><span class="highlight">Excuse Me.</span></h1>
-        <p>Simple, fast, and reliable online tools for everyday tasks.</p>
+        <p>Calculators, image tools, generators, converters, templates and ready-made landing pages, all in your browser.</p>
         <div class="hero-buttons">
             <a href="#categories" class="btn-primary">Explore Tools</a>
-            <a href="/calculator" class="btn-secondary">Browse Calculators</a>
+            <a href="/landing-pages" class="btn-secondary">Browse Landing Pages</a>
         </div>
     </section>
 
     <div class="stats-bar">
         <div class="stat-item">
-            <div class="stat-number">Free</div>
-            <div class="stat-label">Forever</div>
+            <div class="stat-number">103</div>
+            <div class="stat-label">Tools</div>
         </div>
         <div class="stat-item">
-            <div class="stat-number">Fast</div>
-            <div class="stat-label">Browser Based</div>
+            <div class="stat-number">7</div>
+            <div class="stat-label">Categories</div>
         </div>
         <div class="stat-item">
-            <div class="stat-number">100%</div>
-            <div class="stat-label">Free to Use</div>
+            <div class="stat-number">30</div>
+            <div class="stat-label">Templates</div>
         </div>
         <div class="stat-item">
-            <div class="stat-number">Works</div>
-            <div class="stat-label">Everywhere</div>
+            <div class="stat-number">5</div>
+            <div class="stat-label">Landing Pages</div>
         </div>
     </div>
 
@@ -846,15 +985,37 @@
                     <span class="cat-tag">Currency</span>
                 </div>
             </a>
-            <a href="/time-tools" class="cat-card">
+            <a href="/templates" class="cat-card">
                 <div class="cat-card-header">
-                    <div class="cat-icon">Ti</div>
-                    <h3>Time Tools</h3>
+                    <div class="cat-icon">Te</div>
+                    <h3>Templates</h3>
                 </div>
-                <p>Track and manage time.</p>
+                <p>Fillable document templates you can edit and download.</p>
                 <div class="cat-examples">
-                    <span class="cat-tag">Stopwatch</span>
-                    <span class="cat-tag">Timer</span>
+                    <span class="cat-tag">Resume</span>
+                    <span class="cat-tag">Invoice</span>
+                </div>
+            </a>
+            <a href="/all-in-one-toolkit" class="cat-card">
+                <div class="cat-card-header">
+                    <div class="cat-icon">Tk</div>
+                    <h3>Toolkits</h3>
+                </div>
+                <p>Bundled tool sets for students, developers, and businesses.</p>
+                <div class="cat-examples">
+                    <span class="cat-tag">Business</span>
+                    <span class="cat-tag">Student</span>
+                </div>
+            </a>
+            <a href="/landing-pages" class="cat-card">
+                <div class="cat-card-header">
+                    <div class="cat-icon">Lp</div>
+                    <h3>Landing Pages</h3>
+                </div>
+                <p>Ready-made, downloadable landing page designs for small businesses.</p>
+                <div class="cat-examples">
+                    <span class="cat-tag">Restaurant</span>
+                    <span class="cat-tag">Kids Brand</span>
                 </div>
             </a>
             <a href="/games" class="cat-card">
@@ -866,17 +1027,6 @@
                 <div class="cat-examples">
                     <span class="cat-tag">Snake</span>
                     <span class="cat-tag">Tic Tac Toe</span>
-                </div>
-            </a>
-            <a href="/templates" class="cat-card">
-                <div class="cat-card-header">
-                    <div class="cat-icon">Te</div>
-                    <h3>Templates</h3>
-                </div>
-                <p>Fillable document templates you can edit and download.</p>
-                <div class="cat-examples">
-                    <span class="cat-tag">Resume</span>
-                    <span class="cat-tag">Invoice</span>
                 </div>
             </a>
         </div>
@@ -978,6 +1128,45 @@
         </div>
     </section>
 
+    <section class="faq" id="faq">
+        <div class="section-header">
+            <h2>Common Questions</h2>
+            <p>What people usually ask before they start</p>
+        </div>
+        <div class="faq-item">
+            <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Do I need an account to use these tools?<span class="faq-arrow">v</span></button>
+            <div class="faq-a"><p>No. Every calculator, converter, generator and template opens directly in your browser with nothing to install and no account to create.</p></div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Are my photos or files uploaded to a server?<span class="faq-arrow">v</span></button>
+            <div class="faq-a"><p>The image tools run locally in your browser using the Canvas API. A photo you resize, compress or convert never leaves your device.</p></div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Are the calculators accurate?<span class="faq-arrow">v</span></button>
+            <div class="faq-a"><p>Each calculator uses the standard formula for its task, such as amortization math for loans and mortgages or the standard BMI formula. For major financial or medical decisions, treat the result as a starting point and confirm with a professional.</p></div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">What format do the templates download in?<span class="faq-arrow">v</span></button>
+            <div class="faq-a"><p>Templates are web pages you fill in directly. When finished, use your browser's print option and choose Save as PDF to export a ready-to-send document.</p></div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Can I download the landing page designs?<span class="faq-arrow">v</span></button>
+            <div class="faq-a"><p>Yes. Every landing page has a download button that saves the full HTML file so you can host it yourself or hand it to a developer.</p></div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Can I use these tools on my phone?<span class="faq-arrow">v</span></button>
+            <div class="faq-a"><p>Yes. Every page is built to work on phones, tablets and desktops without a separate app.</p></div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Why does each tool have its own short URL?<span class="faq-arrow">v</span></button>
+            <div class="faq-a"><p>Short, permanent URLs such as excusemeweb.com/bmi-calculator are easy to bookmark, share or type from memory, and keep each page focused on one task.</p></div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">How many tools does ExcuseMeWeb have?<span class="faq-arrow">v</span></button>
+            <div class="faq-a"><p>103 tools across 7 categories: calculators, image tools, generators, converters, templates, games and toolkits, plus a growing set of landing page designs.</p></div>
+        </div>
+    </section>
+
     <footer class="footer">
         <div class="footer-inner">
             <div class="footer-top">
@@ -986,36 +1175,36 @@
                         <span class="logo-icon">EM</span>
                         ExcuseMeWeb
                     </div>
-                    <p class="footer-desc">Simple, fast online tools for everyday tasks. Built for people who need things done.</p>
+                    <p class="footer-desc">103 browser-based tools and downloadable landing pages. Built for people who need things done.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Product</h4>
-                    <a href="/calculator">All Tools</a>
                     <a href="/calculators">Calculators</a>
                     <a href="/image-tools">Image Tools</a>
                     <a href="/generators">Generators</a>
                     <a href="/converters">Converters</a>
-                    <a href="/time-tools">Time Tools</a>
                     <a href="/templates">Templates</a>
-                    <a href="/games">Games</a>
                     <a href="/all-in-one-toolkit">Toolkits</a>
+                    <a href="/games">Games</a>
                 </div>
                 <div class="footer-col">
-                    <h4>Company</h4>
-                    <a href="/about">About</a>
-                    <a href="/contact">Contact</a>
+                    <h4>Landing Pages</h4>
+                    <a href="/landing-pages">All Landing Pages</a>
+                    <a href="/restaurant-landing">Restaurant</a>
+                    <a href="/kids-landing">Kids Brand</a>
+                    <a href="/makeup-landing">Makeup & Beauty</a>
+                    <a href="/fitness-landing">Fitness & Gym</a>
+                    <a href="/real-estate-landing">Real Estate</a>
                 </div>
                 <div class="footer-col">
-                    <h4>Legal</h4>
-                    <a href="/privacy">Privacy Policy</a>
-                    <a href="/terms">Terms of Service</a>
+                    <h4>Site</h4>
+                    <a href="/sitemap">Sitemap</a>
                 </div>
             </div>
             <div class="footer-bottom">
                 <div class="footer-copy">2026 ExcuseMeWeb</div>
             </div>
         </div>
-            <p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p>
     </footer>
 
     <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">^</button>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harbor & Stone — Real Estate Landing Page Template</title>
+<meta name="description" content="A clean, upscale landing page template for real estate agents and brokers. Free to preview and download as a single HTML file.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://excusemeweb.com/real-estate-landing">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+    :root{
+        --navy:#0f1f33; --navy-light:#1c3350; --gold:#c9a15a; --gold-light:#e0c690;
+        --bg:#fbfaf7; --text:#0f1f33; --muted:#5c6a7a; --border:#e4e0d6;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
+    h1,h2,h3{font-family:'Cormorant',serif;font-weight:600;}
+    a{color:inherit;text-decoration:none;}
+    .wrap{max-width:1160px;margin:0 auto;padding:0 24px;}
+    section{padding:90px 0;}
+
+    header{position:sticky;top:0;z-index:100;background:rgba(251,250,247,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);}
+    .hdr{display:flex;align-items:center;justify-content:space-between;padding:20px 0;}
+    .brand{font-family:'Cormorant',serif;font-size:1.6rem;font-weight:700;letter-spacing:.5px;}
+    .brand span{color:var(--gold);}
+    nav{display:flex;gap:32px;}
+    nav a{font-size:.85rem;font-weight:500;color:var(--muted);}
+    nav a:hover{color:var(--navy);}
+    .btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:.85rem;padding:14px 28px;border-radius:2px;border:1px solid var(--navy);cursor:pointer;transition:.2s;background:transparent;color:var(--navy);}
+    .btn:hover{background:var(--navy);color:#fff;}
+    .btn.solid{background:var(--navy);color:#fff;}
+    .btn.solid:hover{background:var(--navy-light);}
+
+    .hero{padding:110px 0 90px;background:linear-gradient(180deg,#fff,var(--bg));}
+    .hero-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center;}
+    .kicker{font-size:.8rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:18px;}
+    .hero h1{font-size:clamp(2.4rem,5vw,3.6rem);line-height:1.15;margin-bottom:22px;}
+    .hero p{color:var(--muted);max-width:440px;margin-bottom:34px;}
+    .hero-img{aspect-ratio:4/3;border-radius:4px;background:linear-gradient(150deg,var(--navy),var(--navy-light));display:flex;align-items:center;justify-content:center;color:var(--gold-light);font-size:.85rem;}
+
+    .search-bar{background:#fff;border:1px solid var(--border);border-radius:4px;padding:20px;display:flex;gap:14px;margin-top:40px;box-shadow:0 8px 24px rgba(15,31,51,.06);}
+    .search-bar input,.search-bar select{flex:1;border:none;font-family:'Inter',sans-serif;font-size:.9rem;padding:10px;background:none;color:var(--text);}
+    .search-bar input:focus,.search-bar select:focus{outline:none;}
+
+    .section-head{text-align:center;max-width:560px;margin:0 auto 56px;}
+    .section-head h2{font-size:clamp(2rem,4vw,2.8rem);}
+    .section-head p{color:var(--muted);margin-top:12px;}
+
+    .listings-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+    .listing-card{background:#fff;border:1px solid var(--border);border-radius:4px;overflow:hidden;}
+    .listing-img{aspect-ratio:4/3;background:linear-gradient(150deg,#e4e0d6,#fff);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.8rem;}
+    .listing-body{padding:22px;}
+    .listing-price{font-family:'Cormorant',serif;font-size:1.5rem;color:var(--navy);margin-bottom:6px;}
+    .listing-body h3{font-size:1.05rem;font-family:'Inter',sans-serif;font-weight:600;margin-bottom:6px;}
+    .listing-body p{font-size:.85rem;color:var(--muted);margin-bottom:14px;}
+    .listing-meta{display:flex;gap:14px;font-size:.8rem;color:var(--muted);border-top:1px solid var(--border);padding-top:14px;}
+
+    .why{background:var(--navy);color:#fff;}
+    .why .section-head h2{color:#fff;}
+    .why .section-head p{color:rgba(255,255,255,.65);}
+    .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;}
+    .why-card{text-align:center;}
+    .why-icon{width:56px;height:56px;border-radius:50%;background:rgba(201,161,90,.15);border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;color:var(--gold-light);font-family:'Cormorant',serif;font-weight:700;}
+    .why-card h3{color:#fff;font-size:1.15rem;margin-bottom:10px;}
+    .why-card p{font-size:.88rem;color:rgba(255,255,255,.65);}
+
+    .cta{text-align:center;}
+    .cta h2{font-size:2.4rem;margin-bottom:16px;}
+    .cta p{color:var(--muted);margin-bottom:32px;}
+
+    footer{padding:44px 0;border-top:1px solid var(--border);text-align:center;}
+    footer .foot-links{display:flex;gap:24px;justify-content:center;margin-bottom:14px;font-size:.85rem;color:var(--muted);}
+    footer .foot-copy{font-size:.8rem;color:var(--muted);}
+
+    .dl-btn{position:fixed;bottom:22px;right:22px;z-index:200;background:var(--navy);color:#fff;border:none;padding:14px 22px;border-radius:100px;font-weight:600;font-size:.85rem;cursor:pointer;box-shadow:0 6px 20px rgba(15,31,51,.35);}
+    .dl-btn:hover{background:var(--navy-light);}
+
+    @media(max-width:860px){
+        nav{display:none;}
+        .hero-grid{grid-template-columns:1fr;}
+        .search-bar{flex-direction:column;}
+        .listings-grid{grid-template-columns:1fr;}
+        .why-grid{grid-template-columns:1fr;}
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <div class="wrap hdr">
+        <div class="brand">Harbor <span>&amp;</span> Stone</div>
+        <nav>
+            <a href="#listings">Listings</a>
+            <a href="#why">Why Us</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <a href="#contact" class="btn solid">Book a Consult</a>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="wrap">
+        <div class="hero-grid">
+            <div>
+                <div class="kicker">Real Estate, Done Right</div>
+                <h1>Find a home that actually fits your life.</h1>
+                <p>Local market expertise, honest advice, and a process built to make buying or selling less stressful.</p>
+                <a href="#listings" class="btn solid">View Listings</a>
+            </div>
+            <div class="hero-img">Property photo</div>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="City or ZIP code">
+            <select><option>Any Price</option><option>Under $300k</option><option>$300k–$600k</option><option>$600k+</option></select>
+            <select><option>Any Type</option><option>House</option><option>Condo</option><option>Townhome</option></select>
+            <a href="#listings" class="btn">Search</a>
+        </div>
+    </div>
+</section>
+
+<section id="listings">
+    <div class="wrap">
+        <div class="section-head">
+            <h2>Featured Listings</h2>
+            <p>A few of the homes currently on the market.</p>
+        </div>
+        <div class="listings-grid">
+            <div class="listing-card"><div class="listing-img">Photo</div><div class="listing-body"><div class="listing-price">$540,000</div><h3>Maple Ridge Colonial</h3><p>4 bed · 3 bath · 2,400 sqft</p><div class="listing-meta"><span>Built 2015</span><span>Corner Lot</span></div></div></div>
+            <div class="listing-card"><div class="listing-img">Photo</div><div class="listing-body"><div class="listing-price">$389,000</div><h3>Downtown Loft</h3><p>2 bed · 2 bath · 1,150 sqft</p><div class="listing-meta"><span>Built 2019</span><span>City View</span></div></div></div>
+            <div class="listing-card"><div class="listing-img">Photo</div><div class="listing-body"><div class="listing-price">$725,000</div><h3>Lakeside Craftsman</h3><p>5 bed · 4 bath · 3,100 sqft</p><div class="listing-meta"><span>Built 2012</span><span>Lake Access</span></div></div></div>
+        </div>
+    </div>
+</section>
+
+<section class="why" id="why">
+    <div class="wrap">
+        <div class="section-head">
+            <h2>Why Work With Us</h2>
+            <p>Fifteen years of local transactions, and a process built around clarity.</p>
+        </div>
+        <div class="why-grid">
+            <div class="why-card"><div class="why-icon">Lo</div><h3>Local Expertise</h3><p>Deep knowledge of neighborhoods, schools, and pricing trends.</p></div>
+            <div class="why-card"><div class="why-icon">Ne</div><h3>Real Negotiation</h3><p>We fight for terms that actually matter, not just the headline price.</p></div>
+            <div class="why-card"><div class="why-icon">Su</div><h3>Full Support</h3><p>From first showing to closing day, one point of contact throughout.</p></div>
+        </div>
+    </div>
+</section>
+
+<section class="cta" id="contact">
+    <div class="wrap">
+        <h2>Ready to talk?</h2>
+        <p>Free, no-pressure consultation to walk through your options.</p>
+        <a href="#" class="btn solid">Book a Consult</a>
+    </div>
+</section>
+
+<footer>
+    <div class="wrap">
+        <div class="foot-links">
+            <a href="#listings">Listings</a>
+            <a href="#why">Why Us</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="foot-copy">Template by <a href="https://excusemeweb.com/landing-pages">ExcuseMeWeb</a></div>
+    </div>
+</footer>
+
+<button class="dl-btn" onclick="downloadPage()">Download HTML</button>
+
+<script>
+function downloadPage(){
+    const html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+    const blob = new Blob([html], {type:'text/html'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'real-estate-landing-page.html';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+}
+</script>
+</body>
+</html>
