@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Still Water — Yoga & Wellness Landing Page Template</title>
+<meta name="description" content="A calm, organic landing page template for yoga studios and wellness practices. Free to preview and download as a single HTML file.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://excusemeweb.com/yoga-landing">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@500;600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+    :root{
+        --sage:#8a9a7e; --sage-dark:#5f7052; --clay:#c9b79c; --cream:#f6f3ec;
+        --ink:#2f3327; --muted:#767a6c; --border:#e2ded2;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--ink);line-height:1.75;font-weight:300;}
+    h1,h2,h3{font-family:'Cormorant',serif;font-weight:600;}
+    a{color:inherit;text-decoration:none;}
+    .wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+    section{padding:90px 0;}
+
+    header{position:sticky;top:0;z-index:100;background:rgba(246,243,236,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);}
+    .hdr{display:flex;align-items:center;justify-content:space-between;padding:20px 0;}
+    .brand{font-family:'Cormorant',serif;font-size:1.5rem;letter-spacing:1px;}
+    nav{display:flex;gap:30px;}
+    nav a{font-size:.85rem;color:var(--muted);}
+    nav a:hover{color:var(--sage-dark);}
+    .btn{display:inline-flex;align-items:center;gap:8px;font-weight:500;font-size:.85rem;padding:14px 28px;border-radius:100px;border:1px solid var(--sage-dark);cursor:pointer;transition:.2s;background:transparent;color:var(--sage-dark);}
+    .btn:hover{background:var(--sage-dark);color:#fff;}
+    .btn.solid{background:var(--sage-dark);color:#fff;}
+    .btn.solid:hover{background:#4b5a40;}
+
+    .hero{padding:110px 0 90px;text-align:center;}
+    .kicker{font-size:.8rem;letter-spacing:3px;text-transform:uppercase;color:var(--sage-dark);margin-bottom:20px;}
+    .hero h1{font-size:clamp(2.4rem,5.5vw,4rem);line-height:1.2;margin-bottom:22px;}
+    .hero p{max-width:500px;margin:0 auto 34px;color:var(--muted);}
+    .hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+
+    .section-head{text-align:center;max-width:560px;margin:0 auto 54px;}
+    .section-head h2{font-size:clamp(2rem,4vw,2.6rem);}
+
+    .classes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+    .class-card{background:#fff;border:1px solid var(--border);border-radius:8px;padding:28px;}
+    .class-card h3{font-size:1.2rem;margin-bottom:10px;}
+    .class-card p{color:var(--muted);font-size:.9rem;margin-bottom:14px;}
+    .class-meta{font-size:.8rem;color:var(--sage-dark);}
+
+    .schedule{background:var(--sage);color:#fff;}
+    .schedule .section-head h2{color:#fff;}
+    .schedule .kicker{color:rgba(255,255,255,.8);}
+    .schedule-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;}
+    .day-card{background:rgba(255,255,255,.1);border-radius:8px;padding:18px;text-align:center;}
+    .day-card h4{font-family:'Jost',sans-serif;font-weight:600;font-size:.9rem;margin-bottom:10px;}
+    .day-card p{font-size:.78rem;opacity:.85;padding:4px 0;}
+
+    .teachers-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+    .teacher-card{text-align:center;}
+    .teacher-img{aspect-ratio:1;border-radius:50%;max-width:150px;margin:0 auto 16px;background:linear-gradient(160deg,var(--clay),#fff);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.8rem;}
+    .teacher-card h4{font-family:'Jost',sans-serif;font-weight:500;}
+    .teacher-card span{font-size:.85rem;color:var(--sage-dark);}
+
+    .cta{text-align:center;}
+    .cta h2{font-size:2.3rem;margin-bottom:16px;}
+    .cta p{color:var(--muted);margin-bottom:30px;}
+
+    footer{padding:40px 0;border-top:1px solid var(--border);text-align:center;}
+    footer .foot-links{display:flex;gap:22px;justify-content:center;margin-bottom:14px;font-size:.85rem;color:var(--muted);}
+    footer .foot-copy{font-size:.8rem;color:var(--muted);}
+
+    .dl-btn{position:fixed;bottom:22px;right:22px;z-index:200;background:var(--sage-dark);color:#fff;border:none;padding:14px 22px;border-radius:100px;font-weight:500;font-size:.85rem;cursor:pointer;box-shadow:0 6px 20px rgba(95,112,82,.4);}
+    .dl-btn:hover{background:#4b5a40;}
+
+    @media(max-width:860px){
+        nav{display:none;}
+        .classes-grid{grid-template-columns:1fr;}
+        .schedule-grid{grid-template-columns:repeat(2,1fr);}
+        .teachers-grid{grid-template-columns:1fr;}
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <div class="wrap hdr">
+        <div class="brand">Still Water</div>
+        <nav>
+            <a href="#classes">Classes</a>
+            <a href="#schedule">Schedule</a>
+            <a href="#teachers">Teachers</a>
+        </nav>
+        <a href="#join" class="btn solid">Try a Free Class</a>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="wrap">
+        <div class="kicker">Yoga & Wellness Studio</div>
+        <h1>Slow down.<br>Breathe deeper.</h1>
+        <p>A studio built for every level, with classes that meet you where you are, not where you think you should be.</p>
+        <div class="hero-btns">
+            <a href="#join" class="btn solid">Try a Free Class</a>
+            <a href="#classes" class="btn">See Classes</a>
+        </div>
+    </div>
+</section>
+
+<section id="classes">
+    <div class="wrap">
+        <div class="section-head">
+            <div class="kicker">Classes</div>
+            <h2>Find Your Practice</h2>
+        </div>
+        <div class="classes-grid">
+            <div class="class-card"><h3>Vinyasa Flow</h3><p>A dynamic, breath-linked sequence for building strength and flexibility.</p><div class="class-meta">All Levels · 60 min</div></div>
+            <div class="class-card"><h3>Restorative</h3><p>Slow, supported poses held longer to calm the nervous system.</p><div class="class-meta">All Levels · 75 min</div></div>
+            <div class="class-card"><h3>Meditation</h3><p>Guided breathwork and stillness practice for a clearer mind.</p><div class="class-meta">All Levels · 30 min</div></div>
+        </div>
+    </div>
+</section>
+
+<section class="schedule" id="schedule">
+    <div class="wrap">
+        <div class="section-head">
+            <div class="kicker">This Week</div>
+            <h2>Class Schedule</h2>
+        </div>
+        <div class="schedule-grid">
+            <div class="day-card"><h4>Mon</h4><p>7am Vinyasa</p><p>6pm Restorative</p></div>
+            <div class="day-card"><h4>Tue</h4><p>9am Meditation</p><p>6pm Vinyasa</p></div>
+            <div class="day-card"><h4>Wed</h4><p>7am Vinyasa</p><p>7pm Restorative</p></div>
+            <div class="day-card"><h4>Thu</h4><p>9am Meditation</p><p>6pm Vinyasa</p></div>
+            <div class="day-card"><h4>Fri</h4><p>7am Vinyasa</p><p>5pm Restorative</p></div>
+        </div>
+    </div>
+</section>
+
+<section id="teachers">
+    <div class="wrap">
+        <div class="section-head">
+            <div class="kicker">Teachers</div>
+            <h2>Meet the Instructors</h2>
+        </div>
+        <div class="teachers-grid">
+            <div class="teacher-card"><div class="teacher-img">Photo</div><h4>Maya Torres</h4><span>Vinyasa & Flow</span></div>
+            <div class="teacher-card"><div class="teacher-img">Photo</div><h4>Owen Park</h4><span>Restorative</span></div>
+            <div class="teacher-card"><div class="teacher-img">Photo</div><h4>Ines Kovac</h4><span>Meditation</span></div>
+        </div>
+    </div>
+</section>
+
+<section class="cta" id="join">
+    <div class="wrap">
+        <h2>Your first class is free.</h2>
+        <p>New students welcome any time. Mats and props provided.</p>
+        <a href="#" class="btn solid">Reserve Your Spot</a>
+    </div>
+</section>
+
+<footer>
+    <div class="wrap">
+        <div class="foot-links">
+            <a href="#classes">Classes</a>
+            <a href="#schedule">Schedule</a>
+            <a href="#teachers">Teachers</a>
+        </div>
+        <div class="foot-copy">Template by <a href="https://excusemeweb.com/landing-pages">ExcuseMeWeb</a></div>
+    </div>
+</footer>
+
+<button class="dl-btn" onclick="downloadPage()">Download HTML</button>
+
+<script>
+function downloadPage(){
+    const html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+    const blob = new Blob([html], {type:'text/html'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'yoga-landing-page.html';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+}
+</script>
+</body>
+</html>

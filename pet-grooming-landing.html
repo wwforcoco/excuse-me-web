@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wag & Wash — Pet Grooming Landing Page Template</title>
+<meta name="description" content="A friendly, cheerful landing page template for pet groomers and pet care businesses. Free to preview and download as a single HTML file.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://excusemeweb.com/pet-grooming-landing">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+    :root{
+        --yellow:#ffc93c; --blue:#4a90c9; --coral:#ff8577; --mint:#8fd3c7;
+        --cream:#fffaf0; --ink:#2d3436; --muted:#6b7280; --border:#f0e6d2;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--ink);line-height:1.65;}
+    h1,h2,h3{font-family:'Quicksand',sans-serif;font-weight:700;}
+    a{color:inherit;text-decoration:none;}
+    .wrap{max-width:1140px;margin:0 auto;padding:0 24px;}
+    section{padding:86px 0;}
+
+    header{position:sticky;top:0;z-index:100;background:rgba(255,250,240,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);}
+    .hdr{display:flex;align-items:center;justify-content:space-between;padding:18px 0;}
+    .brand{font-family:'Quicksand',sans-serif;font-size:1.4rem;font-weight:700;color:var(--blue);}
+    nav{display:flex;gap:28px;}
+    nav a{font-size:.9rem;color:var(--muted);font-weight:600;}
+    nav a:hover{color:var(--coral);}
+    .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.85rem;padding:14px 28px;border-radius:100px;border:2px solid var(--blue);cursor:pointer;transition:.2s;background:transparent;color:var(--blue);}
+    .btn:hover{background:var(--blue);color:#fff;}
+    .btn.solid{background:var(--coral);border-color:var(--coral);color:#fff;}
+    .btn.solid:hover{background:#e56f62;border-color:#e56f62;}
+
+    .hero{padding:100px 0 80px;text-align:center;background:radial-gradient(circle at 15% 20%,rgba(255,201,60,.25),transparent 40%),radial-gradient(circle at 85% 25%,rgba(143,211,199,.25),transparent 40%);}
+    .badge{display:inline-flex;background:#fff;border:2px solid var(--border);padding:8px 18px;border-radius:100px;font-weight:700;font-size:.82rem;color:var(--blue);margin-bottom:24px;}
+    .hero h1{font-size:clamp(2.5rem,6vw,4rem);line-height:1.15;margin-bottom:22px;}
+    .hero h1 span{color:var(--coral);}
+    .hero p{max-width:500px;margin:0 auto 32px;color:var(--muted);font-size:1.05rem;}
+    .hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+
+    .section-head{text-align:center;max-width:560px;margin:0 auto 50px;}
+    .section-head h2{font-size:clamp(1.9rem,4vw,2.6rem);}
+
+    .services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+    .service-card{background:#fff;border:2px solid var(--border);border-radius:16px;padding:26px;text-align:center;}
+    .service-icon{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-weight:700;color:#fff;}
+    .service-card h3{font-size:1rem;margin-bottom:8px;}
+    .service-card p{font-size:.82rem;color:var(--muted);}
+
+    .pricing{background:var(--blue);color:#fff;}
+    .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+    .price-card{background:#fff;color:var(--ink);border-radius:16px;padding:30px 24px;text-align:center;}
+    .price-card h3{font-size:1.1rem;margin-bottom:8px;}
+    .price{font-family:'Quicksand',sans-serif;font-size:2rem;color:var(--coral);margin-bottom:16px;}
+    .price-card ul{list-style:none;margin-bottom:22px;}
+    .price-card li{font-size:.85rem;color:var(--muted);padding:6px 0;}
+
+    .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+    .gallery-grid div{aspect-ratio:1;border-radius:16px;background:linear-gradient(160deg,var(--mint),#fff);border:2px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.75rem;}
+
+    .cta{text-align:center;}
+    .cta h2{font-size:2.2rem;margin-bottom:14px;}
+    .cta p{color:var(--muted);margin-bottom:28px;}
+
+    footer{padding:40px 0;border-top:1px solid var(--border);text-align:center;}
+    footer .foot-links{display:flex;gap:22px;justify-content:center;margin-bottom:14px;font-size:.85rem;font-weight:600;color:var(--muted);}
+    footer .foot-copy{font-size:.8rem;color:var(--muted);}
+
+    .dl-btn{position:fixed;bottom:22px;right:22px;z-index:200;background:var(--coral);color:#fff;border:none;padding:14px 22px;border-radius:100px;font-weight:700;font-size:.85rem;cursor:pointer;box-shadow:0 6px 20px rgba(255,133,119,.4);}
+    .dl-btn:hover{background:#e56f62;}
+
+    @media(max-width:860px){
+        nav{display:none;}
+        .services-grid{grid-template-columns:repeat(2,1fr);}
+        .pricing-grid{grid-template-columns:1fr;}
+        .gallery-grid{grid-template-columns:repeat(2,1fr);}
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <div class="wrap hdr">
+        <div class="brand">Wag &amp; Wash</div>
+        <nav>
+            <a href="#services">Services</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#gallery">Gallery</a>
+        </nav>
+        <a href="#book" class="btn solid">Book a Groom</a>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="wrap">
+        <div class="badge">Now booking same-week appointments</div>
+        <h1>Happy pets,<br>squeaky-clean <span>and stress-free.</span></h1>
+        <p>Full-service grooming for dogs and cats, with gentle handling and a team that treats every pet like their own.</p>
+        <div class="hero-btns">
+            <a href="#book" class="btn solid">Book a Groom</a>
+            <a href="#services" class="btn">See Services</a>
+        </div>
+    </div>
+</section>
+
+<section id="services">
+    <div class="wrap">
+        <div class="section-head">
+            <h2>Services</h2>
+        </div>
+        <div class="services-grid">
+            <div class="service-card"><div class="service-icon" style="background:var(--blue);">Ba</div><h3>Bath & Brush</h3><p>Shampoo, blow-dry and brush-out.</p></div>
+            <div class="service-card"><div class="service-icon" style="background:var(--coral);">Fc</div><h3>Full Groom</h3><p>Bath, haircut, nail trim and ear cleaning.</p></div>
+            <div class="service-card"><div class="service-icon" style="background:var(--mint);">Na</div><h3>Nail Trim</h3><p>Quick nail trim and paw pad care.</p></div>
+            <div class="service-card"><div class="service-icon" style="background:var(--yellow);">De</div><h3>De-Shedding</h3><p>Deep de-shedding treatment for heavy shedders.</p></div>
+        </div>
+    </div>
+</section>
+
+<section class="pricing" id="pricing">
+    <div class="wrap">
+        <div class="section-head">
+            <h2 style="color:#fff;">Simple Pricing</h2>
+        </div>
+        <div class="pricing-grid">
+            <div class="price-card"><h3>Small Dogs</h3><div class="price">$45</div><ul><li>Under 20 lbs</li><li>Full groom package</li><li>Nail trim included</li></ul></div>
+            <div class="price-card"><h3>Medium Dogs</h3><div class="price">$65</div><ul><li>20–50 lbs</li><li>Full groom package</li><li>Nail trim included</li></ul></div>
+            <div class="price-card"><h3>Large Dogs</h3><div class="price">$85</div><ul><li>50+ lbs</li><li>Full groom package</li><li>Nail trim included</li></ul></div>
+        </div>
+    </div>
+</section>
+
+<section id="gallery">
+    <div class="wrap">
+        <div class="section-head">
+            <h2>Fresh Cuts</h2>
+        </div>
+        <div class="gallery-grid">
+            <div>Groom 01</div>
+            <div>Groom 02</div>
+            <div>Groom 03</div>
+            <div>Groom 04</div>
+        </div>
+    </div>
+</section>
+
+<section class="cta" id="book">
+    <div class="wrap">
+        <h2>Ready to book?</h2>
+        <p>Same-week appointments usually available.</p>
+        <a href="#" class="btn solid">Book Your Pet's Groom</a>
+    </div>
+</section>
+
+<footer>
+    <div class="wrap">
+        <div class="foot-links">
+            <a href="#services">Services</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#gallery">Gallery</a>
+        </div>
+        <div class="foot-copy">Template by <a href="https://excusemeweb.com/landing-pages">ExcuseMeWeb</a></div>
+    </div>
+</footer>
+
+<button class="dl-btn" onclick="downloadPage()">Download HTML</button>
+
+<script>
+function downloadPage(){
+    const html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+    const blob = new Blob([html], {type:'text/html'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'pet-grooming-landing-page.html';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+}
+</script>
+</body>
+</html>

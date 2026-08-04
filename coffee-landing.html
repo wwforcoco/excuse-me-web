@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roast & Co — Coffee Shop Landing Page Template</title>
+<meta name="description" content="A cozy, warm landing page template for coffee shops and roasters. Free to preview and download as a single HTML file.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://excusemeweb.com/coffee-landing">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+    :root{
+        --cream:#f6ede2; --espresso:#3b2a20; --brown:#6f4e37; --tan:#c9a876;
+        --white:#fffaf3; --muted:#8a7663; --border:#e6d6c1;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Karla',sans-serif;background:var(--cream);color:var(--espresso);line-height:1.7;}
+    h1,h2,h3{font-family:'Fraunces',serif;font-weight:700;}
+    a{color:inherit;text-decoration:none;}
+    .wrap{max-width:1140px;margin:0 auto;padding:0 24px;}
+    section{padding:88px 0;}
+
+    header{position:sticky;top:0;z-index:100;background:rgba(246,237,226,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);}
+    .hdr{display:flex;align-items:center;justify-content:space-between;padding:18px 0;}
+    .brand{font-family:'Fraunces',serif;font-size:1.5rem;}
+    nav{display:flex;gap:28px;}
+    nav a{font-size:.9rem;font-weight:600;color:var(--muted);}
+    nav a:hover{color:var(--brown);}
+    .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.85rem;padding:14px 28px;border-radius:100px;border:2px solid var(--espresso);cursor:pointer;transition:.2s;background:transparent;color:var(--espresso);}
+    .btn:hover{background:var(--espresso);color:var(--cream);}
+    .btn.solid{background:var(--brown);border-color:var(--brown);color:#fff;}
+    .btn.solid:hover{background:var(--espresso);border-color:var(--espresso);}
+
+    .hero{padding:110px 0 80px;text-align:center;}
+    .kicker{font-size:.8rem;letter-spacing:2px;text-transform:uppercase;color:var(--brown);font-weight:700;margin-bottom:18px;}
+    .hero h1{font-size:clamp(2.6rem,6vw,4.2rem);line-height:1.1;margin-bottom:22px;}
+    .hero p{max-width:500px;margin:0 auto 34px;color:var(--muted);font-size:1.05rem;}
+    .hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+
+    .section-head{text-align:center;max-width:560px;margin:0 auto 50px;}
+    .section-head h2{font-size:clamp(1.9rem,4vw,2.6rem);}
+
+    .menu{background:var(--espresso);color:var(--cream);}
+    .menu .section-head h2{color:var(--cream);}
+    .menu .kicker{color:var(--tan);}
+    .menu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px 60px;}
+    .menu-row{display:flex;justify-content:space-between;padding:16px 0;border-bottom:1px dashed rgba(255,255,255,.15);}
+    .menu-row h4{font-family:'Fraunces',serif;font-size:1.1rem;}
+    .menu-row p{font-size:.8rem;color:var(--tan);margin-top:4px;}
+    .menu-row span{font-family:'Fraunces',serif;color:var(--tan);white-space:nowrap;}
+
+    .story-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+    .story-img{aspect-ratio:4/3;border-radius:8px;background:linear-gradient(150deg,var(--tan),var(--white));border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.85rem;}
+    .story h2{font-size:2.1rem;margin-bottom:18px;}
+    .story p{color:var(--muted);margin-bottom:16px;}
+
+    .locations-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+    .loc-card{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:26px;}
+    .loc-card h4{font-family:'Fraunces',serif;font-size:1.1rem;margin-bottom:8px;}
+    .loc-card p{font-size:.85rem;color:var(--muted);}
+
+    .cta{text-align:center;}
+    .cta h2{font-size:2.3rem;margin-bottom:16px;}
+    .cta p{color:var(--muted);margin-bottom:30px;}
+
+    footer{padding:40px 0;border-top:1px solid var(--border);text-align:center;}
+    footer .foot-links{display:flex;gap:22px;justify-content:center;margin-bottom:14px;font-size:.85rem;font-weight:600;color:var(--muted);}
+    footer .foot-copy{font-size:.8rem;color:var(--muted);}
+
+    .dl-btn{position:fixed;bottom:22px;right:22px;z-index:200;background:var(--brown);color:#fff;border:none;padding:14px 22px;border-radius:100px;font-weight:700;font-size:.85rem;cursor:pointer;box-shadow:0 6px 20px rgba(111,78,55,.4);}
+    .dl-btn:hover{background:var(--espresso);}
+
+    @media(max-width:860px){
+        nav{display:none;}
+        .menu-grid{grid-template-columns:1fr;}
+        .story-grid{grid-template-columns:1fr;}
+        .locations-grid{grid-template-columns:1fr;}
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <div class="wrap hdr">
+        <div class="brand">Roast &amp; Co</div>
+        <nav>
+            <a href="#menu">Menu</a>
+            <a href="#story">Our Story</a>
+            <a href="#locations">Locations</a>
+        </nav>
+        <a href="#locations" class="btn solid">Find Us</a>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="wrap">
+        <div class="kicker">Small Batch, Slow Brewed</div>
+        <h1>Coffee worth<br>slowing down for.</h1>
+        <p>Beans roasted weekly, pastries baked daily, and a corner table that's always saved for someone with a laptop.</p>
+        <div class="hero-btns">
+            <a href="#menu" class="btn solid">See the Menu</a>
+            <a href="#locations" class="btn">Find a Location</a>
+        </div>
+    </div>
+</section>
+
+<section class="menu" id="menu">
+    <div class="wrap">
+        <div class="section-head">
+            <div class="kicker">Menu</div>
+            <h2>What We Pour</h2>
+        </div>
+        <div class="menu-grid">
+            <div class="menu-row"><div><h4>Pour Over</h4><p>Rotating single origin, hand poured</p></div><span>$5.50</span></div>
+            <div class="menu-row"><div><h4>Oat Milk Latte</h4><p>House espresso, steamed oat milk</p></div><span>$5.00</span></div>
+            <div class="menu-row"><div><h4>Cold Brew</h4><p>Steeped 18 hours, served over ice</p></div><span>$4.50</span></div>
+            <div class="menu-row"><div><h4>Cortado</h4><p>Double espresso, equal parts milk</p></div><span>$4.00</span></div>
+            <div class="menu-row"><div><h4>Almond Croissant</h4><p>Baked fresh every morning</p></div><span>$4.75</span></div>
+            <div class="menu-row"><div><h4>House Blend Bag</h4><p>12oz whole bean, roasted weekly</p></div><span>$17.00</span></div>
+        </div>
+    </div>
+</section>
+
+<section id="story">
+    <div class="wrap story-grid">
+        <div class="story-img">Roastery photo</div>
+        <div>
+            <div class="kicker">Since 2018</div>
+            <h2>Roasted a few blocks from where you're drinking it.</h2>
+            <p>We started with a five-pound roaster in a garage. Today it's still small batch, still tasted and adjusted by hand every week.</p>
+            <p>Every bag lists the farm it came from, because we think you should know.</p>
+        </div>
+    </div>
+</section>
+
+<section id="locations">
+    <div class="wrap">
+        <div class="section-head">
+            <div class="kicker">Locations</div>
+            <h2>Find a Cup Near You</h2>
+        </div>
+        <div class="locations-grid">
+            <div class="loc-card"><h4>Downtown</h4><p>412 Main Street<br>Mon–Sun, 6am–7pm</p></div>
+            <div class="loc-card"><h4>Riverside</h4><p>88 Harbor Ave<br>Mon–Sun, 6:30am–6pm</p></div>
+            <div class="loc-card"><h4>Uptown</h4><p>1220 Elm Street<br>Mon–Sat, 7am–5pm</p></div>
+        </div>
+    </div>
+</section>
+
+<section class="cta">
+    <div class="wrap">
+        <h2>First cup's on us.</h2>
+        <p>Sign up in-store for a free drink on your first visit.</p>
+        <a href="#locations" class="btn solid">Find a Location</a>
+    </div>
+</section>
+
+<footer>
+    <div class="wrap">
+        <div class="foot-links">
+            <a href="#menu">Menu</a>
+            <a href="#story">Our Story</a>
+            <a href="#locations">Locations</a>
+        </div>
+        <div class="foot-copy">Template by <a href="https://excusemeweb.com/landing-pages">ExcuseMeWeb</a></div>
+    </div>
+</footer>
+
+<button class="dl-btn" onclick="downloadPage()">Download HTML</button>
+
+<script>
+function downloadPage(){
+    const html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+    const blob = new Blob([html], {type:'text/html'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'coffee-landing-page.html';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+}
+</script>
+</body>
+</html>

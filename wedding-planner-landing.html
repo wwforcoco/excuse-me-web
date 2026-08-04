@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ivory & Vine — Wedding Planner Landing Page Template</title>
+<meta name="description" content="A romantic, elegant landing page template for wedding planners. Free to preview and download as a single HTML file.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://excusemeweb.com/wedding-planner-landing">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+    :root{
+        --blush:#f4e8e4; --rose:#b98577; --rose-dark:#7d5147; --ivory:#fdfaf6;
+        --ink:#3a2c27; --muted:#8c7a73; --border:#ece1da;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Montserrat',sans-serif;background:var(--ivory);color:var(--ink);line-height:1.75;font-weight:300;}
+    h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:600;}
+    a{color:inherit;text-decoration:none;}
+    .wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+    section{padding:92px 0;}
+
+    header{position:sticky;top:0;z-index:100;background:rgba(253,250,246,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);}
+    .hdr{display:flex;align-items:center;justify-content:space-between;padding:20px 0;}
+    .brand{font-family:'Cormorant Garamond',serif;font-size:1.6rem;letter-spacing:1px;}
+    nav{display:flex;gap:32px;}
+    nav a{font-size:.85rem;letter-spacing:.5px;color:var(--muted);}
+    nav a:hover{color:var(--rose-dark);}
+    .btn{display:inline-flex;align-items:center;gap:8px;font-weight:500;font-size:.82rem;letter-spacing:1px;padding:14px 30px;border-radius:100px;border:1px solid var(--rose-dark);cursor:pointer;transition:.2s;background:transparent;color:var(--rose-dark);}
+    .btn:hover{background:var(--rose-dark);color:#fff;}
+    .btn.solid{background:var(--rose-dark);color:#fff;}
+    .btn.solid:hover{background:#5f3d34;}
+
+    .hero{padding:120px 0 100px;text-align:center;background:radial-gradient(ellipse at center,var(--blush) 0%,var(--ivory) 70%);}
+    .kicker{font-size:.78rem;letter-spacing:4px;text-transform:uppercase;color:var(--rose);margin-bottom:22px;}
+    .hero h1{font-size:clamp(2.6rem,6vw,4.4rem);line-height:1.15;margin-bottom:24px;}
+    .hero h1 em{font-style:italic;color:var(--rose-dark);}
+    .hero p{max-width:520px;margin:0 auto 38px;color:var(--muted);}
+    .hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+
+    .section-head{text-align:center;max-width:560px;margin:0 auto 54px;}
+    .section-head .kicker{margin-bottom:14px;}
+    .section-head h2{font-size:clamp(2rem,4vw,2.8rem);}
+
+    .services{background:var(--blush);}
+    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+    .service-card{background:var(--ivory);border-radius:6px;padding:32px 26px;text-align:center;}
+    .service-card h3{font-size:1.25rem;margin-bottom:14px;}
+    .service-card p{font-size:.88rem;color:var(--muted);}
+
+    .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+    .gallery-grid div{aspect-ratio:3/4;border-radius:6px;background:linear-gradient(160deg,var(--blush),#fff);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.75rem;}
+
+    .process{}
+    .process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+    .process-card{text-align:center;}
+    .process-num{font-family:'Cormorant Garamond',serif;font-size:2.4rem;color:var(--rose);margin-bottom:10px;}
+    .process-card h4{font-size:1.05rem;margin-bottom:8px;}
+    .process-card p{font-size:.82rem;color:var(--muted);}
+
+    .cta{text-align:center;background:linear-gradient(135deg,var(--rose-dark),#5f3d34);color:#fff;}
+    .cta h2{font-size:2.4rem;margin-bottom:16px;}
+    .cta p{opacity:.85;margin-bottom:32px;}
+    .cta .btn{border-color:#fff;color:#fff;}
+    .cta .btn:hover{background:#fff;color:var(--ink);}
+
+    footer{padding:44px 0;border-top:1px solid var(--border);text-align:center;}
+    footer .foot-links{display:flex;gap:24px;justify-content:center;margin-bottom:14px;font-size:.85rem;color:var(--muted);}
+    footer .foot-copy{font-size:.8rem;color:var(--muted);}
+
+    .dl-btn{position:fixed;bottom:22px;right:22px;z-index:200;background:var(--rose-dark);color:#fff;border:none;padding:14px 22px;border-radius:100px;font-weight:500;font-size:.85rem;cursor:pointer;box-shadow:0 6px 20px rgba(125,81,71,.4);}
+    .dl-btn:hover{background:#5f3d34;}
+
+    @media(max-width:860px){
+        nav{display:none;}
+        .services-grid{grid-template-columns:1fr;}
+        .gallery-grid{grid-template-columns:repeat(2,1fr);}
+        .process-grid{grid-template-columns:repeat(2,1fr);}
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <div class="wrap hdr">
+        <div class="brand">Ivory &amp; Vine</div>
+        <nav>
+            <a href="#services">Services</a>
+            <a href="#gallery">Weddings</a>
+            <a href="#process">Process</a>
+        </nav>
+        <a href="#contact" class="btn solid">Check Availability</a>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="wrap">
+        <div class="kicker">Full-Service Wedding Planning</div>
+        <h1>Your wedding,<br><em>fully planned.</em></h1>
+        <p>From the first venue tour to the last dance, a planning team that handles the details so you can actually enjoy the day.</p>
+        <div class="hero-btns">
+            <a href="#contact" class="btn solid">Check Availability</a>
+            <a href="#gallery" class="btn">View Weddings</a>
+        </div>
+    </div>
+</section>
+
+<section class="services" id="services">
+    <div class="wrap">
+        <div class="section-head">
+            <div class="kicker">Services</div>
+            <h2>How We Help</h2>
+        </div>
+        <div class="services-grid">
+            <div class="service-card"><h3>Full Planning</h3><p>Every detail managed from engagement to the reception send-off.</p></div>
+            <div class="service-card"><h3>Month-Of Coordination</h3><p>We step in a month out to run the final details and the day itself.</p></div>
+            <div class="service-card"><h3>Design & Styling</h3><p>Florals, decor, and a look that feels like the two of you.</p></div>
+        </div>
+    </div>
+</section>
+
+<section id="gallery">
+    <div class="wrap">
+        <div class="section-head">
+            <div class="kicker">Real Weddings</div>
+            <h2>Recent Celebrations</h2>
+        </div>
+        <div class="gallery-grid">
+            <div>Wedding 01</div>
+            <div>Wedding 02</div>
+            <div>Wedding 03</div>
+            <div>Wedding 04</div>
+        </div>
+    </div>
+</section>
+
+<section class="process" id="process">
+    <div class="wrap">
+        <div class="section-head">
+            <div class="kicker">Process</div>
+            <h2>How It Works</h2>
+        </div>
+        <div class="process-grid">
+            <div class="process-card"><div class="process-num">01</div><h4>Consultation</h4><p>A free call to talk through your vision and budget.</p></div>
+            <div class="process-card"><div class="process-num">02</div><h4>Design</h4><p>A custom plan covering venue, vendors, and style.</p></div>
+            <div class="process-card"><div class="process-num">03</div><h4>Coordination</h4><p>We manage every vendor and timeline detail.</p></div>
+            <div class="process-card"><div class="process-num">04</div><h4>Your Day</h4><p>We're on-site so you never have to think about logistics.</p></div>
+        </div>
+    </div>
+</section>
+
+<section class="cta" id="contact">
+    <div class="wrap">
+        <h2>Let's start planning.</h2>
+        <p>Consultations are free. Popular dates book a year in advance.</p>
+        <a href="#" class="btn">Book a Consultation</a>
+    </div>
+</section>
+
+<footer>
+    <div class="wrap">
+        <div class="foot-links">
+            <a href="#services">Services</a>
+            <a href="#gallery">Weddings</a>
+            <a href="#process">Process</a>
+        </div>
+        <div class="foot-copy">Template by <a href="https://excusemeweb.com/landing-pages">ExcuseMeWeb</a></div>
+    </div>
+</footer>
+
+<button class="dl-btn" onclick="downloadPage()">Download HTML</button>
+
+<script>
+function downloadPage(){
+    const html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+    const blob = new Blob([html], {type:'text/html'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'wedding-planner-landing-page.html';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+}
+</script>
+</body>
+</html>

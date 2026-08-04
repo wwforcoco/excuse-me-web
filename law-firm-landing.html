@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sterling & Cole — Law Firm Landing Page Template</title>
+<meta name="description" content="An authoritative, trustworthy landing page template for law firms and attorneys. Free to preview and download as a single HTML file.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://excusemeweb.com/law-firm-landing">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+    :root{
+        --navy:#101d33; --navy-light:#1c2f4f; --gold:#a9812f; --gold-light:#c9a25c;
+        --bg:#f7f7f5; --text:#101d33; --muted:#5a6270; --border:#e0e0dc;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Source Sans 3',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;}
+    h1,h2,h3{font-family:'Libre Baskerville',serif;font-weight:700;}
+    a{color:inherit;text-decoration:none;}
+    .wrap{max-width:1140px;margin:0 auto;padding:0 24px;}
+    section{padding:90px 0;}
+
+    header{position:sticky;top:0;z-index:100;background:var(--navy);border-bottom:1px solid rgba(255,255,255,.08);}
+    .hdr{display:flex;align-items:center;justify-content:space-between;padding:20px 0;}
+    .brand{font-family:'Libre Baskerville',serif;font-size:1.35rem;color:#fff;letter-spacing:.5px;}
+    .brand span{color:var(--gold-light);}
+    nav{display:flex;gap:30px;}
+    nav a{font-size:.85rem;color:rgba(255,255,255,.7);font-weight:500;}
+    nav a:hover{color:var(--gold-light);}
+    .btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:.85rem;padding:14px 28px;border-radius:2px;border:1px solid var(--gold-light);cursor:pointer;transition:.2s;background:transparent;color:var(--gold-light);}
+    .btn:hover{background:var(--gold-light);color:var(--navy);}
+    .btn.solid{background:var(--gold-light);color:var(--navy);}
+    .btn.solid:hover{background:#dcb877;}
+
+    .hero{padding:110px 0 90px;background:linear-gradient(180deg,var(--navy),var(--navy-light));color:#fff;text-align:center;}
+    .kicker{font-size:.8rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold-light);font-weight:600;margin-bottom:20px;}
+    .hero h1{font-size:clamp(2.4rem,5vw,3.8rem);line-height:1.2;margin-bottom:22px;}
+    .hero p{max-width:540px;margin:0 auto 34px;color:rgba(255,255,255,.7);font-size:1.05rem;}
+    .hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+
+    .section-head{text-align:center;max-width:580px;margin:0 auto 56px;}
+    .section-head h2{font-size:clamp(2rem,4vw,2.6rem);}
+    .section-head p{color:var(--muted);margin-top:12px;}
+
+    .practice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+    .practice-card{background:#fff;border:1px solid var(--border);padding:30px;border-radius:4px;}
+    .practice-card h3{font-size:1.2rem;margin-bottom:12px;}
+    .practice-card p{color:var(--muted);font-size:.9rem;}
+
+    .stats{background:var(--navy);color:#fff;}
+    .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);text-align:center;}
+    .stats-grid .num{font-family:'Libre Baskerville',serif;font-size:2.2rem;color:var(--gold-light);}
+    .stats-grid .lbl{font-size:.8rem;color:rgba(255,255,255,.65);text-transform:uppercase;letter-spacing:1px;margin-top:6px;}
+
+    .attorneys-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+    .attorney-card{text-align:center;}
+    .attorney-img{aspect-ratio:1;border-radius:4px;background:linear-gradient(160deg,#e0e0dc,#fff);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.8rem;margin-bottom:16px;}
+    .attorney-card h4{font-family:'Libre Baskerville',serif;font-size:1.05rem;}
+    .attorney-card span{font-size:.85rem;color:var(--gold);}
+
+    .cta{text-align:center;background:#fff;border-top:1px solid var(--border);}
+    .cta h2{font-size:2.3rem;margin-bottom:16px;}
+    .cta p{color:var(--muted);margin-bottom:30px;}
+
+    footer{padding:44px 0;background:var(--navy);color:rgba(255,255,255,.6);text-align:center;}
+    footer .foot-links{display:flex;gap:24px;justify-content:center;margin-bottom:14px;font-size:.85rem;}
+    footer .foot-links a:hover{color:var(--gold-light);}
+    footer .foot-copy{font-size:.8rem;}
+
+    .dl-btn{position:fixed;bottom:22px;right:22px;z-index:200;background:var(--gold-light);color:var(--navy);border:none;padding:14px 22px;border-radius:2px;font-weight:700;font-size:.85rem;cursor:pointer;box-shadow:0 6px 20px rgba(169,129,47,.4);}
+    .dl-btn:hover{background:#dcb877;}
+
+    @media(max-width:860px){
+        nav{display:none;}
+        .practice-grid{grid-template-columns:1fr;}
+        .stats-grid{grid-template-columns:repeat(2,1fr);gap:24px;}
+        .attorneys-grid{grid-template-columns:1fr;}
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <div class="wrap hdr">
+        <div class="brand">Sterling <span>&amp;</span> Cole</div>
+        <nav>
+            <a href="#practice">Practice Areas</a>
+            <a href="#attorneys">Attorneys</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <a href="#contact" class="btn solid">Free Consultation</a>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="wrap">
+        <div class="kicker">Trial Attorneys Since 1998</div>
+        <h1>Serious representation for serious matters.</h1>
+        <p>Personal injury, employment and civil litigation counsel with a record of results, not just promises.</p>
+        <div class="hero-btns">
+            <a href="#contact" class="btn solid">Free Consultation</a>
+            <a href="#practice" class="btn">Practice Areas</a>
+        </div>
+    </div>
+</section>
+
+<section id="practice">
+    <div class="wrap">
+        <div class="section-head">
+            <h2>Practice Areas</h2>
+            <p>Focused representation across the matters that affect people most.</p>
+        </div>
+        <div class="practice-grid">
+            <div class="practice-card"><h3>Personal Injury</h3><p>Auto accidents, workplace injuries and premises liability claims.</p></div>
+            <div class="practice-card"><h3>Employment Law</h3><p>Wrongful termination, discrimination and wage disputes.</p></div>
+            <div class="practice-card"><h3>Civil Litigation</h3><p>Contract disputes and business litigation matters.</p></div>
+        </div>
+    </div>
+</section>
+
+<section class="stats">
+    <div class="wrap stats-grid">
+        <div><div class="num">26</div><div class="lbl">Years Practicing</div></div>
+        <div><div class="num">$140M+</div><div class="lbl">Recovered for Clients</div></div>
+        <div><div class="num">1,800+</div><div class="lbl">Cases Handled</div></div>
+        <div><div class="num">4.9/5</div><div class="lbl">Client Rating</div></div>
+    </div>
+</section>
+
+<section id="attorneys">
+    <div class="wrap">
+        <div class="section-head">
+            <h2>Our Attorneys</h2>
+        </div>
+        <div class="attorneys-grid">
+            <div class="attorney-card"><div class="attorney-img">Photo</div><h4>Rebecca Sterling</h4><span>Managing Partner</span></div>
+            <div class="attorney-card"><div class="attorney-img">Photo</div><h4>David Cole</h4><span>Litigation Partner</span></div>
+            <div class="attorney-card"><div class="attorney-img">Photo</div><h4>Amara Osei</h4><span>Senior Associate</span></div>
+        </div>
+    </div>
+</section>
+
+<section class="cta" id="contact">
+    <div class="wrap">
+        <h2>Discuss your case, at no cost.</h2>
+        <p>Consultations are free and confidential. Most calls are returned within one business day.</p>
+        <a href="#" class="btn solid">Schedule a Consultation</a>
+    </div>
+</section>
+
+<footer>
+    <div class="wrap">
+        <div class="foot-links">
+            <a href="#practice">Practice Areas</a>
+            <a href="#attorneys">Attorneys</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="foot-copy">Template by <a href="https://excusemeweb.com/landing-pages" style="color:var(--gold-light);">ExcuseMeWeb</a></div>
+    </div>
+</footer>
+
+<button class="dl-btn" onclick="downloadPage()">Download HTML</button>
+
+<script>
+function downloadPage(){
+    const html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+    const blob = new Blob([html], {type:'text/html'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'law-firm-landing-page.html';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+}
+</script>
+</body>
+</html>
