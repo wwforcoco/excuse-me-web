@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Torque & Co — Auto Repair Landing Page Template</title>
+<meta name="description" content="An industrial, no-nonsense landing page template for auto repair shops and mechanics. Free to preview and download as a single HTML file.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://excusemeweb.com/auto-repair-landing">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+    :root{--steel:#23262b;--panel:#2d3138;--red:#e63946;--text:#f2f2f0;--muted:#9a9ea5;--border:#3a3e46;}
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Inter',sans-serif;background:var(--steel);color:var(--text);line-height:1.6;}
+    h1,h2,h3{font-family:'Oswald',sans-serif;text-transform:uppercase;}
+    a{color:inherit;text-decoration:none;}
+    .wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+    section{padding:80px 0;}
+    header{position:sticky;top:0;z-index:100;background:rgba(35,38,43,.92);border-bottom:2px solid var(--red);}
+    .hdr{display:flex;justify-content:space-between;align-items:center;padding:18px 0;}
+    .brand{font-family:'Oswald',sans-serif;font-size:1.3rem;text-transform:uppercase;}
+    .brand span{color:var(--red);}
+    nav{display:flex;gap:26px;}
+    nav a{font-size:.85rem;color:var(--muted);font-weight:500;text-transform:uppercase;}
+    nav a:hover{color:var(--red);}
+    .btn{display:inline-block;font-weight:700;font-size:.85rem;text-transform:uppercase;padding:14px 28px;border:2px solid var(--red);cursor:pointer;background:none;color:var(--text);}
+    .btn:hover{background:var(--red);}
+    .btn.solid{background:var(--red);border-color:var(--red);}
+    .btn.solid:hover{background:#c62d3a;}
+    .hero{text-align:center;padding:110px 0 80px;background:linear-gradient(180deg,#2d3138,#23262b);}
+    .kicker{color:var(--red);font-weight:700;font-size:.8rem;letter-spacing:2px;margin-bottom:16px;}
+    .hero h1{font-size:clamp(2.4rem,6vw,4rem);margin-bottom:20px;}
+    .hero p{color:var(--muted);max-width:480px;margin:0 auto 32px;}
+    .section-head{text-align:center;max-width:560px;margin:0 auto 46px;}
+    .section-head h2{font-size:2.2rem;}
+    .services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+    .service{background:var(--panel);border:1px solid var(--border);padding:24px;text-align:center;}
+    .service h3{font-size:1rem;margin-bottom:8px;}
+    .service p{font-size:.82rem;color:var(--muted);}
+    .stats{background:var(--red);text-align:center;}
+    .stats-grid{display:grid;grid-template-columns:repeat(3,1fr);}
+    .stats-grid .num{font-family:'Oswald',sans-serif;font-size:2rem;}
+    .stats-grid .lbl{font-size:.8rem;text-transform:uppercase;opacity:.9;}
+    .cta{text-align:center;}
+    .cta p{color:var(--muted);margin-bottom:26px;}
+    footer{padding:36px 0;border-top:1px solid var(--border);text-align:center;font-size:.85rem;color:var(--muted);}
+    .dl-btn{position:fixed;bottom:22px;right:22px;background:var(--red);color:#fff;border:none;padding:14px 22px;font-weight:700;text-transform:uppercase;font-size:.8rem;cursor:pointer;}
+    @media(max-width:860px){nav{display:none;}.services-grid{grid-template-columns:1fr 1fr;}.stats-grid{grid-template-columns:1fr;gap:20px;}}
+</style>
+</head>
+<body>
+<header><div class="wrap hdr"><div class="brand">Torque<span> & Co</span></div><nav><a href="#services">Services</a><a href="#stats">Why Us</a></nav><a href="#book" class="btn solid">Book Service</a></div></header>
+<section class="hero"><div class="wrap"><div class="kicker">ASE Certified Mechanics</div><h1>Honest repairs, done right the first time.</h1><p>Brakes, engines, diagnostics and everything in between, with a written estimate before we touch your car.</p><a href="#book" class="btn solid">Book an Appointment</a></div></section>
+<section id="services"><div class="wrap"><div class="section-head"><h2>Services</h2></div><div class="services-grid">
+<div class="service"><h3>Brakes</h3><p>Pads, rotors and full brake system service.</p></div>
+<div class="service"><h3>Engine Diagnostics</h3><p>Check engine lights diagnosed same day.</p></div>
+<div class="service"><h3>Oil Change</h3><p>Full synthetic and conventional options.</p></div>
+<div class="service"><h3>Tires</h3><p>Rotation, balancing and replacement.</p></div>
+</div></div></section>
+<section class="stats" id="stats"><div class="wrap stats-grid"><div><div class="num">30+ yrs</div><div class="lbl">Combined Experience</div></div><div><div class="num">12,000+</div><div class="lbl">Cars Serviced</div></div><div><div class="num">2 yr</div><div class="lbl">Warranty on Repairs</div></div></div></section>
+<section class="cta" id="book"><div class="wrap"><h2>Need your car looked at?</h2><p>Free estimates. Most repairs done same day.</p><a href="#" class="btn solid">Book an Appointment</a></div></section>
+<footer><div class="wrap">Template by <a href="https://excusemeweb.com/landing-pages" style="color:var(--red);">ExcuseMeWeb</a></div></footer>
+<button class="dl-btn" onclick="downloadPage()">Download HTML</button>
+<script>
+function downloadPage(){const html='<!DOCTYPE html>\n'+document.documentElement.outerHTML;const blob=new Blob([html],{type:'text/html'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='auto-repair-landing-page.html';document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);}
+</script>
+</body>
+</html>

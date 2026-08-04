@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ink & Bone — Tattoo Studio Landing Page Template</title>
+<meta name="description" content="A dark, edgy landing page template for tattoo studios and artists. Free to preview and download as a single HTML file.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://excusemeweb.com/tattoo-landing">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+    :root{--black:#0a0a0a;--panel:#161616;--blood:#8b1a1a;--text:#e8e6e0;--muted:#8a8580;--border:#2a2a2a;}
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Inter',sans-serif;background:var(--black);color:var(--text);line-height:1.7;font-weight:300;}
+    h1,h2,h3{font-family:'Cinzel',serif;font-weight:600;}
+    a{color:inherit;text-decoration:none;}
+    .wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+    section{padding:88px 0;}
+    header{position:sticky;top:0;z-index:100;background:rgba(10,10,10,.92);border-bottom:1px solid var(--border);}
+    .hdr{display:flex;justify-content:space-between;align-items:center;padding:20px 0;}
+    .brand{font-family:'Cinzel',serif;font-size:1.3rem;letter-spacing:2px;text-transform:uppercase;}
+    nav{display:flex;gap:28px;}
+    nav a{font-size:.8rem;letter-spacing:1px;text-transform:uppercase;color:var(--muted);}
+    nav a:hover{color:var(--blood);}
+    .btn{display:inline-block;font-weight:600;font-size:.8rem;letter-spacing:1px;text-transform:uppercase;padding:14px 28px;border:1px solid var(--blood);cursor:pointer;background:none;color:var(--text);}
+    .btn:hover{background:var(--blood);}
+    .hero{text-align:center;padding:130px 0 90px;background:radial-gradient(ellipse at center,var(--panel),var(--black));}
+    .kicker{color:var(--blood);font-weight:600;font-size:.8rem;letter-spacing:3px;text-transform:uppercase;margin-bottom:20px;}
+    .hero h1{font-size:clamp(2.4rem,6vw,4rem);margin-bottom:20px;}
+    .hero p{color:var(--muted);max-width:480px;margin:0 auto 32px;}
+    .section-head{text-align:center;max-width:560px;margin:0 auto 50px;}
+    .section-head h2{font-size:2.2rem;}
+    .artists-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+    .artist{text-align:center;}
+    .artist-img{aspect-ratio:1;background:linear-gradient(160deg,var(--panel),var(--black));border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.8rem;margin-bottom:14px;}
+    .artist h4{font-family:'Cinzel',serif;font-size:1rem;}
+    .artist span{color:var(--blood);font-size:.85rem;}
+    .gallery{background:var(--panel);}
+    .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+    .gallery-grid div{aspect-ratio:1;background:linear-gradient(160deg,#222,var(--black));border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.75rem;}
+    .cta{text-align:center;}
+    .cta p{color:var(--muted);margin-bottom:28px;}
+    footer{padding:40px 0;border-top:1px solid var(--border);text-align:center;font-size:.85rem;color:var(--muted);}
+    .dl-btn{position:fixed;bottom:22px;right:22px;background:var(--blood);color:#fff;border:none;padding:14px 22px;font-weight:600;letter-spacing:1px;text-transform:uppercase;font-size:.8rem;cursor:pointer;}
+    @media(max-width:860px){nav{display:none;}.artists-grid{grid-template-columns:1fr;}.gallery-grid{grid-template-columns:1fr 1fr;}}
+</style>
+</head>
+<body>
+<header><div class="wrap hdr"><div class="brand">Ink &amp; Bone</div><nav><a href="#artists">Artists</a><a href="#gallery">Gallery</a></nav><a href="#book" class="btn">Book a Session</a></div></header>
+<section class="hero"><div class="wrap"><div class="kicker">Custom Tattoo Studio</div><h1>Permanent work, done deliberately.</h1><p>Custom design, fine line and black and grey work from a studio that books consultations before it books needles.</p><a href="#book" class="btn">Book a Consultation</a></div></section>
+<section id="artists"><div class="wrap"><div class="section-head"><h2>Our Artists</h2></div><div class="artists-grid">
+<div class="artist"><div class="artist-img">Photo</div><h4>Rook</h4><span>Black & Grey Realism</span></div>
+<div class="artist"><div class="artist-img">Photo</div><h4>Vale</h4><span>Fine Line</span></div>
+<div class="artist"><div class="artist-img">Photo</div><h4>Thorne</h4><span>Traditional</span></div>
+</div></div></section>
+<section class="gallery" id="gallery"><div class="wrap"><div class="section-head"><h2>Recent Work</h2></div><div class="gallery-grid"><div>Piece 01</div><div>Piece 02</div><div>Piece 03</div><div>Piece 04</div></div></div></section>
+<section class="cta" id="book"><div class="wrap"><h2>Ready to talk design?</h2><p>Consultations by appointment. Walk-ins considered when the schedule allows.</p><a href="#" class="btn">Book a Consultation</a></div></section>
+<footer><div class="wrap">Template by <a href="https://excusemeweb.com/landing-pages" style="color:var(--blood);">ExcuseMeWeb</a></div></footer>
+<button class="dl-btn" onclick="downloadPage()">Download HTML</button>
+<script>
+function downloadPage(){const html='<!DOCTYPE html>\n'+document.documentElement.outerHTML;const blob=new Blob([html],{type:'text/html'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='tattoo-landing-page.html';document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);}
+</script>
+</body>
+</html>

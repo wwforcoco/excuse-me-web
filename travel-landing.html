@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wanderline — Travel Agency Landing Page Template</title>
+<meta name="description" content="A bright, adventurous landing page template for travel agencies and tour operators. Free to preview and download as a single HTML file.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://excusemeweb.com/travel-landing">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+    :root{--ocean:#1a6f8b;--coral:#ff7960;--sand:#faf3e8;--ink:#1c3540;--muted:#607680;--border:#e6dfd0;}
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Karla',sans-serif;background:var(--sand);color:var(--ink);line-height:1.7;}
+    h1,h2,h3{font-family:'Fraunces',serif;font-weight:700;}
+    a{color:inherit;text-decoration:none;}
+    .wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+    section{padding:86px 0;}
+    header{position:sticky;top:0;z-index:100;background:rgba(250,243,232,.94);border-bottom:1px solid var(--border);}
+    .hdr{display:flex;justify-content:space-between;align-items:center;padding:18px 0;}
+    .brand{font-family:'Fraunces',serif;font-size:1.4rem;}
+    nav{display:flex;gap:26px;}
+    nav a{font-size:.88rem;color:var(--muted);font-weight:600;}
+    nav a:hover{color:var(--ocean);}
+    .btn{display:inline-block;font-weight:600;font-size:.85rem;padding:14px 28px;border-radius:100px;border:2px solid var(--ocean);cursor:pointer;background:none;color:var(--ocean);}
+    .btn:hover{background:var(--ocean);color:#fff;}
+    .btn.solid{background:var(--coral);border-color:var(--coral);color:#fff;}
+    .btn.solid:hover{background:#e5654e;}
+    .hero{text-align:center;padding:100px 0 80px;background:radial-gradient(circle at 80% 20%,rgba(26,111,139,.15),transparent 45%);}
+    .kicker{font-size:.8rem;letter-spacing:2px;text-transform:uppercase;color:var(--coral);font-weight:700;margin-bottom:18px;}
+    .hero h1{font-size:clamp(2.4rem,6vw,4rem);margin-bottom:20px;}
+    .hero p{color:var(--muted);max-width:500px;margin:0 auto 30px;}
+    .section-head{text-align:center;max-width:560px;margin:0 auto 46px;}
+    .section-head h2{font-size:2.2rem;}
+    .destinations-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+    .dest-card{border-radius:10px;overflow:hidden;border:1px solid var(--border);}
+    .dest-img{aspect-ratio:4/3;background:linear-gradient(160deg,var(--ocean),var(--coral));display:flex;align-items:center;justify-content:center;color:#fff;font-size:.8rem;}
+    .dest-body{padding:18px;background:#fff;}
+    .dest-body h3{font-size:1.05rem;margin-bottom:4px;}
+    .dest-body p{font-size:.85rem;color:var(--muted);}
+    .packages{background:var(--ocean);color:#fff;}
+    .packages .section-head h2{color:#fff;}
+    .pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+    .pkg-card{background:rgba(255,255,255,.08);border-radius:10px;padding:24px;text-align:center;}
+    .pkg-card h4{font-family:'Fraunces',serif;font-size:1.15rem;margin-bottom:8px;}
+    .pkg-card .price{font-family:'Fraunces',serif;color:var(--coral);font-size:1.4rem;margin:10px 0;}
+    .cta{text-align:center;}
+    .cta p{color:var(--muted);margin-bottom:26px;}
+    footer{padding:36px 0;border-top:1px solid var(--border);text-align:center;font-size:.85rem;color:var(--muted);}
+    .dl-btn{position:fixed;bottom:22px;right:22px;background:var(--coral);color:#fff;border:none;padding:14px 22px;border-radius:100px;font-weight:600;font-size:.85rem;cursor:pointer;box-shadow:0 6px 20px rgba(255,121,96,.4);}
+    @media(max-width:860px){nav{display:none;}.destinations-grid{grid-template-columns:1fr;}.pkg-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<header><div class="wrap hdr"><div class="brand">Wanderline</div><nav><a href="#destinations">Destinations</a><a href="#packages">Packages</a></nav><a href="#plan" class="btn solid">Plan a Trip</a></div></header>
+<section class="hero"><div class="wrap"><div class="kicker">Custom Trip Planning</div><h1>Trips planned around how you actually want to travel.</h1><p>Custom itineraries, group tours and honeymoon packages, planned by people who've actually been there.</p><a href="#plan" class="btn solid">Start Planning</a></div></section>
+<section id="destinations"><div class="wrap"><div class="section-head"><h2>Popular Destinations</h2></div><div class="destinations-grid">
+<div class="dest-card"><div class="dest-img">Photo</div><div class="dest-body"><h3>Portugal</h3><p>Coastal towns and Lisbon nightlife</p></div></div>
+<div class="dest-card"><div class="dest-img">Photo</div><div class="dest-body"><h3>Japan</h3><p>Tokyo, Kyoto and the countryside</p></div></div>
+<div class="dest-card"><div class="dest-img">Photo</div><div class="dest-body"><h3>Costa Rica</h3><p>Rainforest, volcanoes and coast</p></div></div>
+</div></div></section>
+<section class="packages" id="packages"><div class="wrap"><div class="section-head"><h2>Sample Packages</h2></div><div class="pkg-grid">
+<div class="pkg-card"><h4>Weekend Getaway</h4><div class="price">from $890</div><p>3–4 nights, fully planned</p></div>
+<div class="pkg-card"><h4>Two-Week Explorer</h4><div class="price">from $3,200</div><p>Multi-city custom itinerary</p></div>
+<div class="pkg-card"><h4>Honeymoon</h4><div class="price">from $4,500</div><p>Two-destination romantic trip</p></div>
+</div></div></section>
+<section class="cta" id="plan"><div class="wrap"><h2>Where to next?</h2><p>Free consultation to start planning your trip.</p><a href="#" class="btn solid">Start Planning</a></div></section>
+<footer><div class="wrap">Template by <a href="https://excusemeweb.com/landing-pages" style="color:var(--ocean);">ExcuseMeWeb</a></div></footer>
+<button class="dl-btn" onclick="downloadPage()">Download HTML</button>
+<script>
+function downloadPage(){const html='<!DOCTYPE html>\n'+document.documentElement.outerHTML;const blob=new Blob([html],{type:'text/html'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='travel-landing-page.html';document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);}
+</script>
+</body>
+</html>

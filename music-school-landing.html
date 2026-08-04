@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cadence Studio — Music School Landing Page Template</title>
+<meta name="description" content="An expressive, warm landing page template for music schools and private lesson studios. Free to preview and download as a single HTML file.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://excusemeweb.com/music-school-landing">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+    :root{--purple:#5b3a8e;--purple-dark:#402968;--gold:#e8b64c;--cream:#f8f5ef;--ink:#2c2438;--muted:#7a7286;--border:#e5e0d8;}
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Manrope',sans-serif;background:var(--cream);color:var(--ink);line-height:1.7;}
+    h1,h2,h3{font-family:'Fraunces',serif;font-weight:700;}
+    a{color:inherit;text-decoration:none;}
+    .wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+    section{padding:86px 0;}
+    header{position:sticky;top:0;z-index:100;background:rgba(248,245,239,.94);border-bottom:1px solid var(--border);}
+    .hdr{display:flex;justify-content:space-between;align-items:center;padding:18px 0;}
+    .brand{font-family:'Fraunces',serif;font-size:1.4rem;color:var(--purple-dark);}
+    nav{display:flex;gap:26px;}
+    nav a{font-size:.88rem;color:var(--muted);font-weight:500;}
+    nav a:hover{color:var(--purple-dark);}
+    .btn{display:inline-block;font-weight:600;font-size:.85rem;padding:14px 28px;border-radius:100px;border:2px solid var(--purple-dark);cursor:pointer;background:none;color:var(--purple-dark);}
+    .btn:hover{background:var(--purple-dark);color:#fff;}
+    .btn.solid{background:var(--gold);border-color:var(--gold);color:var(--ink);}
+    .btn.solid:hover{background:#d9a53e;}
+    .hero{text-align:center;padding:100px 0 80px;background:linear-gradient(180deg,#eee6f7,var(--cream));}
+    .kicker{font-size:.8rem;letter-spacing:2px;text-transform:uppercase;color:var(--purple-dark);font-weight:700;margin-bottom:18px;}
+    .hero h1{font-size:clamp(2.4rem,6vw,4rem);margin-bottom:20px;}
+    .hero p{color:var(--muted);max-width:500px;margin:0 auto 30px;}
+    .section-head{text-align:center;max-width:560px;margin:0 auto 46px;}
+    .section-head h2{font-size:2.2rem;}
+    .lessons-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+    .lesson-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:24px;text-align:center;}
+    .lesson-card h3{font-size:1.05rem;margin-bottom:8px;}
+    .lesson-card p{font-size:.8rem;color:var(--muted);}
+    .teachers{background:var(--purple-dark);color:#fff;}
+    .teachers .section-head h2{color:#fff;}
+    .teachers-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+    .teacher{text-align:center;}
+    .teacher-img{aspect-ratio:1;border-radius:50%;max-width:130px;margin:0 auto 14px;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:.8rem;}
+    .teacher h4{font-family:'Fraunces',serif;font-size:1rem;}
+    .teacher span{color:var(--gold);font-size:.85rem;}
+    .cta{text-align:center;}
+    .cta p{color:var(--muted);margin-bottom:26px;}
+    footer{padding:36px 0;border-top:1px solid var(--border);text-align:center;font-size:.85rem;color:var(--muted);}
+    .dl-btn{position:fixed;bottom:22px;right:22px;background:var(--purple-dark);color:#fff;border:none;padding:14px 22px;border-radius:100px;font-weight:600;font-size:.85rem;cursor:pointer;box-shadow:0 6px 20px rgba(64,41,104,.4);}
+    @media(max-width:860px){nav{display:none;}.lessons-grid{grid-template-columns:1fr 1fr;}.teachers-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<header><div class="wrap hdr"><div class="brand">Cadence Studio</div><nav><a href="#lessons">Lessons</a><a href="#teachers">Teachers</a></nav><a href="#trial" class="btn solid">Free Trial Lesson</a></div></header>
+<section class="hero"><div class="wrap"><div class="kicker">Music Lessons, All Ages</div><h1>Learn an instrument, at your own pace.</h1><p>Private lessons in piano, guitar, voice and more, taught by working musicians who actually enjoy teaching beginners.</p><a href="#trial" class="btn solid">Book a Free Trial Lesson</a></div></section>
+<section id="lessons"><div class="wrap"><div class="section-head"><h2>Lessons Offered</h2></div><div class="lessons-grid">
+<div class="lesson-card"><h3>Piano</h3><p>Classical and contemporary styles.</p></div>
+<div class="lesson-card"><h3>Guitar</h3><p>Acoustic and electric, all levels.</p></div>
+<div class="lesson-card"><h3>Voice</h3><p>Technique, range and performance.</p></div>
+<div class="lesson-card"><h3>Drums</h3><p>Rhythm fundamentals to kit work.</p></div>
+</div></div></section>
+<section class="teachers" id="teachers"><div class="wrap"><div class="section-head"><h2>Meet the Teachers</h2></div><div class="teachers-grid">
+<div class="teacher"><div class="teacher-img">Photo</div><h4>Elena Cruz</h4><span>Piano & Voice</span></div>
+<div class="teacher"><div class="teacher-img">Photo</div><h4>Jordan Blake</h4><span>Guitar</span></div>
+<div class="teacher"><div class="teacher-img">Photo</div><h4>Marcus Lee</h4><span>Drums</span></div>
+</div></div></section>
+<section class="cta" id="trial"><div class="wrap"><h2>Try your first lesson free.</h2><p>No commitment. See if it's the right fit before you enroll.</p><a href="#" class="btn solid">Book a Free Trial Lesson</a></div></section>
+<footer><div class="wrap">Template by <a href="https://excusemeweb.com/landing-pages" style="color:var(--purple-dark);">ExcuseMeWeb</a></div></footer>
+<button class="dl-btn" onclick="downloadPage()">Download HTML</button>
+<script>
+function downloadPage(){const html='<!DOCTYPE html>\n'+document.documentElement.outerHTML;const blob=new Blob([html],{type:'text/html'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='music-school-landing-page.html';document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);}
+</script>
+</body>
+</html>

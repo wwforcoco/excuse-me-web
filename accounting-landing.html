@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ledger & Lane — Accounting Landing Page Template</title>
+<meta name="description" content="A professional, trustworthy landing page template for accountants and financial advisors. Free to preview and download as a single HTML file.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://excusemeweb.com/accounting-landing">
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+    :root{--navy:#132a3a;--teal:#0f8b8d;--bg:#f7fafb;--ink:#132a3a;--muted:#5a6b74;--border:#dfe8ea;}
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.65;}
+    h1,h2,h3{font-family:'Merriweather',serif;font-weight:700;}
+    a{color:inherit;text-decoration:none;}
+    .wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+    section{padding:84px 0;}
+    header{position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid var(--border);}
+    .hdr{display:flex;justify-content:space-between;align-items:center;padding:18px 0;}
+    .brand{font-family:'Merriweather',serif;font-size:1.25rem;color:var(--navy);}
+    nav{display:flex;gap:26px;}
+    nav a{font-size:.88rem;color:var(--muted);font-weight:500;}
+    nav a:hover{color:var(--teal);}
+    .btn{display:inline-block;font-weight:600;font-size:.85rem;padding:14px 28px;border-radius:6px;border:1px solid var(--navy);cursor:pointer;background:none;color:var(--navy);}
+    .btn:hover{background:#eef4f4;}
+    .btn.solid{background:var(--teal);border-color:var(--teal);color:#fff;}
+    .btn.solid:hover{background:#0c7476;}
+    .hero{padding:100px 0 80px;background:linear-gradient(180deg,#eef4f4,var(--bg));text-align:center;}
+    .kicker{font-size:.8rem;letter-spacing:2px;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:18px;}
+    .hero h1{font-size:clamp(2.3rem,5vw,3.6rem);margin-bottom:20px;}
+    .hero p{color:var(--muted);max-width:500px;margin:0 auto 30px;}
+    .section-head{text-align:center;max-width:560px;margin:0 auto 46px;}
+    .section-head h2{font-size:2.1rem;}
+    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+    .service{background:#fff;border:1px solid var(--border);border-radius:10px;padding:26px;}
+    .service h3{font-size:1.05rem;margin-bottom:10px;}
+    .service p{font-size:.85rem;color:var(--muted);}
+    .stats{background:var(--navy);color:#fff;text-align:center;}
+    .stats-grid{display:grid;grid-template-columns:repeat(3,1fr);}
+    .stats-grid .num{font-family:'Merriweather',serif;font-size:1.9rem;color:var(--teal);}
+    .stats-grid .lbl{font-size:.8rem;opacity:.75;margin-top:6px;}
+    .cta{text-align:center;}
+    .cta p{color:var(--muted);margin-bottom:26px;}
+    footer{padding:36px 0;border-top:1px solid var(--border);text-align:center;font-size:.85rem;color:var(--muted);}
+    .dl-btn{position:fixed;bottom:22px;right:22px;background:var(--teal);color:#fff;border:none;padding:14px 22px;border-radius:100px;font-weight:600;font-size:.85rem;cursor:pointer;box-shadow:0 6px 20px rgba(15,139,141,.4);}
+    @media(max-width:860px){nav{display:none;}.services-grid{grid-template-columns:1fr;}.stats-grid{grid-template-columns:1fr;gap:20px;}}
+</style>
+</head>
+<body>
+<header><div class="wrap hdr"><div class="brand">Ledger &amp; Lane</div><nav><a href="#services">Services</a><a href="#stats">Why Us</a></nav><a href="#contact" class="btn solid">Free Consultation</a></div></header>
+<section class="hero"><div class="wrap"><div class="kicker">CPAs & Financial Advisors</div><h1>Books that are actually up to date.</h1><p>Bookkeeping, tax prep and financial planning for small businesses and individuals who'd rather not think about it themselves.</p><a href="#contact" class="btn solid">Book a Free Consultation</a></div></section>
+<section id="services"><div class="wrap"><div class="section-head"><h2>Services</h2></div><div class="services-grid">
+<div class="service"><h3>Bookkeeping</h3><p>Monthly reconciliation and reporting, done for you.</p></div>
+<div class="service"><h3>Tax Preparation</h3><p>Personal and business filings, planned ahead of deadline.</p></div>
+<div class="service"><h3>Financial Planning</h3><p>Retirement, investment and cash flow strategy.</p></div>
+</div></div></section>
+<section class="stats" id="stats"><div class="wrap stats-grid"><div><div class="num">20+ yrs</div><div class="lbl">In Practice</div></div><div><div class="num">450+</div><div class="lbl">Clients Served</div></div><div><div class="num">$0</div><div class="lbl">Cost for First Consult</div></div></div></section>
+<section class="cta" id="contact"><div class="wrap"><h2>Let's look at your numbers.</h2><p>First consultation is free, no obligation.</p><a href="#" class="btn solid">Book a Free Consultation</a></div></section>
+<footer><div class="wrap">Template by <a href="https://excusemeweb.com/landing-pages" style="color:var(--teal);">ExcuseMeWeb</a></div></footer>
+<button class="dl-btn" onclick="downloadPage()">Download HTML</button>
+<script>
+function downloadPage(){const html='<!DOCTYPE html>\n'+document.documentElement.outerHTML;const blob=new Blob([html],{type:'text/html'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='accounting-landing-page.html';document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);}
+</script>
+</body>
+</html>
