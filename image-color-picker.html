@@ -1,72 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script defer src="https://cloud.umami.is/script.js" data-website-id="fa026cc1-8f84-44f5-b2fb-9ccf29374a38"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Color Picker - Get HEX & RGB from a Photo | ExcuseMeWeb</title>
-    <meta name="description" content="Click anywhere on an uploaded picture to read the exact HEX, RGB, and HSL color value of that pixel, and build a small palette of saved swatches.">
-    <meta name="robots" content="index, follow">
-    <meta property="og:title" content="Image Color Picker">
-    <meta property="og:description" content="Click anywhere on a picture to pull the exact HEX and RGB color value.">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://excusemeweb.com/og-image.png">
-    <meta property="og:url" content="https://excusemeweb.com/image-color-picker">
-    <meta name="twitter:card" content="summary_large_image">
-    <link rel="canonical" href="https://excusemeweb.com/image-color-picker">
-    <link rel="icon" href="/favicon.ico">
-    <meta name="theme-color" content="#ffffff">
+ <script defer src="https://cloud.umami.is/script.js" data-website-id="fa026cc1-8f84-44f5-b2fb-9ccf29374a38"></script>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Image Color Picker - Get HEX & RGB from a Photo | ExcuseMeWeb</title>
+ <meta name="description" content="Click anywhere on an uploaded picture to read the exact HEX, RGB, and HSL color value of that pixel, and build a small palette of saved swatches.">
+ <meta name="robots" content="index, follow">
+ <meta property="og:title" content="Image Color Picker">
+ <meta property="og:description" content="Click anywhere on a picture to pull the exact HEX and RGB color value.">
+ <meta property="og:type" content="website">
+ <meta property="og:image" content="https://excusemeweb.com/og-image.png">
+ <meta property="og:url" content="https://excusemeweb.com/image-color-picker">
+ <meta name="twitter:card" content="summary_large_image">
+ <link rel="canonical" href="https://excusemeweb.com/image-color-picker">
+ <link rel="icon" href="/favicon.ico">
+ <meta name="theme-color" content="#ffffff">
 
-    <script type="application/ld+json">
+ <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Image Color Picker",
+  "url": "https://excusemeweb.com/image-color-picker",
+  "description": "A browser-based tool that reads the color value of any pixel in an uploaded image.",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "All",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "ExcuseMeWeb"
+  },
+  "dateModified": "2026-07-25"
+}</script>
+
+ <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
     {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Image Color Picker",
-      "url": "https://excusemeweb.com/image-color-picker",
-      "description": "A browser-based tool that reads the color value of any pixel in an uploaded image.",
-      "applicationCategory": "MultimediaApplication",
-      "operatingSystem": "All",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-      "author": { "@type": "Organization", "name": "ExcuseMeWeb" },
-      "dateModified": "2026-07-25"
-    }
-    </script>
-
-    <script type="application/ld+json">
+      "@type": "Question",
+      "name": "Why does the color look slightly different from what I expected?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Zoomed-out previews can blend nearby pixels visually, but the tool always reads the exact underlying pixel value, not a blended average."
+      }
+    },
     {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Why does the color look slightly different from what I expected?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Zoomed-out previews can blend nearby pixels visually, but the tool always reads the exact underlying pixel value, not a blended average." }
-        },
-        {
-          "@type": "Question",
-          "name": "Can I pick colors from a photo, not just a graphic?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes, this works on any picture, including photographs, screenshots, and illustrations." }
-        },
-        {
-          "@type": "Question",
-          "name": "What is the difference between HEX, RGB, and HSL?",
-          "acceptedAnswer": { "@type": "Answer", "text": "HEX and RGB both describe a color using red, green, and blue amounts, just in different notations. HSL describes the same color using hue, saturation, and lightness instead." }
-        },
-        {
-          "@type": "Question",
-          "name": "How many colors can I save?",
-          "acceptedAnswer": { "@type": "Answer", "text": "There is no fixed limit. Each click adds another swatch to the list for that session." }
-        },
-        {
-          "@type": "Question",
-          "name": "Do the swatches stay after I close the tab?",
-          "acceptedAnswer": { "@type": "Answer", "text": "No, the swatch list is only kept in memory for the current session and clears when you leave or reload the page." }
-        }
-      ]
+      "@type": "Question",
+      "name": "Can I pick colors from a photo, not just a graphic?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, this works on any picture, including photographs, screenshots, and illustrations."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between HEX, RGB, and HSL?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "HEX and RGB both describe a color using red, green, and blue amounts, just in different notations. HSL describes the same color using hue, saturation, and lightness instead."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many colors can I save?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There is no fixed limit. Each click adds another swatch to the list for that session."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do the swatches stay after I close the tab?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, the swatch list is only kept in memory for the current session and clears when you leave or reload the page."
+      }
     }
-    </script>
+  ]
+}</script>
 
-    <style>
+ <style>
         :root {
             --bg-primary: #ffffff; --bg-secondary: #f8fafc; --bg-tertiary: #f1f5f9;
             --text-primary: #0f172a; --text-secondary: #64748b; --accent: #6366f1;
@@ -148,135 +166,133 @@
         .breadcrumb .bc-sep { color: var(--border); }
         .breadcrumb .bc-current { color: var(--text-primary); font-weight: 600; }
     </style>
-    <script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-        {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://excusemeweb.com/"
-        },
-        {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Image Tools",
-            "item": "https://excusemeweb.com/image-tools"
-        },
-        {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "Image Color Picker",
-            "item": "https://excusemeweb.com/image-color-picker"
-        }
-    ]
-}
-    </script>
+ <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://excusemeweb.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Image Tools",
+      "item": "https://excusemeweb.com/image-tools"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Image Color Picker",
+      "item": "https://excusemeweb.com/image-color-picker"
+    }
+  ]
+}</script>
+<meta name="twitter:title" content="Image Color Picker - Get HEX & RGB from a Photo | ExcuseMeWeb">
+<meta name="twitter:description" content="Click anywhere on an uploaded picture to read the exact HEX, RGB, and HSL color value of that pixel, and build a small palette of saved swatches.">
 </head>
 <body>
-    <header class="header">
-        <div class="header-inner">
-            <a href="/" class="logo">Excuse<span>Me</span>Web</a>
-            <nav class="nav-desktop">
-                <a href="/">Tools</a>
-                <a href="/calculators">Calculators</a><a href="/converters">Converters</a>
-                <a href="/image-tools" class="active">Image Tools</a>
-                <a href="/generators">Generators</a>
-                <a href="/templates">Templates</a>
-                <a href="/games">Games</a><a href="/all-in-one-toolkit">Toolkits</a>
-            </nav>
-            <div class="header-right">
-                <button class="hamburger" onclick="document.getElementById('mobileNav').classList.toggle('show')">Menu</button>
-            </div>
-        </div>
-        <nav class="mobile-nav" id="mobileNav">
-            <a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a><a href="/all-in-one-toolkit">Toolkits</a>
-        </nav>
-    </header>
-    <main class="main-content">
-        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="bc-sep">/</span><a href="/image-tools">Image Tools</a><span class="bc-sep">/</span><span class="bc-current">Image Color Picker</span></nav>
+ <header class="header">
+ <div class="header-inner">
+ <a href="/" class="logo">Excuse<span>Me</span>Web</a>
+ <nav class="nav-desktop">
+ <a href="/">Tools</a>
+ <a href="/calculators">Calculators</a><a href="/converters">Converters</a>
+ <a href="/image-tools" class="active">Image Tools</a>
+ <a href="/generators">Generators</a>
+ <a href="/templates">Templates</a>
+ <a href="/games">Games</a><a href="/all-in-one-toolkit">Toolkits</a>
+ </nav>
+ <div class="header-right">
+ <button class="hamburger" onclick="document.getElementById('mobileNav').classList.toggle('show')">Menu</button>
+ </div>
+ </div>
+ <nav class="mobile-nav" id="mobileNav">
+ <a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a><a href="/all-in-one-toolkit">Toolkits</a>
+ </nav>
+ </header>
+ <main class="main-content">
+ <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="bc-sep">/</span><a href="/image-tools">Image Tools</a><span class="bc-sep">/</span><span class="bc-current">Image Color Picker</span></nav>
 
-        <div class="page-header">
-            <h1>Image Color Picker</h1>
-            <p>Click any spot on a picture to read its exact color value.</p>
-        </div>
+ <div class="page-header">
+ <h1>Image Color Picker</h1>
+ <p>Click any spot on a picture to read its exact color value.</p>
+ </div>
 
+ <div class="tool-panel">
+ <div class="dropzone" id="dz">
+ <div class="main-txt">Drop a picture here, or click to choose one</div>
+ <div class="sub-txt">Then click anywhere on it to read a color</div>
+ <input type="file" id="fileInput" accept="image/*" hidden>
+ </div>
+ <div class="workspace" id="ws">
+ <div class="preview-wrap"><canvas id="canvas" style="cursor:crosshair"></canvas></div>
+ <div class="controls-row" style="align-items:center">
+ <div style="width:56px;height:56px;border-radius:10px;border:1px solid var(--border)" id="colorSwatch"></div>
+ <div class="field"><label>HEX</label><input type="text" id="hexOut" readonly style="width:120px"></div>
+ <div class="field"><label>RGB</label><input type="text" id="rgbOut" readonly style="width:160px"></div>
+ <div class="field"><label>HSL</label><input type="text" id="hslOut" readonly style="width:170px"></div>
+ <button class="btn secondary" id="copyBtn">Copy HEX</button>
+ </div>
+ <div class="swatch-row" id="swatchRow"></div>
+ <div class="btn-row" style="margin-top:18px"><button class="btn secondary" id="resetBtn">Start Over</button></div>
+ </div>
+ </div>
 
-        <div class="tool-panel">
-            <div class="dropzone" id="dz">
-                <div class="main-txt">Drop a picture here, or click to choose one</div>
-                <div class="sub-txt">Then click anywhere on it to read a color</div>
-                <input type="file" id="fileInput" accept="image/*" hidden>
-            </div>
-            <div class="workspace" id="ws">
-                <div class="preview-wrap"><canvas id="canvas" style="cursor:crosshair"></canvas></div>
-                <div class="controls-row" style="align-items:center">
-                    <div style="width:56px;height:56px;border-radius:10px;border:1px solid var(--border)" id="colorSwatch"></div>
-                    <div class="field"><label>HEX</label><input type="text" id="hexOut" readonly style="width:120px"></div>
-                    <div class="field"><label>RGB</label><input type="text" id="rgbOut" readonly style="width:160px"></div>
-                    <div class="field"><label>HSL</label><input type="text" id="hslOut" readonly style="width:170px"></div>
-                    <button class="btn secondary" id="copyBtn">Copy HEX</button>
-                </div>
-                <div class="swatch-row" id="swatchRow"></div>
-                <div class="btn-row" style="margin-top:18px"><button class="btn secondary" id="resetBtn">Start Over</button></div>
-            </div>
-        </div>
+ <div class="info-section">
+ <h2>What This Tool Does</h2>
+ <p>Every pixel in a digital picture is a specific color. This tool reads the pixel under your cursor when you click on the canvas and reports it as a HEX code, RGB values, and HSL values, so you can match colors for design work.</p>
 
+ <h3>Steps to Pick a Color</h3>
+ <ol>
+ <li>Load a picture into the box above</li>
+ <li>Move your mouse over the picture to see a live preview of the color under the cursor</li>
+ <li>Click to lock in a color and add it to your saved swatches</li>
+ <li>Click any saved swatch to copy its HEX code</li>
+ </ol>
 
-        <div class="info-section">
-            <h2>What This Tool Does</h2>
-            <p>Every pixel in a digital picture is a specific color. This tool reads the pixel under your cursor when you click on the canvas and reports it as a HEX code, RGB values, and HSL values, so you can match colors for design work.</p>
+ <h3>What You Get</h3>
+ <ul>
+ <li>HEX, RGB, and HSL values shown for every picked pixel</li>
+ <li>A running list of saved swatches from the same picture</li>
+ <li>One-click copy of any color code to your clipboard</li>
+ <li>No part of the picture is uploaded to a server</li>
+ </ul>
 
-            <h3>Steps to Pick a Color</h3>
-            <ol>
-                <li>Load a picture into the box above</li>
-                <li>Move your mouse over the picture to see a live preview of the color under the cursor</li>
-                <li>Click to lock in a color and add it to your saved swatches</li>
-                <li>Click any saved swatch to copy its HEX code</li>
-            </ol>
+ <h3>Frequently Asked Questions</h3>
+ <details>
+ <summary>Why does the color look slightly different from what I expected?</summary>
+ <p>Zoomed-out previews can blend nearby pixels visually, but the tool always reads the exact underlying pixel value, not a blended average.</p>
+ </details>
+ <details>
+ <summary>Can I pick colors from a photo, not just a graphic?</summary>
+ <p>Yes, this works on any picture, including photographs, screenshots, and illustrations.</p>
+ </details>
+ <details>
+ <summary>What is the difference between HEX, RGB, and HSL?</summary>
+ <p>HEX and RGB both describe a color using red, green, and blue amounts, just in different notations. HSL describes the same color using hue, saturation, and lightness instead.</p>
+ </details>
+ <details>
+ <summary>How many colors can I save?</summary>
+ <p>There is no fixed limit. Each click adds another swatch to the list for that session.</p>
+ </details>
+ <details>
+ <summary>Do the swatches stay after I close the tab?</summary>
+ <p>No, the swatch list is only kept in memory for the current session and clears when you leave or reload the page.</p>
+ </details>
 
-            <h3>What You Get</h3>
-            <ul>
-                <li>HEX, RGB, and HSL values shown for every picked pixel</li>
-                <li>A running list of saved swatches from the same picture</li>
-                <li>One-click copy of any color code to your clipboard</li>
-                <li>No part of the picture is uploaded to a server</li>
-            </ul>
-
-            <h3>Frequently Asked Questions</h3>
-            <details>
-                <summary>Why does the color look slightly different from what I expected?</summary>
-                <p>Zoomed-out previews can blend nearby pixels visually, but the tool always reads the exact underlying pixel value, not a blended average.</p>
-            </details>
-            <details>
-                <summary>Can I pick colors from a photo, not just a graphic?</summary>
-                <p>Yes, this works on any picture, including photographs, screenshots, and illustrations.</p>
-            </details>
-            <details>
-                <summary>What is the difference between HEX, RGB, and HSL?</summary>
-                <p>HEX and RGB both describe a color using red, green, and blue amounts, just in different notations. HSL describes the same color using hue, saturation, and lightness instead.</p>
-            </details>
-            <details>
-                <summary>How many colors can I save?</summary>
-                <p>There is no fixed limit. Each click adds another swatch to the list for that session.</p>
-            </details>
-            <details>
-                <summary>Do the swatches stay after I close the tab?</summary>
-                <p>No, the swatch list is only kept in memory for the current session and clears when you leave or reload the page.</p>
-            </details>
-
-            <h3>Related Tools</h3>
-            <p><a href="/image-metadata-viewer">Metadata Viewer</a> · <a href="/image-cropper">Image Cropper</a> · <a href="/png-to-jpg">PNG to JPG</a> · <a href="/image-resizer">Image Resizer</a> · <a href="/image-tools">All Image Tools</a></p>
-        </div>
-    </main>
-    <footer class="footer">
-        <p>© 2026 ExcuseMeWeb.com — Online Tools for Everyone</p>
-        <p style="margin-top:8px"><a href="/calculators">Calculators</a> · <a href="/converters">Converters</a> · <a href="/image-tools">Image Tools</a> · <a href="/generators">Generators</a> · <a href="/templates">Templates</a></p>
-            <p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p>
-    </footer>
-    <script>
+ <h3>Related Tools</h3>
+ <p><a href="/image-metadata-viewer">Metadata Viewer</a> · <a href="/image-cropper">Image Cropper</a> · <a href="/png-to-jpg">PNG to JPG</a> · <a href="/image-resizer">Image Resizer</a> · <a href="/image-tools">All Image Tools</a></p>
+ </div>
+ </main>
+ <footer class="footer">
+ <p>© 2026 ExcuseMeWeb.com — Online Tools for Everyone</p>
+ <p style="margin-top:8px"><a href="/calculators">Calculators</a> · <a href="/converters">Converters</a> · <a href="/image-tools">Image Tools</a> · <a href="/generators">Generators</a> · <a href="/templates">Templates</a></p>
+ <p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p>
+ </footer>
+ <script>
 
 (function(){
   const dz=document.getElementById('dz'), fi=document.getElementById('fileInput'), ws=document.getElementById('ws');

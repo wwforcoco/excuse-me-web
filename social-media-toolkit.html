@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script defer src="https://cloud.umami.is/script.js" data-website-id="fa026cc1-8f84-44f5-b2fb-9ccf29374a38"></script>
+ <script defer src="https://cloud.umami.is/script.js" data-website-id="fa026cc1-8f84-44f5-b2fb-9ccf29374a38"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Social Media Toolkit — ExcuseMeWeb</title>
@@ -16,8 +16,7 @@
 <link rel="icon" href="/favicon.ico">
 <meta name="theme-color" content="#ffffff">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<script type="application/ld+json">
-{
+<script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "WebApplication",
   "name": "Social Media Toolkit",
@@ -25,11 +24,17 @@
   "description": "A set of six browser-based tools for generating usernames, hashtags, captions, emoji, bios, and checking character limits for social platforms.",
   "applicationCategory": "UtilitiesApplication",
   "operatingSystem": "All",
-  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-  "author": { "@type": "Organization", "name": "ExcuseMeWeb" },
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "ExcuseMeWeb"
+  },
   "dateModified": "2026-07-22"
-}
-</script>
+}</script>
 <style>
 :root {
   --bg: #fff8fa;
@@ -192,32 +197,30 @@ th { font-size: 11.5px; text-transform: uppercase; letter-spacing: .03em; color:
 
 .tag-chip{background:var(--accent-soft);color:var(--accent-2);font-weight:700;padding:6px 12px;border-radius:999px;font-size:13px;cursor:pointer;} .emoji-cat-btn{}
 </style>
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-        {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://excusemeweb.com/"
-        },
-        {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Toolkits",
-            "item": "https://excusemeweb.com/all-in-one-toolkit"
-        },
-        {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "Social Media Toolkit",
-            "item": "https://excusemeweb.com/social-media-toolkit"
-        }
-    ]
-}
-</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://excusemeweb.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Toolkits",
+      "item": "https://excusemeweb.com/all-in-one-toolkit"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Social Media Toolkit",
+      "item": "https://excusemeweb.com/social-media-toolkit"
+    }
+  ]
+}</script>
 
 <style>
 .ew-breadcrumb { max-width: 1120px; margin: 14px auto 0; padding: 0 24px; display: flex; align-items: center; flex-wrap: wrap; gap: 6px; font-size: 0.85rem; color: var(--text-muted); }
@@ -226,157 +229,160 @@ th { font-size: 11.5px; text-transform: uppercase; letter-spacing: .03em; color:
 .ew-breadcrumb .bc-sep { color: var(--border); }
 .ew-breadcrumb .bc-current { color: var(--text); font-weight: 600; }
 </style>
+<meta property="og:url" content="https://excusemeweb.com/social-media-toolkit">
+<meta name="twitter:title" content="Social Media Toolkit — ExcuseMeWeb">
+<meta name="twitter:description" content="Six tools for handles, hashtags, captions, and bios.">
 </head>
 <body>
 <header class="tk-header">
-  <div class="tk-header-inner">
-    <div class="tk-brand">
-      <a href="all-in-one-toolkit.html" class="tk-back">&larr; All Toolkits</a>
-    </div>
-    <div class="tk-brand">
-      <div class="tk-icon">📣</div>
-      <div class="tk-title">Social Media Toolkit<span>For posts & profiles</span></div>
-    </div>
-    <div class="tk-actions">
-      <button class="btn btn-ghost btn-sm" onclick="downloadHTML()">&#8681; Download HTML</button>
-    </div>
-  </div>
-  <div class="tk-tabbar-wrap">
-    <div class="tk-tabbar">
-      <button class="tk-tab active" data-tool="uname" onclick="showPanel('uname', this)">@ Username Generator</button>
-      <button class="tk-tab" data-tool="hashtag" onclick="showPanel('hashtag', this)"># Hashtag Generator</button>
-      <button class="tk-tab" data-tool="caption" onclick="showPanel('caption', this)">💬 Caption Generator</button>
-      <button class="tk-tab" data-tool="emoji" onclick="showPanel('emoji', this)">✨ Random Emoji Generator</button>
-      <button class="tk-tab" data-tool="bio" onclick="showPanel('bio', this)">🪪 Bio Generator</button>
-      <button class="tk-tab" data-tool="charlimit" onclick="showPanel('charlimit', this)">🔢 Character Counter</button>
-    </div>
-  </div>
+ <div class="tk-header-inner">
+ <div class="tk-brand">
+ <a href="all-in-one-toolkit.html" class="tk-back">&larr; All Toolkits</a>
+ </div>
+ <div class="tk-brand">
+ <div class="tk-icon">📣</div>
+ <div class="tk-title">Social Media Toolkit<span>For posts & profiles</span></div>
+ </div>
+ <div class="tk-actions">
+ <button class="btn btn-ghost btn-sm" onclick="downloadHTML()">&#8681; Download HTML</button>
+ </div>
+ </div>
+ <div class="tk-tabbar-wrap">
+ <div class="tk-tabbar">
+ <button class="tk-tab active" data-tool="uname" onclick="showPanel('uname', this)">@ Username Generator</button>
+ <button class="tk-tab" data-tool="hashtag" onclick="showPanel('hashtag', this)"># Hashtag Generator</button>
+ <button class="tk-tab" data-tool="caption" onclick="showPanel('caption', this)">💬 Caption Generator</button>
+ <button class="tk-tab" data-tool="emoji" onclick="showPanel('emoji', this)">✨ Random Emoji Generator</button>
+ <button class="tk-tab" data-tool="bio" onclick="showPanel('bio', this)">🪪 Bio Generator</button>
+ <button class="tk-tab" data-tool="charlimit" onclick="showPanel('charlimit', this)">🔢 Character Counter</button>
+ </div>
+ </div>
 </header>
 <nav class="ew-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="bc-sep">/</span><a href="/all-in-one-toolkit">Toolkits</a><span class="bc-sep">/</span><span class="bc-current">Social Media Toolkit</span></nav>
 
 <div class="wrap">
-  <div class="tk-hero">
-    <h1>Social Media Toolkit</h1>
-    <p>Six tools for handles, hashtags, captions, and bios.</p>
-  </div>
+ <div class="tk-hero">
+ <h1>Social Media Toolkit</h1>
+ <p>Six tools for handles, hashtags, captions, and bios.</p>
+ </div>
 
-  <section class="panel active" id="uname">
-    <div class="panel-head">
-      <div>
-        <h2>@ Username Generator</h2>
-        <p class="desc">Type a word or name to get handle ideas.</p>
-      </div>
-    </div>
-    <div class="panel-card">
-      
+ <section class="panel active" id="uname">
+ <div class="panel-head">
+ <div>
+ <h2>@ Username Generator</h2>
+ <p class="desc">Type a word or name to get handle ideas.</p>
+ </div>
+ </div>
+ <div class="panel-card">
+ 
 <div class="row" style="margin-bottom:16px;">
-  <input type="text" id="unameWord" placeholder="e.g. maya, coffee, pixel" value="nova">
-  <button class="btn btn-accent" onclick="unameGen()">Generate</button>
+ <input type="text" id="unameWord" placeholder="e.g. maya, coffee, pixel" value="nova">
+ <button class="btn btn-accent" onclick="unameGen()">Generate</button>
 </div>
 <div id="unameList" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;"></div>
 
-    </div>
-  </section>
+ </div>
+ </section>
 <section class="panel" id="hashtag">
-    <div class="panel-head">
-      <div>
-        <h2># Hashtag Generator</h2>
-        <p class="desc">Type a topic to get a ready-to-paste hashtag set.</p>
-      </div>
-    </div>
-    <div class="panel-card">
-      
+ <div class="panel-head">
+ <div>
+ <h2># Hashtag Generator</h2>
+ <p class="desc">Type a topic to get a ready-to-paste hashtag set.</p>
+ </div>
+ </div>
+ <div class="panel-card">
+ 
 <div class="row" style="margin-bottom:16px;">
-  <input type="text" id="tagTopic" placeholder="e.g. travel, coffee, fitness" value="travel">
-  <button class="btn btn-accent" onclick="tagGen()">Generate</button>
+ <input type="text" id="tagTopic" placeholder="e.g. travel, coffee, fitness" value="travel">
+ <button class="btn btn-accent" onclick="tagGen()">Generate</button>
 </div>
 <div id="tagList" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;"></div>
 <div class="row">
-  <button class="btn btn-ghost btn-sm" onclick="copyText(document.getElementById('tagAll').textContent, this)">Copy all</button>
+ <button class="btn btn-ghost btn-sm" onclick="copyText(document.getElementById('tagAll').textContent, this)">Copy all</button>
 </div>
 <textarea id="tagAll" readonly style="min-height:70px;margin-top:10px;"></textarea>
 
-    </div>
-  </section>
+ </div>
+ </section>
 <section class="panel" id="caption">
-    <div class="panel-head">
-      <div>
-        <h2>💬 Caption Generator</h2>
-        <p class="desc">Pick a category for caption starters.</p>
-      </div>
-    </div>
-    <div class="panel-card">
-      
+ <div class="panel-head">
+ <div>
+ <h2>💬 Caption Generator</h2>
+ <p class="desc">Pick a category for caption starters.</p>
+ </div>
+ </div>
+ <div class="panel-card">
+ 
 <div class="tabs" id="capTabs"></div>
 <div id="capList"></div>
 
-    </div>
-  </section>
+ </div>
+ </section>
 <section class="panel" id="emoji">
-    <div class="panel-head">
-      <div>
-        <h2>✨ Random Emoji Generator</h2>
-        <p class="desc">Grab a handful of random emoji.</p>
-      </div>
-    </div>
-    <div class="panel-card">
-      
+ <div class="panel-head">
+ <div>
+ <h2>✨ Random Emoji Generator</h2>
+ <p class="desc">Grab a handful of random emoji.</p>
+ </div>
+ </div>
+ <div class="panel-card">
+ 
 <div class="row" style="margin-bottom:16px;">
-  <label class="field-label" style="margin:0;">Quantity</label>
-  <input type="number" id="emojiCount" value="5" min="1" max="30" style="width:90px;">
-  <select id="emojiCat">
-    <option value="all">All categories</option>
-    <option value="faces">Faces</option>
-    <option value="hearts">Hearts</option>
-    <option value="nature">Nature</option>
-    <option value="objects">Objects</option>
-    <option value="celebration">Celebration</option>
-  </select>
-  <button class="btn btn-accent" onclick="emojiGen()">🎲 Generate</button>
+ <label class="field-label" style="margin:0;">Quantity</label>
+ <input type="number" id="emojiCount" value="5" min="1" max="30" style="width:90px;">
+ <select id="emojiCat">
+ <option value="all">All categories</option>
+ <option value="faces">Faces</option>
+ <option value="hearts">Hearts</option>
+ <option value="nature">Nature</option>
+ <option value="objects">Objects</option>
+ <option value="celebration">Celebration</option>
+ </select>
+ <button class="btn btn-accent" onclick="emojiGen()">🎲 Generate</button>
 </div>
 <div id="emojiOut" style="font-size:34px;letter-spacing:8px;margin-bottom:14px;"></div>
 <button class="btn btn-ghost btn-sm" onclick="copyText(document.getElementById('emojiOut').textContent.trim(), this)">Copy</button>
 
-    </div>
-  </section>
+ </div>
+ </section>
 <section class="panel" id="bio">
-    <div class="panel-head">
-      <div>
-        <h2>🪪 Bio Generator</h2>
-        <p class="desc">Fill in a few details to get bio ideas.</p>
-      </div>
-    </div>
-    <div class="panel-card">
-      
+ <div class="panel-head">
+ <div>
+ <h2>🪪 Bio Generator</h2>
+ <p class="desc">Fill in a few details to get bio ideas.</p>
+ </div>
+ </div>
+ <div class="panel-card">
+ 
 <div class="grid-2">
-  <div class="field"><label class="field-label">What you do</label><input type="text" id="bioRole" placeholder="e.g. photographer, designer" value="photographer"></div>
-  <div class="field"><label class="field-label">Interest / niche</label><input type="text" id="bioNiche" placeholder="e.g. street photography" value="street photography"></div>
-  <div class="field"><label class="field-label">Location (optional)</label><input type="text" id="bioLoc" placeholder="e.g. Lahore" value="Lahore"></div>
-  <div class="field"><label class="field-label">Vibe</label>
-    <select id="bioVibe"><option>Playful</option><option>Minimal</option><option>Bold</option><option>Professional</option></select>
-  </div>
+ <div class="field"><label class="field-label">What you do</label><input type="text" id="bioRole" placeholder="e.g. photographer, designer" value="photographer"></div>
+ <div class="field"><label class="field-label">Interest / niche</label><input type="text" id="bioNiche" placeholder="e.g. street photography" value="street photography"></div>
+ <div class="field"><label class="field-label">Location (optional)</label><input type="text" id="bioLoc" placeholder="e.g. Lahore" value="Lahore"></div>
+ <div class="field"><label class="field-label">Vibe</label>
+ <select id="bioVibe"><option>Playful</option><option>Minimal</option><option>Bold</option><option>Professional</option></select>
+ </div>
 </div>
 <button class="btn btn-accent" onclick="bioGen()">Generate bios</button>
 <div id="bioList" style="margin-top:16px;"></div>
 
-    </div>
-  </section>
+ </div>
+ </section>
 <section class="panel" id="charlimit">
-    <div class="panel-head">
-      <div>
-        <h2>🔢 Character Counter</h2>
-        <p class="desc">Live count against common platform limits.</p>
-      </div>
-    </div>
-    <div class="panel-card">
-      
-<textarea id="clText" style="min-height:150px;" oninput="clUpdate()" placeholder="Write your caption or post..."></textarea>
+ <div class="panel-head">
+ <div>
+ <h2>🔢 Character Counter</h2>
+ <p class="desc">Live count against common platform limits.</p>
+ </div>
+ </div>
+ <div class="panel-card">
+ 
+<textarea id="clText" style="min-height:150px;" oninput="clUpdate()" placeholder="Write your caption or post."></textarea>
 <div style="margin-top:16px;" id="clPlatforms"></div>
 
-    </div>
-  </section>
+ </div>
+ </section>
 
-  <div class="tk-footer">Part of the ExcuseMeWeb All-in-One Toolkit &middot; Everything runs in your browser &middot; Nothing is uploaded anywhere</div>
+ <div class="tk-footer">Part of the ExcuseMeWeb All-in-One Toolkit &middot; Everything runs in your browser &middot; Nothing is uploaded anywhere</div>
 </div>
 
 <div class="toast" id="toast"></div>
@@ -416,7 +422,6 @@ function downloadHTML(){
   var html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
   downloadFile('social-media-toolkit.html', html, 'text/html');
 }
-
 
 /* ---------- Username Generator ---------- */
 const unamePrefixes = ['the','its','real','iam','mr','ms','just'];
@@ -549,7 +554,7 @@ clUpdate();
 
 </script>
 <footer style="max-width:1120px;margin:40px auto 0;padding:20px 24px;border-top:1px solid var(--border);text-align:center;color:var(--text-muted);font-size:0.9rem;">
-  <p><a href="/all-in-one-toolkit" style="color:var(--accent);text-decoration:none;">&larr; All Toolkits</a> &middot; <a href="/sitemap" style="color:var(--accent);text-decoration:none;">Sitemap</a></p>
+ <p><a href="/all-in-one-toolkit" style="color:var(--accent);text-decoration:none;">&larr; All Toolkits</a> &middot; <a href="/sitemap" style="color:var(--accent);text-decoration:none;">Sitemap</a></p>
 </footer>
 </body>
 </html>

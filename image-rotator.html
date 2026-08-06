@@ -1,76 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script defer src="https://cloud.umami.is/script.js" data-website-id="fa026cc1-8f84-44f5-b2fb-9ccf29374a38"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Rotator - Rotate Photos Online | ExcuseMeWeb</title>
-    <meta name="description" content="Rotate a JPG, PNG, or WebP image 90 degrees at a time or to any custom angle, then save the corrected picture.">
-    <meta name="robots" content="index, follow">
-    <meta property="og:title" content="Image Rotator - Rotate Photos Online">
-    <meta property="og:description" content="Rotate your picture 90 degrees at a time, or dial in a custom angle, right in your browser.">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://excusemeweb.com/og-image.png">
-    <meta name="twitter:card" content="summary_large_image">
-    <link rel="canonical" href="https://excusemeweb.com/image-rotator">
-    <link rel="icon" href="/favicon.ico">
-    <meta name="theme-color" content="#ffffff">
+ <script defer src="https://cloud.umami.is/script.js" data-website-id="fa026cc1-8f84-44f5-b2fb-9ccf29374a38"></script>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Image Rotator - Rotate Photos Online | ExcuseMeWeb</title>
+ <meta name="description" content="Rotate a JPG, PNG, or WebP image 90 degrees at a time or to any custom angle, then save the corrected picture.">
+ <meta name="robots" content="index, follow">
+ <meta property="og:title" content="Image Rotator - Rotate Photos Online">
+ <meta property="og:description" content="Rotate your picture 90 degrees at a time, or dial in a custom angle, right in your browser.">
+ <meta property="og:type" content="website">
+ <meta property="og:image" content="https://excusemeweb.com/og-image.png">
+ <meta name="twitter:card" content="summary_large_image">
+ <link rel="canonical" href="https://excusemeweb.com/image-rotator">
+ <link rel="icon" href="/favicon.ico">
+ <meta name="theme-color" content="#ffffff">
 
-    <script type="application/ld+json">
+ <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Image Rotator",
+  "url": "https://excusemeweb.com/image-rotator",
+  "description": "A browser-based tool that rotates images by 90-degree steps or a custom angle.",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "All",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "ExcuseMeWeb"
+  },
+  "dateModified": "2026-07-26"
+}</script>
+
+ <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
     {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Image Rotator",
-      "url": "https://excusemeweb.com/image-rotator",
-      "description": "A browser-based tool that rotates images by 90-degree steps or a custom angle.",
-      "applicationCategory": "MultimediaApplication",
-      "operatingSystem": "All",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-      "author": { "@type": "Organization", "name": "ExcuseMeWeb" },
-      "dateModified": "2026-07-26"
-    }
-    </script>
-
-    <script type="application/ld+json">
+      "@type": "Question",
+      "name": "Does rotating affect picture quality?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A 90, 180, or 270 degree turn does not lose any detail, since each pixel just moves to a new grid position. Other angles involve some pixel resampling, similar to resizing, which can slightly soften fine detail."
+      }
+    },
     {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Does rotating affect picture quality?",
-          "acceptedAnswer": { "@type": "Answer", "text": "A 90, 180, or 270 degree turn does not lose any detail, since each pixel just moves to a new grid position. Other angles involve some pixel resampling, similar to resizing, which can slightly soften fine detail." }
-        },
-        {
-          "@type": "Question",
-          "name": "Why does the canvas size change after rotating?",
-          "acceptedAnswer": { "@type": "Answer", "text": "At angles other than 0, 90, 180, or 270 degrees, a rotated rectangle needs a larger bounding box to fit without cutting off corners, so the canvas expands to hold the whole picture." }
-        },
-        {
-          "@type": "Question",
-          "name": "Will rotating fill the empty corners with a color?",
-          "acceptedAnswer": { "@type": "Answer", "text": "The corners left empty by a non-90-degree rotation are transparent for PNG or WebP output, or white for JPG output." }
-        },
-        {
-          "@type": "Question",
-          "name": "Can I rotate by an exact number like 15 degrees?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes, the angle slider lets you pick any whole-degree value from -180 to 180." }
-        },
-        {
-          "@type": "Question",
-          "name": "Can I flip my image as well as rotate it?",
-          "acceptedAnswer": { "@type": "Answer", "text": "This tool handles rotation only. For a horizontal or vertical mirror flip, use the separate Image Flip tool, either before or after rotating." }
-        },
-        {
-          "@type": "Question",
-          "name": "Is my photo uploaded to a server?",
-          "acceptedAnswer": { "@type": "Answer", "text": "No. Rotation happens entirely in your browser using the Canvas API. The file is never sent anywhere, and nothing is kept once you close or navigate away from the page." }
-        }
-      ]
+      "@type": "Question",
+      "name": "Why does the canvas size change after rotating?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "At angles other than 0, 90, 180, or 270 degrees, a rotated rectangle needs a larger bounding box to fit without cutting off corners, so the canvas expands to hold the whole picture."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will rotating fill the empty corners with a color?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The corners left empty by a non-90-degree rotation are transparent for PNG or WebP output, or white for JPG output."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I rotate by an exact number like 15 degrees?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, the angle slider lets you pick any whole-degree value from -180 to 180."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I flip my image as well as rotate it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This tool handles rotation only. For a horizontal or vertical mirror flip, use the separate Image Flip tool, either before or after rotating."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my photo uploaded to a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Rotation happens entirely in your browser using the Canvas API. The file is never sent anywhere, and nothing is kept once you close or navigate away from the page."
+      }
     }
-    </script>
+  ]
+}</script>
 
-    <style>
+ <style>
         :root {
             --bg-primary: #ffffff; --bg-secondary: #f8fafc; --bg-tertiary: #f1f5f9;
             --text-primary: #0f172a; --text-secondary: #64748b; --accent: #6366f1;
@@ -152,138 +173,139 @@
         .breadcrumb .bc-sep { color: var(--border); }
         .breadcrumb .bc-current { color: var(--text-primary); font-weight: 600; }
     </style>
-    <script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-        {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://excusemeweb.com/"
-        },
-        {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Image Tools",
-            "item": "https://excusemeweb.com/image-tools"
-        },
-        {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "Image Rotator",
-            "item": "https://excusemeweb.com/image-rotator"
-        }
-    ]
-}
-    </script>
+ <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://excusemeweb.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Image Tools",
+      "item": "https://excusemeweb.com/image-tools"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Image Rotator",
+      "item": "https://excusemeweb.com/image-rotator"
+    }
+  ]
+}</script>
+<meta property="og:url" content="https://excusemeweb.com/image-rotator">
+<meta name="twitter:title" content="Image Rotator - Rotate Photos Online | ExcuseMeWeb">
+<meta name="twitter:description" content="Rotate a JPG, PNG, or WebP image 90 degrees at a time or to any custom angle, then save the corrected picture.">
 </head>
 <body>
-    <header class="header">
-        <div class="header-inner">
-            <a href="/" class="logo">Excuse<span>Me</span>Web</a>
-            <nav class="nav-desktop">
-                <a href="/calculator">Tools</a>
-                <a href="/calculators">Calculators</a><a href="/converters">Converters</a>
-                <a href="/image-tools" class="active">Image Tools</a>
-                <a href="/generators">Generators</a>
-                <a href="/templates">Templates</a>
-                <a href="/games">Games</a><a href="/all-in-one-toolkit">Toolkits</a>
-            </nav>
-            <div class="header-right">
-                <button class="hamburger" onclick="document.getElementById('mobileNav').classList.toggle('show')">Menu</button>
-            </div>
-        </div>
-        <nav class="mobile-nav" id="mobileNav">
-            <a href="/calculator">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a><a href="/all-in-one-toolkit">Toolkits</a>
-        </nav>
-    </header>
-    <main class="main-content">
-        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="bc-sep">/</span><a href="/image-tools">Image Tools</a><span class="bc-sep">/</span><span class="bc-current">Image Rotator</span></nav>
+ <header class="header">
+ <div class="header-inner">
+ <a href="/" class="logo">Excuse<span>Me</span>Web</a>
+ <nav class="nav-desktop">
+ <a href="/calculator">Tools</a>
+ <a href="/calculators">Calculators</a><a href="/converters">Converters</a>
+ <a href="/image-tools" class="active">Image Tools</a>
+ <a href="/generators">Generators</a>
+ <a href="/templates">Templates</a>
+ <a href="/games">Games</a><a href="/all-in-one-toolkit">Toolkits</a>
+ </nav>
+ <div class="header-right">
+ <button class="hamburger" onclick="document.getElementById('mobileNav').classList.toggle('show')">Menu</button>
+ </div>
+ </div>
+ <nav class="mobile-nav" id="mobileNav">
+ <a href="/calculator">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a><a href="/all-in-one-toolkit">Toolkits</a>
+ </nav>
+ </header>
+ <main class="main-content">
+ <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="bc-sep">/</span><a href="/image-tools">Image Tools</a><span class="bc-sep">/</span><span class="bc-current">Image Rotator</span></nav>
 
-        <div class="page-header">
-            <h1>Image Rotator</h1>
-            <p>Turn a sideways photo the right way up, or set a custom rotation angle.</p>
-        </div>
+ <div class="page-header">
+ <h1>Image Rotator</h1>
+ <p>Turn a sideways photo the right way up, or set a custom rotation angle.</p>
+ </div>
 
-        <div class="tool-panel">
-            <div class="dropzone" id="dz">
-                <div class="main-txt">Drop a picture here, or click to choose one</div>
-                <div class="sub-txt">JPG, PNG, or WebP</div>
-                <input type="file" id="fileInput" accept="image/*" hidden>
-            </div>
-            <div class="workspace" id="ws">
-                <div class="preview-wrap"><canvas id="canvas"></canvas></div>
-                <div class="controls-row">
-                    <div class="field"><label>Quick turn</label>
-                        <div class="btn-row"><button class="btn secondary" id="rotLeft">Rotate Left</button><button class="btn secondary" id="rotRight">Rotate Right</button></div>
-                    </div>
-                    <div class="field"><label>Custom angle: <span id="angleVal">0</span>°</label><input type="range" id="angleIn" min="-180" max="180" value="0"></div>
-                </div>
-                <div class="btn-row">
-                    <button class="btn secondary" id="downloadBtn">Download</button>
-                    <button class="btn secondary" id="resetBtn">Start Over</button>
-                </div>
-            </div>
-        </div>
+ <div class="tool-panel">
+ <div class="dropzone" id="dz">
+ <div class="main-txt">Drop a picture here, or click to choose one</div>
+ <div class="sub-txt">JPG, PNG, or WebP</div>
+ <input type="file" id="fileInput" accept="image/*" hidden>
+ </div>
+ <div class="workspace" id="ws">
+ <div class="preview-wrap"><canvas id="canvas"></canvas></div>
+ <div class="controls-row">
+ <div class="field"><label>Quick turn</label>
+ <div class="btn-row"><button class="btn secondary" id="rotLeft">Rotate Left</button><button class="btn secondary" id="rotRight">Rotate Right</button></div>
+ </div>
+ <div class="field"><label>Custom angle: <span id="angleVal">0</span>°</label><input type="range" id="angleIn" min="-180" max="180" value="0"></div>
+ </div>
+ <div class="btn-row">
+ <button class="btn secondary" id="downloadBtn">Download</button>
+ <button class="btn secondary" id="resetBtn">Start Over</button>
+ </div>
+ </div>
+ </div>
 
-        <div class="info-section">
-            <h2>What This Tool Does</h2>
-            <p>Photos taken with a phone held sideways, or scanned pages fed in wrong, often need to be turned before they look correct. This tool spins the picture in 90 degree steps or to any exact angle you set, and redraws the canvas so the rotated result is what gets saved.</p>
+ <div class="info-section">
+ <h2>What This Tool Does</h2>
+ <p>Photos taken with a phone held sideways, or scanned pages fed in wrong, often need to be turned before they look correct. This tool spins the picture in 90 degree steps or to any exact angle you set, and redraws the canvas so the rotated result is what gets saved.</p>
 
-            <h3>Steps to Rotate a Picture</h3>
-            <ol>
-                <li>Load a picture into the box above</li>
-                <li>Click Rotate Left or Rotate Right to turn it a quarter turn at a time</li>
-                <li>Or drag the angle slider for a precise custom rotation</li>
-                <li>Click Download once the picture looks right</li>
-            </ol>
+ <h3>Steps to Rotate a Picture</h3>
+ <ol>
+ <li>Load a picture into the box above</li>
+ <li>Click Rotate Left or Rotate Right to turn it a quarter turn at a time</li>
+ <li>Or drag the angle slider for a precise custom rotation</li>
+ <li>Click Download once the picture looks right</li>
+ </ol>
 
-            <h3>What You Can Control</h3>
-            <ul>
-                <li>One-click 90 degree turns in either direction</li>
-                <li>A free-angle slider from -180 to 180 degrees for fine adjustments</li>
-                <li>The canvas automatically expands so nothing gets clipped at odd angles</li>
-                <li>Keeps the source format for the downloaded file</li>
-            </ul>
+ <h3>What You Can Control</h3>
+ <ul>
+ <li>One-click 90 degree turns in either direction</li>
+ <li>A free-angle slider from -180 to 180 degrees for fine adjustments</li>
+ <li>The canvas automatically expands so nothing gets clipped at odd angles</li>
+ <li>Keeps the source format for the downloaded file</li>
+ </ul>
 
-            <h3>Frequently Asked Questions</h3>
-            <details>
-                <summary>Does rotating affect picture quality?</summary>
-                <p>A 90, 180, or 270 degree turn does not lose any detail, since each pixel just moves to a new grid position. Other angles involve some pixel resampling, similar to resizing, which can slightly soften fine detail.</p>
-            </details>
-            <details>
-                <summary>Why does the canvas size change after rotating?</summary>
-                <p>At angles other than 0, 90, 180, or 270 degrees, a rotated rectangle needs a larger bounding box to fit without cutting off corners, so the canvas expands to hold the whole picture.</p>
-            </details>
-            <details>
-                <summary>Will rotating fill the empty corners with a color?</summary>
-                <p>The corners left empty by a non-90-degree rotation are transparent for PNG or WebP output, or white for JPG output.</p>
-            </details>
-            <details>
-                <summary>Can I rotate by an exact number like 15 degrees?</summary>
-                <p>Yes, the angle slider lets you pick any whole-degree value from -180 to 180.</p>
-            </details>
-            <details>
-                <summary>Can I flip my image as well as rotate it?</summary>
-                <p>This tool handles rotation only. For a horizontal or vertical mirror flip, use the separate Image Flip tool, either before or after rotating.</p>
-            </details>
-            <details>
-                <summary>Is my photo uploaded to a server?</summary>
-                <p>No. Rotation happens entirely in your browser using the Canvas API. The file is never sent anywhere, and nothing is kept once you close or navigate away from the page.</p>
-            </details>
+ <h3>Frequently Asked Questions</h3>
+ <details>
+ <summary>Does rotating affect picture quality?</summary>
+ <p>A 90, 180, or 270 degree turn does not lose any detail, since each pixel just moves to a new grid position. Other angles involve some pixel resampling, similar to resizing, which can slightly soften fine detail.</p>
+ </details>
+ <details>
+ <summary>Why does the canvas size change after rotating?</summary>
+ <p>At angles other than 0, 90, 180, or 270 degrees, a rotated rectangle needs a larger bounding box to fit without cutting off corners, so the canvas expands to hold the whole picture.</p>
+ </details>
+ <details>
+ <summary>Will rotating fill the empty corners with a color?</summary>
+ <p>The corners left empty by a non-90-degree rotation are transparent for PNG or WebP output, or white for JPG output.</p>
+ </details>
+ <details>
+ <summary>Can I rotate by an exact number like 15 degrees?</summary>
+ <p>Yes, the angle slider lets you pick any whole-degree value from -180 to 180.</p>
+ </details>
+ <details>
+ <summary>Can I flip my image as well as rotate it?</summary>
+ <p>This tool handles rotation only. For a horizontal or vertical mirror flip, use the separate Image Flip tool, either before or after rotating.</p>
+ </details>
+ <details>
+ <summary>Is my photo uploaded to a server?</summary>
+ <p>No. Rotation happens entirely in your browser using the Canvas API. The file is never sent anywhere, and nothing is kept once you close or navigate away from the page.</p>
+ </details>
 
-            <h3>Related Tools</h3>
-            <p><a href="/image-flip">Image Flip Tool</a> · <a href="/image-cropper">Image Cropper</a> · <a href="/image-resizer">Image Resizer</a> · <a href="/image-compressor">Image Compressor</a> · <a href="/image-tools">All Image Tools</a></p>
-        </div>
-    </main>
-    <footer class="footer">
-        <p>© 2026 ExcuseMeWeb.com — Online Tools for Everyone</p>
-        <p style="margin-top:8px"><a href="/calculators">Calculators</a> · <a href="/converters">Converters</a> · <a href="/image-tools">Image Tools</a> · <a href="/generators">Generators</a> · <a href="/templates">Templates</a></p>
-        <p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p>
-    </footer>
-    <script>
+ <h3>Related Tools</h3>
+ <p><a href="/image-flip">Image Flip Tool</a> · <a href="/image-cropper">Image Cropper</a> · <a href="/image-resizer">Image Resizer</a> · <a href="/image-compressor">Image Compressor</a> · <a href="/image-tools">All Image Tools</a></p>
+ </div>
+ </main>
+ <footer class="footer">
+ <p>© 2026 ExcuseMeWeb.com — Online Tools for Everyone</p>
+ <p style="margin-top:8px"><a href="/calculators">Calculators</a> · <a href="/converters">Converters</a> · <a href="/image-tools">Image Tools</a> · <a href="/generators">Generators</a> · <a href="/templates">Templates</a></p>
+ <p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p>
+ </footer>
+ <script>
 
 (function(){
   const dz=document.getElementById('dz'), fi=document.getElementById('fileInput'), ws=document.getElementById('ws');

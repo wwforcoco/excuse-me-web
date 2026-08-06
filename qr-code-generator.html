@@ -1,52 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script defer src="https://cloud.umami.is/script.js" data-website-id="fa026cc1-8f84-44f5-b2fb-9ccf29374a38"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QR Code Generator — Create & Download QR Codes | ExcuseMeWeb</title>
-    <meta name="description" content="Generate a QR code from any text, URL, or message and download it as a PNG image. Codes are static and never expire.">
-    <meta name="robots" content="index, follow">
-    <meta property="og:title" content="QR Code Generator — Create & Download QR Codes | ExcuseMeWeb">
-    <meta property="og:description" content="Generate a QR code from any text, URL, or message and download it as a PNG image. Codes are static and never expire.">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://excusemeweb.com/og-image.png">
-    <meta name="twitter:card" content="summary_large_image">
-    <link rel="canonical" href="https://excusemeweb.com/qr-code-generator">
-    <link rel="icon" href="/favicon.ico">
-    <meta name="theme-color" content="#ffffff">
+ <script defer src="https://cloud.umami.is/script.js" data-website-id="fa026cc1-8f84-44f5-b2fb-9ccf29374a38"></script>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>QR Code Generator — Create & Download QR Codes | ExcuseMeWeb</title>
+ <meta name="description" content="Generate a QR code from any text, URL, or message and download it as a PNG image. Codes are static and never expire.">
+ <meta name="robots" content="index, follow">
+ <meta property="og:title" content="QR Code Generator — Create & Download QR Codes | ExcuseMeWeb">
+ <meta property="og:description" content="Generate a QR code from any text, URL, or message and download it as a PNG image. Codes are static and never expire.">
+ <meta property="og:type" content="website">
+ <meta property="og:image" content="https://excusemeweb.com/og-image.png">
+ <meta name="twitter:card" content="summary_large_image">
+ <link rel="canonical" href="https://excusemeweb.com/qr-code-generator">
+ <link rel="icon" href="/favicon.ico">
+ <meta name="theme-color" content="#ffffff">
 
-    <script type="application/ld+json">
+ <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "QR Code Generator",
+  "url": "https://excusemeweb.com/qr-code-generator",
+  "description": "Generate a QR code from any text, URL, or message and download it as a PNG image. Codes are static and never expire.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "All",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "ExcuseMeWeb"
+  },
+  "dateModified": "2026-07-29"
+}</script>
+
+ <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
     {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "QR Code Generator",
-      "url": "https://excusemeweb.com/qr-code-generator",
-      "description": "Generate a QR code from any text, URL, or message and download it as a PNG image. Codes are static and never expire.",
-      "applicationCategory": "UtilitiesApplication",
-      "operatingSystem": "All",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-      "author": { "@type": "Organization", "name": "ExcuseMeWeb" },
-      "dateModified": "2026-07-29"
-    }
-    </script>
-
-    <script type="application/ld+json">
+      "@type": "Question",
+      "name": "Do QR codes expire?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Static QR codes, like the ones this tool creates, don't expire — the destination text or link is encoded directly into the pattern. What people call 'expiration' is usually a dynamic QR code's redirect service being shut off, or the destination page itself going offline."
+      }
+    },
     {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        { "@type": "Question", "name": "Do QR codes expire?", "acceptedAnswer": { "@type": "Answer", "text": "Static QR codes, like the ones this tool creates, don't expire — the destination text or link is encoded directly into the pattern. What people call 'expiration' is usually a dynamic QR code's redirect service being shut off, or the destination page itself going offline." } },
-        { "@type": "Question", "name": "What's the difference between a static and dynamic QR code?", "acceptedAnswer": { "@type": "Answer", "text": "A static QR code encodes your text or URL directly, so it works forever with no service required. A dynamic QR code points to a short redirect link that a provider manages, which lets you change the destination later but stops working if that provider's service ends." } },
-        { "@type": "Question", "name": "How much text can a QR code hold?", "acceptedAnswer": { "@type": "Answer", "text": "A QR code can store up to roughly 4,300 alphanumeric characters or about 2,950 bytes of binary data, though shorter content scans more reliably and produces a simpler, less dense pattern." } },
-        { "@type": "Question", "name": "What size should I print a QR code at?", "acceptedAnswer": { "@type": "Answer", "text": "As a rule of thumb, print the code at least 1 inch (2.5 cm) per side for close-up scanning, and scale up for distance — a good guideline is roughly 1 inch of size for every 10 feet of expected scanning distance." } },
-        { "@type": "Question", "name": "Can I put Wi-Fi details or a business card into a QR code?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, paste the Wi-Fi network details or contact information as plain text in the standard format your device recognizes, and it will encode the same way as any other text." } },
-        { "@type": "Question", "name": "Is my text sent to a server to build the code?", "acceptedAnswer": { "@type": "Answer", "text": "No, the QR code is drawn locally in your browser using JavaScript." } }
-      ]
+      "@type": "Question",
+      "name": "What's the difference between a static and dynamic QR code?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A static QR code encodes your text or URL directly, so it works forever with no service required. A dynamic QR code points to a short redirect link that a provider manages, which lets you change the destination later but stops working if that provider's service ends."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much text can a QR code hold?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A QR code can store up to roughly 4,300 alphanumeric characters or about 2,950 bytes of binary data, though shorter content scans more reliably and produces a simpler, less dense pattern."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What size should I print a QR code at?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "As a rule of thumb, print the code at least 1 inch (2.5 cm) per side for close-up scanning, and scale up for distance — a good guideline is roughly 1 inch of size for every 10 feet of expected scanning distance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I put Wi-Fi details or a business card into a QR code?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, paste the Wi-Fi network details or contact information as plain text in the standard format your device recognizes, and it will encode the same way as any other text."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my text sent to a server to build the code?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, the QR code is drawn locally in your browser using JavaScript."
+      }
     }
-    </script>
+  ]
+}</script>
 
-    <style>
+ <style>
         :root {
             --bg-primary: #ffffff; --bg-secondary: #f8fafc; --bg-tertiary: #f1f5f9;
             --text-primary: #0f172a; --text-secondary: #64748b; --accent: #6366f1;
@@ -120,140 +165,141 @@
         .breadcrumb .bc-sep { color: var(--border); }
         .breadcrumb .bc-current { color: var(--text-primary); font-weight: 600; }
     </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
-    <script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-        {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://excusemeweb.com/"
-        },
-        {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Generators",
-            "item": "https://excusemeweb.com/generators"
-        },
-        {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "QR Code Generator",
-            "item": "https://excusemeweb.com/qr-code-generator"
-        }
-    ]
-}
-    </script>
+ <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://excusemeweb.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Generators",
+      "item": "https://excusemeweb.com/generators"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "QR Code Generator",
+      "item": "https://excusemeweb.com/qr-code-generator"
+    }
+  ]
+}</script>
+<meta property="og:url" content="https://excusemeweb.com/qr-code-generator">
+<meta name="twitter:title" content="QR Code Generator — Create & Download QR Codes | ExcuseMeWeb">
+<meta name="twitter:description" content="Generate a QR code from any text, URL, or message and download it as a PNG image. Codes are static and never expire.">
 </head>
 <body>
 
-    <header class="header">
-        <div class="header-inner">
-            <a href="/" class="logo">Excuse<span>Me</span>Web</a>
-            <nav class="nav-desktop">
-                <a href="/">Tools</a>
-                <a href="/calculators">Calculators</a><a href="/converters">Converters</a>
-                <a href="/image-tools">Image Tools</a>
-                <a href="/generators" class="active">Generators</a>
-                <a href="/templates">Templates</a>
-                <a href="/games">Games</a><a href="/all-in-one-toolkit">Toolkits</a>
-            </nav>
-            <div class="header-right">
-                <button class="hamburger" onclick="document.getElementById('mobileNav').classList.toggle('show')">Menu</button>
-            </div>
-        </div>
-        <nav class="mobile-nav" id="mobileNav">
-            <a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a><a href="/all-in-one-toolkit">Toolkits</a>
-        </nav>
-    </header>
+ <header class="header">
+ <div class="header-inner">
+ <a href="/" class="logo">Excuse<span>Me</span>Web</a>
+ <nav class="nav-desktop">
+ <a href="/">Tools</a>
+ <a href="/calculators">Calculators</a><a href="/converters">Converters</a>
+ <a href="/image-tools">Image Tools</a>
+ <a href="/generators" class="active">Generators</a>
+ <a href="/templates">Templates</a>
+ <a href="/games">Games</a><a href="/all-in-one-toolkit">Toolkits</a>
+ </nav>
+ <div class="header-right">
+ <button class="hamburger" onclick="document.getElementById('mobileNav').classList.toggle('show')">Menu</button>
+ </div>
+ </div>
+ <nav class="mobile-nav" id="mobileNav">
+ <a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a><a href="/all-in-one-toolkit">Toolkits</a>
+ </nav>
+ </header>
 
-    <main class="main-content">
-        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="bc-sep">/</span><a href="/generators">Generators</a><span class="bc-sep">/</span><span class="bc-current">QR Code Generator</span></nav>
+ <main class="main-content">
+ <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="bc-sep">/</span><a href="/generators">Generators</a><span class="bc-sep">/</span><span class="bc-current">QR Code Generator</span></nav>
 
-        <div class="page-header">
-            <h1>QR Code Generator</h1>
-            <p>Turn any link or text into a downloadable QR code.</p>
-        </div>
+ <div class="page-header">
+ <h1>QR Code Generator</h1>
+ <p>Turn any link or text into a downloadable QR code.</p>
+ </div>
 
-        <div class="tool-panel">
+ <div class="tool-panel">
 
-            <div class="controls-row" style="width:100%">
-                <div class="field" style="flex:1;min-width:220px">
-                    <label for="qrText">Text or URL</label>
-                    <textarea id="qrText" placeholder="https://example.com or any text">https://excusemeweb.com</textarea>
-                </div>
-                <div class="field">
-                    <label for="qrSize">Size</label>
-                    <select id="qrSize">
-                        <option value="180">180 px</option>
-                        <option value="256" selected>256 px</option>
-                        <option value="320">320 px</option>
-                        <option value="400">400 px</option>
-                    </select>
-                </div>
-            </div>
-            <div class="btn-row">
-                <button class="btn" onclick="qrGenerate()">Generate QR Code</button>
-                <button class="btn secondary" id="qrDownloadBtn" onclick="qrDownload()" disabled>Download PNG</button>
-            </div>
-            <div class="preview-wrap" style="display:flex;justify-content:center;padding:16px 0" id="qrOutput"></div>
-    
-        </div>
+ <div class="controls-row" style="width:100%">
+ <div class="field" style="flex:1;min-width:220px">
+ <label for="qrText">Text or URL</label>
+ <textarea id="qrText" placeholder="https://example.com or any text">https://excusemeweb.com</textarea>
+ </div>
+ <div class="field">
+ <label for="qrSize">Size</label>
+ <select id="qrSize">
+ <option value="180">180 px</option>
+ <option value="256" selected>256 px</option>
+ <option value="320">320 px</option>
+ <option value="400">400 px</option>
+ </select>
+ </div>
+ </div>
+ <div class="btn-row">
+ <button class="btn" onclick="qrGenerate()">Generate QR Code</button>
+ <button class="btn secondary" id="qrDownloadBtn" onclick="qrDownload()" disabled>Download PNG</button>
+ </div>
+ <div class="preview-wrap" style="display:flex;justify-content:center;padding:16px 0" id="qrOutput"></div>
+ 
+ </div>
 
-        <div class="info-section">
-            <h2>About This Tool</h2>
-            <p>This tool builds a static QR code directly in your browser from whatever text or link you enter, then lets you download it as a PNG image to print or share. Because the destination is encoded directly into the pattern rather than routed through a redirect service, the code keeps working indefinitely.</p>
+ <div class="info-section">
+ <h2>About This Tool</h2>
+ <p>This tool builds a static QR code directly in your browser from whatever text or link you enter, then lets you download it as a PNG image to print or share. Because the destination is encoded directly into the pattern rather than routed through a redirect service, the code keeps working indefinitely.</p>
 
-            <h3>How It Works</h3>
-            <ol>
-                <li>Type or paste the text, link, or message you want encoded.</li>
-                <li>Choose an output size.</li>
-                <li>Click Generate QR Code to preview it.</li>
-                <li>Click Download PNG to save the image.</li>
-            </ol>
+ <h3>How It Works</h3>
+ <ol>
+ <li>Type or paste the text, link, or message you want encoded.</li>
+ <li>Choose an output size.</li>
+ <li>Click Generate QR Code to preview it.</li>
+ <li>Click Download PNG to save the image.</li>
+ </ol>
 
-            <h3>Frequently Asked Questions</h3>
-            <details>
-                <summary>Do QR codes expire?</summary>
-                <p>Static QR codes, like the ones this tool creates, don't expire — the destination text or link is encoded directly into the pattern. What people call "expiration" is usually a dynamic QR code's redirect service being shut off, or the destination page itself going offline.</p>
-            </details>
-            <details>
-                <summary>What's the difference between a static and dynamic QR code?</summary>
-                <p>A static QR code encodes your text or URL directly, so it works forever with no service required. A dynamic QR code points to a short redirect link that a provider manages, which lets you change the destination later but stops working if that provider's service ends.</p>
-            </details>
-            <details>
-                <summary>How much text can a QR code hold?</summary>
-                <p>A QR code can store up to roughly 4,300 alphanumeric characters or about 2,950 bytes of binary data, though shorter content scans more reliably and produces a simpler, less dense pattern.</p>
-            </details>
-            <details>
-                <summary>What size should I print a QR code at?</summary>
-                <p>As a rule of thumb, print the code at least 1 inch (2.5 cm) per side for close-up scanning, and scale up for distance — a good guideline is roughly 1 inch of size for every 10 feet of expected scanning distance.</p>
-            </details>
-            <details>
-                <summary>Can I put Wi-Fi details or a business card into a QR code?</summary>
-                <p>Yes, paste the Wi-Fi network details or contact information as plain text in the standard format your device recognizes, and it will encode the same way as any other text.</p>
-            </details>
-            <details>
-                <summary>Is my text sent to a server to build the code?</summary>
-                <p>No, the QR code is drawn locally in your browser using JavaScript.</p>
-            </details>
+ <h3>Frequently Asked Questions</h3>
+ <details>
+ <summary>Do QR codes expire?</summary>
+ <p>Static QR codes, like the ones this tool creates, don't expire — the destination text or link is encoded directly into the pattern. What people call "expiration" is usually a dynamic QR code's redirect service being shut off, or the destination page itself going offline.</p>
+ </details>
+ <details>
+ <summary>What's the difference between a static and dynamic QR code?</summary>
+ <p>A static QR code encodes your text or URL directly, so it works forever with no service required. A dynamic QR code points to a short redirect link that a provider manages, which lets you change the destination later but stops working if that provider's service ends.</p>
+ </details>
+ <details>
+ <summary>How much text can a QR code hold?</summary>
+ <p>A QR code can store up to roughly 4,300 alphanumeric characters or about 2,950 bytes of binary data, though shorter content scans more reliably and produces a simpler, less dense pattern.</p>
+ </details>
+ <details>
+ <summary>What size should I print a QR code at?</summary>
+ <p>As a rule of thumb, print the code at least 1 inch (2.5 cm) per side for close-up scanning, and scale up for distance — a good guideline is roughly 1 inch of size for every 10 feet of expected scanning distance.</p>
+ </details>
+ <details>
+ <summary>Can I put Wi-Fi details or a business card into a QR code?</summary>
+ <p>Yes, paste the Wi-Fi network details or contact information as plain text in the standard format your device recognizes, and it will encode the same way as any other text.</p>
+ </details>
+ <details>
+ <summary>Is my text sent to a server to build the code?</summary>
+ <p>No, the QR code is drawn locally in your browser using JavaScript.</p>
+ </details>
 
-            <h3>Related Tools</h3>
-            <p><a href="/password-generator">Password Generator</a> · <a href="/uuid-generator">UUID Generator</a> · <a href="/ai-prompt-generator">AI Prompt Generator</a></p>
-        </div>
-    </main>
+ <h3>Related Tools</h3>
+ <p><a href="/password-generator">Password Generator</a> · <a href="/uuid-generator">UUID Generator</a> · <a href="/ai-prompt-generator">AI Prompt Generator</a></p>
+ </div>
+ </main>
 
-    <footer class="footer">
-        <p>© 2026 ExcuseMeWeb.com — Online Tools for Everyone</p>
-        <p style="margin-top:8px"><a href="/calculators">Calculators</a> · <a href="/converters">Converters</a> · <a href="/image-tools">Image Tools</a> · <a href="/generators">Generators</a> · <a href="/templates">Templates</a></p>
-            <p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p>
-    </footer>
-    <div class="toast" id="toast"></div>
-    <script>
+ <footer class="footer">
+ <p>© 2026 ExcuseMeWeb.com — Online Tools for Everyone</p>
+ <p style="margin-top:8px"><a href="/calculators">Calculators</a> · <a href="/converters">Converters</a> · <a href="/image-tools">Image Tools</a> · <a href="/generators">Generators</a> · <a href="/templates">Templates</a></p>
+ <p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p>
+ </footer>
+ <div class="toast" id="toast"></div>
+ <script>
         function showToast(msg) {
             const t = document.getElementById('toast');
             t.textContent = msg;
@@ -266,7 +312,7 @@
         }
     </script>
 
-    <script>
+ <script>
 
         let qrObj = null;
         function qrGenerate() {

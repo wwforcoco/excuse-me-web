@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script defer src="https://cloud.umami.is/script.js" data-website-id="fa026cc1-8f84-44f5-b2fb-9ccf29374a38"></script>
+ <script defer src="https://cloud.umami.is/script.js" data-website-id="fa026cc1-8f84-44f5-b2fb-9ccf29374a38"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Developer Toolkit — ExcuseMeWeb</title>
@@ -169,32 +169,30 @@ th { font-size: 11.5px; text-transform: uppercase; letter-spacing: .03em; color:
 
 .tab.active{color:var(--accent-contrast);}
 </style>
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-        {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://excusemeweb.com/"
-        },
-        {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Toolkits",
-            "item": "https://excusemeweb.com/all-in-one-toolkit"
-        },
-        {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "Developer Toolkit",
-            "item": "https://excusemeweb.com/developer-toolkit"
-        }
-    ]
-}
-</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://excusemeweb.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Toolkits",
+      "item": "https://excusemeweb.com/all-in-one-toolkit"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Developer Toolkit",
+      "item": "https://excusemeweb.com/developer-toolkit"
+    }
+  ]
+}</script>
 
 <style>
 .ew-breadcrumb { max-width: 1120px; margin: 14px auto 0; padding: 0 24px; display: flex; align-items: center; flex-wrap: wrap; gap: 6px; font-size: 0.85rem; color: var(--text-muted); }
@@ -203,179 +201,189 @@ th { font-size: 11.5px; text-transform: uppercase; letter-spacing: .03em; color:
 .ew-breadcrumb .bc-sep { color: var(--border); }
 .ew-breadcrumb .bc-current { color: var(--text); font-weight: 600; }
 </style>
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://excusemeweb.com/developer-toolkit">
+<meta property="og:title" content="Developer Toolkit — ExcuseMeWeb">
+<meta property="og:description" content="Six no-nonsense utilities for JSON, encoding, and IDs.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://excusemeweb.com/developer-toolkit">
+<meta property="og:image" content="https://excusemeweb.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Developer Toolkit — ExcuseMeWeb">
+<meta name="twitter:description" content="Six no-nonsense utilities for JSON, encoding, and IDs.">
 </head>
 <body>
 <header class="tk-header">
-  <div class="tk-header-inner">
-    <div class="tk-brand">
-      <a href="all-in-one-toolkit.html" class="tk-back">&larr; All Toolkits</a>
-    </div>
-    <div class="tk-brand">
-      <div class="tk-icon">💻</div>
-      <div class="tk-title">Developer Toolkit<span>For everyday dev tasks</span></div>
-    </div>
-    <div class="tk-actions">
-      <button class="btn btn-ghost btn-sm" onclick="downloadHTML()">&#8681; Download HTML</button>
-    </div>
-  </div>
-  <div class="tk-tabbar-wrap">
-    <div class="tk-tabbar">
-      <button class="tk-tab active" data-tool="jsonfmt" onclick="showPanel('jsonfmt', this)">{ } JSON Formatter</button>
-      <button class="tk-tab" data-tool="jsonval" onclick="showPanel('jsonval', this)">✔ JSON Validator</button>
-      <button class="tk-tab" data-tool="b64" onclick="showPanel('b64', this)">⇄ Base64 Encoder/Decoder</button>
-      <button class="tk-tab" data-tool="urlenc" onclick="showPanel('urlenc', this)">% URL Encoder/Decoder</button>
-      <button class="tk-tab" data-tool="uuid" onclick="showPanel('uuid', this)"># UUID Generator</button>
-      <button class="tk-tab" data-tool="ts" onclick="showPanel('ts', this)">⏱ Timestamp Converter</button>
-    </div>
-  </div>
+ <div class="tk-header-inner">
+ <div class="tk-brand">
+ <a href="all-in-one-toolkit.html" class="tk-back">&larr; All Toolkits</a>
+ </div>
+ <div class="tk-brand">
+ <div class="tk-icon">💻</div>
+ <div class="tk-title">Developer Toolkit<span>For everyday dev tasks</span></div>
+ </div>
+ <div class="tk-actions">
+ <button class="btn btn-ghost btn-sm" onclick="downloadHTML()">&#8681; Download HTML</button>
+ </div>
+ </div>
+ <div class="tk-tabbar-wrap">
+ <div class="tk-tabbar">
+ <button class="tk-tab active" data-tool="jsonfmt" onclick="showPanel('jsonfmt', this)">{ } JSON Formatter</button>
+ <button class="tk-tab" data-tool="jsonval" onclick="showPanel('jsonval', this)">✔ JSON Validator</button>
+ <button class="tk-tab" data-tool="b64" onclick="showPanel('b64', this)">⇄ Base64 Encoder/Decoder</button>
+ <button class="tk-tab" data-tool="urlenc" onclick="showPanel('urlenc', this)">% URL Encoder/Decoder</button>
+ <button class="tk-tab" data-tool="uuid" onclick="showPanel('uuid', this)"># UUID Generator</button>
+ <button class="tk-tab" data-tool="ts" onclick="showPanel('ts', this)">⏱ Timestamp Converter</button>
+ </div>
+ </div>
 </header>
 <nav class="ew-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="bc-sep">/</span><a href="/all-in-one-toolkit">Toolkits</a><span class="bc-sep">/</span><span class="bc-current">Developer Toolkit</span></nav>
 
 <div class="wrap">
-  <div class="tk-hero">
-    <h1>Developer Toolkit</h1>
-    <p>Six no-nonsense utilities for JSON, encoding, and IDs.</p>
-  </div>
+ <div class="tk-hero">
+ <h1>Developer Toolkit</h1>
+ <p>Six no-nonsense utilities for JSON, encoding, and IDs.</p>
+ </div>
 
-  <section class="panel active" id="jsonfmt">
-    <div class="panel-head">
-      <div>
-        <h2>{ } JSON Formatter</h2>
-        <p class="desc">Paste JSON and format or minify it.</p>
-      </div>
-    </div>
-    <div class="panel-card">
-      
+ <section class="panel active" id="jsonfmt">
+ <div class="panel-head">
+ <div>
+ <h2>{ } JSON Formatter</h2>
+ <p class="desc">Paste JSON and format or minify it.</p>
+ </div>
+ </div>
+ <div class="panel-card">
+ 
 <textarea id="jfIn" class="mono" style="min-height:200px;" placeholder='{"hello":"world"}'></textarea>
 <div class="row" style="margin:12px 0;">
-  <button class="btn btn-accent" onclick="jfFormat(2)">Format (2 spaces)</button>
-  <button class="btn btn-ghost" onclick="jfFormat(4)">Format (4 spaces)</button>
-  <button class="btn btn-ghost" onclick="jfMinify()">Minify</button>
+ <button class="btn btn-accent" onclick="jfFormat(2)">Format (2 spaces)</button>
+ <button class="btn btn-ghost" onclick="jfFormat(4)">Format (4 spaces)</button>
+ <button class="btn btn-ghost" onclick="jfMinify()">Minify</button>
 </div>
 <textarea id="jfOut" class="mono" style="min-height:200px;" readonly></textarea>
 <div class="row" style="margin-top:10px;">
-  <button class="btn btn-ghost btn-sm" onclick="copyText(jfOut.value,this)">Copy</button>
-  <button class="btn btn-ghost btn-sm" onclick="downloadFile('formatted.json', jfOut.value, 'application/json')">&#8681; Download .json</button>
+ <button class="btn btn-ghost btn-sm" onclick="copyText(jfOut.value,this)">Copy</button>
+ <button class="btn btn-ghost btn-sm" onclick="downloadFile('formatted.json', jfOut.value, 'application/json')">&#8681; Download.json</button>
 </div>
 <p class="hint" id="jfErr"></p>
 
-    </div>
-  </section>
+ </div>
+ </section>
 <section class="panel" id="jsonval">
-    <div class="panel-head">
-      <div>
-        <h2>✔ JSON Validator</h2>
-        <p class="desc">Paste JSON to check whether it parses cleanly.</p>
-      </div>
-    </div>
-    <div class="panel-card">
-      
+ <div class="panel-head">
+ <div>
+ <h2>✔ JSON Validator</h2>
+ <p class="desc">Paste JSON to check whether it parses cleanly.</p>
+ </div>
+ </div>
+ <div class="panel-card">
+ 
 <textarea id="jvIn" class="mono" style="min-height:220px;" placeholder='{"hello":"world"}'></textarea>
 <button class="btn btn-accent" style="margin:12px 0;" onclick="jvValidate()">Validate</button>
 <div id="jvResult"></div>
 
-    </div>
-  </section>
+ </div>
+ </section>
 <section class="panel" id="b64">
-    <div class="panel-head">
-      <div>
-        <h2>⇄ Base64 Encoder/Decoder</h2>
-        <p class="desc">Convert text to and from Base64.</p>
-      </div>
-    </div>
-    <div class="panel-card">
-      
+ <div class="panel-head">
+ <div>
+ <h2>⇄ Base64 Encoder/Decoder</h2>
+ <p class="desc">Convert text to and from Base64.</p>
+ </div>
+ </div>
+ <div class="panel-card">
+ 
 <div class="tabs">
-  <div class="tab active" onclick="b64Tab('encode',this)">Encode</div>
-  <div class="tab" onclick="b64Tab('decode',this)">Decode</div>
+ <div class="tab active" onclick="b64Tab('encode',this)">Encode</div>
+ <div class="tab" onclick="b64Tab('decode',this)">Decode</div>
 </div>
-<textarea id="b64In" style="min-height:140px;" placeholder="Type text here..." oninput="b64Run()"></textarea>
+<textarea id="b64In" style="min-height:140px;" placeholder="Type text here." oninput="b64Run()"></textarea>
 <div class="row" style="margin:12px 0;"><strong style="font-size:12px;color:var(--text-muted);">RESULT</strong></div>
 <textarea id="b64Out" class="mono" style="min-height:140px;" readonly></textarea>
 <div class="row" style="margin-top:10px;">
-  <button class="btn btn-ghost btn-sm" onclick="copyText(b64Out.value,this)">Copy result</button>
+ <button class="btn btn-ghost btn-sm" onclick="copyText(b64Out.value,this)">Copy result</button>
 </div>
 <p class="hint" id="b64Err"></p>
 
-    </div>
-  </section>
+ </div>
+ </section>
 <section class="panel" id="urlenc">
-    <div class="panel-head">
-      <div>
-        <h2>% URL Encoder/Decoder</h2>
-        <p class="desc">Convert text to and from URL-encoded form.</p>
-      </div>
-    </div>
-    <div class="panel-card">
-      
+ <div class="panel-head">
+ <div>
+ <h2>% URL Encoder/Decoder</h2>
+ <p class="desc">Convert text to and from URL-encoded form.</p>
+ </div>
+ </div>
+ <div class="panel-card">
+ 
 <div class="tabs">
-  <div class="tab active" onclick="urlTab('encode',this)">Encode</div>
-  <div class="tab" onclick="urlTab('decode',this)">Decode</div>
+ <div class="tab active" onclick="urlTab('encode',this)">Encode</div>
+ <div class="tab" onclick="urlTab('decode',this)">Decode</div>
 </div>
-<textarea id="urlIn" style="min-height:140px;" placeholder="Type a URL or text here..." oninput="urlRun()"></textarea>
+<textarea id="urlIn" style="min-height:140px;" placeholder="Type a URL or text here." oninput="urlRun()"></textarea>
 <div class="row" style="margin:12px 0;"><strong style="font-size:12px;color:var(--text-muted);">RESULT</strong></div>
 <textarea id="urlOut" class="mono" style="min-height:140px;" readonly></textarea>
 <div class="row" style="margin-top:10px;">
-  <button class="btn btn-ghost btn-sm" onclick="copyText(urlOut.value,this)">Copy result</button>
+ <button class="btn btn-ghost btn-sm" onclick="copyText(urlOut.value,this)">Copy result</button>
 </div>
 
-    </div>
-  </section>
+ </div>
+ </section>
 <section class="panel" id="uuid">
-    <div class="panel-head">
-      <div>
-        <h2># UUID Generator</h2>
-        <p class="desc">Generate one or many version-4 UUIDs.</p>
-      </div>
-    </div>
-    <div class="panel-card">
-      
+ <div class="panel-head">
+ <div>
+ <h2># UUID Generator</h2>
+ <p class="desc">Generate one or many version-4 UUIDs.</p>
+ </div>
+ </div>
+ <div class="panel-card">
+ 
 <div class="row" style="margin-bottom:14px;">
-  <label class="field-label" style="margin:0;">Quantity</label>
-  <input type="number" id="uuidCount" value="5" min="1" max="200" style="width:100px;">
-  <label class="row" style="font-size:13px;font-weight:600;"><input type="checkbox" id="uuidNoHyphen"> No hyphens</label>
-  <button class="btn btn-accent" onclick="uuidGen()">Generate</button>
+ <label class="field-label" style="margin:0;">Quantity</label>
+ <input type="number" id="uuidCount" value="5" min="1" max="200" style="width:100px;">
+ <label class="row" style="font-size:13px;font-weight:600;"><input type="checkbox" id="uuidNoHyphen"> No hyphens</label>
+ <button class="btn btn-accent" onclick="uuidGen()">Generate</button>
 </div>
 <textarea id="uuidOut" class="mono" style="min-height:220px;" readonly></textarea>
 <div class="row" style="margin-top:10px;">
-  <button class="btn btn-ghost btn-sm" onclick="copyText(uuidOut.value,this)">Copy all</button>
-  <button class="btn btn-ghost btn-sm" onclick="downloadFile('uuids.txt', uuidOut.value, 'text/plain')">&#8681; Download .txt</button>
+ <button class="btn btn-ghost btn-sm" onclick="copyText(uuidOut.value,this)">Copy all</button>
+ <button class="btn btn-ghost btn-sm" onclick="downloadFile('uuids.txt', uuidOut.value, 'text/plain')">&#8681; Download.txt</button>
 </div>
 
-    </div>
-  </section>
+ </div>
+ </section>
 <section class="panel" id="ts">
-    <div class="panel-head">
-      <div>
-        <h2>⏱ Timestamp Converter</h2>
-        <p class="desc">Convert between Unix timestamps and readable dates.</p>
-      </div>
-    </div>
-    <div class="panel-card">
-      
+ <div class="panel-head">
+ <div>
+ <h2>⏱ Timestamp Converter</h2>
+ <p class="desc">Convert between Unix timestamps and readable dates.</p>
+ </div>
+ </div>
+ <div class="panel-card">
+ 
 <div class="grid-2">
-  <div>
-    <label class="field-label">Unix timestamp (seconds)</label>
-    <input type="number" id="tsInput" class="mono" oninput="tsToDate()">
-    <button class="btn btn-ghost btn-sm" style="margin-top:8px;" onclick="tsNow()">Use current timestamp</button>
-  </div>
-  <div>
-    <label class="field-label">Human-readable (local time)</label>
-    <input type="datetime-local" id="dtInput" step="1" oninput="dtToTs()">
-  </div>
+ <div>
+ <label class="field-label">Unix timestamp (seconds)</label>
+ <input type="number" id="tsInput" class="mono" oninput="tsToDate()">
+ <button class="btn btn-ghost btn-sm" style="margin-top:8px;" onclick="tsNow()">Use current timestamp</button>
+ </div>
+ <div>
+ <label class="field-label">Human-readable (local time)</label>
+ <input type="datetime-local" id="dtInput" step="1" oninput="dtToTs()">
+ </div>
 </div>
 <div class="result-box">
-  <div class="lbl">UTC</div>
-  <div class="big" id="tsUtc" style="font-size:16px;">—</div>
+ <div class="lbl">UTC</div>
+ <div class="big" id="tsUtc" style="font-size:16px;">—</div>
 </div>
 <div class="row" style="margin-top:10px;">
-  <button class="btn btn-ghost btn-sm" onclick="copyText(document.getElementById('tsInput').value,this)">Copy timestamp</button>
+ <button class="btn btn-ghost btn-sm" onclick="copyText(document.getElementById('tsInput').value,this)">Copy timestamp</button>
 </div>
 
-    </div>
-  </section>
+ </div>
+ </section>
 
-  <div class="tk-footer">Part of the ExcuseMeWeb All-in-One Toolkit &middot; Everything runs in your browser &middot; Nothing is uploaded anywhere</div>
+ <div class="tk-footer">Part of the ExcuseMeWeb All-in-One Toolkit &middot; Everything runs in your browser &middot; Nothing is uploaded anywhere</div>
 </div>
 
 <div class="toast" id="toast"></div>
@@ -415,7 +423,6 @@ function downloadHTML(){
   var html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
   downloadFile('developer-toolkit.html', html, 'text/html');
 }
-
 
 /* ---------- JSON Formatter ---------- */
 function jfFormat(spaces){
@@ -518,7 +525,7 @@ tsNow();
 
 </script>
 <footer style="max-width:1120px;margin:40px auto 0;padding:20px 24px;border-top:1px solid var(--border);text-align:center;color:var(--text-muted);font-size:0.9rem;">
-  <p><a href="/all-in-one-toolkit" style="color:var(--accent);text-decoration:none;">&larr; All Toolkits</a> &middot; <a href="/sitemap" style="color:var(--accent);text-decoration:none;">Sitemap</a></p>
+ <p><a href="/all-in-one-toolkit" style="color:var(--accent);text-decoration:none;">&larr; All Toolkits</a> &middot; <a href="/sitemap" style="color:var(--accent);text-decoration:none;">Sitemap</a></p>
 </footer>
 </body>
 </html>
