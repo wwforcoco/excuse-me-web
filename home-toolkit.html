@@ -77,6 +77,7 @@ button { font-family: inherit; }
 }
 .tk-title { font-size: 18px; font-weight: 800; letter-spacing: -0.01em; }
 .tk-title span { display: block; font-size: 12px; font-weight: 500; color: var(--text-muted); margin-top: 1px; }
+.tk-actions { display: flex; gap: 10px; align-items: center; }
 .btn {
   display: inline-flex; align-items: center; gap: 8px; cursor: pointer;
   font-weight: 700; font-size: 13.5px; border-radius: 10px; border: 1px solid transparent;
@@ -192,7 +193,10 @@ details p { margin-top: 10px; color: var(--text-muted); line-height: 1.7; font-s
       <div class="tk-icon">🏠</div>
       <div class="tk-title">Home Toolkit<span>ExcuseMeWeb Toolkit</span></div>
     </div>
-    <a href="/all-in-one-toolkit" class="btn btn-ghost btn-sm">All Toolkits</a>
+    <div class="tk-actions">
+      <a href="/all-in-one-toolkit" class="btn btn-ghost btn-sm">All Toolkits</a>
+      <button class="btn btn-ghost btn-sm" onclick="downloadHTML()">&#8681; Download HTML</button>
+    </div>
   </div>
 </header>
 
@@ -431,6 +435,21 @@ function toast(msg) {
   t.classList.add('show');
   setTimeout(() => t.classList.remove('show'), 2000);
 }
+
+function downloadFile(filename, content, mime){
+  var blob = new Blob([content], {type: mime || 'text/plain'});
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a'); a.href = url; a.download = filename;
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  toast('Downloaded ' + filename);
+}
+function downloadHTML(){
+  var html = '<!DOCTYPE html>
+' + document.documentElement.outerHTML;
+  downloadFile('home-toolkit.html', html, 'text/html');
+}
+
 function escapeHtml(s) {
   const d = document.createElement('div');
   d.textContent = s;
