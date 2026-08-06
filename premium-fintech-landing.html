@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meridian — Premium Fintech Landing Page Template | ExcuseMeWeb</title>
+<meta name="description" content="A premium, light-themed fintech landing page template for banking apps, neobanks, and financial products. Clean navy design, app mockup, trust badges, animated stats, security section, pricing tiers, FAQ. No images — pure CSS.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://excusemeweb.com/premium-fintech-landing">
+<link rel="icon" href="/favicon.ico">
+<meta name="theme-color" content="#0a1f44">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<meta property="og:title" content="Meridian — Premium Fintech Landing Page Template">
+<meta property="og:description" content="A premium, light-themed fintech landing page template for banking apps, neobanks, and financial products.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://excusemeweb.com/premium-fintech-landing">
+<meta property="og:image" content="https://excusemeweb.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Meridian — Premium Fintech Landing Page Template">
+<meta name="twitter:description" content="A premium, light-themed fintech landing page template for banking apps, neobanks, and financial products.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FinancialService","name":"Meridian","description":"Modern business banking for startups and small companies.","url":"https://excusemeweb.com/premium-fintech-landing"}</script>
+<style>
+:root{
+  --bg:#fafbfd;
+  --bg-2:#f3f6fc;
+  --bg-3:#e8edf7;
+  --surface:#ffffff;
+  --ink:#0a1f44;
+  --ink-2:#1e2c52;
+  --muted:#5d6b85;
+  --dim:#8b96ad;
+  --border:#e3e9f3;
+  --border-strong:#cfd8e8;
+  --accent:#0a1f44;
+  --accent-2:#1e4fd6;
+  --accent-3:#00c896;
+  --gold:#c9a35a;
+  --warning:#f59e0b;
+  --danger:#e11d48;
+  --radius:14px;
+  --radius-sm:8px;
+  --radius-lg:22px;
+  --font:'Plus Jakarta Sans',sans-serif;
+  --font-body:'Inter',sans-serif;
+  --font-mono:'JetBrains Mono',monospace;
+  --maxw:1240px;
+  --shadow-sm:0 1px 3px rgba(10,31,68,0.06),0 1px 2px rgba(10,31,68,0.04);
+  --shadow:0 4px 16px rgba(10,31,68,0.08),0 1px 3px rgba(10,31,68,0.04);
+  --shadow-lg:0 20px 50px rgba(10,31,68,0.12),0 4px 12px rgba(10,31,68,0.06);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font-body);
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+.container{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+h1,h2,h3,h4{font-family:var(--font);color:var(--ink);letter-spacing:-0.02em}
+
+/* ============ Background decorations (pure CSS) ============ */
+.bg-decor{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.bg-blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:0.4}
+.bg-blob-1{width:600px;height:600px;background:radial-gradient(circle,#1e4fd6,transparent 70%);top:-200px;right:-200px}
+.bg-blob-2{width:500px;height:500px;background:radial-gradient(circle,#00c896,transparent 70%);bottom:30%;left:-200px;opacity:0.25}
+.bg-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(10,31,68,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(10,31,68,0.04) 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(ellipse at top,black 30%,transparent 70%)}
+
+main,header,footer{position:relative;z-index:1}
+
+/* ============ NAV ============ */
+.nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(250,251,253,0.85);
+  backdrop-filter:blur(20px) saturate(180%);
+  -webkit-backdrop-filter:blur(20px) saturate(180%);
+  border-bottom:1px solid var(--border);
+}
+.nav-inner{max-width:var(--maxw);margin:0 auto;padding:18px 32px;display:flex;align-items:center;justify-content:space-between;gap:32px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+.brand-mark{
+  width:36px;height:36px;border-radius:10px;
+  background:linear-gradient(135deg,var(--accent),var(--accent-2));
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-family:var(--font);font-weight:800;font-size:1.1rem;
+  box-shadow:0 4px 12px rgba(30,79,214,0.3);
+}
+.brand-name{font-family:var(--font);font-weight:800;font-size:1.25rem;letter-spacing:-0.5px}
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:0.92rem;font-weight:500;transition:color 0.2s}
+.nav-links a:hover{color:var(--ink)}
+.nav-actions{display:flex;align-items:center;gap:14px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  font-family:var(--font-body);font-weight:600;font-size:0.92rem;
+  padding:11px 22px;border-radius:var(--radius-sm);
+  border:1px solid transparent;cursor:pointer;
+  transition:all 0.2s;text-decoration:none;
+}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--border-strong)}
+.btn-ghost:hover{background:var(--bg-2);border-color:var(--ink)}
+.btn-primary{background:var(--ink);color:#fff;box-shadow:var(--shadow-sm)}
+.btn-primary:hover{background:var(--ink-2);transform:translateY(-1px);box-shadow:var(--shadow)}
+.btn-blue{background:var(--accent-2);color:#fff}
+.btn-blue:hover{background:#1740c0;transform:translateY(-1px)}
+.btn-lg{padding:14px 30px;font-size:1rem;border-radius:10px}
+
+/* ============ HERO ============ */
+.hero{padding:100px 0 80px;position:relative}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:6px 14px;border-radius:100px;
+  background:var(--bg-2);border:1px solid var(--border-strong);
+  font-size:0.82rem;color:var(--accent-2);font-weight:600;
+  margin-bottom:24px;
+}
+.hero-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--accent-3);box-shadow:0 0 8px var(--accent-3);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+.hero h1{
+  font-size:clamp(2.4rem,5vw,4rem);
+  font-weight:800;line-height:1.1;margin-bottom:24px;
+  color:var(--ink);
+}
+.hero h1 .ink{color:var(--accent-2)}
+.hero p{font-size:1.15rem;color:var(--muted);max-width:520px;margin-bottom:32px;line-height:1.6}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:36px}
+.hero-trust{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.trust-badge{display:flex;align-items:center;gap:8px;font-size:0.85rem;color:var(--muted);font-weight:500}
+.trust-badge .icon{
+  width:24px;height:24px;border-radius:50%;
+  background:rgba(0,200,150,0.12);color:var(--accent-3);
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:700;
+}
+
+/* ============ APP MOCKUP (pure CSS) ============ */
+.app-mockup{position:relative}
+.phone-frame{
+  width:340px;height:680px;margin:0 auto;
+  background:linear-gradient(180deg,#1a2c52,#0a1f44);
+  border-radius:44px;padding:14px;
+  box-shadow:0 40px 80px rgba(10,31,68,0.25),0 8px 24px rgba(10,31,68,0.1);
+  position:relative;
+}
+.phone-frame::before{
+  content:"";position:absolute;top:18px;left:50%;transform:translateX(-50%);
+  width:120px;height:28px;background:#0a1f44;border-radius:0 0 18px 18px;z-index:2;
+}
+.phone-screen{
+  width:100%;height:100%;background:var(--bg);
+  border-radius:32px;overflow:hidden;
+  display:flex;flex-direction:column;
+}
+.phone-status{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:18px 24px 8px;font-size:0.75rem;color:var(--ink);font-weight:600;
+}
+.phone-content{flex:1;padding:20px 22px;overflow:hidden}
+.phone-greeting{font-size:0.8rem;color:var(--muted);margin-bottom:4px}
+.phone-balance-label{font-size:0.7rem;color:var(--dim);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px}
+.phone-balance{font-family:var(--font);font-size:2rem;font-weight:800;color:var(--ink);letter-spacing:-0.03em;margin-bottom:4px}
+.phone-balance-delta{font-size:0.75rem;color:var(--accent-3);font-weight:600;margin-bottom:24px}
+.phone-card{
+  background:linear-gradient(135deg,#0a1f44,#1e4fd6);
+  border-radius:18px;padding:20px;color:#fff;margin-bottom:20px;
+  position:relative;overflow:hidden;
+}
+.phone-card::after{
+  content:"";position:absolute;top:-50%;right:-30%;width:200px;height:200px;
+  background:radial-gradient(circle,rgba(255,255,255,0.15),transparent 60%);
+  border-radius:50%;
+}
+.phone-card-label{font-size:0.7rem;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;position:relative;z-index:1}
+.phone-card-num{font-family:var(--font-mono);font-size:0.95rem;letter-spacing:2px;position:relative;z-index:1;margin-bottom:14px}
+.phone-card-row{display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1}
+.phone-card-name{font-size:0.75rem;font-weight:600}
+.phone-card-brand{font-family:var(--font);font-weight:800;font-size:0.85rem;font-style:italic}
+.phone-actions{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:18px}
+.phone-action{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:12px;padding:12px 6px;text-align:center;
+}
+.phone-action-icon{
+  width:32px;height:32px;border-radius:10px;margin:0 auto 6px;
+  background:linear-gradient(135deg,rgba(30,79,214,0.1),rgba(0,200,150,0.1));
+  display:flex;align-items:center;justify-content:center;
+  color:var(--accent-2);font-weight:700;font-size:0.9rem;
+}
+.phone-action-label{font-size:0.65rem;color:var(--muted);font-weight:600}
+.phone-transactions{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:14px}
+.phone-tx-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.phone-tx-title{font-size:0.78rem;font-weight:700;color:var(--ink)}
+.phone-tx-see{font-size:0.7rem;color:var(--accent-2);font-weight:600}
+.phone-tx{display:flex;align-items:center;gap:10px;padding:8px 0;border-top:1px solid var(--border)}
+.phone-tx-icon{width:30px;height:30px;border-radius:8px;background:var(--bg-2);display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:700;color:var(--ink-2)}
+.phone-tx-info{flex:1}
+.phone-tx-name{font-size:0.78rem;font-weight:600;color:var(--ink)}
+.phone-tx-time{font-size:0.65rem;color:var(--dim)}
+.phone-tx-amount{font-size:0.82rem;font-weight:700;color:var(--ink)}
+.phone-tx-amount.in{color:var(--accent-3)}
+
+/* Floating cards around phone */
+.float-card{
+  position:absolute;background:var(--surface);
+  border:1px solid var(--border);border-radius:14px;
+  padding:14px 18px;box-shadow:var(--shadow-lg);
+  display:flex;align-items:center;gap:12px;
+  animation:floatCard 4s ease-in-out infinite;
+}
+.float-card-1{top:80px;left:-40px;animation-delay:0s}
+.float-card-2{bottom:140px;right:-50px;animation-delay:-2s}
+@keyframes floatCard{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.float-card-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:700}
+.float-card-icon.green{background:rgba(0,200,150,0.12);color:var(--accent-3)}
+.float-card-icon.blue{background:rgba(30,79,214,0.12);color:var(--accent-2)}
+.float-card-label{font-size:0.72rem;color:var(--dim);margin-bottom:2px}
+.float-card-value{font-size:0.95rem;font-weight:700;color:var(--ink)}
+
+/* ============ TRUST STRIP ============ */
+.trust-strip{padding:60px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--surface)}
+.trust-strip-inner{display:flex;justify-content:space-around;align-items:center;gap:32px;flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:14px}
+.trust-item-icon{
+  width:44px;height:44px;border-radius:12px;
+  background:var(--bg-2);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font);font-weight:800;font-size:0.95rem;color:var(--ink);
+}
+.trust-item-text{font-size:0.85rem;color:var(--muted);line-height:1.4}
+.trust-item-text strong{display:block;color:var(--ink);font-size:0.92rem;font-weight:700}
+
+/* ============ STATS ============ */
+.stats{padding:100px 0;background:var(--ink);color:#fff;position:relative;overflow:hidden}
+.stats::before{
+  content:"";position:absolute;top:-50%;left:-10%;width:60%;height:200%;
+  background:radial-gradient(ellipse,rgba(30,79,214,0.3),transparent 60%);
+}
+.stats::after{
+  content:"";position:absolute;bottom:-50%;right:-10%;width:60%;height:200%;
+  background:radial-gradient(ellipse,rgba(0,200,150,0.2),transparent 60%);
+}
+.stats-inner{position:relative;z-index:1;text-align:center;max-width:960px;margin:0 auto}
+.stats-eyebrow{font-size:0.85rem;color:var(--accent-3);font-weight:700;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:14px}
+.stats h2{color:#fff;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;margin-bottom:14px;letter-spacing:-0.02em}
+.stats p{color:rgba(255,255,255,0.7);font-size:1.05rem;margin-bottom:56px}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+.stat-num{font-family:var(--font);font-size:clamp(2.2rem,4vw,3.2rem);font-weight:800;letter-spacing:-0.03em;color:#fff;margin-bottom:6px}
+.stat-num .accent{color:var(--accent-3)}
+.stat-lbl{color:rgba(255,255,255,0.65);font-size:0.88rem;font-weight:500}
+
+/* ============ FEATURES ============ */
+.features{padding:120px 0}
+.section-head{text-align:center;max-width:680px;margin:0 auto 72px}
+.section-tag{display:inline-block;padding:6px 14px;border-radius:100px;background:var(--bg-2);border:1px solid var(--border-strong);font-size:0.78rem;color:var(--accent-2);font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:18px}
+.section-head h2{font-size:clamp(2rem,4.5vw,2.8rem);font-weight:800;margin-bottom:18px;line-height:1.1}
+.section-head p{color:var(--muted);font-size:1.08rem}
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.feature-card{
+  padding:32px;border-radius:var(--radius-lg);
+  background:var(--surface);border:1px solid var(--border);
+  transition:all 0.3s;box-shadow:var(--shadow-sm);
+}
+.feature-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--border-strong)}
+.feature-icon{
+  width:52px;height:52px;border-radius:14px;
+  background:linear-gradient(135deg,var(--accent),var(--accent-2));
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-family:var(--font);font-weight:800;font-size:1.3rem;
+  margin-bottom:20px;box-shadow:0 4px 12px rgba(30,79,214,0.25);
+}
+.feature-card h3{font-size:1.2rem;font-weight:700;margin-bottom:10px}
+.feature-card p{color:var(--muted);font-size:0.95rem;line-height:1.6}
+
+/* ============ SECURITY ============ */
+.security{padding:120px 0;background:var(--bg-2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.security-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.security-visual{
+  position:relative;height:480px;
+  background:linear-gradient(135deg,var(--ink),var(--ink-2));
+  border-radius:var(--radius-lg);
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+}
+.security-visual::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(circle at 30% 30%,rgba(0,200,150,0.15),transparent 50%),radial-gradient(circle at 70% 70%,rgba(30,79,214,0.2),transparent 50%);
+}
+.shield{
+  position:relative;z-index:1;width:200px;height:240px;
+  background:linear-gradient(180deg,rgba(255,255,255,0.1),rgba(255,255,255,0.04));
+  border:2px solid rgba(255,255,255,0.2);
+  border-radius:100px 100px 20px 20px;
+  backdrop-filter:blur(20px);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:12px;color:#fff;
+}
+.shield-icon{font-size:3.5rem;line-height:1;font-weight:800;background:linear-gradient(135deg,var(--accent-3),#34d399);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.shield-text{font-family:var(--font);font-weight:700;font-size:1rem;letter-spacing:0.1em;text-transform:uppercase}
+.shield-ring{
+  position:absolute;width:340px;height:340px;border-radius:50%;
+  border:1px solid rgba(255,255,255,0.1);
+  animation:rotateRing 20s linear infinite;
+}
+.shield-ring::before,.shield-ring::after{
+  content:"";position:absolute;width:12px;height:12px;border-radius:50%;
+  background:var(--accent-3);box-shadow:0 0 16px var(--accent-3);
+}
+.shield-ring::before{top:-6px;left:50%;transform:translateX(-50%)}
+.shield-ring::after{bottom:-6px;left:50%;transform:translateX(-50%);background:var(--accent-2);box-shadow:0 0 16px var(--accent-2)}
+@keyframes rotateRing{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.security-content h2{font-size:clamp(1.8rem,4vw,2.4rem);font-weight:800;margin-bottom:18px;line-height:1.15}
+.security-content > p{color:var(--muted);font-size:1.08rem;margin-bottom:32px;line-height:1.65}
+.security-list{list-style:none}
+.security-list li{display:flex;gap:16px;padding:18px 0;border-top:1px solid var(--border)}
+.security-list li:first-child{border-top:none}
+.security-list-icon{
+  width:40px;height:40px;border-radius:10px;flex-shrink:0;
+  background:rgba(0,200,150,0.12);color:var(--accent-3);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:1rem;
+}
+.security-list-content h4{font-size:1rem;font-weight:700;margin-bottom:4px}
+.security-list-content p{color:var(--muted);font-size:0.92rem;line-height:1.55}
+
+/* ============ PRICING ============ */
+.pricing{padding:120px 0}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1080px;margin:0 auto}
+.price-card{
+  padding:36px 28px;border-radius:var(--radius-lg);
+  background:var(--surface);border:1px solid var(--border);
+  transition:all 0.3s;box-shadow:var(--shadow-sm);position:relative;
+}
+.price-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--border-strong)}
+.price-card.featured{background:var(--ink);color:#fff;border-color:var(--ink);box-shadow:var(--shadow-lg)}
+.price-card.featured h3,.price-card.featured .price-amount .num{color:#fff}
+.price-card.featured .price-desc,.price-card.featured .price-features li{color:rgba(255,255,255,0.75)}
+.price-card.featured .price-features li .check{background:rgba(0,200,150,0.25);color:var(--accent-3)}
+.price-card.featured::before{
+  content:"Most Popular";position:absolute;top:-12px;left:50%;transform:translateX(-50%);
+  background:var(--accent-3);color:var(--ink);padding:5px 16px;border-radius:100px;
+  font-size:0.72rem;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;
+}
+.price-card h3{font-size:1.2rem;font-weight:700;margin-bottom:8px}
+.price-desc{color:var(--muted);font-size:0.88rem;margin-bottom:24px}
+.price-amount{display:flex;align-items:baseline;gap:6px;margin-bottom:6px}
+.price-amount .currency{font-size:1.4rem;color:var(--muted);font-weight:600}
+.price-card.featured .price-amount .currency{color:rgba(255,255,255,0.7)}
+.price-amount .num{font-family:var(--font);font-size:3.2rem;font-weight:800;letter-spacing:-0.04em;line-height:1;color:var(--ink)}
+.price-amount .per{color:var(--dim);font-size:0.92rem;font-weight:500}
+.price-card.featured .price-amount .per{color:rgba(255,255,255,0.6)}
+.price-period{color:var(--dim);font-size:0.82rem;margin-bottom:28px}
+.price-card.featured .price-period{color:rgba(255,255,255,0.55)}
+.price-features{list-style:none;margin-bottom:28px}
+.price-features li{display:flex;align-items:center;gap:10px;padding:8px 0;font-size:0.92rem;color:var(--muted)}
+.price-features li .check{width:18px;height:18px;border-radius:50%;background:rgba(0,200,150,0.12);color:var(--accent-3);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0}
+.price-cta{display:block;text-align:center;padding:13px;border-radius:10px;font-weight:700;font-size:0.95rem;text-decoration:none;transition:all 0.2s}
+.price-card.featured .price-cta{background:var(--accent-3);color:var(--ink)}
+.price-card.featured .price-cta:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,200,150,0.4)}
+.price-card:not(.featured) .price-cta{background:var(--ink);color:#fff}
+.price-card:not(.featured) .price-cta:hover{background:var(--ink-2)}
+
+/* ============ TESTIMONIALS ============ */
+.testimonials{padding:120px 0;background:var(--bg-2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.testimonial-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.testimonial-card{padding:32px;border-radius:var(--radius-lg);background:var(--surface);border:1px solid var(--border);box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:18px}
+.testimonial-stars{color:var(--warning);font-size:1rem;letter-spacing:2px}
+.testimonial-text{color:var(--ink-2);font-size:1rem;line-height:1.65;flex:1;font-weight:500}
+.testimonial-author{display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid var(--border)}
+.testimonial-avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:0.95rem}
+.testimonial-name{font-weight:700;font-size:0.95rem;color:var(--ink)}
+.testimonial-role{color:var(--muted);font-size:0.82rem}
+
+/* ============ FAQ ============ */
+.faq{padding:120px 0}
+.faq-list{max-width:760px;margin:0 auto}
+.faq-item{border:1px solid var(--border);border-radius:var(--radius);margin-bottom:12px;background:var(--surface);overflow:hidden;transition:all 0.2s}
+.faq-item:hover{border-color:var(--border-strong)}
+.faq-q{width:100%;text-align:left;background:none;border:none;padding:22px 26px;color:var(--ink);font-family:var(--font-body);font-size:1rem;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.faq-q .arrow{color:var(--accent-2);font-size:1.3rem;transition:transform 0.2s;line-height:1;font-weight:400}
+.faq-item.open .faq-q .arrow{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.3s ease;padding:0 26px}
+.faq-item.open .faq-a{max-height:240px;padding:0 26px 22px}
+.faq-a p{color:var(--muted);font-size:0.95rem;line-height:1.65}
+
+/* ============ FINAL CTA ============ */
+.final-cta{padding:120px 0}
+.final-cta-inner{
+  max-width:980px;margin:0 auto;padding:80px 48px;
+  background:linear-gradient(135deg,var(--ink),var(--ink-2));
+  border-radius:var(--radius-lg);color:#fff;text-align:center;
+  position:relative;overflow:hidden;
+}
+.final-cta-inner::before{
+  content:"";position:absolute;top:-30%;left:-20%;width:140%;height:160%;
+  background:radial-gradient(ellipse,rgba(0,200,150,0.2),transparent 60%);
+}
+.final-cta-inner::after{
+  content:"";position:absolute;bottom:-30%;right:-20%;width:140%;height:160%;
+  background:radial-gradient(ellipse,rgba(30,79,214,0.25),transparent 60%);
+}
+.final-cta h2{color:#fff;font-size:clamp(2rem,5vw,3rem);font-weight:800;margin-bottom:18px;letter-spacing:-0.03em;position:relative;z-index:1}
+.final-cta p{color:rgba(255,255,255,0.8);font-size:1.1rem;margin-bottom:32px;position:relative;z-index:1}
+.final-cta .hero-cta{justify-content:center;position:relative;z-index:1}
+
+/* ============ FOOTER ============ */
+.footer{padding:80px 0 40px;background:var(--ink);color:rgba(255,255,255,0.7)}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:40px;margin-bottom:60px}
+.footer-brand .brand-name{color:#fff}
+.footer-brand p{color:rgba(255,255,255,0.6);font-size:0.92rem;max-width:280px;line-height:1.6;margin-top:16px}
+.footer-col h4{color:#fff;font-size:0.85rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:18px}
+.footer-col ul{list-style:none}
+.footer-col li{margin-bottom:10px}
+.footer-col a{color:rgba(255,255,255,0.7);text-decoration:none;font-size:0.92rem;transition:color 0.2s}
+.footer-col a:hover{color:var(--accent-3)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:32px;border-top:1px solid rgba(255,255,255,0.1);flex-wrap:wrap;gap:16px}
+.footer-bottom p{color:rgba(255,255,255,0.5);font-size:0.85rem}
+.footer-social{display:flex;gap:10px}
+.social-btn{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.7);cursor:pointer;transition:all 0.2s;font-size:0.85rem;font-weight:700;text-decoration:none}
+.social-btn:hover{border-color:var(--accent-3);color:var(--accent-3);background:rgba(0,200,150,0.08)}
+
+/* Floating download */
+.dl-btn{position:fixed;bottom:24px;right:24px;background:var(--ink);color:#fff;border:none;padding:14px 22px;border-radius:100px;font-family:var(--font-body);font-weight:700;font-size:0.88rem;cursor:pointer;box-shadow:0 8px 28px rgba(10,31,68,0.3);z-index:1000;transition:all 0.2s}
+.dl-btn:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(10,31,68,0.4);background:var(--accent-2)}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:960px){
+  .nav-links{display:none}
+  .hero-grid,.security-grid{grid-template-columns:1fr;gap:48px}
+  .features-grid,.pricing-grid,.testimonial-grid,.stats-grid{grid-template-columns:1fr 1fr}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:32px}
+  .float-card{display:none}
+  .phone-frame{margin:0 auto}
+}
+@media(max-width:640px){
+  .hero{padding:60px 0 40px}
+  .hero-cta{flex-direction:column;align-items:stretch}
+  .hero-cta .btn{width:100%}
+  .features-grid,.pricing-grid,.testimonial-grid,.stats-grid,.footer-grid{grid-template-columns:1fr}
+  .container{padding:0 20px}
+  .nav-inner{padding:14px 20px}
+  .phone-frame{transform:scale(0.85);margin:-40px auto}
+  .final-cta-inner{padding:48px 24px}
+}
+</style>
+</head>
+<body>
+
+<div class="bg-decor">
+  <div class="bg-grid"></div>
+  <div class="bg-blob bg-blob-1"></div>
+  <div class="bg-blob bg-blob-2"></div>
+</div>
+
+<!-- ============ NAV ============ -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="brand">
+      <div class="brand-mark">M</div>
+      <span class="brand-name">Meridian</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#security">Security</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#testimonials">Customers</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="#" class="btn btn-ghost">Sign in</a>
+      <a href="#" class="btn btn-primary">Open account</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-badge">
+          <span class="dot"></span>
+          Now with 3% cashback on all spend
+        </div>
+        <h1>Business banking that <span class="ink">moves at your speed.</span></h1>
+        <p>Open your account in 7 minutes. Send wires in seconds. Earn 3.5% APY on balances up to $1M. No monthly fees, no minimums, no nonsense.</p>
+        <div class="hero-cta">
+          <a href="#" class="btn btn-primary btn-lg">Open free account</a>
+          <a href="#" class="btn btn-ghost btn-lg">See pricing</a>
+        </div>
+        <div class="hero-trust">
+          <div class="trust-badge"><span class="icon">✓</span> FDIC insured up to $5M</div>
+          <div class="trust-badge"><span class="icon">✓</span> SOC 2 Type II</div>
+          <div class="trust-badge"><span class="icon">✓</span> 256-bit encryption</div>
+        </div>
+      </div>
+      <div class="app-mockup">
+        <div class="phone-frame">
+          <div class="phone-screen">
+            <div class="phone-status">
+              <span>9:41</span>
+              <span>● ● ●</span>
+            </div>
+            <div class="phone-content">
+              <div class="phone-greeting">Good morning, Alex</div>
+              <div class="phone-balance-label">Total balance</div>
+              <div class="phone-balance">$284,592.40</div>
+              <div class="phone-balance-delta">↑ $12,840 this month</div>
+              <div class="phone-card">
+                <div class="phone-card-label">Meridian Visa Business</div>
+                <div class="phone-card-num">•••• 4829</div>
+                <div class="phone-card-row">
+                  <div class="phone-card-name">Alex Morgan</div>
+                  <div class="phone-card-brand">VISA</div>
+                </div>
+              </div>
+              <div class="phone-actions">
+                <div class="phone-action"><div class="phone-action-icon">↑</div><div class="phone-action-label">Send</div></div>
+                <div class="phone-action"><div class="phone-action-icon">↓</div><div class="phone-action-label">Request</div></div>
+                <div class="phone-action"><div class="phone-action-icon">⊕</div><div class="phone-action-label">Add</div></div>
+                <div class="phone-action"><div class="phone-action-icon">⋯</div><div class="phone-action-label">More</div></div>
+              </div>
+              <div class="phone-transactions">
+                <div class="phone-tx-header">
+                  <div class="phone-tx-title">Recent</div>
+                  <div class="phone-tx-see">See all</div>
+                </div>
+                <div class="phone-tx">
+                  <div class="phone-tx-icon">S</div>
+                  <div class="phone-tx-info">
+                    <div class="phone-tx-name">Stripe payout</div>
+                    <div class="phone-tx-time">Today, 8:14am</div>
+                  </div>
+                  <div class="phone-tx-amount in">+$8,420</div>
+                </div>
+                <div class="phone-tx">
+                  <div class="phone-tx-icon">A</div>
+                  <div class="phone-tx-info">
+                    <div class="phone-tx-name">AWS</div>
+                    <div class="phone-tx-time">Yesterday</div>
+                  </div>
+                  <div class="phone-tx-amount">−$1,240</div>
+                </div>
+                <div class="phone-tx">
+                  <div class="phone-tx-icon">F</div>
+                  <div class="phone-tx-info">
+                    <div class="phone-tx-name">Figma</div>
+                    <div class="phone-tx-time">2 days ago</div>
+                  </div>
+                  <div class="phone-tx-amount">−$96</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="float-card float-card-1">
+          <div class="float-card-icon green">↑</div>
+          <div>
+            <div class="float-card-label">Earned this month</div>
+            <div class="float-card-value">+$12,840</div>
+          </div>
+        </div>
+        <div class="float-card float-card-2">
+          <div class="float-card-icon blue">$</div>
+          <div>
+            <div class="float-card-label">APY on balance</div>
+            <div class="float-card-value">3.50%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRUST STRIP ============ -->
+<section class="trust-strip">
+  <div class="container">
+    <div class="trust-strip-inner">
+      <div class="trust-item">
+        <div class="trust-item-icon">FDIC</div>
+        <div class="trust-item-text"><strong>$5M FDIC insurance</strong>Through partner banks</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-item-icon">SOC</div>
+        <div class="trust-item-text"><strong>SOC 2 Type II</strong>Audited annually</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-item-icon">PCI</div>
+        <div class="trust-item-text"><strong>PCI DSS Level 1</strong>Highest payment security</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-item-icon">A+</div>
+        <div class="trust-item-text"><strong>BBB A+ rated</strong>Trusted by 80k businesses</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<section class="stats">
+  <div class="container">
+    <div class="stats-inner">
+      <div class="stats-eyebrow">By the numbers</div>
+      <h2>Trusted by 80,000+ businesses</h2>
+      <p>From solo founders to series C startups, Meridian handles the money so founders can focus on building.</p>
+      <div class="stats-grid">
+        <div>
+          <div class="stat-num" data-count="80000>80,000+</div>
+          <div class="stat-lbl">Businesses served</div>
+        </div>
+        <div>
+          <div class="stat-num" data-count="14.2><span class="accent">$</span>14.2B+</div>
+          <div class="stat-lbl">Processed annually</div>
+        </div>
+        <div>
+          <div class="stat-num" data-count="3.5>3.50%</div>
+          <div class="stat-lbl">APY on balances</div>
+        </div>
+        <div>
+          <div class="stat-num" data-count="7><span class="accent">7</span> min</div>
+          <div class="stat-lbl">Average open time</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURES ============ -->
+<section class="features" id="features">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag">Features</span>
+      <h2>Everything your business needs.<br>Nothing it doesn't.</h2>
+      <p>One account for checking, savings, cards, and payments. Built for founders who hate switching tabs.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">$</div>
+        <h3>3.5% APY on balances</h3>
+        <p>Earn competitive yield on every dollar up to $1M, paid out monthly. No minimums, no lockups, no fine print.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">↗</div>
+        <h3>Free wires, forever</h3>
+        <p>Domestic and international wires, on us. Most banks charge $25-$50 per wire — we charge zero. Send as many as you need.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⊕</div>
+        <h3>Virtual cards on demand</h3>
+        <p>Generate unlimited virtual cards with custom spend limits. Perfect for ads, SaaS subscriptions, and contractor spending.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⇄</div>
+        <h3>Accounting sync</h3>
+        <p>Two-way sync with QuickBooks, Xero, and NetSuite. Every transaction categorized automatically with AI-powered rules.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">👥</div>
+        <h3>Team controls</h3>
+        <p>Issue cards to teammates with custom limits. Approve expenses in one tap. Export reports by team, project, or vendor.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">◆</div>
+        <h3>API & webhooks</h3>
+        <p>Build custom workflows with our REST API. Listen for transactions, balance changes, and card events via webhooks in real time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECURITY ============ -->
+<section class="security" id="security">
+  <div class="container">
+    <div class="security-grid">
+      <div class="security-visual">
+        <div class="shield-ring"></div>
+        <div class="shield">
+          <div class="shield-icon">✦</div>
+          <div class="shield-text">Bank-grade<br>security</div>
+        </div>
+      </div>
+      <div class="security-content">
+        <span class="section-tag">Security</span>
+        <h2>Your money is safer here than in your sock drawer.</h2>
+        <p>We use the same encryption as the major banks, plus a few things they haven't gotten around to yet.</p>
+        <ul class="security-list">
+          <li>
+            <div class="security-list-icon">1</div>
+            <div class="security-list-content">
+              <h4>FDIC insurance up to $5M</h4>
+              <p>Your deposits are insured through our partner banks, far beyond the standard $250k limit.</p>
+            </div>
+          </li>
+          <li>
+            <div class="security-list-icon">2</div>
+            <div class="security-list-content">
+              <h4>256-bit encryption at rest</h4>
+              <p>All data is encrypted with AES-256, the same standard used by the U.S. government for classified information.</p>
+            </div>
+          </li>
+          <li>
+            <div class="security-list-icon">3</div>
+            <div class="security-list-content">
+              <h4>Biometric + 2FA login</h4>
+              <p>Face ID, Touch ID, or hardware key required for every login and every transaction over $1,000.</p>
+            </div>
+          </li>
+          <li>
+            <div class="security-list-icon">4</div>
+            <div class="security-list-content">
+              <h4>Real-time fraud monitoring</h4>
+              <p>Every transaction is scored by AI in under 100ms. Suspicious activity freezes your card instantly and pings your phone.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section class="pricing" id="pricing">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag">Pricing</span>
+      <h2>Simple, transparent pricing.<br>No hidden fees, ever.</h2>
+      <p>Start free. Upgrade when you grow. Cancel anytime.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <h3>Starter</h3>
+        <p class="price-desc">For solo founders and side projects.</p>
+        <div class="price-amount">
+          <span class="currency">$</span>
+          <span class="num">0</span>
+          <span class="per">/mo</span>
+        </div>
+        <div class="price-period">No card required</div>
+        <ul class="price-features">
+          <li><span class="check">✓</span> 1 business checking account</li>
+          <li><span class="check">✓</span> 1 physical + 5 virtual cards</li>
+          <li><span class="check">✓</span> Free domestic wires</li>
+          <li><span class="check">✓</span> 1.5% APY on balances</li>
+          <li><span class="check">✓</span> $10k monthly card spend</li>
+          <li><span class="check">✓</span> Email support</li>
+        </ul>
+        <a href="#" class="price-cta">Open free account</a>
+      </div>
+      <div class="price-card featured">
+        <h3>Growth</h3>
+        <p class="price-desc">For funded startups and growing teams.</p>
+        <div class="price-amount">
+          <span class="currency">$</span>
+          <span class="num">49</span>
+          <span class="per">/mo</span>
+        </div>
+        <div class="price-period">14-day free trial · Cancel anytime</div>
+        <ul class="price-features">
+          <li><span class="check">✓</span> Up to 10 team members</li>
+          <li><span class="check">✓</span> Unlimited virtual cards</li>
+          <li><span class="check">✓</span> Free international wires</li>
+          <li><span class="check">✓</span> 3.5% APY on balances</li>
+          <li><span class="check">✓</span> $500k monthly card spend</li>
+          <li><span class="check">✓</span> QuickBooks + Xero sync</li>
+          <li><span class="check">✓</span> Priority chat support</li>
+        </ul>
+        <a href="#" class="price-cta">Start free trial</a>
+      </div>
+      <div class="price-card">
+        <h3>Scale</h3>
+        <p class="price-desc">For series B+ companies with custom needs.</p>
+        <div class="price-amount">
+          <span class="currency">$</span>
+          <span class="num">Custom</span>
+        </div>
+        <div class="price-period">Annual contract · Custom SLA</div>
+        <ul class="price-features">
+          <li><span class="check">✓</span> Unlimited team members</li>
+          <li><span class="check">✓</span> Custom card programs</li>
+          <li><span class="check">✓</span> Dedicated FX desk</li>
+          <li><span class="check">✓</span> 4.0% APY on balances</li>
+          <li><span class="check">✓</span> Unlimited card spend</li>
+          <li><span class="check">✓</span> API + webhook access</li>
+          <li><span class="check">✓</span> Dedicated CSM + Slack channel</li>
+        </ul>
+        <a href="#" class="price-cta">Talk to sales</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag">Customers</span>
+      <h2>80,000 businesses trust Meridian<br>with their money.</h2>
+      <p>From day-one startups to public companies.</p>
+    </div>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Switched from a big-4 bank and never looked back. The virtual cards alone save us 8 hours a month in expense reconciliation. Wires are free and instant. APY is 10x what Chase paid us."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">JD</div>
+          <div>
+            <div class="testimonial-name">Jordan Davis</div>
+            <div class="testimonial-role">CFO, Northwind Labs</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Opened our account on a Tuesday, sent our first wire Wednesday morning. The team controls let me issue cards to contractors in 30 seconds with custom limits. The accounting sync with QuickBooks is flawless."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">MR</div>
+          <div>
+            <div class="testimonial-name">Maya Rodriguez</div>
+            <div class="testimonial-role">Founder, Cobalt Studio</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"We were paying $400/month in wire fees alone at our old bank. Meridian cut that to zero and the 3.5% APY on our operating account adds five figures a year in passive income. Switching was a no-brainer."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">SK</div>
+          <div>
+            <div class="testimonial-name">Samuel Kwan</div>
+            <div class="testimonial-role">CEO, Helio Inc.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag">FAQ</span>
+      <h2>Common questions</h2>
+      <p>Everything you need to know before opening an account.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q">How long does it take to open an account? <span class="arrow">+</span></button>
+        <div class="faq-a"><p>About 7 minutes for most businesses. You'll need your EIN, business formation documents, and ID for the beneficial owners. Once approved, your account is live immediately and you can start sending wires the same day.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Is my money FDIC insured? <span class="arrow">+</span></button>
+        <div class="faq-a"><p>Yes. Deposits are FDIC insured up to $5M through our partner banks, far beyond the standard $250k limit. Insurance applies per depositor, per institution, per ownership category.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Are there any hidden fees? <span class="arrow">+</span></button>
+        <div class="faq-a"><p>No. The Starter plan is genuinely free — no monthly fee, no minimum balance, no per-transaction fees. The Growth plan is $49/month flat. International wires are free on Growth and Scale plans.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Can I issue cards to my team? <span class="arrow">+</span></button>
+        <div class="faq-a"><p>Yes, on Growth and Scale plans. Issue unlimited virtual cards with custom spend limits, merchant restrictions, and expiration dates. Every transaction appears in real time and can be auto-categorized to a project or department.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Do you integrate with my accounting software? <span class="arrow">+</span></button>
+        <div class="faq-a"><p>We have native two-way sync with QuickBooks Online, Xero, and NetSuite. Transactions appear in your accounting software within seconds. AI categorization learns from your past transactions and gets smarter over time.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What happens if my card is compromised? <span class="arrow">+</span></button>
+        <div class="faq-a"><p>Freeze your card instantly from the app. We'll overnight a replacement physical card and issue a new virtual card number immediately. Our fraud team monitors 24/7 and proactively freezes suspicious transactions before they settle.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="final-cta">
+  <div class="container">
+    <div class="final-cta-inner">
+      <h2>Open your account<br>in 7 minutes.</h2>
+      <p>Join 80,000+ businesses banking smarter with Meridian.</p>
+      <div class="hero-cta" style="display:flex;gap:12px;flex-wrap:wrap">
+        <a href="#" class="btn btn-primary btn-lg" style="background:#fff;color:var(--ink)">Open free account</a>
+        <a href="#" class="btn btn-ghost btn-lg" style="color:#fff;border-color:rgba(255,255,255,0.4)">Talk to sales</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="brand">
+          <div class="brand-mark">M</div>
+          <span class="brand-name">Meridian</span>
+        </a>
+        <p>Business banking built for modern founders. FDIC insured up to $5M. SOC 2 Type II certified.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#">Cards</a></li>
+          <li><a href="#">API docs</a></li>
+          <li><a href="#">Integrations</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="#">Help center</a></li>
+          <li><a href="#">Security</a></li>
+          <li><a href="#">Status</a></li>
+          <li><a href="#">Privacy</a></li>
+          <li><a href="#">Terms</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Privacy policy</a></li>
+          <li><a href="#">Terms of service</a></li>
+          <li><a href="#">Deposit agreement</a></li>
+          <li><a href="#">Cardholder agreement</a></li>
+          <li><a href="#">Complaints</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Meridian Financial. Template by <a href="https://excusemeweb.com/landing-pages" style="color:#fff">ExcuseMeWeb</a>. Banking services provided by partner banks, Members FDIC.</p>
+      <div class="footer-social">
+        <a class="social-btn" href="#">X</a>
+        <a class="social-btn" href="#">in</a>
+        <a class="social-btn" href="#">f</a>
+        <a class="social-btn" href="#">▶</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button class="dl-btn" onclick="downloadPage()">⇩ Download HTML</button>
+
+<script>
+// FAQ accordion
+document.querySelectorAll('.faq-q').forEach(q=>{
+  q.addEventListener('click',()=>{
+    const item=q.parentElement;
+    const wasOpen=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+    if(!wasOpen) item.classList.add('open');
+  });
+});
+
+// Animated counters
+const counters=document.querySelectorAll('[data-count]');
+const animateCounter=(el)=>{
+  const target=parseFloat(el.getAttribute('data-count'));
+  const isDecimal=target%1!==0;
+  const isLarge=target>=1000;
+  let cur=0;
+  const step=target/60;
+  const tick=()=>{
+    cur+=step;
+    if(cur>=target){
+      const val=isDecimal?target.toFixed(1):Math.floor(cur);
+      el.setAttribute('data-current',val);
+    }else{
+      const val=isDecimal?cur.toFixed(1):Math.floor(cur);
+      el.setAttribute('data-current',val);
+      requestAnimationFrame(tick);
+    }
+  };
+  tick();
+};
+const obs=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      animateCounter(e.target);
+      obs.unobserve(e.target);
+    }
+  });
+},{threshold:0.5});
+counters.forEach(c=>obs.observe(c));
+
+// Download page
+function downloadPage(){
+  const html='<!DOCTYPE html>\n'+document.documentElement.outerHTML;
+  const blob=new Blob([html],{type:'text/html'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;a.download='premium-fintech-landing-page.html';
+  document.body.appendChild(a);a.click();a.remove();
+  URL.revokeObjectURL(url);
+}
+</script>
+</body>
+</html>

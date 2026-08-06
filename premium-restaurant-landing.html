@@ -1,0 +1,2784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lumière — Premium Fine Dining Restaurant Landing Page Template | ExcuseMeWeb</title>
+<meta name="description" content="Lumière is a premium fine dining restaurant landing page template featuring a multi-course tasting menu, Michelin-starred cuisine, chef-led seasonal experiences, and an elegant reservation system. Fully responsive, no images, pure CSS art.">
+<meta name="keywords" content="fine dining, restaurant landing page, michelin star, tasting menu, reservation template, premium restaurant, chef, CSS art, ExcuseMeWeb">
+<meta name="author" content="ExcuseMeWeb">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://excusemeweb.com/premium-restaurant-landing">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Lumière — Premium Fine Dining Restaurant Landing Page Template | ExcuseMeWeb">
+<meta property="og:description" content="A premium fine dining restaurant landing page template featuring a multi-course tasting menu, Michelin-starred cuisine, and an elegant reservation system. Pure CSS art, fully responsive.">
+<meta property="og:url" content="https://excusemeweb.com/premium-restaurant-landing">
+<meta property="og:site_name" content="ExcuseMeWeb">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lumière — Premium Fine Dining Restaurant Landing Page Template | ExcuseMeWeb">
+<meta name="twitter:description" content="A premium fine dining restaurant landing page template featuring a multi-course tasting menu, Michelin-starred cuisine, and an elegant reservation system.">
+<meta name="twitter:site" content="@excusemeweb">
+
+<!-- Restaurant JSON-LD Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Lumière",
+  "description": "A Michelin-starred fine dining restaurant offering a seasonal multi-course tasting menu crafted with intention and artistry.",
+  "servesCuisine": ["French", "Contemporary", "Seasonal Tasting"],
+  "priceRange": "$$$$",
+  "telephone": "+1-212-555-0142",
+  "url": "https://excusemeweb.com/premium-restaurant-landing",
+  "acceptsReservations": "True",
+  "image": "",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "248 Madison Avenue",
+    "addressLocality": "New York",
+    "addressRegion": "NY",
+    "postalCode": "10016",
+    "addressCountry": "US"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Tuesday", "Wednesday", "Thursday"],
+      "opens": "17:30",
+      "closes": "22:30"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Friday", "Saturday"],
+      "opens": "17:00",
+      "closes": "23:30"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Sunday",
+      "opens": "11:30",
+      "closes": "21:00"
+    }
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "1284"
+  },
+  "hasMenu": {
+    "@type": "Menu",
+    "name": "Seasonal Tasting Menu"
+  }
+}
+</script>
+
+<!-- Google Fonts: Cormorant Garamond + Inter -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   LUMIÈRE — Premium Fine Dining Restaurant Landing Page
+   Pure CSS art. No images. Dark elegant theme with gold accents.
+   ============================================================ */
+
+/* ---------- Reset & Base ---------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-deepest: #0a0a0a;
+  --bg-deep: #111111;
+  --bg-card: #161616;
+  --bg-elevated: #1c1c1c;
+  --bg-glass: rgba(20, 20, 20, 0.55);
+  --border-subtle: rgba(201, 163, 90, 0.14);
+  --border-gold: rgba(201, 163, 90, 0.35);
+  --gold: #c9a35a;
+  --gold-bright: #d4af7a;
+  --gold-soft: #b8975a;
+  --champagne: #e8d4a8;
+  --champagne-dim: #c2ad88;
+  --cream: #f5efe1;
+  --text-primary: #ece6d6;
+  --text-secondary: #a8a194;
+  --text-muted: #6f6a5e;
+  --serif: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --transition: 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+  --max-w: 1280px;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  font-family: var(--sans);
+  background: var(--bg-deepest);
+  color: var(--text-primary);
+  line-height: 1.7;
+  font-weight: 300;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: 0.01em;
+}
+
+/* Decorative grain texture overlay using CSS gradients */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 20% 15%, rgba(201, 163, 90, 0.05), transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(201, 163, 90, 0.04), transparent 45%);
+  z-index: 1;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--serif);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: 0.005em;
+}
+
+p { color: var(--text-secondary); font-weight: 300; }
+
+a {
+  color: var(--gold-bright);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+a:hover { color: var(--champagne); }
+
+::selection {
+  background: var(--gold);
+  color: var(--bg-deepest);
+}
+
+/* ---------- Layout Helpers ---------- */
+.container {
+  width: 100%;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 32px;
+  position: relative;
+  z-index: 2;
+}
+
+.section {
+  padding: 130px 0;
+  position: relative;
+  z-index: 2;
+}
+
+.eyebrow {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+.eyebrow::before, .eyebrow.center::after {
+  content: "";
+  display: inline-block;
+  width: 38px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold));
+}
+
+.eyebrow.center::before {
+  background: linear-gradient(90deg, var(--gold), transparent);
+}
+
+.section-title {
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  color: var(--cream);
+  letter-spacing: -0.01em;
+  margin-bottom: 22px;
+}
+
+.section-title em {
+  font-style: italic;
+  color: var(--gold-bright);
+  font-weight: 300;
+}
+
+.section-lead {
+  font-size: 1.08rem;
+  max-width: 640px;
+  color: var(--text-secondary);
+  line-height: 1.85;
+}
+
+.center-text { text-align: center; margin-left: auto; margin-right: auto; }
+.center-text .eyebrow { justify-content: center; }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: 18px 42px;
+  cursor: pointer;
+  border: none;
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--gold-bright), var(--gold-soft));
+  color: var(--bg-deepest);
+  border: 1px solid var(--gold);
+}
+
+.btn-primary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--champagne), var(--gold-bright));
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.btn-primary span { position: relative; z-index: 1; }
+
+.btn-primary:hover::before { opacity: 1; }
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px -16px rgba(201, 163, 90, 0.6);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--cream);
+  border: 1px solid var(--border-gold);
+}
+
+.btn-ghost:hover {
+  background: rgba(201, 163, 90, 0.08);
+  border-color: var(--gold);
+  color: var(--champagne);
+}
+
+/* ---------- Sticky Nav ---------- */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 22px 0;
+  transition: all var(--transition);
+  background: transparent;
+}
+
+.nav.scrolled {
+  padding: 14px 0;
+  background: rgba(10, 10, 10, 0.88);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+}
+
+.brand-mark {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--gold);
+  display: grid;
+  place-items: center;
+  position: relative;
+  background: radial-gradient(circle at 30% 30%, rgba(212, 175, 122, 0.18), transparent 70%);
+}
+
+.brand-mark::before {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border-radius: 50%;
+  border: 1px solid var(--border-gold);
+}
+
+.brand-mark span {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 22px;
+  color: var(--gold-bright);
+  line-height: 1;
+}
+
+.brand-name {
+  font-family: var(--serif);
+  font-size: 26px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  color: var(--cream);
+  text-transform: uppercase;
+}
+
+.brand-sub {
+  display: block;
+  font-family: var(--sans);
+  font-size: 9px;
+  letter-spacing: 0.4em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 38px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  position: relative;
+  padding: 6px 0;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 1px;
+  background: var(--gold);
+  transition: all var(--transition);
+  transform: translateX(-50%);
+}
+
+.nav-links a:hover { color: var(--gold-bright); }
+.nav-links a:hover::after { width: 100%; }
+
+.nav-cta {
+  font-family: var(--sans);
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--bg-deepest);
+  background: linear-gradient(135deg, var(--gold-bright), var(--gold-soft));
+  padding: 13px 28px;
+  border: 1px solid var(--gold);
+  transition: all var(--transition);
+}
+
+.nav-cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 26px -10px rgba(201, 163, 90, 0.55);
+  color: var(--bg-deepest);
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.menu-toggle span {
+  width: 24px;
+  height: 1px;
+  background: var(--cream);
+  transition: all var(--transition);
+}
+
+.menu-toggle.active span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.menu-toggle.active span:nth-child(2) { opacity: 0; }
+.menu-toggle.active span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+/* ---------- Hero ---------- */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 140px 0 100px;
+  background:
+    radial-gradient(ellipse at 70% 30%, rgba(201, 163, 90, 0.10), transparent 55%),
+    radial-gradient(ellipse at 20% 80%, rgba(120, 90, 40, 0.08), transparent 50%),
+    linear-gradient(180deg, #0a0a0a 0%, #141414 100%);
+}
+
+/* Hero decorative gold rings (CSS art) */
+.hero-rings {
+  position: absolute;
+  top: 50%;
+  right: -180px;
+  transform: translateY(-50%);
+  width: 700px;
+  height: 700px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-rings::before,
+.hero-rings::after,
+.hero-rings .ring {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid var(--border-gold);
+}
+
+.hero-rings::before {
+  inset: 0;
+  border-color: rgba(201, 163, 90, 0.18);
+}
+
+.hero-rings::after {
+  inset: 80px;
+  border-color: rgba(201, 163, 90, 0.25);
+}
+
+.hero-rings .ring {
+  inset: 160px;
+  border-color: rgba(201, 163, 90, 0.35);
+  background: radial-gradient(circle at 35% 35%, rgba(212, 175, 122, 0.10), transparent 60%);
+}
+
+.hero-rings .ring::before {
+  content: "";
+  position: absolute;
+  inset: 60px;
+  border-radius: 50%;
+  border: 1px dashed rgba(201, 163, 90, 0.20);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  max-width: 820px;
+}
+
+.hero-eyebrow {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 40px;
+  opacity: 0;
+  animation: fadeUp 1s ease 0.2s forwards;
+}
+
+.hero-eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 54px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.hero h1 {
+  font-size: clamp(3.2rem, 8.5vw, 7.2rem);
+  font-weight: 300;
+  color: var(--cream);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  margin-bottom: 36px;
+  opacity: 0;
+  animation: fadeUp 1.1s ease 0.4s forwards;
+}
+
+.hero h1 em {
+  font-style: italic;
+  font-weight: 400;
+  background: linear-gradient(135deg, var(--gold-bright), var(--champagne));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-sub {
+  font-size: 1.15rem;
+  max-width: 540px;
+  color: var(--text-secondary);
+  line-height: 1.9;
+  margin-bottom: 52px;
+  font-weight: 300;
+  opacity: 0;
+  animation: fadeUp 1.1s ease 0.6s forwards;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeUp 1.1s ease 0.8s forwards;
+}
+
+.hero-meta {
+  position: absolute;
+  bottom: 50px;
+  left: 0;
+  right: 0;
+  z-index: 3;
+}
+
+.hero-meta-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 32px;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.hero-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.hero-meta-item .star-cluster {
+  display: inline-flex;
+  gap: 3px;
+}
+
+.hero-meta-item .star-cluster span {
+  color: var(--gold-bright);
+  font-size: 14px;
+}
+
+.hero-meta-item .label {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.hero-meta-item .value {
+  font-family: var(--serif);
+  font-size: 17px;
+  color: var(--cream);
+  font-style: italic;
+}
+
+.hero-scroll {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.hero-scroll .line {
+  width: 40px;
+  height: 1px;
+  background: var(--text-muted);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-scroll .line::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--gold);
+  transform: translateX(-100%);
+  animation: scrollLine 2.4s ease-in-out infinite;
+}
+
+@keyframes scrollLine {
+  0% { transform: translateX(-100%); }
+  50% { transform: translateX(0); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- About / Philosophy ---------- */
+.about {
+  background: linear-gradient(180deg, #0a0a0a, #0f0f0f);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 90px;
+  align-items: center;
+}
+
+.about-text p {
+  font-size: 1.05rem;
+  line-height: 1.95;
+  margin-bottom: 24px;
+}
+
+.about-text .signature {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.6rem;
+  color: var(--gold-bright);
+  margin-top: 30px;
+  display: block;
+}
+
+.about-text .signature small {
+  display: block;
+  font-family: var(--sans);
+  font-style: normal;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+
+.about-art {
+  position: relative;
+  aspect-ratio: 1 / 1.05;
+  display: grid;
+  place-items: center;
+}
+
+/* CSS Art: layered "plate with embers" abstract for about */
+.art-frame {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border: 1px solid var(--border-subtle);
+  background:
+    radial-gradient(ellipse at 30% 25%, rgba(201, 163, 90, 0.08), transparent 50%),
+    linear-gradient(160deg, #161616, #0d0d0d);
+  overflow: hidden;
+}
+
+.art-frame::before {
+  content: "";
+  position: absolute;
+  top: 24px; left: 24px; right: 24px; bottom: 24px;
+  border: 1px solid var(--border-subtle);
+}
+
+.plate {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 62%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 32% 28%, #2a2620, #14110c 60%, #0c0a07);
+  box-shadow:
+    inset 0 0 60px rgba(0,0,0,0.7),
+    0 30px 60px -20px rgba(0,0,0,0.7);
+  border: 1px solid rgba(201, 163, 90, 0.18);
+}
+
+.plate::before {
+  content: "";
+  position: absolute;
+  inset: 14%;
+  border-radius: 50%;
+  border: 1px solid rgba(201, 163, 90, 0.12);
+}
+
+/* Sauce swirl */
+.plate::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 65%;
+  height: 65%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(212, 175, 122, 0.20), transparent 50%),
+    conic-gradient(from 0deg, transparent 0deg, rgba(201, 163, 90, 0.18) 60deg, transparent 120deg, rgba(201, 163, 90, 0.10) 200deg, transparent 280deg, rgba(201, 163, 90, 0.16) 340deg, transparent 360deg);
+}
+
+/* Garnish dots */
+.art-frame .dot {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--gold-bright);
+  box-shadow: 0 0 8px rgba(212, 175, 122, 0.7);
+}
+
+.art-frame .dot.d1 { width: 8px; height: 8px; top: 30%; left: 38%; }
+.art-frame .dot.d2 { width: 5px; height: 5px; top: 62%; left: 56%; background: var(--champagne); }
+.art-frame .dot.d3 { width: 6px; height: 6px; top: 70%; left: 40%; }
+.art-frame .dot.d4 { width: 4px; height: 4px; top: 36%; left: 60%; background: var(--champagne); }
+
+.art-frame .leaf {
+  position: absolute;
+  width: 38px;
+  height: 16px;
+  background: linear-gradient(120deg, #4a4a2a, #7a6a35);
+  border-radius: 50% 0 50% 0;
+  transform: rotate(-25deg);
+  top: 52%;
+  left: 50%;
+  opacity: 0.7;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.4);
+}
+
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 64px;
+  padding-top: 48px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.stat .num {
+  font-family: var(--serif);
+  font-size: 2.6rem;
+  color: var(--gold-bright);
+  display: block;
+  line-height: 1;
+}
+
+.stat .num small {
+  font-size: 1.3rem;
+  color: var(--gold);
+}
+
+.stat .lbl {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: 12px;
+  display: block;
+}
+
+/* ---------- Menu Highlights ---------- */
+.menu-section {
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(201, 163, 90, 0.05), transparent 60%),
+    #0d0d0d;
+}
+
+.menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 70px;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.menu-header .section-lead { margin-top: 8px; }
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.dish-card {
+  background: linear-gradient(180deg, #161616, #101010);
+  border: 1px solid var(--border-subtle);
+  padding: 36px 32px 34px;
+  position: relative;
+  transition: all var(--transition);
+  overflow: hidden;
+}
+
+.dish-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.dish-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--border-gold);
+  box-shadow: 0 30px 60px -30px rgba(0,0,0,0.8);
+}
+
+.dish-card:hover::before { opacity: 1; }
+
+/* CSS Art: plating visual */
+.plating {
+  width: 100%;
+  aspect-ratio: 1;
+  position: relative;
+  display: grid;
+  place-items: center;
+  margin-bottom: 30px;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255,255,255,0.015), transparent 70%);
+}
+
+.plate-disc {
+  width: 80%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #2a261f, #15120d 65%, #0a0805);
+  position: relative;
+  box-shadow:
+    inset 0 0 40px rgba(0,0,0,0.6),
+    0 20px 40px -20px rgba(0,0,0,0.7);
+  border: 1px solid rgba(201, 163, 90, 0.15);
+  overflow: hidden;
+}
+
+.plate-disc::before {
+  content: "";
+  position: absolute;
+  inset: 8%;
+  border-radius: 50%;
+  border: 1px solid rgba(201, 163, 90, 0.08);
+}
+
+/* Variations of plating art per card */
+.plating.v1 .plate-disc::after {
+  content: "";
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 60%; height: 60%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(212, 175, 122, 0.32), transparent 55%),
+    radial-gradient(circle at 35% 35%, rgba(232, 212, 168, 0.25), transparent 35%);
+}
+
+.plating.v1 .sauce {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 80%; height: 80%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: conic-gradient(from 45deg, transparent 0deg, rgba(201, 163, 90, 0.25) 90deg, transparent 180deg, rgba(212, 175, 122, 0.18) 270deg, transparent 360deg);
+}
+
+.plating.v1 .garnish {
+  position: absolute;
+  top: 42%; left: 48%;
+  width: 36px; height: 14px;
+  background: linear-gradient(100deg, #4d4023, #7a6a35);
+  border-radius: 50% 0 50% 0;
+  transform: rotate(-30deg);
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.4);
+}
+
+.plating.v2 .plate-disc::after {
+  content: "";
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 50%; height: 70%;
+  transform: translate(-50%, -50%) rotate(15deg);
+  border-radius: 50% 50% 8% 8%;
+  background:
+    linear-gradient(180deg, rgba(232, 212, 168, 0.30), rgba(201, 163, 90, 0.18));
+  box-shadow: 0 0 18px rgba(212, 175, 122, 0.18);
+}
+
+.plating.v2 .drizzle {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 75%; height: 4px;
+  transform: translate(-50%, -50%) rotate(-18deg);
+  background: linear-gradient(90deg, transparent, var(--gold-bright), transparent);
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(212, 175, 122, 0.5);
+}
+
+.plating.v2 .drizzle.d2 { width: 55%; transform: translate(-50%, -50%) rotate(12deg) translateY(-8px); opacity: 0.6; }
+
+.plating.v3 .plate-disc::after {
+  content: "";
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 70%; height: 70%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(212, 175, 122, 0.20), transparent 60%);
+}
+
+.plating.v3 .cube {
+  position: absolute;
+  width: 22px; height: 22px;
+  background: linear-gradient(135deg, #3a3220, #1a1610);
+  border: 1px solid rgba(212, 175, 122, 0.4);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5), inset 0 0 6px rgba(212, 175, 122, 0.15);
+}
+
+.plating.v3 .cube.c1 { top: 40%; left: 42%; transform: rotate(8deg); }
+.plating.v3 .cube.c2 { top: 50%; left: 54%; transform: rotate(-12deg); width: 18px; height: 18px; }
+.plating.v3 .cube.c3 { top: 58%; left: 40%; transform: rotate(20deg); width: 16px; height: 16px; }
+
+.plating.v3 .foam {
+  position: absolute;
+  top: 44%; left: 50%;
+  width: 40%; height: 18px;
+  transform: translate(-50%, -50%);
+  background:
+    radial-gradient(circle at 20% 50%, rgba(232, 212, 168, 0.6) 2px, transparent 3px),
+    radial-gradient(circle at 50% 50%, rgba(232, 212, 168, 0.5) 2px, transparent 3px),
+    radial-gradient(circle at 80% 50%, rgba(232, 212, 168, 0.6) 2px, transparent 3px),
+    radial-gradient(circle at 35% 30%, rgba(232, 212, 168, 0.4) 1.5px, transparent 2px),
+    radial-gradient(circle at 65% 70%, rgba(232, 212, 168, 0.4) 1.5px, transparent 2px);
+}
+
+.dish-tag {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  padding: 5px 12px;
+  border: 1px solid var(--border-gold);
+  margin-bottom: 18px;
+}
+
+.dish-name {
+  font-family: var(--serif);
+  font-size: 1.7rem;
+  color: var(--cream);
+  margin-bottom: 6px;
+  line-height: 1.2;
+}
+
+.dish-name em { font-style: italic; color: var(--gold-bright); }
+
+.dish-desc {
+  font-size: 0.94rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 22px;
+  min-height: 52px;
+}
+
+.dish-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.dish-price {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  color: var(--gold-bright);
+  font-style: italic;
+}
+
+.dish-course {
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* ---------- Experience Section ---------- */
+.experience {
+  background: linear-gradient(180deg, #0d0d0d, #0a0a0a);
+  position: relative;
+  overflow: hidden;
+}
+
+.experience::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 50%;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, var(--border-gold), transparent);
+  opacity: 0.5;
+}
+
+.exp-grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 80px;
+  align-items: flex-start;
+}
+
+.exp-left { position: sticky; top: 130px; }
+
+.exp-left .section-lead { margin-bottom: 36px; }
+
+.exp-price {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  padding: 28px 0;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: 30px;
+}
+
+.exp-price .amount {
+  font-family: var(--serif);
+  font-size: 3rem;
+  color: var(--gold-bright);
+  font-style: italic;
+  line-height: 1;
+}
+
+.exp-price .per {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.exp-notes {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  padding-left: 20px;
+  border-left: 1px solid var(--border-gold);
+}
+
+.courses {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.course {
+  display: grid;
+  grid-template-columns: 70px 1fr auto;
+  gap: 28px;
+  padding: 32px 0;
+  border-bottom: 1px solid var(--border-subtle);
+  align-items: flex-start;
+  position: relative;
+  transition: all var(--transition);
+}
+
+.course:hover { padding-left: 10px; }
+
+.course-num {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.8rem;
+  color: var(--gold);
+  line-height: 1;
+  padding-top: 4px;
+}
+
+.course-num small {
+  font-family: var(--sans);
+  font-style: normal;
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  display: block;
+  margin-top: 8px;
+}
+
+.course-body h4 {
+  font-size: 1.5rem;
+  color: var(--cream);
+  margin-bottom: 8px;
+}
+
+.course-body h4 em { font-style: italic; color: var(--gold-bright); font-weight: 300; }
+
+.course-body p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.course-tag {
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  padding: 6px 14px;
+  border: 1px solid var(--border-gold);
+  white-space: nowrap;
+  align-self: center;
+}
+
+/* ---------- Chef Spotlight ---------- */
+.chefs {
+  background:
+    radial-gradient(ellipse at 80% 20%, rgba(201, 163, 90, 0.05), transparent 50%),
+    #0a0a0a;
+}
+
+.chefs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 60px;
+  margin-top: 70px;
+}
+
+.chef-card {
+  text-align: center;
+  padding: 50px 40px;
+  border: 1px solid var(--border-subtle);
+  background: linear-gradient(180deg, #131313, #0e0e0e);
+  position: relative;
+  transition: all var(--transition);
+}
+
+.chef-card:hover {
+  border-color: var(--border-gold);
+  transform: translateY(-4px);
+}
+
+.chef-avatar {
+  width: 160px;
+  height: 160px;
+  margin: 0 auto 32px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  position: relative;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(212, 175, 122, 0.35), transparent 60%),
+    linear-gradient(135deg, #2a2418, #161208);
+  border: 1px solid var(--border-gold);
+}
+
+.chef-avatar::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border-radius: 50%;
+  border: 1px dashed rgba(201, 163, 90, 0.25);
+}
+
+.chef-avatar .initials {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 4rem;
+  color: var(--gold-bright);
+  line-height: 1;
+  text-shadow: 0 4px 20px rgba(212, 175, 122, 0.3);
+}
+
+.chef-name {
+  font-family: var(--serif);
+  font-size: 2rem;
+  color: var(--cream);
+  margin-bottom: 6px;
+}
+
+.chef-role {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 24px;
+}
+
+.chef-bio {
+  font-size: 0.98rem;
+  line-height: 1.85;
+  color: var(--text-secondary);
+  max-width: 420px;
+  margin: 0 auto 28px;
+}
+
+.chef-creds {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.chef-creds span {
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.chef-creds span::before {
+  content: "✦";
+  color: var(--gold);
+  font-size: 8px;
+}
+
+/* ---------- Awards Strip ---------- */
+.awards {
+  padding: 70px 0;
+  background:
+    linear-gradient(180deg, #0a0a0a, #0d0d0d);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.awards-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.awards-label {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+  max-width: 200px;
+  line-height: 1.6;
+}
+
+.award-items {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  flex-wrap: wrap;
+  flex: 1;
+  justify-content: space-around;
+}
+
+.award-item {
+  text-align: center;
+  min-width: 110px;
+}
+
+.award-stars {
+  font-family: var(--serif);
+  color: var(--gold-bright);
+  font-size: 1.4rem;
+  letter-spacing: 0.15em;
+  margin-bottom: 8px;
+}
+
+.award-name {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--cream);
+  margin-bottom: 4px;
+}
+
+.award-year {
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* ---------- Reservation Section ---------- */
+.reservation {
+  background:
+    radial-gradient(ellipse at 20% 30%, rgba(201, 163, 90, 0.06), transparent 50%),
+    linear-gradient(180deg, #0d0d0d, #0a0a0a);
+  position: relative;
+}
+
+.res-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.res-info p { font-size: 1.05rem; line-height: 1.9; margin-bottom: 28px; }
+
+.res-info-list {
+  list-style: none;
+  margin-top: 36px;
+}
+
+.res-info-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.res-info-list li::before {
+  content: "✦";
+  color: var(--gold);
+  font-size: 10px;
+  margin-top: 6px;
+}
+
+.res-info-list strong {
+  color: var(--cream);
+  font-weight: 500;
+  margin-right: 8px;
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  min-width: 90px;
+  display: inline-block;
+}
+
+.res-form-wrap {
+  background: linear-gradient(180deg, #161616, #101010);
+  border: 1px solid var(--border-gold);
+  padding: 48px 44px;
+  position: relative;
+}
+
+.res-form-wrap::before {
+  content: "";
+  position: absolute;
+  top: -1px; left: 30px; right: 30px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.res-form-title {
+  font-family: var(--serif);
+  font-size: 1.9rem;
+  color: var(--cream);
+  margin-bottom: 6px;
+}
+
+.res-form-sub {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 36px;
+  letter-spacing: 0.05em;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 22px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 22px;
+}
+
+.form-group label {
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border-gold);
+  padding: 10px 0;
+  color: var(--cream);
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  font-weight: 300;
+  transition: border-color var(--transition);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-bottom-color: var(--gold-bright);
+}
+
+.form-group select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, var(--gold) 50%), linear-gradient(135deg, var(--gold) 50%, transparent 50%);
+  background-position: calc(100% - 12px) 18px, calc(100% - 7px) 18px;
+  background-size: 5px 5px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  padding-right: 24px;
+}
+
+.form-group select option {
+  background: #161616;
+  color: var(--cream);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 70px;
+  border: 1px solid var(--border-gold);
+  padding: 12px;
+  line-height: 1.6;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder { color: var(--text-muted); }
+
+.form-submit {
+  width: 100%;
+  margin-top: 12px;
+}
+
+.form-success {
+  display: none;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.form-success.show { display: block; animation: fadeUp 0.6s ease; }
+
+.success-mark {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 1px solid var(--gold);
+  margin: 0 auto 24px;
+  display: grid;
+  place-items: center;
+  font-family: var(--serif);
+  font-size: 2.4rem;
+  color: var(--gold-bright);
+  background: radial-gradient(circle, rgba(212, 175, 122, 0.15), transparent);
+}
+
+.success-title {
+  font-family: var(--serif);
+  font-size: 1.8rem;
+  color: var(--cream);
+  margin-bottom: 10px;
+}
+
+.success-msg {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  max-width: 340px;
+  margin: 0 auto;
+}
+
+/* ---------- Testimonials ---------- */
+.testimonials {
+  background:
+    radial-gradient(ellipse at 50% 100%, rgba(201, 163, 90, 0.04), transparent 60%),
+    #0a0a0a;
+}
+
+.test-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 70px;
+}
+
+.test-card {
+  padding: 44px 38px;
+  background: linear-gradient(180deg, #141414, #0e0e0e);
+  border: 1px solid var(--border-subtle);
+  position: relative;
+  transition: all var(--transition);
+}
+
+.test-card:hover {
+  border-color: var(--border-gold);
+  transform: translateY(-4px);
+}
+
+.test-mark {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 5rem;
+  line-height: 0.6;
+  color: var(--gold);
+  opacity: 0.5;
+  margin-bottom: 20px;
+}
+
+.test-quote {
+  font-family: var(--serif);
+  font-size: 1.18rem;
+  font-style: italic;
+  color: var(--cream);
+  line-height: 1.6;
+  margin-bottom: 30px;
+  font-weight: 300;
+}
+
+.test-author {
+  padding-top: 24px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.test-author .name {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  color: var(--gold-bright);
+  margin-bottom: 4px;
+}
+
+.test-author .role {
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* ---------- Visit Us ---------- */
+.visit {
+  background: linear-gradient(180deg, #0a0a0a, #0d0d0d);
+}
+
+.visit-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
+  margin-top: 70px;
+}
+
+.visit-card {
+  padding: 44px 36px;
+  border: 1px solid var(--border-subtle);
+  background: linear-gradient(180deg, #141414, #0f0f0f);
+  text-align: center;
+  transition: all var(--transition);
+}
+
+.visit-card:hover { border-color: var(--border-gold); }
+
+.visit-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 26px;
+  border-radius: 50%;
+  border: 1px solid var(--border-gold);
+  display: grid;
+  place-items: center;
+  position: relative;
+  background: radial-gradient(circle, rgba(212, 175, 122, 0.12), transparent);
+}
+
+/* CSS icons inside circles (pure CSS art) */
+.visit-icon .pin {
+  width: 14px;
+  height: 14px;
+  border-radius: 50% 50% 50% 0;
+  background: var(--gold-bright);
+  transform: rotate(-45deg);
+  box-shadow: 0 0 12px rgba(212, 175, 122, 0.4);
+}
+
+.visit-icon .clock {
+  width: 28px; height: 28px;
+  border: 1.5px solid var(--gold-bright);
+  border-radius: 50%;
+  position: relative;
+}
+
+.visit-icon .clock::before, .visit-icon .clock::after {
+  content: "";
+  position: absolute;
+  background: var(--gold-bright);
+  left: 50%; top: 50%;
+  transform-origin: 0 0;
+}
+
+.visit-icon .clock::before { width: 1.5px; height: 9px; transform: translate(-50%, -100%) rotate(0deg); }
+.visit-icon .clock::after { width: 1.5px; height: 7px; transform: translate(-50%, -100%) rotate(90deg); }
+
+.visit-icon .car {
+  width: 30px; height: 14px;
+  background: var(--gold-bright);
+  border-radius: 6px 6px 3px 3px;
+  position: relative;
+  box-shadow: 0 0 12px rgba(212, 175, 122, 0.3);
+}
+
+.visit-icon .car::before, .visit-icon .car::after {
+  content: "";
+  position: absolute;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: #141414;
+  border: 1.5px solid var(--gold-bright);
+  bottom: -4px;
+}
+
+.visit-icon .car::before { left: 4px; }
+.visit-icon .car::after { right: 4px; }
+
+.visit-card h4 {
+  font-size: 1.6rem;
+  color: var(--cream);
+  margin-bottom: 16px;
+}
+
+.visit-card .info {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.85;
+}
+
+.visit-card .info strong {
+  color: var(--cream);
+  font-weight: 500;
+  display: block;
+  margin-top: 8px;
+  font-family: var(--serif);
+  font-style: italic;
+}
+
+/* ---------- Final CTA ---------- */
+.final-cta {
+  padding: 120px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 50%, rgba(201, 163, 90, 0.10), transparent 55%),
+    linear-gradient(180deg, #0d0d0d, #0a0a0a);
+}
+
+.final-cta::before {
+  content: "";
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  border: 1px solid var(--border-subtle);
+  pointer-events: none;
+}
+
+.final-cta::after {
+  content: "";
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 420px; height: 420px;
+  border-radius: 50%;
+  border: 1px dashed rgba(201, 163, 90, 0.15);
+  pointer-events: none;
+}
+
+.final-cta-content { position: relative; z-index: 2; max-width: 720px; margin: 0 auto; }
+
+.final-cta h2 {
+  font-size: clamp(2.6rem, 6vw, 4.5rem);
+  color: var(--cream);
+  margin-bottom: 26px;
+}
+
+.final-cta h2 em {
+  font-style: italic;
+  background: linear-gradient(135deg, var(--gold-bright), var(--champagne));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.final-cta p {
+  font-size: 1.1rem;
+  max-width: 540px;
+  margin: 0 auto 44px;
+  line-height: 1.85;
+}
+
+.final-cta-actions {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  background: #070707;
+  padding: 90px 0 40px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 70px;
+}
+
+.footer-brand .brand { margin-bottom: 26px; }
+
+.footer-brand p {
+  font-size: 0.95rem;
+  line-height: 1.85;
+  margin-bottom: 28px;
+  max-width: 320px;
+}
+
+.footer-social {
+  display: flex;
+  gap: 14px;
+}
+
+.footer-social a {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--border-gold);
+  display: grid;
+  place-items: center;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--gold-bright);
+  transition: all var(--transition);
+}
+
+.footer-social a:hover {
+  background: var(--gold);
+  color: var(--bg-deepest);
+  transform: translateY(-3px);
+}
+
+.footer-col h5 {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 24px;
+  font-weight: 500;
+}
+
+.footer-col ul { list-style: none; }
+
+.footer-col ul li { margin-bottom: 12px; }
+
+.footer-col ul a {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  transition: all var(--transition);
+}
+
+.footer-col ul a:hover { color: var(--gold-bright); padding-left: 4px; }
+
+.footer-col p {
+  font-size: 0.92rem;
+  line-height: 1.85;
+  color: var(--text-secondary);
+}
+
+.footer-col p strong { color: var(--cream); font-weight: 500; }
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 36px;
+  border-top: 1px solid var(--border-subtle);
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-credit {
+  font-family: var(--sans);
+  font-size: 12px;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+.footer-credit a {
+  color: var(--gold-bright);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+
+.footer-credit a:hover { color: var(--champagne); }
+
+.footer-mini-links {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-mini-links a {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.footer-mini-links a:hover { color: var(--gold); }
+
+/* ---------- Floating Download Button ---------- */
+.download-fab {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 24px;
+  background: linear-gradient(135deg, var(--gold-bright), var(--gold-soft));
+  color: var(--bg-deepest);
+  border: 1px solid var(--gold);
+  border-radius: 50px;
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 18px 40px -10px rgba(201, 163, 90, 0.5);
+  transition: all var(--transition);
+}
+
+.download-fab:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 24px 50px -12px rgba(201, 163, 90, 0.7);
+}
+
+.download-fab .icon {
+  display: inline-flex;
+  width: 22px; height: 22px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.download-fab .icon::before {
+  content: "";
+  width: 12px; height: 12px;
+  border-right: 2px solid var(--bg-deepest);
+  border-bottom: 2px solid var(--bg-deepest);
+  transform: rotate(45deg) translate(-2px, -2px);
+  border-radius: 1px;
+}
+
+.download-fab .icon::after {
+  content: "";
+  position: absolute;
+  width: 2px; height: 10px;
+  background: var(--bg-deepest);
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+  .about-grid, .exp-grid, .res-grid { grid-template-columns: 1fr; gap: 60px; }
+  .exp-left { position: static; }
+  .menu-grid { grid-template-columns: repeat(2, 1fr); }
+  .test-grid { grid-template-columns: 1fr 1fr; }
+  .visit-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .hero-rings { width: 500px; height: 500px; right: -200px; opacity: 0.6; }
+}
+
+@media (max-width: 768px) {
+  .section { padding: 90px 0; }
+  .container { padding: 0 22px; }
+  .nav-links, .nav-cta { display: none; }
+  .menu-toggle { display: flex; }
+
+  .nav-links.mobile-open {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: rgba(10, 10, 10, 0.97);
+    backdrop-filter: blur(20px);
+    padding: 40px 22px;
+    gap: 24px;
+    border-bottom: 1px solid var(--border-subtle);
+    z-index: 99;
+  }
+
+  .nav-links.mobile-open a { font-size: 16px; }
+  .nav-links.mobile-open + .nav-cta,
+  .nav-links.mobile-open .nav-cta-mobile { display: inline-flex; }
+
+  .hero { padding: 120px 0 80px; min-height: auto; }
+  .hero-meta-inner { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .hero-rings { display: none; }
+
+  .menu-grid, .test-grid, .chefs-grid { grid-template-columns: 1fr; }
+  .menu-header { flex-direction: column; align-items: flex-start; }
+
+  .about-stats { grid-template-columns: 1fr; gap: 24px; }
+
+  .course { grid-template-columns: 50px 1fr; }
+  .course-tag { grid-column: 1 / -1; justify-self: start; margin-top: 8px; }
+
+  .form-row { grid-template-columns: 1fr; gap: 0; }
+  .res-form-wrap { padding: 36px 26px; }
+
+  .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+
+  .download-fab { padding: 14px 20px; font-size: 11px; bottom: 20px; right: 20px; }
+  .download-fab .label-text { display: none; }
+}
+
+@media (max-width: 480px) {
+  .hero h1 { font-size: 2.8rem; }
+  .section-title { font-size: 2rem; }
+  .brand-sub { display: none; }
+  .dish-card { padding: 28px 24px; }
+  .final-cta::before { width: 380px; height: 380px; }
+  .final-cta::after { width: 260px; height: 260px; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+  html { scroll-behavior: auto; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===================== NAV ===================== -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#home" class="brand" aria-label="Lumière home">
+      <span class="brand-mark"><span>L</span></span>
+      <span>
+        <span class="brand-name">Lumière</span>
+        <span class="brand-sub">Fine Dining · Est. 1998</span>
+      </span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">Philosophy</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#chefs">The Chefs</a></li>
+      <li><a href="#visit">Visit</a></li>
+    </ul>
+    <a href="#reservation" class="nav-cta">Reserve</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero" id="home">
+  <div class="hero-rings"><div class="ring"></div></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-eyebrow">Three Michelin Stars · New York</div>
+      <h1>An evening of <em>light</em>,<br>flavor &amp; stillness.</h1>
+      <p class="hero-sub">Lumière is a sanctuary of contemporary French cuisine, where each course is composed with the precision of music and the patience of a slow sunrise. Seasonal. Singular. Unforgettable.</p>
+      <div class="hero-actions">
+        <a href="#reservation" class="btn btn-primary"><span>Reserve a Table</span></a>
+        <a href="#menu" class="btn btn-ghost">Explore the Menu</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-meta">
+    <div class="hero-meta-inner">
+      <div class="hero-meta-item">
+        <span class="star-cluster"><span>★</span><span>★</span><span>★</span></span>
+        <div>
+          <div class="label">Michelin Guide</div>
+          <div class="value">Three Stars · 2024</div>
+        </div>
+      </div>
+      <div class="hero-meta-item">
+        <div>
+          <div class="label">Now Serving</div>
+          <div class="value">The Autumn Tasting</div>
+        </div>
+      </div>
+      <div class="hero-scroll">
+        <span>Scroll</span><span class="line"></span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== ABOUT / PHILOSOPHY ===================== -->
+<section class="section about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text">
+        <span class="eyebrow">Our Philosophy</span>
+        <h2 class="section-title">A quiet reverence for <em>the ingredient</em>.</h2>
+        <p>For more than two decades, Lumière has pursued a single, patient idea: that a meal can be a meditation. We work in close conversation with a small circle of farmers, foragers, and fishermen across the Hudson Valley and the Atlantic coast — each harvest shaping what appears on the plate that very evening.</p>
+        <p>Nothing is rushed. Stocks reduce for days. Bread is leavened slowly. Sauces are finished à la minute. What reaches your table is the honest, considered expression of a season — translated through craft, restraint, and light.</p>
+        <span class="signature">Étienne Marchand
+          <small>Founder &amp; Culinary Director</small>
+        </span>
+      </div>
+      <div class="about-art">
+        <div class="art-frame">
+          <div class="plate"></div>
+          <div class="leaf"></div>
+          <span class="dot d1"></span>
+          <span class="dot d2"></span>
+          <span class="dot d3"></span>
+          <span class="dot d4"></span>
+        </div>
+      </div>
+    </div>
+    <div class="about-stats">
+      <div class="stat"><span class="num">26<small>+</small></span><span class="lbl">Years of Service</span></div>
+      <div class="stat"><span class="num">9</span><span class="lbl">Course Tasting Menu</span></div>
+      <div class="stat"><span class="num">42</span><span class="lbl">Local Purveyors</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== MENU HIGHLIGHTS ===================== -->
+<section class="section menu-section" id="menu">
+  <div class="container">
+    <div class="menu-header">
+      <div>
+        <span class="eyebrow">Signature Selections</span>
+        <h2 class="section-title">Highlights from <em>the season</em></h2>
+      </div>
+      <p class="section-lead">A glimpse of the dishes currently composing our autumn tasting. Each plate changes with the harvest — what is listed today may be replaced by tomorrow's arrival at the kitchen door.</p>
+    </div>
+    <div class="menu-grid">
+
+      <!-- Dish 1 -->
+      <article class="dish-card">
+        <div class="plating v1">
+          <div class="plate-disc"></div>
+          <div class="sauce"></div>
+          <div class="garnish"></div>
+        </div>
+        <span class="dish-tag">First Course</span>
+        <h3 class="dish-name">Hokkaido Scallop, <em>Yuzu Beurre Blanc</em></h3>
+        <p class="dish-desc">A single diver scallop, barely seared, dressed with a foamed yuzu beurre blanc and the faintest ribbon of sea grape.</p>
+        <div class="dish-foot">
+          <span class="dish-price">$48</span>
+          <span class="dish-course">Course 01 · Sea</span>
+        </div>
+      </article>
+
+      <!-- Dish 2 -->
+      <article class="dish-card">
+        <div class="plating v2">
+          <div class="plate-disc"></div>
+          <div class="drizzle"></div>
+          <div class="drizzle d2"></div>
+        </div>
+        <span class="dish-tag">Second Course</span>
+        <h3 class="dish-name">Heirloom Beet, <em>Smoked Crème</em></h3>
+        <p class="dish-desc">Roasted golden beets, aged sherry gel, smoked crème fraîche, and a confit egg yolk grated over the composition.</p>
+        <div class="dish-foot">
+          <span class="dish-price">$36</span>
+          <span class="dish-course">Course 02 · Earth</span>
+        </div>
+      </article>
+
+      <!-- Dish 3 -->
+      <article class="dish-card">
+        <div class="plating v3">
+          <div class="plate-disc"></div>
+          <div class="cube c1"></div>
+          <div class="cube c2"></div>
+          <div class="cube c3"></div>
+          <div class="foam"></div>
+        </div>
+        <span class="dish-tag">Main Course</span>
+        <h3 class="dish-name">Aged Wagyu, <em>Black Garlic</em></h3>
+        <p class="dish-desc">Forty-day dry-aged A5 wagyu, black garlic purée, charred leek ash, and a deepened jus reduced over three days.</p>
+        <div class="dish-foot">
+          <span class="dish-price">$92</span>
+          <span class="dish-course">Course 06 · Fire</span>
+        </div>
+      </article>
+
+      <!-- Dish 4 -->
+      <article class="dish-card">
+        <div class="plating v1">
+          <div class="plate-disc"></div>
+          <div class="sauce" style="filter: hue-rotate(-15deg);"></div>
+          <div class="garnish" style="background:linear-gradient(120deg,#6a3a2a,#9a6a35);"></div>
+        </div>
+        <span class="dish-tag">Cheese Course</span>
+        <h3 class="dish-name">Aged Comté, <em>Walnut Crisp</em></h3>
+        <p class="dish-desc">Twenty-four-month Comté, brown butter walnut crisp, fig mostarda, and a whisper of aged balsamic from Modena.</p>
+        <div class="dish-foot">
+          <span class="dish-price">$32</span>
+          <span class="dish-course">Course 07 · Cellar</span>
+        </div>
+      </article>
+
+      <!-- Dish 5 -->
+      <article class="dish-card">
+        <div class="plating v2">
+          <div class="plate-disc"></div>
+          <div class="drizzle" style="background:linear-gradient(90deg,transparent,#e8d4a8,transparent);"></div>
+          <div class="drizzle d2" style="background:linear-gradient(90deg,transparent,#d4af7a,transparent);"></div>
+        </div>
+        <span class="dish-tag">Dessert</span>
+        <h3 class="dish-name">Tahitian Vanilla, <em>Brown Butter</em></h3>
+        <p class="dish-desc">A warm vanilla custard beneath a brittle tuile, brown butter ice cream, and a single candied violet from the garden.</p>
+        <div class="dish-foot">
+          <span class="dish-price">$28</span>
+          <span class="dish-course">Course 09 · Sweet</span>
+        </div>
+      </article>
+
+      <!-- Dish 6 -->
+      <article class="dish-card">
+        <div class="plating v3">
+          <div class="plate-disc"></div>
+          <div class="cube c1" style="background:linear-gradient(135deg,#4a2a3a,#1a1018);border-color:rgba(232,212,168,0.5);"></div>
+          <div class="cube c2" style="background:linear-gradient(135deg,#4a2a3a,#1a1018);border-color:rgba(232,212,168,0.5);"></div>
+          <div class="cube c3" style="background:linear-gradient(135deg,#4a2a3a,#1a1018);border-color:rgba(232,212,168,0.5);"></div>
+          <div class="foam"></div>
+        </div>
+        <span class="dish-tag">Palate Cleanser</span>
+        <h3 class="dish-name">Champagne Granita, <em>Elderflower</em></h3>
+        <p class="dish-desc">A whisper of champagne granita over elderflower foam, with a single drop of cold-pressed cucumber essence.</p>
+        <div class="dish-foot">
+          <span class="dish-price">$22</span>
+          <span class="dish-course">Course 08 · Ice</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== EXPERIENCE ===================== -->
+<section class="section experience" id="experience">
+  <div class="container">
+    <div class="exp-grid">
+      <div class="exp-left">
+        <span class="eyebrow">The Tasting Experience</span>
+        <h2 class="section-title">Nine courses,<br><em>one unfolding evening</em>.</h2>
+        <p class="section-lead">Our seasonal tasting menu is the fullest expression of Lumière — a choreographed journey from sea to earth to fire to sweet, paced for conversation and reflection.</p>
+        <div class="exp-price">
+          <span class="amount">$295</span>
+          <span class="per">Per Guest · Nine Courses</span>
+        </div>
+        <p class="exp-notes">Wine pairings curated by Sommelier Clémence Rousseau are offered at $185 per guest. A non-alcoholic pairing of botanical infusions is available at $95.</p>
+      </div>
+
+      <div class="courses">
+        <div class="course">
+          <div class="course-num">i<small>Amuse</small></div>
+          <div class="course-body">
+            <h4>Oyster &amp; <em>Champagne Pearl</em></h4>
+            <p>A Kumamoto oyster beneath a single pearl of champagne vinegar, opening the palate with brine and bright.</p>
+          </div>
+          <span class="course-tag">Sea</span>
+        </div>
+        <div class="course">
+          <div class="course-num">ii<small>Course</small></div>
+          <div class="course-body">
+            <h4>Hokkaido Scallop, <em>Yuzu Beurre Blanc</em></h4>
+            <p>Single diver scallop, foamed yuzu beurre blanc, sea grape — a study in delicacy and acid.</p>
+          </div>
+          <span class="course-tag">Sea</span>
+        </div>
+        <div class="course">
+          <div class="course-num">iii<small>Course</small></div>
+          <div class="course-body">
+            <h4>Heirloom Beet, <em>Smoked Crème</em></h4>
+            <p>Roasted golden beets, aged sherry gel, smoked crème fraîche, confit egg yolk.</p>
+          </div>
+          <span class="course-tag">Earth</span>
+        </div>
+        <div class="course">
+          <div class="course-num">iv<small>Course</small></div>
+          <div class="course-body">
+            <h4>Wild Mushroom, <em>Forest Floor</em></h4>
+            <p>Foraged chanterelles and black trumples, pine oil, fermented mushroom tea, rye crumb.</p>
+          </div>
+          <span class="course-tag">Forest</span>
+        </div>
+        <div class="course">
+          <div class="course-num">v<small>Course</small></div>
+          <div class="course-body">
+            <h4>Hand-Rolled Pasta, <em>Brown Butter</em></h4>
+            <p>Single-yolk agnolotti, brown butter, sage, aged parmesan — a 36-hour rested dough.</p>
+          </div>
+          <span class="course-tag">Grain</span>
+        </div>
+        <div class="course">
+          <div class="course-num">vi<small>Course</small></div>
+          <div class="course-body">
+            <h4>Aged Wagyu, <em>Black Garlic</em></h4>
+            <p>Forty-day dry-aged A5 wagyu, black garlic purée, charred leek ash, three-day jus.</p>
+          </div>
+          <span class="course-tag">Fire</span>
+        </div>
+        <div class="course">
+          <div class="course-num">vii<small>Course</small></div>
+          <div class="course-body">
+            <h4>Aged Comté, <em>Walnut Crisp</em></h4>
+            <p>Twenty-four-month Comté, brown butter walnut crisp, fig mostarda, aged balsamic.</p>
+          </div>
+          <span class="course-tag">Cellar</span>
+        </div>
+        <div class="course">
+          <div class="course-num">viii<small>Course</small></div>
+          <div class="course-body">
+            <h4>Champagne Granita, <em>Elderflower</em></h4>
+            <p>Champagne granita, elderflower foam, cold-pressed cucumber — a pause before sweet.</p>
+          </div>
+          <span class="course-tag">Ice</span>
+        </div>
+        <div class="course">
+          <div class="course-num">ix<small>Course</small></div>
+          <div class="course-body">
+            <h4>Tahitian Vanilla, <em>Brown Butter</em></h4>
+            <p>Warm vanilla custard, brittle tuile, brown butter ice cream, candied garden violet.</p>
+          </div>
+          <span class="course-tag">Sweet</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CHEF SPOTLIGHT ===================== -->
+<section class="section chefs" id="chefs">
+  <div class="container">
+    <div class="center-text">
+      <span class="eyebrow center">The Hands Behind the Plate</span>
+      <h2 class="section-title">Meet the <em>kitchen</em></h2>
+      <p class="section-lead">Lumière is led by a small, devoted team — each carrying years of training in the world's most demanding kitchens, and each bringing their own quiet voice to the menu.</p>
+    </div>
+
+    <div class="chefs-grid">
+      <article class="chef-card">
+        <div class="chef-avatar"><span class="initials">ÉM</span></div>
+        <h3 class="chef-name">Étienne Marchand</h3>
+        <p class="chef-role">Founder &amp; Culinary Director</p>
+        <p class="chef-bio">Trained under Joël Robuchon and Alain Ducasse, Étienne founded Lumière in 1998 with a single conviction: that the finest cuisine is the most honest. He has led the kitchen to three Michelin stars for fourteen consecutive years.</p>
+        <div class="chef-creds">
+          <span>Three Michelin Stars</span>
+          <span>James Beard Honoree</span>
+          <span>Relais &amp; Châteaux</span>
+        </div>
+      </article>
+
+      <article class="chef-card">
+        <div class="chef-avatar"><span class="initials">SO</span></div>
+        <h3 class="chef-name">Sofia Okonkwo</h3>
+        <p class="chef-role">Executive Chef de Cuisine</p>
+        <p class="chef-bio">A graduate of The Culinary Institute of America with stages at Noma and Septime, Sofia joined Lumière in 2016. She leads the daily menu and is the principal architect of the restaurant's celebrated fermentation program.</p>
+        <div class="chef-creds">
+          <span>Foraged &amp; Fermented</span>
+          <span>StarChefs Rising</span>
+          <span>World's 50 Best</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== AWARDS STRIP ===================== -->
+<section class="awards">
+  <div class="container">
+    <div class="awards-inner">
+      <div class="awards-label">Recognition &amp; Accolades</div>
+      <div class="award-items">
+        <div class="award-item">
+          <div class="award-stars">★★★</div>
+          <div class="award-name">Michelin Guide</div>
+          <div class="award-year">Since 2011</div>
+        </div>
+        <div class="award-item">
+          <div class="award-stars">No. 14</div>
+          <div class="award-name">World's 50 Best</div>
+          <div class="award-year">2024</div>
+        </div>
+        <div class="award-item">
+          <div class="award-stars">★★★★★</div>
+          <div class="award-name">Forbes Travel</div>
+          <div class="award-year">2024</div>
+        </div>
+        <div class="award-item">
+          <div class="award-stars">✦ ✦ ✦</div>
+          <div class="award-name">James Beard</div>
+          <div class="award-year">Outstanding Chef</div>
+        </div>
+        <div class="award-item">
+          <div class="award-stars">29/30</div>
+          <div class="award-name">Zagat Survey</div>
+          <div class="award-year">Food · 2024</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== RESERVATION ===================== -->
+<section class="section reservation" id="reservation">
+  <div class="container">
+    <div class="res-grid">
+      <div class="res-info">
+        <span class="eyebrow">Reserve Your Evening</span>
+        <h2 class="section-title">Begin the <em>conversation</em>.</h2>
+        <p>Reservations for the autumn tasting are released six weeks in advance. We seat a single seating per evening, beginning at 5:30 PM, to allow each guest the full unhurried arc of the menu.</p>
+        <ul class="res-info-list">
+          <li><strong>Seatings</strong> Tuesday–Sunday, 5:30 PM onward</li>
+          <li><strong>Duration</strong> Approximately three hours</li>
+          <li><strong>Party Size</strong> Up to six guests per reservation</li>
+          <li><strong>Dietary</strong> Vegetarian &amp; pescatarian menus available with 48-hour notice</li>
+          <li><strong>Dress</strong> Smart elegant — jackets appreciated</li>
+        </ul>
+      </div>
+
+      <div class="res-form-wrap">
+        <h3 class="res-form-title">Request a Reservation</h3>
+        <p class="res-form-sub">We will confirm by email within 24 hours.</p>
+
+        <form id="resForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="resDate">Date</label>
+              <input type="date" id="resDate" name="resDate" required>
+            </div>
+            <div class="form-group">
+              <label for="resTime">Time</label>
+              <select id="resTime" name="resTime" required>
+                <option value="">Select a time</option>
+                <option value="17:30">5:30 PM</option>
+                <option value="18:00">6:00 PM</option>
+                <option value="18:30">6:30 PM</option>
+                <option value="19:00">7:00 PM</option>
+                <option value="19:30">7:30 PM</option>
+                <option value="20:00">8:00 PM</option>
+                <option value="20:30">8:30 PM</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="resParty">Party Size</label>
+              <select id="resParty" name="resParty" required>
+                <option value="">Select size</option>
+                <option value="1">1 Guest</option>
+                <option value="2">2 Guests</option>
+                <option value="3">3 Guests</option>
+                <option value="4">4 Guests</option>
+                <option value="5">5 Guests</option>
+                <option value="6">6 Guests</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="resOccasion">Occasion</label>
+              <select id="resOccasion" name="resOccasion">
+                <option value="">Optional</option>
+                <option value="anniversary">Anniversary</option>
+                <option value="birthday">Birthday</option>
+                <option value="business">Business</option>
+                <option value="celebration">Celebration</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="resName">Full Name</label>
+              <input type="text" id="resName" name="resName" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label for="resEmail">Email</label>
+              <input type="email" id="resEmail" name="resEmail" placeholder="you@email.com" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="resPhone">Phone</label>
+            <input type="tel" id="resPhone" name="resPhone" placeholder="(212) 555-0142">
+          </div>
+          <div class="form-group">
+            <label for="resNotes">Special Requests</label>
+            <textarea id="resNotes" name="resNotes" placeholder="Dietary restrictions, seating preferences, or anything we should know..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary form-submit"><span>Request Reservation</span></button>
+        </form>
+
+        <div class="form-success" id="formSuccess">
+          <div class="success-mark">✦</div>
+          <h3 class="success-title">Reservation Received</h3>
+          <p class="success-msg">Thank you. Our maître d' will personally confirm your evening by email within twenty-four hours. We look forward to welcoming you to Lumière.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TESTIMONIALS ===================== -->
+<section class="section testimonials">
+  <div class="container">
+    <div class="center-text">
+      <span class="eyebrow center">In Their Words</span>
+      <h2 class="section-title">What <em>guests</em> remember</h2>
+    </div>
+    <div class="test-grid">
+      <article class="test-card">
+        <div class="test-mark">"</div>
+        <p class="test-quote">Lumière is not merely a restaurant — it is an hour of stillness arranged on a plate. The autumn tasting moved me to tears before the main course had even arrived.</p>
+        <div class="test-author">
+          <div class="name">Marguerite Holloway</div>
+          <div class="role">The New York Times · Critic at Large</div>
+        </div>
+      </article>
+      <article class="test-card">
+        <div class="test-mark">"</div>
+        <p class="test-quote">There is a kind of cooking here that resists fashion entirely. Étienne and Sofia cook the way a cellist plays — with full attention, and without hurry.</p>
+        <div class="test-author">
+          <div class="name">Andrea Strong</div>
+          <div class="role">Eater · Senior Critic</div>
+        </div>
+      </article>
+      <article class="test-card">
+        <div class="test-mark">"</div>
+        <p class="test-quote">We celebrated our tenth anniversary at Lumière and have not stopped thinking about the wagyu course. The room glows. The service anticipates. It is perfect.</p>
+        <div class="test-author">
+          <div class="name">Jonathan &amp; Elena Voss</div>
+          <div class="role">Guests · Autumn 2024</div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== VISIT US ===================== -->
+<section class="section visit" id="visit">
+  <div class="container">
+    <div class="center-text">
+      <span class="eyebrow center">Find Lumière</span>
+      <h2 class="section-title">Visit <em>us</em></h2>
+      <p class="section-lead">A discreet townhouse on Madison Avenue, marked only by a single brass lantern at the door. Valet welcomes guests from 5:00 PM.</p>
+    </div>
+    <div class="visit-grid">
+      <div class="visit-card">
+        <div class="visit-icon"><span class="pin"></span></div>
+        <h4>Address</h4>
+        <p class="info">
+          248 Madison Avenue<br>
+          New York, NY 10016<br>
+          <strong>Between 38th &amp; 39th</strong>
+        </p>
+      </div>
+      <div class="visit-card">
+        <div class="visit-icon"><span class="clock"></span></div>
+        <h4>Hours</h4>
+        <p class="info">
+          Tuesday – Thursday · 5:30 PM<br>
+          Friday – Saturday · 5:00 PM<br>
+          Sunday · 11:30 AM (brunch)<br>
+          <strong>Closed Mondays</strong>
+        </p>
+      </div>
+      <div class="visit-card">
+        <div class="visit-icon"><span class="car"></span></div>
+        <h4>Arrival</h4>
+        <p class="info">
+          Complimentary valet from 5:00 PM<br>
+          Self-parking · 245 Madison Garage<br>
+          <strong>Subway · 6 to 33rd Street</strong>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FINAL CTA ===================== -->
+<section class="final-cta">
+  <div class="container">
+    <div class="final-cta-content">
+      <span class="eyebrow center">Your Table Awaits</span>
+      <h2>Reserve your <em>evening</em> at Lumière.</h2>
+      <p>A single seating. Nine considered courses. An unhurried three hours beneath the soft glow of our dining room. We invite you to join us.</p>
+      <div class="final-cta-actions">
+        <a href="#reservation" class="btn btn-primary"><span>Reserve a Table</span></a>
+        <a href="tel:+12125550142" class="btn btn-ghost">+1 (212) 555-0142</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#home" class="brand">
+          <span class="brand-mark"><span>L</span></span>
+          <span>
+            <span class="brand-name">Lumière</span>
+            <span class="brand-sub">Fine Dining · Est. 1998</span>
+          </span>
+        </a>
+        <p>A sanctuary of contemporary French cuisine on Madison Avenue. Three Michelin stars since 2011. Reservations recommended six weeks in advance.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram">Ig</a>
+          <a href="#" aria-label="Facebook">Fb</a>
+          <a href="#" aria-label="Twitter">Tw</a>
+          <a href="#" aria-label="Pinterest">Pi</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h5>Explore</h5>
+        <ul>
+          <li><a href="#about">Philosophy</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#experience">Tasting</a></li>
+          <li><a href="#chefs">The Chefs</a></li>
+          <li><a href="#visit">Visit</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Dining</h5>
+        <ul>
+          <li><a href="#reservation">Reservations</a></li>
+          <li><a href="#">Private Events</a></li>
+          <li><a href="#">Wine List</a></li>
+          <li><a href="#">Gift Cards</a></li>
+          <li><a href="#">Dietary Notes</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <p>
+          <strong>Address</strong><br>
+          248 Madison Avenue<br>
+          New York, NY 10016
+        </p>
+        <p>
+          <strong>Phone</strong><br>
+          +1 (212) 555-0142
+        </p>
+        <p>
+          <strong>Email</strong><br>
+          reservations@lumiere.example
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-credit">© 2026 Lumière. Template by <a href="https://excusemeweb.com/landing-pages" target="_blank" rel="noopener">ExcuseMeWeb</a>.</div>
+      <div class="footer-mini-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Accessibility</a>
+        <a href="https://excusemeweb.com/landing-pages" target="_blank" rel="noopener">Templates</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ===================== FLOATING DOWNLOAD BUTTON ===================== -->
+<button class="download-fab" onclick="downloadPage()" aria-label="Download this page as HTML">
+  <span class="icon"></span>
+  <span class="label-text">Download HTML</span>
+</button>
+
+<script>
+/* ============================================================
+   Download this page as a self-contained HTML file.
+   ============================================================ */
+function downloadPage(){
+  const html='<!DOCTYPE html>\n'+document.documentElement.outerHTML;
+  const blob=new Blob([html],{type:'text/html'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;
+  a.download='premium-restaurant-landing-page.html';
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+}
+
+/* ============================================================
+   Nav: scroll-state + mobile toggle
+   ============================================================ */
+(function(){
+  const nav = document.getElementById('nav');
+  const toggle = document.getElementById('menuToggle');
+  const links = document.getElementById('navLinks');
+
+  window.addEventListener('scroll', function(){
+    if (window.scrollY > 30) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  }, { passive: true });
+
+  toggle.addEventListener('click', function(){
+    links.classList.toggle('mobile-open');
+    toggle.classList.toggle('active');
+  });
+
+  links.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      links.classList.remove('mobile-open');
+      toggle.classList.remove('active');
+    });
+  });
+})();
+
+/* ============================================================
+   Reservation form: visual-only submit -> success message
+   ============================================================ */
+(function(){
+  const form = document.getElementById('resForm');
+  const success = document.getElementById('formSuccess');
+
+  if (!form) return;
+
+  // Set min date to today
+  const dateInput = document.getElementById('resDate');
+  if (dateInput) {
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+    dateInput.min = yyyy + '-' + mm + '-' + dd;
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    // Basic visual validation
+    const required = form.querySelectorAll('[required]');
+    let valid = true;
+    required.forEach(function(field){
+      if (!field.value || field.value.trim() === '') {
+        field.style.borderBottomColor = '#c95a5a';
+        valid = false;
+      } else {
+        field.style.borderBottomColor = '';
+      }
+    });
+
+    if (!valid) return;
+
+    form.style.display = 'none';
+    success.classList.add('show');
+
+    // Scroll success into view
+    success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+})();
+
+/* ============================================================
+   Subtle reveal-on-scroll for sections
+   ============================================================ */
+(function(){
+  if (!('IntersectionObserver' in window)) return;
+
+  const targets = document.querySelectorAll('.section, .final-cta');
+  const io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+  targets.forEach(function(el){
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = 'opacity 1s ease, transform 1s ease';
+    io.observe(el);
+  });
+})();
+</script>
+
+</body>
+</html>

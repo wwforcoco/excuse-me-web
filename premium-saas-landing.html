@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lumen AI — Premium SaaS Landing Page Template | ExcuseMeWeb</title>
+<meta name="description" content="A premium, dark-themed SaaS landing page template for AI startups and software products. Glassmorphism, animated gradient orbs, pricing toggle, testimonial carousel, and FAQ accordion. No images — pure CSS art.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://excusemeweb.com/premium-saas-landing">
+<link rel="icon" href="/favicon.ico">
+<meta name="theme-color" content="#0a0a0f">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta property="og:title" content="Lumen AI — Premium SaaS Landing Page Template">
+<meta property="og:description" content="A premium, dark-themed SaaS landing page template for AI startups and software products. Glassmorphism, animated gradient orbs, pricing toggle, testimonial carousel.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://excusemeweb.com/premium-saas-landing">
+<meta property="og:image" content="https://excusemeweb.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lumen AI — Premium SaaS Landing Page Template">
+<meta name="twitter:description" content="A premium, dark-themed SaaS landing page template for AI startups and software products.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Lumen AI","applicationCategory":"BusinessApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"29","priceCurrency":"USD"},"description":"AI-powered analytics platform for modern teams."}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is there a free trial?","acceptedAnswer":{"@type":"Answer","text":"Yes. Every plan starts with a 14-day free trial. No credit card required."}},{"@type":"Question","name":"Can I change plans later?","acceptedAnswer":{"@type":"Answer","text":"Yes. Upgrade, downgrade, or cancel anytime from your dashboard. Changes apply immediately and we prorate the difference."}},{"@type":"Question","name":"Do you offer team discounts?","acceptedAnswer":{"@type":"Answer","text":"Teams of 25+ get 20% off annual plans. Contact sales for enterprise pricing."}},{"@type":"Question","name":"How does the AI work?","acceptedAnswer":{"@type":"Answer","text":"Lumen uses a fine-tuned transformer model trained on 200M+ business documents. Your data stays in your workspace and is never used to train shared models."}}]}</script>
+<style>
+:root{
+  --bg:#0a0a0f;
+  --bg-2:#11111b;
+  --bg-3:#1a1a2e;
+  --surface:rgba(255,255,255,0.03);
+  --surface-2:rgba(255,255,255,0.06);
+  --border:rgba(255,255,255,0.08);
+  --border-strong:rgba(255,255,255,0.14);
+  --text:#f4f4f8;
+  --text-muted:#a0a0b8;
+  --text-dim:#6b6b85;
+  --accent:#a78bfa;
+  --accent-2:#60a5fa;
+  --accent-3:#f472b6;
+  --success:#34d399;
+  --warning:#fbbf24;
+  --radius:16px;
+  --radius-sm:10px;
+  --radius-lg:24px;
+  --font:'Inter',sans-serif;
+  --font-display:'Space Grotesk',sans-serif;
+  --font-mono:'JetBrains Mono',monospace;
+  --maxw:1240px;
+  --glow:0 0 40px rgba(167,139,250,0.25);
+  --glow-blue:0 0 40px rgba(96,165,250,0.25);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font);
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  position:relative;
+}
+
+/* Animated gradient orb background — pure CSS, no images */
+.orb{position:fixed;border-radius:50%;filter:blur(80px);opacity:0.45;pointer-events:none;z-index:0;animation:float 18s ease-in-out infinite}
+.orb-1{width:500px;height:500px;background:radial-gradient(circle,#a78bfa,transparent 70%);top:-150px;left:-150px}
+.orb-2{width:600px;height:600px;background:radial-gradient(circle,#60a5fa,transparent 70%);top:30%;right:-200px;animation-delay:-6s}
+.orb-3{width:450px;height:450px;background:radial-gradient(circle,#f472b6,transparent 70%);bottom:-100px;left:30%;animation-delay:-12s}
+@keyframes float{
+  0%,100%{transform:translate(0,0) scale(1)}
+  33%{transform:translate(60px,-40px) scale(1.1)}
+  66%{transform:translate(-40px,40px) scale(0.95)}
+}
+
+/* Grid overlay */
+.grid-overlay{position:fixed;inset:0;background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:1;mask-image:radial-gradient(ellipse at center,black 30%,transparent 80%)}
+
+main,header,footer{position:relative;z-index:2}
+
+/* Container */
+.container{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+
+/* ============ NAV ============ */
+.nav{
+  position:sticky;top:0;z-index:100;
+  backdrop-filter:blur(20px) saturate(180%);
+  -webkit-backdrop-filter:blur(20px) saturate(180%);
+  background:rgba(10,10,15,0.7);
+  border-bottom:1px solid var(--border);
+  transition:all 0.3s ease;
+}
+.nav-inner{
+  max-width:var(--maxw);margin:0 auto;padding:18px 32px;
+  display:flex;align-items:center;justify-content:space-between;gap:32px;
+}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text)}
+.brand-mark{
+  width:36px;height:36px;border-radius:10px;
+  background:linear-gradient(135deg,var(--accent),var(--accent-2));
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:var(--glow);
+  position:relative;
+}
+.brand-mark::before{
+  content:"";position:absolute;inset:2px;border-radius:8px;
+  background:var(--bg);
+}
+.brand-mark::after{
+  content:"";position:absolute;width:14px;height:14px;border-radius:50%;
+  background:linear-gradient(135deg,var(--accent),var(--accent-3));
+  box-shadow:var(--glow);
+}
+.brand-name{font-family:var(--font-display);font-weight:700;font-size:1.2rem;letter-spacing:-0.5px}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+.nav-links a{color:var(--text-muted);text-decoration:none;font-size:0.92rem;font-weight:500;transition:color 0.2s}
+.nav-links a:hover{color:var(--text)}
+.nav-actions{display:flex;align-items:center;gap:14px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  font-family:var(--font);font-weight:600;font-size:0.92rem;
+  padding:11px 22px;border-radius:var(--radius-sm);
+  border:1px solid transparent;cursor:pointer;
+  transition:all 0.2s ease;text-decoration:none;
+}
+.btn-ghost{background:transparent;color:var(--text-muted);border-color:var(--border)}
+.btn-ghost:hover{color:var(--text);border-color:var(--border-strong);background:var(--surface)}
+.btn-primary{
+  background:linear-gradient(135deg,var(--accent),var(--accent-2));
+  color:#fff;
+  box-shadow:0 4px 20px rgba(167,139,250,0.35);
+}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 6px 28px rgba(167,139,250,0.5)}
+.btn-lg{padding:14px 32px;font-size:1rem;border-radius:12px}
+
+/* ============ HERO ============ */
+.hero{padding:120px 0 80px;text-align:center;position:relative}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:6px 14px;border-radius:100px;
+  background:var(--surface);border:1px solid var(--border-strong);
+  font-size:0.82rem;color:var(--text-muted);font-weight:500;
+  margin-bottom:32px;
+  backdrop-filter:blur(10px);
+}
+.hero-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--success);box-shadow:0 0 8px var(--success);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.5}}
+.hero h1{
+  font-family:var(--font-display);
+  font-size:clamp(2.8rem,7vw,5.2rem);
+  font-weight:700;
+  line-height:1.05;
+  letter-spacing:-0.04em;
+  margin-bottom:28px;
+  background:linear-gradient(180deg,#fff 0%,#a0a0b8 100%);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.hero h1 .grad{
+  background:linear-gradient(135deg,var(--accent) 0%,var(--accent-2) 50%,var(--accent-3) 100%);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.hero p{
+  font-size:1.18rem;color:var(--text-muted);
+  max-width:620px;margin:0 auto 40px;line-height:1.6;
+}
+.hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:64px}
+.hero-trust{display:flex;align-items:center;justify-content:center;gap:32px;flex-wrap:wrap;color:var(--text-dim);font-size:0.85rem}
+.hero-trust .trust-item{display:flex;align-items:center;gap:8px}
+.hero-trust .check{width:16px;height:16px;border-radius:50%;background:rgba(52,211,153,0.15);color:var(--success);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700}
+
+/* ============ APP PREVIEW (pure CSS) ============ */
+.app-preview{
+  max-width:1080px;margin:80px auto 0;
+  position:relative;
+  border-radius:var(--radius-lg);
+  background:linear-gradient(135deg,rgba(167,139,250,0.1),rgba(96,165,250,0.1));
+  padding:2px;
+  box-shadow:0 30px 80px rgba(0,0,0,0.5),0 0 60px rgba(167,139,250,0.2);
+}
+.app-preview-inner{
+  background:var(--bg-2);
+  border-radius:calc(var(--radius-lg) - 2px);
+  overflow:hidden;
+}
+.app-bar{
+  display:flex;align-items:center;gap:8px;
+  padding:14px 20px;border-bottom:1px solid var(--border);
+  background:var(--bg-3);
+}
+.app-bar .dot-r{width:11px;height:11px;border-radius:50%;background:#ff5f57}
+.app-bar .dot-y{width:11px;height:11px;border-radius:50%;background:#ffbd2e}
+.app-bar .dot-g{width:11px;height:11px;border-radius:50%;background:#28ca41}
+.app-bar .url{
+  margin-left:20px;flex:1;
+  background:var(--bg);border:1px solid var(--border);
+  border-radius:8px;padding:6px 14px;
+  font-family:var(--font-mono);font-size:0.78rem;color:var(--text-dim);
+}
+.app-body{display:grid;grid-template-columns:220px 1fr;min-height:480px}
+.app-sidebar{
+  background:var(--bg-3);border-right:1px solid var(--border);
+  padding:24px 16px;
+}
+.app-sidebar h4{
+  font-size:0.7rem;color:var(--text-dim);text-transform:uppercase;
+  letter-spacing:0.1em;margin-bottom:14px;font-weight:600;
+}
+.app-nav-item{
+  display:flex;align-items:center;gap:10px;
+  padding:9px 12px;border-radius:8px;
+  color:var(--text-muted);font-size:0.85rem;
+  margin-bottom:4px;cursor:pointer;transition:all 0.2s;
+}
+.app-nav-item:hover{background:var(--surface);color:var(--text)}
+.app-nav-item.active{background:var(--surface-2);color:var(--text)}
+.app-nav-item .nav-icon{width:16px;height:16px;border-radius:4px;background:var(--border-strong)}
+.app-nav-item.active .nav-icon{background:linear-gradient(135deg,var(--accent),var(--accent-2))}
+.app-content{padding:28px}
+.app-content h3{font-family:var(--font-display);font-size:1.4rem;font-weight:600;margin-bottom:6px}
+.app-content .app-sub{color:var(--text-dim);font-size:0.85rem;margin-bottom:24px}
+.app-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:24px}
+.app-stat{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px}
+.app-stat .lbl{font-size:0.75rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px}
+.app-stat .val{font-family:var(--font-display);font-size:1.6rem;font-weight:700;color:var(--text)}
+.app-stat .delta{font-size:0.78rem;color:var(--success);margin-top:2px}
+.app-chart{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:12px;padding:20px;height:200px;position:relative;
+}
+.app-chart-bars{display:flex;align-items:flex-end;gap:8px;height:120px;margin-top:20px}
+.app-chart-bar{
+  flex:1;border-radius:6px 6px 0 0;
+  background:linear-gradient(180deg,var(--accent),var(--accent-2));
+  opacity:0.85;animation:rise 1.2s ease-out backwards;
+}
+.app-chart-bar:nth-child(1){height:40%;animation-delay:0.1s}
+.app-chart-bar:nth-child(2){height:65%;animation-delay:0.2s}
+.app-chart-bar:nth-child(3){height:50%;animation-delay:0.3s}
+.app-chart-bar:nth-child(4){height:80%;animation-delay:0.4s}
+.app-chart-bar:nth-child(5){height:70%;animation-delay:0.5s}
+.app-chart-bar:nth-child(6){height:95%;animation-delay:0.6s}
+.app-chart-bar:nth-child(7){height:85%;animation-delay:0.7s}
+.app-chart-bar:nth-child(8){height:100%;animation-delay:0.8s}
+@keyframes rise{from{height:0;opacity:0}}
+
+/* ============ LOGOS STRIP ============ */
+.logos{padding:80px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.logos-inner{display:flex;align-items:center;justify-content:space-around;gap:40px;flex-wrap:wrap;opacity:0.6}
+.logo-item{font-family:var(--font-display);font-weight:700;font-size:1.3rem;color:var(--text-muted);letter-spacing:-0.5px}
+.logos-label{text-align:center;color:var(--text-dim);font-size:0.85rem;margin-bottom:32px;text-transform:uppercase;letter-spacing:0.15em}
+
+/* ============ STATS ============ */
+.stats{padding:100px 0}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.stat-card{
+  text-align:center;padding:32px 24px;
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+  transition:all 0.3s ease;
+}
+.stat-card:hover{border-color:var(--border-strong);transform:translateY(-4px);background:var(--surface-2)}
+.stat-num{
+  font-family:var(--font-display);font-size:3rem;font-weight:700;
+  background:linear-gradient(135deg,var(--accent),var(--accent-2));
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  line-height:1;margin-bottom:10px;
+}
+.stat-lbl{color:var(--text-muted);font-size:0.92rem;font-weight:500}
+
+/* ============ FEATURES ============ */
+.features{padding:120px 0;position:relative}
+.section-head{text-align:center;max-width:680px;margin:0 auto 80px}
+.section-tag{
+  display:inline-block;padding:6px 14px;border-radius:100px;
+  background:var(--surface);border:1px solid var(--border-strong);
+  font-size:0.8rem;color:var(--accent);font-weight:600;
+  text-transform:uppercase;letter-spacing:0.1em;margin-bottom:18px;
+}
+.section-head h2{
+  font-family:var(--font-display);font-size:clamp(2rem,4.5vw,3rem);
+  font-weight:700;letter-spacing:-0.03em;line-height:1.1;margin-bottom:18px;
+}
+.section-head p{color:var(--text-muted);font-size:1.1rem}
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.feature-card{
+  padding:32px;border-radius:var(--radius-lg);
+  background:var(--surface);border:1px solid var(--border);
+  transition:all 0.3s ease;position:relative;overflow:hidden;
+}
+.feature-card::before{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(167,139,250,0.08),transparent 50%);
+  opacity:0;transition:opacity 0.3s;
+}
+.feature-card:hover{border-color:var(--border-strong);transform:translateY(-4px)}
+.feature-card:hover::before{opacity:1}
+.feature-icon{
+  width:48px;height:48px;border-radius:12px;
+  background:linear-gradient(135deg,rgba(167,139,250,0.2),rgba(96,165,250,0.2));
+  border:1px solid var(--border-strong);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.4rem;margin-bottom:20px;position:relative;z-index:1;
+}
+.feature-card h3{font-family:var(--font-display);font-size:1.25rem;font-weight:600;margin-bottom:10px;position:relative;z-index:1}
+.feature-card p{color:var(--text-muted);font-size:0.95rem;line-height:1.6;position:relative;z-index:1}
+
+/* ============ HOW IT WORKS ============ */
+.how{padding:120px 0;background:var(--bg-2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.how-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:48px;position:relative}
+.how-steps::before{
+  content:"";position:absolute;top:32px;left:16%;right:16%;height:2px;
+  background:linear-gradient(90deg,transparent,var(--border-strong),var(--border-strong),transparent);
+}
+.how-step{text-align:center;position:relative}
+.how-step-num{
+  width:64px;height:64px;border-radius:50%;
+  background:var(--bg);
+  border:2px solid var(--border-strong);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-display);font-weight:700;font-size:1.4rem;
+  color:var(--accent);margin:0 auto 24px;position:relative;z-index:1;
+  box-shadow:0 0 0 8px var(--bg-2);
+}
+.how-step h3{font-family:var(--font-display);font-size:1.3rem;font-weight:600;margin-bottom:10px}
+.how-step p{color:var(--text-muted);font-size:0.95rem;max-width:300px;margin:0 auto}
+
+/* ============ PRICING ============ */
+.pricing{padding:120px 0}
+.pricing-toggle{
+  display:inline-flex;align-items:center;
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:100px;padding:4px;margin:0 auto 56px;display:flex;gap:4px;
+}
+.pricing-toggle button{
+  background:transparent;border:none;color:var(--text-muted);
+  padding:9px 22px;border-radius:100px;cursor:pointer;
+  font-family:var(--font);font-weight:600;font-size:0.9rem;
+  transition:all 0.2s;
+}
+.pricing-toggle button.active{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;box-shadow:0 4px 16px rgba(167,139,250,0.35)}
+.pricing-toggle .save{font-size:0.72rem;color:var(--success);font-weight:700;margin-left:6px}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1080px;margin:0 auto}
+.price-card{
+  padding:36px 28px;border-radius:var(--radius-lg);
+  background:var(--surface);border:1px solid var(--border);
+  transition:all 0.3s ease;position:relative;
+}
+.price-card:hover{border-color:var(--border-strong);transform:translateY(-4px)}
+.price-card.featured{
+  background:linear-gradient(135deg,rgba(167,139,250,0.08),rgba(96,165,250,0.05));
+  border-color:var(--accent);
+  box-shadow:0 20px 50px rgba(167,139,250,0.15);
+}
+.price-card.featured::before{
+  content:"Most Popular";
+  position:absolute;top:-12px;left:50%;transform:translateX(-50%);
+  background:linear-gradient(135deg,var(--accent),var(--accent-2));
+  color:#fff;padding:5px 16px;border-radius:100px;
+  font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;
+}
+.price-card h3{font-family:var(--font-display);font-size:1.2rem;font-weight:600;margin-bottom:8px}
+.price-card .price-desc{color:var(--text-muted);font-size:0.88rem;margin-bottom:24px}
+.price-amount{display:flex;align-items:baseline;gap:6px;margin-bottom:6px}
+.price-amount .currency{font-size:1.4rem;color:var(--text-muted);font-weight:600}
+.price-amount .num{font-family:var(--font-display);font-size:3.4rem;font-weight:700;letter-spacing:-0.04em;line-height:1}
+.price-amount .per{color:var(--text-dim);font-size:0.92rem}
+.price-period{color:var(--text-dim);font-size:0.85rem;margin-bottom:28px}
+.price-features{list-style:none;margin-bottom:28px}
+.price-features li{display:flex;align-items:center;gap:10px;padding:8px 0;font-size:0.92rem;color:var(--text-muted)}
+.price-features li .check{
+  width:18px;height:18px;border-radius:50%;
+  background:rgba(52,211,153,0.15);color:var(--success);
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:700;flex-shrink:0;
+}
+.price-features li.disabled{color:var(--text-dim);opacity:0.5}
+.price-features li.disabled .check{background:rgba(255,255,255,0.05);color:var(--text-dim)}
+.price-cta{display:block;text-align:center;padding:12px;border-radius:10px;font-weight:600;font-size:0.95rem;text-decoration:none;transition:all 0.2s}
+.price-card.featured .price-cta{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;box-shadow:0 4px 16px rgba(167,139,250,0.35)}
+.price-card.featured .price-cta:hover{transform:translateY(-1px);box-shadow:0 6px 22px rgba(167,139,250,0.5)}
+.price-card:not(.featured) .price-cta{background:var(--surface-2);color:var(--text);border:1px solid var(--border-strong)}
+.price-card:not(.featured) .price-cta:hover{background:var(--surface);border-color:var(--accent);color:var(--accent)}
+
+/* ============ TESTIMONIALS ============ */
+.testimonials{padding:120px 0;background:var(--bg-2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.testimonial-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.testimonial-card{
+  padding:32px;border-radius:var(--radius-lg);
+  background:var(--surface);border:1px solid var(--border);
+  display:flex;flex-direction:column;gap:18px;
+}
+.testimonial-stars{color:var(--warning);font-size:1rem;letter-spacing:2px}
+.testimonial-text{color:var(--text);font-size:1rem;line-height:1.65;flex:1}
+.testimonial-author{display:flex;align-items:center;gap:12px}
+.testimonial-avatar{
+  width:44px;height:44px;border-radius:50%;
+  background:linear-gradient(135deg,var(--accent),var(--accent-3));
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-weight:700;font-size:0.95rem;
+}
+.testimonial-name{font-weight:600;font-size:0.95rem}
+.testimonial-role{color:var(--text-dim);font-size:0.82rem}
+
+/* ============ FAQ ============ */
+.faq{padding:120px 0}
+.faq-list{max-width:760px;margin:0 auto}
+.faq-item{
+  border:1px solid var(--border);border-radius:var(--radius);
+  margin-bottom:12px;background:var(--surface);overflow:hidden;
+  transition:all 0.2s;
+}
+.faq-item:hover{border-color:var(--border-strong)}
+.faq-q{
+  width:100%;text-align:left;background:none;border:none;
+  padding:22px 26px;color:var(--text);font-family:var(--font);
+  font-size:1rem;font-weight:600;cursor:pointer;
+  display:flex;justify-content:space-between;align-items:center;gap:16px;
+}
+.faq-q .arrow{color:var(--accent);font-size:1.3rem;transition:transform 0.2s;line-height:1}
+.faq-item.open .faq-q .arrow{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.3s ease;padding:0 26px}
+.faq-item.open .faq-a{max-height:240px;padding:0 26px 22px}
+.faq-a p{color:var(--text-muted);font-size:0.95rem;line-height:1.65}
+
+/* ============ FINAL CTA ============ */
+.final-cta{padding:120px 0;text-align:center;position:relative}
+.final-cta-inner{
+  max-width:880px;margin:0 auto;padding:80px 40px;
+  background:linear-gradient(135deg,rgba(167,139,250,0.1),rgba(96,165,250,0.05));
+  border:1px solid var(--border-strong);
+  border-radius:var(--radius-lg);
+  position:relative;overflow:hidden;
+}
+.final-cta-inner::before{
+  content:"";position:absolute;top:-50%;left:-20%;width:140%;height:200%;
+  background:radial-gradient(ellipse at center,rgba(167,139,250,0.2),transparent 60%);
+  z-index:0;animation:rotate 20s linear infinite;
+}
+@keyframes rotate{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.final-cta h2{
+  font-family:var(--font-display);font-size:clamp(2rem,5vw,3rem);
+  font-weight:700;letter-spacing:-0.03em;margin-bottom:18px;
+  position:relative;z-index:1;
+}
+.final-cta p{color:var(--text-muted);font-size:1.1rem;margin-bottom:32px;position:relative;z-index:1}
+.final-cta .hero-cta{position:relative;z-index:1;margin-bottom:0}
+
+/* ============ FOOTER ============ */
+.footer{padding:80px 0 40px;border-top:1px solid var(--border);background:var(--bg-2)}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:40px;margin-bottom:60px}
+.footer-brand .brand{margin-bottom:16px}
+.footer-brand p{color:var(--text-muted);font-size:0.92rem;max-width:280px;line-height:1.6}
+.footer-col h4{font-size:0.85rem;font-weight:700;color:var(--text);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:18px}
+.footer-col ul{list-style:none}
+.footer-col li{margin-bottom:10px}
+.footer-col a{color:var(--text-muted);text-decoration:none;font-size:0.92rem;transition:color 0.2s}
+.footer-col a:hover{color:var(--accent)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:32px;border-top:1px solid var(--border);flex-wrap:wrap;gap:16px}
+.footer-bottom p{color:var(--text-dim);font-size:0.85rem}
+.footer-social{display:flex;gap:10px}
+.social-btn{
+  width:36px;height:36px;border-radius:8px;
+  background:var(--surface);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--text-muted);cursor:pointer;transition:all 0.2s;font-size:0.85rem;font-weight:700;
+}
+.social-btn:hover{border-color:var(--accent);color:var(--accent);background:var(--surface-2)}
+
+/* Floating download button */
+.dl-btn{
+  position:fixed;bottom:24px;right:24px;
+  background:linear-gradient(135deg,var(--accent),var(--accent-2));
+  color:#fff;border:none;
+  padding:14px 22px;border-radius:100px;
+  font-family:var(--font);font-weight:700;font-size:0.88rem;
+  cursor:pointer;box-shadow:0 8px 28px rgba(167,139,250,0.5);
+  z-index:1000;transition:all 0.2s;
+}
+.dl-btn:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(167,139,250,0.6)}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:960px){
+  .nav-links{display:none}
+  .features-grid,.how-steps,.pricing-grid,.testimonial-grid,.stats-grid{grid-template-columns:1fr 1fr}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:32px}
+  .app-body{grid-template-columns:1fr}
+  .app-sidebar{display:none}
+}
+@media(max-width:640px){
+  .hero{padding:80px 0 60px}
+  .hero-cta{flex-direction:column;align-items:stretch}
+  .hero-cta .btn{width:100%}
+  .features-grid,.how-steps,.pricing-grid,.testimonial-grid,.stats-grid,.footer-grid{grid-template-columns:1fr}
+  .how-steps::before{display:none}
+  .logos-inner{gap:24px}
+  .nav-actions .btn-ghost{display:none}
+  .container{padding:0 20px}
+  .nav-inner{padding:14px 20px}
+}
+</style>
+</head>
+<body>
+
+<!-- Background orbs -->
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+<div class="grid-overlay"></div>
+
+<!-- ============ NAV ============ -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="brand">
+      <div class="brand-mark"></div>
+      <span class="brand-name">Lumen</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#how">How it works</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#testimonials">Customers</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="#" class="btn btn-ghost">Sign in</a>
+      <a href="#" class="btn btn-primary">Start free trial</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-badge">
+      <span class="dot"></span>
+      New: Lumen 3.0 with AI insights is live
+    </div>
+    <h1>Analytics that<br><span class="grad">think with you.</span></h1>
+    <p>Lumen turns raw product data into clear, plain-English answers. Ask a question, get a chart, share a decision — in under 30 seconds.</p>
+    <div class="hero-cta">
+      <a href="#" class="btn btn-primary btn-lg">Start 14-day free trial</a>
+      <a href="#" class="btn btn-ghost btn-lg">Watch 2-min demo</a>
+    </div>
+    <div class="hero-trust">
+      <div class="trust-item"><span class="check">✓</span> No credit card</div>
+      <div class="trust-item"><span class="check">✓</span> SOC 2 Type II</div>
+      <div class="trust-item"><span class="check">✓</span> Cancel anytime</div>
+      <div class="trust-item"><span class="check">✓</span> GDPR ready</div>
+    </div>
+  </div>
+
+  <!-- App preview (pure CSS, no images) -->
+  <div class="container">
+    <div class="app-preview">
+      <div class="app-preview-inner">
+        <div class="app-bar">
+          <span class="dot-r"></span>
+          <span class="dot-y"></span>
+          <span class="dot-g"></span>
+          <div class="url">app.lumen.ai/dashboard</div>
+        </div>
+        <div class="app-body">
+          <div class="app-sidebar">
+            <h4>Workspace</h4>
+            <div class="app-nav-item active"><span class="nav-icon"></span> Dashboard</div>
+            <div class="app-nav-item"><span class="nav-icon"></span> Reports</div>
+            <div class="app-nav-item"><span class="nav-icon"></span> Funnels</div>
+            <div class="app-nav-item"><span class="nav-icon"></span> Cohorts</div>
+            <div class="app-nav-item"><span class="nav-icon"></span> Audiences</div>
+            <h4 style="margin-top:24px">Settings</h4>
+            <div class="app-nav-item"><span class="nav-icon"></span> Integrations</div>
+            <div class="app-nav-item"><span class="nav-icon"></span> Team</div>
+            <div class="app-nav-item"><span class="nav-icon"></span> Billing</div>
+          </div>
+          <div class="app-content">
+            <h3>Good morning, Sarah</h3>
+            <p class="app-sub">Here's what happened in your product yesterday.</p>
+            <div class="app-stats">
+              <div class="app-stat">
+                <div class="lbl">Active users</div>
+                <div class="val">12,840</div>
+                <div class="delta">+8.2% vs last week</div>
+              </div>
+              <div class="app-stat">
+                <div class="lbl">Conversion</div>
+                <div class="val">4.7%</div>
+                <div class="delta">+0.4pp</div>
+              </div>
+              <div class="app-stat">
+                <div class="lbl">Revenue</div>
+                <div class="val">$48.2k</div>
+                <div class="delta">+12.1%</div>
+              </div>
+            </div>
+            <div class="app-chart">
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <div style="font-weight:600;font-size:0.95rem">Weekly active users</div>
+                <div style="font-size:0.8rem;color:var(--text-dim)">Last 8 weeks</div>
+              </div>
+              <div class="app-chart-bars">
+                <div class="app-chart-bar"></div>
+                <div class="app-chart-bar"></div>
+                <div class="app-chart-bar"></div>
+                <div class="app-chart-bar"></div>
+                <div class="app-chart-bar"></div>
+                <div class="app-chart-bar"></div>
+                <div class="app-chart-bar"></div>
+                <div class="app-chart-bar"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LOGOS ============ -->
+<section class="logos">
+  <div class="container">
+    <p class="logos-label">Trusted by 4,000+ modern teams</p>
+    <div class="logos-inner">
+      <div class="logo-item">Northwind</div>
+      <div class="logo-item">Cobalt</div>
+      <div class="logo-item">Pinecast</div>
+      <div class="logo-item">Helio</div>
+      <div class="logo-item">Mercurial</div>
+      <div class="logo-item">Atlas</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<section class="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-num" data-count="4000">4,000+</div>
+        <div class="stat-lbl">Teams onboarded</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" data-count="2.4">2.4B</div>
+        <div class="stat-lbl">Events processed monthly</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" data-count="99.9">99.9%</div>
+        <div class="stat-lbl">Uptime SLA</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" data-count="42">42%</div>
+        <div class="stat-lbl">Faster decisions on average</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURES ============ -->
+<section class="features" id="features">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag">Features</span>
+      <h2>Built for teams that<br>ship faster than they meet.</h2>
+      <p>Every feature in Lumen is designed to remove a step between asking a question and acting on the answer.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">✦</div>
+        <h3>Ask in plain English</h3>
+        <p>Type "Which feature drove last week's signups?" and Lumen returns a chart, the contributing segments, and a one-line summary you can paste into Slack.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">◈</div>
+        <h3>Live dashboards</h3>
+        <p>Build dashboards in minutes with drag-and-drop tiles. Numbers refresh in real time as events arrive — no more stale screenshots in Monday standup.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">▲</div>
+        <h3>Funnels & cohorts</h3>
+        <p>Trace users from first touch to conversion. Build cohorts by behavior, attribute, or campaign, and watch them evolve over weeks.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">◉</div>
+        <h3>Smart alerts</h3>
+        <p>Lumen learns what normal looks like for your metrics and pings you in Slack the moment something moves outside the expected range.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">◆</div>
+        <h3>Collaborative reports</h3>
+        <p>Share a report with a link. Comment on any chart. Mention teammates. Decisions stay attached to the data they came from.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">◐</div>
+        <h3>Warehouse-native</h3>
+        <p>Connect Lumen to Snowflake, BigQuery, or Redshift. Your data stays in your warehouse — Lumen queries it directly, no ETL required.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section class="how" id="how">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag">How it works</span>
+      <h2>From signup to first insight<br>in under 10 minutes.</h2>
+      <p>No SDK wrestling. No data engineering tickets. Just three steps.</p>
+    </div>
+    <div class="how-steps">
+      <div class="how-step">
+        <div class="how-step-num">1</div>
+        <h3>Connect your data</h3>
+        <p>Drop in a warehouse connection or install our SDK in one line. Lumen auto-detects your schema and suggests a starting model.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-step-num">2</div>
+        <h3>Ask your first question</h3>
+        <p>Type a question in plain English. Lumen generates the SQL, runs it, and returns a chart and a one-paragraph summary.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-step-num">3</div>
+        <h3>Share with your team</h3>
+        <p>Pin the chart to a dashboard, share a link in Slack, or schedule a weekly digest. Decisions move faster when everyone sees the same numbers.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section class="pricing" id="pricing">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag">Pricing</span>
+      <h2>Simple pricing that scales<br>with your team.</h2>
+      <p>Start free for 14 days. No credit card required. Cancel anytime.</p>
+    </div>
+    <div class="pricing-toggle">
+      <button class="active" onclick="setBilling(this,'monthly')">Monthly</button>
+      <button onclick="setBilling(this,'yearly')">Yearly <span class="save">SAVE 20%</span></button>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <h3>Starter</h3>
+        <p class="price-desc">For small teams getting started with analytics.</p>
+        <div class="price-amount">
+          <span class="currency">$</span>
+          <span class="num" data-monthly="29" data-yearly="23">29</span>
+          <span class="per">/user/mo</span>
+        </div>
+        <div class="price-period">Billed monthly · 14-day free trial</div>
+        <ul class="price-features">
+          <li><span class="check">✓</span> Up to 5 team members</li>
+          <li><span class="check">✓</span> 10M events / month</li>
+          <li><span class="check">✓</span> 3 dashboards</li>
+          <li><span class="check">✓</span> 7-day data retention</li>
+          <li><span class="check">✓</span> Email support</li>
+          <li class="disabled"><span class="check">✓</span> Smart alerts</li>
+          <li class="disabled"><span class="check">✓</span> Warehouse sync</li>
+        </ul>
+        <a href="#" class="price-cta">Start free trial</a>
+      </div>
+      <div class="price-card featured">
+        <h3>Pro</h3>
+        <p class="price-desc">For growing teams that need collaboration and scale.</p>
+        <div class="price-amount">
+          <span class="currency">$</span>
+          <span class="num" data-monthly="79" data-yearly="63">79</span>
+          <span class="per">/user/mo</span>
+        </div>
+        <div class="price-period">Billed monthly · 14-day free trial</div>
+        <ul class="price-features">
+          <li><span class="check">✓</span> Up to 25 team members</li>
+          <li><span class="check">✓</span> 100M events / month</li>
+          <li><span class="check">✓</span> Unlimited dashboards</li>
+          <li><span class="check">✓</span> 1-year data retention</li>
+          <li><span class="check">✓</span> Priority support</li>
+          <li><span class="check">✓</span> Smart alerts</li>
+          <li><span class="check">✓</span> Warehouse sync</li>
+        </ul>
+        <a href="#" class="price-cta">Start free trial</a>
+      </div>
+      <div class="price-card">
+        <h3>Enterprise</h3>
+        <p class="price-desc">For organizations with custom security and scale needs.</p>
+        <div class="price-amount">
+          <span class="currency">$</span>
+          <span class="num" data-monthly="Custom" data-yearly="Custom">Custom</span>
+        </div>
+        <div class="price-period">Annual contract · Custom SLA</div>
+        <ul class="price-features">
+          <li><span class="check">✓</span> Unlimited team members</li>
+          <li><span class="check">✓</span> Unlimited events</li>
+          <li><span class="check">✓</span> Unlimited dashboards</li>
+          <li><span class="check">✓</span> Unlimited retention</li>
+          <li><span class="check">✓</span> Dedicated CSM</li>
+          <li><span class="check">✓</span> SSO + SCIM</li>
+          <li><span class="check">✓</span> Custom DPA + audit</li>
+        </ul>
+        <a href="#" class="price-cta">Contact sales</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag">Customers</span>
+      <h2>Loved by product teams<br>at modern companies.</h2>
+      <p>4,000+ teams trust Lumen to make product decisions every day.</p>
+    </div>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Lumen replaced three tools for us — analytics, dashboards, and the weekly report email we never read. Our PM team ships 40% faster because we're not waiting on data tickets."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">SK</div>
+          <div>
+            <div class="testimonial-name">Sarah Kim</div>
+            <div class="testimonial-role">VP Product, Cobalt</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"The plain-English query feature is genuine magic. I asked 'why did churn spike last Tuesday' and got a real answer with the contributing segments in 20 seconds. This used to take a full sprint."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">MR</div>
+          <div>
+            <div class="testimonial-name">Marcus Rivera</div>
+            <div class="testimonial-role">Head of Growth, Helio</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"We were paying $4k/month for a competitor and getting less. Lumen's warehouse-native model means our data never leaves Snowflake. Compliance signed off in a day, not a quarter."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">AT</div>
+          <div>
+            <div class="testimonial-name">Aiko Tanaka</div>
+            <div class="testimonial-role">Data Lead, Pinecast</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag">FAQ</span>
+      <h2>Questions, answered.</h2>
+      <p>Everything you need to know before signing up.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q">Is there a free trial? <span class="arrow">+</span></button>
+        <div class="faq-a"><p>Yes. Every plan starts with a 14-day free trial. No credit card required. You'll get full access to all Pro features during the trial so you can evaluate properly.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Can I change plans later? <span class="arrow">+</span></button>
+        <div class="faq-a"><p>Yes. Upgrade, downgrade, or cancel anytime from your dashboard. Changes apply immediately and we prorate the difference. No contracts beyond monthly or annual commitments.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Do you offer team discounts? <span class="arrow">+</span></button>
+        <div class="faq-a"><p>Teams of 25+ get 20% off annual plans. Contact sales for enterprise pricing — we offer volume discounts, custom SLAs, and dedicated support for large organizations.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How does the AI work? <span class="arrow">+</span></button>
+        <div class="faq-a"><p>Lumen uses a fine-tuned transformer model trained on 200M+ business documents. Your data stays in your workspace and is never used to train shared models. Every AI answer includes the underlying SQL so you can verify the logic.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What integrations do you support? <span class="arrow">+</span></button>
+        <div class="faq-a"><p>Native integrations with Snowflake, BigQuery, Redshift, Postgres, Segment, Stripe, Slack, Notion, Linear, and GitHub. We also expose a REST API and webhooks for custom workflows.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Is my data secure? <span class="arrow">+</span></button>
+        <div class="faq-a"><p>Lumen is SOC 2 Type II certified, GDPR compliant, and encrypts data at rest (AES-256) and in transit (TLS 1.3). For enterprise plans, we offer SSO/SAML, SCIM provisioning, and custom DPAs.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="final-cta">
+  <div class="container">
+    <div class="final-cta-inner">
+      <h2>Stop guessing.<br>Start deciding.</h2>
+      <p>Join 4,000+ teams making product decisions with Lumen.</p>
+      <div class="hero-cta">
+        <a href="#" class="btn btn-primary btn-lg">Start 14-day free trial</a>
+        <a href="#" class="btn btn-ghost btn-lg">Talk to sales</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="brand">
+          <div class="brand-mark"></div>
+          <span class="brand-name">Lumen</span>
+        </a>
+        <p>Analytics that think with you. Built for modern product teams who ship faster than they meet.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#">Integrations</a></li>
+          <li><a href="#">Changelog</a></li>
+          <li><a href="#">API docs</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Customers</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Press kit</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="#">Documentation</a></li>
+          <li><a href="#">Help center</a></li>
+          <li><a href="#">Community</a></li>
+          <li><a href="#">Status</a></li>
+          <li><a href="#">Security</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Privacy</a></li>
+          <li><a href="#">Terms</a></li>
+          <li><a href="#">DPA</a></li>
+          <li><a href="#">SOC 2 report</a></li>
+          <li><a href="#">GDPR</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Lumen AI. Template by <a href="https://excusemeweb.com/landing-pages" style="color:var(--accent)">ExcuseMeWeb</a></p>
+      <div class="footer-social">
+        <a class="social-btn" href="#">X</a>
+        <a class="social-btn" href="#">in</a>
+        <a class="social-btn" href="#">GH</a>
+        <a class="social-btn" href="#">▶</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button class="dl-btn" onclick="downloadPage()">⇩ Download HTML</button>
+
+<script>
+// FAQ accordion
+document.querySelectorAll('.faq-q').forEach(q=>{
+  q.addEventListener('click',()=>{
+    const item=q.parentElement;
+    const wasOpen=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+    if(!wasOpen) item.classList.add('open');
+  });
+});
+
+// Pricing toggle
+function setBilling(btn,mode){
+  document.querySelectorAll('.pricing-toggle button').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.price-amount .num').forEach(n=>{
+    const v=n.getAttribute('data-'+mode);
+    n.textContent=v;
+  });
+}
+
+// Animated counters
+const counters=document.querySelectorAll('[data-count]');
+const animateCounter=(el)=>{
+  const target=parseFloat(el.getAttribute('data-count'));
+  const suffix=el.textContent.replace(/[0-9.,]/g,'');
+  const isDecimal=target%1!==0;
+  let cur=0;
+  const step=target/60;
+  const tick=()=>{
+    cur+=step;
+    if(cur>=target){
+      el.textContent=(isDecimal?target.toFixed(1):Math.floor(target).toLocaleString())+suffix;
+    }else{
+      el.textContent=(isDecimal?cur.toFixed(1):Math.floor(cur).toLocaleString())+suffix;
+      requestAnimationFrame(tick);
+    }
+  };
+  tick();
+};
+const obs=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      animateCounter(e.target);
+      obs.unobserve(e.target);
+    }
+  });
+},{threshold:0.5});
+counters.forEach(c=>obs.observe(c));
+
+// Download page
+function downloadPage(){
+  const html='<!DOCTYPE html>\n'+document.documentElement.outerHTML;
+  const blob=new Blob([html],{type:'text/html'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;a.download='premium-saas-landing-page.html';
+  document.body.appendChild(a);a.click();a.remove();
+  URL.revokeObjectURL(url);
+}
+</script>
+</body>
+</html>

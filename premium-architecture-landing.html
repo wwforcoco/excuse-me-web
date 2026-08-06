@@ -1,0 +1,2656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FORMA — Premium Architecture Firm Landing Page Template | ExcuseMeWeb</title>
+<meta name="description" content="FORMA is a premium architecture firm landing page template — minimalist editorial design for residential, cultural and commercial studios. Pure CSS art, no images, fully responsive.">
+<meta name="keywords" content="architecture firm, landing page template, minimalist architecture, architectural studio, FORMA, residential design, cultural architecture, ExcuseMeWeb">
+<meta name="author" content="ExcuseMeWeb">
+<meta name="theme-color" content="#f8f6f1">
+<link rel="canonical" href="https://excusemeweb.com/premium-architecture-landing">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="FORMA — Premium Architecture Firm Landing Page Template | ExcuseMeWeb">
+<meta property="og:description" content="A minimalist, editorial architecture firm landing page template — pure CSS art, no images, fully responsive.">
+<meta property="og:url" content="https://excusemeweb.com/premium-architecture-landing">
+<meta property="og:site_name" content="ExcuseMeWeb">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FORMA — Premium Architecture Firm Landing Page Template | ExcuseMeWeb">
+<meta name="twitter:description" content="A minimalist, editorial architecture firm landing page template — pure CSS art, no images, fully responsive.">
+<meta name="twitter:url" content="https://excusemeweb.com/premium-architecture-landing">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- JSON-LD: ProfessionalService -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "FORMA",
+  "description": "FORMA is an architecture studio crafting residential, cultural and commercial spaces with quiet precision.",
+  "url": "https://excusemeweb.com/premium-architecture-landing",
+  "telephone": "+1 (212) 555-0148",
+  "email": "studio@forma-architecture.com",
+  "priceRange": "$$$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "14 Cooper Square, Floor 4",
+    "addressLocality": "New York",
+    "addressRegion": "NY",
+    "postalCode": "10003",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 40.7282,
+    "longitude": -73.9912
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "09:00",
+      "closes": "18:00"
+    }
+  ],
+  "areaServed": "Worldwide",
+  "knowsAbout": ["Residential Architecture","Cultural Architecture","Commercial Architecture","Interior Architecture","Master Planning"],
+  "sameAs": [
+    "https://www.instagram.com/forma",
+    "https://www.linkedin.com/company/forma",
+    "https://www.pinterest.com/forma"
+  ]
+}
+</script>
+
+<style>
+/* ============================================================
+   FORMA — Premium Architecture Firm Landing Page
+   A minimalist editorial template. Pure CSS art. No images.
+   ============================================================ */
+
+/* ---------- Design Tokens ---------- */
+:root{
+  --bg:        #f8f6f1;   /* warm off-white cream */
+  --bg-alt:    #f1ede4;   /* slightly deeper cream */
+  --paper:     #fbfaf6;   /* card paper */
+  --ink:       #1a1a1a;   /* deep charcoal */
+  --ink-soft:  #3a3a38;
+  --ink-mute:  #6f6c64;   /* muted stone */
+  --ink-faint: #a7a39a;
+  --line:      #1a1a1a1a; /* hairline */
+  --line-soft: #1a1a1a0d;
+  --accent:    #c97a4a;   /* terracotta */
+  --accent-deep:#a85f33;
+  --accent-soft:#e9c9ad;
+  --olive:     #5a6a4a;
+  --shadow:    0 1px 2px rgba(26,26,26,.04), 0 8px 30px rgba(26,26,26,.06);
+  --shadow-lg: 0 2px 4px rgba(26,26,26,.05), 0 30px 80px rgba(26,26,26,.10);
+
+  --f-display: "Fraunces", "Cormorant Garamond", Georgia, serif;
+  --f-body:    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+
+  --max:       1320px;
+  --gutter:    clamp(20px, 5vw, 80px);
+  --ease:      cubic-bezier(.2, .8, .2, 1);
+}
+
+/* ---------- Reset ---------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body{
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  letter-spacing: 0.005em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: 0; background: none; color: inherit; }
+ul, ol { list-style: none; }
+::selection { background: var(--accent); color: var(--bg); }
+
+/* ---------- Typography helpers ---------- */
+.eyebrow{
+  font-family: var(--f-body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+.serif { font-family: var(--f-display); font-weight: 300; letter-spacing: -0.01em; }
+.italic { font-style: italic; }
+.mono-num{ font-variant-numeric: tabular-nums; }
+
+/* ---------- Layout primitives ---------- */
+.wrap{
+  width: 100%;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+.section{
+  padding-top: clamp(80px, 12vh, 160px);
+  padding-bottom: clamp(80px, 12vh, 160px);
+  position: relative;
+}
+.section--tight{ padding-top: clamp(60px, 8vh, 110px); padding-bottom: clamp(60px, 8vh, 110px); }
+.section--alt{ background: var(--bg-alt); }
+.section--ink{ background: var(--ink); color: #efece5; }
+.divider{ height: 1px; background: var(--line); width: 100%; }
+
+/* ---------- Section header ---------- */
+.section-head{
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 40px;
+  align-items: end;
+  margin-bottom: clamp(50px, 7vh, 96px);
+}
+.section-head__index{
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+}
+.section-head__num{
+  font-family: var(--f-display);
+  font-size: 14px;
+  font-style: italic;
+  color: var(--accent);
+}
+.section-head__title{
+  font-family: var(--f-display);
+  font-weight: 300;
+  font-size: clamp(36px, 5vw, 68px);
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+}
+.section-head__title em{ font-style: italic; color: var(--ink-mute); }
+.section-head__lede{
+  font-size: 15px;
+  color: var(--ink-mute);
+  max-width: 48ch;
+  line-height: 1.65;
+}
+
+/* ============================================================
+   NAV
+   ============================================================ */
+.nav{
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 18px 0;
+  background: rgba(248,246,241,0);
+  transition: background .4s var(--ease), padding .4s var(--ease), border-color .4s var(--ease);
+  border-bottom: 1px solid transparent;
+}
+.nav.is-scrolled{
+  background: rgba(248,246,241,.85);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+.nav__inner{
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 24px;
+}
+.nav__brand{
+  font-family: var(--f-display);
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  padding-left: 0.32em; /* optical centering */
+}
+.nav__brand span{ color: var(--accent); }
+.nav__links{
+  display: flex;
+  gap: 36px;
+  justify-content: center;
+}
+.nav__links a{
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  position: relative;
+  padding: 4px 0;
+  transition: color .3s var(--ease);
+}
+.nav__links a::after{
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 1px;
+  background: var(--ink);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform .4s var(--ease);
+}
+.nav__links a:hover{ color: var(--ink); }
+.nav__links a:hover::after{ transform: scaleX(1); transform-origin: left; }
+.nav__cta{
+  justify-self: end;
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border: 1px solid var(--ink);
+  padding: 10px 22px;
+  border-radius: 999px;
+  transition: background .3s var(--ease), color .3s var(--ease);
+}
+.nav__cta:hover{ background: var(--ink); color: var(--bg); }
+.nav__burger{ display: none; }
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{
+  min-height: 100vh;
+  padding-top: 120px;
+  padding-bottom: 60px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero__meta-top{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: clamp(40px, 8vh, 110px);
+}
+.hero__meta-block{
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  line-height: 1.9;
+}
+.hero__meta-block strong{
+  display: block;
+  color: var(--ink);
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+.hero__meta-right{ text-align: right; }
+
+.hero__statement{
+  font-family: var(--f-display);
+  font-weight: 300;
+  font-size: clamp(64px, 13.5vw, 220px);
+  line-height: 0.92;
+  letter-spacing: -0.045em;
+  color: var(--ink);
+  margin: 0;
+}
+.hero__statement .ln{ display: block; }
+.hero__statement .ln.indent{ padding-left: clamp(20px, 9vw, 140px); }
+.hero__statement em{
+  font-style: italic;
+  font-weight: 300;
+  color: var(--accent);
+}
+.hero__statement .dot{
+  display: inline-block;
+  width: 0.16em;
+  height: 0.16em;
+  background: var(--accent);
+  border-radius: 50%;
+  vertical-align: 0.32em;
+  margin-left: 0.04em;
+}
+
+.hero__bottom{
+  margin-top: clamp(50px, 8vh, 100px);
+  display: grid;
+  grid-template-columns: 1.1fr 1fr 0.6fr;
+  gap: 40px;
+  align-items: end;
+}
+.hero__lede{
+  font-family: var(--f-display);
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(18px, 1.6vw, 22px);
+  line-height: 1.45;
+  color: var(--ink-soft);
+  max-width: 38ch;
+}
+.hero__lede::before{
+  content: "“";
+  font-size: 1.6em;
+  line-height: 0;
+  vertical-align: -0.3em;
+  color: var(--accent);
+  margin-right: 0.1em;
+}
+.hero__scroll{
+  justify-self: end;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+.hero__scroll-line{
+  width: 1px; height: 60px;
+  background: linear-gradient(to bottom, var(--ink-mute), transparent);
+  position: relative;
+  overflow: hidden;
+}
+.hero__scroll-line::after{
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 30%;
+  background: var(--accent);
+  animation: scrollDrop 2.4s var(--ease) infinite;
+}
+@keyframes scrollDrop{
+  0%   { transform: translateY(-100%); }
+  60%  { transform: translateY(330%); }
+  100% { transform: translateY(330%); }
+}
+
+/* hero background architectural motif */
+.hero__bg{
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+.hero__bg-grid{
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, var(--line-soft) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--line-soft) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(ellipse at 70% 30%, #000 0%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse at 70% 30%, #000 0%, transparent 70%);
+  opacity: .7;
+}
+.hero__bg-sun{
+  position: absolute;
+  top: 14%;
+  right: 8%;
+  width: clamp(140px, 18vw, 280px);
+  height: clamp(140px, 18vw, 280px);
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #e9c9ad 0%, #c97a4a 55%, transparent 75%);
+  opacity: .55;
+  filter: blur(2px);
+}
+.hero__bg-horizon{
+  position: absolute;
+  left: 0; right: 0;
+  bottom: 0;
+  height: 38%;
+  background: linear-gradient(to bottom, transparent, var(--bg-alt) 90%);
+}
+.hero__bg-tower{
+  position: absolute;
+  bottom: 0;
+  right: 18%;
+  width: 2px;
+  height: 22vh;
+  background: var(--ink);
+  opacity: .12;
+}
+.hero__bg-tower::before,
+.hero__bg-tower::after{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 2px;
+  background: var(--ink);
+  opacity: .9;
+}
+.hero__bg-tower::before{ height: 14vh; right: 14px; opacity: .08; }
+.hero__bg-tower::after{ height: 9vh;  right: 28px; opacity: .06; }
+
+/* ============================================================
+   MARQUEE STRIP
+   ============================================================ */
+.marquee{
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 22px 0;
+  overflow: hidden;
+  background: var(--bg);
+  white-space: nowrap;
+}
+.marquee__track{
+  display: inline-flex;
+  gap: 64px;
+  align-items: center;
+  animation: marqueeScroll 38s linear infinite;
+  padding-right: 64px;
+}
+.marquee__item{
+  font-family: var(--f-display);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 22px;
+  color: var(--ink-soft);
+  display: inline-flex;
+  align-items: center;
+  gap: 64px;
+}
+.marquee__item::after{
+  content: "";
+  width: 6px; height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+@keyframes marqueeScroll{
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ============================================================
+   PHILOSOPHY
+   ============================================================ */
+.philosophy__grid{
+  display: grid;
+  grid-template-columns: 1fr 2.2fr;
+  gap: clamp(40px, 6vw, 100px);
+  align-items: start;
+}
+.philosophy__label{
+  position: sticky;
+  top: 120px;
+}
+.philosophy__label-num{
+  font-family: var(--f-display);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.philosophy__body{
+  font-family: var(--f-display);
+  font-weight: 300;
+  font-size: clamp(24px, 2.6vw, 38px);
+  line-height: 1.34;
+  letter-spacing: -0.012em;
+  color: var(--ink);
+}
+.philosophy__body p + p{ margin-top: 1em; }
+.philosophy__body em{ font-style: italic; color: var(--accent); }
+.philosophy__body .quiet{ color: var(--ink-mute); }
+.philosophy__sign{
+  margin-top: 56px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.philosophy__sign-rule{ flex: 1; height: 1px; background: var(--ink); }
+.philosophy__sign-text{
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+
+/* principles row */
+.principles{
+  margin-top: clamp(80px, 10vh, 140px);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.principle{
+  background: var(--bg);
+  padding: 40px 28px 36px;
+  position: relative;
+  transition: background .4s var(--ease);
+}
+.principle:hover{ background: var(--paper); }
+.principle__num{
+  font-family: var(--f-display);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--accent);
+  margin-bottom: 28px;
+}
+.principle__title{
+  font-family: var(--f-display);
+  font-weight: 300;
+  font-size: 26px;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin-bottom: 12px;
+}
+.principle__desc{
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--ink-mute);
+}
+
+/* ============================================================
+   SELECTED WORK
+   ============================================================ */
+.work__grid{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(36px, 5vw, 80px) clamp(36px, 5vw, 80px);
+}
+.project{
+  position: relative;
+  cursor: pointer;
+}
+.project__art{
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: var(--bg-alt);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  transition: border-color .5s var(--ease);
+}
+.project:hover .project__art{ border-color: var(--ink); }
+.project__art::after{
+  /* subtle grain overlay */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 1px 1px, rgba(26,26,26,.06) 1px, transparent 0);
+  background-size: 3px 3px;
+  opacity: .35;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+/* — Project 1: Casa Verticale — vertical tower with bands */
+.silhouette--verticale{
+  background: linear-gradient(180deg, #efece5 0%, #e6e1d6 100%);
+}
+.silhouette--verticale .sky{ position: absolute; inset: 0; }
+.silhouette--verticale .ground{
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 22%;
+  background: linear-gradient(180deg, #d9d3c5, #ccc4b2);
+}
+.silhouette--verticale .tower{
+  position: absolute;
+  left: 38%; bottom: 22%;
+  width: 22%;
+  height: 70%;
+  background: #2a2a2a;
+  box-shadow: 0 0 0 1px #1a1a1a;
+}
+.silhouette--verticale .tower::before{
+  /* horizontal floor bands */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0 10px,
+    rgba(248,246,241,.18) 10px 11px
+  );
+}
+.silhouette--verticale .tower::after{
+  /* vertical accent */
+  content: "";
+  position: absolute;
+  top: -8%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 8%;
+  background: var(--accent);
+}
+.silhouette--verticale .tower2{
+  position: absolute;
+  left: 60%; bottom: 22%;
+  width: 14%; height: 50%;
+  background: #4a4a48;
+}
+.silhouette--verticale .tree{
+  position: absolute;
+  bottom: 22%;
+  left: 18%;
+  width: 4px;
+  height: 14%;
+  background: #1a1a1a;
+}
+.silhouette--verticale .tree::before{
+  content: "";
+  position: absolute;
+  top: -10px; left: 50%;
+  transform: translateX(-50%);
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: #5a6a4a;
+}
+
+/* — Project 2: Pavilion 47 — peaked roof (Japanese) */
+.silhouette--pavilion{
+  background: linear-gradient(180deg, #f1ede4 0%, #e9e3d6 100%);
+}
+.silhouette--pavilion .ground{
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 28%;
+  background: linear-gradient(180deg, #ddd6c5, #cdc4ae);
+}
+.silhouette--pavilion .roof{
+  position: absolute;
+  left: 16%; right: 16%;
+  bottom: 50%;
+  height: 0;
+  border-left: solid transparent;
+  border-right: solid transparent;
+  border-bottom: 0;
+  border-top: 0;
+  width: 68%;
+  /* use clip-path triangle */
+  clip-path: polygon(0 100%, 50% 0, 100% 100%);
+  background: #2a2a2a;
+  height: 32%;
+}
+.silhouette--pavilion .body{
+  position: absolute;
+  left: 22%; right: 22%;
+  bottom: 28%;
+  height: 24%;
+  background: #f8f6f1;
+  border: 1px solid #1a1a1a;
+  border-top: 0;
+}
+.silhouette--pavilion .body::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to right,
+    transparent 0 18px,
+    rgba(26,26,26,.5) 18px 19px
+  );
+}
+.silhouette--pavilion .eaves{
+  position: absolute;
+  left: 12%; right: 12%;
+  bottom: 52%;
+  height: 3px;
+  background: #1a1a1a;
+}
+.silhouette--pavilion .moon{
+  position: absolute;
+  top: 16%;
+  right: 18%;
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #f8f6f1, #d9d3c5);
+  box-shadow: 0 0 30px rgba(248,246,241,.6);
+}
+
+/* — Project 3: Horizon House — cantilever over water */
+.silhouette--horizon{
+  background: linear-gradient(180deg, #efece5 0%, #e9e3d6 55%, #cdd6cf 55%, #b9c4be 100%);
+}
+.silhouette--horizon .slab{
+  position: absolute;
+  left: 14%; right: 14%;
+  top: 42%;
+  height: 8%;
+  background: #1a1a1a;
+}
+.silhouette--horizon .slab2{
+  position: absolute;
+  left: 22%; right: 30%;
+  top: 30%;
+  height: 6%;
+  background: #2a2a2a;
+}
+.silhouette--horizon .pillar{
+  position: absolute;
+  top: 50%;
+  width: 3px;
+  height: 22%;
+  background: #1a1a1a;
+}
+.silhouette--horizon .pillar.p1{ left: 22%; }
+.silhouette--horizon .pillar.p2{ left: 38%; }
+.silhouette--horizon .pillar.p3{ left: 56%; }
+.silhouette--horizon .pillar.p4{ left: 74%; }
+.silhouette--horizon .reflection{
+  position: absolute;
+  left: 14%; right: 14%;
+  top: 50%;
+  height: 8%;
+  background: linear-gradient(180deg, rgba(26,26,26,.25), transparent);
+  transform: scaleY(-1);
+  transform-origin: top;
+  filter: blur(1px);
+}
+.silhouette--horizon .sun{
+  position: absolute;
+  top: 18%;
+  left: 18%;
+  width: 60px; height: 60px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #e9c9ad, #c97a4a 70%, transparent);
+  opacity: .8;
+}
+
+/* — Project 4: The Atrium — grid facade */
+.silhouette--atrium{
+  background: linear-gradient(180deg, #efece5 0%, #e6e1d6 100%);
+}
+.silhouette--atrium .ground{
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 16%;
+  background: linear-gradient(180deg, #d9d3c5, #ccc4b2);
+}
+.silhouette--atrium .facade{
+  position: absolute;
+  left: 16%; right: 16%;
+  bottom: 16%;
+  top: 14%;
+  background: #1a1a1a;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  gap: 4px;
+  padding: 8px;
+}
+.silhouette--atrium .facade span{
+  background: #f1ede4;
+  display: block;
+}
+.silhouette--atrium .facade span:nth-child(3n){
+  background: #d9d3c5;
+}
+.silhouette--atrium .facade span:nth-child(5n){
+  background: var(--accent-soft);
+}
+.silhouette--atrium .facade span:first-child{
+  background: #c97a4a;
+}
+
+/* — Project 5: Maison Solaire — angled solar roof */
+.silhouette--solaire{
+  background: linear-gradient(180deg, #efece5 0%, #e9e3d6 100%);
+}
+.silhouette--solaire .ground{
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 24%;
+  background: linear-gradient(180deg, #d9d3c5, #cdc4ae);
+}
+.silhouette--solaire .wall{
+  position: absolute;
+  left: 24%; right: 24%;
+  bottom: 24%;
+  height: 32%;
+  background: #f8f6f1;
+  border: 1px solid #1a1a1a;
+}
+.silhouette--solaire .wall::before{
+  /* door */
+  content: "";
+  position: absolute;
+  left: 50%; bottom: 0;
+  transform: translateX(-50%);
+  width: 18%; height: 50%;
+  background: #1a1a1a;
+}
+.silhouette--solaire .roof{
+  position: absolute;
+  left: 24%; right: 24%;
+  bottom: 56%;
+  height: 14%;
+  background: #2a2a2a;
+  clip-path: polygon(0 100%, 100% 0, 100% 100%);
+}
+.silhouette--solaire .roof::after{
+  /* solar grid lines */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(248,246,241,.4) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(248,246,241,.4) 1px, transparent 1px);
+  background-size: 10px 10px;
+}
+.silhouette--solaire .sun{
+  position: absolute;
+  top: 14%;
+  right: 16%;
+  width: 50px; height: 50px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #e9c9ad, #c97a4a);
+}
+
+/* — Project 6: Tribunal Square — classical columns */
+.silhouette--tribunal{
+  background: linear-gradient(180deg, #efece5 0%, #e6e1d6 100%);
+}
+.silhouette--tribunal .ground{
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 18%;
+  background: linear-gradient(180deg, #d9d3c5, #cdc4ae);
+}
+.silhouette--tribunal .steps{
+  position: absolute;
+  left: 10%; right: 10%;
+  bottom: 18%;
+  height: 6%;
+  background: repeating-linear-gradient(
+    to bottom,
+    #2a2a2a 0 3px,
+    #4a4a48 3px 6px
+  );
+}
+.silhouette--tribunal .col{
+  position: absolute;
+  bottom: 24%;
+  width: 5%;
+  height: 44%;
+  background: linear-gradient(90deg, #d9d3c5 0%, #f8f6f1 30%, #f8f6f1 70%, #b8b1a0 100%);
+  border: 1px solid #1a1a1a;
+}
+.silhouette--tribunal .col.c1{ left: 18%; }
+.silhouette--tribunal .col.c2{ left: 30%; }
+.silhouette--tribunal .col.c3{ left: 42%; }
+.silhouette--tribunal .col.c4{ left: 54%; }
+.silhouette--tribunal .col.c5{ left: 66%; }
+.silhouette--tribunal .col.c6{ left: 78%; }
+.silhouette--tribunal .col::before{
+  /* capital */
+  content: "";
+  position: absolute;
+  top: -6px; left: -3px; right: -3px;
+  height: 6px;
+  background: #1a1a1a;
+}
+.silhouette--tribunal .entablature{
+  position: absolute;
+  left: 14%; right: 14%;
+  bottom: 68%;
+  height: 5%;
+  background: #1a1a1a;
+}
+.silhouette--tribunal .pediment{
+  position: absolute;
+  left: 14%; right: 14%;
+  bottom: 73%;
+  height: 14%;
+  background: #2a2a2a;
+  clip-path: polygon(0 100%, 50% 0, 100% 100%);
+}
+
+/* project meta */
+.project__meta{
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: start;
+}
+.project__name{
+  font-family: var(--f-display);
+  font-weight: 300;
+  font-size: clamp(24px, 2.4vw, 32px);
+  line-height: 1.1;
+  letter-spacing: -0.012em;
+}
+.project__name em{ font-style: italic; color: var(--ink-mute); }
+.project__sub{
+  margin-top: 10px;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+}
+.project__sub span:not(:last-child)::after{
+  content: "·";
+  margin-left: 14px;
+  color: var(--ink-faint);
+}
+.project__desc{
+  margin-top: 16px;
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--ink-soft);
+  max-width: 50ch;
+}
+.project__year{
+  font-family: var(--f-display);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--accent);
+  white-space: nowrap;
+}
+.project__arrow{
+  margin-top: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.project__arrow svg{ width: 16px; height: 16px; transition: transform .4s var(--ease); }
+.project:hover .project__arrow svg{ transform: translateX(6px); }
+
+.work__footer{
+  margin-top: clamp(60px, 8vh, 110px);
+  display: flex;
+  justify-content: center;
+}
+.work__footer a{
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 6px;
+  transition: gap .4s var(--ease);
+}
+.work__footer a:hover{ gap: 22px; }
+
+/* ============================================================
+   PROCESS
+   ============================================================ */
+.process__grid{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.step{
+  background: var(--bg);
+  padding: clamp(36px, 5vw, 64px) clamp(24px, 3vw, 40px);
+  position: relative;
+  min-height: 360px;
+  display: flex;
+  flex-direction: column;
+  transition: background .4s var(--ease);
+}
+.step:hover{ background: var(--paper); }
+.step__num{
+  font-family: var(--f-display);
+  font-weight: 300;
+  font-size: 64px;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  margin-bottom: 28px;
+}
+.step__num em{
+  font-style: italic;
+  color: var(--accent);
+  font-size: 0.5em;
+  vertical-align: 0.6em;
+  margin-left: 4px;
+}
+.step__title{
+  font-family: var(--f-display);
+  font-weight: 300;
+  font-size: 30px;
+  line-height: 1.05;
+  letter-spacing: -0.012em;
+  margin-bottom: 16px;
+}
+.step__desc{
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink-mute);
+  margin-top: auto;
+}
+.step__icon{
+  width: 40px;
+  height: 40px;
+  margin-bottom: 28px;
+  border: 1px solid var(--ink);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+/* step icons (pure css) */
+.icon-listen{ position: relative; }
+.icon-listen::before{
+  content: ""; width: 12px; height: 12px; border-radius: 50%;
+  border: 1px solid var(--ink);
+}
+.icon-listen::after{
+  content: ""; position: absolute; width: 22px; height: 22px;
+  border-radius: 50%; border: 1px solid var(--ink); opacity: .4;
+}
+.icon-design{
+  width: 14px; height: 14px; border: 1px solid var(--ink);
+  transform: rotate(45deg);
+}
+.icon-build{
+  width: 14px; height: 14px;
+  background: linear-gradient(135deg, var(--ink) 50%, transparent 50%);
+}
+.icon-inhabit{
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--accent);
+}
+
+/* ============================================================
+   AWARDS
+   ============================================================ */
+.awards__list{
+  border-top: 1px solid var(--ink);
+}
+.award{
+  display: grid;
+  grid-template-columns: 100px 1.2fr 1fr 0.6fr 40px;
+  gap: 24px;
+  align-items: center;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--line);
+  transition: padding .4s var(--ease), background .4s var(--ease);
+  position: relative;
+}
+.award:hover{
+  padding-left: 18px;
+  padding-right: 18px;
+  background: var(--paper);
+}
+.award__year{
+  font-family: var(--f-display);
+  font-style: italic;
+  font-size: 18px;
+  color: var(--accent);
+}
+.award__name{
+  font-family: var(--f-display);
+  font-weight: 300;
+  font-size: clamp(20px, 2vw, 28px);
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+}
+.award__category{
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+.award__project{
+  font-size: 13px;
+  color: var(--ink-soft);
+  font-style: italic;
+  font-family: var(--f-display);
+}
+.award__arrow{
+  justify-self: end;
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity .4s var(--ease), transform .4s var(--ease);
+}
+.award:hover .award__arrow{
+  opacity: 1;
+  transform: translateX(0);
+}
+.award__arrow svg{ width: 18px; height: 18px; }
+
+/* ============================================================
+   STUDIO / TEAM
+   ============================================================ */
+.studio__grid{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(28px, 4vw, 56px);
+}
+.principal{
+  position: relative;
+}
+.principal__avatar{
+  aspect-ratio: 1 / 1;
+  background: var(--bg-alt);
+  border: 1px solid var(--line);
+  position: relative;
+  overflow: hidden;
+  transition: border-color .4s var(--ease);
+}
+.principal:hover .principal__avatar{ border-color: var(--ink); }
+.principal__avatar::after{
+  /* grain */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 1px 1px, rgba(26,26,26,.05) 1px, transparent 0);
+  background-size: 3px 3px;
+  opacity: .5;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+/* avatar art — abstract geometric portraits */
+.avatar-a{ background: linear-gradient(160deg, #e9c9ad 0%, #c97a4a 100%); }
+.avatar-a .head{
+  position: absolute;
+  left: 50%; top: 42%;
+  transform: translateX(-50%);
+  width: 56%; aspect-ratio: 1;
+  border-radius: 50% 50% 45% 45%;
+  background: #2a2a2a;
+}
+.avatar-a .shoulders{
+  position: absolute;
+  left: 18%; right: 18%; bottom: 0;
+  height: 40%;
+  background: #1a1a1a;
+  border-radius: 50% 50% 0 0 / 80% 80% 0 0;
+}
+
+.avatar-b{ background: linear-gradient(160deg, #d9d3c5 0%, #8a8474 100%); }
+.avatar-b .head{
+  position: absolute;
+  left: 50%; top: 38%;
+  transform: translateX(-50%);
+  width: 50%; aspect-ratio: 1;
+  border-radius: 50%;
+  background: #3a3a38;
+}
+.avatar-b .head::before{
+  content: "";
+  position: absolute;
+  top: 18%; left: 50%;
+  transform: translateX(-50%);
+  width: 80%; height: 30%;
+  background: #1a1a1a;
+  border-radius: 50% 50% 30% 30%;
+}
+.avatar-b .shoulders{
+  position: absolute;
+  left: 14%; right: 14%; bottom: 0;
+  height: 42%;
+  background: #5a6a4a;
+  border-radius: 50% 50% 0 0 / 80% 80% 0 0;
+}
+
+.avatar-c{ background: linear-gradient(160deg, #f1ede4 0%, #b8b1a0 100%); }
+.avatar-c .head{
+  position: absolute;
+  left: 50%; top: 40%;
+  transform: translateX(-50%);
+  width: 54%; aspect-ratio: 1;
+  border-radius: 50%;
+  background: #4a4a48;
+}
+.avatar-c .head::after{
+  /* glasses */
+  content: "";
+  position: absolute;
+  top: 45%; left: -10%; right: -10%;
+  height: 18%;
+  border-top: 2px solid #1a1a1a;
+  border-bottom: 2px solid #1a1a1a;
+  background: transparent;
+}
+.avatar-c .shoulders{
+  position: absolute;
+  left: 16%; right: 16%; bottom: 0;
+  height: 40%;
+  background: #1a1a1a;
+  border-radius: 50% 50% 0 0 / 80% 80% 0 0;
+}
+
+.avatar-d{ background: linear-gradient(160deg, #e9c9ad 0%, #a85f33 100%); }
+.avatar-d .head{
+  position: absolute;
+  left: 50%; top: 36%;
+  transform: translateX(-50%);
+  width: 52%; aspect-ratio: 1.05;
+  border-radius: 45% 45% 40% 40%;
+  background: #2a2a2a;
+}
+.avatar-d .head::before{
+  /* hair */
+  content: "";
+  position: absolute;
+  top: -10%; left: -8%; right: -8%;
+  height: 45%;
+  background: #1a1a1a;
+  border-radius: 50% 50% 30% 30%;
+}
+.avatar-d .shoulders{
+  position: absolute;
+  left: 18%; right: 18%; bottom: 0;
+  height: 40%;
+  background: #2a2a2a;
+  border-radius: 50% 50% 0 0 / 80% 80% 0 0;
+}
+
+.principal__info{
+  margin-top: 22px;
+}
+.principal__name{
+  font-family: var(--f-display);
+  font-weight: 300;
+  font-size: 22px;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+.principal__name em{ font-style: italic; color: var(--ink-mute); }
+.principal__role{
+  margin-top: 6px;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+.principal__bio{
+  margin-top: 14px;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+.studio__stats{
+  margin-top: clamp(60px, 8vh, 110px);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.stat{
+  background: var(--bg);
+  padding: 36px 24px;
+  text-align: left;
+}
+.stat__num{
+  font-family: var(--f-display);
+  font-weight: 300;
+  font-size: clamp(40px, 4.4vw, 64px);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+.stat__num em{ font-style: italic; color: var(--accent); font-size: 0.6em; vertical-align: 0.4em; }
+.stat__label{
+  margin-top: 14px;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+
+/* ============================================================
+   PRESS
+   ============================================================ */
+.press__grid{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.press__item{
+  background: var(--bg);
+  padding: clamp(40px, 5vw, 70px) 28px;
+  text-align: center;
+  transition: background .4s var(--ease);
+  position: relative;
+}
+.press__item:hover{ background: var(--paper); }
+.press__name{
+  font-family: var(--f-display);
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(20px, 1.8vw, 26px);
+  letter-spacing: -0.005em;
+  color: var(--ink);
+}
+.press__year{
+  margin-top: 14px;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+
+.press__marquee{
+  margin-top: 60px;
+  padding: 26px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+  white-space: nowrap;
+}
+.press__marquee-track{
+  display: inline-flex;
+  gap: 56px;
+  align-items: center;
+  animation: marqueeScroll 30s linear infinite;
+  padding-right: 56px;
+}
+.press__marquee-track span{
+  font-family: var(--f-display);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 24px;
+  color: var(--ink-soft);
+  display: inline-flex;
+  align-items: center;
+  gap: 56px;
+}
+.press__marquee-track span::after{
+  content: "✦";
+  color: var(--accent);
+  font-size: 14px;
+  font-style: normal;
+}
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+.contact__grid{
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: clamp(40px, 6vw, 100px);
+  align-items: start;
+}
+.contact__title{
+  font-family: var(--f-display);
+  font-weight: 300;
+  font-size: clamp(40px, 5vw, 76px);
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+}
+.contact__title em{ font-style: italic; color: var(--accent); }
+.contact__lede{
+  margin-top: 28px;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--ink-soft);
+  max-width: 42ch;
+}
+.contact__details{
+  margin-top: 48px;
+  display: grid;
+  gap: 28px;
+}
+.contact__detail{
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+.contact__detail-label{
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+.contact__detail-value{
+  font-family: var(--f-display);
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 1.4;
+}
+.contact__detail-value a{
+  border-bottom: 1px solid var(--line);
+  transition: border-color .3s var(--ease);
+}
+.contact__detail-value a:hover{ border-color: var(--ink); }
+
+/* form */
+.form{
+  background: var(--paper);
+  border: 1px solid var(--line);
+  padding: clamp(32px, 4vw, 56px);
+}
+.form__head{
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 36px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--line);
+}
+.form__head-title{
+  font-family: var(--f-display);
+  font-weight: 300;
+  font-size: 22px;
+  letter-spacing: -0.01em;
+}
+.form__head-step{
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+.form__row{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+.form__field{ display: flex; flex-direction: column; gap: 8px; }
+.form__field--full{ grid-column: 1 / -1; }
+.form__label{
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+.form__input,
+.form__select,
+.form__textarea{
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  padding: 10px 0;
+  font-family: var(--f-body);
+  font-size: 15px;
+  color: var(--ink);
+  outline: none;
+  transition: border-color .3s var(--ease);
+  width: 100%;
+}
+.form__input:focus,
+.form__select:focus,
+.form__textarea:focus{ border-color: var(--ink); }
+.form__textarea{ resize: vertical; min-height: 100px; }
+.form__select{
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, var(--ink) 50%),
+                    linear-gradient(135deg, var(--ink) 50%, transparent 50%);
+  background-position: calc(100% - 14px) 18px, calc(100% - 8px) 18px;
+  background-size: 6px 6px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+.form__radios{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.form__radio{
+  border: 1px solid var(--line);
+  padding: 9px 16px;
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: all .3s var(--ease);
+}
+.form__radio.is-active,
+.form__radio:hover{
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--bg);
+}
+.form__submit{
+  margin-top: 16px;
+  width: 100%;
+  background: var(--ink);
+  color: var(--bg);
+  padding: 18px 24px;
+  font-size: 12px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  border-radius: 0;
+  transition: background .3s var(--ease);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+.form__submit:hover{ background: var(--accent); }
+.form__submit svg{ width: 14px; height: 14px; transition: transform .3s var(--ease); }
+.form__submit:hover svg{ transform: translateX(4px); }
+.form__note{
+  margin-top: 18px;
+  font-size: 12px;
+  color: var(--ink-mute);
+  line-height: 1.5;
+}
+.form__success{
+  display: none;
+  padding: 28px;
+  border: 1px solid var(--accent);
+  background: var(--accent-soft);
+  margin-top: 0;
+  text-align: center;
+}
+.form__success.is-visible{ display: block; animation: fadeUp .6s var(--ease); }
+.form__success-title{
+  font-family: var(--f-display);
+  font-weight: 300;
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+.form__success-text{
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+@keyframes fadeUp{
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer{
+  background: var(--ink);
+  color: #c9c5bb;
+  padding-top: clamp(80px, 10vh, 130px);
+  padding-bottom: 40px;
+}
+.footer__top{
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 60px;
+  border-bottom: 1px solid rgba(255,255,255,.1);
+}
+.footer__brand{
+  font-family: var(--f-display);
+  font-size: clamp(48px, 6vw, 88px);
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  color: #f8f6f1;
+}
+.footer__brand em{ font-style: italic; color: var(--accent); }
+.footer__tagline{
+  margin-top: 24px;
+  font-family: var(--f-display);
+  font-style: italic;
+  font-size: 18px;
+  color: #9a968c;
+  max-width: 30ch;
+}
+.footer__col h4{
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #6f6c64;
+  margin-bottom: 22px;
+  font-weight: 500;
+}
+.footer__col ul{ display: grid; gap: 12px; }
+.footer__col a{
+  font-size: 14px;
+  color: #c9c5bb;
+  transition: color .3s var(--ease);
+}
+.footer__col a:hover{ color: var(--accent); }
+.footer__big{
+  padding: 80px 0 40px;
+  text-align: center;
+}
+.footer__big-text{
+  font-family: var(--f-display);
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(56px, 11vw, 180px);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: #2a2a2a;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.footer__big-text em{ color: var(--accent); font-style: italic; }
+.footer__bottom{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255,255,255,.1);
+  font-size: 12px;
+  color: #6f6c64;
+}
+.footer__bottom a{ color: #9a968c; transition: color .3s var(--ease); }
+.footer__bottom a:hover{ color: var(--accent); }
+.footer__socials{ display: flex; gap: 22px; }
+
+/* ============================================================
+   DOWNLOAD BUTTON (floating)
+   ============================================================ */
+.download-btn{
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 200;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--ink);
+  color: var(--bg);
+  padding: 14px 22px 14px 18px;
+  border-radius: 999px;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 500;
+  box-shadow: var(--shadow-lg);
+  transition: transform .4s var(--ease), background .3s var(--ease), padding .3s var(--ease);
+}
+.download-btn:hover{
+  background: var(--accent);
+  transform: translateY(-2px);
+}
+.download-btn svg{
+  width: 14px; height: 14px;
+  transition: transform .3s var(--ease);
+}
+.download-btn:hover svg{ transform: translateY(2px); }
+
+/* ============================================================
+   REVEAL ANIMATION
+   ============================================================ */
+.reveal{
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 1s var(--ease), transform 1s var(--ease);
+}
+.reveal.is-in{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 1024px){
+  .work__grid{ grid-template-columns: 1fr; gap: 56px; }
+  .studio__grid{ grid-template-columns: repeat(2, 1fr); gap: 40px; }
+  .studio__stats{ grid-template-columns: repeat(2, 1fr); }
+  .press__grid{ grid-template-columns: repeat(2, 1fr); }
+  .process__grid{ grid-template-columns: repeat(2, 1fr); }
+  .principles{ grid-template-columns: repeat(2, 1fr); }
+  .footer__top{ grid-template-columns: 1fr 1fr; gap: 48px; }
+  .footer__brand{ grid-column: 1 / -1; }
+}
+
+@media (max-width: 768px){
+  :root{ --gutter: 22px; }
+  .nav__links{ display: none; }
+  .nav__inner{ grid-template-columns: 1fr auto; }
+  .nav__cta{ padding: 8px 16px; font-size: 11px; }
+  .section-head{ grid-template-columns: 1fr; gap: 24px; }
+  .philosophy__grid{ grid-template-columns: 1fr; gap: 40px; }
+  .philosophy__label{ position: static; }
+  .hero__bottom{ grid-template-columns: 1fr; gap: 32px; }
+  .hero__scroll{ justify-self: start; flex-direction: row; align-items: center; }
+  .hero__scroll-line{ width: 60px; height: 1px; background: linear-gradient(to right, var(--ink-mute), transparent); }
+  .hero__scroll-line::after{ width: 30%; height: 1px; background: var(--accent); }
+  .hero__meta-top{ flex-direction: column; gap: 24px; }
+  .hero__meta-right{ text-align: left; }
+  .contact__grid{ grid-template-columns: 1fr; }
+  .award{ grid-template-columns: 60px 1fr 30px; gap: 16px; }
+  .award__category, .award__project{ display: none; }
+  .form__row{ grid-template-columns: 1fr; }
+  .footer__top{ grid-template-columns: 1fr; gap: 40px; }
+  .footer__bottom{ flex-direction: column; gap: 18px; text-align: center; }
+  .footer__big-text{ font-size: clamp(40px, 14vw, 80px); }
+  .download-btn span{ display: none; }
+  .download-btn{ padding: 14px; }
+  .download-btn svg{ width: 16px; height: 16px; }
+}
+
+@media (max-width: 540px){
+  .principles{ grid-template-columns: 1fr; }
+  .process__grid{ grid-template-columns: 1fr; }
+  .studio__grid{ grid-template-columns: 1fr; }
+  .studio__stats{ grid-template-columns: 1fr; }
+  .press__grid{ grid-template-columns: 1fr; }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce){
+  *, *::before, *::after{
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal{ opacity: 1; transform: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAV
+     ============================================================ -->
+<nav class="nav" id="nav">
+  <div class="wrap nav__inner">
+    <a href="#top" class="nav__brand">F<span>O</span>RMA</a>
+    <ul class="nav__links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#studio">Studio</a></li>
+      <li><a href="#press">Press</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav__cta">Start a Project</a>
+  </div>
+</nav>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<header class="hero" id="top">
+  <div class="hero__bg" aria-hidden="true">
+    <div class="hero__bg-grid"></div>
+    <div class="hero__bg-sun"></div>
+    <div class="hero__bg-horizon"></div>
+    <div class="hero__bg-tower"></div>
+  </div>
+
+  <div class="wrap">
+    <div class="hero__meta-top">
+      <div class="hero__meta-block">
+        <strong>FORMA / Est. 2008</strong>
+        Architecture &amp; Interior Studio<br>
+        New York · Lisbon · Kyoto
+      </div>
+      <div class="hero__meta-block hero__meta-right">
+        <strong>Selected Works 2008—2026</strong>
+        Residential · Cultural · Commercial<br>
+        42 Projects · 19 Countries
+      </div>
+    </div>
+
+    <h1 class="hero__statement">
+      <span class="ln">Form</span>
+      <span class="ln indent">follows <em>light</em><span class="dot"></span></span>
+    </h1>
+
+    <div class="hero__bottom">
+      <p class="hero__lede">
+        We design quiet, enduring architecture — buildings that hold their ground without raising their voice. Each project begins with the site, the light, and the lives it will shelter.
+      </p>
+      <div></div>
+      <div class="hero__scroll">
+        <span>Scroll</span>
+        <div class="hero__scroll-line"></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============================================================
+     MARQUEE STRIP
+     ============================================================ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <span class="marquee__item">Residential</span>
+    <span class="marquee__item">Cultural</span>
+    <span class="marquee__item">Commercial</span>
+    <span class="marquee__item">Master Planning</span>
+    <span class="marquee__item">Interior Architecture</span>
+    <span class="marquee__item">Adaptive Reuse</span>
+    <span class="marquee__item">Residential</span>
+    <span class="marquee__item">Cultural</span>
+    <span class="marquee__item">Commercial</span>
+    <span class="marquee__item">Master Planning</span>
+    <span class="marquee__item">Interior Architecture</span>
+    <span class="marquee__item">Adaptive Reuse</span>
+  </div>
+</div>
+
+<!-- ============================================================
+     PHILOSOPHY
+     ============================================================ -->
+<section class="section" id="philosophy">
+  <div class="wrap">
+    <div class="philosophy__grid">
+      <aside class="philosophy__label">
+        <div class="philosophy__label-num">§ 01 — Philosophy</div>
+        <div class="eyebrow">Manifesto</div>
+      </aside>
+
+      <div class="philosophy__body">
+        <p>Architecture is the patient arrangement of <em>light, material, and silence</em>. We are not in the business of spectacle. We are in the business of making places that remain — that age with grace, that ask little of their inhabitants and give much in return.</p>
+
+        <p class="quiet">A door should open the way you expect it to. A wall should hold the warmth of the afternoon. A window should frame the sky as if it were the first time you had seen it. These are small ambitions. They are also the whole of the work.</p>
+
+        <p>We believe in <em>fewer materials, used better</em> — in concrete that remembers the formwork, in timber that darkens with the years, in stone that carries the mark of the hand. We believe a building is finished not when the contractor leaves, but when the first occupant sets down their coat.</p>
+
+        <p class="quiet">Everything else is style. We are not interested in style.</p>
+
+        <div class="philosophy__sign">
+          <span class="philosophy__sign-text">— The Studio</span>
+          <span class="philosophy__sign-rule"></span>
+          <span class="philosophy__sign-text">New York, 2026</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="principles">
+      <div class="principle">
+        <div class="principle__num">i.</div>
+        <h3 class="principle__title">Site First</h3>
+        <p class="principle__desc">Every site has a memory. We listen before we draw, reading the land, the wind, the path of the sun across a single year.</p>
+      </div>
+      <div class="principle">
+        <div class="principle__num">ii.</div>
+        <h3 class="principle__title">Material Honesty</h3>
+        <p class="principle__desc">Concrete, timber, stone, plaster. Materials used for what they are, never imitating something they are not.</p>
+      </div>
+      <div class="principle">
+        <div class="principle__num">iii.</div>
+        <h3 class="principle__title">Quiet Detail</h3>
+        <p class="principle__desc">The detail that disappears into use. A threshold you cross without noticing — until you notice how right it feels.</p>
+      </div>
+      <div class="principle">
+        <div class="principle__num">iv.</div>
+        <h3 class="principle__title">Enduring Form</h3>
+        <p class="principle__desc">A building should outlast its architects and its first program. We design for the second life, and the fifth.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SELECTED WORK
+     ============================================================ -->
+<section class="section section--alt" id="work">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-head__index">
+        <span class="section-head__num">§ 02</span>
+        <span class="eyebrow">Selected Work</span>
+      </div>
+      <div>
+        <h2 class="section-head__title">Six buildings, <em>one continuing conversation</em> between ground, light, and use.</h2>
+      </div>
+    </div>
+
+    <div class="work__grid">
+
+      <!-- Project 1 -->
+      <article class="project reveal">
+        <div class="project__art">
+          <div class="silhouette silhouette--verticale">
+            <div class="sky"></div>
+            <div class="ground"></div>
+            <div class="tower2"></div>
+            <div class="tower"></div>
+            <div class="tree"></div>
+          </div>
+        </div>
+        <div class="project__meta">
+          <div>
+            <h3 class="project__name">Casa <em>Verticale</em></h3>
+            <div class="project__sub">
+              <span>Residential</span>
+              <span>Milan, Italy</span>
+            </div>
+          </div>
+          <span class="project__year">2024</span>
+        </div>
+        <p class="project__desc">A slender residential tower of board-formed concrete, organised around a single vertical courtyard that draws daylight forty metres down through the plan.</p>
+        <a href="#" class="project__arrow">
+          View Project
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </article>
+
+      <!-- Project 2 -->
+      <article class="project reveal">
+        <div class="project__art">
+          <div class="silhouette silhouette--pavilion">
+            <div class="ground"></div>
+            <div class="moon"></div>
+            <div class="roof"></div>
+            <div class="eaves"></div>
+            <div class="body"></div>
+          </div>
+        </div>
+        <div class="project__meta">
+          <div>
+            <h3 class="project__name">Pavilion <em>47</em></h3>
+            <div class="project__sub">
+              <span>Cultural</span>
+              <span>Kyoto, Japan</span>
+            </div>
+          </div>
+          <span class="project__year">2023</span>
+        </div>
+        <p class="project__desc">A tea pavilion and gallery on the edge of the Philosopher's Path. Cedar, paper, basalt — a single roof held by six columns, no more.</p>
+        <a href="#" class="project__arrow">
+          View Project
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </article>
+
+      <!-- Project 3 -->
+      <article class="project reveal">
+        <div class="project__art">
+          <div class="silhouette silhouette--horizon">
+            <div class="sun"></div>
+            <div class="slab2"></div>
+            <div class="slab"></div>
+            <div class="pillar p1"></div>
+            <div class="pillar p2"></div>
+            <div class="pillar p3"></div>
+            <div class="pillar p4"></div>
+            <div class="reflection"></div>
+          </div>
+        </div>
+        <div class="project__meta">
+          <div>
+            <h3 class="project__name">Horizon <em>House</em></h3>
+            <div class="project__sub">
+              <span>Residential</span>
+              <span>Comporta, Portugal</span>
+            </div>
+          </div>
+          <span class="project__year">2023</span>
+        </div>
+        <p class="project__desc">A weekend house cantilevered over the pine forest on six steel pins. Two concrete slabs, full-height glass, and nothing between the occupant and the Atlantic.</p>
+        <a href="#" class="project__arrow">
+          View Project
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </article>
+
+      <!-- Project 4 -->
+      <article class="project reveal">
+        <div class="project__art">
+          <div class="silhouette silhouette--atrium">
+            <div class="ground"></div>
+            <div class="facade">
+              <span></span><span></span><span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+        </div>
+        <div class="project__meta">
+          <div>
+            <h3 class="project__name">The <em>Atrium</em></h3>
+            <div class="project__sub">
+              <span>Commercial</span>
+              <span>Berlin, Germany</span>
+            </div>
+          </div>
+          <span class="project__year">2022</span>
+        </div>
+        <p class="project__desc">A headquarters for a publishing house. A gridded concrete facade gives onto a full-height internal atrium — a single room that holds the whole company.</p>
+        <a href="#" class="project__arrow">
+          View Project
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </article>
+
+      <!-- Project 5 -->
+      <article class="project reveal">
+        <div class="project__art">
+          <div class="silhouette silhouette--solaire">
+            <div class="ground"></div>
+            <div class="sun"></div>
+            <div class="roof"></div>
+            <div class="wall"></div>
+          </div>
+        </div>
+        <div class="project__meta">
+          <div>
+            <h3 class="project__name">Maison <em>Solaire</em></h3>
+            <div class="project__sub">
+              <span>Residential</span>
+              <span>Provence, France</span>
+            </div>
+          </div>
+          <span class="project__year">2022</span>
+        </div>
+        <p class="project__desc">A passive house in the Lubéron. A single angled roof of photovoltaic tiles faces south; thick limestone walls hold the cool of the night through the afternoon.</p>
+        <a href="#" class="project__arrow">
+          View Project
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </article>
+
+      <!-- Project 6 -->
+      <article class="project reveal">
+        <div class="project__art">
+          <div class="silhouette silhouette--tribunal">
+            <div class="ground"></div>
+            <div class="steps"></div>
+            <div class="pediment"></div>
+            <div class="entablature"></div>
+            <div class="col c1"></div>
+            <div class="col c2"></div>
+            <div class="col c3"></div>
+            <div class="col c4"></div>
+            <div class="col c5"></div>
+            <div class="col c6"></div>
+          </div>
+        </div>
+        <div class="project__meta">
+          <div>
+            <h3 class="project__name">Tribunal <em>Square</em></h3>
+            <div class="project__sub">
+              <span>Cultural</span>
+              <span>Lyon, France</span>
+            </div>
+          </div>
+          <span class="project__year">2021</span>
+        </div>
+        <p class="project__desc">The restoration and reinvention of a 19th-century courthouse as a public library. Six original columns retained, the interior gutted and rebuilt around them.</p>
+        <a href="#" class="project__arrow">
+          View Project
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </article>
+
+    </div>
+
+    <div class="work__footer">
+      <a href="#">View the full archive (42 projects)
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PROCESS
+     ============================================================ -->
+<section class="section" id="process">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-head__index">
+        <span class="section-head__num">§ 03</span>
+        <span class="eyebrow">Process</span>
+      </div>
+      <div>
+        <h2 class="section-head__title">Four movements, <em>repeated until the building sings.</em></h2>
+        <p class="section-head__lede">Our process is deliberately slow at the start and fast at the end. We would rather spend three months understanding a site than three weeks undoing a mistake.</p>
+      </div>
+    </div>
+
+    <div class="process__grid">
+      <div class="step">
+        <div class="step__icon"><span class="icon-listen"></span></div>
+        <div class="step__num">01<em>/04</em></div>
+        <h3 class="step__title">Listen</h3>
+        <p class="step__desc">Site visits, conversations, archival research. We map the existing before we propose the new — the wind, the neighbours, the history, the budget.</p>
+      </div>
+      <div class="step">
+        <div class="step__icon"><span class="icon-design"></span></div>
+        <div class="step__num">02<em>/04</em></div>
+        <h3 class="step__title">Design</h3>
+        <p class="step__desc">Sketches become models become drawings. We test in physical material — clay, cardboard, plaster — long before we render in pixels.</p>
+      </div>
+      <div class="step">
+        <div class="step__icon"><span class="icon-build"></span></div>
+        <div class="step__num">03<em>/04</em></div>
+        <h3 class="step__title">Build</h3>
+        <p class="step__desc">We remain on site. Weekly visits, weekly minutes, a single point of contact. The drawing is a contract; the site is the proof.</p>
+      </div>
+      <div class="step">
+        <div class="step__icon"><span class="icon-inhabit"></span></div>
+        <div class="step__num">04<em>/04</em></div>
+        <h3 class="step__title">Inhabit</h3>
+        <p class="step__desc">A year after handover we return. We measure how the building has been used, what has shifted, what has held. The lessons feed the next project.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     AWARDS
+     ============================================================ -->
+<section class="section section--alt" id="awards">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-head__index">
+        <span class="section-head__num">§ 04</span>
+        <span class="eyebrow">Recognition</span>
+      </div>
+      <div>
+        <h2 class="section-head__title">Awards &amp; <em>recognition</em></h2>
+        <p class="section-head__lede">A selected list. We are grateful, and we try not to mention it on the building.</p>
+      </div>
+    </div>
+
+    <div class="awards__list">
+      <div class="award">
+        <span class="award__year">2025</span>
+        <span class="award__name">RIBA International Prize</span>
+        <span class="award__category">Building of the Year</span>
+        <span class="award__project">Casa Verticale</span>
+        <span class="award__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </div>
+      <div class="award">
+        <span class="award__year">2024</span>
+        <span class="award__name">AIA Honor Award</span>
+        <span class="award__category">Architecture</span>
+        <span class="award__project">Pavilion 47</span>
+        <span class="award__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </div>
+      <div class="award">
+        <span class="award__year">2024</span>
+        <span class="award__name">Mies van der Rohe Award</span>
+        <span class="award__category">Nominee</span>
+        <span class="award__project">Horizon House</span>
+        <span class="award__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </div>
+      <div class="award">
+        <span class="award__year">2023</span>
+        <span class="award__name">Dezeen Awards</span>
+        <span class="award__category">Cultural Building of the Year</span>
+        <span class="award__project">Pavilion 47</span>
+        <span class="award__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </div>
+      <div class="award">
+        <span class="award__year">2023</span>
+        <span class="award__name">Wallpaper* Design Awards</span>
+        <span class="award__category">Best New House</span>
+        <span class="award__project">Horizon House</span>
+        <span class="award__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </div>
+      <div class="award">
+        <span class="award__year">2022</span>
+        <span class="award__name">Architizer A+ Awards</span>
+        <span class="award__category">Commercial — Jury Winner</span>
+        <span class="award__project">The Atrium</span>
+        <span class="award__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </div>
+      <div class="award">
+        <span class="award__year">2022</span>
+        <span class="award__name">Passive House Award</span>
+        <span class="award__category">Residential</span>
+        <span class="award__project">Maison Solaire</span>
+        <span class="award__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </div>
+      <div class="award">
+        <span class="award__year">2021</span>
+        <span class="award__name">EU Mies Award</span>
+        <span class="award__category">Heritage Adaptation</span>
+        <span class="award__project">Tribunal Square</span>
+        <span class="award__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     STUDIO / TEAM
+     ============================================================ -->
+<section class="section" id="studio">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-head__index">
+        <span class="section-head__num">§ 05</span>
+        <span class="eyebrow">The Studio</span>
+      </div>
+      <div>
+        <h2 class="section-head__title">Four principals, <em>one quiet conversation</em> about what a building should be.</h2>
+        <p class="section-head__lede">FORMA was founded in 2008. We are sixteen people across three studios, working on no more than nine projects at a time.</p>
+      </div>
+    </div>
+
+    <div class="studio__grid">
+      <article class="principal">
+        <div class="principal__avatar avatar-a">
+          <div class="shoulders"></div>
+          <div class="head"></div>
+        </div>
+        <div class="principal__info">
+          <h3 class="principal__name">Elena <em>Marchetti</em></h3>
+          <div class="principal__role">Founding Partner</div>
+          <p class="principal__bio">Trained in Milan and Zurich. Elena leads the residential practice and the studio's material research. Teaches at the Politecnico.</p>
+        </div>
+      </article>
+
+      <article class="principal">
+        <div class="principal__avatar avatar-b">
+          <div class="shoulders"></div>
+          <div class="head"></div>
+        </div>
+        <div class="principal__info">
+          <h3 class="principal__name">Kenji <em>Watanabe</em></h3>
+          <div class="principal__role">Partner, Kyoto</div>
+          <p class="principal__bio">Joined FORMA in 2012. Kenji leads the cultural portfolio and our Kyoto studio. Formerly of SANAA, specialist in timber and joinery.</p>
+        </div>
+      </article>
+
+      <article class="principal">
+        <div class="principal__avatar avatar-c">
+          <div class="shoulders"></div>
+          <div class="head"></div>
+        </div>
+        <div class="principal__info">
+          <h3 class="principal__name">Marcus <em>Hollander</em></h3>
+          <div class="principal__role">Partner, Berlin</div>
+          <p class="principal__bio">Leads the commercial and adaptive reuse work. Marcus trained in Stuttgart and brings a structural engineer's discipline to every drawing.</p>
+        </div>
+      </article>
+
+      <article class="principal">
+        <div class="principal__avatar avatar-d">
+          <div class="shoulders"></div>
+          <div class="head"></div>
+        </div>
+        <div class="principal__info">
+          <h3 class="principal__name">Inês <em>Carvalho</em></h3>
+          <div class="principal__role">Partner, Lisbon</div>
+          <p class="principal__bio">Inês leads our Lisbon studio and the interior architecture practice. She believes the door handle is the most important detail in any building.</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="studio__stats">
+      <div class="stat">
+        <div class="stat__num">18<em>yrs</em></div>
+        <div class="stat__label">In Practice</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num">42</div>
+        <div class="stat__label">Completed Projects</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num">19</div>
+        <div class="stat__label">Countries</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num">16</div>
+        <div class="stat__label">Studio Members</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PRESS
+     ============================================================ -->
+<section class="section section--alt" id="press">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-head__index">
+        <span class="section-head__num">§ 06</span>
+        <span class="eyebrow">Press</span>
+      </div>
+      <div>
+        <h2 class="section-head__title">As featured <em>in print.</em></h2>
+        <p class="section-head__lede">A selection of publications that have written about the studio. We are always happy to send review copies and drawings on request.</p>
+      </div>
+    </div>
+
+    <div class="press__grid">
+      <div class="press__item">
+        <div class="press__name">The Architectural Review</div>
+        <div class="press__year">Issue 1542 · 2025</div>
+      </div>
+      <div class="press__item">
+        <div class="press__name">Domus</div>
+        <div class="press__year">Issue 1098 · 2025</div>
+      </div>
+      <div class="press__item">
+        <div class="press__name">A+U</div>
+        <div class="press__year">Issue 642 · 2024</div>
+      </div>
+      <div class="press__item">
+        <div class="press__name">Detail</div>
+        <div class="press__year">Volume 03 · 2024</div>
+      </div>
+      <div class="press__item">
+        <div class="press__name">Wallpaper*</div>
+        <div class="press__year">March 2024</div>
+      </div>
+      <div class="press__item">
+        <div class="press__name">Dezeen</div>
+        <div class="press__year">Online · 2023</div>
+      </div>
+      <div class="press__item">
+        <div class="press__name">El Croquis</div>
+        <div class="press__year">Issue 214 · 2023</div>
+      </div>
+      <div class="press__item">
+        <div class="press__name">Frame</div>
+        <div class="press__year">Issue 148 · 2022</div>
+      </div>
+    </div>
+
+    <div class="press__marquee" aria-hidden="true">
+      <div class="press__marquee-track">
+        <span>New York Times</span>
+        <span>Financial Times</span>
+        <span>Monocle</span>
+        <span>Wallpaper*</span>
+        <span>Dezeen</span>
+        <span>Architectural Digest</span>
+        <span>Surface</span>
+        <span>The World of Interiors</span>
+        <span>New York Times</span>
+        <span>Financial Times</span>
+        <span>Monocle</span>
+        <span>Wallpaper*</span>
+        <span>Dezeen</span>
+        <span>Architectural Digest</span>
+        <span>Surface</span>
+        <span>The World of Interiors</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CONTACT
+     ============================================================ -->
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-head__index">
+        <span class="section-head__num">§ 07</span>
+        <span class="eyebrow">Contact</span>
+      </div>
+      <div></div>
+    </div>
+
+    <div class="contact__grid">
+      <div>
+        <h2 class="contact__title">Begin a <em>project.</em></h2>
+        <p class="contact__lede">We take on a small number of new commissions each year. If you have a site, a brief, or simply a question, we would be glad to hear from you.</p>
+
+        <div class="contact__details">
+          <div class="contact__detail">
+            <span class="contact__detail-label">Studio</span>
+            <span class="contact__detail-value">14 Cooper Square, Floor 4<br>New York, NY 10003</span>
+          </div>
+          <div class="contact__detail">
+            <span class="contact__detail-label">Email</span>
+            <span class="contact__detail-value"><a href="mailto:studio@forma-architecture.com">studio@forma-architecture.com</a></span>
+          </div>
+          <div class="contact__detail">
+            <span class="contact__detail-label">Telephone</span>
+            <span class="contact__detail-value">+1 (212) 555-0148</span>
+          </div>
+          <div class="contact__detail">
+            <span class="contact__detail-label">Hours</span>
+            <span class="contact__detail-value">Monday — Friday<br>09:00 — 18:00 EST</span>
+          </div>
+        </div>
+      </div>
+
+      <form class="form" id="inquiryForm" novalidate>
+        <div class="form__head">
+          <span class="form__head-title">Project Inquiry</span>
+          <span class="form__head-step">01 / 01</span>
+        </div>
+
+        <div class="form__row">
+          <div class="form__field">
+            <label class="form__label" for="f-name">Name</label>
+            <input class="form__input" type="text" id="f-name" name="name" placeholder="Your full name" required>
+          </div>
+          <div class="form__field">
+            <label class="form__label" for="f-email">Email</label>
+            <input class="form__input" type="email" id="f-email" name="email" placeholder="you@studio.com" required>
+          </div>
+        </div>
+
+        <div class="form__row">
+          <div class="form__field">
+            <label class="form__label" for="f-location">Location</label>
+            <input class="form__input" type="text" id="f-location" name="location" placeholder="City, Country">
+          </div>
+          <div class="form__field">
+            <label class="form__label" for="f-budget">Indicative Budget</label>
+            <select class="form__select" id="f-budget" name="budget">
+              <option value="">Select a range</option>
+              <option>Under $500k</option>
+              <option>$500k — $2M</option>
+              <option>$2M — $10M</option>
+              <option>$10M — $50M</option>
+              <option>Above $50M</option>
+              <option>Prefer not to say</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form__row">
+          <div class="form__field form__field--full">
+            <label class="form__label">Project Type</label>
+            <div class="form__radios" role="radiogroup" aria-label="Project type">
+              <button type="button" class="form__radio is-active" data-radio>Residential</button>
+              <button type="button" class="form__radio" data-radio>Cultural</button>
+              <button type="button" class="form__radio" data-radio>Commercial</button>
+              <button type="button" class="form__radio" data-radio>Interior</button>
+              <button type="button" class="form__radio" data-radio>Master Plan</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="form__row">
+          <div class="form__field form__field--full">
+            <label class="form__label" for="f-brief">Brief</label>
+            <textarea class="form__textarea" id="f-brief" name="brief" placeholder="Tell us about the site, the program, and the timeline. A paragraph is enough." rows="4"></textarea>
+          </div>
+        </div>
+
+        <button type="submit" class="form__submit">
+          Send Inquiry
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+
+        <p class="form__note">By sending this inquiry you agree to be contacted by FORMA. We reply to all serious inquiries within five working days. This form is a demonstration and does not transmit data.</p>
+
+        <div class="form__success" id="formSuccess">
+          <div class="form__success-title">Inquiry received.</div>
+          <p class="form__success-text">Thank you. A member of the studio will be in touch within five working days.</p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__top">
+      <div>
+        <div class="footer__brand">F<em>O</em>RMA</div>
+        <p class="footer__tagline">Architecture &amp; interior studio. Quiet buildings, patiently made.</p>
+      </div>
+      <div class="footer__col">
+        <h4>Studio</h4>
+        <ul>
+          <li><a href="#work">Selected Work</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#studio">Team</a></li>
+          <li><a href="#awards">Recognition</a></li>
+          <li><a href="#press">Press</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Practice</h4>
+        <ul>
+          <li><a href="#">Residential</a></li>
+          <li><a href="#">Cultural</a></li>
+          <li><a href="#">Commercial</a></li>
+          <li><a href="#">Interior</a></li>
+          <li><a href="#">Master Planning</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:studio@forma-architecture.com">studio@forma-architecture.com</a></li>
+          <li><a href="tel:+12125550148">+1 (212) 555-0148</a></li>
+          <li><a href="#contact">14 Cooper Square, NY</a></li>
+          <li><a href="#">Lisbon Studio</a></li>
+          <li><a href="#">Kyoto Studio</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__big" aria-hidden="true">
+      <div class="footer__big-text">FORMA<em>.</em></div>
+    </div>
+
+    <div class="footer__bottom">
+      <div>© 2026 FORMA. Template by <a href="https://excusemeweb.com/landing-pages" target="_blank" rel="noopener">ExcuseMeWeb</a></div>
+      <div class="footer__socials">
+        <a href="#" aria-label="Instagram">Instagram</a>
+        <a href="#" aria-label="LinkedIn">LinkedIn</a>
+        <a href="#" aria-label="Pinterest">Pinterest</a>
+        <a href="#" aria-label="Journal">Journal</a>
+      </div>
+      <div>Privacy · Terms · Imprint</div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     FLOATING DOWNLOAD BUTTON
+     ============================================================ -->
+<button class="download-btn" onclick="downloadPage()" aria-label="Download this page as HTML">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+    <path d="M12 3v12M7 10l5 5 5-5M5 21h14"/>
+  </svg>
+  <span>Download HTML</span>
+</button>
+
+<script>
+/* ---------- Sticky nav state ---------- */
+(function(){
+  const nav = document.getElementById('nav');
+  const onScroll = () => {
+    if (window.scrollY > 40) nav.classList.add('is-scrolled');
+    else nav.classList.remove('is-scrolled');
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+
+/* ---------- Reveal on scroll ---------- */
+(function(){
+  const els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window) || !els.length) {
+    els.forEach(e => e.classList.add('is-in'));
+    return;
+  }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('is-in'), i * 80);
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+  els.forEach(e => io.observe(e));
+})();
+
+/* ---------- Form: radio toggles ---------- */
+(function(){
+  const radios = document.querySelectorAll('[data-radio]');
+  radios.forEach(r => {
+    r.addEventListener('click', () => {
+      radios.forEach(x => x.classList.remove('is-active'));
+      r.classList.add('is-active');
+    });
+  });
+})();
+
+/* ---------- Form: visual-only submit ---------- */
+(function(){
+  const form = document.getElementById('inquiryForm');
+  const success = document.getElementById('formSuccess');
+  if (!form) return;
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = form.querySelector('#f-name').value.trim();
+    const email = form.querySelector('#f-email').value.trim();
+    if (!name || !email) {
+      // gentle validation highlight
+      if (!name) form.querySelector('#f-name').style.borderColor = 'var(--accent)';
+      if (!email) form.querySelector('#f-email').style.borderColor = 'var(--accent)';
+      return;
+    }
+    // hide form fields visually, show success block
+    Array.from(form.children).forEach(c => {
+      if (c !== success) c.style.display = 'none';
+    });
+    success.classList.add('is-visible');
+    success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+})();
+
+/* ---------- Smooth anchor offset (for sticky nav) ---------- */
+(function(){
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const id = a.getAttribute('href');
+      if (id.length < 2) return;
+      const target = document.querySelector(id);
+      if (!target) return;
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 70;
+      window.scrollTo({ top, behavior: 'smooth' });
+    });
+  });
+})();
+
+/* ---------- Download the page as HTML ---------- */
+function downloadPage(){
+  const html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+  const blob = new Blob([html], { type: 'text/html' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'premium-architecture-landing-page.html';
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+}
+</script>
+
+</body>
+</html>
