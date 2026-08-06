@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <script defer src="https://cloud.umami.is/script.js" data-website-id="fa026cc1-8f84-44f5-b2fb-9ccf29374a38"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO Toolkit | ExcuseMeWeb</title>
+<meta name="description" content="SEO toolkit with meta tag generator, URL slug generator, word and character counter, and Open Graph preview. Browser-based SEO utilities.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="SEO Toolkit | ExcuseMeWeb">
+<meta property="og:description" content="SEO toolkit with meta tag generator, URL slug generator, word and character counter, and Open Graph preview. Browser-based SEO utilities.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://excusemeweb.com/seo-toolkit">
+<meta property="og:image" content="https://excusemeweb.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SEO Toolkit | ExcuseMeWeb">
+<meta name="twitter:description" content="SEO toolkit with meta tag generator, URL slug generator, word and character counter, and Open Graph preview. Browser-based SEO utilities.">
+<link rel="canonical" href="https://excusemeweb.com/seo-toolkit">
+<meta name="theme-color" content="#1d4ed8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "SEO Toolkit", "url": "https://excusemeweb.com/seo-toolkit", "description": "SEO toolkit with meta tag generator, URL slug generator, word and character counter, and Open Graph preview. Browser-based SEO utilities.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "All", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "author": {"@type": "Organization", "name": "ExcuseMeWeb"}, "dateModified": "2026-08-06"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://excusemeweb.com/"}, {"@type": "ListItem", "position": 2, "name": "Toolkits", "item": "https://excusemeweb.com/all-in-one-toolkit"}, {"@type": "ListItem", "position": 3, "name": "SEO Toolkit", "item": "https://excusemeweb.com/seo-toolkit"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What's the ideal length for a meta description?", "acceptedAnswer": {"@type": "Answer", "text": "Google typically truncates meta descriptions around 155-160 characters on desktop and 120 characters on mobile. Aim for 150-160 characters with the primary keyword near the start."}}, {"@type": "Question", "name": "How should I format a URL slug?", "acceptedAnswer": {"@type": "Answer", "text": "Use lowercase letters, separate words with hyphens (not underscores), keep it under 75 characters, and include the primary keyword. Avoid stop words like 'the', 'a', 'of' when possible."}}, {"@type": "Question", "name": "What Open Graph tags do I need?", "acceptedAnswer": {"@type": "Answer", "text": "The minimum set is og:title, og:description, og:type, og:image, and og:url. Twitter Cards use twitter:card, twitter:title, twitter:description, and twitter:image. Most platforms fall back to OG tags."}}, {"@type": "Question", "name": "Does word count affect SEO?", "acceptedAnswer": {"@type": "Answer", "text": "There's no fixed rule, but pages with 1,000-2,000 words of substantive content tend to rank better for competitive terms. Length alone doesn't help; depth, accuracy, and usefulness matter more."}}]}</script>
+<style>
+:root {
+  --bg: #fbfaf8;
+  --surface: #ffffff;
+  --surface-2: #f4f1ec;
+  --text: #241f1a;
+  --text-muted: #8a7f72;
+  --border: #e8e1d6;
+  --accent: #1d4ed8;
+  --accent-2: #1e40af;
+  --accent-soft: #dbeafe;
+  --radius: 14px;
+  --radius-sm: 9px;
+  --shadow: 0 1px 2px rgba(0,0,0,.06), 0 8px 24px rgba(0,0,0,.08);
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SFMono-Regular', Consolas, monospace;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+button { font-family: inherit; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+.tk-header {
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  position: sticky; top: 0; z-index: 50;
+}
+.tk-header-inner {
+  max-width: 1120px; margin: 0 auto; padding: 16px 24px;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+}
+.tk-brand { display: flex; align-items: center; gap: 12px; }
+.tk-back {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 13px; font-weight: 600; color: var(--text-muted);
+  text-decoration: none; padding: 8px 12px; border-radius: 999px;
+  border: 1px solid var(--border); background: var(--bg); transition: .15s;
+}
+.tk-back:hover { color: var(--text); border-color: var(--accent); text-decoration: none; }
+.tk-icon {
+  width: 42px; height: 42px; border-radius: 12px; display: flex; align-items: center; justify-content: center;
+  font-size: 21px; background: var(--accent-soft); flex-shrink:0;
+}
+.tk-title { font-size: 18px; font-weight: 800; letter-spacing: -0.01em; }
+.tk-title span { display: block; font-size: 12px; font-weight: 500; color: var(--text-muted); margin-top: 1px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px; cursor: pointer;
+  font-weight: 700; font-size: 13.5px; border-radius: 10px; border: 1px solid transparent;
+  padding: 10px 16px; transition: .15s; white-space: nowrap;
+}
+.btn-accent { background: var(--accent); color: #ffffff; }
+.btn-accent:hover { background: var(--accent-2); }
+.btn-ghost { background: var(--bg); color: var(--text); border-color: var(--border); }
+.btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+.btn-sm { padding: 7px 12px; font-size: 12.5px; border-radius: 8px; }
+.btn:active { transform: scale(.97); }
+.tk-hero { padding: 44px 0 30px; }
+.tk-hero h1 { font-size: 32px; font-weight: 800; letter-spacing: -0.02em; margin: 0 0 8px; }
+.tk-hero p { font-size: 15.5px; color: var(--text-muted); max-width: 620px; margin: 0; }
+.tk-tabbar-wrap { border-top: 1px solid var(--border); overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.tk-tabbar { display: flex; gap: 6px; padding: 10px 24px; max-width: 1120px; margin: 0 auto; width: max-content; min-width: 100%; }
+.tk-tab {
+  flex-shrink: 0; display: inline-flex; align-items: center; gap: 6px;
+  padding: 9px 15px; border-radius: 999px; border: 1px solid var(--border); background: var(--bg);
+  color: var(--text-muted); font-size: 13px; font-weight: 700; cursor: pointer; white-space: nowrap; transition: .15s;
+}
+.tk-tab:hover { border-color: var(--accent); color: var(--text); }
+.tk-tab.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+.panel { display: none; padding: 8px 0 70px; max-width: 1120px; margin: 0 auto; padding-left: 24px; padding-right: 24px; }
+.panel.active { display: block; }
+.panel-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 22px; flex-wrap: wrap; margin-top: 22px; }
+.panel-head h2 { font-size: 23px; font-weight: 800; margin: 0; display:flex; align-items:center; gap:10px; }
+.panel-head p.desc { color: var(--text-muted); font-size: 13.5px; margin: 4px 0 0; }
+.panel-card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 26px; box-shadow: var(--shadow);
+}
+label.field-label { display: block; font-size: 12.5px; font-weight: 700; color: var(--text-muted); margin-bottom: 6px; text-transform: uppercase; letter-spacing: .02em; }
+input[type=text], input[type=number], input[type=date], input[type=datetime-local], select, textarea {
+  width: 100%; padding: 11px 13px; border-radius: 9px; border: 1px solid var(--border);
+  background: var(--bg); color: var(--text); font-size: 14px; font-family: inherit;
+}
+input:focus, select:focus, textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+textarea { resize: vertical; min-height: 110px; font-family: var(--font); line-height: 1.6; }
+.field { margin-bottom: 16px; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+@media (max-width: 640px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
+.row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.result-box {
+  background: var(--accent-soft); border: 1px solid var(--accent); border-radius: 11px;
+  padding: 18px 20px; margin-top: 18px;
+}
+.result-box .big { font-size: 28px; font-weight: 800; color: var(--accent-2); letter-spacing: -0.01em; }
+.result-box .lbl { font-size: 12px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: .03em; margin-bottom: 3px;}
+.hint { font-size: 12.5px; color: var(--text-muted); margin-top: 6px; }
+.tabs { display: flex; gap: 6px; margin-bottom: 18px; flex-wrap: wrap; }
+.tab {
+  padding: 8px 15px; border-radius: 999px; border: 1px solid var(--border); background: var(--bg);
+  cursor: pointer; font-size: 13px; font-weight: 700; color: var(--text-muted);
+}
+.tab.active { background: var(--accent); border-color: var(--accent); color: #ffffff; }
+.chip {
+  display: inline-flex; align-items: center; gap: 6px; padding: 7px 12px; border-radius: 999px;
+  background: var(--surface-2); border: 1px solid var(--border); font-size: 13px; font-weight: 600;
+}
+table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--border); }
+th { font-size: 11.5px; text-transform: uppercase; letter-spacing: .03em; color: var(--text-muted); }
+.icon-btn {
+  width: 34px; height: 34px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg);
+  color: var(--text-muted); cursor: pointer; display: inline-flex; align-items: center; justify-content: center; font-size: 15px;
+}
+.icon-btn:hover { border-color: var(--accent); color: var(--accent); }
+.mono { font-family: var(--font-mono); }
+.swatch-card { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; background: var(--surface); cursor: pointer; }
+.swatch { height: 74px; border-radius: 10px 10px 0 0; border: 1px solid var(--border); border-bottom: none; }
+.swatch-info { padding: 10px 12px; font-size: 12px; }
+.swatch-info .hex { font-weight: 700; font-family: var(--font-mono); }
+.list-item {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  padding: 11px 13px; border: 1px solid var(--border); border-radius: 9px; margin-bottom: 8px; background: var(--bg);
+}
+.list-item.done { opacity: .55; }
+.list-item.done .lt { text-decoration: line-through; }
+::placeholder { color: var(--text-muted); opacity:.7; }
+.toast {
+  position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%) translateY(20px);
+  background: var(--text); color: var(--bg); padding: 11px 20px; border-radius: 999px;
+  font-size: 13.5px; font-weight: 700; opacity: 0; pointer-events: none; transition: .25s; z-index: 999; box-shadow: 0 8px 24px rgba(0,0,0,.25);
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+.tk-footer { text-align: center; padding: 30px 0 50px; color: var(--text-muted); font-size: 12.5px; }
+.timer-display { font-size: 64px; font-weight: 800; font-family: var(--font-mono); letter-spacing: -1px; text-align: center; margin: 10px 0 22px; }
+@media (max-width: 640px) { .timer-display { font-size: 46px; } }
+.faq-section { max-width: 800px; margin: 0 auto; padding: 40px 24px 60px; }
+.faq-section h2 { font-size: 24px; font-weight: 800; text-align: center; margin-bottom: 28px; }
+details {
+  margin-bottom: 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 18px;
+  background: var(--surface);
+}
+summary {
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--text);
+}
+details p { margin-top: 10px; color: var(--text-muted); line-height: 1.7; font-size: 14px; }
+</style>
+</head>
+<body>
+<header class="tk-header">
+  <div class="tk-header-inner">
+    <div class="tk-brand">
+      <a href="/" class="tk-back">← All Tools</a>
+      <div class="tk-icon">🔍</div>
+      <div class="tk-title">SEO Toolkit<span>ExcuseMeWeb Toolkit</span></div>
+    </div>
+    <a href="/all-in-one-toolkit" class="btn btn-ghost btn-sm">All Toolkits</a>
+  </div>
+</header>
+
+<div class="wrap">
+  <section class="tk-hero">
+    <h1>SEO Toolkit</h1>
+    <p>On-page SEO utilities for webmasters and content creators. Generate meta tags, create URL slugs, count words and characters, and preview Open Graph cards.</p>
+  </section>
+</div>
+
+<div class="tk-tabbar-wrap">
+  <div class="tk-tabbar">
+    <button class="tk-tab active" data-target="meta-gen-panel">🏷️ Meta Tag Generator</button>
+    <button class="tk-tab " data-target="slug-gen-panel">🔗 Slug Generator</button>
+    <button class="tk-tab " data-target="counter-panel">🔢 Word & Character Counter</button>
+    <button class="tk-tab " data-target="og-preview-panel">🖼️ OG Preview</button>
+  </div>
+</div>
+
+<div class="panel active" id="meta-gen-panel">
+  <div class="panel-head">
+    <h2>🏷️ Meta Tag Generator</h2>
+  </div>
+  <div class="panel-card">
+    <div class="field">
+                        <label class="field-label">Title (60 chars max)</label>
+                        <input type="text" id="mt-title" placeholder="Page Title" oninput="mtGen()" maxlength="70">
+                        <p class="hint" id="mt-title-count">0 chars</p>
+                    </div>
+                    <div class="field">
+                        <label class="field-label">Description (155 chars max)</label>
+                        <textarea id="mt-desc" placeholder="Meta description..." oninput="mtGen()" maxlength="200"></textarea>
+                        <p class="hint" id="mt-desc-count">0 chars</p>
+                    </div>
+                    <div class="grid-2">
+                        <div class="field">
+                            <label class="field-label">URL</label>
+                            <input type="text" id="mt-url" placeholder="https://example.com/page" oninput="mtGen()">
+                        </div>
+                        <div class="field">
+                            <label class="field-label">Image URL</label>
+                            <input type="text" id="mt-img" placeholder="https://example.com/og.png" oninput="mtGen()">
+                        </div>
+                    </div>
+                    <label class="field-label">Generated Tags</label>
+                    <textarea id="mt-out" readonly style="min-height:180px;font-family:var(--font-mono);font-size:12px"></textarea>
+                    <button class="btn btn-ghost btn-sm" style="margin-top:10px" onclick="copyText(document.getElementById('mt-out').value)">Copy Tags</button>
+  </div>
+</div>
+
+<div class="panel " id="slug-gen-panel">
+  <div class="panel-head">
+    <h2>🔗 Slug Generator</h2>
+  </div>
+  <div class="panel-card">
+    <label class="field-label">Title or Text</label>
+                    <input type="text" id="sl-input" placeholder="How to Write a Blog Post in 2025" oninput="slGen()">
+                    <label class="field-label" style="margin-top:14px">Separator</label>
+                    <select id="sl-sep" onchange="slGen()">
+                        <option value="-">Hyphen (-)</option>
+                        <option value="_">Underscore (_)</option>
+                    </select>
+                    <label class="field-label" style="margin-top:14px">Slug</label>
+                    <input type="text" id="sl-out" readonly>
+                    <button class="btn btn-ghost btn-sm" style="margin-top:10px" onclick="copyText(document.getElementById('sl-out').value)">Copy</button>
+                    <p class="hint" id="sl-len">0 chars</p>
+  </div>
+</div>
+
+<div class="panel " id="counter-panel">
+  <div class="panel-head">
+    <h2>🔢 Word & Character Counter</h2>
+  </div>
+  <div class="panel-card">
+    <label class="field-label">Text</label>
+                    <textarea id="cn-input" placeholder="Paste your title, description, or content..." oninput="cnUpdate()" style="min-height:120px"></textarea>
+                    <div class="grid-3" style="margin-top:14px">
+                        <div class="result-box" style="margin-top:0">
+                            <div class="lbl">Words</div>
+                            <div class="big" id="cn-w">0</div>
+                        </div>
+                        <div class="result-box" style="margin-top:0">
+                            <div class="lbl">Characters</div>
+                            <div class="big" id="cn-c">0</div>
+                        </div>
+                        <div class="result-box" style="margin-top:0">
+                            <div class="lbl">No Spaces</div>
+                            <div class="big" id="cn-ns">0</div>
+                        </div>
+                    </div>
+  </div>
+</div>
+
+<div class="panel " id="og-preview-panel">
+  <div class="panel-head">
+    <h2>🖼️ OG Preview</h2>
+  </div>
+  <div class="panel-card">
+    <div class="grid-2">
+                        <div class="field">
+                            <label class="field-label">Title</label>
+                            <input type="text" id="og-title" placeholder="Your Page Title" oninput="ogUpdate()">
+                        </div>
+                        <div class="field">
+                            <label class="field-label">URL</label>
+                            <input type="text" id="og-url" placeholder="https://example.com" oninput="ogUpdate()">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="field-label">Description</label>
+                        <textarea id="og-desc" placeholder="Meta description..." oninput="ogUpdate()" style="min-height:60px"></textarea>
+                    </div>
+                    <label class="field-label">Preview</label>
+                    <div style="margin-top:8px;border:1px solid var(--border);border-radius:12px;overflow:hidden;max-width:500px;background:var(--bg)">
+                        <div id="og-img" style="height:200px;background:var(--bg-tertiary);display:flex;align-items:center;justify-content:center;color:var(--text-muted)">Image preview</div>
+                        <div style="padding:12px 14px">
+                            <div id="og-url-display" style="font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.03em">example.com</div>
+                            <div id="og-title-display" style="font-size:16px;font-weight:700;color:var(--text);margin-top:2px">Your Page Title</div>
+                            <div id="og-desc-display" style="font-size:13px;color:var(--text-muted);margin-top:3px">Meta description preview will appear here.</div>
+                        </div>
+                    </div>
+  </div>
+</div>
+
+<section class="faq-section">
+  <h2>Frequently Asked Questions</h2>
+  <details><summary>What's the ideal length for a meta description?</summary><p>Google typically truncates meta descriptions around 155-160 characters on desktop and 120 characters on mobile. Aim for 150-160 characters with the primary keyword near the start.</p></details>
+<details><summary>How should I format a URL slug?</summary><p>Use lowercase letters, separate words with hyphens (not underscores), keep it under 75 characters, and include the primary keyword. Avoid stop words like 'the', 'a', 'of' when possible.</p></details>
+<details><summary>What Open Graph tags do I need?</summary><p>The minimum set is og:title, og:description, og:type, og:image, and og:url. Twitter Cards use twitter:card, twitter:title, twitter:description, and twitter:image. Most platforms fall back to OG tags.</p></details>
+<details><summary>Does word count affect SEO?</summary><p>There's no fixed rule, but pages with 1,000-2,000 words of substantive content tend to rank better for competitive terms. Length alone doesn't help; depth, accuracy, and usefulness matter more.</p></details>
+</section>
+
+<footer class="tk-footer">
+  <p>&copy; 2026 ExcuseMeWeb — <a href="/all-in-one-toolkit">All Toolkits</a> · <a href="/">All Tools</a> · <a href="/sitemap">Sitemap</a></p>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+function copyText(t) {
+  navigator.clipboard.writeText(t).then(() => toast('Copied to clipboard'));
+}
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2000);
+}
+function escapeHtml(s) {
+  const d = document.createElement('div');
+  d.textContent = s;
+  return d.innerHTML;
+}
+function switchPanel(id) {
+  document.querySelectorAll('.tk-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  const btn = document.querySelector(`.tk-tab[data-target="${id}"]`);
+  const panel = document.getElementById(id);
+  if (btn) btn.classList.add('active');
+  if (panel) panel.classList.add('active');
+}
+document.querySelectorAll('.tk-tab').forEach(t => {
+  t.addEventListener('click', () => switchPanel(t.dataset.target));
+});
+
+function mtGen() {
+                        const t = document.getElementById('mt-title').value;
+                        const d = document.getElementById('mt-desc').value;
+                        const u = document.getElementById('mt-url').value;
+                        const i = document.getElementById('mt-img').value;
+                        document.getElementById('mt-title-count').textContent = `${t.length} chars ${t.length > 60 ? '(over 60)' : ''}`;
+                        document.getElementById('mt-desc-count').textContent = `${d.length} chars ${d.length > 155 ? '(over 155)' : ''}`;
+                        let out = `<title>${t}</title>\n<meta name="description" content="${d}">\n<link rel="canonical" href="${u}">\n`;
+                        if (i) out += `<meta property="og:image" content="${i}">\n`;
+                        out += `<meta property="og:title" content="${t}">\n<meta property="og:description" content="${d}">\n<meta property="og:type" content="website">\n<meta property="og:url" content="${u}">\n`;
+                        out += `<meta name="twitter:card" content="summary_large_image">\n<meta name="twitter:title" content="${t}">\n<meta name="twitter:description" content="${d}">`;
+                        document.getElementById('mt-out').value = out;
+                    }
+
+const STOP = new Set(['the','a','an','of','to','in','on','for','and','or','but','with','is','are','at','by','from','as','it','this','that');
+                    function slGen() {
+                        const sep = document.getElementById('sl-sep').value;
+                        let s = document.getElementById('sl-input').value.toLowerCase();
+                        s = s.replace(/[^a-z0-9\s-]/g, '').trim();
+                        const words = s.split(/\s+/).filter(w => w && !STOP.has(w));
+                        const slug = words.join(sep).slice(0, 75);
+                        document.getElementById('sl-out').value = slug;
+                        document.getElementById('sl-len').textContent = `${slug.length} chars ${slug.length > 75 ? '(over 75)' : ''}`;
+                    }
+
+function cnUpdate() {
+                        const t = document.getElementById('cn-input').value;
+                        document.getElementById('cn-w').textContent = (t.match(/\S+/g) || []).length;
+                        document.getElementById('cn-c').textContent = t.length;
+                        document.getElementById('cn-ns').textContent = t.replace(/\s/g, '').length;
+                    }
+
+function ogUpdate() {
+                        const t = document.getElementById('og-title').value || 'Your Page Title';
+                        const u = document.getElementById('og-url').value || 'https://example.com';
+                        const d = document.getElementById('og-desc').value || 'Meta description preview will appear here.';
+                        document.getElementById('og-title-display').textContent = t;
+                        document.getElementById('og-desc-display').textContent = d;
+                        document.getElementById('og-url-display').textContent = u.replace(/^https?:\/\/(www\.)?/, '').split('/')[0];
+                    }
+</script>
+</body>
+</html>

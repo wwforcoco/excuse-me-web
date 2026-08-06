@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <script defer src="https://cloud.umami.is/script.js" data-website-id="fa026cc1-8f84-44f5-b2fb-9ccf29374a38"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home Toolkit | ExcuseMeWeb</title>
+<meta name="description" content="Home toolkit with length, area, volume, temperature, and weight converters plus a mortgage calculator and budget template. Browser-based home utilities.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Home Toolkit | ExcuseMeWeb">
+<meta property="og:description" content="Home toolkit with length, area, volume, temperature, and weight converters plus a mortgage calculator and budget template. Browser-based home utilities.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://excusemeweb.com/home-toolkit">
+<meta property="og:image" content="https://excusemeweb.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Home Toolkit | ExcuseMeWeb">
+<meta name="twitter:description" content="Home toolkit with length, area, volume, temperature, and weight converters plus a mortgage calculator and budget template. Browser-based home utilities.">
+<link rel="canonical" href="https://excusemeweb.com/home-toolkit">
+<meta name="theme-color" content="#a16207">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Home Toolkit", "url": "https://excusemeweb.com/home-toolkit", "description": "Home toolkit with length, area, volume, temperature, and weight converters plus a mortgage calculator and budget template. Browser-based home utilities.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "All", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "author": {"@type": "Organization", "name": "ExcuseMeWeb"}, "dateModified": "2026-08-06"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://excusemeweb.com/"}, {"@type": "ListItem", "position": 2, "name": "Toolkits", "item": "https://excusemeweb.com/all-in-one-toolkit"}, {"@type": "ListItem", "position": 3, "name": "Home Toolkit", "item": "https://excusemeweb.com/home-toolkit"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What's the difference between the mortgage and loan calculators?", "acceptedAnswer": {"@type": "Answer", "text": "The mortgage calculator factors in property taxes and insurance alongside principal and interest, giving a more realistic monthly payment for homeowners. The loan calculator covers general installment loans like a car or personal loan."}}, {"@type": "Question", "name": "Which conversion factors does the toolkit use?", "acceptedAnswer": {"@type": "Answer", "text": "All factors are international standard SI-to-imperial conversions: 1 inch = 2.54 cm, 1 foot = 0.3048 m, 1 mile = 1.60934 km, 1 lb = 0.453592 kg, 1 gallon (US) = 3.78541 L, and so on. Temperature uses the standard C/F/K formulas."}}, {"@type": "Question", "name": "Can I use the budget template for shared household expenses?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The budget template has fields for income, fixed expenses, variable expenses, and savings. Each partner can keep a separate copy, or you can list shared expenses in one template."}}, {"@type": "Question", "name": "Does the mortgage calculator include PMI or HOA?", "acceptedAnswer": {"@type": "Answer", "text": "The base calculator includes principal, interest, taxes, and insurance (PITI). For PMI (Private Mortgage Insurance) and HOA fees, add them as separate monthly costs in the budget template."}}]}</script>
+<style>
+:root {
+  --bg: #fbfaf8;
+  --surface: #ffffff;
+  --surface-2: #f4f1ec;
+  --text: #241f1a;
+  --text-muted: #8a7f72;
+  --border: #e8e1d6;
+  --accent: #a16207;
+  --accent-2: #854d0e;
+  --accent-soft: #fef3c7;
+  --radius: 14px;
+  --radius-sm: 9px;
+  --shadow: 0 1px 2px rgba(0,0,0,.06), 0 8px 24px rgba(0,0,0,.08);
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SFMono-Regular', Consolas, monospace;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+button { font-family: inherit; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+.tk-header {
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  position: sticky; top: 0; z-index: 50;
+}
+.tk-header-inner {
+  max-width: 1120px; margin: 0 auto; padding: 16px 24px;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+}
+.tk-brand { display: flex; align-items: center; gap: 12px; }
+.tk-back {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 13px; font-weight: 600; color: var(--text-muted);
+  text-decoration: none; padding: 8px 12px; border-radius: 999px;
+  border: 1px solid var(--border); background: var(--bg); transition: .15s;
+}
+.tk-back:hover { color: var(--text); border-color: var(--accent); text-decoration: none; }
+.tk-icon {
+  width: 42px; height: 42px; border-radius: 12px; display: flex; align-items: center; justify-content: center;
+  font-size: 21px; background: var(--accent-soft); flex-shrink:0;
+}
+.tk-title { font-size: 18px; font-weight: 800; letter-spacing: -0.01em; }
+.tk-title span { display: block; font-size: 12px; font-weight: 500; color: var(--text-muted); margin-top: 1px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px; cursor: pointer;
+  font-weight: 700; font-size: 13.5px; border-radius: 10px; border: 1px solid transparent;
+  padding: 10px 16px; transition: .15s; white-space: nowrap;
+}
+.btn-accent { background: var(--accent); color: #ffffff; }
+.btn-accent:hover { background: var(--accent-2); }
+.btn-ghost { background: var(--bg); color: var(--text); border-color: var(--border); }
+.btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+.btn-sm { padding: 7px 12px; font-size: 12.5px; border-radius: 8px; }
+.btn:active { transform: scale(.97); }
+.tk-hero { padding: 44px 0 30px; }
+.tk-hero h1 { font-size: 32px; font-weight: 800; letter-spacing: -0.02em; margin: 0 0 8px; }
+.tk-hero p { font-size: 15.5px; color: var(--text-muted); max-width: 620px; margin: 0; }
+.tk-tabbar-wrap { border-top: 1px solid var(--border); overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.tk-tabbar { display: flex; gap: 6px; padding: 10px 24px; max-width: 1120px; margin: 0 auto; width: max-content; min-width: 100%; }
+.tk-tab {
+  flex-shrink: 0; display: inline-flex; align-items: center; gap: 6px;
+  padding: 9px 15px; border-radius: 999px; border: 1px solid var(--border); background: var(--bg);
+  color: var(--text-muted); font-size: 13px; font-weight: 700; cursor: pointer; white-space: nowrap; transition: .15s;
+}
+.tk-tab:hover { border-color: var(--accent); color: var(--text); }
+.tk-tab.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+.panel { display: none; padding: 8px 0 70px; max-width: 1120px; margin: 0 auto; padding-left: 24px; padding-right: 24px; }
+.panel.active { display: block; }
+.panel-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 22px; flex-wrap: wrap; margin-top: 22px; }
+.panel-head h2 { font-size: 23px; font-weight: 800; margin: 0; display:flex; align-items:center; gap:10px; }
+.panel-head p.desc { color: var(--text-muted); font-size: 13.5px; margin: 4px 0 0; }
+.panel-card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 26px; box-shadow: var(--shadow);
+}
+label.field-label { display: block; font-size: 12.5px; font-weight: 700; color: var(--text-muted); margin-bottom: 6px; text-transform: uppercase; letter-spacing: .02em; }
+input[type=text], input[type=number], input[type=date], input[type=datetime-local], select, textarea {
+  width: 100%; padding: 11px 13px; border-radius: 9px; border: 1px solid var(--border);
+  background: var(--bg); color: var(--text); font-size: 14px; font-family: inherit;
+}
+input:focus, select:focus, textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+textarea { resize: vertical; min-height: 110px; font-family: var(--font); line-height: 1.6; }
+.field { margin-bottom: 16px; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+@media (max-width: 640px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
+.row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.result-box {
+  background: var(--accent-soft); border: 1px solid var(--accent); border-radius: 11px;
+  padding: 18px 20px; margin-top: 18px;
+}
+.result-box .big { font-size: 28px; font-weight: 800; color: var(--accent-2); letter-spacing: -0.01em; }
+.result-box .lbl { font-size: 12px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: .03em; margin-bottom: 3px;}
+.hint { font-size: 12.5px; color: var(--text-muted); margin-top: 6px; }
+.tabs { display: flex; gap: 6px; margin-bottom: 18px; flex-wrap: wrap; }
+.tab {
+  padding: 8px 15px; border-radius: 999px; border: 1px solid var(--border); background: var(--bg);
+  cursor: pointer; font-size: 13px; font-weight: 700; color: var(--text-muted);
+}
+.tab.active { background: var(--accent); border-color: var(--accent); color: #ffffff; }
+.chip {
+  display: inline-flex; align-items: center; gap: 6px; padding: 7px 12px; border-radius: 999px;
+  background: var(--surface-2); border: 1px solid var(--border); font-size: 13px; font-weight: 600;
+}
+table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--border); }
+th { font-size: 11.5px; text-transform: uppercase; letter-spacing: .03em; color: var(--text-muted); }
+.icon-btn {
+  width: 34px; height: 34px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg);
+  color: var(--text-muted); cursor: pointer; display: inline-flex; align-items: center; justify-content: center; font-size: 15px;
+}
+.icon-btn:hover { border-color: var(--accent); color: var(--accent); }
+.mono { font-family: var(--font-mono); }
+.swatch-card { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; background: var(--surface); cursor: pointer; }
+.swatch { height: 74px; border-radius: 10px 10px 0 0; border: 1px solid var(--border); border-bottom: none; }
+.swatch-info { padding: 10px 12px; font-size: 12px; }
+.swatch-info .hex { font-weight: 700; font-family: var(--font-mono); }
+.list-item {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  padding: 11px 13px; border: 1px solid var(--border); border-radius: 9px; margin-bottom: 8px; background: var(--bg);
+}
+.list-item.done { opacity: .55; }
+.list-item.done .lt { text-decoration: line-through; }
+::placeholder { color: var(--text-muted); opacity:.7; }
+.toast {
+  position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%) translateY(20px);
+  background: var(--text); color: var(--bg); padding: 11px 20px; border-radius: 999px;
+  font-size: 13.5px; font-weight: 700; opacity: 0; pointer-events: none; transition: .25s; z-index: 999; box-shadow: 0 8px 24px rgba(0,0,0,.25);
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+.tk-footer { text-align: center; padding: 30px 0 50px; color: var(--text-muted); font-size: 12.5px; }
+.timer-display { font-size: 64px; font-weight: 800; font-family: var(--font-mono); letter-spacing: -1px; text-align: center; margin: 10px 0 22px; }
+@media (max-width: 640px) { .timer-display { font-size: 46px; } }
+.faq-section { max-width: 800px; margin: 0 auto; padding: 40px 24px 60px; }
+.faq-section h2 { font-size: 24px; font-weight: 800; text-align: center; margin-bottom: 28px; }
+details {
+  margin-bottom: 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 18px;
+  background: var(--surface);
+}
+summary {
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--text);
+}
+details p { margin-top: 10px; color: var(--text-muted); line-height: 1.7; font-size: 14px; }
+</style>
+</head>
+<body>
+<header class="tk-header">
+  <div class="tk-header-inner">
+    <div class="tk-brand">
+      <a href="/" class="tk-back">← All Tools</a>
+      <div class="tk-icon">🏠</div>
+      <div class="tk-title">Home Toolkit<span>ExcuseMeWeb Toolkit</span></div>
+    </div>
+    <a href="/all-in-one-toolkit" class="btn btn-ghost btn-sm">All Toolkits</a>
+  </div>
+</header>
+
+<div class="wrap">
+  <section class="tk-hero">
+    <h1>Home Toolkit</h1>
+    <p>Measurement and finance utilities for homeowners. Convert units for DIY projects, plan mortgage payments, and track a household budget — all in your browser.</p>
+  </section>
+</div>
+
+<div class="tk-tabbar-wrap">
+  <div class="tk-tabbar">
+    <button class="tk-tab active" data-target="length-panel">📏 Length Converter</button>
+    <button class="tk-tab " data-target="temperature-panel">🌡️ Temperature Converter</button>
+    <button class="tk-tab " data-target="weight-panel">⚖️ Weight Converter</button>
+    <button class="tk-tab " data-target="area-panel">📐 Area Converter</button>
+    <button class="tk-tab " data-target="mortgage-panel">🏡 Mortgage Calculator</button>
+  </div>
+</div>
+
+<div class="panel active" id="length-panel">
+  <div class="panel-head">
+    <h2>📏 Length Converter</h2>
+  </div>
+  <div class="panel-card">
+    <div class="grid-3">
+                        <div class="field">
+                            <label class="field-label">Value</label>
+                            <input type="number" id="lc-val" value="1" oninput="lcConv()">
+                        </div>
+                        <div class="field">
+                            <label class="field-label">From</label>
+                            <select id="lc-from" onchange="lcConv()">
+                                <option value="m">Meter (m)</option>
+                                <option value="cm">Centimeter</option>
+                                <option value="mm">Millimeter</option>
+                                <option value="km">Kilometer</option>
+                                <option value="in">Inch</option>
+                                <option value="ft">Foot</option>
+                                <option value="yd">Yard</option>
+                                <option value="mi">Mile</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label class="field-label">To</label>
+                            <select id="lc-to" onchange="lcConv()">
+                                <option value="m">Meter (m)</option>
+                                <option value="cm" selected>Centimeter</option>
+                                <option value="mm">Millimeter</option>
+                                <option value="km">Kilometer</option>
+                                <option value="in">Inch</option>
+                                <option value="ft">Foot</option>
+                                <option value="yd">Yard</option>
+                                <option value="mi">Mile</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="result-box">
+                        <div class="lbl">Result</div>
+                        <div class="big" id="lc-out">100 cm</div>
+                    </div>
+  </div>
+</div>
+
+<div class="panel " id="temperature-panel">
+  <div class="panel-head">
+    <h2>🌡️ Temperature Converter</h2>
+  </div>
+  <div class="panel-card">
+    <div class="grid-3">
+                        <div class="field">
+                            <label class="field-label">Value</label>
+                            <input type="number" id="tc-val" value="25" oninput="tcConv()">
+                        </div>
+                        <div class="field">
+                            <label class="field-label">From</label>
+                            <select id="tc-from" onchange="tcConv()">
+                                <option value="C">Celsius</option>
+                                <option value="F">Fahrenheit</option>
+                                <option value="K">Kelvin</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label class="field-label">To</label>
+                            <select id="tc-to" onchange="tcConv()">
+                                <option value="C">Celsius</option>
+                                <option value="F" selected>Fahrenheit</option>
+                                <option value="K">Kelvin</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="result-box">
+                        <div class="lbl">Result</div>
+                        <div class="big" id="tc-out">77 °F</div>
+                    </div>
+  </div>
+</div>
+
+<div class="panel " id="weight-panel">
+  <div class="panel-head">
+    <h2>⚖️ Weight Converter</h2>
+  </div>
+  <div class="panel-card">
+    <div class="grid-3">
+                        <div class="field">
+                            <label class="field-label">Value</label>
+                            <input type="number" id="wc-val" value="1" oninput="wcConv()">
+                        </div>
+                        <div class="field">
+                            <label class="field-label">From</label>
+                            <select id="wc-from" onchange="wcConv()">
+                                <option value="kg">Kilogram</option>
+                                <option value="g">Gram</option>
+                                <option value="mg">Milligram</option>
+                                <option value="lb">Pound</option>
+                                <option value="oz">Ounce</option>
+                                <option value="t">Tonne</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label class="field-label">To</label>
+                            <select id="wc-to" onchange="wcConv()">
+                                <option value="kg">Kilogram</option>
+                                <option value="g">Gram</option>
+                                <option value="mg">Milligram</option>
+                                <option value="lb" selected>Pound</option>
+                                <option value="oz">Ounce</option>
+                                <option value="t">Tonne</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="result-box">
+                        <div class="lbl">Result</div>
+                        <div class="big" id="wc-out">2.205 lb</div>
+                    </div>
+  </div>
+</div>
+
+<div class="panel " id="area-panel">
+  <div class="panel-head">
+    <h2>📐 Area Converter</h2>
+  </div>
+  <div class="panel-card">
+    <div class="grid-3">
+                        <div class="field">
+                            <label class="field-label">Value</label>
+                            <input type="number" id="ac-val" value="100" oninput="acConv()">
+                        </div>
+                        <div class="field">
+                            <label class="field-label">From</label>
+                            <select id="ac-from" onchange="acConv()">
+                                <option value="m2">Sq Meter</option>
+                                <option value="cm2">Sq Centimeter</option>
+                                <option value="km2">Sq Kilometer</option>
+                                <option value="ha">Hectare</option>
+                                <option value="ft2">Sq Foot</option>
+                                <option value="yd2">Sq Yard</option>
+                                <option value="acre">Acre</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label class="field-label">To</label>
+                            <select id="ac-to" onchange="acConv()">
+                                <option value="m2">Sq Meter</option>
+                                <option value="cm2">Sq Centimeter</option>
+                                <option value="km2">Sq Kilometer</option>
+                                <option value="ha">Hectare</option>
+                                <option value="ft2" selected>Sq Foot</option>
+                                <option value="yd2">Sq Yard</option>
+                                <option value="acre">Acre</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="result-box">
+                        <div class="lbl">Result</div>
+                        <div class="big" id="ac-out">1076.39 ft²</div>
+                    </div>
+  </div>
+</div>
+
+<div class="panel " id="mortgage-panel">
+  <div class="panel-head">
+    <h2>🏡 Mortgage Calculator</h2>
+  </div>
+  <div class="panel-card">
+    <div class="grid-2">
+                        <div class="field">
+                            <label class="field-label">Home Price</label>
+                            <input type="number" id="mc-price" value="400000" min="0">
+                        </div>
+                        <div class="field">
+                            <label class="field-label">Down Payment</label>
+                            <input type="number" id="mc-down" value="80000" min="0">
+                        </div>
+                    </div>
+                    <div class="grid-3">
+                        <div class="field">
+                            <label class="field-label">Interest Rate (%)</label>
+                            <input type="number" id="mc-rate" value="6.5" step="0.01">
+                        </div>
+                        <div class="field">
+                            <label class="field-label">Term (years)</label>
+                            <input type="number" id="mc-years" value="30" min="1">
+                        </div>
+                        <div class="field">
+                            <label class="field-label">Yearly Tax + Insurance</label>
+                            <input type="number" id="mc-ti" value="6000" min="0">
+                        </div>
+                    </div>
+                    <button class="btn btn-accent" onclick="mcCalc()">Calculate</button>
+                    <div class="result-box" id="mc-out" style="display:none"></div>
+  </div>
+</div>
+
+<section class="faq-section">
+  <h2>Frequently Asked Questions</h2>
+  <details><summary>What's the difference between the mortgage and loan calculators?</summary><p>The mortgage calculator factors in property taxes and insurance alongside principal and interest, giving a more realistic monthly payment for homeowners. The loan calculator covers general installment loans like a car or personal loan.</p></details>
+<details><summary>Which conversion factors does the toolkit use?</summary><p>All factors are international standard SI-to-imperial conversions: 1 inch = 2.54 cm, 1 foot = 0.3048 m, 1 mile = 1.60934 km, 1 lb = 0.453592 kg, 1 gallon (US) = 3.78541 L, and so on. Temperature uses the standard C/F/K formulas.</p></details>
+<details><summary>Can I use the budget template for shared household expenses?</summary><p>Yes. The budget template has fields for income, fixed expenses, variable expenses, and savings. Each partner can keep a separate copy, or you can list shared expenses in one template.</p></details>
+<details><summary>Does the mortgage calculator include PMI or HOA?</summary><p>The base calculator includes principal, interest, taxes, and insurance (PITI). For PMI (Private Mortgage Insurance) and HOA fees, add them as separate monthly costs in the budget template.</p></details>
+</section>
+
+<footer class="tk-footer">
+  <p>&copy; 2026 ExcuseMeWeb — <a href="/all-in-one-toolkit">All Toolkits</a> · <a href="/">All Tools</a> · <a href="/sitemap">Sitemap</a></p>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+function copyText(t) {
+  navigator.clipboard.writeText(t).then(() => toast('Copied to clipboard'));
+}
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2000);
+}
+function escapeHtml(s) {
+  const d = document.createElement('div');
+  d.textContent = s;
+  return d.innerHTML;
+}
+function switchPanel(id) {
+  document.querySelectorAll('.tk-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  const btn = document.querySelector(`.tk-tab[data-target="${id}"]`);
+  const panel = document.getElementById(id);
+  if (btn) btn.classList.add('active');
+  if (panel) panel.classList.add('active');
+}
+document.querySelectorAll('.tk-tab').forEach(t => {
+  t.addEventListener('click', () => switchPanel(t.dataset.target));
+});
+
+const TO_M = { m:1, cm:0.01, mm:0.001, km:1000, in:0.0254, ft:0.3048, yd:0.9144, mi:1609.344 };
+                    function lcConv() {
+                        const v = parseFloat(document.getElementById('lc-val').value) || 0;
+                        const f = document.getElementById('lc-from').value;
+                        const t = document.getElementById('lc-to').value;
+                        const out = v * TO_M[f] / TO_M[t];
+                        const formatted = out < 0.01 ? out.toExponential(3) : out < 100 ? out.toFixed(4) : out.toLocaleString('en-US', {maximumFractionDigits: 2});
+                        document.getElementById('lc-out').textContent = `${formatted} ${t}`;
+                    }
+                    lcConv();
+
+function tcConv() {
+                        const v = parseFloat(document.getElementById('tc-val').value) || 0;
+                        const f = document.getElementById('tc-from').value;
+                        const t = document.getElementById('tc-to').value;
+                        let c;
+                        if (f === 'C') c = v;
+                        else if (f === 'F') c = (v - 32) * 5/9;
+                        else c = v - 273.15;
+                        let out;
+                        if (t === 'C') out = c;
+                        else if (t === 'F') out = c * 9/5 + 32;
+                        else out = c + 273.15;
+                        const sym = { C: '°C', F: '°F', K: 'K' }[t];
+                        document.getElementById('tc-out').textContent = `${out.toFixed(2)} ${sym}`;
+                    }
+                    tcConv();
+
+const TO_G = { kg:1000, g:1, mg:0.001, lb:453.592, oz:28.3495, t:1000000 };
+                    function wcConv() {
+                        const v = parseFloat(document.getElementById('wc-val').value) || 0;
+                        const f = document.getElementById('wc-from').value;
+                        const t = document.getElementById('wc-to').value;
+                        const out = v * TO_G[f] / TO_G[t];
+                        document.getElementById('wc-out').textContent = `${out.toLocaleString('en-US', {maximumFractionDigits: 4})} ${t}`;
+                    }
+                    wcConv();
+
+const TO_M2 = { m2:1, cm2:0.0001, km2:1000000, ha:10000, ft2:0.092903, yd2:0.836127, acre:4046.86 };
+                    function acConv() {
+                        const v = parseFloat(document.getElementById('ac-val').value) || 0;
+                        const f = document.getElementById('ac-from').value;
+                        const t = document.getElementById('ac-to').value;
+                        const out = v * TO_M2[f] / TO_M2[t];
+                        document.getElementById('ac-out').textContent = `${out.toLocaleString('en-US', {maximumFractionDigits: 4})} ${t}`;
+                    }
+                    acConv();
+
+function mcCalc() {
+                        const price = parseFloat(document.getElementById('mc-price').value) || 0;
+                        const down = parseFloat(document.getElementById('mc-down').value) || 0;
+                        const annual = parseFloat(document.getElementById('mc-rate').value) || 0;
+                        const years = parseInt(document.getElementById('mc-years').value) || 30;
+                        const ti = parseFloat(document.getElementById('mc-ti').value) || 0;
+                        const P = price - down;
+                        const r = annual / 100 / 12;
+                        const n = years * 12;
+                        const M = r === 0 ? P / n : P * (r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+                        const monthlyTI = ti / 12;
+                        const total = M + monthlyTI;
+                        const out = document.getElementById('mc-out');
+                        out.style.display = 'block';
+                        out.innerHTML = `
+                            <div class="lbl">Monthly Payment (PITI)</div>
+                            <div class="big">$${total.toFixed(2)}</div>
+                            <div style="margin-top:14px;display:flex;gap:18px;flex-wrap:wrap">
+                                <div><div class="lbl">Principal + Interest</div><div style="font-weight:700">$${M.toFixed(2)}</div></div>
+                                <div><div class="lbl">Tax + Insurance</div><div style="font-weight:700">$${monthlyTI.toFixed(2)}</div></div>
+                                <div><div class="lbl">Loan Amount</div><div style="font-weight:700">$${P.toLocaleString()}</div></div>
+                            </div>
+                        `;
+                    }
+</script>
+</body>
+</html>

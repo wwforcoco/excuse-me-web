@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <script defer src="https://cloud.umami.is/script.js" data-website-id="fa026cc1-8f84-44f5-b2fb-9ccf29374a38"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Writer Toolkit | ExcuseMeWeb</title>
+<meta name="description" content="Writer toolkit with word counter, character counter, reading time estimator, case converter, and lorem ipsum generator. All tools run in your browser.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Writer Toolkit | ExcuseMeWeb">
+<meta property="og:description" content="Writer toolkit with word counter, character counter, reading time estimator, case converter, and lorem ipsum generator. All tools run in your browser.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://excusemeweb.com/writer-toolkit">
+<meta property="og:image" content="https://excusemeweb.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Writer Toolkit | ExcuseMeWeb">
+<meta name="twitter:description" content="Writer toolkit with word counter, character counter, reading time estimator, case converter, and lorem ipsum generator. All tools run in your browser.">
+<link rel="canonical" href="https://excusemeweb.com/writer-toolkit">
+<meta name="theme-color" content="#0ea5e9">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Writer Toolkit", "url": "https://excusemeweb.com/writer-toolkit", "description": "Writer toolkit with word counter, character counter, reading time estimator, case converter, and lorem ipsum generator. All tools run in your browser.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "All", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "author": {"@type": "Organization", "name": "ExcuseMeWeb"}, "dateModified": "2026-08-06"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://excusemeweb.com/"}, {"@type": "ListItem", "position": 2, "name": "Toolkits", "item": "https://excusemeweb.com/all-in-one-toolkit"}, {"@type": "ListItem", "position": 3, "name": "Writer Toolkit", "item": "https://excusemeweb.com/writer-toolkit"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How is reading time calculated?", "acceptedAnswer": {"@type": "Answer", "text": "Reading time uses an average of 200 words per minute for adult silent reading. The tool divides your word count by 200 and rounds up, so a 600-word article shows as 3 minutes."}}, {"@type": "Question", "name": "What's the difference between word count and character count?", "acceptedAnswer": {"@type": "Answer", "text": "Word count is the number of whitespace-separated tokens. Character count includes every letter, digit, punctuation mark, and space. Some platforms (like Twitter) limit by character count, while most editors (like Google Docs) report both."}}, {"@type": "Question", "name": "Does the case converter handle non-English characters?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The converter uses JavaScript's built-in toUpperCase and toLowerCase, which respect Unicode case rules for Latin, Greek, Cyrillic, and most other scripts."}}, {"@type": "Question", "name": "Is the lorem ipsum generator truly random?", "acceptedAnswer": {"@type": "Answer", "text": "It pulls words from a fixed Latin word list and shuffles them into grammatical-looking sentences. The output is deterministic given the same seed length, which makes it reproducible for placeholder layouts."}}]}</script>
+<style>
+:root {
+  --bg: #fbfaf8;
+  --surface: #ffffff;
+  --surface-2: #f4f1ec;
+  --text: #241f1a;
+  --text-muted: #8a7f72;
+  --border: #e8e1d6;
+  --accent: #0ea5e9;
+  --accent-2: #0284c7;
+  --accent-soft: #e0f2fe;
+  --radius: 14px;
+  --radius-sm: 9px;
+  --shadow: 0 1px 2px rgba(0,0,0,.06), 0 8px 24px rgba(0,0,0,.08);
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SFMono-Regular', Consolas, monospace;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+button { font-family: inherit; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+.tk-header {
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  position: sticky; top: 0; z-index: 50;
+}
+.tk-header-inner {
+  max-width: 1120px; margin: 0 auto; padding: 16px 24px;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+}
+.tk-brand { display: flex; align-items: center; gap: 12px; }
+.tk-back {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 13px; font-weight: 600; color: var(--text-muted);
+  text-decoration: none; padding: 8px 12px; border-radius: 999px;
+  border: 1px solid var(--border); background: var(--bg); transition: .15s;
+}
+.tk-back:hover { color: var(--text); border-color: var(--accent); text-decoration: none; }
+.tk-icon {
+  width: 42px; height: 42px; border-radius: 12px; display: flex; align-items: center; justify-content: center;
+  font-size: 21px; background: var(--accent-soft); flex-shrink:0;
+}
+.tk-title { font-size: 18px; font-weight: 800; letter-spacing: -0.01em; }
+.tk-title span { display: block; font-size: 12px; font-weight: 500; color: var(--text-muted); margin-top: 1px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px; cursor: pointer;
+  font-weight: 700; font-size: 13.5px; border-radius: 10px; border: 1px solid transparent;
+  padding: 10px 16px; transition: .15s; white-space: nowrap;
+}
+.btn-accent { background: var(--accent); color: #ffffff; }
+.btn-accent:hover { background: var(--accent-2); }
+.btn-ghost { background: var(--bg); color: var(--text); border-color: var(--border); }
+.btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+.btn-sm { padding: 7px 12px; font-size: 12.5px; border-radius: 8px; }
+.btn:active { transform: scale(.97); }
+.tk-hero { padding: 44px 0 30px; }
+.tk-hero h1 { font-size: 32px; font-weight: 800; letter-spacing: -0.02em; margin: 0 0 8px; }
+.tk-hero p { font-size: 15.5px; color: var(--text-muted); max-width: 620px; margin: 0; }
+.tk-tabbar-wrap { border-top: 1px solid var(--border); overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.tk-tabbar { display: flex; gap: 6px; padding: 10px 24px; max-width: 1120px; margin: 0 auto; width: max-content; min-width: 100%; }
+.tk-tab {
+  flex-shrink: 0; display: inline-flex; align-items: center; gap: 6px;
+  padding: 9px 15px; border-radius: 999px; border: 1px solid var(--border); background: var(--bg);
+  color: var(--text-muted); font-size: 13px; font-weight: 700; cursor: pointer; white-space: nowrap; transition: .15s;
+}
+.tk-tab:hover { border-color: var(--accent); color: var(--text); }
+.tk-tab.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+.panel { display: none; padding: 8px 0 70px; max-width: 1120px; margin: 0 auto; padding-left: 24px; padding-right: 24px; }
+.panel.active { display: block; }
+.panel-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 22px; flex-wrap: wrap; margin-top: 22px; }
+.panel-head h2 { font-size: 23px; font-weight: 800; margin: 0; display:flex; align-items:center; gap:10px; }
+.panel-head p.desc { color: var(--text-muted); font-size: 13.5px; margin: 4px 0 0; }
+.panel-card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 26px; box-shadow: var(--shadow);
+}
+label.field-label { display: block; font-size: 12.5px; font-weight: 700; color: var(--text-muted); margin-bottom: 6px; text-transform: uppercase; letter-spacing: .02em; }
+input[type=text], input[type=number], input[type=date], input[type=datetime-local], select, textarea {
+  width: 100%; padding: 11px 13px; border-radius: 9px; border: 1px solid var(--border);
+  background: var(--bg); color: var(--text); font-size: 14px; font-family: inherit;
+}
+input:focus, select:focus, textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+textarea { resize: vertical; min-height: 110px; font-family: var(--font); line-height: 1.6; }
+.field { margin-bottom: 16px; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+@media (max-width: 640px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
+.row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.result-box {
+  background: var(--accent-soft); border: 1px solid var(--accent); border-radius: 11px;
+  padding: 18px 20px; margin-top: 18px;
+}
+.result-box .big { font-size: 28px; font-weight: 800; color: var(--accent-2); letter-spacing: -0.01em; }
+.result-box .lbl { font-size: 12px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: .03em; margin-bottom: 3px;}
+.hint { font-size: 12.5px; color: var(--text-muted); margin-top: 6px; }
+.tabs { display: flex; gap: 6px; margin-bottom: 18px; flex-wrap: wrap; }
+.tab {
+  padding: 8px 15px; border-radius: 999px; border: 1px solid var(--border); background: var(--bg);
+  cursor: pointer; font-size: 13px; font-weight: 700; color: var(--text-muted);
+}
+.tab.active { background: var(--accent); border-color: var(--accent); color: #ffffff; }
+.chip {
+  display: inline-flex; align-items: center; gap: 6px; padding: 7px 12px; border-radius: 999px;
+  background: var(--surface-2); border: 1px solid var(--border); font-size: 13px; font-weight: 600;
+}
+table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--border); }
+th { font-size: 11.5px; text-transform: uppercase; letter-spacing: .03em; color: var(--text-muted); }
+.icon-btn {
+  width: 34px; height: 34px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg);
+  color: var(--text-muted); cursor: pointer; display: inline-flex; align-items: center; justify-content: center; font-size: 15px;
+}
+.icon-btn:hover { border-color: var(--accent); color: var(--accent); }
+.mono { font-family: var(--font-mono); }
+.swatch-card { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; background: var(--surface); cursor: pointer; }
+.swatch { height: 74px; border-radius: 10px 10px 0 0; border: 1px solid var(--border); border-bottom: none; }
+.swatch-info { padding: 10px 12px; font-size: 12px; }
+.swatch-info .hex { font-weight: 700; font-family: var(--font-mono); }
+.list-item {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  padding: 11px 13px; border: 1px solid var(--border); border-radius: 9px; margin-bottom: 8px; background: var(--bg);
+}
+.list-item.done { opacity: .55; }
+.list-item.done .lt { text-decoration: line-through; }
+::placeholder { color: var(--text-muted); opacity:.7; }
+.toast {
+  position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%) translateY(20px);
+  background: var(--text); color: var(--bg); padding: 11px 20px; border-radius: 999px;
+  font-size: 13.5px; font-weight: 700; opacity: 0; pointer-events: none; transition: .25s; z-index: 999; box-shadow: 0 8px 24px rgba(0,0,0,.25);
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+.tk-footer { text-align: center; padding: 30px 0 50px; color: var(--text-muted); font-size: 12.5px; }
+.timer-display { font-size: 64px; font-weight: 800; font-family: var(--font-mono); letter-spacing: -1px; text-align: center; margin: 10px 0 22px; }
+@media (max-width: 640px) { .timer-display { font-size: 46px; } }
+.faq-section { max-width: 800px; margin: 0 auto; padding: 40px 24px 60px; }
+.faq-section h2 { font-size: 24px; font-weight: 800; text-align: center; margin-bottom: 28px; }
+details {
+  margin-bottom: 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 18px;
+  background: var(--surface);
+}
+summary {
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--text);
+}
+details p { margin-top: 10px; color: var(--text-muted); line-height: 1.7; font-size: 14px; }
+</style>
+</head>
+<body>
+<header class="tk-header">
+  <div class="tk-header-inner">
+    <div class="tk-brand">
+      <a href="/" class="tk-back">← All Tools</a>
+      <div class="tk-icon">✍️</div>
+      <div class="tk-title">Writer Toolkit<span>ExcuseMeWeb Toolkit</span></div>
+    </div>
+    <a href="/all-in-one-toolkit" class="btn btn-ghost btn-sm">All Toolkits</a>
+  </div>
+</header>
+
+<div class="wrap">
+  <section class="tk-hero">
+    <h1>Writer Toolkit</h1>
+    <p>Writing utilities for content creators, students, and copywriters. Count words and characters, estimate reading time, convert text case, and generate placeholder copy.</p>
+  </section>
+</div>
+
+<div class="tk-tabbar-wrap">
+  <div class="tk-tabbar">
+    <button class="tk-tab active" data-target="word-counter-panel">🔤 Word Counter</button>
+    <button class="tk-tab " data-target="case-converter-panel">Aa Case Converter</button>
+    <button class="tk-tab " data-target="reading-time-panel">⏱️ Reading Time</button>
+    <button class="tk-tab " data-target="lorem-ipsum-panel">📜 Lorem Ipsum</button>
+    <button class="tk-tab " data-target="text-diff-panel">🔍 Text Diff</button>
+  </div>
+</div>
+
+<div class="panel active" id="word-counter-panel">
+  <div class="panel-head">
+    <h2>🔤 Word Counter</h2>
+  </div>
+  <div class="panel-card">
+    <label class="field-label">Your Text</label>
+                    <textarea id="wc-input" placeholder="Paste or type your text here..." oninput="wcUpdate()"></textarea>
+                    <div class="grid-3" style="margin-top:18px">
+                        <div class="result-box" style="margin-top:0">
+                            <div class="lbl">Words</div>
+                            <div class="big" id="wc-words">0</div>
+                        </div>
+                        <div class="result-box" style="margin-top:0">
+                            <div class="lbl">Characters</div>
+                            <div class="big" id="wc-chars">0</div>
+                        </div>
+                        <div class="result-box" style="margin-top:0">
+                            <div class="lbl">Sentences</div>
+                            <div class="big" id="wc-sentences">0</div>
+                        </div>
+                    </div>
+                    <div class="grid-3" style="margin-top:14px">
+                        <div class="result-box" style="margin-top:0">
+                            <div class="lbl">Paragraphs</div>
+                            <div class="big" id="wc-paragraphs">0</div>
+                        </div>
+                        <div class="result-box" style="margin-top:0">
+                            <div class="lbl">Reading Time</div>
+                            <div class="big" id="wc-reading">0s</div>
+                        </div>
+                        <div class="result-box" style="margin-top:0">
+                            <div class="lbl">Speaking Time</div>
+                            <div class="big" id="wc-speaking">0s</div>
+                        </div>
+                    </div>
+  </div>
+</div>
+
+<div class="panel " id="case-converter-panel">
+  <div class="panel-head">
+    <h2>Aa Case Converter</h2>
+  </div>
+  <div class="panel-card">
+    <label class="field-label">Input Text</label>
+                    <textarea id="cc-input" placeholder="Type or paste text..."></textarea>
+                    <div class="row" style="margin-top:14px">
+                        <button class="btn btn-accent" onclick="ccConvert('upper')">UPPERCASE</button>
+                        <button class="btn btn-ghost" onclick="ccConvert('lower')">lowercase</button>
+                        <button class="btn btn-ghost" onclick="ccConvert('title')">Title Case</button>
+                        <button class="btn btn-ghost" onclick="ccConvert('sentence')">Sentence case</button>
+                        <button class="btn btn-ghost" onclick="ccConvert('camel')">camelCase</button>
+                        <button class="btn btn-ghost" onclick="ccConvert('snake')">snake_case</button>
+                        <button class="btn btn-ghost" onclick="ccConvert('kebab')">kebab-case</button>
+                    </div>
+                    <label class="field-label" style="margin-top:18px">Result</label>
+                    <textarea id="cc-output" readonly></textarea>
+                    <button class="btn btn-ghost btn-sm" style="margin-top:10px" onclick="copyText(document.getElementById('cc-output').value)">Copy Result</button>
+  </div>
+</div>
+
+<div class="panel " id="reading-time-panel">
+  <div class="panel-head">
+    <h2>⏱️ Reading Time</h2>
+  </div>
+  <div class="panel-card">
+    <label class="field-label">Paste your article or script</label>
+                    <textarea id="rt-input" placeholder="Paste text to estimate reading or speaking time..." oninput="rtUpdate()"></textarea>
+                    <div class="grid-3" style="margin-top:18px">
+                        <div class="result-box" style="margin-top:0">
+                            <div class="lbl">Slow (100 wpm)</div>
+                            <div class="big" id="rt-slow">0s</div>
+                        </div>
+                        <div class="result-box" style="margin-top:0">
+                            <div class="lbl">Average (200 wpm)</div>
+                            <div class="big" id="rt-avg">0s</div>
+                        </div>
+                        <div class="result-box" style="margin-top:0">
+                            <div class="lbl">Fast (300 wpm)</div>
+                            <div class="big" id="rt-fast">0s</div>
+                        </div>
+                    </div>
+                    <p class="hint">Speaking rate uses ~130 wpm for presentations and ~150 wpm for audiobooks.</p>
+  </div>
+</div>
+
+<div class="panel " id="lorem-ipsum-panel">
+  <div class="panel-head">
+    <h2>📜 Lorem Ipsum</h2>
+  </div>
+  <div class="panel-card">
+    <label class="field-label">How many paragraphs?</label>
+                    <input type="number" id="li-count" value="3" min="1" max="20">
+                    <label class="field-label" style="margin-top:14px">Start with "Lorem ipsum dolor sit amet"?</label>
+                    <select id="li-classic">
+                        <option value="yes">Yes (classic)</option>
+                        <option value="no">No (random)</option>
+                    </select>
+                    <button class="btn btn-accent" style="margin-top:14px" onclick="liGenerate()">Generate</button>
+                    <label class="field-label" style="margin-top:18px">Output</label>
+                    <textarea id="li-output" readonly style="min-height:200px"></textarea>
+                    <button class="btn btn-ghost btn-sm" style="margin-top:10px" onclick="copyText(document.getElementById('li-output').value)">Copy</button>
+  </div>
+</div>
+
+<div class="panel " id="text-diff-panel">
+  <div class="panel-head">
+    <h2>🔍 Text Diff</h2>
+  </div>
+  <div class="panel-card">
+    <div class="grid-2">
+                        <div>
+                            <label class="field-label">Original Text</label>
+                            <textarea id="td-a" placeholder="Paste original..." style="min-height:160px"></textarea>
+                        </div>
+                        <div>
+                            <label class="field-label">Modified Text</label>
+                            <textarea id="td-b" placeholder="Paste modified..." style="min-height:160px"></textarea>
+                        </div>
+                    </div>
+                    <button class="btn btn-accent" style="margin-top:14px" onclick="tdCompare()">Compare</button>
+                    <label class="field-label" style="margin-top:18px">Differences</label>
+                    <div id="td-out" style="background:var(--bg);border:1px solid var(--border);border-radius:9px;padding:14px;min-height:120px;font-family:var(--font-mono);font-size:13px;white-space:pre-wrap"></div>
+  </div>
+</div>
+
+<section class="faq-section">
+  <h2>Frequently Asked Questions</h2>
+  <details><summary>How is reading time calculated?</summary><p>Reading time uses an average of 200 words per minute for adult silent reading. The tool divides your word count by 200 and rounds up, so a 600-word article shows as 3 minutes.</p></details>
+<details><summary>What's the difference between word count and character count?</summary><p>Word count is the number of whitespace-separated tokens. Character count includes every letter, digit, punctuation mark, and space. Some platforms (like Twitter) limit by character count, while most editors (like Google Docs) report both.</p></details>
+<details><summary>Does the case converter handle non-English characters?</summary><p>Yes. The converter uses JavaScript's built-in toUpperCase and toLowerCase, which respect Unicode case rules for Latin, Greek, Cyrillic, and most other scripts.</p></details>
+<details><summary>Is the lorem ipsum generator truly random?</summary><p>It pulls words from a fixed Latin word list and shuffles them into grammatical-looking sentences. The output is deterministic given the same seed length, which makes it reproducible for placeholder layouts.</p></details>
+</section>
+
+<footer class="tk-footer">
+  <p>&copy; 2026 ExcuseMeWeb — <a href="/all-in-one-toolkit">All Toolkits</a> · <a href="/">All Tools</a> · <a href="/sitemap">Sitemap</a></p>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+function copyText(t) {
+  navigator.clipboard.writeText(t).then(() => toast('Copied to clipboard'));
+}
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2000);
+}
+function escapeHtml(s) {
+  const d = document.createElement('div');
+  d.textContent = s;
+  return d.innerHTML;
+}
+function switchPanel(id) {
+  document.querySelectorAll('.tk-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  const btn = document.querySelector(`.tk-tab[data-target="${id}"]`);
+  const panel = document.getElementById(id);
+  if (btn) btn.classList.add('active');
+  if (panel) panel.classList.add('active');
+}
+document.querySelectorAll('.tk-tab').forEach(t => {
+  t.addEventListener('click', () => switchPanel(t.dataset.target));
+});
+
+function wcUpdate() {
+                        const t = document.getElementById('wc-input').value;
+                        const words = (t.match(/\S+/g) || []).length;
+                        const chars = t.length;
+                        const sentences = (t.match(/[.!?]+(\s|$)/g) || []).length;
+                        const paragraphs = (t.split(/\n\s*\n/).filter(p => p.trim()).length) || (t.trim() ? 1 : 0);
+                        const readSec = Math.ceil(words / 200 * 60);
+                        const speakSec = Math.ceil(words / 130 * 60);
+                        document.getElementById('wc-words').textContent = words;
+                        document.getElementById('wc-chars').textContent = chars;
+                        document.getElementById('wc-sentences').textContent = sentences;
+                        document.getElementById('wc-paragraphs').textContent = paragraphs;
+                        document.getElementById('wc-reading').textContent = fmtTime(readSec);
+                        document.getElementById('wc-speaking').textContent = fmtTime(speakSec);
+                    }
+                    function fmtTime(sec) {
+                        if (sec < 60) return sec + 's';
+                        const m = Math.floor(sec / 60); const s = sec % 60;
+                        return s ? m + 'm ' + s + 's' : m + 'm';
+                    }
+
+function ccConvert(mode) {
+                        const t = document.getElementById('cc-input').value;
+                        let out = t;
+                        if (mode === 'upper') out = t.toUpperCase();
+                        else if (mode === 'lower') out = t.toLowerCase();
+                        else if (mode === 'title') out = t.replace(/\w\S*/g, w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase());
+                        else if (mode === 'sentence') out = t.toLowerCase().replace(/(^[a-z])|([.!?]\s+[a-z])/g, m => m.toUpperCase());
+                        else if (mode === 'camel') out = t.toLowerCase().replace(/[^a-zA-Z0-9]+(.)/g, (_, c) => c.toUpperCase());
+                        else if (mode === 'snake') out = t.trim().toLowerCase().replace(/\s+/g, '_').replace(/[^a-z0-9_]/g, '');
+                        else if (mode === 'kebab') out = t.trim().toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+                        document.getElementById('cc-output').value = out;
+                    }
+
+function rtUpdate() {
+                        const t = document.getElementById('rt-input').value;
+                        const words = (t.match(/\S+/g) || []).length;
+                        document.getElementById('rt-slow').textContent = fmtTime2(Math.ceil(words / 100 * 60));
+                        document.getElementById('rt-avg').textContent = fmtTime2(Math.ceil(words / 200 * 60));
+                        document.getElementById('rt-fast').textContent = fmtTime2(Math.ceil(words / 300 * 60));
+                    }
+                    function fmtTime2(sec) {
+                        if (sec < 60) return sec + 's';
+                        const m = Math.floor(sec / 60); const s = sec % 60;
+                        return s ? m + 'm ' + s + 's' : m + 'm';
+                    }
+
+const LI_WORDS = "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam quis nostrud exercitation ullamco laboris nisi aliquip ex ea commodo consequat duis aute irure in reprehenderit voluptate velit esse cillum eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt culpa qui officia deserunt mollit anim id est laborum".split(' ');
+                    function liGenerate() {
+                        const n = parseInt(document.getElementById('li-count').value) || 3;
+                        const classic = document.getElementById('li-classic').value === 'yes';
+                        const paras = [];
+                        for (let p = 0; p < n; p++) {
+                            const wCount = 40 + Math.floor(Math.random() * 40);
+                            const words = [];
+                            if (p === 0 && classic) {
+                                words.push(..."lorem ipsum dolor sit amet consectetur adipiscing elit".split(' '));
+                            }
+                            for (let i = words.length; i < wCount; i++) {
+                                words.push(LI_WORDS[Math.floor(Math.random() * LI_WORDS.length)]);
+                            }
+                            let s = words.join(' ');
+                            s = s.replace(/(^|\.\s+)([a-z])/g, (_, a, b) => a + b.toUpperCase()) + '.';
+                            // Split into sentences
+                            const sentences = s.match(/[^.!?]+[.!?]+/g) || [s];
+                            const mid = Math.floor(sentences.length / 2);
+                            sentences[mid] = sentences[mid].trim() + '\n\n';
+                            paras.push(sentences.join(' '));
+                        }
+                        document.getElementById('li-output').value = paras.join('\n\n');
+                    }
+
+function tdCompare() {
+                        const a = document.getElementById('td-a').value.split('\n');
+                        const b = document.getElementById('td-b').value.split('\n');
+                        const out = [];
+                        const max = Math.max(a.length, b.length);
+                        for (let i = 0; i < max; i++) {
+                            const la = (a[i] || '');
+                            const lb = (b[i] || '');
+                            if (la === lb) {
+                                out.push('  ' + la);
+                            } else {
+                                if (la) out.push('- ' + la);
+                                if (lb) out.push('+ ' + lb);
+                            }
+                        }
+                        document.getElementById('td-out').innerHTML = out.map(l => {
+                            if (l.startsWith('+')) return '<span style="color:#16a34a">' + escapeHtml(l) + '</span>';
+                            if (l.startsWith('-')) return '<span style="color:#dc2626">' + escapeHtml(l) + '</span>';
+                            return '<span style="color:var(--text-muted)">' + escapeHtml(l) + '</span>';
+                        }).join('\n');
+                    }
+                    function escapeHtml(s) {
+                        return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+                    }
+</script>
+</body>
+</html>

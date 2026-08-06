@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <script defer src="https://cloud.umami.is/script.js" data-website-id="fa026cc1-8f84-44f5-b2fb-9ccf29374a38"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design Toolkit | ExcuseMeWeb</title>
+<meta name="description" content="Design toolkit with color picker, palette generator, gradient generator, contrast checker, and image color picker. Browser-based design utilities for web designers.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Design Toolkit | ExcuseMeWeb">
+<meta property="og:description" content="Design toolkit with color picker, palette generator, gradient generator, contrast checker, and image color picker. Browser-based design utilities for web designers.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://excusemeweb.com/design-toolkit">
+<meta property="og:image" content="https://excusemeweb.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Design Toolkit | ExcuseMeWeb">
+<meta name="twitter:description" content="Design toolkit with color picker, palette generator, gradient generator, contrast checker, and image color picker. Browser-based design utilities for web designers.">
+<link rel="canonical" href="https://excusemeweb.com/design-toolkit">
+<meta name="theme-color" content="#9333ea">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Design Toolkit", "url": "https://excusemeweb.com/design-toolkit", "description": "Design toolkit with color picker, palette generator, gradient generator, contrast checker, and image color picker. Browser-based design utilities for web designers.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "All", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "author": {"@type": "Organization", "name": "ExcuseMeWeb"}, "dateModified": "2026-08-06"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://excusemeweb.com/"}, {"@type": "ListItem", "position": 2, "name": "Toolkits", "item": "https://excusemeweb.com/all-in-one-toolkit"}, {"@type": "ListItem", "position": 3, "name": "Design Toolkit", "item": "https://excusemeweb.com/design-toolkit"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is a WCAG contrast ratio?", "acceptedAnswer": {"@type": "Answer", "text": "WCAG (Web Content Accessibility Guidelines) defines a contrast ratio from 1:1 (no contrast) to 21:1 (black on white). AA requires at least 4.5:1 for normal text and 3:1 for large text. AAA requires 7:1 for normal text."}}, {"@type": "Question", "name": "How does the palette generator pick colors?", "acceptedAnswer": {"@type": "Answer", "text": "It uses the HSL color wheel. The generator picks a base hue and rotates by configurable offsets (analogous, complementary, triadic, tetradic, or monochromatic) to produce a harmonious 5-color palette."}}, {"@type": "Question", "name": "What gradient formats are supported?", "acceptedAnswer": {"@type": "Answer", "text": "The generator outputs CSS linear-gradient and radial-gradient syntax, ready to paste into a stylesheet. You can copy a two-stop or multi-stop gradient and adjust the angle in 15° increments."}}, {"@type": "Question", "name": "Does the image color picker upload my image?", "acceptedAnswer": {"@type": "Answer", "text": "No. The image is loaded into a <canvas> element in your browser. The color at the cursor position is read directly from the canvas pixel data using getImageData. Nothing is transmitted."}}]}</script>
+<style>
+:root {
+  --bg: #fbfaf8;
+  --surface: #ffffff;
+  --surface-2: #f4f1ec;
+  --text: #241f1a;
+  --text-muted: #8a7f72;
+  --border: #e8e1d6;
+  --accent: #9333ea;
+  --accent-2: #7e22ce;
+  --accent-soft: #faf5ff;
+  --radius: 14px;
+  --radius-sm: 9px;
+  --shadow: 0 1px 2px rgba(0,0,0,.06), 0 8px 24px rgba(0,0,0,.08);
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SFMono-Regular', Consolas, monospace;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+button { font-family: inherit; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+.tk-header {
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  position: sticky; top: 0; z-index: 50;
+}
+.tk-header-inner {
+  max-width: 1120px; margin: 0 auto; padding: 16px 24px;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+}
+.tk-brand { display: flex; align-items: center; gap: 12px; }
+.tk-back {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 13px; font-weight: 600; color: var(--text-muted);
+  text-decoration: none; padding: 8px 12px; border-radius: 999px;
+  border: 1px solid var(--border); background: var(--bg); transition: .15s;
+}
+.tk-back:hover { color: var(--text); border-color: var(--accent); text-decoration: none; }
+.tk-icon {
+  width: 42px; height: 42px; border-radius: 12px; display: flex; align-items: center; justify-content: center;
+  font-size: 21px; background: var(--accent-soft); flex-shrink:0;
+}
+.tk-title { font-size: 18px; font-weight: 800; letter-spacing: -0.01em; }
+.tk-title span { display: block; font-size: 12px; font-weight: 500; color: var(--text-muted); margin-top: 1px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px; cursor: pointer;
+  font-weight: 700; font-size: 13.5px; border-radius: 10px; border: 1px solid transparent;
+  padding: 10px 16px; transition: .15s; white-space: nowrap;
+}
+.btn-accent { background: var(--accent); color: #ffffff; }
+.btn-accent:hover { background: var(--accent-2); }
+.btn-ghost { background: var(--bg); color: var(--text); border-color: var(--border); }
+.btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+.btn-sm { padding: 7px 12px; font-size: 12.5px; border-radius: 8px; }
+.btn:active { transform: scale(.97); }
+.tk-hero { padding: 44px 0 30px; }
+.tk-hero h1 { font-size: 32px; font-weight: 800; letter-spacing: -0.02em; margin: 0 0 8px; }
+.tk-hero p { font-size: 15.5px; color: var(--text-muted); max-width: 620px; margin: 0; }
+.tk-tabbar-wrap { border-top: 1px solid var(--border); overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.tk-tabbar { display: flex; gap: 6px; padding: 10px 24px; max-width: 1120px; margin: 0 auto; width: max-content; min-width: 100%; }
+.tk-tab {
+  flex-shrink: 0; display: inline-flex; align-items: center; gap: 6px;
+  padding: 9px 15px; border-radius: 999px; border: 1px solid var(--border); background: var(--bg);
+  color: var(--text-muted); font-size: 13px; font-weight: 700; cursor: pointer; white-space: nowrap; transition: .15s;
+}
+.tk-tab:hover { border-color: var(--accent); color: var(--text); }
+.tk-tab.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+.panel { display: none; padding: 8px 0 70px; max-width: 1120px; margin: 0 auto; padding-left: 24px; padding-right: 24px; }
+.panel.active { display: block; }
+.panel-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 22px; flex-wrap: wrap; margin-top: 22px; }
+.panel-head h2 { font-size: 23px; font-weight: 800; margin: 0; display:flex; align-items:center; gap:10px; }
+.panel-head p.desc { color: var(--text-muted); font-size: 13.5px; margin: 4px 0 0; }
+.panel-card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 26px; box-shadow: var(--shadow);
+}
+label.field-label { display: block; font-size: 12.5px; font-weight: 700; color: var(--text-muted); margin-bottom: 6px; text-transform: uppercase; letter-spacing: .02em; }
+input[type=text], input[type=number], input[type=date], input[type=datetime-local], select, textarea {
+  width: 100%; padding: 11px 13px; border-radius: 9px; border: 1px solid var(--border);
+  background: var(--bg); color: var(--text); font-size: 14px; font-family: inherit;
+}
+input:focus, select:focus, textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+textarea { resize: vertical; min-height: 110px; font-family: var(--font); line-height: 1.6; }
+.field { margin-bottom: 16px; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+@media (max-width: 640px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
+.row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.result-box {
+  background: var(--accent-soft); border: 1px solid var(--accent); border-radius: 11px;
+  padding: 18px 20px; margin-top: 18px;
+}
+.result-box .big { font-size: 28px; font-weight: 800; color: var(--accent-2); letter-spacing: -0.01em; }
+.result-box .lbl { font-size: 12px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: .03em; margin-bottom: 3px;}
+.hint { font-size: 12.5px; color: var(--text-muted); margin-top: 6px; }
+.tabs { display: flex; gap: 6px; margin-bottom: 18px; flex-wrap: wrap; }
+.tab {
+  padding: 8px 15px; border-radius: 999px; border: 1px solid var(--border); background: var(--bg);
+  cursor: pointer; font-size: 13px; font-weight: 700; color: var(--text-muted);
+}
+.tab.active { background: var(--accent); border-color: var(--accent); color: #ffffff; }
+.chip {
+  display: inline-flex; align-items: center; gap: 6px; padding: 7px 12px; border-radius: 999px;
+  background: var(--surface-2); border: 1px solid var(--border); font-size: 13px; font-weight: 600;
+}
+table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--border); }
+th { font-size: 11.5px; text-transform: uppercase; letter-spacing: .03em; color: var(--text-muted); }
+.icon-btn {
+  width: 34px; height: 34px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg);
+  color: var(--text-muted); cursor: pointer; display: inline-flex; align-items: center; justify-content: center; font-size: 15px;
+}
+.icon-btn:hover { border-color: var(--accent); color: var(--accent); }
+.mono { font-family: var(--font-mono); }
+.swatch-card { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; background: var(--surface); cursor: pointer; }
+.swatch { height: 74px; border-radius: 10px 10px 0 0; border: 1px solid var(--border); border-bottom: none; }
+.swatch-info { padding: 10px 12px; font-size: 12px; }
+.swatch-info .hex { font-weight: 700; font-family: var(--font-mono); }
+.list-item {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  padding: 11px 13px; border: 1px solid var(--border); border-radius: 9px; margin-bottom: 8px; background: var(--bg);
+}
+.list-item.done { opacity: .55; }
+.list-item.done .lt { text-decoration: line-through; }
+::placeholder { color: var(--text-muted); opacity:.7; }
+.toast {
+  position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%) translateY(20px);
+  background: var(--text); color: var(--bg); padding: 11px 20px; border-radius: 999px;
+  font-size: 13.5px; font-weight: 700; opacity: 0; pointer-events: none; transition: .25s; z-index: 999; box-shadow: 0 8px 24px rgba(0,0,0,.25);
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+.tk-footer { text-align: center; padding: 30px 0 50px; color: var(--text-muted); font-size: 12.5px; }
+.timer-display { font-size: 64px; font-weight: 800; font-family: var(--font-mono); letter-spacing: -1px; text-align: center; margin: 10px 0 22px; }
+@media (max-width: 640px) { .timer-display { font-size: 46px; } }
+.faq-section { max-width: 800px; margin: 0 auto; padding: 40px 24px 60px; }
+.faq-section h2 { font-size: 24px; font-weight: 800; text-align: center; margin-bottom: 28px; }
+details {
+  margin-bottom: 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 18px;
+  background: var(--surface);
+}
+summary {
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--text);
+}
+details p { margin-top: 10px; color: var(--text-muted); line-height: 1.7; font-size: 14px; }
+</style>
+</head>
+<body>
+<header class="tk-header">
+  <div class="tk-header-inner">
+    <div class="tk-brand">
+      <a href="/" class="tk-back">← All Tools</a>
+      <div class="tk-icon">🎨</div>
+      <div class="tk-title">Design Toolkit<span>ExcuseMeWeb Toolkit</span></div>
+    </div>
+    <a href="/all-in-one-toolkit" class="btn btn-ghost btn-sm">All Toolkits</a>
+  </div>
+</header>
+
+<div class="wrap">
+  <section class="tk-hero">
+    <h1>Design Toolkit</h1>
+    <p>Color and design utilities for web designers and developers. Pick colors, build palettes, generate gradients, check WCAG contrast, and sample colors from images.</p>
+  </section>
+</div>
+
+<div class="tk-tabbar-wrap">
+  <div class="tk-tabbar">
+    <button class="tk-tab active" data-target="color-picker-panel">🎯 Color Picker</button>
+    <button class="tk-tab " data-target="palette-gen-panel">🖌️ Palette Generator</button>
+    <button class="tk-tab " data-target="gradient-gen-panel">🌈 Gradient Generator</button>
+    <button class="tk-tab " data-target="contrast-checker-panel">👁️ Contrast Checker</button>
+    <button class="tk-tab " data-target="image-color-picker-panel">📷 Image Color Picker</button>
+  </div>
+</div>
+
+<div class="panel active" id="color-picker-panel">
+  <div class="panel-head">
+    <h2>🎯 Color Picker</h2>
+  </div>
+  <div class="panel-card">
+    <div class="grid-2">
+                        <div>
+                            <input type="color" id="cp-input" value="#6366f1" style="width:100%;height:120px;border:1px solid var(--border);border-radius:9px;cursor:pointer" oninput="cpUpdate()">
+                        </div>
+                        <div>
+                            <div class="grid-2" style="font-size:13px">
+                                <div><div class="lbl">HEX</div><input type="text" id="cp-hex" value="#6366f1" oninput="cpFromHex()"></div>
+                                <div><div class="lbl">RGB</div><input type="text" id="cp-rgb" oninput="cpFromRGB()"></div>
+                                <div><div class="lbl">HSL</div><input type="text" id="cp-hsl" oninput="cpFromHSL()"></div>
+                                <div><div class="lbl">CMYK</div><input type="text" id="cp-cmyk" readonly></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="result-box" style="margin-top:18px">
+                        <div class="lbl">Preview</div>
+                        <div id="cp-preview" style="background:#6366f1;height:60px;border-radius:8px;margin-top:6px"></div>
+                    </div>
+  </div>
+</div>
+
+<div class="panel " id="palette-gen-panel">
+  <div class="panel-head">
+    <h2>🖌️ Palette Generator</h2>
+  </div>
+  <div class="panel-card">
+    <label class="field-label">Base Color</label>
+                    <input type="color" id="pg-base" value="#3b82f6" style="width:100%;height:60px;border:1px solid var(--border);border-radius:9px" oninput="pgGenerate()">
+                    <label class="field-label" style="margin-top:14px">Harmony</label>
+                    <select id="pg-harmony" onchange="pgGenerate()">
+                        <option value="analogous">Analogous</option>
+                        <option value="complementary">Complementary</option>
+                        <option value="triadic">Triadic</option>
+                        <option value="tetradic">Tetradic</option>
+                        <option value="monochromatic">Monochromatic</option>
+                    </select>
+                    <button class="btn btn-accent" style="margin-top:14px" onclick="pgGenerate()">Generate</button>
+                    <div id="pg-out" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin-top:18px"></div>
+  </div>
+</div>
+
+<div class="panel " id="gradient-gen-panel">
+  <div class="panel-head">
+    <h2>🌈 Gradient Generator</h2>
+  </div>
+  <div class="panel-card">
+    <div class="grid-3">
+                        <div><label class="field-label">Color 1</label><input type="color" id="gd-c1" value="#6366f1" style="width:100%;height:50px;border:1px solid var(--border);border-radius:8px" oninput="gdUpdate()"></div>
+                        <div><label class="field-label">Color 2</label><input type="color" id="gd-c2" value="#ec4899" style="width:100%;height:50px;border:1px solid var(--border);border-radius:8px" oninput="gdUpdate()"></div>
+                        <div><label class="field-label">Angle (deg)</label><input type="number" id="gd-angle" value="135" min="0" max="360" oninput="gdUpdate()"></div>
+                    </div>
+                    <label class="field-label" style="margin-top:14px">Type</label>
+                    <div class="tabs">
+                        <button class="tab active" onclick="gdType(this,'linear')">Linear</button>
+                        <button class="tab" onclick="gdType(this,'radial')">Radial</button>
+                    </div>
+                    <div id="gd-preview" style="height:180px;border-radius:12px;margin-top:14px;border:1px solid var(--border)"></div>
+                    <label class="field-label" style="margin-top:14px">CSS</label>
+                    <textarea id="gd-css" readonly style="font-family:var(--font-mono);font-size:12px"></textarea>
+                    <button class="btn btn-ghost btn-sm" style="margin-top:10px" onclick="copyText(document.getElementById('gd-css').value)">Copy CSS</button>
+  </div>
+</div>
+
+<div class="panel " id="contrast-checker-panel">
+  <div class="panel-head">
+    <h2>👁️ Contrast Checker</h2>
+  </div>
+  <div class="panel-card">
+    <div class="grid-2">
+                        <div><label class="field-label">Foreground (text)</label><input type="color" id="ct-fg" value="#000000" style="width:100%;height:50px;border:1px solid var(--border);border-radius:8px" oninput="ctUpdate()"></div>
+                        <div><label class="field-label">Background</label><input type="color" id="ct-bg" value="#ffffff" style="width:100%;height:50px;border:1px solid var(--border);border-radius:8px" oninput="ctUpdate()"></div>
+                    </div>
+                    <div id="ct-preview" style="padding:24px;border-radius:12px;margin-top:14px;border:1px solid var(--border);text-align:center">
+                        <div style="font-size:24px;font-weight:700">The quick brown fox</div>
+                        <div style="font-size:14px;margin-top:8px">Jumps over the lazy dog</div>
+                    </div>
+                    <div id="ct-result" style="margin-top:14px"></div>
+  </div>
+</div>
+
+<div class="panel " id="image-color-picker-panel">
+  <div class="panel-head">
+    <h2>📷 Image Color Picker</h2>
+  </div>
+  <div class="panel-card">
+    <label class="field-label">Upload Image</label>
+                    <input type="file" id="ic-file" accept="image/*" style="margin-bottom:14px" onchange="icLoad(event)">
+                    <canvas id="ic-canvas" style="max-width:100%;border:1px solid var(--border);border-radius:9px;cursor:crosshair;display:none"></canvas>
+                    <div id="ic-result" style="display:none;margin-top:14px"></div>
+  </div>
+</div>
+
+<section class="faq-section">
+  <h2>Frequently Asked Questions</h2>
+  <details><summary>What is a WCAG contrast ratio?</summary><p>WCAG (Web Content Accessibility Guidelines) defines a contrast ratio from 1:1 (no contrast) to 21:1 (black on white). AA requires at least 4.5:1 for normal text and 3:1 for large text. AAA requires 7:1 for normal text.</p></details>
+<details><summary>How does the palette generator pick colors?</summary><p>It uses the HSL color wheel. The generator picks a base hue and rotates by configurable offsets (analogous, complementary, triadic, tetradic, or monochromatic) to produce a harmonious 5-color palette.</p></details>
+<details><summary>What gradient formats are supported?</summary><p>The generator outputs CSS linear-gradient and radial-gradient syntax, ready to paste into a stylesheet. You can copy a two-stop or multi-stop gradient and adjust the angle in 15° increments.</p></details>
+<details><summary>Does the image color picker upload my image?</summary><p>No. The image is loaded into a <canvas> element in your browser. The color at the cursor position is read directly from the canvas pixel data using getImageData. Nothing is transmitted.</p></details>
+</section>
+
+<footer class="tk-footer">
+  <p>&copy; 2026 ExcuseMeWeb — <a href="/all-in-one-toolkit">All Toolkits</a> · <a href="/">All Tools</a> · <a href="/sitemap">Sitemap</a></p>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+function copyText(t) {
+  navigator.clipboard.writeText(t).then(() => toast('Copied to clipboard'));
+}
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2000);
+}
+function escapeHtml(s) {
+  const d = document.createElement('div');
+  d.textContent = s;
+  return d.innerHTML;
+}
+function switchPanel(id) {
+  document.querySelectorAll('.tk-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  const btn = document.querySelector(`.tk-tab[data-target="${id}"]`);
+  const panel = document.getElementById(id);
+  if (btn) btn.classList.add('active');
+  if (panel) panel.classList.add('active');
+}
+document.querySelectorAll('.tk-tab').forEach(t => {
+  t.addEventListener('click', () => switchPanel(t.dataset.target));
+});
+
+function cpUpdate() {
+                        const hex = document.getElementById('cp-input').value;
+                        document.getElementById('cp-hex').value = hex;
+                        const rgb = hexToRgb(hex);
+                        document.getElementById('cp-rgb').value = `${rgb.r}, ${rgb.g}, ${rgb.b}`;
+                        const hsl = rgbToHsl(rgb.r, rgb.g, rgb.b);
+                        document.getElementById('cp-hsl').value = `${hsl.h}, ${hsl.s}%, ${hsl.l}%`;
+                        document.getElementById('cp-cmyk').value = rgbToCmyk(rgb.r, rgb.g, rgb.b);
+                        document.getElementById('cp-preview').style.background = hex;
+                    }
+                    function cpFromHex() {
+                        const h = document.getElementById('cp-hex').value;
+                        if (/^#[0-9a-f]{6}$/i.test(h)) {
+                            document.getElementById('cp-input').value = h;
+                            cpUpdate();
+                        }
+                    }
+                    function cpFromRGB() {
+                        const m = document.getElementById('cp-rgb').value.match(/(\d+)\D+(\d+)\D+(\d+)/);
+                        if (m) {
+                            const hex = '#' + [m[1],m[2],m[3]].map(n => parseInt(n).toString(16).padStart(2,'0')).join('');
+                            document.getElementById('cp-input').value = hex;
+                            cpUpdate();
+                        }
+                    }
+                    function cpFromHSL() { /* best-effort */ }
+                    function hexToRgb(hex) {
+                        return { r: parseInt(hex.slice(1,3),16), g: parseInt(hex.slice(3,5),16), b: parseInt(hex.slice(5,7),16) };
+                    }
+                    function rgbToHsl(r,g,b) {
+                        r/=255; g/=255; b/=255;
+                        const max=Math.max(r,g,b), min=Math.min(r,g,b);
+                        let h,s,l=(max+min)/2;
+                        if (max===min) { h=s=0; }
+                        else {
+                            const d=max-min;
+                            s = l>0.5 ? d/(2-max-min) : d/(max+min);
+                            switch(max) {
+                                case r: h=(g-b)/d+(g<b?6:0); break;
+                                case g: h=(b-r)/d+2; break;
+                                case b: h=(r-g)/d+4; break;
+                            }
+                            h/=6;
+                        }
+                        return { h: Math.round(h*360), s: Math.round(s*100), l: Math.round(l*100) };
+                    }
+                    function rgbToCmyk(r,g,b) {
+                        r/=255; g/=255; b/=255;
+                        const k = 1 - Math.max(r,g,b);
+                        if (k === 1) return '0, 0, 0, 100';
+                        const c = (1-r-k)/(1-k), m = (1-g-k)/(1-k), y = (1-b-k)/(1-k);
+                        return `${Math.round(c*100)}, ${Math.round(m*100)}, ${Math.round(y*100)}, ${Math.round(k*100)}`;
+                    }
+
+function pgGenerate() {
+                        const hex = document.getElementById('pg-base').value;
+                        const harm = document.getElementById('pg-harmony').value;
+                        const rgb = hexToRgb(hex);
+                        const hsl = rgbToHsl(rgb.r, rgb.g, rgb.b);
+                        let offsets = [];
+                        if (harm === 'analogous') offsets = [-30, -15, 0, 15, 30];
+                        else if (harm === 'complementary') offsets = [0, 0, 180, 180, 180];
+                        else if (harm === 'triadic') offsets = [0, 120, 240, 0, 120];
+                        else if (harm === 'tetradic') offsets = [0, 90, 180, 270, 0];
+                        else if (harm === 'monochromatic') offsets = [0, 0, 0, 0, 0];
+                        const colors = offsets.map((off, i) => {
+                            let h = (hsl.h + off + 360) % 360;
+                            let s = hsl.s, l = hsl.l;
+                            if (harm === 'monochromatic') l = Math.max(10, Math.min(90, l + (i - 2) * 15));
+                            return hslToHex(h, s, l);
+                        });
+                        document.getElementById('pg-out').innerHTML = colors.map(c => `
+                            <div class="swatch-card" onclick="copyText('${c}'); toast('Copied ' + '${c}')">
+                                <div class="swatch" style="background:${c}"></div>
+                                <div class="swatch-info"><div class="hex">${c.toUpperCase()}</div></div>
+                            </div>
+                        `).join('');
+                    }
+                    function hslToHex(h,s,l) {
+                        s/=100; l/=100;
+                        const k = n => (n + h/30) % 12;
+                        const a = s * Math.min(l, 1-l);
+                        const f = n => l - a * Math.max(-1, Math.min(k(n)-3, Math.min(9-k(n), 1)));
+                        return '#' + [0,8,4].map(n => Math.round(f(n)*255).toString(16).padStart(2,'0')).join('');
+                    }
+
+let gdMode = 'linear';
+                    function gdType(btn, mode) {
+                        document.querySelectorAll('.panel.active .tab').forEach(t => t.classList.remove('active'));
+                        btn.classList.add('active');
+                        gdMode = mode;
+                        gdUpdate();
+                    }
+                    function gdUpdate() {
+                        const c1 = document.getElementById('gd-c1').value;
+                        const c2 = document.getElementById('gd-c2').value;
+                        const angle = document.getElementById('gd-angle').value || 0;
+                        const css = gdMode === 'linear'
+                            ? `linear-gradient(${angle}deg, ${c1}, ${c2})`
+                            : `radial-gradient(circle, ${c1}, ${c2})`;
+                        document.getElementById('gd-preview').style.background = css;
+                        document.getElementById('gd-css').value = `background: ${css};`;
+                    }
+
+function ctUpdate() {
+                        const fg = document.getElementById('ct-fg').value;
+                        const bg = document.getElementById('ct-bg').value;
+                        document.getElementById('ct-preview').style.color = fg;
+                        document.getElementById('ct-preview').style.background = bg;
+                        const ratio = contrastRatio(fg, bg);
+                        const aa = ratio >= 4.5 ? 'PASS' : 'FAIL';
+                        const aaLarge = ratio >= 3 ? 'PASS' : 'FAIL';
+                        const aaa = ratio >= 7 ? 'PASS' : 'FAIL';
+                        document.getElementById('ct-result').innerHTML = `
+                            <div class="result-box">
+                                <div class="lbl">Contrast Ratio</div>
+                                <div class="big">${ratio.toFixed(2)}:1</div>
+                                <div style="margin-top:14px;display:flex;gap:14px;flex-wrap:wrap">
+                                    <div class="chip" style="background:${aa==='PASS'?'#dcfce7':'#fee2e2'};color:${aa==='PASS'?'#16a34a':'#dc2626'}">AA ${aa}</div>
+                                    <div class="chip" style="background:${aaLarge==='PASS'?'#dcfce7':'#fee2e2'};color:${aaLarge==='PASS'?'#16a34a':'#dc2626'}">AA Large ${aaLarge}</div>
+                                    <div class="chip" style="background:${aaa==='PASS'?'#dcfce7':'#fee2e2'};color:${aaa==='PASS'?'#16a34a':'#dc2626'}">AAA ${aaa}</div>
+                                </div>
+                            </div>
+                        `;
+                    }
+                    function contrastRatio(fg, bg) {
+                        const l1 = relLuminance(hexToRgb(fg));
+                        const l2 = relLuminance(hexToRgb(bg));
+                        const light = Math.max(l1, l2);
+                        const dark = Math.min(l1, l2);
+                        return (light + 0.05) / (dark + 0.05);
+                    }
+                    function relLuminance({r,g,b}) {
+                        const f = c => { c /= 255; return c <= 0.03928 ? c/12.92 : Math.pow((c+0.055)/1.055, 2.4); };
+                        return 0.2126*f(r) + 0.7152*f(g) + 0.0722*f(b);
+                    }
+
+function icLoad(e) {
+                        const file = e.target.files[0];
+                        if (!file) return;
+                        const reader = new FileReader();
+                        reader.onload = ev => {
+                            const img = new Image();
+                            img.onload = () => {
+                                const canvas = document.getElementById('ic-canvas');
+                                const ctx = canvas.getContext('2d');
+                                const maxW = 600;
+                                const scale = Math.min(1, maxW / img.width);
+                                canvas.width = img.width * scale;
+                                canvas.height = img.height * scale;
+                                ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                                canvas.style.display = 'block';
+                                canvas.onmousemove = icPick;
+                                canvas.onclick = icPick;
+                            };
+                            img.src = ev.target.result;
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                    function icPick(e) {
+                        const canvas = e.target;
+                        const ctx = canvas.getContext('2d');
+                        const rect = canvas.getBoundingClientRect();
+                        const x = Math.floor((e.clientX - rect.left) * canvas.width / rect.width);
+                        const y = Math.floor((e.clientY - rect.top) * canvas.height / rect.height);
+                        const p = ctx.getImageData(x, y, 1, 1).data;
+                        const hex = '#' + [p[0],p[1],p[2]].map(n => n.toString(16).padStart(2,'0')).join('');
+                        document.getElementById('ic-result').style.display = 'block';
+                        document.getElementById('ic-result').innerHTML = `
+                            <div class="result-box">
+                                <div class="lbl">Picked Color</div>
+                                <div class="big">${hex.toUpperCase()}</div>
+                                <div style="margin-top:10px;height:40px;background:${hex};border-radius:8px"></div>
+                                <button class="btn btn-ghost btn-sm" style="margin-top:10px" onclick="copyText('${hex}')">Copy ${hex.toUpperCase()}</button>
+                            </div>
+                        `;
+                    }
+</script>
+</body>
+</html>
