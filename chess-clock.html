@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="fa026cc1-8f84-44f5-b2fb-9ccf29374a38"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Online Chess Clock - Two Player Timer with Increment | ExcuseMeWeb</title>
+<meta name="description" content="Online two-player chess clock with configurable starting time and Fischer increment. Tap to switch between players. Low time warning turns red. Runs in your browser.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Online Chess Clock - Two Player Timer with Increment | ExcuseMeWeb">
+<meta property="og:description" content="Online two-player chess clock with configurable starting time and Fischer increment. Tap to switch between players.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://excusemeweb.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Online Chess Clock - Two Player Timer with Increment | ExcuseMeWeb">
+<meta name="twitter:description" content="Online two-player chess clock with configurable starting time and Fischer increment.">
+<link rel="canonical" href="https://excusemeweb.com/chess-clock">
+<link rel="icon" href="/favicon.ico">
+<meta name="theme-color" content="#ffffff">
+<meta property="og:url" content="https://excusemeweb.com/chess-clock">
+
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Online Chess Clock",
+  "url": "https://excusemeweb.com/chess-clock",
+  "description": "Online two-player chess clock with configurable starting time and Fischer increment. Tap to switch between players.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "All",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": { "@type": "Organization", "name": "ExcuseMeWeb" },
+  "dateModified": "2026-08-07"
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://excusemeweb.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Clock Tools", "item": "https://excusemeweb.com/clock-tools" },
+    { "@type": "ListItem", "position": 3, "name": "Chess Clock", "item": "https://excusemeweb.com/chess-clock" }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"How does the chess clock work for two players?","acceptedAnswer":{"@type":"Answer","text":"Each player starts with the same amount of time. Press your side button to start your opponent clock and stop yours. Optional increment adds seconds after each move. When a player time reaches zero, they lose on time."}},
+    {"@type":"Question","name":"What is Fischer increment?","acceptedAnswer":{"@type":"Answer","text":"Fischer increment (named after Bobby Fischer) adds a fixed number of seconds to a player clock after each move. For example, with a 10+5 setting, each player starts with 10 minutes and gains 5 seconds after every move. This prevents time trouble in long games."}},
+    {"@type":"Question","name":"Can I use this for board games other than chess?","acceptedAnswer":{"@type":"Answer","text":"Yes. This chess clock works for any two-player turn-based game: checkers, Go, Scrabble, Stratego, or any game where players alternate turns. Set the starting time and increment to match your game."
+}}
+  ]
+}</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg-primary:#ffffff;--bg-secondary:#f8fafc;--bg-tertiary:#f1f5f9;
+--text-primary:#0f172a;--text-secondary:#64748b;--accent:#6366f1;
+--accent-hover:#4f46e5;--accent-light:#eef2ff;--danger:#ef4444;--success:#22c55e;
+--warning:#f59e0b;--border:#e2e8f0;--shadow:rgba(0,0,0,0.08);
+--font-body:'Inter',sans-serif;--font-brand:'Inter',sans-serif;--border-radius:12px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:var(--font-body);background:var(--bg-primary);color:var(--text-primary);min-height:100vh;display:flex;flex-direction:column;}
+.header{background:var(--bg-secondary);border-bottom:1px solid var(--border);padding:0 24px;position:sticky;top:0;z-index:1000;}
+.header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;}
+.logo{font-family:var(--font-brand);font-size:1.5rem;font-weight:700;color:var(--accent);text-decoration:none;}
+.logo span{color:var(--text-primary);}
+.nav-desktop{display:flex;gap:28px;}
+.nav-desktop a{color:var(--text-secondary);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color 0.2s;white-space:nowrap;}
+.nav-desktop a:hover{color:var(--accent);}
+.nav-desktop a.active{color:var(--accent);}
+.header-right{display:flex;align-items:center;gap:16px;}
+.hamburger{display:none;background:none;border:none;color:var(--text-primary);font-size:1.5rem;cursor:pointer;}
+.mobile-nav{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg-secondary);border-bottom:1px solid var(--border);padding:16px 24px;flex-direction:column;gap:16px;z-index:999;}
+.mobile-nav.show{display:flex;}
+.mobile-nav a{color:var(--text-secondary);text-decoration:none;font-size:1rem;font-weight:500;}
+.mobile-nav a.active{color:var(--accent);}
+.main-content{flex:1;max-width:1100px;width:100%;margin:0 auto;padding:40px 24px;}
+.breadcrumb{display:flex;align-items:center;flex-wrap:wrap;gap:6px;font-size:0.85rem;color:var(--text-secondary);margin-bottom:20px;}
+.breadcrumb a{color:var(--text-secondary);text-decoration:none;}
+.breadcrumb a:hover{color:var(--accent);text-decoration:underline;}
+.breadcrumb .bc-sep{color:var(--border);}
+.breadcrumb .bc-current{color:var(--text-primary);font-weight:600;}
+.page-header{text-align:center;margin-bottom:28px;}
+.page-header h1{font-size:2.3rem;font-weight:700;margin-bottom:8px;}
+.page-header p{color:var(--text-secondary);font-size:1.05rem;max-width:640px;margin:0 auto;}
+.tool-box{background:var(--bg-secondary);border:1px solid var(--border);border-radius:var(--border-radius);padding:28px;max-width:700px;margin:0 auto 24px;}
+.btn-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:16px;}
+.btn{padding:12px 28px;border-radius:10px;border:none;font-size:0.95rem;font-weight:600;cursor:pointer;transition:all 0.15s;font-family:var(--font-body);}
+.btn-p{background:var(--accent);color:#fff;}
+.btn-p:hover{background:var(--accent-hover);}
+.btn-s{background:var(--bg-tertiary);color:var(--text-primary);border:1px solid var(--border);}
+.btn-s:hover{border-color:var(--accent);color:var(--accent);}
+.btn-sm{padding:8px 16px;font-size:0.85rem;}
+.chess-players{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
+.chess-player{text-align:center;padding:24px 16px;border-radius:var(--border-radius);border:2px solid var(--border);background:var(--bg-primary);transition:all 0.15s;cursor:pointer;}
+.chess-player.active-turn{border-color:var(--accent);background:var(--accent-light);}
+.chess-player .player-label{font-size:0.9rem;font-weight:600;color:var(--text-secondary);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.04em;}
+.chess-player .player-time{font-size:2.8rem;font-weight:700;font-variant-numeric:tabular-nums;}
+.chess-player.active-turn .player-time{color:var(--accent);}
+.chess-player.low-time .player-time{color:var(--danger);}
+.chess-settings{display:flex;gap:10px;justify-content:center;align-items:center;flex-wrap:wrap;margin-bottom:16px;}
+.chess-settings label{font-size:0.85rem;font-weight:600;color:var(--text-secondary);}
+.chess-settings input{padding:8px 12px;border-radius:8px;border:1px solid var(--border);font-family:var(--font-body);font-size:0.9rem;width:70px;text-align:center;}
+.info-section{background:var(--bg-secondary);border-radius:var(--border-radius);padding:32px;margin-bottom:24px;border:1px solid var(--border);}
+.info-section h2{font-size:1.4rem;margin-bottom:14px;}
+.info-section h3{margin-top:28px;margin-bottom:14px;color:var(--accent);font-size:1.1rem;}
+.info-section p,.info-section li{color:var(--text-secondary);line-height:1.7;}
+.info-section ul,.info-section ol{padding-left:22px;margin-bottom:10px;}
+.info-section a{color:var(--accent);text-decoration:none;}
+.info-section a:hover{text-decoration:underline;}
+details{margin-bottom:10px;border:1px solid var(--border);border-radius:8px;padding:14px 16px;background:var(--bg-primary);}
+summary{font-weight:600;color:var(--text-primary);cursor:pointer;}
+details p{margin-top:10px;margin-bottom:0;}
+.footer{background:var(--bg-secondary);border-top:1px solid var(--border);padding:32px 24px;text-align:center;color:var(--text-secondary);font-size:0.9rem;}
+.footer a{color:var(--accent);text-decoration:none;}
+@media(max-width:768px){
+.nav-desktop{display:none;}.hamburger{display:block;}
+.page-header h1{font-size:1.7rem;}
+.main-content{padding:24px 16px;}
+.chess-players{grid-template-columns:1fr;}
+.chess-player .player-time{font-size:2.2rem;}
+}
+</style>
+</head><body>
+<header class="header">
+<div class="header-inner">
+<a href="/" class="logo">Excuse<span>Me</span>Web</a>
+<nav class="nav-desktop">
+<a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a><a href="/all-in-one-toolkit" class="active">Toolkits</a>
+</nav>
+<div class="header-right">
+<button class="hamburger" onclick="document.getElementById('mobileNav').classList.toggle('show')">&#9776;</button>
+</div>
+</div>
+<nav class="mobile-nav" id="mobileNav">
+<a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a><a href="/all-in-one-toolkit" class="active">Toolkits</a>
+</nav>
+</header>
+
+<main class="main-content">
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="bc-sep">/</span><a href="/clock-tools">Clock Tools</a><span class="bc-sep">/</span><span class="bc-current">Chess Clock</span></nav>
+
+<div class="page-header">
+<h1>Online Chess Clock</h1>
+<p>Two-player chess clock with configurable starting time and Fischer increment. Tap your side to pass control to your opponent.</p>
+</div>
+
+<div class="tool-box">
+<div class="chess-settings">
+<label>Minutes:</label>
+<input type="number" id="chessMin" value="10" min="1" max="120">
+<label>Increment (s):</label>
+<input type="number" id="chessInc" value="0" min="0" max="60">
+<button class="btn btn-p btn-sm" onclick="chessInit()">Reset</button>
+</div>
+<div class="chess-players">
+<div class="chess-player" id="chessP1" onclick="chessSwitch(1)">
+<div class="player-label">Player 1</div>
+<div class="player-time" id="chessT1">10:00</div>
+</div>
+<div class="chess-player" id="chessP2" onclick="chessSwitch(2)">
+<div class="player-label">Player 2</div>
+<div class="player-time" id="chessT2">10:00</div>
+</div>
+</div>
+<div class="btn-row">
+<button class="btn btn-p" onclick="chessToggle()" id="chessStartBtn">Start</button>
+<button class="btn btn-s" onclick="chessInit()">New Game</button>
+</div>
+</div>
+
+<div class="info-section">
+<h2>Online Chess Clock</h2>
+<p>This chess clock provides a two-player countdown with Fischer-style increment. Each player starts with the same amount of time and gains bonus seconds after each move. Tap or click your side of the board to pass control to your opponent.</p>
+
+<h3>How to Use</h3>
+<ol>
+<li>Set the starting minutes and increment per move (e.g., 10+5 means 10 minutes with 5 seconds added per move).</li>
+<li>Click <strong>Start</strong>. Player 1's clock begins counting down.</li>
+<li>Player 1 clicks their side to stop their clock and start Player 2's clock.</li>
+<li>When a player's time reaches zero, an alarm sounds and the other player wins on time.</li>
+</ol>
+
+<h3>Features</h3>
+<ul>
+<li>Configurable starting time (1–120 minutes)</li>
+<li>Fischer increment (0–60 seconds per move)</li>
+<li>Visual active-turn highlighting</li>
+<li>Red low-time warning under 30 seconds</li>
+<li>Audio alarm on time expiry</li>
+</ul>
+
+<h3>Frequently Asked Questions</h3>
+<details>
+<summary>How does the chess clock work for two players?</summary>
+<p>Each player starts with the same amount of time. Press your side button to start your opponent clock and stop yours. Optional increment adds seconds after each move. When a player time reaches zero, they lose on time.</p>
+</details>
+<details>
+<summary>What is Fischer increment?</summary>
+<p>Fischer increment (named after Bobby Fischer) adds a fixed number of seconds to a player clock after each move. For example, with a 10+5 setting, each player starts with 10 minutes and gains 5 seconds after every move. This prevents time trouble in long games.</p>
+</details>
+<details>
+<summary>Can I use this for board games other than chess?</summary>
+<p>Yes. This chess clock works for any two-player turn-based game: checkers, Go, Scrabble, Stratego, or any game where players alternate turns. Set the starting time and increment to match your game.</p>
+</details>
+
+<h3>Related Tools</h3>
+<p><a href="/timer">Countdown Timer</a> &middot; <a href="/stopwatch">Stopwatch</a> &middot; <a href="/pomodoro-timer">Pomodoro Timer</a> &middot; <a href="/interval-timer">Interval Timer</a></p>
+</div>
+</main>
+
+<footer class="footer">
+<p>&copy; 2026 ExcuseMeWeb.com &mdash; Online Tools for Everyone</p>
+<p style="margin-top:8px"><a href="/calculators">Calculators</a> &middot; <a href="/converters">Converters</a> &middot; <a href="/image-tools">Image Tools</a> &middot; <a href="/generators">Generators</a> &middot; <a href="/templates">Templates</a> &middot; <a href="/games">Games</a> &middot; <a href="/all-in-one-toolkit">Toolkits</a></p>
+<p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p>
+</footer><script>
+var audioCtx=null;
+function alarmSound(){
+    try{if(!audioCtx)audioCtx=new(window.AudioContext||window.webkitAudioContext)();
+    for(var i=0;i<3;i++){(function(i){
+        setTimeout(function(){
+            var o=audioCtx.createOscillator(),g=audioCtx.createGain();
+            o.connect(g);g.connect(audioCtx.destination);
+            o.frequency.value=i%2===0?880:660;o.type='square';g.gain.value=0.25;
+            o.start(audioCtx.currentTime);o.stop(audioCtx.currentTime+0.25);
+        },i*350);
+    })(i);}
+}catch(e){}
+}
+function fmtChess(s){s=Math.max(0,Math.ceil(s));var m=Math.floor(s/60),sec=s%60;return(m<10?'0':'')+m+':'+(sec<10?'0':'')+sec;}
+var chessIV=null,chessRun=false,chessTurn=0,chessT=[0,0,0],chessIncVal=0;
+function chessInit(){
+    clearInterval(chessIV);chessRun=false;chessTurn=0;
+    var min=parseInt(document.getElementById('chessMin').value)||10;
+    chessIncVal=parseInt(document.getElementById('chessInc').value)||0;
+    chessT[1]=min*60;chessT[2]=min*60;
+    document.getElementById('chessT1').textContent=fmtChess(chessT[1]);
+    document.getElementById('chessT2').textContent=fmtChess(chessT[2]);
+    document.getElementById('chessP1').classList.remove('active-turn','low-time');
+    document.getElementById('chessP2').classList.remove('active-turn','low-time');
+    document.getElementById('chessStartBtn').textContent='Start';
+}
+function chessToggle(){
+    if(chessRun){clearInterval(chessIV);chessRun=false;
+    document.getElementById('chessStartBtn').textContent='Resume';
+    }else{
+        if(chessTurn===0){chessTurn=1;document.getElementById('chessP1').classList.add('active-turn');}
+        chessRun=true;chessIV=setInterval(chessTick,100);
+        document.getElementById('chessStartBtn').textContent='Pause';
+    }
+}
+function chessTick(){
+    if(chessTurn===0)return;
+    chessT[chessTurn]-=0.1;
+    if(chessT[chessTurn]<=0){
+        chessT[chessTurn]=0;clearInterval(chessIV);chessRun=false;alarmSound();
+        document.getElementById('chessStartBtn').textContent='Player '+(chessTurn===1?'2':'1')+' Wins!';
+    }
+    document.getElementById('chessT'+chessTurn).textContent=fmtChess(chessT[chessTurn]);
+    document.getElementById('chessP'+chessTurn).classList.toggle('low-time',chessT[chessTurn]<30);
+}
+function chessSwitch(p){
+    if(!chessRun||chessTurn===p)return;
+    chessT[chessTurn]+=chessIncVal;
+    document.getElementById('chessP'+chessTurn).classList.remove('active-turn');
+    chessTurn=p;
+    document.getElementById('chessP'+p).classList.add('active-turn');
+    document.getElementById('chessT'+chessTurn).textContent=fmtChess(chessT[chessTurn]);
+}
+chessInit();
+</script>
+</body>
+</html>

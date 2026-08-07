@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="fa026cc1-8f84-44f5-b2fb-9ccf29374a38"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Count Up Timer - Elapsed Time Tracker | ExcuseMeWeb</title>
+<meta name="description" content="Online count up timer that measures elapsed time from zero. Start, pause, stop, and reset with hours, minutes, and seconds display. Runs entirely in your browser.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Count Up Timer - Elapsed Time Tracker | ExcuseMeWeb">
+<meta property="og:description" content="Online count up timer that measures elapsed time from zero. Start, pause, stop, and reset.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://excusemeweb.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Count Up Timer - Elapsed Time Tracker | ExcuseMeWeb">
+<meta name="twitter:description" content="Online count up timer that measures elapsed time from zero. Start, pause, stop, and reset.">
+<link rel="canonical" href="https://excusemeweb.com/count-up-timer">
+<link rel="icon" href="/favicon.ico">
+<meta name="theme-color" content="#ffffff">
+<meta property="og:url" content="https://excusemeweb.com/count-up-timer">
+
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Count Up Timer",
+  "url": "https://excusemeweb.com/count-up-timer",
+  "description": "Online count up timer that measures elapsed time from zero. Start, pause, stop, and reset with H:M:S display.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "All",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": { "@type": "Organization", "name": "ExcuseMeWeb" },
+  "dateModified": "2026-08-07"
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://excusemeweb.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Clock Tools", "item": "https://excusemeweb.com/clock-tools" },
+    { "@type": "ListItem", "position": 3, "name": "Count Up Timer", "item": "https://excusemeweb.com/count-up-timer" }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"What is the difference between a count up timer and a stopwatch?","acceptedAnswer":{"@type":"Answer","text":"A count up timer displays elapsed time in hours, minutes, and seconds without hundredths precision or lap tracking. It is simpler and suited for tracking longer durations like meeting length or parking time. A stopwatch offers sub-second precision and lap recording."}},
+    {"@type":"Question","name":"Does the count up timer continue in the background?","acceptedAnswer":{"@type":"Answer","text":"Yes. The timer uses Date.now() to calculate elapsed time, so it remains accurate even if the browser tab is in the background. The display updates when you return to the tab."}},
+    {"@type":"Question","name":"Can I pause and resume the count up timer?","acceptedAnswer":{"@type":"Answer","text":"Yes. Click Pause to freeze the display, then click Resume to continue from where you left off. Click Stop to freeze the final time, or Reset to clear it back to zero."}}
+  ]
+}</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg-primary:#ffffff;--bg-secondary:#f8fafc;--bg-tertiary:#f1f5f9;
+--text-primary:#0f172a;--text-secondary:#64748b;--accent:#6366f1;
+--accent-hover:#4f46e5;--accent-light:#eef2ff;--danger:#ef4444;--success:#22c55e;
+--warning:#f59e0b;--border:#e2e8f0;--shadow:rgba(0,0,0,0.08);
+--font-body:'Inter',sans-serif;--font-brand:'Inter',sans-serif;--border-radius:12px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:var(--font-body);background:var(--bg-primary);color:var(--text-primary);min-height:100vh;display:flex;flex-direction:column;}
+.header{background:var(--bg-secondary);border-bottom:1px solid var(--border);padding:0 24px;position:sticky;top:0;z-index:1000;}
+.header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;}
+.logo{font-family:var(--font-brand);font-size:1.5rem;font-weight:700;color:var(--accent);text-decoration:none;}
+.logo span{color:var(--text-primary);}
+.nav-desktop{display:flex;gap:28px;}
+.nav-desktop a{color:var(--text-secondary);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color 0.2s;white-space:nowrap;}
+.nav-desktop a:hover{color:var(--accent);}
+.nav-desktop a.active{color:var(--accent);}
+.header-right{display:flex;align-items:center;gap:16px;}
+.hamburger{display:none;background:none;border:none;color:var(--text-primary);font-size:1.5rem;cursor:pointer;}
+.mobile-nav{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg-secondary);border-bottom:1px solid var(--border);padding:16px 24px;flex-direction:column;gap:16px;z-index:999;}
+.mobile-nav.show{display:flex;}
+.mobile-nav a{color:var(--text-secondary);text-decoration:none;font-size:1rem;font-weight:500;}
+.mobile-nav a.active{color:var(--accent);}
+.main-content{flex:1;max-width:1100px;width:100%;margin:0 auto;padding:40px 24px;}
+.breadcrumb{display:flex;align-items:center;flex-wrap:wrap;gap:6px;font-size:0.85rem;color:var(--text-secondary);margin-bottom:20px;}
+.breadcrumb a{color:var(--text-secondary);text-decoration:none;}
+.breadcrumb a:hover{color:var(--accent);text-decoration:underline;}
+.breadcrumb .bc-sep{color:var(--border);}
+.breadcrumb .bc-current{color:var(--text-primary);font-weight:600;}
+.page-header{text-align:center;margin-bottom:28px;}
+.page-header h1{font-size:2.3rem;font-weight:700;margin-bottom:8px;}
+.page-header p{color:var(--text-secondary);font-size:1.05rem;max-width:640px;margin:0 auto;}
+.tool-box{background:var(--bg-secondary);border:1px solid var(--border);border-radius:var(--border-radius);padding:28px;max-width:700px;margin:0 auto 24px;}
+.time-display{font-size:3.2rem;font-weight:700;text-align:center;font-variant-numeric:tabular-nums;letter-spacing:0.02em;margin-bottom:20px;color:var(--text-primary);}
+.btn-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:16px;}
+.btn{padding:12px 28px;border-radius:10px;border:none;font-size:0.95rem;font-weight:600;cursor:pointer;transition:all 0.15s;font-family:var(--font-body);}
+.btn-p{background:var(--accent);color:#fff;}
+.btn-p:hover{background:var(--accent-hover);}
+.btn-s{background:var(--bg-tertiary);color:var(--text-primary);border:1px solid var(--border);}
+.btn-s:hover{border-color:var(--accent);color:var(--accent);}
+.btn-d{background:var(--danger);color:#fff;}
+.btn-d:hover{opacity:0.9;}
+.info-section{background:var(--bg-secondary);border-radius:var(--border-radius);padding:32px;margin-bottom:24px;border:1px solid var(--border);}
+.info-section h2{font-size:1.4rem;margin-bottom:14px;}
+.info-section h3{margin-top:28px;margin-bottom:14px;color:var(--accent);font-size:1.1rem;}
+.info-section p,.info-section li{color:var(--text-secondary);line-height:1.7;}
+.info-section ul,.info-section ol{padding-left:22px;margin-bottom:10px;}
+.info-section a{color:var(--accent);text-decoration:none;}
+.info-section a:hover{text-decoration:underline;}
+details{margin-bottom:10px;border:1px solid var(--border);border-radius:8px;padding:14px 16px;background:var(--bg-primary);}
+summary{font-weight:600;color:var(--text-primary);cursor:pointer;}
+details p{margin-top:10px;margin-bottom:0;}
+.footer{background:var(--bg-secondary);border-top:1px solid var(--border);padding:32px 24px;text-align:center;color:var(--text-secondary);font-size:0.9rem;}
+.footer a{color:var(--accent);text-decoration:none;}
+@media(max-width:768px){
+.nav-desktop{display:none;}.hamburger{display:block;}
+.page-header h1{font-size:1.7rem;}
+.main-content{padding:24px 16px;}
+.time-display{font-size:2.4rem;}
+}
+</style>
+</head><body>
+<header class="header">
+<div class="header-inner">
+<a href="/" class="logo">Excuse<span>Me</span>Web</a>
+<nav class="nav-desktop">
+<a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a><a href="/all-in-one-toolkit" class="active">Toolkits</a>
+</nav>
+<div class="header-right">
+<button class="hamburger" onclick="document.getElementById('mobileNav').classList.toggle('show')">&#9776;</button>
+</div>
+</div>
+<nav class="mobile-nav" id="mobileNav">
+<a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a><a href="/all-in-one-toolkit" class="active">Toolkits</a>
+</nav>
+</header>
+
+<main class="main-content">
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="bc-sep">/</span><a href="/clock-tools">Clock Tools</a><span class="bc-sep">/</span><span class="bc-current">Count Up Timer</span></nav>
+
+<div class="page-header">
+<h1>Count Up Timer</h1>
+<p>Measure elapsed time from zero upward. Start it when an event begins and stop it when you need to see how long it has been.</p>
+</div>
+
+<div class="tool-box">
+<div class="time-display" id="cuDisplay">00:00:00</div>
+<div class="btn-row">
+<button class="btn btn-p" onclick="cuStart()" id="cuStartBtn">Start</button>
+<button class="btn btn-s" onclick="cuPause()" id="cuPauseBtn" disabled>Pause</button>
+<button class="btn btn-d" onclick="cuStop()" id="cuStopBtn" disabled>Stop</button>
+<button class="btn btn-s" onclick="cuReset()">Reset</button>
+</div>
+</div>
+
+<div class="info-section">
+<h2>Count Up Timer</h2>
+<p>This count up timer measures elapsed time from zero in hours, minutes, and seconds. It is simpler than a stopwatch — no lap tracking, no hundredths — just a clean H:M:S display that runs until you stop it.</p>
+
+<h3>How to Use</h3>
+<ol>
+<li>Click <strong>Start</strong> to begin counting up from 00:00:00.</li>
+<li>Click <strong>Pause</strong> to freeze the display. Click <strong>Resume</strong> (the same button) to continue.</li>
+<li>Click <strong>Stop</strong> to freeze the final elapsed time permanently until you reset.</li>
+<li>Click <strong>Reset</strong> to clear everything back to 00:00:00.</li>
+</ol>
+
+<h3>Use Cases</h3>
+<ul>
+<li>Track how long a meeting has been running</li>
+<li>Time a parking meter or cooking process</li>
+<li>Measure uptime for servers or processes</li>
+<li>Track duration of any ongoing event</li>
+</ul>
+
+<h3>Frequently Asked Questions</h3>
+<details>
+<summary>What is the difference between a count up timer and a stopwatch?</summary>
+<p>A count up timer displays elapsed time in hours, minutes, and seconds without hundredths precision or lap tracking. It is simpler and suited for tracking longer durations like meeting length or parking time. A stopwatch offers sub-second precision and lap recording.</p>
+</details>
+<details>
+<summary>Does the count up timer continue in the background?</summary>
+<p>Yes. The timer uses Date.now() to calculate elapsed time, so it remains accurate even if the browser tab is in the background. The display updates when you return to the tab.</p>
+</details>
+<details>
+<summary>Can I pause and resume the count up timer?</summary>
+<p>Yes. Click Pause to freeze the display, then click Resume to continue from where you left off. Click Stop to freeze the final time, or Reset to clear it back to zero.</p>
+</details>
+
+<h3>Related Tools</h3>
+<p><a href="/stopwatch">Stopwatch</a> &middot; <a href="/timer">Countdown Timer</a> &middot; <a href="/interval-timer">Interval Timer</a> &middot; <a href="/pomodoro-timer">Pomodoro Timer</a></p>
+</div>
+</main>
+
+<footer class="footer">
+<p>&copy; 2026 ExcuseMeWeb.com &mdash; Online Tools for Everyone</p>
+<p style="margin-top:8px"><a href="/calculators">Calculators</a> &middot; <a href="/converters">Converters</a> &middot; <a href="/image-tools">Image Tools</a> &middot; <a href="/generators">Generators</a> &middot; <a href="/templates">Templates</a> &middot; <a href="/games">Games</a> &middot; <a href="/all-in-one-toolkit">Toolkits</a></p>
+<p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p>
+</footer><script>
+function fmtCU(s){s=Math.floor(s);var h=Math.floor(s/3600),m=Math.floor((s%3600)/60),sec=s%60;return(h<10?'0':'')+h+':'+(m<10?'0':'')+m+':'+(sec<10?'0':'')+sec;}
+var cuIV=null,cuSec=0,cuRun=false,cuStartTs=0;
+function cuStart(){
+    if(cuRun)return;cuRun=true;
+    cuStartTs=Date.now()-cuSec*1000;
+    cuIV=setInterval(function(){
+        cuSec=Math.floor((Date.now()-cuStartTs)/1000);
+        document.getElementById('cuDisplay').textContent=fmtCU(cuSec);
+    },200);
+    document.getElementById('cuStartBtn').disabled=true;
+    document.getElementById('cuPauseBtn').disabled=false;
+    document.getElementById('cuStopBtn').disabled=false;
+}
+function cuPause(){
+    if(cuRun){clearInterval(cuIV);cuRun=false;
+    document.getElementById('cuStartBtn').disabled=false;
+    document.getElementById('cuStartBtn').textContent='Resume';
+    }else{cuStart();}
+}
+function cuStop(){
+    clearInterval(cuIV);cuRun=false;
+    document.getElementById('cuStartBtn').disabled=false;
+    document.getElementById('cuStartBtn').textContent='Start';
+    document.getElementById('cuPauseBtn').disabled=true;
+    document.getElementById('cuStopBtn').disabled=true;
+}
+function cuReset(){
+    clearInterval(cuIV);cuRun=false;cuSec=0;
+    document.getElementById('cuDisplay').textContent='00:00:00';
+    document.getElementById('cuStartBtn').disabled=false;
+    document.getElementById('cuStartBtn').textContent='Start';
+    document.getElementById('cuPauseBtn').disabled=true;
+    document.getElementById('cuStopBtn').disabled=true;
+}
+</script>
+</body>
+</html>

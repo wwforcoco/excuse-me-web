@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="fa026cc1-8f84-44f5-b2fb-9ccf29374a38"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Online Alarm Clock - Set Multiple Alarms | ExcuseMeWeb</title>
+<meta name="description" content="Set multiple online alarms with custom labels. Browser-based audio alert when the alarm triggers. Dismiss or delete alarms. Keep the tab open for the alarm to sound.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Online Alarm Clock - Set Multiple Alarms | ExcuseMeWeb">
+<meta property="og:description" content="Set multiple online alarms with custom labels. Browser-based audio alert when the alarm triggers. Dismiss or delete alarms.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://excusemeweb.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Online Alarm Clock - Set Multiple Alarms | ExcuseMeWeb">
+<meta name="twitter:description" content="Set multiple online alarms with custom labels. Browser-based audio alert when the alarm triggers.">
+<link rel="canonical" href="https://excusemeweb.com/alarm">
+<link rel="icon" href="/favicon.ico">
+<meta name="theme-color" content="#ffffff">
+<meta property="og:url" content="https://excusemeweb.com/alarm">
+
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Online Alarm Clock",
+  "url": "https://excusemeweb.com/alarm",
+  "description": "Set multiple online alarms with custom labels. Browser-based audio alert when the alarm triggers.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "All",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": { "@type": "Organization", "name": "ExcuseMeWeb" },
+  "dateModified": "2026-08-07"
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://excusemeweb.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Clock Tools", "item": "https://excusemeweb.com/clock-tools" },
+    { "@type": "ListItem", "position": 3, "name": "Alarm Clock", "item": "https://excusemeweb.com/alarm" }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Does the online alarm clock work if I close the browser?","acceptedAnswer":{"@type":"Answer","text":"No. The alarm runs inside your browser tab using JavaScript. If you close the tab or the browser, the alarm stops. Keep the tab open and your computer awake for the alarm to sound at the set time."}},
+    {"@type":"Question","name":"Can I set multiple alarms at once?","acceptedAnswer":{"@type":"Answer","text":"Yes. You can add as many alarms as you need. Each alarm has its own time, label, and delete button. All active alarms are checked every second against the current system time."}},
+    {"@type":"Question","name":"What sound does the alarm make?","acceptedAnswer":{"@type":"Answer","text":"The alarm uses the Web Audio API to generate a two-tone alternating beep pattern through your browser. No audio files are loaded externally. The sound plays until you click Dismiss."}},
+    {"@type":"Question","name":"Will the alarm work if my computer goes to sleep?","acceptedAnswer":{"@type":"Answer","text":"No. If your computer enters sleep mode, JavaScript timers are paused and the alarm will not sound. Adjust your system settings to prevent sleep while the alarm is active."}}
+  ]
+}</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg-primary:#ffffff;--bg-secondary:#f8fafc;--bg-tertiary:#f1f5f9;
+--text-primary:#0f172a;--text-secondary:#64748b;--accent:#6366f1;
+--accent-hover:#4f46e5;--accent-light:#eef2ff;--danger:#ef4444;--success:#22c55e;
+--warning:#f59e0b;--border:#e2e8f0;--shadow:rgba(0,0,0,0.08);
+--font-body:'Inter',sans-serif;--font-brand:'Inter',sans-serif;--border-radius:12px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:var(--font-body);background:var(--bg-primary);color:var(--text-primary);min-height:100vh;display:flex;flex-direction:column;}
+.header{background:var(--bg-secondary);border-bottom:1px solid var(--border);padding:0 24px;position:sticky;top:0;z-index:1000;}
+.header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;}
+.logo{font-family:var(--font-brand);font-size:1.5rem;font-weight:700;color:var(--accent);text-decoration:none;}
+.logo span{color:var(--text-primary);}
+.nav-desktop{display:flex;gap:28px;}
+.nav-desktop a{color:var(--text-secondary);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color 0.2s;white-space:nowrap;}
+.nav-desktop a:hover{color:var(--accent);}
+.nav-desktop a.active{color:var(--accent);}
+.header-right{display:flex;align-items:center;gap:16px;}
+.hamburger{display:none;background:none;border:none;color:var(--text-primary);font-size:1.5rem;cursor:pointer;}
+.mobile-nav{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg-secondary);border-bottom:1px solid var(--border);padding:16px 24px;flex-direction:column;gap:16px;z-index:999;}
+.mobile-nav.show{display:flex;}
+.mobile-nav a{color:var(--text-secondary);text-decoration:none;font-size:1rem;font-weight:500;}
+.mobile-nav a.active{color:var(--accent);}
+.main-content{flex:1;max-width:1100px;width:100%;margin:0 auto;padding:40px 24px;}
+.breadcrumb{display:flex;align-items:center;flex-wrap:wrap;gap:6px;font-size:0.85rem;color:var(--text-secondary);margin-bottom:20px;}
+.breadcrumb a{color:var(--text-secondary);text-decoration:none;}
+.breadcrumb a:hover{color:var(--accent);text-decoration:underline;}
+.breadcrumb .bc-sep{color:var(--border);}
+.breadcrumb .bc-current{color:var(--text-primary);font-weight:600;}
+.page-header{text-align:center;margin-bottom:28px;}
+.page-header h1{font-size:2.3rem;font-weight:700;margin-bottom:8px;}
+.page-header p{color:var(--text-secondary);font-size:1.05rem;max-width:640px;margin:0 auto;}
+.tool-box{background:var(--bg-secondary);border:1px solid var(--border);border-radius:var(--border-radius);padding:28px;max-width:700px;margin:0 auto 24px;}
+.btn-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:16px;}
+.btn{padding:12px 28px;border-radius:10px;border:none;font-size:0.95rem;font-weight:600;cursor:pointer;transition:all 0.15s;font-family:var(--font-body);}
+.btn-p{background:var(--accent);color:#fff;}
+.btn-p:hover{background:var(--accent-hover);}
+.btn-s{background:var(--bg-tertiary);color:var(--text-primary);border:1px solid var(--border);}
+.btn-s:hover{border-color:var(--accent);color:var(--accent);}
+.btn-sm{padding:8px 16px;font-size:0.85rem;}
+.btn-d{background:var(--danger);color:#fff;}
+.btn-d:hover{opacity:0.9;}
+.alarm-inputs{display:flex;gap:10px;justify-content:center;align-items:center;margin-bottom:16px;flex-wrap:wrap;}
+.alarm-inputs input[type="time"]{font-size:1.4rem;padding:10px 14px;border-radius:10px;border:1px solid var(--border);font-family:var(--font-body);font-weight:600;}
+.alarm-inputs input[type="text"]{font-size:0.95rem;padding:10px 14px;border-radius:10px;border:1px solid var(--border);font-family:var(--font-body);width:160px;}
+.alarm-inputs input:focus{outline:2px solid var(--accent);}
+.alarm-list{margin-top:16px;}
+.alarm-item{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border:1px solid var(--border);border-radius:10px;margin-bottom:8px;background:var(--bg-primary);}
+.alarm-item-time{font-size:1.2rem;font-weight:700;}
+.alarm-item-label{font-size:0.85rem;color:var(--text-secondary);}
+.alarm-ringing{animation:pulse-ring 0.5s ease-in-out infinite alternate;}
+@keyframes pulse-ring{from{box-shadow:0 0 0 0 rgba(239,68,68,0.4);}to{box-shadow:0 0 0 15px rgba(239,68,68,0);}}
+.alarm-now{text-align:center;font-size:1.6rem;font-weight:700;font-variant-numeric:tabular-nums;margin-bottom:20px;color:var(--text-primary);}
+.info-section{background:var(--bg-secondary);border-radius:var(--border-radius);padding:32px;margin-bottom:24px;border:1px solid var(--border);}
+.info-section h2{font-size:1.4rem;margin-bottom:14px;}
+.info-section h3{margin-top:28px;margin-bottom:14px;color:var(--accent);font-size:1.1rem;}
+.info-section p,.info-section li{color:var(--text-secondary);line-height:1.7;}
+.info-section ul,.info-section ol{padding-left:22px;margin-bottom:10px;}
+.info-section a{color:var(--accent);text-decoration:none;}
+.info-section a:hover{text-decoration:underline;}
+details{margin-bottom:10px;border:1px solid var(--border);border-radius:8px;padding:14px 16px;background:var(--bg-primary);}
+summary{font-weight:600;color:var(--text-primary);cursor:pointer;}
+details p{margin-top:10px;margin-bottom:0;}
+.footer{background:var(--bg-secondary);border-top:1px solid var(--border);padding:32px 24px;text-align:center;color:var(--text-secondary);font-size:0.9rem;}
+.footer a{color:var(--accent);text-decoration:none;}
+@media(max-width:768px){
+.nav-desktop{display:none;}.hamburger{display:block;}
+.page-header h1{font-size:1.7rem;}
+.main-content{padding:24px 16px;}
+.alarm-inputs{flex-direction:column;}
+.alarm-inputs input[type="text"]{width:100%;}
+}
+</style>
+</head><body>
+<header class="header">
+<div class="header-inner">
+<a href="/" class="logo">Excuse<span>Me</span>Web</a>
+<nav class="nav-desktop">
+<a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a><a href="/all-in-one-toolkit" class="active">Toolkits</a>
+</nav>
+<div class="header-right">
+<button class="hamburger" onclick="document.getElementById('mobileNav').classList.toggle('show')">&#9776;</button>
+</div>
+</div>
+<nav class="mobile-nav" id="mobileNav">
+<a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a><a href="/all-in-one-toolkit" class="active">Toolkits</a>
+</nav>
+</header>
+
+<main class="main-content">
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="bc-sep">/</span><a href="/clock-tools">Clock Tools</a><span class="bc-sep">/</span><span class="bc-current">Alarm Clock</span></nav>
+
+<div class="page-header">
+<h1>Online Alarm Clock</h1>
+<p>Set one or more alarms with optional labels. A browser audio alert sounds when the alarm time is reached.</p>
+</div>
+
+<div class="tool-box">
+<div class="alarm-now" id="alarmNow">--:--:--</div>
+<div class="alarm-inputs">
+<input type="time" id="alarmTime" value="08:00">
+<input type="text" id="alarmLabel" placeholder="Label (optional)" maxlength="40">
+<button class="btn btn-p btn-sm" onclick="addAlarm()">Set Alarm</button>
+</div>
+<div class="alarm-list" id="alarmList">
+<p style="text-align:center;color:var(--text-secondary);font-size:0.9rem;">No alarms set. Choose a time and click Set Alarm.</p>
+</div>
+</div>
+
+<div class="info-section">
+<h2>Online Alarm Clock</h2>
+<p>This alarm clock runs entirely in your browser. Set as many alarms as you need with optional labels. When the system clock matches an alarm time, a repeating audio alert plays through your browser speakers.</p>
+
+<h3>How to Use</h3>
+<ol>
+<li>Choose a time using the time picker and optionally add a label.</li>
+<li>Click <strong>Set Alarm</strong> to add it to the list.</li>
+<li>When the alarm triggers, it pulses red and plays a two-tone beep. Click <strong>Dismiss</strong> to silence it.</li>
+<li>Click <strong>Delete</strong> at any time to remove an alarm before it rings.</li>
+</ol>
+
+<h3>Features</h3>
+<ul>
+<li>Set unlimited alarms with custom labels</li>
+<li>Visual ringing animation with pulsing red border</li>
+<li>Two-tone audio alert using the Web Audio API</li>
+<li>Dismiss and delete controls for each alarm</li>
+<li>Current time display at the top</li>
+</ul>
+
+<h3>Frequently Asked Questions</h3>
+<details>
+<summary>Does the online alarm clock work if I close the browser?</summary>
+<p>No. The alarm runs inside your browser tab using JavaScript. If you close the tab or the browser, the alarm stops. Keep the tab open and your computer awake for the alarm to sound at the set time.</p>
+</details>
+<details>
+<summary>Can I set multiple alarms at once?</summary>
+<p>Yes. You can add as many alarms as you need. Each alarm has its own time, label, and delete button. All active alarms are checked every second against the current system time.</p>
+</details>
+<details>
+<summary>What sound does the alarm make?</summary>
+<p>The alarm uses the Web Audio API to generate a two-tone alternating beep pattern through your browser. No audio files are loaded externally. The sound plays until you click Dismiss.</p>
+</details>
+<details>
+<summary>Will the alarm work if my computer goes to sleep?</summary>
+<p>No. If your computer enters sleep mode, JavaScript timers are paused and the alarm will not sound. Adjust your system settings to prevent sleep while the alarm is active.</p>
+</details>
+
+<h3>Related Tools</h3>
+<p><a href="/timer">Countdown Timer</a> &middot; <a href="/pomodoro-timer">Pomodoro Timer</a> &middot; <a href="/world-clock">World Clock</a> &middot; <a href="/unix-timestamp">Unix Timestamp</a></p>
+</div>
+</main>
+
+<footer class="footer">
+<p>&copy; 2026 ExcuseMeWeb.com &mdash; Online Tools for Everyone</p>
+<p style="margin-top:8px"><a href="/calculators">Calculators</a> &middot; <a href="/converters">Converters</a> &middot; <a href="/image-tools">Image Tools</a> &middot; <a href="/generators">Generators</a> &middot; <a href="/templates">Templates</a> &middot; <a href="/games">Games</a> &middot; <a href="/all-in-one-toolkit">Toolkits</a></p>
+<p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p>
+</footer><script>
+var audioCtx=null;
+function alarmSound(){
+    try{if(!audioCtx)audioCtx=new(window.AudioContext||window.webkitAudioContext)();
+    for(var i=0;i<3;i++){(function(i){
+        setTimeout(function(){
+            var o=audioCtx.createOscillator(),g=audioCtx.createGain();
+            o.connect(g);g.connect(audioCtx.destination);
+            o.frequency.value=i%2===0?880:660;o.type='square';g.gain.value=0.25;
+            o.start(audioCtx.currentTime);o.stop(audioCtx.currentTime+0.25);
+        },i*350);
+    })(i);}
+}catch(e){}
+}
+function updateNow(){
+    var n=new Date();
+    var h=(n.getHours()<10?'0':'')+n.getHours();
+    var m=(n.getMinutes()<10?'0':'')+n.getMinutes();
+    var s=(n.getSeconds()<10?'0':'')+n.getSeconds();
+    document.getElementById('alarmNow').textContent=h+':'+m+':'+s;
+}
+setInterval(updateNow,1000);updateNow();
+var alarms=[];
+function addAlarm(){
+    var t=document.getElementById('alarmTime').value;if(!t)return;
+    var label=document.getElementById('alarmLabel').value||'Alarm';
+    var id=Date.now();
+    alarms.push({id:id,time:t,label:label,ringing:false});
+    renderAlarms();document.getElementById('alarmLabel').value='';
+}
+function removeAlarm(id){alarms=alarms.filter(function(a){return a.id!==id;});renderAlarms();}
+function dismissAlarm(id){alarms.forEach(function(a){if(a.id===id)a.ringing=false;});renderAlarms();}
+function renderAlarms(){
+    var c=document.getElementById('alarmList');
+    if(alarms.length===0){c.innerHTML='<p style="text-align:center;color:var(--text-secondary);font-size:0.9rem;">No alarms set. Choose a time and click Set Alarm.</p>';return;}
+    var h='';
+    alarms.forEach(function(a){
+        h+='<div class="alarm-item'+(a.ringing?' alarm-ringing':'')+'"><div><div class="alarm-item-time">'+a.time+'</div><div class="alarm-item-label">'+a.label+'</div></div><div>'+(a.ringing?'<button class="btn btn-d btn-sm" onclick="dismissAlarm('+a.id+')">Dismiss</button> ':'')+'<button class="btn btn-s btn-sm" onclick="removeAlarm('+a.id+')">Delete</button></div></div>';
+    });c.innerHTML=h;
+}
+setInterval(function(){
+    var now=new Date();
+    var hh=(now.getHours()<10?'0':'')+now.getHours();
+    var mm=(now.getMinutes()<10?'0':'')+now.getMinutes();
+    var cur=hh+':'+mm;
+    alarms.forEach(function(a){
+        if(a.time===cur&&now.getSeconds()===0&&!a.ringing){
+            a.ringing=true;alarmSound();renderAlarms();
+        }
+    });
+},1000);
+</script>
+</body>
+</html>

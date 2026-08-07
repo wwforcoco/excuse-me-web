@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="fa026cc1-8f84-44f5-b2fb-9ccf29374a38"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sleep Calculator - Optimal Bedtime & Wake Time | ExcuseMeWeb</title>
+<meta name="description" content="Sleep calculator using 90-minute sleep cycles. Find optimal bedtimes for your desired wake time, or optimal wake times based on when you go to sleep. Recommended cycles highlighted.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Sleep Calculator - Optimal Bedtime & Wake Time | ExcuseMeWeb">
+<meta property="og:description" content="Sleep calculator using 90-minute sleep cycles. Find optimal bedtimes or wake times with recommended cycle counts highlighted.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://excusemeweb.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sleep Calculator - Optimal Bedtime & Wake Time | ExcuseMeWeb">
+<meta name="twitter:description" content="Sleep calculator using 90-minute sleep cycles with recommended highlights.">
+<link rel="canonical" href="https://excusemeweb.com/sleep-calculator">
+<link rel="icon" href="/favicon.ico">
+<meta name="theme-color" content="#ffffff">
+<meta property="og:url" content="https://excusemeweb.com/sleep-calculator">
+
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Sleep Calculator",
+  "url": "https://excusemeweb.com/sleep-calculator",
+  "description": "Sleep calculator using 90-minute sleep cycles. Find optimal bedtimes or wake times with recommended cycle counts highlighted.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "All",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": { "@type": "Organization", "name": "ExcuseMeWeb" },
+  "dateModified": "2026-08-07"
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://excusemeweb.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Clock Tools", "item": "https://excusemeweb.com/clock-tools" },
+    { "@type": "ListItem", "position": 3, "name": "Sleep Calculator", "item": "https://excusemeweb.com/sleep-calculator" }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"How does the sleep calculator determine the best bedtime?","acceptedAnswer":{"@type":"Answer","text":"The sleep calculator works on 90-minute sleep cycles. It counts backward from your desired wake time in 90-minute increments, plus a 15-minute buffer to fall asleep. Waking at the end of a cycle helps you feel more refreshed."}},
+    {"@type":"Question","name":"How many sleep cycles do I need?","acceptedAnswer":{"@type":"Answer","text":"Most adults benefit from 5 to 6 full sleep cycles (7.5 to 9 hours). The calculator recommends 5 or 6 cycles as optimal. Fewer cycles (3 or 4) can work for naps or when time is limited."}},
+    {"@type":"Question","name":"What is the 15-minute buffer?","acceptedAnswer":{"@type":"Answer","text":"The average person takes about 15 minutes to fall asleep after getting into bed. The calculator adds this buffer so that the sleep cycles align with your actual sleep time, not your bedtime."}}
+  ]
+}</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg-primary:#ffffff;--bg-secondary:#f8fafc;--bg-tertiary:#f1f5f9;
+--text-primary:#0f172a;--text-secondary:#64748b;--accent:#6366f1;
+--accent-hover:#4f46e5;--accent-light:#eef2ff;--danger:#ef4444;--success:#22c55e;
+--warning:#f59e0b;--border:#e2e8f0;--shadow:rgba(0,0,0,0.08);
+--font-body:'Inter',sans-serif;--font-brand:'Inter',sans-serif;--border-radius:12px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:var(--font-body);background:var(--bg-primary);color:var(--text-primary);min-height:100vh;display:flex;flex-direction:column;}
+.header{background:var(--bg-secondary);border-bottom:1px solid var(--border);padding:0 24px;position:sticky;top:0;z-index:1000;}
+.header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;}
+.logo{font-family:var(--font-brand);font-size:1.5rem;font-weight:700;color:var(--accent);text-decoration:none;}
+.logo span{color:var(--text-primary);}
+.nav-desktop{display:flex;gap:28px;}
+.nav-desktop a{color:var(--text-secondary);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color 0.2s;white-space:nowrap;}
+.nav-desktop a:hover{color:var(--accent);}
+.nav-desktop a.active{color:var(--accent);}
+.header-right{display:flex;align-items:center;gap:16px;}
+.hamburger{display:none;background:none;border:none;color:var(--text-primary);font-size:1.5rem;cursor:pointer;}
+.mobile-nav{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg-secondary);border-bottom:1px solid var(--border);padding:16px 24px;flex-direction:column;gap:16px;z-index:999;}
+.mobile-nav.show{display:flex;}
+.mobile-nav a{color:var(--text-secondary);text-decoration:none;font-size:1rem;font-weight:500;}
+.mobile-nav a.active{color:var(--accent);}
+.main-content{flex:1;max-width:1100px;width:100%;margin:0 auto;padding:40px 24px;}
+.breadcrumb{display:flex;align-items:center;flex-wrap:wrap;gap:6px;font-size:0.85rem;color:var(--text-secondary);margin-bottom:20px;}
+.breadcrumb a{color:var(--text-secondary);text-decoration:none;}
+.breadcrumb a:hover{color:var(--accent);text-decoration:underline;}
+.breadcrumb .bc-sep{color:var(--border);}
+.breadcrumb .bc-current{color:var(--text-primary);font-weight:600;}
+.page-header{text-align:center;margin-bottom:28px;}
+.page-header h1{font-size:2.3rem;font-weight:700;margin-bottom:8px;}
+.page-header p{color:var(--text-secondary);font-size:1.05rem;max-width:640px;margin:0 auto;}
+.tool-box{background:var(--bg-secondary);border:1px solid var(--border);border-radius:var(--border-radius);padding:28px;max-width:700px;margin:0 auto 24px;}
+.sleep-calc-row{display:flex;gap:12px;justify-content:center;align-items:center;margin-bottom:20px;flex-wrap:wrap;}
+.sleep-calc-row label{font-size:0.85rem;font-weight:600;color:var(--text-secondary);}
+.sleep-calc-row select,.sleep-calc-row input{padding:10px 14px;border-radius:10px;border:1px solid var(--border);font-family:var(--font-body);font-size:1rem;}
+.sleep-calc-row input:focus,.sleep-calc-row select:focus{outline:2px solid var(--accent);}
+.sleep-results{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;}
+.sleep-card{padding:16px;border-radius:10px;border:1px solid var(--border);background:var(--bg-primary);text-align:center;}
+.sleep-card .cycles{font-size:0.8rem;color:var(--text-secondary);margin-bottom:4px;}
+.sleep-card .time{font-size:1.4rem;font-weight:700;color:var(--accent);}
+.sleep-card .note{font-size:0.78rem;color:var(--text-secondary);margin-top:4px;}
+.sleep-card.optimal{border-color:var(--accent);background:var(--accent-light);}
+.info-section{background:var(--bg-secondary);border-radius:var(--border-radius);padding:32px;margin-bottom:24px;border:1px solid var(--border);}
+.info-section h2{font-size:1.4rem;margin-bottom:14px;}
+.info-section h3{margin-top:28px;margin-bottom:14px;color:var(--accent);font-size:1.1rem;}
+.info-section p,.info-section li{color:var(--text-secondary);line-height:1.7;}
+.info-section ul,.info-section ol{padding-left:22px;margin-bottom:10px;}
+.info-section a{color:var(--accent);text-decoration:none;}
+.info-section a:hover{text-decoration:underline;}
+details{margin-bottom:10px;border:1px solid var(--border);border-radius:8px;padding:14px 16px;background:var(--bg-primary);}
+summary{font-weight:600;color:var(--text-primary);cursor:pointer;}
+details p{margin-top:10px;margin-bottom:0;}
+.footer{background:var(--bg-secondary);border-top:1px solid var(--border);padding:32px 24px;text-align:center;color:var(--text-secondary);font-size:0.9rem;}
+.footer a{color:var(--accent);text-decoration:none;}
+@media(max-width:768px){
+.nav-desktop{display:none;}.hamburger{display:block;}
+.page-header h1{font-size:1.7rem;}
+.main-content{padding:24px 16px;}
+}
+</style>
+</head><body>
+<header class="header">
+<div class="header-inner">
+<a href="/" class="logo">Excuse<span>Me</span>Web</a>
+<nav class="nav-desktop">
+<a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a><a href="/all-in-one-toolkit" class="active">Toolkits</a>
+</nav>
+<div class="header-right">
+<button class="hamburger" onclick="document.getElementById('mobileNav').classList.toggle('show')">&#9776;</button>
+</div>
+</div>
+<nav class="mobile-nav" id="mobileNav">
+<a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a><a href="/all-in-one-toolkit" class="active">Toolkits</a>
+</nav>
+</header>
+
+<main class="main-content">
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="bc-sep">/</span><a href="/clock-tools">Clock Tools</a><span class="bc-sep">/</span><span class="bc-current">Sleep Calculator</span></nav>
+
+<div class="page-header">
+<h1>Sleep Calculator</h1>
+<p>Calculate optimal bedtimes or wake times based on 90-minute sleep cycles. Waking at the end of a cycle helps you feel more refreshed.</p>
+</div>
+
+<div class="tool-box">
+<p style="text-align:center;color:var(--text-secondary);margin-bottom:16px;">Choose whether you want to wake up at a specific time or go to sleep at a specific time. The calculator shows four to six options based on 3 to 6 full sleep cycles.</p>
+<div class="sleep-calc-row">
+<label for="sleepMode">I want to:</label>
+<select id="sleepMode" onchange="calcSleep()">
+<option value="wake">wake up at</option>
+<option value="sleep">go to sleep at</option>
+</select>
+<input type="time" id="sleepTime" value="07:00" onchange="calcSleep()">
+</div>
+<div class="sleep-results" id="sleepResults"></div>
+</div>
+
+<div class="info-section">
+<h2>Sleep Cycle Calculator</h2>
+<p>Human sleep follows a roughly 90-minute cycle, moving through light sleep, deep sleep, and REM stages. Waking up at the end of a complete cycle — rather than in the middle of deep sleep — can help you feel more alert and rested. This calculator adds a 15-minute buffer to account for the average time it takes to fall asleep.</p>
+
+<h3>How to Use</h3>
+<ol>
+<li>Select <strong>wake up at</strong> to find the best bedtime for your desired wake time, or <strong>go to sleep at</strong> to find the best wake time for your desired bedtime.</li>
+<li>Set the time using the time picker. Results update immediately.</li>
+<li>Recommended options (5 or 6 cycles) are highlighted with a purple border.</li>
+</ol>
+
+<h3>Sleep Cycle Durations</h3>
+<ul>
+<li>3 cycles = 4.5 hours (short sleep)</li>
+<li>4 cycles = 6 hours (moderate)</li>
+<li>5 cycles = 7.5 hours (recommended)</li>
+<li>6 cycles = 9 hours (recommended)</li>
+</ul>
+
+<h3>Frequently Asked Questions</h3>
+<details>
+<summary>How does the sleep calculator determine the best bedtime?</summary>
+<p>The sleep calculator works on 90-minute sleep cycles. It counts backward from your desired wake time in 90-minute increments, plus a 15-minute buffer to fall asleep. Waking at the end of a cycle helps you feel more refreshed.</p>
+</details>
+<details>
+<summary>How many sleep cycles do I need?</summary>
+<p>Most adults benefit from 5 to 6 full sleep cycles (7.5 to 9 hours). The calculator recommends 5 or 6 cycles as optimal. Fewer cycles (3 or 4) can work for naps or when time is limited.</p>
+</details>
+<details>
+<summary>What is the 15-minute buffer?</summary>
+<p>The average person takes about 15 minutes to fall asleep after getting into bed. The calculator adds this buffer so that the sleep cycles align with your actual sleep time, not your bedtime.</p>
+</details>
+
+<h3>Related Tools</h3>
+<p><a href="/alarm">Alarm Clock</a> &middot; <a href="/timer">Countdown Timer</a> &middot; <a href="/world-clock">World Clock</a> &middot; <a href="/time-converter">Time Converter</a></p>
+</div>
+</main>
+
+<footer class="footer">
+<p>&copy; 2026 ExcuseMeWeb.com &mdash; Online Tools for Everyone</p>
+<p style="margin-top:8px"><a href="/calculators">Calculators</a> &middot; <a href="/converters">Converters</a> &middot; <a href="/image-tools">Image Tools</a> &middot; <a href="/generators">Generators</a> &middot; <a href="/templates">Templates</a> &middot; <a href="/games">Games</a> &middot; <a href="/all-in-one-toolkit">Toolkits</a></p>
+<p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p>
+</footer><script>
+function calcSleep(){
+    var mode=document.getElementById('sleepMode').value;
+    var tv=document.getElementById('sleepTime').value;if(!tv)return;
+    var parts=tv.split(':');var bH=parseInt(parts[0]);var bM=parseInt(parts[1]);
+    var bMin=bH*60+bM;
+    var c=document.getElementById('sleepResults');var h='';
+    if(mode==='wake'){
+        for(var cy=6;cy>=3;cy--){
+            var sMin=bMin-cy*90-15;if(sMin<0)sMin+=1440;
+            var sh=Math.floor(sMin/60);var sm=sMin%60;
+            var opt=cy>=5&&cy<=6;
+            h+='<div class="sleep-card'+(opt?' optimal':'')+'"><div class="cycles">'+cy+' cycles ('+(cy*1.5)+'h)</div><div class="time">'+(sh<10?'0':'')+sh+':'+(sm<10?'0':'')+sm+'</div><div class="note">'+(opt?'Recommended':'')+' fall asleep by this time</div></div>';
+        }
+    }else{
+        for(var cy=3;cy<=6;cy++){
+            var wMin=bMin+cy*90+15;if(wMin>=1440)wMin-=1440;
+            var wh=Math.floor(wMin/60);var wm=wMin%60;
+            var opt=cy>=5&&cy<=6;
+            h+='<div class="sleep-card'+(opt?' optimal':'')+'"><div class="cycles">'+cy+' cycles ('+(cy*1.5)+'h)</div><div class="time">'+(wh<10?'0':'')+wh+':'+(wm<10?'0':'')+wm+'</div><div class="note">'+(opt?'Recommended':'')+' wake up at this time</div></div>';
+        }
+    }
+    c.innerHTML=h;
+}
+calcSleep();
+</script>
+</body>
+</html>

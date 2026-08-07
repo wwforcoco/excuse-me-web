@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="fa026cc1-8f84-44f5-b2fb-9ccf29374a38"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interval Timer for HIIT Workouts | ExcuseMeWeb</title>
+<meta name="description" content="Online interval timer for HIIT, Tabata, and circuit training. Configure work duration, rest duration, rounds, and preparation time. Phase indicators and progress bar.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Interval Timer for HIIT Workouts | ExcuseMeWeb">
+<meta property="og:description" content="Online interval timer for HIIT, Tabata, and circuit training. Configurable work, rest, rounds, and prep time.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://excusemeweb.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Interval Timer for HIIT Workouts | ExcuseMeWeb">
+<meta name="twitter:description" content="Online interval timer for HIIT, Tabata, and circuit training with phase indicators.">
+<link rel="canonical" href="https://excusemeweb.com/interval-timer">
+<link rel="icon" href="/favicon.ico">
+<meta name="theme-color" content="#ffffff">
+<meta property="og:url" content="https://excusemeweb.com/interval-timer">
+
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Interval Timer for HIIT Workouts",
+  "url": "https://excusemeweb.com/interval-timer",
+  "description": "Online interval timer for HIIT, Tabata, and circuit training. Configurable work, rest, rounds, and prep time.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "All",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": { "@type": "Organization", "name": "ExcuseMeWeb" },
+  "dateModified": "2026-08-07"
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://excusemeweb.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Clock Tools", "item": "https://excusemeweb.com/clock-tools" },
+    { "@type": "ListItem", "position": 3, "name": "Interval Timer", "item": "https://excusemeweb.com/interval-timer" }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"What is an interval timer used for?","acceptedAnswer":{"@type":"Answer","text":"An interval timer alternates between work and rest periods in repeated rounds. It is commonly used for HIIT workouts, circuit training, Tabata, and any exercise routine that requires timed sets with fixed rest periods."}},
+    {"@type":"Question","name":"What is a good HIIT interval setup for beginners?","acceptedAnswer":{"@type":"Answer","text":"A common beginner setup is 30 seconds of work with 10 seconds of rest for 8 rounds (total about 5 minutes). As you get fitter, increase work time or rounds, or decrease rest time."}},
+    {"@type":"Question","name":"What is Tabata format?","acceptedAnswer":{"@type":"Answer","text":"Tabata is a specific HIIT protocol: 20 seconds of maximum effort work followed by 10 seconds of rest, repeated for 8 rounds. Total time is 4 minutes. Set work to 20, rest to 10, rounds to 8, and prep to 5 to follow Tabata."}}
+  ]
+}</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg-primary:#ffffff;--bg-secondary:#f8fafc;--bg-tertiary:#f1f5f9;
+--text-primary:#0f172a;--text-secondary:#64748b;--accent:#6366f1;
+--accent-hover:#4f46e5;--accent-light:#eef2ff;--danger:#ef4444;--success:#22c55e;
+--warning:#f59e0b;--border:#e2e8f0;--shadow:rgba(0,0,0,0.08);
+--font-body:'Inter',sans-serif;--font-brand:'Inter',sans-serif;--border-radius:12px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:var(--font-body);background:var(--bg-primary);color:var(--text-primary);min-height:100vh;display:flex;flex-direction:column;}
+.header{background:var(--bg-secondary);border-bottom:1px solid var(--border);padding:0 24px;position:sticky;top:0;z-index:1000;}
+.header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;}
+.logo{font-family:var(--font-brand);font-size:1.5rem;font-weight:700;color:var(--accent);text-decoration:none;}
+.logo span{color:var(--text-primary);}
+.nav-desktop{display:flex;gap:28px;}
+.nav-desktop a{color:var(--text-secondary);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color 0.2s;white-space:nowrap;}
+.nav-desktop a:hover{color:var(--accent);}
+.nav-desktop a.active{color:var(--accent);}
+.header-right{display:flex;align-items:center;gap:16px;}
+.hamburger{display:none;background:none;border:none;color:var(--text-primary);font-size:1.5rem;cursor:pointer;}
+.mobile-nav{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg-secondary);border-bottom:1px solid var(--border);padding:16px 24px;flex-direction:column;gap:16px;z-index:999;}
+.mobile-nav.show{display:flex;}
+.mobile-nav a{color:var(--text-secondary);text-decoration:none;font-size:1rem;font-weight:500;}
+.mobile-nav a.active{color:var(--accent);}
+.main-content{flex:1;max-width:1100px;width:100%;margin:0 auto;padding:40px 24px;}
+.breadcrumb{display:flex;align-items:center;flex-wrap:wrap;gap:6px;font-size:0.85rem;color:var(--text-secondary);margin-bottom:20px;}
+.breadcrumb a{color:var(--text-secondary);text-decoration:none;}
+.breadcrumb a:hover{color:var(--accent);text-decoration:underline;}
+.breadcrumb .bc-sep{color:var(--border);}
+.breadcrumb .bc-current{color:var(--text-primary);font-weight:600;}
+.page-header{text-align:center;margin-bottom:28px;}
+.page-header h1{font-size:2.3rem;font-weight:700;margin-bottom:8px;}
+.page-header p{color:var(--text-secondary);font-size:1.05rem;max-width:640px;margin:0 auto;}
+.tool-box{background:var(--bg-secondary);border:1px solid var(--border);border-radius:var(--border-radius);padding:28px;max-width:700px;margin:0 auto 24px;}
+.time-display{font-size:3.2rem;font-weight:700;text-align:center;font-variant-numeric:tabular-nums;letter-spacing:0.02em;margin-bottom:20px;color:var(--text-primary);}
+.time-display.sm{font-size:2.2rem;}
+.btn-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:16px;}
+.btn{padding:12px 28px;border-radius:10px;border:none;font-size:0.95rem;font-weight:600;cursor:pointer;transition:all 0.15s;font-family:var(--font-body);}
+.btn-p{background:var(--accent);color:#fff;}
+.btn-p:hover{background:var(--accent-hover);}
+.btn-s{background:var(--bg-tertiary);color:var(--text-primary);border:1px solid var(--border);}
+.btn-s:hover{border-color:var(--accent);color:var(--accent);}
+.interval-config{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:400px;margin:0 auto 16px;}
+.interval-config label{font-size:0.82rem;font-weight:600;color:var(--text-secondary);display:block;margin-bottom:4px;}
+.interval-config input{width:100%;padding:10px;border-radius:8px;border:1px solid var(--border);font-family:var(--font-body);font-size:0.95rem;text-align:center;}
+.interval-config input:focus{outline:2px solid(var(--accent);}
+.interval-round{text-align:center;margin-bottom:8px;}
+.interval-round .label{font-size:0.85rem;color:var(--text-secondary);font-weight:600;}
+.interval-phase{text-align:center;font-size:1rem;font-weight:700;margin-bottom:8px;padding:8px;border-radius:8px;}
+.interval-phase.work{background:#fef2f2;color:var(--danger);}
+.interval-phase.rest{background:#f0fdf4;color:var(--success);}
+.progress-bar{width:100%;height:6px;background:var(--bg-tertiary);border-radius:3px;margin-bottom:20px;overflow:hidden;}
+.progress-bar .fill{height:100%;background:var(--accent);border-radius:3px;transition:width 0.3s linear;}
+.info-section{background:var(--bg-secondary);border-radius:var(--border-radius);padding:32px;margin-bottom:24px;border:1px solid var(--border);}
+.info-section h2{font-size:1.4rem;margin-bottom:14px;}
+.info-section h3{margin-top:28px;margin-bottom:14px;color:var(--accent);font-size:1.1rem;}
+.info-section p,.info-section li{color:var(--text-secondary);line-height:1.7;}
+.info-section ul,.info-section ol{padding-left:22px;margin-bottom:10px;}
+.info-section a{color:var(--accent);text-decoration:none;}
+.info-section a:hover{text-decoration:underline;}
+details{margin-bottom:10px;border:1px solid var(--border);border-radius:8px;padding:14px 16px;background:var(--bg-primary);}
+summary{font-weight:600;color:var(--text-primary);cursor:pointer;}
+details p{margin-top:10px;margin-bottom:0;}
+.footer{background:var(--bg-secondary);border-top:1px solid var(--border);padding:32px 24px;text-align:center;color:var(--text-secondary);font-size:0.9rem;}
+.footer a{color:var(--accent);text-decoration:none;}
+@media(max-width:768px){
+.nav-desktop{display:none;}.hamburger{display:block;}
+.page-header h1{font-size:1.7rem;}
+.main-content{padding:24px 16px;}
+.interval-config{grid-template-columns:1fr;}
+}
+</style>
+</head><body>
+<header class="header">
+<div class="header-inner">
+<a href="/" class="logo">Excuse<span>Me</span>Web</a>
+<nav class="nav-desktop">
+<a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a><a href="/all-in-one-toolkit" class="active">Toolkits</a>
+</nav>
+<div class="header-right">
+<button class="hamburger" onclick="document.getElementById('mobileNav').classList.toggle('show')">&#9776;</button>
+</div>
+</div>
+<nav class="mobile-nav" id="mobileNav">
+<a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a><a href="/all-in-one-toolkit" class="active">Toolkits</a>
+</nav>
+</header>
+
+<main class="main-content">
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="bc-sep">/</span><a href="/clock-tools">Clock Tools</a><span class="bc-sep">/</span><span class="bc-current">Interval Timer</span></nav>
+
+<div class="page-header">
+<h1>Interval Timer for HIIT</h1>
+<p>Configure work and rest durations, number of rounds, and a preparation countdown. Phase indicators and a progress bar keep you on track.</p>
+</div>
+
+<div class="tool-box">
+<div class="interval-config">
+<div><label>Work (sec)</label><input type="number" id="intWork" value="30" min="1" max="3600"></div>
+<div><label>Rest (sec)</label><input type="number" id="intRest" value="10" min="1" max="3600"></div>
+<div><label>Rounds</label><input type="number" id="intRounds" value="8" min="1" max="100"></div>
+<div><label>Prep (sec)</label><input type="number" id="intPrep" value="5" min="0" max="60"></div>
+</div>
+<div class="interval-phase" id="intPhase" style="background:var(--bg-primary);color:var(--text-secondary);">Ready</div>
+<div class="interval-round"><span class="label" id="intRound">Round 0 / 0</span></div>
+<div class="progress-bar"><div class="fill" id="intProgress" style="width:0%"></div></div>
+<div class="time-display sm" id="intDisplay">00:00</div>
+<div class="btn-row">
+<button class="btn btn-p" onclick="intStart()" id="intStartBtn">Start</button>
+<button class="btn btn-s" onclick="intPause()" id="intPauseBtn" disabled>Pause</button>
+<button class="btn btn-s" onclick="intReset()">Reset</button>
+</div>
+</div>
+
+<div class="info-section">
+<h2>HIIT Interval Timer</h2>
+<p>This interval timer alternates between work and rest periods in configurable rounds. It is designed for high-intensity interval training, circuit workouts, Tabata, and any exercise routine that requires timed sets with fixed rest periods.</p>
+
+<h3>How to Use</h3>
+<ol>
+<li>Set your <strong>work</strong> duration (how long each exercise lasts), <strong>rest</strong> duration (break between exercises), number of <strong>rounds</strong>, and optional <strong>prep</strong> countdown.</li>
+<li>Click <strong>Start</strong>. A preparation countdown begins first (if set above 0).</li>
+<li>Work and rest phases alternate automatically with audio beeps at each transition.</li>
+<li>A progress bar shows time remaining in the current phase. The round counter tracks your progress.</li>
+</ol>
+
+<h3>Popular Presets</h3>
+<ul>
+<li><strong>Tabata:</strong> Work 20s, Rest 10s, 8 rounds, Prep 5s</li>
+<li><strong>Beginner HIIT:</strong> Work 30s, Rest 10s, 8 rounds, Prep 5s</li>
+<li><strong>Advanced HIIT:</strong> Work 40s, Rest 20s, 12 rounds, Prep 5s</li>
+<li><strong>Circuit Training:</strong> Work 45s, Rest 15s, 10 rounds, Prep 10s</li>
+</ul>
+
+<h3>Frequently Asked Questions</h3>
+<details>
+<summary>What is an interval timer used for?</summary>
+<p>An interval timer alternates between work and rest periods in repeated rounds. It is commonly used for HIIT workouts, circuit training, Tabata, and any exercise routine that requires timed sets with fixed rest periods.</p>
+</details>
+<details>
+<summary>What is a good HIIT interval setup for beginners?</summary>
+<p>A common beginner setup is 30 seconds of work with 10 seconds of rest for 8 rounds (total about 5 minutes). As you get fitter, increase work time or rounds, or decrease rest time.</p>
+</details>
+<details>
+<summary>What is Tabata format?</summary>
+<p>Tabata is a specific HIIT protocol: 20 seconds of maximum effort work followed by 10 seconds of rest, repeated for 8 rounds. Total time is 4 minutes. Set work to 20, rest to 10, rounds to 8, and prep to 5 to follow Tabata.</p>
+</details>
+
+<h3>Related Tools</h3>
+<p><a href="/pomodoro-timer">Pomodoro Timer</a> &middot; <a href="/timer">Countdown Timer</a> &middot; <a href="/stopwatch">Stopwatch</a> &middot; <a href="/count-up-timer">Count Up Timer</a></p>
+</div>
+</main>
+
+<footer class="footer">
+<p>&copy; 2026 ExcuseMeWeb.com &mdash; Online Tools for Everyone</p>
+<p style="margin-top:8px"><a href="/calculators">Calculators</a> &middot; <a href="/converters">Converters</a> &middot; <a href="/image-tools">Image Tools</a> &middot; <a href="/generators">Generators</a> &middot; <a href="/templates">Templates</a> &middot; <a href="/games">Games</a> &middot; <a href="/all-in-one-toolkit">Toolkits</a></p>
+<p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p>
+</footer><script>
+var audioCtx=null;
+function beep(freq,dur,vol){
+    try{if(!audioCtx)audioCtx=new(window.AudioContext||window.webkitAudioContext)();
+    var o=audioCtx.createOscillator(),g=audioCtx.createGain();
+    o.connect(g);g.connect(audioCtx.destination);
+    o.frequency.value=freq||800;o.type='sine';g.gain.value=vol||0.3;
+    o.start();o.stop(audioCtx.currentTime+(dur||0.3));}catch(e){}
+}
+function fmtTimer(s){s=Math.max(0,Math.floor(s));var m=Math.floor(s/60),sec=s%60;return(m<10?'0':'')+m+':'+(sec<10?'0':'')+sec;}
+var intIV=null,intRun=false,intPhT='ready',intCR=0,intRem=0,intPhTot=0;
+function intStart(){
+    if(intRun)return;intRun=true;
+    var work=parseInt(document.getElementById('intWork').value)||30;
+    var rest=parseInt(document.getElementById('intRest').value)||10;
+    var rounds=parseInt(document.getElementById('intRounds').value)||8;
+    var prep=parseInt(document.getElementById('intPrep').value)||5;
+    if(intPhT==='ready'||intPhT==='done'){
+        intCR=0;intPhT='prep';intRem=prep;intPhTot=prep;
+        document.getElementById('intRound').textContent='Get Ready';
+    }
+    document.getElementById('intStartBtn').disabled=true;
+    document.getElementById('intPauseBtn').disabled=false;
+    ['intWork','intRest','intRounds','intPrep'].forEach(function(id){document.getElementById(id).disabled=true;});
+    intIV=setInterval(intTick,1000);
+}
+function intTick(){
+    intRem--;
+    var work=parseInt(document.getElementById('intWork').value)||30;
+    var rest=parseInt(document.getElementById('intRest').value)||10;
+    var rounds=parseInt(document.getElementById('intRounds').value)||8;
+    if(intRem<=0){
+        beep(660,0.2,0.3);
+        if(intPhT==='prep'){intPhT='work';intCR=1;intRem=work;intPhTot=work;}
+        else if(intPhT==='work'){intPhT='rest';intRem=rest;intPhTot=rest;}
+        else if(intPhT==='rest'){
+            if(intCR>=rounds){
+                intPhT='done';intRun=false;clearInterval(intIV);
+                beep(880,0.5,0.4);
+                document.getElementById('intStartBtn').disabled=false;
+                document.getElementById('intPauseBtn').disabled=true;
+                ['intWork','intRest','intRounds','intPrep'].forEach(function(id){document.getElementById(id).disabled=false;});
+                document.getElementById('intPhase').textContent='Complete!';
+                document.getElementById('intPhase').className='interval-phase';
+                document.getElementById('intPhase').style.background='var(--bg-primary)';
+                document.getElementById('intPhase').style.color='var(--success)';
+                document.getElementById('intRound').textContent=rounds+' / '+rounds+' rounds finished';
+                document.getElementById('intProgress').style.width='100%';return;
+            }
+            intPhT='work';intCR++;intRem=work;intPhTot=work;
+        }
+    }
+    updIntDisp();
+}
+function updIntDisp(){
+    document.getElementById('intDisplay').textContent=fmtTimer(intRem);
+    var phase=document.getElementById('intPhase');
+    var rounds=parseInt(document.getElementById('intRounds').value)||8;
+    if(intPhT==='prep'){phase.textContent='Get Ready';phase.className='interval-phase';phase.style.background='var(--bg-tertiary)';phase.style.color='var(--text-secondary)';}
+    else if(intPhT==='work'){phase.textContent='WORK';phase.className='interval-phase work';}
+    else if(intPhT==='rest'){phase.textContent='REST';phase.className='interval-phase rest';}
+    document.getElementById('intRound').textContent='Round '+Math.min(intCR,rounds)+' / '+rounds;
+    var pct=intPhTot>0?((intPhTot-intRem)/intPhTot)*100:0;
+    document.getElementById('intProgress').style.width=pct+'%';
+}
+function intPause(){
+    if(intRun){clearInterval(intIV);intRun=false;
+    document.getElementById('intPauseBtn').textContent='Resume';
+    document.getElementById('intStartBtn').disabled=false;
+    }else{intRun=true;intIV=setInterval(intTick,1000);
+    document.getElementById('intPauseBtn').textContent='Pause';
+    document.getElementById('intStartBtn').disabled=true;}
+}
+function intReset(){
+    clearInterval(intIV);intRun=false;intPhT='ready';intCR=0;intRem=0;intPhTot=0;
+    document.getElementById('intDisplay').textContent='00:00';
+    document.getElementById('intPhase').textContent='Ready';
+    document.getElementById('intPhase').className='interval-phase';
+    document.getElementById('intPhase').style.background='var(--bg-primary)';
+    document.getElementById('intPhase').style.color='var(--text-secondary)';
+    document.getElementById('intRound').textContent='Round 0 / 0';
+    document.getElementById('intProgress').style.width='0%';
+    document.getElementById('intStartBtn').disabled=false;
+    document.getElementById('intPauseBtn').disabled=true;
+    document.getElementById('intPauseBtn').textContent='Pause';
+    ['intWork','intRest','intRounds','intPrep'].forEach(function(id){document.getElementById(id).disabled=false;});
+}
+</script>
+</body>
+</html>

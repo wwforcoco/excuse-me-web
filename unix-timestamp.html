@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="fa026cc1-8f84-44f5-b2fb-9ccf29374a38"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unix Timestamp Converter - Live Counter & Date Tool | ExcuseMeWeb</title>
+<meta name="description" content="Unix timestamp converter with a live updating counter, timestamp-to-date conversion, and date-to-timestamp conversion. Essential tool for developers, API debugging, and database work.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Unix Timestamp Converter - Live Counter & Date Tool | ExcuseMeWeb">
+<meta property="og:description" content="Unix timestamp converter with live counter, timestamp-to-date, and date-to-timestamp conversion.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://excusemeweb.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Unix Timestamp Converter - Live Counter & Date Tool | ExcuseMeWeb">
+<meta name="twitter:description" content="Unix timestamp converter with live counter, timestamp-to-date, and date-to-timestamp conversion.">
+<link rel="canonical" href="https://excusemeweb.com/unix-timestamp">
+<link rel="icon" href="/favicon.ico">
+<meta name="theme-color" content="#ffffff">
+<meta property="og:url" content="https://excusemeweb.com/unix-timestamp">
+
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Unix Timestamp Converter",
+  "url": "https://excusemeweb.com/unix-timestamp",
+  "description": "Unix timestamp converter with a live updating counter, timestamp-to-date conversion, and date-to-timestamp conversion.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "All",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": { "@type": "Organization", "name": "ExcuseMeWeb" },
+  "dateModified": "2026-08-07"
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://excusemeweb.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Clock Tools", "item": "https://excusemeweb.com/clock-tools" },
+    { "@type": "ListItem", "position": 3, "name": "Unix Timestamp", "item": "https://excusemeweb.com/unix-timestamp" }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"What is a Unix timestamp and why is it used?","acceptedAnswer":{"@type":"Answer","text":"A Unix timestamp is the number of seconds elapsed since January 1, 1970 at 00:00:00 UTC. It is widely used in computing for date storage, API requests, and database records because it represents any moment in time as a single integer."}},
+    {"@type":"Question","name":"What is the Unix epoch?","acceptedAnswer":{"@type":"Answer","text":"The Unix epoch is January 1, 1970, 00:00:00 UTC. A Unix timestamp of 0 represents this exact moment. All Unix timestamps count the number of seconds since this point in time."}},
+    {"@type":"Question","name":"Can Unix timestamps handle dates before 1970?","acceptedAnswer":{"@type":"Answer","text":"Yes. Negative Unix timestamps represent dates before January 1, 1970. For example, -86400 represents December 31, 1969 at 00:00:00 UTC."}},
+    {"@type":"Question","name":"Will Unix timestamps have a year 2038 problem?","acceptedAnswer":{"@type":"Answer","text":"The original 32-bit Unix timestamp overflows on January 19, 2038. However, modern systems use 64-bit integers which can represent dates far beyond any practical need. This converter uses JavaScript 64-bit numbers and handles dates well past 2038."}}
+  ]
+}</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg-primary:#ffffff;--bg-secondary:#f8fafc;--bg-tertiary:#f1f5f9;
+--text-primary:#0f172a;--text-secondary:#64748b;--accent:#6366f1;
+--accent-hover:#4f46e5;--accent-light:#eef2ff;--danger:#ef4444;--success:#22c55e;
+--warning:#f59e0b;--border:#e2e8f0;--shadow:rgba(0,0,0,0.08);
+--font-body:'Inter',sans-serif;--font-brand:'Inter',sans-serif;--border-radius:12px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:var(--font-body);background:var(--bg-primary);color:var(--text-primary);min-height:100vh;display:flex;flex-direction:column;}
+.header{background:var(--bg-secondary);border-bottom:1px solid var(--border);padding:0 24px;position:sticky;top:0;z-index:1000;}
+.header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;}
+.logo{font-family:var(--font-brand);font-size:1.5rem;font-weight:700;color:var(--accent);text-decoration:none;}
+.logo span{color:var(--text-primary);}
+.nav-desktop{display:flex;gap:28px;}
+.nav-desktop a{color:var(--text-secondary);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color 0.2s;white-space:nowrap;}
+.nav-desktop a:hover{color:var(--accent);}
+.nav-desktop a.active{color:var(--accent);}
+.header-right{display:flex;align-items:center;gap:16px;}
+.hamburger{display:none;background:none;border:none;color:var(--text-primary);font-size:1.5rem;cursor:pointer;}
+.mobile-nav{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg-secondary);border-bottom:1px solid var(--border);padding:16px 24px;flex-direction:column;gap:16px;z-index:999;}
+.mobile-nav.show{display:flex;}
+.mobile-nav a{color:var(--text-secondary);text-decoration:none;font-size:1rem;font-weight:500;}
+.mobile-nav a.active{color:var(--accent);}
+.main-content{flex:1;max-width:1100px;width:100%;margin:0 auto;padding:40px 24px;}
+.breadcrumb{display:flex;align-items:center;flex-wrap:wrap;gap:6px;font-size:0.85rem;color:var(--text-secondary);margin-bottom:20px;}
+.breadcrumb a{color:var(--text-secondary);text-decoration:none;}
+.breadcrumb a:hover{color:var(--accent);text-decoration:underline;}
+.breadcrumb .bc-sep{color:var(--border);}
+.breadcrumb .bc-current{color:var(--text-primary);font-weight:600;}
+.page-header{text-align:center;margin-bottom:28px;}
+.page-header h1{font-size:2.3rem;font-weight:700;margin-bottom:8px;}
+.page-header p{color:var(--text-secondary);font-size:1.05rem;max-width:640px;margin:0 auto;}
+.tool-box{background:var(--bg-secondary);border:1px solid var(--border);border-radius:var(--border-radius);padding:28px;max-width:700px;margin:0 auto 24px;}
+.btn{padding:12px 28px;border-radius:10px;border:none;font-size:0.95rem;font-weight:600;cursor:pointer;transition:all 0.15s;font-family:var(--font-body);}
+.btn-p{background:var(--accent);color:#fff;}
+.btn-p:hover{background:var(--accent-hover);}
+.btn-sm{padding:8px 16px;font-size:0.85rem;}
+.unix-live{text-align:center;margin-bottom:20px;padding:20px;background:var(--bg-primary);border-radius:10px;border:1px solid var(--border);}
+.unix-live .label{font-size:0.85rem;color:var(--text-secondary);font-weight:600;text-transform:uppercase;letter-spacing:0.04em;}
+.unix-live .value{font-size:2.4rem;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums;margin-top:4px;}
+.unix-convert{display:flex;gap:12px;justify-content:center;align-items:flex-end;flex-wrap:wrap;margin-bottom:12px;}
+.unix-convert label{font-size:0.82rem;font-weight:600;color:var(--text-secondary);display:block;margin-bottom:4px;}
+.unix-convert input{padding:10px 14px;border-radius:8px;border:1px solid var(--border);font-family:var(--font-body);font-size:0.95rem;width:220px;}
+.unix-convert input:focus{outline:2px solid var(--accent);}
+.unix-result{text-align:center;font-size:1rem;color:var(--text-primary);font-weight:500;min-height:24px;}
+.info-section{background:var(--bg-secondary);border-radius:var(--border-radius);padding:32px;margin-bottom:24px;border:1px solid var(--border);}
+.info-section h2{font-size:1.4rem;margin-bottom:14px;}
+.info-section h3{margin-top:28px;margin-bottom:14px;color:var(--accent);font-size:1.1rem;}
+.info-section p,.info-section li{color:var(--text-secondary);line-height:1.7;}
+.info-section ul,.info-section ol{padding-left:22px;margin-bottom:10px;}
+.info-section a{color:var(--accent);text-decoration:none;}
+.info-section a:hover{text-decoration:underline;}
+details{margin-bottom:10px;border:1px solid var(--border);border-radius:8px;padding:14px 16px;background:var(--bg-primary);}
+summary{font-weight:600;color:var(--text-primary);cursor:pointer;}
+details p{margin-top:10px;margin-bottom:0;}
+.footer{background:var(--bg-secondary);border-top:1px solid var(--border);padding:32px 24px;text-align:center;color:var(--text-secondary);font-size:0.9rem;}
+.footer a{color:var(--accent);text-decoration:none;}
+@media(max-width:768px){
+.nav-desktop{display:none;}.hamburger{display:block;}
+.page-header h1{font-size:1.7rem;}
+.main-content{padding:24px 16px;}
+.unix-convert input{width:100%;}
+}
+</style>
+</head><body>
+<header class="header">
+<div class="header-inner">
+<a href="/" class="logo">Excuse<span>Me</span>Web</a>
+<nav class="nav-desktop">
+<a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a><a href="/all-in-one-toolkit" class="active">Toolkits</a>
+</nav>
+<div class="header-right">
+<button class="hamburger" onclick="document.getElementById('mobileNav').classList.toggle('show')">&#9776;</button>
+</div>
+</div>
+<nav class="mobile-nav" id="mobileNav">
+<a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a><a href="/all-in-one-toolkit" class="active">Toolkits</a>
+</nav>
+</header>
+
+<main class="main-content">
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="bc-sep">/</span><a href="/clock-tools">Clock Tools</a><span class="bc-sep">/</span><span class="bc-current">Unix Timestamp</span></nav>
+
+<div class="page-header">
+<h1>Unix Timestamp Converter</h1>
+<p>View the current Unix epoch timestamp in real time, convert any timestamp to a readable date, or convert a date to its Unix timestamp.</p>
+</div>
+
+<div class="tool-box">
+<div class="unix-live">
+<div class="label">Current Unix Timestamp</div>
+<div class="value" id="unixLive">—</div>
+<div style="font-size:0.85rem;color:var(--text-secondary);margin-top:6px;" id="unixLiveDate">—</div>
+</div>
+<div class="unix-convert">
+<div><label>Timestamp to Date</label><input type="text" id="unixToDate" placeholder="e.g. 1723000000"></div>
+<button class="btn btn-p btn-sm" onclick="convertUnixToDate()">Convert</button>
+</div>
+<div class="unix-result" id="unixToDateResult"></div>
+<hr style="border:none;border-top:1px solid var(--border);margin:16px 0;">
+<div class="unix-convert">
+<div><label>Date to Timestamp</label><input type="datetime-local" id="dateToUnix"></div>
+<button class="btn btn-p btn-sm" onclick="convertDateToUnix()">Convert</button>
+</div>
+<div class="unix-result" id="dateToUnixResult"></div>
+</div>
+
+<div class="info-section">
+<h2>Unix Timestamp Converter</h2>
+<p>A Unix timestamp (also called epoch time or POSIX time) is the number of seconds that have elapsed since January 1, 1970 at 00:00:00 UTC (the Unix epoch). It provides a simple, timezone-independent way to represent any moment in time as a single integer.</p>
+
+<h3>Features</h3>
+<ul>
+<li>Live updating current Unix timestamp with UTC date display</li>
+<li>Convert any Unix timestamp to a full human-readable date and time</li>
+<li>Convert any date and time to its Unix timestamp equivalent</li>
+<li>Handles negative timestamps (dates before 1970)</li>
+<li>64-bit precision — no year 2038 overflow issue</li>
+</ul>
+
+<h3>Common Use Cases</h3>
+<ul>
+<li>Debugging API requests that use epoch time</li>
+<li>Working with database timestamp columns</li>
+<li>Converting log file timestamps</li>
+<li>Programming date calculations in JavaScript, Python, PHP, and other languages</li>
+</ul>
+
+<h3>Frequently Asked Questions</h3>
+<details>
+<summary>What is a Unix timestamp and why is it used?</summary>
+<p>A Unix timestamp is the number of seconds elapsed since January 1, 1970 at 00:00:00 UTC. It is widely used in computing for date storage, API requests, and database records because it represents any moment in time as a single integer.</p>
+</details>
+<details>
+<summary>What is the Unix epoch?</summary>
+<p>The Unix epoch is January 1, 1970, 00:00:00 UTC. A Unix timestamp of 0 represents this exact moment. All Unix timestamps count the number of seconds since this point in time.</p>
+</details>
+<details>
+<summary>Can Unix timestamps handle dates before 1970?</summary>
+<p>Yes. Negative Unix timestamps represent dates before January 1, 1970. For example, -86400 represents December 31, 1969 at 00:00:00 UTC.</p>
+</details>
+<details>
+<summary>Will Unix timestamps have a year 2038 problem?</summary>
+<p>The original 32-bit Unix timestamp overflows on January 19, 2038. However, modern systems use 64-bit integers which can represent dates far beyond any practical need. This converter uses JavaScript 64-bit numbers and handles dates well past 2038.</p>
+</details>
+
+<h3>Related Tools</h3>
+<p><a href="/time-converter">Time Converter</a> &middot; <a href="/date-calculator">Date Calculator</a> &middot; <a href="/world-clock">World Clock</a> &middot; <a href="/age-calculator">Age Calculator</a></p>
+</div>
+</main>
+
+<footer class="footer">
+<p>&copy; 2026 ExcuseMeWeb.com &mdash; Online Tools for Everyone</p>
+<p style="margin-top:8px"><a href="/calculators">Calculators</a> &middot; <a href="/converters">Converters</a> &middot; <a href="/image-tools">Image Tools</a> &middot; <a href="/generators">Generators</a> &middot; <a href="/templates">Templates</a> &middot; <a href="/games">Games</a> &middot; <a href="/all-in-one-toolkit">Toolkits</a></p>
+<p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p>
+</footer><script>
+function unixTick(){
+    var now=Math.floor(Date.now()/1000);
+    document.getElementById('unixLive').textContent=now;
+    document.getElementById('unixLiveDate').textContent=new Date().toISOString().replace('T',' ').substring(0,19)+' UTC';
+}
+setInterval(unixTick,1000);unixTick();
+function convertUnixToDate(){
+    var val=document.getElementById('unixToDate').value.trim();
+    if(!val||isNaN(val)){document.getElementById('unixToDateResult').textContent='Enter a valid Unix timestamp.';return;}
+    var ts=parseInt(val);var d=new Date(ts*1000);
+    if(isNaN(d.getTime())){document.getElementById('unixToDateResult').textContent='Invalid timestamp.';return;}
+    document.getElementById('unixToDateResult').textContent=d.toLocaleString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric',hour:'2-digit',minute:'2-digit',second:'2-digit',timeZoneName:'short'});
+}
+function convertDateToUnix(){
+    var val=document.getElementById('dateToUnix').value;
+    if(!val){document.getElementById('dateToUnixResult').textContent='Select a date and time.';return;}
+    var ts=Math.floor(new Date(val).getTime()/1000);
+    document.getElementById('dateToUnixResult').textContent='Unix Timestamp: '+ts;
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="fa026cc1-8f84-44f5-b2fb-9ccf29374a38"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>World Clock - Live Time Across 20 Timezone Cities | ExcuseMeWeb</title>
+<meta name="description" content="Live world clock showing current time across 20 major cities. Add and remove time zones, see UTC offsets, dates, and live-updating clocks for scheduling across regions.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="World Clock - Live Time Across 20 Timezone Cities | ExcuseMeWeb">
+<meta property="og:description" content="Live world clock showing current time across 20 major cities. Add and remove time zones, see UTC offsets and dates.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://excusemeweb.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="World Clock - Live Time Across 20 Timezone Cities | ExcuseMeWeb">
+<meta name="twitter:description" content="Live world clock showing current time across 20 major cities with UTC offsets.">
+<link rel="canonical" href="https://excusemeweb.com/world-clock">
+<link rel="icon" href="/favicon.ico">
+<meta name="theme-color" content="#ffffff">
+<meta property="og:url" content="https://excusemeweb.com/world-clock">
+
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "World Clock",
+  "url": "https://excusemeweb.com/world-clock",
+  "description": "Live world clock showing current time across 20 major cities. Add and remove time zones with UTC offsets.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "All",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": { "@type": "Organization", "name": "ExcuseMeWeb" },
+  "dateModified": "2026-08-07"
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://excusemeweb.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Clock Tools", "item": "https://excusemeweb.com/clock-tools" },
+    { "@type": "ListItem", "position": 3, "name": "World Clock", "item": "https://excusemeweb.com/world-clock" }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"How does the world clock update in real time?","acceptedAnswer":{"@type":"Answer","text":"The world clock uses your browser's built-in Internationalization API (Intl.DateTimeFormat) with IANA time zone identifiers. It refreshes every second to show the current time, date, and UTC offset for each selected city."}},
+    {"@type":"Question","name":"Does the world clock account for daylight saving time?","acceptedAnswer":{"@type":"Answer","text":"Yes. The browser's time zone database automatically handles daylight saving time (DST) transitions. The displayed time and UTC offset adjust correctly for each region's DST rules."}},
+    {"@type":"Question","name":"How many time zones can I display at once?","acceptedAnswer":{"@type":"Answer","text":"You can display as many as you like from the 20 available cities. Start with the five default cities (New York, London, Tokyo, Karachi, Sydney) and add or remove others as needed."}}
+  ]
+}</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg-primary:#ffffff;--bg-secondary:#f8fafc;--bg-tertiary:#f1f5f9;
+--text-primary:#0f172a;--text-secondary:#64748b;--accent:#6366f1;
+--accent-hover:#4f46e5;--accent-light:#eef2ff;--danger:#ef4444;--success:#22c55e;
+--warning:#f59e0b;--border:#e2e8f0;--shadow:rgba(0,0,0,0.08);
+--font-body:'Inter',sans-serif;--font-brand:'Inter',sans-serif;--border-radius:12px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:var(--font-body);background:var(--bg-primary);color:var(--text-primary);min-height:100vh;display:flex;flex-direction:column;}
+.header{background:var(--bg-secondary);border-bottom:1px solid var(--border);padding:0 24px;position:sticky;top:0;z-index:1000;}
+.header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;}
+.logo{font-family:var(--font-brand);font-size:1.5rem;font-weight:700;color:var(--accent);text-decoration:none;}
+.logo span{color:var(--text-primary);}
+.nav-desktop{display:flex;gap:28px;}
+.nav-desktop a{color:var(--text-secondary);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color 0.2s;white-space:nowrap;}
+.nav-desktop a:hover{color:var(--accent);}
+.nav-desktop a.active{color:var(--accent);}
+.header-right{display:flex;align-items:center;gap:16px;}
+.hamburger{display:none;background:none;border:none;color:var(--text-primary);font-size:1.5rem;cursor:pointer;}
+.mobile-nav{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg-secondary);border-bottom:1px solid var(--border);padding:16px 24px;flex-direction:column;gap:16px;z-index:999;}
+.mobile-nav.show{display:flex;}
+.mobile-nav a{color:var(--text-secondary);text-decoration:none;font-size:1rem;font-weight:500;}
+.mobile-nav a.active{color:var(--accent);}
+.main-content{flex:1;max-width:1100px;width:100%;margin:0 auto;padding:40px 24px;}
+.breadcrumb{display:flex;align-items:center;flex-wrap:wrap;gap:6px;font-size:0.85rem;color:var(--text-secondary);margin-bottom:20px;}
+.breadcrumb a{color:var(--text-secondary);text-decoration:none;}
+.breadcrumb a:hover{color:var(--accent);text-decoration:underline;}
+.breadcrumb .bc-sep{color:var(--border);}
+.breadcrumb .bc-current{color:var(--text-primary);font-weight:600;}
+.page-header{text-align:center;margin-bottom:28px;}
+.page-header h1{font-size:2.3rem;font-weight:700;margin-bottom:8px;}
+.page-header p{color:var(--text-secondary);font-size:1.05rem;max-width:640px;margin:0 auto;}
+.tool-box{background:var(--bg-secondary);border:1px solid var(--border);border-radius:var(--border-radius);padding:28px;max-width:900px;margin:0 auto 24px;}
+.btn{padding:8px 16px;border-radius:10px;border:none;font-size:0.85rem;font-weight:600;cursor:pointer;transition:all 0.15s;font-family:var(--font-body);}
+.btn-p{background:var(--accent);color:#fff;}
+.btn-p:hover{background:var(--accent-hover);}
+.btn-s{background:var(--bg-tertiary);color:var(--text-primary);border:1px solid var(--border);}
+.btn-s:hover{border-color:var(--accent);color:var(--accent);}
+.wc-add{display:flex;gap:8px;justify-content:center;margin-bottom:20px;flex-wrap:wrap;}
+.wc-add select{padding:8px 12px;border-radius:8px;border:1px solid var(--border);font-family:var(--font-body);}
+.wc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;}
+.wc-card{padding:16px;border-radius:10px;border:1px solid var(--border);background:var(--bg-primary);text-align:center;}
+.wc-city{font-size:0.85rem;font-weight:600;color:var(--text-secondary);margin-bottom:4px;}
+.wc-time{font-size:1.6rem;font-weight:700;font-variant-numeric:tabular-nums;}
+.wc-date{font-size:0.8rem;color:var(--text-secondary);margin-top:2px;}
+.wc-offset{font-size:0.75rem;color:var(--accent);margin-top:4px;}
+.info-section{background:var(--bg-secondary);border-radius:var(--border-radius);padding:32px;margin-bottom:24px;border:1px solid var(--border);}
+.info-section h2{font-size:1.4rem;margin-bottom:14px;}
+.info-section h3{margin-top:28px;margin-bottom:14px;color:var(--accent);font-size:1.1rem;}
+.info-section p,.info-section li{color:var(--text-secondary);line-height:1.7;}
+.info-section ul,.info-section ol{padding-left:22px;margin-bottom:10px;}
+.info-section a{color:var(--accent);text-decoration:none;}
+.info-section a:hover{text-decoration:underline;}
+details{margin-bottom:10px;border:1px solid var(--border);border-radius:8px;padding:14px 16px;background:var(--bg-primary);}
+summary{font-weight:600;color:var(--text-primary);cursor:pointer;}
+details p{margin-top:10px;margin-bottom:0;}
+.footer{background:var(--bg-secondary);border-top:1px solid var(--border);padding:32px 24px;text-align:center;color:var(--text-secondary);font-size:0.9rem;}
+.footer a{color:var(--accent);text-decoration:none;}
+@media(max-width:768px){
+.nav-desktop{display:none;}.hamburger{display:block;}
+.page-header h1{font-size:1.7rem;}
+.main-content{padding:24px 16px;}
+.wc-grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));}
+}
+</style>
+</head><body>
+<header class="header">
+<div class="header-inner">
+<a href="/" class="logo">Excuse<span>Me</span>Web</a>
+<nav class="nav-desktop">
+<a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a><a href="/all-in-one-toolkit" class="active">Toolkits</a>
+</nav>
+<div class="header-right">
+<button class="hamburger" onclick="document.getElementById('mobileNav').classList.toggle('show')">&#9776;</button>
+</div>
+</div>
+<nav class="mobile-nav" id="mobileNav">
+<a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a><a href="/all-in-one-toolkit" class="active">Toolkits</a>
+</nav>
+</header>
+
+<main class="main-content">
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="bc-sep">/</span><a href="/clock-tools">Clock Tools</a><span class="bc-sep">/</span><span class="bc-current">World Clock</span></nav>
+
+<div class="page-header">
+<h1>World Clock</h1>
+<p>See the current time across major cities worldwide. Add or remove time zones and watch them update live.</p>
+</div>
+
+<div class="tool-box">
+<div class="wc-add">
+<select id="wcTzSelect">
+<option value="">Add a timezone...</option>
+<option value="America/New_York">New York (EST)</option>
+<option value="America/Chicago">Chicago (CST)</option>
+<option value="America/Denver">Denver (MST)</option>
+<option value="America/Los_Angeles">Los Angeles (PST)</option>
+<option value="America/Toronto">Toronto</option>
+<option value="America/Sao_Paulo">Sao Paulo</option>
+<option value="Europe/London">London (GMT)</option>
+<option value="Europe/Paris">Paris (CET)</option>
+<option value="Europe/Berlin">Berlin</option>
+<option value="Europe/Moscow">Moscow</option>
+<option value="Asia/Dubai">Dubai</option>
+<option value="Asia/Karachi">Karachi</option>
+<option value="Asia/Kolkata">Mumbai</option>
+<option value="Asia/Bangkok">Bangkok</option>
+<option value="Asia/Shanghai">Shanghai</option>
+<option value="Asia/Tokyo">Tokyo</option>
+<option value="Asia/Seoul">Seoul</option>
+<option value="Australia/Sydney">Sydney</option>
+<option value="Pacific/Auckland">Auckland</option>
+<option value="Pacific/Honolulu">Honolulu</option>
+</select>
+<button class="btn btn-p" onclick="wcAdd()">Add</button>
+</div>
+<div class="wc-grid" id="wcGrid"></div>
+</div>
+
+<div class="info-section">
+<h2>World Clock</h2>
+<p>This world clock displays the current time, date, and UTC offset for major cities across the Americas, Europe, Asia, and Oceania. All times update live every second using your browser's built-in Internationalization API.</p>
+
+<h3>How to Use</h3>
+<ol>
+<li>Five cities are shown by default: New York, London, Tokyo, Karachi, and Sydney.</li>
+<li>Use the dropdown to add more cities from the list of 20 available time zones.</li>
+<li>Click <strong>Remove</strong> on any card to hide it from the display.</li>
+<li>All clocks update automatically every second.</li>
+</ol>
+
+<h3>Available Cities</h3>
+<ul>
+<li><strong>Americas:</strong> New York, Chicago, Denver, Los Angeles, Toronto, Sao Paulo, Honolulu</li>
+<li><strong>Europe:</strong> London, Paris, Berlin, Moscow</li>
+<li><strong>Asia:</strong> Dubai, Karachi, Mumbai, Bangkok, Shanghai, Tokyo, Seoul</li>
+<li><strong>Oceania:</strong> Sydney, Auckland</li>
+</ul>
+
+<h3>Frequently Asked Questions</h3>
+<details>
+<summary>How does the world clock update in real time?</summary>
+<p>The world clock uses your browser's built-in Internationalization API (Intl.DateTimeFormat) with IANA time zone identifiers. It refreshes every second to show the current time, date, and UTC offset for each selected city.</p>
+</details>
+<details>
+<summary>Does the world clock account for daylight saving time?</summary>
+<p>Yes. The browser's time zone database automatically handles daylight saving time (DST) transitions. The displayed time and UTC offset adjust correctly for each region's DST rules.</p>
+</details>
+<details>
+<summary>How many time zones can I display at once?</summary>
+<p>You can display as many as you like from the 20 available cities. Start with the five default cities (New York, London, Tokyo, Karachi, Sydney) and add or remove others as needed.</p>
+</details>
+
+<h3>Related Tools</h3>
+<p><a href="/alarm">Alarm Clock</a> &middot; <a href="/unix-timestamp">Unix Timestamp</a> &middot; <a href="/timer">Countdown Timer</a> &middot; <a href="/time-converter">Time Converter</a></p>
+</div>
+</main>
+
+<footer class="footer">
+<p>&copy; 2026 ExcuseMeWeb.com &mdash; Online Tools for Everyone</p>
+<p style="margin-top:8px"><a href="/calculators">Calculators</a> &middot; <a href="/converters">Converters</a> &middot; <a href="/image-tools">Image Tools</a> &middot; <a href="/generators">Generators</a> &middot; <a href="/templates">Templates</a> &middot; <a href="/games">Games</a> &middot; <a href="/all-in-one-toolkit">Toolkits</a></p>
+<p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p>
+</footer><script>
+var wcTzList=['America/New_York','Europe/London','Asia/Tokyo','Asia/Karachi','Australia/Sydney'];
+function wcAdd(){
+    var sel=document.getElementById('wcTzSelect');var tz=sel.value;
+    if(!tz||wcTzList.indexOf(tz)!==-1)return;
+    wcTzList.push(tz);sel.value='';wcTick();
+}
+function wcRemove(idx){wcTzList.splice(idx,1);wcTick();}
+function wcTick(){
+    var grid=document.getElementById('wcGrid');var h='';
+    wcTzList.forEach(function(tz,i){
+        var now=new Date();
+        var time=now.toLocaleTimeString('en-US',{timeZone:tz,hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:true});
+        var date=now.toLocaleDateString('en-US',{timeZone:tz,weekday:'short',month:'short',day:'numeric'});
+        var parts=new Intl.DateTimeFormat('en-US',{timeZone:tz,timeZoneName:'shortOffset'}).formatToParts(now);
+        var offset='';parts.forEach(function(p){if(p.type==='timeZoneName')offset=p.value;});
+        var city=tz.split('/').pop().replace(/_/g,' ');
+        h+='<div class="wc-card"><div class="wc-city">'+city+'</div><div class="wc-time">'+time+'</div><div class="wc-date">'+date+'</div><div class="wc-offset">'+offset+'</div><button class="btn btn-s" style="margin-top:8px" onclick="wcRemove('+i+')">Remove</button></div>';
+    });grid.innerHTML=h;
+}
+setInterval(wcTick,1000);wcTick();
+</script>
+</body>
+</html>

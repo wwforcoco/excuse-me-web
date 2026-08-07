@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="fa026cc1-8f84-44f5-b2fb-9ccf29374a38"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Online Countdown Timer with Presets | ExcuseMeWeb</title>
+<meta name="description" content="Online countdown timer with 12 quick presets (1 min to 2 hr) and custom H:M:S input. Features a progress bar and audio beep when the timer finishes. Runs entirely in your browser.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Online Countdown Timer with Presets | ExcuseMeWeb">
+<meta property="og:description" content="Online countdown timer with 12 quick presets (1 min to 2 hr) and custom H:M:S input. Features a progress bar and audio beep when the timer finishes.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://excusemeweb.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Online Countdown Timer with Presets | ExcuseMeWeb">
+<meta name="twitter:description" content="Online countdown timer with 12 quick presets (1 min to 2 hr) and custom H:M:S input. Features a progress bar and audio beep when the timer finishes.">
+<link rel="canonical" href="https://excusemeweb.com/timer">
+<link rel="icon" href="/favicon.ico">
+<meta name="theme-color" content="#ffffff">
+<meta property="og:url" content="https://excusemeweb.com/timer">
+
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Online Countdown Timer",
+  "url": "https://excusemeweb.com/timer",
+  "description": "Online countdown timer with 12 quick presets and custom H:M:S input. Features a progress bar and audio beep when finished.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "All",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": { "@type": "Organization", "name": "ExcuseMeWeb" },
+  "dateModified": "2026-08-07"
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://excusemeweb.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Clock Tools", "item": "https://excusemeweb.com/clock-tools" },
+    { "@type": "ListItem", "position": 3, "name": "Countdown Timer", "item": "https://excusemeweb.com/timer" }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Does the countdown timer work without internet after the page loads?","acceptedAnswer":{"@type":"Answer","text":"Yes. Once the page is loaded, the countdown timer runs entirely in your browser using JavaScript. No server connection is needed."}},
+    {"@type":"Question","name":"How accurate is the online countdown timer?","acceptedAnswer":{"@type":"Answer","text":"The timer uses JavaScript setInterval with one-second ticks. It is accurate to within one second under normal browser conditions. Background tabs in some browsers may throttle the interval slightly."}},
+    {"@type":"Question","name":"Can I set a timer longer than 2 hours?","acceptedAnswer":{"@type":"Answer","text":"Yes. Use the custom H:M:S input fields to set any duration up to 23 hours, 59 minutes, and 59 seconds."}},
+    {"@type":"Question","name":"Will the timer beep if my device is on mute?","acceptedAnswer":{"@type":"Answer","text":"The timer uses the Web Audio API to generate a beep through the browser. If your device volume is muted, you will not hear the sound. Make sure your speakers or headphones are on."}}
+  ]
+}</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg-primary:#ffffff;--bg-secondary:#f8fafc;--bg-tertiary:#f1f5f9;
+--text-primary:#0f172a;--text-secondary:#64748b;--accent:#6366f1;
+--accent-hover:#4f46e5;--accent-light:#eef2ff;--danger:#ef4444;--success:#22c55e;
+--warning:#f59e0b;--border:#e2e8f0;--shadow:rgba(0,0,0,0.08);
+--font-body:'Inter',sans-serif;--font-brand:'Inter',sans-serif;--border-radius:12px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:var(--font-body);background:var(--bg-primary);color:var(--text-primary);min-height:100vh;display:flex;flex-direction:column;}
+.header{background:var(--bg-secondary);border-bottom:1px solid var(--border);padding:0 24px;position:sticky;top:0;z-index:1000;}
+.header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;}
+.logo{font-family:var(--font-brand);font-size:1.5rem;font-weight:700;color:var(--accent);text-decoration:none;}
+.logo span{color:var(--text-primary);}
+.nav-desktop{display:flex;gap:28px;}
+.nav-desktop a{color:var(--text-secondary);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color 0.2s;white-space:nowrap;}
+.nav-desktop a:hover{color:var(--accent);}
+.nav-desktop a.active{color:var(--accent);}
+.header-right{display:flex;align-items:center;gap:16px;}
+.hamburger{display:none;background:none;border:none;color:var(--text-primary);font-size:1.5rem;cursor:pointer;}
+.mobile-nav{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg-secondary);border-bottom:1px solid var(--border);padding:16px 24px;flex-direction:column;gap:16px;z-index:999;}
+.mobile-nav.show{display:flex;}
+.mobile-nav a{color:var(--text-secondary);text-decoration:none;font-size:1rem;font-weight:500;}
+.mobile-nav a.active{color:var(--accent);}
+.main-content{flex:1;max-width:1100px;width:100%;margin:0 auto;padding:40px 24px;}
+.breadcrumb{display:flex;align-items:center;flex-wrap:wrap;gap:6px;font-size:0.85rem;color:var(--text-secondary);margin-bottom:20px;}
+.breadcrumb a{color:var(--text-secondary);text-decoration:none;}
+.breadcrumb a:hover{color:var(--accent);text-decoration:underline;}
+.breadcrumb .bc-sep{color:var(--border);}
+.breadcrumb .bc-current{color:var(--text-primary);font-weight:600;}
+.page-header{text-align:center;margin-bottom:28px;}
+.page-header h1{font-size:2.3rem;font-weight:700;margin-bottom:8px;}
+.page-header p{color:var(--text-secondary);font-size:1.05rem;max-width:640px;margin:0 auto;}
+.tool-box{background:var(--bg-secondary);border:1px solid var(--border);border-radius:var(--border-radius);padding:28px;max-width:700px;margin:0 auto 24px;}
+.time-display{font-size:3.2rem;font-weight:700;text-align:center;font-variant-numeric:tabular-nums;letter-spacing:0.02em;margin-bottom:20px;color:var(--text-primary);}
+.time-display.danger{color:var(--danger);}
+.btn-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:16px;}
+.btn{padding:12px 28px;border-radius:10px;border:none;font-size:0.95rem;font-weight:600;cursor:pointer;transition:all 0.15s;font-family:var(--font-body);}
+.btn-p{background:var(--accent);color:#fff;}
+.btn-p:hover{background:var(--accent-hover);}
+.btn-s{background:var(--bg-tertiary);color:var(--text-primary);border:1px solid var(--border);}
+.btn-s:hover{border-color:var(--accent);color:var(--accent);}
+.preset-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px;margin-bottom:20px;max-width:700px;margin-left:auto;margin-right:auto;}
+.preset-btn{padding:14px 8px;border-radius:10px;border:1px solid var(--border);background:var(--bg-primary);color:var(--text-primary);font-size:0.95rem;font-weight:600;cursor:pointer;transition:all 0.15s;text-align:center;font-family:var(--font-body);}
+.preset-btn:hover{border-color:var(--accent);background:var(--accent-light);color:var(--accent);}
+.preset-btn.active{background:var(--accent);color:#fff;border-color:var(--accent);}
+.preset-label{font-size:0.75rem;color:var(--text-secondary);margin-top:2px;font-weight:400;}
+.timer-inputs{display:flex;gap:10px;justify-content:center;align-items:center;margin-bottom:16px;flex-wrap:wrap;}
+.timer-inputs input{width:70px;text-align:center;font-size:1.2rem;padding:10px;border-radius:10px;border:1px solid var(--border);font-family:var(--font-body);font-weight:600;}
+.timer-inputs input:focus{outline:2px solid var(--accent);}
+.timer-inputs span{font-size:1.1rem;color:var(--text-secondary);font-weight:600;}
+.progress-bar{width:100%;height:6px;background:var(--bg-tertiary);border-radius:3px;margin-bottom:20px;overflow:hidden;}
+.progress-bar .fill{height:100%;background:var(--accent);border-radius:3px;transition:width 0.3s linear;}
+.progress-bar .fill.danger{background:var(--danger);}
+.info-section{background:var(--bg-secondary);border-radius:var(--border-radius);padding:32px;margin-bottom:24px;border:1px solid var(--border);}
+.info-section h2{font-size:1.4rem;margin-bottom:14px;}
+.info-section h3{margin-top:28px;margin-bottom:14px;color:var(--accent);font-size:1.1rem;}
+.info-section p,.info-section li{color:var(--text-secondary);line-height:1.7;}
+.info-section ul,.info-section ol{padding-left:22px;margin-bottom:10px;}
+.info-section a{color:var(--accent);text-decoration:none;}
+.info-section a:hover{text-decoration:underline;}
+details{margin-bottom:10px;border:1px solid var(--border);border-radius:8px;padding:14px 16px;background:var(--bg-primary);}
+summary{font-weight:600;color:var(--text-primary);cursor:pointer;}
+details p{margin-top:10px;margin-bottom:0;}
+.footer{background:var(--bg-secondary);border-top:1px solid var(--border);padding:32px 24px;text-align:center;color:var(--text-secondary);font-size:0.9rem;}
+.footer a{color:var(--accent);text-decoration:none;}
+@media(max-width:768px){
+.nav-desktop{display:none;}.hamburger{display:block;}
+.page-header h1{font-size:1.7rem;}
+.main-content{padding:24px 16px;}
+.time-display{font-size:2.4rem;}
+.preset-grid{grid-template-columns:repeat(auto-fill,minmax(90px,1fr));}
+}
+</style>
+</head><body>
+<header class="header">
+<div class="header-inner">
+<a href="/" class="logo">Excuse<span>Me</span>Web</a>
+<nav class="nav-desktop">
+<a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a><a href="/all-in-one-toolkit" class="active">Toolkits</a>
+</nav>
+<div class="header-right">
+<button class="hamburger" onclick="document.getElementById('mobileNav').classList.toggle('show')">&#9776;</button>
+</div>
+</div>
+<nav class="mobile-nav" id="mobileNav">
+<a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a><a href="/all-in-one-toolkit" class="active">Toolkits</a>
+</nav>
+</header>
+
+<main class="main-content">
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="bc-sep">/</span><a href="/clock-tools">Clock Tools</a><span class="bc-sep">/</span><span class="bc-current">Countdown Timer</span></nav>
+
+<div class="page-header">
+<h1>Online Countdown Timer</h1>
+<p>Set a countdown with one-click presets or enter any custom duration. Get an audio beep when time is up.</p>
+</div>
+
+<div class="tool-box">
+<div class="progress-bar"><div class="fill" id="timerProgress" style="width:100%"></div></div>
+<div class="time-display" id="timerDisplay">00:00</div>
+<div class="preset-grid" id="presetGrid">
+<button class="preset-btn" onclick="startPreset(60,this)">1 min<span class="preset-label">Quick task</span></button>
+<button class="preset-btn" onclick="startPreset(180,this)">3 min<span class="preset-label">Egg timer</span></button>
+<button class="preset-btn" onclick="startPreset(300,this)">5 min<span class="preset-label">Break</span></button>
+<button class="preset-btn" onclick="startPreset(600,this)">10 min<span class="preset-label">Stretch</span></button>
+<button class="preset-btn" onclick="startPreset(900,this)">15 min<span class="preset-label">Coffee break</span></button>
+<button class="preset-btn" onclick="startPreset(1200,this)">20 min<span class="preset-label">Quick read</span></button>
+<button class="preset-btn" onclick="startPreset(1500,this)">25 min<span class="preset-label">Pomodoro</span></button>
+<button class="preset-btn" onclick="startPreset(1800,this)">30 min<span class="preset-label">Exercise</span></button>
+<button class="preset-btn" onclick="startPreset(2700,this)">45 min<span class="preset-label">Deep work</span></button>
+<button class="preset-btn" onclick="startPreset(3600,this)">60 min<span class="preset-label">Meeting</span></button>
+<button class="preset-btn" onclick="startPreset(5400,this)">90 min<span class="preset-label">Lecture</span></button>
+<button class="preset-btn" onclick="startPreset(7200,this)">2 hr<span class="preset-label">Study block</span></button>
+</div>
+<div class="timer-inputs">
+<span>Custom:</span>
+<input type="number" id="timerH" placeholder="H" min="0" max="23" value="0">
+<span>:</span>
+<input type="number" id="timerM" placeholder="M" min="0" max="59" value="5">
+<span>:</span>
+<input type="number" id="timerS" placeholder="S" min="0" max="59" value="0">
+</div>
+<div class="btn-row">
+<button class="btn btn-p" onclick="startCustomTimer()" id="timerStartBtn">Start</button>
+<button class="btn btn-s" onclick="pauseTimer()" id="timerPauseBtn" disabled>Pause</button>
+<button class="btn btn-s" onclick="resetTimer()">Reset</button>
+</div>
+</div>
+
+<div class="info-section">
+<h2>Online Countdown Timer</h2>
+<p>This countdown timer runs entirely in your browser. Choose from twelve one-click presets covering the most common durations — from a 1-minute quick task to a 2-hour study block — or enter any custom time using the hour, minute, and second fields.</p>
+
+<h3>How to Use</h3>
+<ol>
+<li>Click any preset button to start the countdown immediately, or enter a custom duration in the H:M:S fields and click Start.</li>
+<li>The progress bar shows how much time remains. It turns red when less than 10% is left.</li>
+<li>When the timer reaches zero, a two-tone audio beep plays through your speakers.</li>
+<li>Use Pause to freeze the countdown, then Resume to continue. Reset clears everything.</li>
+</ol>
+
+<h3>Features</h3>
+<ul>
+<li>12 preset durations with descriptive labels for common use cases</li>
+<li>Custom H:M:S input for any duration up to 23:59:59</li>
+<li>Visual progress bar that turns red near the end</li>
+<li>Audio beep notification using the Web Audio API</li>
+<li>Pause and resume support</li>
+<li>Works offline after the page loads</li>
+</ul>
+
+<h3>Frequently Asked Questions</h3>
+<details>
+<summary>Does the countdown timer work without internet after the page loads?</summary>
+<p>Yes. Once the page is loaded, the countdown timer runs entirely in your browser using JavaScript. No server connection is needed.</p>
+</details>
+<details>
+<summary>How accurate is the online countdown timer?</summary>
+<p>The timer uses JavaScript setInterval with one-second ticks. It is accurate to within one second under normal browser conditions. Background tabs in some browsers may throttle the interval slightly.</p>
+</details>
+<details>
+<summary>Can I set a timer longer than 2 hours?</summary>
+<p>Yes. Use the custom H:M:S input fields to set any duration up to 23 hours, 59 minutes, and 59 seconds.</p>
+</details>
+<details>
+<summary>Will the timer beep if my device is on mute?</summary>
+<p>The timer uses the Web Audio API to generate a beep through the browser. If your device volume is muted, you will not hear the sound. Make sure your speakers or headphones are on.</p>
+</details>
+
+<h3>Related Tools</h3>
+<p><a href="/stopwatch">Stopwatch</a> &middot; <a href="/pomodoro-timer">Pomodoro Timer</a> &middot; <a href="/count-up-timer">Count Up Timer</a> &middot; <a href="/interval-timer">Interval Timer</a></p>
+</div>
+</main>
+
+<footer class="footer">
+<p>&copy; 2026 ExcuseMeWeb.com &mdash; Online Tools for Everyone</p>
+<p style="margin-top:8px"><a href="/calculators">Calculators</a> &middot; <a href="/converters">Converters</a> &middot; <a href="/image-tools">Image Tools</a> &middot; <a href="/generators">Generators</a> &middot; <a href="/templates">Templates</a> &middot; <a href="/games">Games</a> &middot; <a href="/all-in-one-toolkit">Toolkits</a></p>
+<p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p>
+</footer><script>
+var audioCtx=null;
+function beep(freq,dur,vol){
+    try{if(!audioCtx)audioCtx=new(window.AudioContext||window.webkitAudioContext)();
+    var o=audioCtx.createOscillator(),g=audioCtx.createGain();
+    o.connect(g);g.connect(audioCtx.destination);
+    o.frequency.value=freq||800;o.type='sine';g.gain.value=vol||0.3;
+    o.start();o.stop(audioCtx.currentTime+(dur||0.3));}catch(e){}
+}
+function fmtTimer(s){s=Math.max(0,Math.floor(s));var m=Math.floor(s/60),sec=s%60;return(m<10?'0':'')+m+':'+(sec<10?'0':'')+sec;}
+var timerIV=null,timerRem=0,timerTot=0,timerRun=false;
+function startPreset(sec,el){
+    timerTot=sec;timerRem=sec;timerRun=true;
+    updTimerDisp();
+    document.getElementById('timerProgress').style.width='100%';
+    document.getElementById('timerProgress').classList.remove('danger');
+    document.getElementById('timerStartBtn').disabled=true;
+    document.getElementById('timerPauseBtn').disabled=false;
+    document.querySelectorAll('.preset-btn').forEach(function(b){b.classList.remove('active');});
+    if(el)el.classList.add('active');
+    clearInterval(timerIV);timerIV=setInterval(timerTick,1000);
+}
+function startCustomTimer(){
+    var h=parseInt(document.getElementById('timerH').value)||0;
+    var m=parseInt(document.getElementById('timerM').value)||0;
+    var s=parseInt(document.getElementById('timerS').value)||0;
+    var total=h*3600+m*60+s;if(total<=0)return;
+    document.querySelectorAll('.preset-btn').forEach(function(b){b.classList.remove('active');});
+    startPreset(total,null);
+}
+function timerTick(){
+    timerRem--;
+    if(timerRem<=0){timerRem=0;clearInterval(timerIV);timerRun=false;
+    beep(880,0.5,0.4);setTimeout(function(){beep(880,0.5,0.4);},300);
+    document.getElementById('timerStartBtn').disabled=false;
+    document.getElementById('timerPauseBtn').disabled=true;}
+    var pct=timerTot>0?(timerRem/timerTot)*100:0;
+    var bar=document.getElementById('timerProgress');
+    bar.style.width=pct+'%';
+    if(pct<10)bar.classList.add('danger');else bar.classList.remove('danger');
+    updTimerDisp();
+}
+function updTimerDisp(){
+    var d=document.getElementById('timerDisplay');
+    d.textContent=fmtTimer(timerRem);
+    d.className='time-display'+(timerRem<=10&&timerRem>0&&timerRun?' danger':'');
+}
+function pauseTimer(){
+    if(timerRun){clearInterval(timerIV);timerRun=false;
+    document.getElementById('timerPauseBtn').textContent='Resume';
+    document.getElementById('timerStartBtn').disabled=false;
+    }else if(timerRem>0){timerRun=true;
+    timerIV=setInterval(timerTick,1000);
+    document.getElementById('timerPauseBtn').textContent='Pause';
+    document.getElementById('timerStartBtn').disabled=true;}
+}
+function resetTimer(){
+    clearInterval(timerIV);timerRun=false;timerRem=0;timerTot=0;
+    updTimerDisp();
+    document.getElementById('timerProgress').style.width='100%';
+    document.getElementById('timerProgress').classList.remove('danger');
+    document.getElementById('timerStartBtn').disabled=false;
+    document.getElementById('timerPauseBtn').disabled=true;
+    document.getElementById('timerPauseBtn').textContent='Pause';
+    document.querySelectorAll('.preset-btn').forEach(function(b){b.classList.remove('active');});
+}
+</script>
+</body>
+</html>
