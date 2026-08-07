@@ -1,0 +1,2696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premium AI Toolkit — Prompt Builder, Library, Tester, Token Counter | ExcuseMeWeb</title>
+<meta name="description" content="Premium AI prompt engineering toolkit with 8 working tools: prompt builder, prompt library with 30+ templates, temperature guide, model comparison, prompt tester, variable injector, few-shot builder, and token counter.">
+<meta name="keywords" content="AI prompt engineering, prompt builder, prompt library, prompt tester, token counter, few-shot prompting, temperature guide, model comparison, GPT-4, Claude, Gemini, Llama, AI tools">
+<meta name="author" content="ExcuseMeWeb">
+<meta name="theme-color" content="#0a0a0f">
+<link rel="canonical" href="https://excusemeweb.com/premium-ai-toolkit">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Premium AI Toolkit — Prompt Builder, Library, Tester, Token Counter | ExcuseMeWeb">
+<meta property="og:description" content="Premium AI prompt engineering toolkit with 8 working tools: prompt builder, prompt library with 30+ templates, temperature guide, model comparison, prompt tester, variable injector, few-shot builder, and token counter.">
+<meta property="og:url" content="https://excusemeweb.com/premium-ai-toolkit">
+<meta property="og:site_name" content="ExcuseMeWeb">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_app">
+<meta name="twitter:title" content="Premium AI Toolkit — Prompt Builder, Library, Tester, Token Counter">
+<meta name="twitter:description" content="8 working AI prompt engineering tools that run 100% locally in your browser. Build, test, and optimize prompts for GPT, Claude, Gemini, and Llama.">
+<meta name="twitter:url" content="https://excusemeweb.com/premium-ai-toolkit">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- WebApplication JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Premium AI Toolkit",
+  "url": "https://excusemeweb.com/premium-ai-toolkit",
+  "description": "Premium AI prompt engineering toolkit with 8 working tools: prompt builder, prompt library with 30+ templates, temperature guide, model comparison, prompt tester, variable injector, few-shot builder, and token counter.",
+  "applicationCategory": "ProductivityApplication",
+  "operatingSystem": "Any (web-based)",
+  "browserRequirements": "Requires a modern web browser with JavaScript enabled",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@type": "Organization", "name": "ExcuseMeWeb", "url": "https://excusemeweb.com" },
+  "featureList": [
+    "Prompt Builder (multi-step structured prompt generator)",
+    "Prompt Library (30+ curated templates with variables)",
+    "Temperature & Token Guide (interactive sliders + cost estimator)",
+    "Model Comparison (9 major LLMs side-by-side)",
+    "Prompt Tester (heuristic clarity, specificity, structure scoring)",
+    "Variable Injector (auto-detect {{variables}} + localStorage)",
+    "Few-Shot Builder (system + examples + query generator)",
+    "Token Counter (heuristic token estimate + cost + distribution)"
+  ]
+}
+</script>
+
+<!-- FAQPage JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is temperature in LLMs?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Temperature is a sampling parameter (typically 0 to 2) that controls the randomness of an LLM's output. At temperature 0 the model is nearly deterministic, always picking the most likely next token. Low values (0.1–0.4) produce focused, factual output ideal for coding and analysis. Mid values (0.5–0.9) balance creativity and coherence for general writing. High values (1.0–1.5) produce more creative, varied output useful for brainstorming. Very high values (1.6–2.0) become chaotic and often incoherent." }
+    },
+    {
+      "@type": "Question",
+      "name": "How accurate is the token counter?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The token counter uses a heuristic approximation (roughly 4 characters per token, with word-boundary adjustments). For English text this is typically within 5–15% of the actual count returned by tokenizer-specific tools like tiktoken (GPT) or Claude's tokenizer. For code, non-English languages, or text heavy with punctuation and emojis, the estimate can diverge more. For billing-critical workloads, always verify with the official tokenizer for your specific model." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I save my prompt templates?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. The Variable Injector and Few-Shot Builder both save templates to your browser's localStorage. Saved templates persist across page reloads on the same device and browser. Note that localStorage is per-browser and per-device — templates are not synced across devices or backed up to a server. Use the Download HTML button to capture the toolkit itself, or copy your prompts to a notes app for cross-device access." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is few-shot prompting?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Few-shot prompting is a technique where you include 1 to several examples of the desired input-output behavior inside the prompt, before asking the model to perform the task on a new input. This 'shows' the model the pattern to follow rather than only describing it. Few-shot works well for classification, formatting, translation, and style transfer. The Few-Shot Builder tool lets you assemble a system message, multiple input-output examples, and a final query into one structured prompt." }
+    },
+    {
+      "@type": "Question",
+      "name": "How does the prompt analyzer work?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The Prompt Tester uses a rule-based heuristic analyzer (not an LLM call). It checks for clarity signals (sentence length, vague words like 'stuff' or 'things'), specificity signals (concrete nouns, numbers, constraints), and structure signals (headings, lists, format keywords, examples). It also flags potential issues such as missing format specifications, no examples, and missing context. Scores are 0–100 estimates meant to guide improvement, not absolute measures of quality." }
+    },
+    {
+      "@type": "Question",
+      "name": "Are my prompts sent to any server?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. Every tool in the Premium AI Toolkit runs entirely in your browser using client-side JavaScript. Your prompts, templates, variables, and text never leave your device. There are no API calls, no analytics, and no server-side storage. This makes the toolkit safe to use with confidential or proprietary content. The only network request is the initial font load from Google Fonts." }
+    }
+  ]
+}
+</script>
+
+<style>
+/* ============================================================
+   PREMIUM AI TOOLKIT — STYLES
+   ============================================================ */
+
+:root{
+  --bg:#0a0a0f;
+  --bg-deep:#07070b;
+  --surface:rgba(22,24,38,0.6);
+  --surface-2:rgba(30,32,48,0.7);
+  --surface-3:rgba(40,42,60,0.8);
+  --text:#e8eaf2;
+  --text-muted:#9ca3b8;
+  --text-dim:#6b7188;
+  --border:rgba(167,139,250,0.18);
+  --border-soft:rgba(255,255,255,0.06);
+  --purple:#a78bfa;
+  --purple-deep:#7c3aed;
+  --cyan:#22d3ee;
+  --cyan-deep:#0891b2;
+  --pink:#f472b6;
+  --pink-deep:#db2777;
+  --green:#34d399;
+  --amber:#fbbf24;
+  --red:#fb7185;
+  --grad-main:linear-gradient(135deg,#a78bfa 0%,#22d3ee 50%,#f472b6 100%);
+  --grad-purple:linear-gradient(135deg,#a78bfa,#7c3aed);
+  --grad-cyan:linear-gradient(135deg,#22d3ee,#0891b2);
+  --grad-pink:linear-gradient(135deg,#f472b6,#db2777);
+  --grad-text:linear-gradient(90deg,#a78bfa,#22d3ee,#f472b6);
+  --radius:16px;
+  --radius-sm:10px;
+  --radius-lg:24px;
+  --shadow-glow:0 0 40px rgba(167,139,250,0.25);
+  --shadow-card:0 8px 32px rgba(0,0,0,0.4);
+  --font-ui:'Inter',system-ui,-apple-system,sans-serif;
+  --font-display:'Space Grotesk','Inter',sans-serif;
+  --font-mono:'JetBrains Mono',ui-monospace,monospace;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+  font-family:var(--font-ui);
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+  min-height:100vh;
+  overflow-x:hidden;
+  position:relative;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* Animated gradient orbs background */
+.orb{
+  position:fixed;
+  border-radius:50%;
+  filter:blur(80px);
+  opacity:0.5;
+  pointer-events:none;
+  z-index:0;
+  animation:float 18s ease-in-out infinite;
+}
+.orb-1{
+  width:480px;height:480px;
+  background:radial-gradient(circle,#a78bfa 0%,transparent 70%);
+  top:-120px;left:-120px;
+}
+.orb-2{
+  width:520px;height:520px;
+  background:radial-gradient(circle,#22d3ee 0%,transparent 70%);
+  top:40%;right:-160px;
+  animation-delay:-6s;
+}
+.orb-3{
+  width:420px;height:420px;
+  background:radial-gradient(circle,#f472b6 0%,transparent 70%);
+  bottom:-120px;left:30%;
+  animation-delay:-12s;
+}
+@keyframes float{
+  0%,100%{transform:translate(0,0) scale(1)}
+  33%{transform:translate(40px,-30px) scale(1.08)}
+  66%{transform:translate(-30px,40px) scale(0.95)}
+}
+
+/* Grid overlay */
+.grid-overlay{
+  position:fixed;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(167,139,250,0.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(34,211,238,0.04) 1px,transparent 1px);
+  background-size:60px 60px;
+  pointer-events:none;
+  z-index:1;
+  mask-image:radial-gradient(ellipse at center,black 30%,transparent 80%);
+  -webkit-mask-image:radial-gradient(ellipse at center,black 30%,transparent 80%);
+}
+
+/* Main wrapper */
+.app{
+  position:relative;
+  z-index:2;
+  max-width:1280px;
+  margin:0 auto;
+  padding:0 20px;
+}
+
+/* ===== HEADER ===== */
+.header{
+  position:sticky;
+  top:0;
+  z-index:50;
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  background:rgba(10,10,15,0.75);
+  border-bottom:1px solid var(--border-soft);
+  padding:16px 0;
+}
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  flex-wrap:wrap;
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  text-decoration:none;
+  color:var(--text);
+}
+.brand-logo{
+  width:42px;height:42px;
+  border-radius:12px;
+  background:var(--grad-main);
+  display:grid;
+  place-items:center;
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:20px;
+  color:#0a0a0f;
+  box-shadow:0 0 24px rgba(167,139,250,0.5);
+  position:relative;
+  overflow:hidden;
+}
+.brand-logo::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(135deg,transparent 40%,rgba(255,255,255,0.3) 50%,transparent 60%);
+  animation:shimmer 3s ease-in-out infinite;
+}
+@keyframes shimmer{
+  0%,100%{transform:translateX(-100%)}
+  50%{transform:translateX(100%)}
+}
+.brand-text{display:flex;flex-direction:column;line-height:1.1}
+.brand-title{
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:18px;
+  background:var(--grad-text);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.brand-sub{
+  font-size:11px;
+  color:var(--text-dim);
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+}
+.header-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.btn{
+  font-family:var(--font-ui);
+  font-weight:600;
+  font-size:14px;
+  padding:10px 18px;
+  border-radius:10px;
+  border:1px solid var(--border);
+  background:var(--surface-2);
+  color:var(--text);
+  cursor:pointer;
+  transition:all 0.2s ease;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  text-decoration:none;
+  white-space:nowrap;
+}
+.btn:hover{
+  border-color:var(--purple);
+  background:var(--surface-3);
+  transform:translateY(-1px);
+  box-shadow:0 4px 16px rgba(167,139,250,0.2);
+}
+.btn-primary{
+  background:var(--grad-purple);
+  border:none;
+  color:#fff;
+  box-shadow:0 4px 20px rgba(124,58,237,0.4);
+}
+.btn-primary:hover{
+  box-shadow:0 6px 28px rgba(124,58,237,0.6);
+  transform:translateY(-1px);
+}
+.btn-ghost{
+  background:transparent;
+  border-color:var(--border-soft);
+}
+.btn-icon{
+  width:14px;height:14px;
+  display:inline-block;
+}
+
+/* ===== HERO ===== */
+.hero{
+  text-align:center;
+  padding:60px 0 40px;
+}
+.hero-eyebrow{
+  display:inline-block;
+  padding:6px 16px;
+  border-radius:99px;
+  background:var(--surface-2);
+  border:1px solid var(--border);
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:var(--purple);
+  margin-bottom:20px;
+}
+.hero-title{
+  font-family:var(--font-display);
+  font-size:clamp(36px,6vw,64px);
+  font-weight:700;
+  line-height:1.05;
+  letter-spacing:-0.02em;
+  margin-bottom:20px;
+}
+.hero-title .grad{
+  background:var(--grad-text);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  background-size:200% auto;
+  animation:gradShift 6s linear infinite;
+}
+@keyframes gradShift{
+  0%{background-position:0% center}
+  100%{background-position:200% center}
+}
+.hero-desc{
+  font-size:18px;
+  color:var(--text-muted);
+  max-width:680px;
+  margin:0 auto 28px;
+}
+.hero-stats{
+  display:flex;
+  justify-content:center;
+  gap:32px;
+  flex-wrap:wrap;
+  margin-top:32px;
+}
+.stat{
+  text-align:center;
+}
+.stat-num{
+  font-family:var(--font-display);
+  font-size:32px;
+  font-weight:700;
+  background:var(--grad-text);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.stat-label{
+  font-size:12px;
+  color:var(--text-dim);
+  text-transform:uppercase;
+  letter-spacing:0.1em;
+}
+
+/* ===== TAB BAR ===== */
+.tab-bar-wrap{
+  position:sticky;
+  top:75px;
+  z-index:40;
+  margin:0 -20px 32px;
+  padding:12px 20px;
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  background:rgba(10,10,15,0.7);
+  border-bottom:1px solid var(--border-soft);
+}
+.tab-bar{
+  display:flex;
+  gap:8px;
+  overflow-x:auto;
+  scrollbar-width:thin;
+  scrollbar-color:var(--purple) transparent;
+  padding-bottom:4px;
+  -webkit-overflow-scrolling:touch;
+}
+.tab-bar::-webkit-scrollbar{height:6px}
+.tab-bar::-webkit-scrollbar-track{background:transparent}
+.tab-bar::-webkit-scrollbar-thumb{background:var(--purple);border-radius:3px}
+.tab{
+  flex:0 0 auto;
+  padding:10px 18px;
+  border-radius:10px;
+  border:1px solid var(--border-soft);
+  background:var(--surface);
+  color:var(--text-muted);
+  font-family:var(--font-ui);
+  font-weight:600;
+  font-size:14px;
+  cursor:pointer;
+  transition:all 0.2s ease;
+  white-space:nowrap;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.tab:hover{
+  color:var(--text);
+  border-color:var(--border);
+}
+.tab.active{
+  background:var(--grad-purple);
+  color:#fff;
+  border-color:transparent;
+  box-shadow:0 4px 16px rgba(124,58,237,0.4);
+}
+.tab-num{
+  display:inline-grid;
+  place-items:center;
+  width:20px;height:20px;
+  border-radius:6px;
+  background:rgba(255,255,255,0.1);
+  font-size:11px;
+  font-weight:700;
+}
+.tab.active .tab-num{background:rgba(255,255,255,0.2)}
+
+/* ===== PANELS ===== */
+.panel{display:none;animation:fadeIn 0.4s ease}
+.panel.active{display:block}
+@keyframes fadeIn{
+  from{opacity:0;transform:translateY(12px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+.panel-header{
+  margin-bottom:28px;
+}
+.panel-title{
+  font-family:var(--font-display);
+  font-size:32px;
+  font-weight:700;
+  letter-spacing:-0.01em;
+  margin-bottom:8px;
+}
+.panel-desc{
+  color:var(--text-muted);
+  font-size:15px;
+  max-width:760px;
+}
+
+/* ===== CARD ===== */
+.card{
+  background:var(--surface);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  border:1px solid var(--border-soft);
+  border-radius:var(--radius);
+  padding:24px;
+  box-shadow:var(--shadow-card);
+  margin-bottom:20px;
+  position:relative;
+  overflow:hidden;
+}
+.card::before{
+  content:"";
+  position:absolute;
+  top:0;left:0;right:0;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(167,139,250,0.4),transparent);
+}
+.card-title{
+  font-family:var(--font-display);
+  font-size:18px;
+  font-weight:600;
+  margin-bottom:6px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.card-desc{
+  color:var(--text-muted);
+  font-size:13px;
+  margin-bottom:16px;
+}
+
+/* ===== FORM ELEMENTS ===== */
+.label{
+  display:block;
+  font-size:13px;
+  font-weight:600;
+  color:var(--text-muted);
+  margin-bottom:8px;
+  letter-spacing:0.02em;
+}
+.input,.textarea,.select{
+  width:100%;
+  padding:12px 14px;
+  background:rgba(10,10,15,0.6);
+  border:1px solid var(--border-soft);
+  border-radius:10px;
+  color:var(--text);
+  font-family:var(--font-ui);
+  font-size:14px;
+  transition:all 0.2s ease;
+  outline:none;
+}
+.input:focus,.textarea:focus,.select:focus{
+  border-color:var(--purple);
+  box-shadow:0 0 0 3px rgba(167,139,250,0.15);
+  background:rgba(10,10,15,0.85);
+}
+.textarea{
+  resize:vertical;
+  min-height:120px;
+  font-family:var(--font-mono);
+  font-size:13px;
+  line-height:1.6;
+}
+.select{
+  cursor:pointer;
+  /* pure CSS triangle via stacked gradients — no image URLs */
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--purple) 50% 60%, transparent 60%),
+    linear-gradient(-45deg, transparent 50%, var(--purple) 50% 60%, transparent 60%);
+  background-repeat:no-repeat;
+  background-position:right 16px center, right 20px center;
+  background-size:5px 5px,5px 5px;
+  appearance:none;
+  -webkit-appearance:none;
+  -moz-appearance:none;
+  padding-right:40px;
+}
+.select::-ms-expand{display:none}
+.select option{background:#161826;color:var(--text)}
+
+.field{margin-bottom:16px}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:600px){.field-row{grid-template-columns:1fr}}
+
+/* Chip selectors */
+.chip-group{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+.chip{
+  padding:8px 14px;
+  border-radius:99px;
+  border:1px solid var(--border-soft);
+  background:var(--surface-2);
+  color:var(--text-muted);
+  font-size:13px;
+  font-weight:500;
+  cursor:pointer;
+  transition:all 0.18s ease;
+  user-select:none;
+}
+.chip:hover{border-color:var(--border);color:var(--text)}
+.chip.active{
+  background:var(--grad-purple);
+  color:#fff;
+  border-color:transparent;
+  box-shadow:0 4px 12px rgba(124,58,237,0.3);
+}
+
+/* ===== OUTPUT BOX ===== */
+.output{
+  background:rgba(7,7,11,0.7);
+  border:1px solid var(--border-soft);
+  border-radius:var(--radius-sm);
+  padding:18px;
+  font-family:var(--font-mono);
+  font-size:13px;
+  line-height:1.7;
+  color:var(--text);
+  white-space:pre-wrap;
+  word-break:break-word;
+  max-height:480px;
+  overflow-y:auto;
+  position:relative;
+}
+.output::-webkit-scrollbar{width:8px}
+.output::-webkit-scrollbar-track{background:transparent}
+.output::-webkit-scrollbar-thumb{background:var(--purple);border-radius:4px;opacity:0.5}
+.output-empty{
+  color:var(--text-dim);
+  font-style:italic;
+  font-family:var(--font-ui);
+}
+.output-actions{
+  display:flex;
+  gap:8px;
+  margin-top:12px;
+  flex-wrap:wrap;
+}
+
+/* ===== SCORE GAUGES ===== */
+.score-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:16px;
+  margin-bottom:20px;
+}
+.score-card{
+  background:var(--surface-2);
+  border:1px solid var(--border-soft);
+  border-radius:var(--radius-sm);
+  padding:18px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.score-label{
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:0.1em;
+  color:var(--text-dim);
+  margin-bottom:8px;
+  font-weight:600;
+}
+.score-value{
+  font-family:var(--font-display);
+  font-size:36px;
+  font-weight:700;
+  line-height:1;
+}
+.score-bar{
+  margin-top:12px;
+  height:6px;
+  border-radius:3px;
+  background:rgba(255,255,255,0.06);
+  overflow:hidden;
+}
+.score-bar-fill{
+  height:100%;
+  border-radius:3px;
+  background:var(--grad-main);
+  transition:width 0.6s ease;
+}
+.score-card.good .score-value{color:var(--green)}
+.score-card.mid .score-value{color:var(--amber)}
+.score-card.low .score-value{color:var(--red)}
+
+/* ===== ISSUES LIST ===== */
+.issue{
+  display:flex;
+  gap:12px;
+  padding:12px 14px;
+  background:var(--surface-2);
+  border:1px solid var(--border-soft);
+  border-left:3px solid var(--amber);
+  border-radius:8px;
+  margin-bottom:8px;
+  font-size:13px;
+}
+.issue.warn{border-left-color:var(--amber)}
+.issue.err{border-left-color:var(--red)}
+.issue.ok{border-left-color:var(--green)}
+.issue-icon{
+  flex:0 0 20px;
+  width:20px;height:20px;
+  border-radius:6px;
+  display:grid;
+  place-items:center;
+  font-weight:700;
+  font-size:12px;
+  background:rgba(251,191,36,0.15);
+  color:var(--amber);
+}
+.issue.err .issue-icon{background:rgba(251,113,133,0.15);color:var(--red)}
+.issue.ok .issue-icon{background:rgba(52,211,153,0.15);color:var(--green)}
+
+/* ===== LIBRARY ===== */
+.lib-controls{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:12px;
+  margin-bottom:20px;
+}
+@media(max-width:640px){.lib-controls{grid-template-columns:1fr}}
+.lib-cats{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-bottom:20px;
+}
+.lib-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+  gap:16px;
+}
+.lib-card{
+  background:var(--surface-2);
+  border:1px solid var(--border-soft);
+  border-radius:var(--radius-sm);
+  padding:18px;
+  cursor:pointer;
+  transition:all 0.2s ease;
+  position:relative;
+  overflow:hidden;
+}
+.lib-card:hover{
+  border-color:var(--purple);
+  transform:translateY(-2px);
+  box-shadow:0 8px 24px rgba(0,0,0,0.3);
+}
+.lib-card-cat{
+  display:inline-block;
+  padding:3px 10px;
+  border-radius:99px;
+  font-size:10px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:0.08em;
+  margin-bottom:10px;
+  background:rgba(167,139,250,0.15);
+  color:var(--purple);
+  border:1px solid rgba(167,139,250,0.3);
+}
+.lib-card-title{
+  font-family:var(--font-display);
+  font-size:16px;
+  font-weight:600;
+  margin-bottom:6px;
+}
+.lib-card-desc{
+  color:var(--text-muted);
+  font-size:13px;
+  line-height:1.5;
+  margin-bottom:10px;
+}
+.lib-card-vars{
+  display:flex;
+  flex-wrap:wrap;
+  gap:4px;
+  margin-top:8px;
+}
+.var-pill{
+  font-family:var(--font-mono);
+  font-size:11px;
+  padding:2px 8px;
+  border-radius:6px;
+  background:rgba(34,211,238,0.12);
+  color:var(--cyan);
+  border:1px solid rgba(34,211,238,0.25);
+}
+.lib-card-expanded{
+  margin-top:14px;
+  padding-top:14px;
+  border-top:1px solid var(--border-soft);
+  display:none;
+}
+.lib-card.open .lib-card-expanded{display:block}
+.lib-prompt-text{
+  font-family:var(--font-mono);
+  font-size:12px;
+  line-height:1.6;
+  color:var(--text-muted);
+  background:rgba(7,7,11,0.6);
+  padding:12px;
+  border-radius:8px;
+  white-space:pre-wrap;
+  word-break:break-word;
+  max-height:240px;
+  overflow-y:auto;
+  margin-bottom:12px;
+}
+
+/* ===== USE FORM (Library) ===== */
+.use-form{
+  background:var(--surface-2);
+  border:1px solid var(--purple);
+  border-radius:var(--radius);
+  padding:24px;
+  margin-bottom:20px;
+  display:none;
+  box-shadow:var(--shadow-glow);
+}
+.use-form.open{display:block}
+.use-form-title{
+  font-family:var(--font-display);
+  font-size:18px;
+  font-weight:600;
+  margin-bottom:6px;
+}
+.use-form-desc{color:var(--text-muted);font-size:13px;margin-bottom:16px}
+
+/* ===== SLIDERS ===== */
+.slider-row{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  margin-bottom:8px;
+}
+.slider{
+  -webkit-appearance:none;
+  appearance:none;
+  flex:1;
+  height:8px;
+  border-radius:4px;
+  background:linear-gradient(90deg,var(--purple-deep),var(--cyan-deep),var(--pink-deep));
+  outline:none;
+}
+.slider::-webkit-slider-thumb{
+  -webkit-appearance:none;
+  appearance:none;
+  width:22px;height:22px;
+  border-radius:50%;
+  background:#fff;
+  cursor:pointer;
+  border:3px solid var(--purple);
+  box-shadow:0 0 12px rgba(167,139,250,0.6);
+  transition:transform 0.15s ease;
+}
+.slider::-webkit-slider-thumb:hover{transform:scale(1.15)}
+.slider::-moz-range-thumb{
+  width:22px;height:22px;
+  border-radius:50%;
+  background:#fff;
+  cursor:pointer;
+  border:3px solid var(--purple);
+  box-shadow:0 0 12px rgba(167,139,250,0.6);
+}
+.slider-value{
+  font-family:var(--font-mono);
+  font-size:18px;
+  font-weight:700;
+  min-width:70px;
+  text-align:right;
+  color:var(--cyan);
+}
+
+.temp-bands{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:8px;
+  margin-top:20px;
+}
+@media(max-width:700px){.temp-bands{grid-template-columns:repeat(2,1fr)}}
+.temp-band{
+  padding:14px 10px;
+  background:var(--surface-2);
+  border:1px solid var(--border-soft);
+  border-radius:10px;
+  text-align:center;
+  transition:all 0.2s ease;
+  cursor:default;
+}
+.temp-band.active{
+  border-color:var(--purple);
+  background:rgba(167,139,250,0.12);
+  box-shadow:0 0 20px rgba(167,139,250,0.25);
+  transform:translateY(-2px);
+}
+.temp-band-range{
+  font-family:var(--font-mono);
+  font-size:13px;
+  font-weight:700;
+  color:var(--cyan);
+}
+.temp-band-name{
+  font-size:12px;
+  font-weight:600;
+  margin:4px 0;
+}
+.temp-band-desc{font-size:11px;color:var(--text-dim);line-height:1.4}
+
+.temp-example{
+  margin-top:16px;
+  padding:14px;
+  background:rgba(7,7,11,0.5);
+  border:1px solid var(--border-soft);
+  border-radius:10px;
+  font-family:var(--font-mono);
+  font-size:13px;
+  line-height:1.7;
+  color:var(--text-muted);
+  font-style:italic;
+}
+.temp-example strong{color:var(--text);font-style:normal}
+
+/* ===== TABLE (Model Comparison) ===== */
+.compare-filter{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-bottom:20px;
+}
+.table-wrap{
+  overflow-x:auto;
+  border-radius:var(--radius);
+  border:1px solid var(--border-soft);
+}
+table.cmp{
+  width:100%;
+  border-collapse:collapse;
+  min-width:900px;
+  font-size:13px;
+}
+table.cmp th,table.cmp td{
+  padding:14px 12px;
+  text-align:left;
+  border-bottom:1px solid var(--border-soft);
+  vertical-align:top;
+}
+table.cmp thead th{
+  background:rgba(167,139,250,0.08);
+  font-family:var(--font-display);
+  font-weight:600;
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:0.06em;
+  color:var(--purple);
+  position:sticky;
+  top:0;
+}
+table.cmp tbody tr{transition:background 0.15s ease}
+table.cmp tbody tr:hover{background:rgba(167,139,250,0.05)}
+table.cmp td.model-name{
+  font-family:var(--font-display);
+  font-weight:600;
+  color:var(--text);
+}
+.cost-pill{
+  font-family:var(--font-mono);
+  font-size:12px;
+  padding:2px 8px;
+  border-radius:6px;
+  background:rgba(34,211,238,0.1);
+  color:var(--cyan);
+  display:inline-block;
+}
+.use-case-tag{
+  display:inline-block;
+  padding:2px 8px;
+  border-radius:6px;
+  background:rgba(244,114,182,0.12);
+  color:var(--pink);
+  font-size:11px;
+  margin:2px 2px 2px 0;
+  border:1px solid rgba(244,114,182,0.2);
+}
+
+/* ===== VARIABLE INJECTOR ===== */
+.var-fields{display:grid;gap:12px;margin-top:12px}
+.var-field-row{
+  display:grid;
+  grid-template-columns:140px 1fr;
+  gap:12px;
+  align-items:center;
+}
+@media(max-width:600px){.var-field-row{grid-template-columns:1fr;gap:4px}}
+.var-field-label{
+  font-family:var(--font-mono);
+  font-size:13px;
+  color:var(--cyan);
+  font-weight:600;
+}
+
+.saved-list{margin-top:16px}
+.saved-item{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:12px 14px;
+  background:var(--surface-2);
+  border:1px solid var(--border-soft);
+  border-radius:8px;
+  margin-bottom:8px;
+}
+.saved-item-name{font-weight:600;font-size:14px}
+.saved-item-meta{font-size:12px;color:var(--text-dim);font-family:var(--font-mono)}
+.saved-item-actions{display:flex;gap:6px}
+.btn-sm{padding:6px 12px;font-size:12px;border-radius:6px}
+.btn-danger{color:var(--red);border-color:rgba(251,113,133,0.3)}
+.btn-danger:hover{background:rgba(251,113,133,0.1);border-color:var(--red)}
+
+/* ===== FEW-SHOT BUILDER ===== */
+.few-example{
+  background:var(--surface-2);
+  border:1px solid var(--border-soft);
+  border-radius:var(--radius-sm);
+  padding:16px;
+  margin-bottom:12px;
+  position:relative;
+}
+.few-example-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:10px;
+}
+.few-example-label{
+  font-family:var(--font-display);
+  font-weight:600;
+  font-size:13px;
+  color:var(--purple);
+}
+.few-example-del{
+  background:transparent;
+  border:1px solid rgba(251,113,133,0.3);
+  color:var(--red);
+  padding:4px 10px;
+  border-radius:6px;
+  font-size:12px;
+  cursor:pointer;
+  transition:all 0.15s ease;
+}
+.few-example-del:hover{background:rgba(251,113,133,0.1)}
+
+/* ===== TOKEN COUNTER ===== */
+.token-stats{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:14px;
+  margin-bottom:20px;
+}
+.token-stat{
+  background:var(--surface-2);
+  border:1px solid var(--border-soft);
+  border-radius:var(--radius-sm);
+  padding:16px;
+  text-align:center;
+}
+.token-stat-val{
+  font-family:var(--font-display);
+  font-size:28px;
+  font-weight:700;
+  background:var(--grad-text);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.token-stat-lbl{
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:0.08em;
+  color:var(--text-dim);
+  margin-top:4px;
+}
+.cost-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:12px;
+  margin-top:14px;
+}
+.cost-card{
+  background:var(--surface-2);
+  border:1px solid var(--border-soft);
+  border-radius:10px;
+  padding:14px;
+}
+.cost-card-name{
+  font-weight:600;
+  font-size:14px;
+  margin-bottom:4px;
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+.cost-dot{width:10px;height:10px;border-radius:50%;display:inline-block}
+.cost-card-val{
+  font-family:var(--font-mono);
+  font-size:18px;
+  font-weight:700;
+  color:var(--green);
+}
+.cost-card-rate{font-size:11px;color:var(--text-dim);margin-top:2px}
+
+.dist-section{margin-top:20px}
+.dist-bar{
+  display:flex;
+  height:32px;
+  border-radius:8px;
+  overflow:hidden;
+  margin-bottom:12px;
+  border:1px solid var(--border-soft);
+}
+.dist-seg{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:11px;
+  font-weight:600;
+  color:rgba(0,0,0,0.7);
+  transition:all 0.3s ease;
+  min-width:0;
+  overflow:hidden;
+}
+.dist-legend{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  font-size:12px;
+  color:var(--text-muted);
+}
+.dist-leg-item{display:flex;align-items:center;gap:6px}
+.dist-leg-dot{width:10px;height:10px;border-radius:3px}
+
+/* ===== FAQ ===== */
+.faq-section{
+  margin:60px 0 40px;
+}
+.faq-title{
+  font-family:var(--font-display);
+  font-size:32px;
+  font-weight:700;
+  text-align:center;
+  margin-bottom:8px;
+}
+.faq-sub{
+  text-align:center;
+  color:var(--text-muted);
+  margin-bottom:32px;
+}
+.faq-list{max-width:820px;margin:0 auto}
+.faq-item{
+  background:var(--surface);
+  backdrop-filter:blur(16px);
+  border:1px solid var(--border-soft);
+  border-radius:var(--radius-sm);
+  margin-bottom:12px;
+  overflow:hidden;
+  transition:all 0.2s ease;
+}
+.faq-item:hover{border-color:var(--border)}
+.faq-item.open{border-color:var(--purple);box-shadow:0 0 24px rgba(167,139,250,0.15)}
+.faq-q{
+  padding:18px 22px;
+  font-family:var(--font-display);
+  font-weight:600;
+  font-size:16px;
+  cursor:pointer;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+  user-select:none;
+}
+.faq-toggle{
+  flex:0 0 24px;
+  width:24px;height:24px;
+  border-radius:50%;
+  background:var(--surface-3);
+  display:grid;
+  place-items:center;
+  font-size:18px;
+  color:var(--purple);
+  transition:transform 0.3s ease;
+}
+.faq-item.open .faq-toggle{transform:rotate(45deg);background:var(--grad-purple);color:#fff}
+.faq-a{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height 0.3s ease,padding 0.3s ease;
+  padding:0 22px;
+  color:var(--text-muted);
+  font-size:14px;
+  line-height:1.7;
+}
+.faq-item.open .faq-a{max-height:400px;padding:0 22px 20px}
+
+/* ===== FOOTER ===== */
+.footer{
+  margin-top:60px;
+  padding:32px 0;
+  border-top:1px solid var(--border-soft);
+  text-align:center;
+  color:var(--text-dim);
+  font-size:13px;
+}
+.footer a{color:var(--purple);text-decoration:none}
+.footer a:hover{text-decoration:underline}
+
+/* ===== TOAST ===== */
+.toast{
+  position:fixed;
+  bottom:24px;
+  left:50%;
+  transform:translateX(-50%) translateY(80px);
+  background:var(--grad-purple);
+  color:#fff;
+  padding:12px 24px;
+  border-radius:99px;
+  font-weight:600;
+  font-size:14px;
+  box-shadow:0 8px 32px rgba(124,58,237,0.5);
+  z-index:1000;
+  opacity:0;
+  transition:all 0.3s ease;
+  pointer-events:none;
+}
+.toast.show{
+  opacity:1;
+  transform:translateX(-50%) translateY(0);
+}
+
+/* ===== MISC ===== */
+.divider{
+  height:1px;
+  background:linear-gradient(90deg,transparent,var(--border),transparent);
+  margin:24px 0;
+}
+.hint{
+  font-size:12px;
+  color:var(--text-dim);
+  margin-top:6px;
+}
+.badge{
+  display:inline-block;
+  padding:2px 8px;
+  border-radius:6px;
+  font-size:11px;
+  font-weight:600;
+  background:rgba(52,211,153,0.12);
+  color:var(--green);
+  border:1px solid rgba(52,211,153,0.25);
+}
+.note-box{
+  padding:12px 14px;
+  background:rgba(34,211,238,0.06);
+  border:1px solid rgba(34,211,238,0.2);
+  border-left:3px solid var(--cyan);
+  border-radius:8px;
+  font-size:13px;
+  color:var(--text-muted);
+  margin-top:12px;
+}
+.step-pills{
+  display:flex;
+  gap:6px;
+  flex-wrap:wrap;
+  margin-bottom:20px;
+}
+.step-pill{
+  padding:6px 12px;
+  border-radius:99px;
+  font-size:12px;
+  font-weight:600;
+  background:var(--surface-2);
+  border:1px solid var(--border-soft);
+  color:var(--text-dim);
+}
+.step-pill.done{color:var(--green);border-color:rgba(52,211,153,0.3)}
+.step-pill.current{color:var(--purple);border-color:var(--purple);background:rgba(167,139,250,0.1)}
+
+@media(max-width:768px){
+  .hero{padding:40px 0 24px}
+  .panel-title{font-size:26px}
+  .card{padding:18px}
+  .tab-bar-wrap{top:68px}
+  .brand-sub{display:none}
+}
+@media(max-width:480px){
+  .app{padding:0 14px}
+  .hero-title{font-size:34px}
+  .tab{padding:8px 14px;font-size:13px}
+}
+</style>
+</head>
+<body>
+
+<!-- Animated orbs + grid -->
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+<div class="grid-overlay"></div>
+
+<div class="app">
+
+  <!-- ============ HEADER ============ -->
+  <header class="header">
+    <div class="header-inner">
+      <a class="brand" href="https://excusemeweb.com/premium-ai-toolkit">
+        <div class="brand-logo">AI</div>
+        <div class="brand-text">
+          <span class="brand-title">Premium AI Toolkit</span>
+          <span class="brand-sub">Prompt Engineering Suite</span>
+        </div>
+      </a>
+      <div class="header-actions">
+        <a class="btn btn-ghost" href="https://excusemeweb.com/all-in-one-toolkit">All Toolkits</a>
+        <button class="btn btn-primary" onclick="downloadHTML()">Download HTML</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <span class="hero-eyebrow">8 Working Tools · 100% Local</span>
+    <h1 class="hero-title">Engineer prompts like a <span class="grad">power user</span></h1>
+    <p class="hero-desc">A premium single-page toolkit for AI prompt engineers. Build structured prompts, browse 30+ curated templates, test prompt quality, estimate tokens & cost, compare LLMs, and assemble few-shot prompts — all running entirely in your browser.</p>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">8</div><div class="stat-label">Tools</div></div>
+      <div class="stat"><div class="stat-num">30+</div><div class="stat-label">Templates</div></div>
+      <div class="stat"><div class="stat-num">9</div><div class="stat-label">LLMs Compared</div></div>
+      <div class="stat"><div class="stat-num">0</div><div class="stat-label">Server Calls</div></div>
+    </div>
+  </section>
+
+  <!-- ============ TAB BAR ============ -->
+  <div class="tab-bar-wrap">
+    <nav class="tab-bar" id="tabBar">
+      <button class="tab active" data-tab="builder"><span class="tab-num">1</span>Prompt Builder</button>
+      <button class="tab" data-tab="library"><span class="tab-num">2</span>Prompt Library</button>
+      <button class="tab" data-tab="temperature"><span class="tab-num">3</span>Temperature & Tokens</button>
+      <button class="tab" data-tab="compare"><span class="tab-num">4</span>Model Comparison</button>
+      <button class="tab" data-tab="tester"><span class="tab-num">5</span>Prompt Tester</button>
+      <button class="tab" data-tab="injector"><span class="tab-num">6</span>Variable Injector</button>
+      <button class="tab" data-tab="fewshot"><span class="tab-num">7</span>Few-Shot Builder</button>
+      <button class="tab" data-tab="counter"><span class="tab-num">8</span>Token Counter</button>
+    </nav>
+  </div>
+
+  <!-- ============ PANEL: PROMPT BUILDER ============ -->
+  <section class="panel active" id="panel-builder">
+    <div class="panel-header">
+      <h2 class="panel-title">Prompt Builder</h2>
+      <p class="panel-desc">Build a structured, best-practice prompt in seconds. Pick a task, role, tone, length, and format — the builder assembles a clean, copy-ready prompt using proven prompt engineering patterns.</p>
+    </div>
+
+    <div class="step-pills" id="builderSteps">
+      <span class="step-pill current">1 · Task</span>
+      <span class="step-pill">2 · Role</span>
+      <span class="step-pill">3 · Topic</span>
+      <span class="step-pill">4 · Tone</span>
+      <span class="step-pill">5 · Length</span>
+      <span class="step-pill">6 · Format</span>
+    </div>
+
+    <div class="card">
+      <div class="field">
+        <label class="label">1. AI Task</label>
+        <div class="chip-group" id="pbTask">
+          <span class="chip active" data-val="writing">Writing</span>
+          <span class="chip" data-val="image">Image Generation</span>
+          <span class="chip" data-val="code">Code</span>
+          <span class="chip" data-val="analysis">Analysis</span>
+          <span class="chip" data-val="brainstorming">Brainstorming</span>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">2. Role / Persona</label>
+        <select class="select" id="pbRole">
+          <option value="expert marketer">Expert Marketer</option>
+          <option value="senior software engineer">Senior Software Engineer</option>
+          <option value="experienced teacher">Experienced Teacher</option>
+          <option value="data scientist">Data Scientist</option>
+          <option value="copywriter">Professional Copywriter</option>
+          <option value="product manager">Product Manager</option>
+          <option value="UX designer">Senior UX Designer</option>
+          <option value="financial analyst">Financial Analyst</option>
+          <option value="technical writer">Technical Writer</option>
+          <option value="research scientist">Research Scientist</option>
+          <option value="creative director">Creative Director</option>
+          <option value="business consultant">Business Consultant</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label class="label">3. Topic / Subject</label>
+        <input class="input" id="pbTopic" placeholder="e.g. a landing page for a B2B SaaS time-tracking tool">
+      </div>
+
+      <div class="field">
+        <label class="label">4. Tone</label>
+        <div class="chip-group" id="pbTone">
+          <span class="chip" data-val="professional">Professional</span>
+          <span class="chip active" data-val="friendly">Friendly</span>
+          <span class="chip" data-val="persuasive">Persuasive</span>
+          <span class="chip" data-val="authoritative">Authoritative</span>
+          <span class="chip" data-val="playful">Playful</span>
+          <span class="chip" data-val="empathetic">Empathetic</span>
+          <span class="chip" data-val="technical">Technical</span>
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label class="label">5. Length</label>
+          <select class="select" id="pbLength">
+            <option value="1 short paragraph (2-3 sentences)">Short (1 paragraph)</option>
+            <option value="2-3 paragraphs" selected>Medium (2-3 paragraphs)</option>
+            <option value="4-6 paragraphs">Long (4-6 paragraphs)</option>
+            <option value="a comprehensive long-form piece (800+ words)">Long-form (800+ words)</option>
+            <option value="a single concise sentence">Ultra-short (1 sentence)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label class="label">6. Output Format</label>
+          <select class="select" id="pbFormat">
+            <option value="paragraphs">Paragraphs</option>
+            <option value="bullet points">Bullet Points</option>
+            <option value="a numbered list">Numbered List</option>
+            <option value="a markdown table">Markdown Table</option>
+            <option value="valid JSON">JSON</option>
+            <option value="clean markdown with headings">Markdown (with headings)</option>
+            <option value="a step-by-step guide">Step-by-step Guide</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Extra constraints (optional)</label>
+        <input class="input" id="pbExtra" placeholder="e.g. target audience is startup founders; avoid jargon; include a CTA">
+      </div>
+
+      <button class="btn btn-primary" onclick="buildPrompt()">Generate Prompt</button>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Generated Prompt</div>
+      <div class="card-desc">A structured prompt ready to paste into ChatGPT, Claude, Gemini, or any LLM.</div>
+      <div class="output" id="pbOutput"><span class="output-empty">Click "Generate Prompt" to build your structured prompt.</span></div>
+      <div class="output-actions">
+        <button class="btn btn-primary" onclick="copyFromEl('pbOutput')">Copy Prompt</button>
+        <button class="btn btn-ghost" onclick="sendToTester('pbOutput')">Send to Tester</button>
+        <button class="btn btn-ghost" onclick="sendToCounter('pbOutput')">Send to Token Counter</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PANEL: LIBRARY ============ -->
+  <section class="panel" id="panel-library">
+    <div class="panel-header">
+      <h2 class="panel-title">Prompt Library</h2>
+      <p class="panel-desc">Browse 30+ curated prompt templates across 7 categories. Click any card to expand the full prompt, then click "Use" to fill in the variables and generate a final, ready-to-run prompt.</p>
+    </div>
+
+    <div class="card">
+      <div class="lib-controls">
+        <input class="input" id="libSearch" placeholder="Search templates by title, description, or keyword…" oninput="renderLibrary()">
+        <select class="select" id="libSort" style="max-width:200px" onchange="renderLibrary()">
+          <option value="cat">Sort: Category</option>
+          <option value="title">Sort: Title A–Z</option>
+        </select>
+      </div>
+      <div class="lib-cats" id="libCats"></div>
+      <div class="lib-grid" id="libGrid"></div>
+    </div>
+
+    <div class="use-form" id="useForm">
+      <div class="use-form-title" id="useFormTitle">Use Template</div>
+      <div class="use-form-desc" id="useFormDesc"></div>
+      <div id="useFormFields"></div>
+      <div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap">
+        <button class="btn btn-primary" onclick="generateFromTemplate()">Generate Final Prompt</button>
+        <button class="btn btn-ghost" onclick="closeUseForm()">Cancel</button>
+      </div>
+      <div class="output" id="useFormOutput" style="margin-top:16px"><span class="output-empty">Fill in the variables above and click Generate.</span></div>
+      <div class="output-actions" id="useFormActions" style="display:none">
+        <button class="btn btn-primary" onclick="copyFromEl('useFormOutput')">Copy Final Prompt</button>
+        <button class="btn btn-ghost" onclick="sendToCounter('useFormOutput')">Send to Token Counter</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PANEL: TEMPERATURE ============ -->
+  <section class="panel" id="panel-temperature">
+    <div class="panel-header">
+      <h2 class="panel-title">Temperature & Token Guide</h2>
+      <p class="panel-desc">Drag the sliders to explore how temperature and max tokens shape model output. See live examples, word/token estimates, and projected API cost across GPT-4, GPT-3.5, and Claude.</p>
+    </div>
+
+    <div class="card">
+      <div class="field">
+        <label class="label">Temperature <span class="badge" id="tempBand">Balanced</span></label>
+        <div class="slider-row">
+          <input type="range" min="0" max="2" step="0.05" value="0.7" class="slider" id="tempSlider" oninput="updateTemp()">
+          <div class="slider-value" id="tempVal">0.70</div>
+        </div>
+      </div>
+
+      <div class="temp-bands" id="tempBands">
+        <div class="temp-band" data-range="0-0.3"><div class="temp-band-range">0.0 – 0.3</div><div class="temp-band-name">Deterministic</div><div class="temp-band-desc">Factual, repeatable. Best for code, math, data extraction.</div></div>
+        <div class="temp-band" data-range="0.3-0.7"><div class="temp-band-range">0.3 – 0.7</div><div class="temp-band-name">Focused</div><div class="temp-band-desc">Coherent with slight variety. Good for analysis, summaries.</div></div>
+        <div class="temp-band" data-range="0.7-1.0"><div class="temp-band-name" style="display:none"></div><div class="temp-band-range">0.7 – 1.0</div><div class="temp-band-name">Balanced</div><div class="temp-band-desc">Default for most chat. Creative yet on-topic.</div></div>
+        <div class="temp-band" data-range="1.0-1.4"><div class="temp-band-range">1.0 – 1.4</div><div class="temp-band-name">Creative</div><div class="temp-band-desc">More variance, ideation, brainstorming, fiction.</div></div>
+        <div class="temp-band" data-range="1.4-2.0"><div class="temp-band-range">1.4 – 2.0</div><div class="temp-band-name">Chaotic</div><div class="temp-band-desc">Wild, often incoherent. Rarely useful in production.</div></div>
+      </div>
+
+      <div class="temp-example" id="tempExample"></div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Max Tokens</div>
+      <div class="card-desc">Maximum number of tokens the model can generate in its response.</div>
+      <div class="field">
+        <div class="slider-row">
+          <input type="range" min="1" max="4000" step="1" value="1000" class="slider" id="tokenSlider" oninput="updateTokens()">
+          <div class="slider-value" id="tokenVal">1000</div>
+        </div>
+      </div>
+
+      <div class="token-stats" style="margin-top:12px">
+        <div class="token-stat">
+          <div class="token-stat-val" id="tokWords">~750</div>
+          <div class="token-stat-lbl">Approx Words</div>
+        </div>
+        <div class="token-stat">
+          <div class="token-stat-val" id="tokSentences">~50</div>
+          <div class="token-stat-lbl">Approx Sentences</div>
+        </div>
+        <div class="token-stat">
+          <div class="token-stat-val" id="tokPages">~1.5</div>
+          <div class="token-stat-lbl">Approx Pages</div>
+        </div>
+      </div>
+
+      <div class="note-box">Rule of thumb: 1 token ≈ 4 characters ≈ 0.75 words in English. 1 page (single-spaced, 12pt) ≈ 500 words ≈ 670 tokens.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Estimated API Cost (output only)</div>
+      <div class="card-desc">At current published rates. For reference only — verify with the provider before billing decisions.</div>
+      <div class="cost-grid" id="tempCostGrid"></div>
+      <div class="note-box">Costs above assume you generate the full max-tokens budget on every call. Real usage is usually lower. Input tokens are billed separately and not included here.</div>
+    </div>
+  </section>
+
+  <!-- ============ PANEL: COMPARE ============ -->
+  <section class="panel" id="panel-compare">
+    <div class="panel-header">
+      <h2 class="panel-title">Model Comparison</h2>
+      <p class="panel-desc">Side-by-side comparison of 9 major LLMs. Filter by use case to find the right model for your task. Pricing reflects published per-1M-token rates at the time of writing.</p>
+    </div>
+
+    <div class="card">
+      <div class="label">Filter by use case</div>
+      <div class="compare-filter" id="cmpFilter"></div>
+      <div class="table-wrap">
+        <table class="cmp">
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th>Context</th>
+              <th>Knowledge Cutoff</th>
+              <th>Input / 1M</th>
+              <th>Output / 1M</th>
+              <th>Strengths</th>
+              <th>Best For</th>
+            </tr>
+          </thead>
+          <tbody id="cmpBody"></tbody>
+        </table>
+      </div>
+      <div class="note-box">Context window is the maximum combined input+output tokens. "Knowledge cutoff" is the latest training data date. Prices are per 1,000,000 tokens in USD.</div>
+    </div>
+  </section>
+
+  <!-- ============ PANEL: TESTER ============ -->
+  <section class="panel" id="panel-tester">
+    <div class="panel-header">
+      <h2 class="panel-title">Prompt Tester</h2>
+      <p class="panel-desc">Paste a prompt and get an instant heuristic analysis: clarity, specificity, and structure scores (0–100), estimated token count, and a list of potential issues with concrete suggestions.</p>
+    </div>
+
+    <div class="card">
+      <div class="field">
+        <label class="label">Paste your prompt</label>
+        <textarea class="textarea" id="testerInput" placeholder="e.g. Write me something about marketing." style="min-height:160px"></textarea>
+      </div>
+      <button class="btn btn-primary" onclick="analyzePrompt()">Analyze Prompt</button>
+      <button class="btn btn-ghost" onclick="loadTesterExample()">Load Example</button>
+    </div>
+
+    <div class="card" id="testerResults" style="display:none">
+      <div class="card-title">Analysis</div>
+
+      <div class="score-grid">
+        <div class="score-card" id="clarityCard">
+          <div class="score-label">Clarity</div>
+          <div class="score-value" id="clarityScore">—</div>
+          <div class="score-bar"><div class="score-bar-fill" id="clarityBar" style="width:0%"></div></div>
+        </div>
+        <div class="score-card" id="specificityCard">
+          <div class="score-label">Specificity</div>
+          <div class="score-value" id="specificityScore">—</div>
+          <div class="score-bar"><div class="score-bar-fill" id="specificityBar" style="width:0%"></div></div>
+        </div>
+        <div class="score-card" id="structureCard">
+          <div class="score-label">Structure</div>
+          <div class="score-value" id="structureScore">—</div>
+          <div class="score-bar"><div class="score-bar-fill" id="structureBar" style="width:0%"></div></div>
+        </div>
+        <div class="score-card">
+          <div class="score-label">Est. Tokens</div>
+          <div class="score-value" id="testerTokens" style="color:var(--cyan)">—</div>
+          <div class="score-bar"><div class="score-bar-fill" style="width:100%;background:var(--grad-cyan)"></div></div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+      <div class="card-title" style="font-size:15px">Potential Issues & Suggestions</div>
+      <div id="testerIssues"></div>
+    </div>
+  </section>
+
+  <!-- ============ PANEL: INJECTOR ============ -->
+  <section class="panel" id="panel-injector">
+    <div class="panel-header">
+      <h2 class="panel-title">Variable Injector</h2>
+      <p class="panel-desc">Paste a prompt template containing <code style="font-family:var(--font-mono);color:var(--cyan)">{{variables}}</code>. The tool auto-detects every variable, builds a form, and replaces them with your values. Save templates to localStorage for reuse.</p>
+    </div>
+
+    <div class="card">
+      <div class="field">
+        <label class="label">Prompt template (use {{variable}} syntax)</label>
+        <textarea class="textarea" id="injTemplate" placeholder="e.g. Write a {{tone}} email to {{recipient}} about {{topic}}. Keep it under {{length}} words." oninput="detectVariables()"></textarea>
+      </div>
+      <div class="hint">Variables detected: <span id="injVarCount" style="color:var(--cyan);font-family:var(--font-mono)">0</span></div>
+
+      <div class="field" id="injFieldsWrap" style="margin-top:16px;display:none">
+        <label class="label">Fill in variables</label>
+        <div class="var-fields" id="injFields"></div>
+      </div>
+
+      <div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap">
+        <button class="btn btn-primary" onclick="injectGenerate()">Generate Final Prompt</button>
+        <button class="btn btn-ghost" onclick="saveInjectorTemplate()">Save Template</button>
+        <button class="btn btn-ghost" onclick="loadInjectorExample()">Load Example</button>
+      </div>
+
+      <div class="output" id="injOutput" style="margin-top:16px"><span class="output-empty">Detected variables will appear above. Fill them in and click Generate.</span></div>
+      <div class="output-actions" id="injActions" style="display:none">
+        <button class="btn btn-primary" onclick="copyFromEl('injOutput')">Copy Final Prompt</button>
+        <button class="btn btn-ghost" onclick="sendToCounter('injOutput')">Send to Token Counter</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Saved Templates</div>
+      <div class="card-desc">Stored in your browser's localStorage. Persist across reloads on this device.</div>
+      <div class="saved-list" id="injSavedList"><div class="hint">No saved templates yet.</div></div>
+    </div>
+  </section>
+
+  <!-- ============ PANEL: FEW-SHOT ============ -->
+  <section class="panel" id="panel-fewshot">
+    <div class="panel-header">
+      <h2 class="panel-title">Few-Shot Builder</h2>
+      <p class="panel-desc">Assemble a few-shot prompt: a system message, one or more input→output examples, and a final query. Few-shot prompting teaches the model the desired pattern by demonstration. Save templates to localStorage.</p>
+    </div>
+
+    <div class="card">
+      <div class="field">
+        <label class="label">System message (sets behavior & context)</label>
+        <textarea class="textarea" id="fsSystem" placeholder="e.g. You are a sentiment classifier. Given a review, output exactly one of: POSITIVE, NEGATIVE, or NEUTRAL."></textarea>
+      </div>
+
+      <div class="field">
+        <label class="label">Examples (input → output)</label>
+        <div id="fsExamples"></div>
+        <button class="btn btn-ghost" onclick="addFewExample()" style="margin-top:8px">+ Add Example</button>
+      </div>
+
+      <div class="field">
+        <label class="label">Final query (the input you want classified)</label>
+        <textarea class="textarea" id="fsQuery" placeholder="e.g. The battery life on this phone is incredible — easily two days."></textarea>
+      </div>
+
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <button class="btn btn-primary" onclick="buildFewShot()">Generate Few-Shot Prompt</button>
+        <button class="btn btn-ghost" onclick="saveFewShotTemplate()">Save Template</button>
+        <button class="btn btn-ghost" onclick="loadFewShotExample()">Load Example</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Generated Few-Shot Prompt</div>
+      <div class="output" id="fsOutput"><span class="output-empty">Add at least one example and a final query, then click Generate.</span></div>
+      <div class="output-actions" id="fsActions" style="display:none">
+        <button class="btn btn-primary" onclick="copyFromEl('fsOutput')">Copy Prompt</button>
+        <button class="btn btn-ghost" onclick="sendToCounter('fsOutput')">Send to Token Counter</button>
+        <button class="btn btn-ghost" onclick="sendToTester('fsOutput')">Send to Tester</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Saved Few-Shot Templates</div>
+      <div class="saved-list" id="fsSavedList"><div class="hint">No saved templates yet.</div></div>
+    </div>
+  </section>
+
+  <!-- ============ PANEL: COUNTER ============ -->
+  <section class="panel" id="panel-counter">
+    <div class="panel-header">
+      <h2 class="panel-title">Token Counter</h2>
+      <p class="panel-desc">Paste text to get an instant token estimate, word & character counts, projected API cost across major models, and a per-sentence token distribution chart. Uses the heuristic: 4 chars ≈ 1 token with word-boundary adjustment.</p>
+    </div>
+
+    <div class="card">
+      <div class="field">
+        <label class="label">Text to analyze</label>
+        <textarea class="textarea" id="counterInput" placeholder="Paste any text here — a prompt, an article, code, anything." oninput="updateCounter()" style="min-height:160px"></textarea>
+      </div>
+
+      <div class="token-stats">
+        <div class="token-stat"><div class="token-stat-val" id="cTokens">0</div><div class="token-stat-lbl">Est. Tokens</div></div>
+        <div class="token-stat"><div class="token-stat-val" id="cWords">0</div><div class="token-stat-lbl">Words</div></div>
+        <div class="token-stat"><div class="token-stat-val" id="cChars">0</div><div class="token-stat-lbl">Characters</div></div>
+        <div class="token-stat"><div class="token-stat-val" id="cSentences">0</div><div class="token-stat-lbl">Sentences</div></div>
+      </div>
+
+      <div class="card-title" style="font-size:15px;margin-top:8px">Estimated Cost (input tokens)</div>
+      <div class="cost-grid" id="counterCostGrid"></div>
+
+      <div class="dist-section">
+        <div class="card-title" style="font-size:15px">Token Distribution by Sentence</div>
+        <div class="dist-bar" id="distBar"></div>
+        <div class="dist-legend" id="distLegend"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="faq-section">
+    <h2 class="faq-title">Frequently Asked Questions</h2>
+    <p class="faq-sub">Everything you need to know about the Premium AI Toolkit.</p>
+    <div class="faq-list" id="faqList"></div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <p>© 2026 <a href="https://excusemeweb.com/all-in-one-toolkit">ExcuseMeWeb</a> — Premium AI Toolkit</p>
+    <p style="margin-top:6px">8 working prompt engineering tools · 100% client-side · No data leaves your browser</p>
+  </footer>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ============================================================
+   PREMIUM AI TOOLKIT — JAVASCRIPT
+   ============================================================ */
+
+/* ---------- Helper functions ---------- */
+function toast(msg){
+  var t=document.getElementById('toast');
+  t.textContent=msg;
+  t.classList.add('show');
+  clearTimeout(window._toastT);
+  window._toastT=setTimeout(function(){t.classList.remove('show')},2400);
+}
+function copyText(text){
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(function(){toast('Copied to clipboard')},function(){fallbackCopy(text)});
+  }else{fallbackCopy(text)}
+}
+function fallbackCopy(text){
+  var ta=document.createElement('textarea');
+  ta.value=text;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy');toast('Copied to clipboard')}catch(e){toast('Copy failed — select manually')}
+  document.body.removeChild(ta);
+}
+function copyFromEl(id){
+  var el=document.getElementById(id);
+  var text=el.innerText||el.textContent;
+  if(!text||text.indexOf('Click')===0||text.indexOf('Detected')===0||text.indexOf('Fill')===0||text.indexOf('Add')===0||text.indexOf('Paste')===0){
+    toast('Nothing to copy yet');return;
+  }
+  copyText(text);
+}
+function downloadFile(filename, content, mime){
+  var blob = new Blob([content], {type: mime || 'text/plain'});
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a'); a.href = url; a.download = filename;
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  toast('Downloaded ' + filename);
+}
+function downloadHTML(){
+  var html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+  downloadFile('premium-ai-toolkit.html', html, 'text/html');
+}
+
+/* ---------- Tab switching ---------- */
+(function(){
+  var tabs=document.querySelectorAll('.tab');
+  var panels=document.querySelectorAll('.panel');
+  tabs.forEach(function(tab){
+    tab.addEventListener('click',function(){
+      var target=tab.getAttribute('data-tab');
+      tabs.forEach(function(t){t.classList.remove('active')});
+      panels.forEach(function(p){p.classList.remove('active')});
+      tab.classList.add('active');
+      document.getElementById('panel-'+target).classList.add('active');
+      // scroll into view nicely below sticky tab bar
+      window.scrollTo({top:document.querySelector('.tab-bar-wrap').offsetTop-80,behavior:'smooth'});
+    });
+  });
+})();
+
+/* ---------- Cross-tool senders ---------- */
+function getTextFromEl(id){
+  var el=document.getElementById(id);
+  var text=el.innerText||el.textContent;
+  if(text.indexOf('Click')===0||text.indexOf('Detected')===0||text.indexOf('Fill')===0||text.indexOf('Add')===0||text.indexOf('Paste')===0||text.indexOf('Nothing')===0)return '';
+  return text.trim();
+}
+function sendToTester(srcId){
+  var text=getTextFromEl(srcId);
+  if(!text){toast('Nothing to send yet');return}
+  document.querySelector('.tab[data-tab="tester"]').click();
+  document.getElementById('testerInput').value=text;
+  setTimeout(analyzePrompt,200);
+}
+function sendToCounter(srcId){
+  var text=getTextFromEl(srcId);
+  if(!text){toast('Nothing to send yet');return}
+  document.querySelector('.tab[data-tab="counter"]').click();
+  document.getElementById('counterInput').value=text;
+  setTimeout(updateCounter,200);
+}
+
+/* ============================================================
+   TOOL 1: PROMPT BUILDER
+   ============================================================ */
+function getActiveChip(groupId){
+  var els=document.querySelectorAll('#'+groupId+' .chip');
+  for(var i=0;i<els.length;i++){if(els[i].classList.contains('active'))return els[i].getAttribute('data-val')}
+  return '';
+}
+(function(){
+  document.querySelectorAll('.chip-group').forEach(function(g){
+    g.addEventListener('click',function(e){
+      if(e.target.classList.contains('chip')){
+        g.querySelectorAll('.chip').forEach(function(c){c.classList.remove('active')});
+        e.target.classList.add('active');
+        updateBuilderSteps();
+      }
+    });
+  });
+})();
+function updateBuilderSteps(){
+  var task=document.getElementById('pbTask').querySelector('.chip.active');
+  var role=document.getElementById('pbRole').value;
+  var topic=document.getElementById('pbTopic').value.trim();
+  var pills=document.querySelectorAll('#builderSteps .step-pill');
+  pills[0].className='step-pill '+(task?'done':'current');
+  pills[1].className='step-pill '+(role?'done':'current');
+  pills[2].className='step-pill '+(topic?'done':'current');
+}
+document.getElementById('pbTopic').addEventListener('input',updateBuilderSteps);
+document.getElementById('pbRole').addEventListener('change',updateBuilderSteps);
+
+var taskDescriptors={
+  writing:'produce high-quality written content',
+  image:'generate a detailed image-generation prompt',
+  code:'write clean, production-ready code',
+  analysis:'perform a structured analysis',
+  brainstorming:'generate a broad set of creative ideas'
+};
+var taskInstructions={
+  writing:'Think step-by-step about the audience, key message, and structure before writing. Use active voice and concrete examples.',
+  image:'Specify subject, style, composition, lighting, color palette, mood, and aspect ratio. Avoid negations — describe what IS there.',
+  code:'Include the language, expected inputs/outputs, edge cases, and error handling. Prefer readable code with brief comments.',
+  analysis:'Define the framework or lens for analysis. Surface assumptions, weigh trade-offs, and end with a clear conclusion.',
+  brainstorming:'Aim for quantity first, then group and refine. Avoid self-censoring — include unconventional ideas.'
+};
+
+function buildPrompt(){
+  var task=getActiveChip('pbTask');
+  var role=document.getElementById('pbRole').value;
+  var topic=document.getElementById('pbTopic').value.trim();
+  var tone=getActiveChip('pbTone');
+  var length=document.getElementById('pbLength').value;
+  var format=document.getElementById('pbFormat').value;
+  var extra=document.getElementById('pbExtra').value.trim();
+
+  if(!topic){toast('Enter a topic first');document.getElementById('pbTopic').focus();return}
+
+  var lines=[];
+  lines.push('# ROLE');
+  lines.push('You are an '+role+'. '+taskDescriptors[task]+' on the following topic.');
+  lines.push('');
+  lines.push('# TASK');
+  lines.push(topic);
+  lines.push('');
+  lines.push('# TONE');
+  lines.push('Write in a '+tone+' tone.');
+  lines.push('');
+  lines.push('# LENGTH');
+  lines.push('Respond in '+length+'.');
+  lines.push('');
+  lines.push('# OUTPUT FORMAT');
+  lines.push('Return the answer as '+format+'.');
+  lines.push('');
+  lines.push('# INSTRUCTIONS');
+  lines.push(taskInstructions[task]);
+  lines.push('- Stay focused on the topic; do not pad with filler.');
+  lines.push('- Use clear, jargon-aware language suited to the audience.');
+  lines.push('- If any information is missing or ambiguous, state your assumption before answering.');
+  if(extra){
+    lines.push('');
+    lines.push('# ADDITIONAL CONSTRAINTS');
+    lines.push(extra);
+  }
+  lines.push('');
+  lines.push('# BEGIN');
+  lines.push('Start your response now.');
+
+  var out=lines.join('\n');
+  var el=document.getElementById('pbOutput');
+  el.innerHTML='';
+  el.textContent=out;
+  toast('Prompt generated');
+}
+
+/* ============================================================
+   TOOL 2: PROMPT LIBRARY
+   ============================================================ */
+var PROMPT_LIBRARY=[
+  /* Writing */
+  {cat:'Writing',title:'Blog Post Outline',desc:'Generate a structured SEO-friendly blog outline with H2/H3 headings.',vars:['topic','audience','wordCount'],
+   prompt:'You are an expert content strategist. Create a detailed blog post outline for the topic: {{topic}}.\n\nTarget audience: {{audience}}\nTarget word count: {{wordCount}}\n\nReturn the outline as markdown with one H1, 4-6 H2 sections, and 2-3 H3 sub-points under each. Include a suggested meta title (≤60 chars) and meta description (≤155 chars) at the top.'},
+  {cat:'Writing',title:'Cold Email Draft',desc:'Write a concise, high-converting cold outreach email.',vars:['recipientRole','product','benefit','cta'],
+   prompt:'Act as a senior B2B copywriter. Write a cold outreach email to a {{recipientRole}}.\n\nProduct/service: {{product}}\nKey benefit to highlight: {{benefit}}\nDesired call-to-action: {{cta}}\n\nConstraints: under 120 words, one clear CTA, no buzzwords, subject line ≤6 words. Use a confident, friendly tone. Output subject line on the first line, then a blank line, then the body.'},
+  {cat:'Writing',title:'Executive Summary',desc:'Summarize a long report into a sharp one-page executive brief.',vars:['reportTopic','audience','lengthWords'],
+   prompt:'You are a management consultant. Write an executive summary of a report about {{reportTopic}}.\n\nAudience: {{audience}}\nLength: approximately {{lengthWords}} words.\n\nStructure: 1) Bottom-line up front (2 sentences). 2) Key findings (3 bullets). 3) Recommendations (3 bullets). 4) Next steps. Use plain language; avoid jargon.'},
+  {cat:'Writing',title:'Press Release',desc:'Draft a professional press release in standard AP format.',vars:['company','announcement','date','contact'],
+   prompt:'Write a press release for {{company}} announcing: {{announcement}}.\n\nRelease date: {{date}}\nMedia contact: {{contact}}\n\nFollow standard press release format: FOR IMMEDIATE RELEASE, headline, dateline, 2-3 body paragraphs with a quote, boilerplate, and media contact. Keep it to one page.'},
+  {cat:'Writing',title:'Product Description',desc:'Write a benefit-driven e-commerce product description.',vars:['productName','features','audience'],
+   prompt:'Act as an e-commerce copywriter. Write a product description for {{productName}}.\n\nKey features: {{features}}\nTarget buyer: {{audience}}\n\nFormat: a 2-sentence hook, a bulleted list of 5 benefit-driven features (each feature reframed as a customer benefit), and a closing CTA. Keep total under 150 words. Tone: aspirational but honest.'},
+
+  /* Marketing */
+  {cat:'Marketing',title:'Ad Copy Variations',desc:'Generate 10 ad copy variations for A/B testing.',vars:['product','platform','audience','tone'],
+   prompt:'You are a direct-response copywriter. Generate 10 distinct ad copy variations for {{product}} on {{platform}}.\n\nAudience: {{audience}}\nTone: {{tone}}\n\nVary the angle across variations: pain-point, aspirational, social-proof, scarcity, curiosity, comparison, FAQ, stat-driven, story, and bold claim. Each variation ≤ character limit for the platform. Label each with its angle.'},
+  {cat:'Marketing',title:'Social Media Calendar',desc:'Build a 30-day social content calendar with post ideas.',vars:['brand','platforms','goal'],
+   prompt:'Create a 30-day social media content calendar for {{brand}}.\n\nPlatforms: {{platforms}}\nPrimary goal: {{goal}}\n\nOutput as a markdown table with columns: Day | Date | Platform | Content Pillar | Post Idea | Caption Hook | CTA. Mix content pillars (educational, entertaining, promotional, community, behind-the-scenes). Avoid more than 3 promotional posts per week.'},
+  {cat:'Marketing',title:'Buyer Persona',desc:'Develop a detailed ideal customer persona for positioning.',vars:['product','industry','painPoint'],
+   prompt:'Act as a product marketing manager. Build a detailed buyer persona for {{product}} in the {{industry}} industry.\n\nPrimary pain point to solve: {{painPoint}}\n\nInclude: demographics, job/role, goals (3), challenges (3), information sources, objections (3), and a one-paragraph "day in the life". End with a 2-sentence positioning statement.'},
+  {cat:'Marketing',title:'Landing Page Copy',desc:'Write conversion-optimized landing page copy.',vars:['product','audience','valueProp','cta'],
+   prompt:'Write landing page copy for {{product}}.\n\nTarget audience: {{audience}}\nCore value proposition: {{valueProp}}\nPrimary CTA: {{cta}}\n\nStructure: hero headline + subhead + CTA, 3 benefit sections (headline + 2 sentences each), social proof section, objection-handling FAQ (3 Q&As), and final CTA. Use markdown with H1/H2 tags.'},
+  {cat:'Marketing',title:'Brand Voice Guide',desc:'Define a consistent brand voice with examples.',vars:['brand','personality','industry'],
+   prompt:'Create a brand voice guide for {{brand}}, a {{industry}} company.\n\nBrand personality: {{personality}}\n\nInclude: 3 voice attributes (each with "we are / we aren\'t" pairs), tone variations for different channels (social, email, support), 3 do\'s, 3 don\'ts, and 2 rewritten example sentences showing the voice in action.'},
+
+  /* Code */
+  {cat:'Code',title:'Code Review',desc:'Get a structured code review with severity-tagged issues.',vars:['language','codeDescription','concerns'],
+   prompt:'Act as a senior {{language}} engineer. Review the following code.\n\nWhat the code does: {{codeDescription}}\nSpecific concerns: {{concerns}}\n\nProvide: 1) Overall assessment (2 sentences). 2) Issues found, each tagged [CRITICAL]/[MAJOR]/[MINOR]/[NIT] with file:line if applicable and a suggested fix. 3) Positive observations. 4) Suggested next steps.'},
+  {cat:'Code',title:'Function Generator',desc:'Generate a well-documented function with edge cases.',vars:['language','functionName','inputs','outputs'],
+   prompt:'Write a {{language}} function named {{functionName}}.\n\nInputs: {{inputs}}\nExpected outputs: {{outputs}}\n\nRequirements: include input validation, handle at least 3 edge cases, add JSDoc/docstring comments, and follow idiomatic style for the language. After the function, list 5 unit test cases (input → expected output).'},
+  {cat:'Code',title:'Refactor for Readability',desc:'Refactor code for clarity without changing behavior.',vars:['language','goals'],
+   prompt:'Refactor the following {{language}} code for readability and maintainability.\n\nRefactoring goals: {{goals}}\n\nConstraints: do NOT change external behavior or public API. Output: 1) the refactored code, 2) a bullet list of every change made and why, 3) any behavior-preserving simplifications you deliberately did NOT make and why.'},
+  {cat:'Code',title:'SQL Query Builder',desc:'Generate an optimized SQL query from a plain-English ask.',vars:['dialect','request','tables'],
+   prompt:'You are a senior data engineer. Write a {{dialect}} SQL query for this request:\n\n{{request}}\n\nRelevant tables (with columns if known): {{tables}}\n\nRequirements: use CTEs for readability, alias all tables, comment any non-obvious logic, and include a brief explanation of the query plan assumptions. If multiple approaches exist, show the preferred one and mention the alternative in a comment.'},
+  {cat:'Code',title:'Test Suite Generator',desc:'Generate a comprehensive test suite for a function.',vars:['framework','functionDesc','language'],
+   prompt:'Generate a {{framework}} test suite for a {{language}} function described as:\n\n{{functionDesc}}\n\nCover: happy path, boundary values, invalid inputs, edge cases, and at least one performance/regression test. Group tests with describe blocks. Add a brief comment above each test explaining what it asserts.'},
+
+  /* Analysis */
+  {cat:'Analysis',title:'SWOT Analysis',desc:'Generate a structured SWOT analysis with action items.',vars:['subject','context'],
+   prompt:'Conduct a SWOT analysis for {{subject}}.\n\nContext: {{context}}\n\nOutput as a 2×2 markdown table (Strengths, Weaknesses, Opportunities, Threats) with 4-5 concise points per quadrant. Below the table, list 3 strategic actions derived from the SWOT (e.g., SO strategy, WT strategy).'},
+  {cat:'Analysis',title:'Data Interpretation',desc:'Interpret a dataset summary and surface insights.',vars:['dataset','metrics','question'],
+   prompt:'Act as a data analyst. Interpret the following dataset summary.\n\nDataset: {{dataset}}\nKey metrics provided: {{metrics}}\nQuestion to answer: {{question}}\n\nProvide: 1) Direct answer to the question (2 sentences). 2) Three supporting insights, each with the relevant metric. 3) Two caveats or limitations of the data. 4) One recommended follow-up analysis.'},
+  {cat:'Analysis',title:'Competitor Analysis',desc:'Analyze competitors across key dimensions.',vars:['company','competitors','dimensions'],
+   prompt:'Perform a competitor analysis for {{company}}.\n\nCompetitors: {{competitors}}\nDimensions to compare: {{dimensions}}\n\nOutput a markdown comparison table (rows = competitors, columns = dimensions). Below the table, write: 1) where {{company}} is uniquely strong, 2) where it is most vulnerable, 3) one strategic recommendation.'},
+  {cat:'Analysis',title:'Root Cause Analysis',desc:'Run a 5-Whys root cause analysis on an incident.',vars:['incident','impact'],
+   prompt:'Conduct a 5-Whys root cause analysis for the following incident.\n\nIncident: {{incident}}\nImpact: {{impact}}\n\nFor each "Why" level (1-5), state the question and the answer. Then provide: the root cause in one sentence, three corrective actions (short-term, medium-term, long-term), and one preventive control to avoid recurrence.'},
+
+  /* Education */
+  {cat:'Education',title:'Lesson Plan',desc:'Build a structured lesson plan for a topic.',vars:['subject','gradeLevel','duration','objective'],
+   prompt:'Act as an experienced teacher. Create a lesson plan for {{subject}} at {{gradeLevel}} level.\n\nDuration: {{duration}}\nLearning objective: {{objective}}\n\nInclude: warm-up activity, direct instruction, guided practice, independent practice, assessment, and closure. Add a differentiation note for struggling and advanced students. Output as a markdown table with time | activity | materials.'},
+  {cat:'Education',title:'Concept Explainer',desc:'Explain a concept at three levels of difficulty.',vars:['concept'],
+   prompt:'Explain the concept of {{concept}} at three levels:\n\n1) ELI5 (explain like I\'m 5) — one short paragraph, simple analogy.\n2) High-school level — 2-3 paragraphs with the formal definition and one example.\n3) Expert level — concise, technically precise, with edge cases and a common misconception.\n\nUse clear headings for each level.'},
+  {cat:'Education',title:'Quiz Generator',desc:'Generate a quiz with answers and explanations.',vars:['topic','numQuestions','difficulty'],
+   prompt:'Create a {{difficulty}} quiz on {{topic}} with {{numQuestions}} multiple-choice questions.\n\nFor each question: 4 options (A-D), mark the correct answer, and add a 1-2 sentence explanation of why it\'s correct. Mix recall, application, and conceptual questions. Output as a numbered list, with answers and explanations in a separate section at the bottom.'},
+  {cat:'Education',title:'Study Guide',desc:'Build a comprehensive study guide for an exam topic.',vars:['topic','examType','timeAvailable'],
+   prompt:'Build a study guide for {{topic}} (exam type: {{examType}}).\n\nTime available: {{timeAvailable}}\n\nInclude: 1) Key concepts to master (5-7 bullets with 1-sentence definitions). 2) A day-by-day study schedule fitting the available time. 3) Common pitfalls. 4) 5 practice questions with answers. 5) Recommended resources (generic types, not specific links).'},
+
+  /* Creative */
+  {cat:'Creative',title:'Short Story Starter',desc:'Generate an opening hook for a short story.',vars:['genre','mood','setting'],
+   prompt:'Write the opening 200-300 words of a {{genre}} short story.\n\nMood: {{mood}}\nSetting: {{setting}}\n\nHook the reader in the first sentence. Establish voice, setting, and a hint of conflict. Do not resolve anything. End at a moment of tension.'},
+  {cat:'Creative',title:'Character Profile',desc:'Create a rich, layered character profile.',vars:['name','role','genre','flaw'],
+   prompt:'Create a detailed character profile for {{name}}, a {{role}} in a {{genre}} story.\n\nCore flaw: {{flaw}}\n\nInclude: physical description (3 distinctive traits), backstory (2 paragraphs), motivation, internal conflict, external goal, voice (a sample line of dialogue), and one secret the character keeps. Keep it vivid and specific, not generic.'},
+  {cat:'Creative',title:'Image Prompt Generator',desc:'Generate a detailed prompt for an image AI.',vars:['subject','style','mood'],
+   prompt:'Generate a detailed image-generation prompt for: {{subject}}.\n\nStyle: {{style}}\nMood: {{mood}}\n\nSpecify: subject, composition, lighting (direction + quality), color palette (3-5 colors), camera/lens if photographic, art style references if illustrative, and aspect ratio. Write as a single comma-separated prompt line, then a 1-sentence negative prompt listing what to avoid.'},
+  {cat:'Creative',title:'Poem Composer',desc:'Compose a poem in a chosen form and theme.',vars:['form','theme','tone'],
+   prompt:'Write a {{form}} poem about {{theme}}.\n\nTone: {{tone}}\n\nFollow the structural rules of the form strictly (e.g., sonnet = 14 lines, ABAB CDCD EFEF GG). Use vivid imagery and at least one metaphor. Avoid clichés. Output only the poem, no commentary.'},
+
+  /* Business */
+  {cat:'Business',title:'Pitch Deck Outline',desc:'Structure a 10-slide investor pitch deck.',vars:['company','stage','sector'],
+   prompt:'Create a 10-slide investor pitch deck outline for {{company}}, a {{stage}}-stage {{sector}} company.\n\nFor each slide: slide number, title, and 2-3 bullet points of what should appear. Follow the standard sequence (Problem, Solution, Market, Product, Traction, Business Model, Team, Competition, Financials, Ask). End with a note on the single most important slide to nail.'},
+  {cat:'Business',title:'Meeting Agenda',desc:'Build a time-boxed meeting agenda.',vars:['meetingType','duration','participants','goal'],
+   prompt:'Create an agenda for a {{meetingType}} meeting.\n\nDuration: {{duration}}\nParticipants: {{participants}}\nGoal: {{goal}}\n\nOutput as a markdown table: time | agenda item | owner | format (discuss/decision/inform). Include a 5-min buffer at the end for action items. Add a one-line pre-read note specifying what participants should review beforehand.'},
+  {cat:'Business',title:'SOP Writer',desc:'Write a standard operating procedure document.',vars:['process','audience','tools'],
+   prompt:'Write a Standard Operating Procedure (SOP) for: {{process}}.\n\nAudience: {{audience}}\nTools/systems used: {{tools}}\n\nStructure: 1) Purpose. 2) Scope. 3) Prerequisites. 4) Step-by-step procedure (numbered, each step starts with a verb). 5) Troubleshooting (3 common issues + fixes). 6) Revision history table. Use clear, imperative language.'},
+  {cat:'Business',title:'OKR Generator',desc:'Draft quarterly OKRs from a strategic goal.',vars:['team','strategicGoal','quarter'],
+   prompt:'Draft quarterly OKRs for the {{team}} team for {{quarter}}.\n\nStrategic goal driving this quarter: {{strategicGoal}}\n\nProduce 1 Objective (qualitative, inspiring, time-bound) with 3 Key Results (quantitative, measurable, outcome-focused — not tasks). For each KR, include a starting baseline and target. Add a 1-line note on confidence level (0-1) and how progress will be measured.'}
+];
+
+var libActiveCat='All';
+function renderLibrary(){
+  var search=document.getElementById('libSearch').value.toLowerCase().trim();
+  var sort=document.getElementById('libSort').value;
+
+  // render category chips
+  var cats=['All'].concat(Array.from(new Set(PROMPT_LIBRARY.map(function(p){return p.cat}))));
+  var catsEl=document.getElementById('libCats');
+  catsEl.innerHTML='';
+  cats.forEach(function(c){
+    var chip=document.createElement('span');
+    chip.className='chip'+(c===libActiveCat?' active':'');
+    chip.textContent=c;
+    chip.onclick=function(){libActiveCat=c;renderLibrary()};
+    catsEl.appendChild(chip);
+  });
+
+  // filter + sort
+  var list=PROMPT_LIBRARY.filter(function(p){
+    if(libActiveCat!=='All'&&p.cat!==libActiveCat)return false;
+    if(search){
+      var hay=(p.title+' '+p.desc+' '+p.cat+' '+p.prompt).toLowerCase();
+      if(hay.indexOf(search)===-1)return false;
+    }
+    return true;
+  });
+  if(sort==='title'){list.sort(function(a,b){return a.title.localeCompare(b.title)})}
+  else{list.sort(function(a,b){return a.cat.localeCompare(b.cat)||a.title.localeCompare(b.title)})}
+
+  var grid=document.getElementById('libGrid');
+  grid.innerHTML='';
+  if(list.length===0){
+    grid.innerHTML='<div class="hint">No templates match your search.</div>';
+    return;
+  }
+  list.forEach(function(p,idx){
+    var card=document.createElement('div');
+    card.className='lib-card';
+    var varPills=p.vars.map(function(v){return '<span class="var-pill">{{'+v+'}}</span>'}).join('');
+    card.innerHTML=
+      '<span class="lib-card-cat">'+p.cat+'</span>'+
+      '<div class="lib-card-title">'+p.title+'</div>'+
+      '<div class="lib-card-desc">'+p.desc+'</div>'+
+      '<div class="lib-card-vars">'+varPills+'</div>'+
+      '<div class="lib-card-expanded">'+
+        '<div class="lib-prompt-text">'+escapeHtml(p.prompt)+'</div>'+
+        '<div style="display:flex;gap:8px;flex-wrap:wrap">'+
+          '<button class="btn btn-primary btn-sm" onclick="event.stopPropagation();openUseForm('+PROMPT_LIBRARY.indexOf(p)+')">Use</button>'+
+          '<button class="btn btn-ghost btn-sm" onclick="event.stopPropagation();copyText(getTemplatePrompt('+PROMPT_LIBRARY.indexOf(p)+'))">Copy Raw</button>'+
+        '</div>'+
+      '</div>';
+    card.onclick=function(){card.classList.toggle('open')};
+    grid.appendChild(card);
+  });
+}
+function getTemplatePrompt(idx){return PROMPT_LIBRARY[idx].prompt}
+function escapeHtml(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+
+var currentTemplateIdx=-1;
+function openUseForm(idx){
+  currentTemplateIdx=idx;
+  var p=PROMPT_LIBRARY[idx];
+  var form=document.getElementById('useForm');
+  form.classList.add('open');
+  document.getElementById('useFormTitle').textContent='Use: '+p.title;
+  document.getElementById('useFormDesc').textContent=p.desc;
+  var fieldsHtml=p.vars.map(function(v){
+    return '<div class="var-field-row"><div class="var-field-label">{{'+v+'}}</div><input class="input" data-var="'+v+'" placeholder="Enter value for '+v+'"></div>';
+  }).join('');
+  document.getElementById('useFormFields').innerHTML=fieldsHtml;
+  document.getElementById('useFormOutput').innerHTML='<span class="output-empty">Fill in the variables above and click Generate.</span>';
+  document.getElementById('useFormActions').style.display='none';
+  form.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+function closeUseForm(){
+  document.getElementById('useForm').classList.remove('open');
+  currentTemplateIdx=-1;
+}
+function generateFromTemplate(){
+  if(currentTemplateIdx<0){toast('Pick a template first');return}
+  var p=PROMPT_LIBRARY[currentTemplateIdx];
+  var inputs=document.querySelectorAll('#useFormFields input');
+  var final=p.prompt;
+  var missing=[];
+  inputs.forEach(function(inp){
+    var v=inp.getAttribute('data-var');
+    var val=inp.value.trim();
+    if(!val){missing.push(v)}
+    final=final.split('{{'+v+'}}').join(val||'['+v+']');
+  });
+  var out=document.getElementById('useFormOutput');
+  out.innerHTML='';
+  out.textContent=final;
+  document.getElementById('useFormActions').style.display='flex';
+  if(missing.length){toast('Filled with placeholders for: '+missing.join(', '))}
+  else{toast('Final prompt generated')}
+}
+
+/* ============================================================
+   TOOL 3: TEMPERATURE & TOKEN GUIDE
+   ============================================================ */
+var tempBandsData=[
+  {min:0,max:0.3,name:'Deterministic',example:'"The capital of France is Paris." — Same answer every run. Ideal for code, math, facts.'},
+  {min:0.3,max:0.7,name:'Focused',example:'"Paris, the capital of France, is known for the Eiffel Tower." — Coherent, slight wording variation. Good for summaries and analysis.'},
+  {min:0.7,max:1.0,name:'Balanced',example:'"Ah, Paris — the City of Light, where the Eiffel Tower sparkles above the Seine." — Default chat range. Creative yet on-topic.'},
+  {min:1.0,max:1.4,name:'Creative',example:'"Imagine Paris not as a city but as a living poem, every cobblestone rhyming with the last." — More variance. Great for brainstorming and fiction.'},
+  {min:1.4,max:2.0,name:'Chaotic',example:'"Paris. Paris? PARIS! The tower melts into a thousand croissants that whisper Bonjour to passing clouds." — Wild and often incoherent. Rarely useful.'}
+];
+function updateTemp(){
+  var v=parseFloat(document.getElementById('tempSlider').value);
+  document.getElementById('tempVal').textContent=v.toFixed(2);
+  var band=tempBandsData.find(function(b){return v>=b.min&&v<b.max})||tempBandsData[tempBandsData.length-1];
+  document.getElementById('tempBand').textContent=band.name;
+  document.querySelectorAll('.temp-band').forEach(function(el,i){
+    el.classList.toggle('active',tempBandsData[i].name===band.name);
+  });
+  document.getElementById('tempExample').innerHTML='<strong>'+band.name+' (temp '+v.toFixed(2)+'):</strong> '+band.example;
+}
+function updateTokens(){
+  var v=parseInt(document.getElementById('tokenSlider').value,10);
+  document.getElementById('tokenVal').textContent=v;
+  var words=Math.round(v*0.75);
+  var sentences=Math.round(words/15);
+  var pages=(words/500).toFixed(1);
+  document.getElementById('tokWords').textContent='~'+words;
+  document.getElementById('tokSentences').textContent='~'+sentences;
+  document.getElementById('tokPages').textContent='~'+pages;
+  renderTempCosts(v);
+}
+var RATES={
+  'GPT-4 Turbo':{out:30},
+  'GPT-4o':{out:15},
+  'GPT-3.5 Turbo':{out:1.5},
+  'Claude 3 Opus':{out:75},
+  'Claude 3 Sonnet':{out:15},
+  'Claude 3 Haiku':{out:1.25}
+};
+function renderTempCosts(tokens){
+  var el=document.getElementById('tempCostGrid');
+  el.innerHTML='';
+  Object.keys(RATES).forEach(function(name){
+    var cost=(tokens/1000000)*RATES[name].out;
+    var card=document.createElement('div');
+    card.className='cost-card';
+    card.innerHTML='<div class="cost-card-name"><span class="cost-dot" style="background:'+modelColor(name)+'"></span>'+name+'</div>'+
+      '<div class="cost-card-val">$'+cost.toFixed(4)+'</div>'+
+      '<div class="cost-card-rate">$'+RATES[name].out.toFixed(2)+' / 1M output tokens</div>';
+    el.appendChild(card);
+  });
+}
+function modelColor(name){
+  if(name.indexOf('GPT')>-1)return '#10a37f';
+  if(name.indexOf('Claude')>-1)return '#d97757';
+  if(name.indexOf('Gemini')>-1)return '#4285f4';
+  if(name.indexOf('Llama')>-1)return '#0866ff';
+  return '#a78bfa';
+}
+
+/* ============================================================
+   TOOL 4: MODEL COMPARISON
+   ============================================================ */
+var MODELS=[
+  {name:'GPT-4 Turbo',context:'128K tokens',cutoff:'April 2023',in:10,out:30,
+   strengths:'Deep reasoning, long-context, strong code & math, tool use.',
+   useCases:['Reasoning','Code','Long-context','Analysis']},
+  {name:'GPT-4o',context:'128K tokens',cutoff:'October 2023',in:5,out:15,
+   strengths:'Multimodal (text/image/audio), fast, cost-efficient flagship.',
+   useCases:['Multimodal','Reasoning','Code','General chat']},
+  {name:'GPT-3.5 Turbo',context:'16K tokens',cutoff:'September 2021',in:0.5,out:1.5,
+   strengths:'Cheap, fast, good for simple tasks and high-volume workloads.',
+   useCases:['Cost-sensitive','Classification','Simple chat','Extraction']},
+  {name:'Claude 3 Opus',context:'200K tokens',cutoff:'August 2023',in:15,out:75,
+   strengths:'Top-tier reasoning, excellent writing, very long context, strong nuance.',
+   useCases:['Reasoning','Writing','Long-context','Analysis']},
+  {name:'Claude 3 Sonnet',context:'200K tokens',cutoff:'August 2023',in:3,out:15,
+   strengths:'Balance of speed, cost, and quality. Great default for production.',
+   useCases:['General chat','Code','Writing','Analysis']},
+  {name:'Claude 3 Haiku',context:'200K tokens',cutoff:'August 2023',in:0.25,out:1.25,
+   strengths:'Fastest Claude, cheapest, strong for classification and extraction at scale.',
+   useCases:['Cost-sensitive','Classification','Extraction','Simple chat']},
+  {name:'Gemini 1.5 Pro',context:'1M tokens',cutoff:'January 2024',in:3.5,out:10.5,
+   strengths:'Huge 1M context window, multimodal, strong on long-document reasoning.',
+   useCases:['Long-context','Multimodal','Video','Reasoning']},
+  {name:'Gemini 1.5 Flash',context:'1M tokens',cutoff:'January 2024',in:0.35,out:1.05,
+   strengths:'Fast and cheap with the full 1M context. Great for high-volume long-context.',
+   useCases:['Cost-sensitive','Long-context','Multimodal','Classification']},
+  {name:'Llama 3 70B',context:'8K tokens',cutoff:'December 2023',in:0.59,out:0.79,
+   strengths:'Open-weight, self-hostable, competitive quality, low cost via providers.',
+   useCases:['Cost-sensitive','Self-host','General chat','Code']}
+];
+var cmpActiveFilter='All';
+function renderCompareFilter(){
+  var allCases=['All'];
+  MODELS.forEach(function(m){m.useCases.forEach(function(u){if(allCases.indexOf(u)===-1)allCases.push(u)})});
+  var el=document.getElementById('cmpFilter');
+  el.innerHTML='';
+  allCases.forEach(function(c){
+    var chip=document.createElement('span');
+    chip.className='chip'+(c===cmpActiveFilter?' active':'');
+    chip.textContent=c;
+    chip.onclick=function(){cmpActiveFilter=c;renderCompareFilter();renderCompareTable()};
+    el.appendChild(chip);
+  });
+}
+function renderCompareTable(){
+  var body=document.getElementById('cmpBody');
+  body.innerHTML='';
+  MODELS.forEach(function(m){
+    if(cmpActiveFilter!=='All'&&m.useCases.indexOf(cmpActiveFilter)===-1)return;
+    var tr=document.createElement('tr');
+    tr.innerHTML=
+      '<td class="model-name"><span class="cost-dot" style="background:'+modelColor(m.name)+';margin-right:6px"></span>'+m.name+'</td>'+
+      '<td>'+m.context+'</td>'+
+      '<td>'+m.cutoff+'</td>'+
+      '<td><span class="cost-pill">$'+m.in.toFixed(2)+'</span></td>'+
+      '<td><span class="cost-pill">$'+m.out.toFixed(2)+'</span></td>'+
+      '<td style="color:var(--text-muted)">'+m.strengths+'</td>'+
+      '<td>'+m.useCases.map(function(u){return '<span class="use-case-tag">'+u+'</span>'}).join('')+'</td>';
+    body.appendChild(tr);
+  });
+  if(body.children.length===0){
+    body.innerHTML='<tr><td colspan="7" style="text-align:center;color:var(--text-dim);padding:32px">No models match this filter.</td></tr>';
+  }
+}
+
+/* ============================================================
+   TOOL 5: PROMPT TESTER
+   ============================================================ */
+var VAGUE_WORDS=['stuff','things','something','anything','everything','good','bad','nice','big','small','etc','various','some','many','a lot','kind of','sort of','basically','really','very'];
+function analyzePrompt(){
+  var text=document.getElementById('testerInput').value;
+  if(!text.trim()){toast('Paste a prompt to analyze');return}
+  var lower=text.toLowerCase();
+  var words=text.trim().split(/\s+/).filter(Boolean);
+  var wordCount=words.length;
+  var sentences=text.split(/[.!?]+/).filter(function(s){return s.trim().length>0});
+  var avgSentenceLen=wordCount/(sentences.length||1);
+
+  // Clarity: based on avg sentence length, presence of vague words, readability
+  var vagueCount=0;
+  VAGUE_WORDS.forEach(function(w){var re=new RegExp('\\b'+w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'\\b','g');var m=lower.match(re);if(m)vagueCount+=m.length});
+  var clarity=100;
+  clarity-=vagueCount*8;
+  if(avgSentenceLen>25)clarity-=(avgSentenceLen-25)*2;
+  if(avgSentenceLen>35)clarity-=(avgSentenceLen-35)*3;
+  if(wordCount<5)clarity-=30;
+  clarity=Math.max(0,Math.min(100,Math.round(clarity)));
+
+  // Specificity: numbers, concrete constraints, named entities, format specifiers
+  var specificity=40;
+  var numbers=(text.match(/\b\d+\b/g)||[]).length;
+  specificity+=Math.min(numbers*6,24);
+  var constraintWords=['must','exactly','at least','at most','under','over','within','only','specifically','format','length','words','sentences','characters','audience','tone'];
+  var constraintCount=0;
+  constraintWords.forEach(function(w){if(lower.indexOf(w)>-1)constraintCount++});
+  specificity+=Math.min(constraintCount*5,25);
+  if(wordCount>40)specificity+=10;
+  if(/{{.+?}}/.test(text))specificity+=5;
+  specificity=Math.max(0,Math.min(100,Math.round(specificity)));
+
+  // Structure: headings, lists, sections, format keywords, examples
+  var structure=30;
+  if(/^#+\s/m.test(text))structure+=20;
+  if(/^\s*[-*]\s/m.test(text))structure+=15;
+  if(/^\s*\d+\.\s/m.test(text))structure+=12;
+  if(/<.+>/.test(text))structure+=8;
+  if(/\b(json|markdown|table|bullet|list|paragraph)\b/i.test(text))structure+=12;
+  if(/\bexample\b/i.test(text))structure+=10;
+  if(text.split('\n\n').length>=3)structure+=8;
+  if(/\b(step|step-by-step|first|second|then|finally)\b/i.test(text))structure+=8;
+  structure=Math.max(0,Math.min(100,Math.round(structure)));
+
+  // token estimate
+  var tokens=estimateTokens(text);
+
+  // render scores
+  document.getElementById('clarityScore').textContent=clarity;
+  document.getElementById('clarityBar').style.width=clarity+'%';
+  document.getElementById('specificityScore').textContent=specificity;
+  document.getElementById('specificityBar').style.width=specificity+'%';
+  document.getElementById('structureScore').textContent=structure;
+  document.getElementById('structureBar').style.width=structure+'%';
+  document.getElementById('testerTokens').textContent='~'+tokens;
+  setScoreClass('clarityCard',clarity);
+  setScoreClass('specificityCard',specificity);
+  setScoreClass('structureCard',structure);
+
+  // issues
+  var issues=[];
+  if(vagueCount>0)issues.push({type:'warn',icon:'!',text:'Found '+vagueCount+' vague word(s) ("'+VAGUE_WORDS.filter(function(w){return lower.indexOf(w)>-1}).slice(0,3).join('", "')+'"). Replace with specific nouns or quantities.'});
+  if(wordCount<15)issues.push({type:'err',icon:'!',text:'Prompt is very short ('+wordCount+' words). Add context, audience, and constraints.'});
+  if(avgSentenceLen>30)issues.push({type:'warn',icon:'!',text:'Average sentence length is '+Math.round(avgSentenceLen)+' words. Break long sentences for clarity.'});
+  if(!/\b(format|json|markdown|table|bullet|list|paragraph|step)\b/i.test(text))issues.push({type:'warn',icon:'!',text:'No output format specified. Tell the model exactly how to structure its response.'});
+  if(!/\bexample\b/i.test(text)&&!/\bfor instance\b/i.test(text))issues.push({type:'warn',icon:'!',text:'No examples provided. Adding 1-2 examples ("few-shot") dramatically improves consistency.'});
+  if(!/\b(audience|reader|user|for whom)\b/i.test(text))issues.push({type:'warn',icon:'!',text:'No target audience mentioned. Specify who the output is for.'});
+  if(!/\b(tone|style|voice)\b/i.test(text))issues.push({type:'warn',icon:'!',text:'No tone/style guidance. State the desired voice (e.g., professional, casual).'});
+  if(!/^#+\s/m.test(text)&&!/\b\d+\.\s/m.test(text)&&text.length>300)issues.push({type:'warn',icon:'!',text:'Long prompt with no headings or numbered structure. Break it into labeled sections.'});
+  if(!/\b(constraint|must|do not|avoid|only|exactly)\b/i.test(text))issues.push({type:'warn',icon:'!',text:'No explicit constraints. List what the model must do and must avoid.'});
+  if(wordCount>=20&&vagueCount===0&&/\b(format|example|tone|audience)\b/i.test(text))issues.push({type:'ok',icon:'✓',text:'Good balance of context, constraints, and format guidance. Ready to run.'});
+
+  var issuesEl=document.getElementById('testerIssues');
+  issuesEl.innerHTML='';
+  if(issues.length===0){
+    issuesEl.innerHTML='<div class="issue ok"><div class="issue-icon">✓</div><div>No major issues detected. Scores look healthy.</div></div>';
+  }else{
+    issues.forEach(function(i){
+      var div=document.createElement('div');
+      div.className='issue '+i.type;
+      div.innerHTML='<div class="issue-icon">'+i.icon+'</div><div>'+i.text+'</div>';
+      issuesEl.appendChild(div);
+    });
+  }
+  document.getElementById('testerResults').style.display='block';
+}
+function setScoreClass(cardId,score){
+  var el=document.getElementById(cardId);
+  el.classList.remove('good','mid','low');
+  if(score>=70)el.classList.add('good');
+  else if(score>=45)el.classList.add('mid');
+  else el.classList.add('low');
+}
+function loadTesterExample(){
+  document.getElementById('testerInput').value='You are a senior copywriter. Write a product description for our new wireless earbuds.\n\nTarget audience: commuters aged 25-40.\nTone: confident, friendly.\nLength: 120-150 words.\n\nFormat:\n- A 2-sentence hook\n- 5 benefit bullets\n- A closing CTA\n\nHighlight: 30-hour battery, active noise cancellation, and USB-C charging. Avoid jargon.';
+  analyzePrompt();
+}
+
+/* ============================================================
+   TOOL 6: VARIABLE INJECTOR
+   ============================================================ */
+function detectVariables(){
+  var text=document.getElementById('injTemplate').value;
+  var matches=text.match(/\{\{([^}]+)\}\}/g)||[];
+  var vars=[];
+  matches.forEach(function(m){
+    var v=m.replace(/[{}]/g,'').trim();
+    if(vars.indexOf(v)===-1)vars.push(v);
+  });
+  document.getElementById('injVarCount').textContent=vars.length;
+  var wrap=document.getElementById('injFieldsWrap');
+  var fields=document.getElementById('injFields');
+  if(vars.length===0){wrap.style.display='none';fields.innerHTML='';return}
+  wrap.style.display='block';
+  // preserve existing values
+  var existing={};
+  fields.querySelectorAll('input').forEach(function(inp){existing[inp.getAttribute('data-var')]=inp.value});
+  fields.innerHTML='';
+  vars.forEach(function(v){
+    var row=document.createElement('div');
+    row.className='var-field-row';
+    row.innerHTML='<div class="var-field-label">{{'+v+'}}</div>'+
+      '<input class="input" data-var="'+escapeAttr(v)+'" placeholder="Enter value for '+escapeAttr(v)+'" value="'+escapeAttr(existing[v]||'')+'">';
+    fields.appendChild(row);
+  });
+}
+function escapeAttr(s){return String(s).replace(/"/g,'&quot;').replace(/</g,'&lt;')}
+function injectGenerate(){
+  var text=document.getElementById('injTemplate').value;
+  if(!text.trim()){toast('Paste a template first');return}
+  var inputs=document.querySelectorAll('#injFields input');
+  if(inputs.length===0){toast('No variables detected');return}
+  var final=text;
+  var missing=[];
+  inputs.forEach(function(inp){
+    var v=inp.getAttribute('data-var');
+    var val=inp.value.trim();
+    if(!val)missing.push(v);
+    final=final.split('{{'+v+'}}').join(val||'['+v+']');
+  });
+  var out=document.getElementById('injOutput');
+  out.innerHTML='';
+  out.textContent=final;
+  document.getElementById('injActions').style.display='flex';
+  if(missing.length)toast('Placeholders used for: '+missing.join(', '));
+  else toast('Final prompt generated');
+}
+function loadInjectorExample(){
+  document.getElementById('injTemplate').value='Write a {{tone}} email to {{recipient}} about {{topic}}.\n\nKeep it under {{length}} words.\nEnd with a clear call-to-action: {{cta}}.';
+  detectVariables();
+}
+function saveInjectorTemplate(){
+  var text=document.getElementById('injTemplate').value.trim();
+  if(!text){toast('Nothing to save');return}
+  var name=prompt('Template name:','My Template '+(new Date()).toLocaleDateString());
+  if(!name)return;
+  var list=JSON.parse(localStorage.getItem('ait_inj_templates')||'[]');
+  list.push({name:name,text:text,ts:Date.now()});
+  localStorage.setItem('ait_inj_templates',JSON.stringify(list));
+  toast('Template saved');
+  renderInjectorSaved();
+}
+function renderInjectorSaved(){
+  var list=JSON.parse(localStorage.getItem('ait_inj_templates')||'[]');
+  var el=document.getElementById('injSavedList');
+  if(list.length===0){el.innerHTML='<div class="hint">No saved templates yet.</div>';return}
+  el.innerHTML='';
+  list.forEach(function(t,i){
+    var div=document.createElement('div');
+    div.className='saved-item';
+    div.innerHTML='<div><div class="saved-item-name">'+escapeHtml(t.name)+'</div><div class="saved-item-meta">'+t.text.length+' chars · '+new Date(t.ts).toLocaleString()+'</div></div>'+
+      '<div class="saved-item-actions">'+
+        '<button class="btn btn-sm" onclick="loadInjectorSaved('+i+')">Load</button>'+
+        '<button class="btn btn-sm btn-danger" onclick="deleteInjectorSaved('+i+')">Delete</button>'+
+      '</div>';
+    el.appendChild(div);
+  });
+}
+function loadInjectorSaved(i){
+  var list=JSON.parse(localStorage.getItem('ait_inj_templates')||'[]');
+  if(!list[i])return;
+  document.getElementById('injTemplate').value=list[i].text;
+  detectVariables();
+  toast('Template loaded');
+}
+function deleteInjectorSaved(i){
+  var list=JSON.parse(localStorage.getItem('ait_inj_templates')||'[]');
+  list.splice(i,1);
+  localStorage.setItem('ait_inj_templates',JSON.stringify(list));
+  toast('Template deleted');
+  renderInjectorSaved();
+}
+
+/* ============================================================
+   TOOL 7: FEW-SHOT BUILDER
+   ============================================================ */
+var fewExamples=[];
+function addFewExample(input,output){
+  fewExamples.push({input:input||'',output:output||''});
+  renderFewExamples();
+}
+function renderFewExamples(){
+  var wrap=document.getElementById('fsExamples');
+  wrap.innerHTML='';
+  fewExamples.forEach(function(ex,i){
+    var div=document.createElement('div');
+    div.className='few-example';
+    div.innerHTML='<div class="few-example-head"><span class="few-example-label">Example '+(i+1)+'</span><button class="few-example-del" onclick="deleteFewExample('+i+')">Remove</button></div>'+
+      '<div class="field"><label class="label">Input</label><textarea class="textarea" data-i="'+i+'" data-f="input" placeholder="Example input">'+escapeHtml(ex.input)+'</textarea></div>'+
+      '<div class="field"><label class="label">Output</label><textarea class="textarea" data-i="'+i+'" data-f="output" placeholder="Expected output">'+escapeHtml(ex.output)+'</textarea></div>';
+    wrap.appendChild(div);
+  });
+  wrap.querySelectorAll('textarea').forEach(function(ta){
+    ta.addEventListener('input',function(){
+      var i=parseInt(ta.getAttribute('data-i'),10);
+      var f=ta.getAttribute('data-f');
+      fewExamples[i][f]=ta.value;
+    });
+  });
+}
+function deleteFewExample(i){
+  fewExamples.splice(i,1);
+  renderFewExamples();
+}
+function buildFewShot(){
+  var sys=document.getElementById('fsSystem').value.trim();
+  var q=document.getElementById('fsQuery').value.trim();
+  if(fewExamples.length===0){toast('Add at least one example');return}
+  if(!q){toast('Enter a final query');return}
+  var lines=[];
+  if(sys){
+    lines.push('### SYSTEM ###');
+    lines.push(sys);
+    lines.push('');
+  }
+  lines.push('### EXAMPLES ###');
+  fewExamples.forEach(function(ex,i){
+    lines.push('Example '+(i+1)+':');
+    lines.push('Input: '+(ex.input||'(empty)'));
+    lines.push('Output: '+(ex.output||'(empty)'));
+    lines.push('');
+  });
+  lines.push('### QUERY ###');
+  lines.push('Input: '+q);
+  lines.push('Output:');
+  var out=lines.join('\n');
+  var el=document.getElementById('fsOutput');
+  el.innerHTML='';
+  el.textContent=out;
+  document.getElementById('fsActions').style.display='flex';
+  toast('Few-shot prompt generated');
+}
+function saveFewShotTemplate(){
+  var data={
+    sys:document.getElementById('fsSystem').value,
+    examples:fewExamples,
+    query:document.getElementById('fsQuery').value
+  };
+  if(!data.sys&&!data.query&&data.examples.length===0){toast('Nothing to save');return}
+  var name=prompt('Template name:','Few-Shot '+(new Date()).toLocaleDateString());
+  if(!name)return;
+  var list=JSON.parse(localStorage.getItem('ait_few_templates')||'[]');
+  list.push({name:name,data:data,ts:Date.now()});
+  localStorage.setItem('ait_few_templates',JSON.stringify(list));
+  toast('Template saved');
+  renderFewShotSaved();
+}
+function renderFewShotSaved(){
+  var list=JSON.parse(localStorage.getItem('ait_few_templates')||'[]');
+  var el=document.getElementById('fsSavedList');
+  if(list.length===0){el.innerHTML='<div class="hint">No saved templates yet.</div>';return}
+  el.innerHTML='';
+  list.forEach(function(t,i){
+    var div=document.createElement('div');
+    div.className='saved-item';
+    div.innerHTML='<div><div class="saved-item-name">'+escapeHtml(t.name)+'</div><div class="saved-item-meta">'+t.data.examples.length+' examples · '+new Date(t.ts).toLocaleString()+'</div></div>'+
+      '<div class="saved-item-actions">'+
+        '<button class="btn btn-sm" onclick="loadFewShotSaved('+i+')">Load</button>'+
+        '<button class="btn btn-sm btn-danger" onclick="deleteFewShotSaved('+i+')">Delete</button>'+
+      '</div>';
+    el.appendChild(div);
+  });
+}
+function loadFewShotSaved(i){
+  var list=JSON.parse(localStorage.getItem('ait_few_templates')||'[]');
+  if(!list[i])return;
+  var d=list[i].data;
+  document.getElementById('fsSystem').value=d.sys||'';
+  document.getElementById('fsQuery').value=d.query||'';
+  fewExamples=(d.examples||[]).map(function(ex){return {input:ex.input||'',output:ex.output||''}});
+  renderFewExamples();
+  toast('Template loaded');
+}
+function deleteFewShotSaved(i){
+  var list=JSON.parse(localStorage.getItem('ait_few_templates')||'[]');
+  list.splice(i,1);
+  localStorage.setItem('ait_few_templates',JSON.stringify(list));
+  toast('Template deleted');
+  renderFewShotSaved();
+}
+function loadFewShotExample(){
+  document.getElementById('fsSystem').value='You are a sentiment classifier. Given a review, output exactly one of: POSITIVE, NEGATIVE, or NEUTRAL. Do not include any other text.';
+  fewExamples=[
+    {input:'The headphones sound amazing and the battery lasts forever.',output:'POSITIVE'},
+    {input:'Shipping was late and the box was crushed. Disappointing.',output:'NEGATIVE'},
+    {input:'It works as described. Nothing special, nothing wrong.',output:'NEUTRAL'}
+  ];
+  document.getElementById('fsQuery').value='The battery life on this phone is incredible — easily two days of normal use.';
+  renderFewExamples();
+}
+
+/* ============================================================
+   TOOL 8: TOKEN COUNTER
+   ============================================================ */
+function estimateTokens(text){
+  if(!text)return 0;
+  // heuristic: 4 chars ≈ 1 token, with adjustment for whitespace and short words
+  var chars=text.length;
+  var words=text.trim().split(/\s+/).filter(Boolean).length;
+  var base=chars/4;
+  // adjust: very short words tend to be 1 token each; long words compress
+  var adjusted=base*0.85+words*0.15;
+  return Math.max(1,Math.round(adjusted));
+}
+function updateCounter(){
+  var text=document.getElementById('counterInput').value;
+  var chars=text.length;
+  var words=text.trim()?text.trim().split(/\s+/).length:0;
+  var tokens=estimateTokens(text);
+  var sentences=text.split(/[.!?]+/).filter(function(s){return s.trim().length>0});
+  document.getElementById('cTokens').textContent=tokens.toLocaleString();
+  document.getElementById('cWords').textContent=words.toLocaleString();
+  document.getElementById('cChars').textContent=chars.toLocaleString();
+  document.getElementById('cSentences').textContent=sentences.length;
+
+  // costs
+  var fullRates={
+    'GPT-4 Turbo':{in:10,out:30},
+    'GPT-4o':{in:5,out:15},
+    'GPT-3.5 Turbo':{in:0.5,out:1.5},
+    'Claude 3 Opus':{in:15,out:75},
+    'Claude 3 Sonnet':{in:3,out:15},
+    'Claude 3 Haiku':{in:0.25,out:1.25},
+    'Gemini 1.5 Pro':{in:3.5,out:10.5},
+    'Gemini 1.5 Flash':{in:0.35,out:1.05},
+    'Llama 3 70B':{in:0.59,out:0.79}
+  };
+  var el=document.getElementById('counterCostGrid');
+  el.innerHTML='';
+  Object.keys(fullRates).forEach(function(name){
+    var r=fullRates[name];
+    var inCost=(tokens/1000000)*r.in;
+    var card=document.createElement('div');
+    card.className='cost-card';
+    card.innerHTML='<div class="cost-card-name"><span class="cost-dot" style="background:'+modelColor(name)+'"></span>'+name+'</div>'+
+      '<div class="cost-card-val">$'+inCost.toFixed(6)+'</div>'+
+      '<div class="cost-card-rate">$'+r.in.toFixed(2)+' / 1M input tokens</div>';
+    el.appendChild(card);
+  });
+
+  // distribution
+  renderDistribution(sentences);
+}
+var DIST_COLORS=['#a78bfa','#22d3ee','#f472b6','#34d399','#fbbf24','#fb7185','#60a5fa','#c084fc','#f59e0b','#10b981','#ef4444','#8b5cf6'];
+function renderDistribution(sentences){
+  var bar=document.getElementById('distBar');
+  var legend=document.getElementById('distLegend');
+  bar.innerHTML='';
+  legend.innerHTML='';
+  if(sentences.length===0){
+    bar.innerHTML='<div style="flex:1;display:grid;place-items:center;color:var(--text-dim);font-size:12px;background:rgba(255,255,255,0.03)">Paste text to see distribution</div>';
+    return;
+  }
+  // cap to 12 segments for readability
+  var shown=sentences.slice(0,12);
+  var tokensBySentence=shown.map(function(s){return estimateTokens(s)});
+  var totalTokens=tokensBySentence.reduce(function(a,b){return a+b},0)||1;
+  shown.forEach(function(s,i){
+    var pct=(tokensBySentence[i]/totalTokens)*100;
+    var seg=document.createElement('div');
+    seg.className='dist-seg';
+    seg.style.background=DIST_COLORS[i%DIST_COLORS.length];
+    seg.style.flex=tokensBySentence[i];
+    seg.title='Sentence '+(i+1)+': '+tokensBySentence[i]+' tokens ('+pct.toFixed(1)+'%)';
+    if(pct>=8)seg.textContent=tokensBySentence[i];
+    bar.appendChild(seg);
+    var leg=document.createElement('div');
+    leg.className='dist-leg-item';
+    leg.innerHTML='<span class="dist-leg-dot" style="background:'+DIST_COLORS[i%DIST_COLORS.length]+'"></span>S'+(i+1)+' ('+tokensBySentence[i]+' tk)';
+    legend.appendChild(leg);
+  });
+  if(sentences.length>12){
+    var more=document.createElement('div');
+    more.className='dist-leg-item';
+    more.style.color='var(--text-dim)';
+    more.textContent='+'+(sentences.length-12)+' more sentences';
+    legend.appendChild(more);
+  }
+}
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+var FAQS=[
+  {q:'What is temperature in LLMs?',a:'Temperature is a sampling parameter (typically 0 to 2) that controls the randomness of an LLM\'s output. At temperature 0 the model is nearly deterministic, always picking the most likely next token. Low values (0.1–0.4) produce focused, factual output ideal for coding and analysis. Mid values (0.5–0.9) balance creativity and coherence for general writing. High values (1.0–1.5) produce more creative, varied output useful for brainstorming. Very high values (1.6–2.0) become chaotic and often incoherent. The Temperature & Token Guide tab lets you drag a slider across this range and see live examples of each band.'},
+  {q:'How accurate is the token counter?',a:'The token counter uses a heuristic approximation (roughly 4 characters per token, with word-boundary adjustments). For English text this is typically within 5–15% of the actual count returned by tokenizer-specific tools like OpenAI\'s tiktoken (GPT) or Anthropic\'s Claude tokenizer. For code, non-English languages, or text heavy with punctuation and emojis, the estimate can diverge more — tokenizers split such content unpredictably. For billing-critical workloads, always verify with the official tokenizer for your specific model. The Token Counter is great for prompt planning, cost estimation, and length budgeting, not for exact invoicing.'},
+  {q:'Can I save my prompt templates?',a:'Yes. The Variable Injector and Few-Shot Builder both save templates to your browser\'s localStorage. Saved templates persist across page reloads on the same device and browser. Note that localStorage is per-browser and per-device — templates are not synced across devices or backed up to a server. Use the Download HTML button in the header to capture the toolkit itself, or copy your finished prompts to a notes app or document for cross-device access. To remove a saved template, use the Delete button next to it in the saved-templates list.'},
+  {q:'What is few-shot prompting?',a:'Few-shot prompting is a technique where you include 1 to several examples of the desired input-output behavior inside the prompt, before asking the model to perform the task on a new input. This "shows" the model the pattern to follow rather than only describing it in words. Few-shot works especially well for classification, formatting, translation, style transfer, and any task where consistency of output shape matters. The Few-Shot Builder tool lets you assemble a system message, multiple input-output examples, and a final query into one structured prompt that you can copy and run.'},
+  {q:'How does the prompt analyzer work?',a:'The Prompt Tester uses a rule-based heuristic analyzer — it does not call an LLM. It checks for clarity signals (sentence length, vague words like "stuff" or "things"), specificity signals (concrete numbers, constraints, named audience/tone, format keywords), and structure signals (headings, lists, format specifiers, examples, multi-paragraph sections). It also flags potential issues such as missing format specifications, no examples, no audience, and no tone guidance. Scores are 0–100 estimates meant to guide improvement, not absolute measures of prompt quality. A high score is a good sign, but real-world results still depend on the model and the task.'},
+  {q:'Are my prompts sent to any server?',a:'No. Every tool in the Premium AI Toolkit runs entirely in your browser using client-side JavaScript. Your prompts, templates, variables, and text never leave your device. There are no API calls, no analytics, and no server-side storage. This makes the toolkit safe to use with confidential or proprietary content. The only network request is the initial font load from Google Fonts. You can even download the HTML file and run it fully offline — every feature, including the token counter, prompt builder, and tester, will continue to work without an internet connection.'}
+];
+function renderFAQ(){
+  var list=document.getElementById('faqList');
+  list.innerHTML='';
+  FAQS.forEach(function(f){
+    var item=document.createElement('div');
+    item.className='faq-item';
+    item.innerHTML='<div class="faq-q">'+f.q+'<span class="faq-toggle">+</span></div><div class="faq-a">'+f.a+'</div>';
+    item.querySelector('.faq-q').addEventListener('click',function(){
+      var isOpen=item.classList.contains('open');
+      // close all
+      document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open')});
+      if(!isOpen)item.classList.add('open');
+    });
+    list.appendChild(item);
+  });
+}
+
+/* ============================================================
+   INIT
+   ============================================================ */
+function init(){
+  renderLibrary();
+  updateTemp();
+  updateTokens();
+  renderCompareFilter();
+  renderCompareTable();
+  renderInjectorSaved();
+  renderFewShotSaved();
+  renderFAQ();
+  updateBuilderSteps();
+  updateCounter();
+  // seed few-shot builder with one empty example for convenience
+  if(fewExamples.length===0)addFewExample();
+}
+var _aitInitDone=false;
+function _aitInit(){if(_aitInitDone)return;_aitInitDone=true;init()}
+if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',_aitInit)}
+else{_aitInit()}
+</script>
+</body>
+</html>

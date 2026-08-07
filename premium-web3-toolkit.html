@@ -1,0 +1,2262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premium Web3 Toolkit — Wallet, Gas, Keccak, ABI, Chain ID | ExcuseMeWeb</title>
+<meta name="description" content="Premium Web3 developer toolkit with 8 working tools: wallet address validator, ETH unit converter, gas tracker, Keccak-256 hasher, ABI formatter, chain ID lookup, token amount formatter, and ENS helper.">
+<meta name="keywords" content="web3 toolkit, ethereum tools, keccak256, eip-55 checksum, abi formatter, chain id, gas tracker, ens namehash, eth unit converter, erc20 token formatter">
+<meta name="author" content="ExcuseMeWeb">
+<meta name="theme-color" content="#0d1224">
+<link rel="canonical" href="https://excusemeweb.com/premium-web3-toolkit">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Premium Web3 Toolkit — Wallet, Gas, Keccak, ABI, Chain ID | ExcuseMeWeb">
+<meta property="og:description" content="Premium Web3 developer toolkit with 8 working tools: wallet address validator, ETH unit converter, gas tracker, Keccak-256 hasher, ABI formatter, chain ID lookup, token amount formatter, and ENS helper.">
+<meta property="og:url" content="https://excusemeweb.com/premium-web3-toolkit">
+<meta property="og:site_name" content="ExcuseMeWeb">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Premium Web3 Toolkit — Wallet, Gas, Keccak, ABI, Chain ID">
+<meta name="twitter:description" content="8 working Web3 tools that run 100% locally in your browser. Wallet validator, ETH unit converter, gas tracker, Keccak-256, ABI formatter, chain ID lookup, token formatter, ENS helper.">
+<meta name="twitter:url" content="https://excusemeweb.com/premium-web3-toolkit">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- WebApplication JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Premium Web3 Toolkit",
+  "url": "https://excusemeweb.com/premium-web3-toolkit",
+  "description": "Premium Web3 developer toolkit with 8 working tools: wallet address validator, ETH unit converter, gas tracker, Keccak-256 hasher, ABI formatter, chain ID lookup, token amount formatter, and ENS helper.",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Any (web-based)",
+  "browserRequirements": "Requires a modern web browser with JavaScript enabled",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@type": "Organization", "name": "ExcuseMeWeb", "url": "https://excusemeweb.com" },
+  "featureList": [
+    "Wallet Address Validator (Ethereum, Bitcoin, Solana, Polygon, BSC, EIP-55)",
+    "ETH Unit Converter (wei, kwei, mwei, gwei, finney, ether)",
+    "Gas Tracker with cost calculator",
+    "Keccak-256 Hasher (Ethereum variant)",
+    "ABI Formatter & Validator",
+    "Chain ID Lookup (30+ networks)",
+    "Token Amount Formatter (human-readable to raw wei)",
+    "ENS/SNS Helper (namehash, format validation)"
+  ]
+}
+</script>
+
+<!-- FAQPage JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is Keccak-256 and how is it different from SHA-3?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Keccak-256 is the hash function used by Ethereum for addresses, transactions, and smart contracts. SHA-3-256 is the NIST-standardized version of Keccak. They use the same Keccak-f[1600] permutation but differ in padding: Ethereum's Keccak-256 uses the original 0x01 padding bit, while SHA-3 uses 0x06 as specified in FIPS 202. Because of this difference, the two algorithms produce different hashes for the same input, so they are not interchangeable." }
+    },
+    {
+      "@type": "Question",
+      "name": "How does EIP-55 checksum work?",
+      "acceptedAnswer": { "@type": "Answer", "text": "EIP-55 adds case-based checksums to Ethereum addresses. The lowercase hex address is hashed with Keccak-256. Then for each character in the address, if the character is a letter (a-f) and the corresponding nibble in the hash is 8 or higher, the letter is capitalized; otherwise it stays lowercase. Digits are never capitalized. To verify, you recompute the checksum and compare it to the input. This catches single-character typos and many transpositions without changing the address length or the underlying bytes." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a chain ID?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A chain ID is a unique integer that identifies a blockchain network. It was introduced in EIP-155 to prevent transaction replay across different chains. For example, Ethereum Mainnet is 1, BSC is 56, Polygon is 137, and Arbitrum One is 42161. When you sign a transaction, the chain ID is included in the signed data, so a transaction valid on one chain cannot be replayed on another. Wallets use the chain ID to route transactions to the correct network." }
+    },
+    {
+      "@type": "Question",
+      "name": "How are gas fees calculated?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Gas fees are calculated as gas limit multiplied by gas price. The gas limit is the maximum amount of gas a transaction can consume (21,000 for a simple ETH transfer, more for contract interactions). The gas price is what you pay per unit of gas, measured in gwei (1 gwei = 10^-9 ETH). Total cost in ETH = (gas limit x gas price in gwei) / 10^9. Since EIP-1559, the gas price is split into a base fee (burned) and an optional priority fee (tip to the validator)." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my data sent to a server?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. Every tool in the Premium Web3 Toolkit runs entirely in your browser using client-side JavaScript. Your addresses, private inputs, ABI JSON, and other data never leave your device. The Keccak-256, EIP-55, and ENS namehash implementations are all inlined and execute locally. This makes the toolkit safe to use with sensitive development data. The gas tracker uses static demo values because real-time gas data would require an external API call." }
+    },
+    {
+      "@type": "Question",
+      "name": "How does the ENS namehash algorithm work?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The ENS namehash is a recursive algorithm defined in EIP-137 that produces a 256-bit hash for any ENS name. It starts with 32 zero bytes for the empty name. Then for each label (working from right to left, e.g. for vitalik.eth it processes 'eth' first then 'vitalik'), it computes: node = keccak256(node || keccak256(label)). The label is first normalized and hashed with Keccak-256. The final 32-byte value is the namehash used as the storage key in the ENS registry smart contract." }
+    }
+  ]
+}
+</script>
+
+<style>
+:root{
+  --bg:#0d1224;
+  --bg-deep:#080b16;
+  --surface:#141b30;
+  --surface-2:#1a2340;
+  --surface-3:#222d4d;
+  --text:#e6ecff;
+  --text-muted:#8d9bbf;
+  --text-dim:#5b6788;
+  --border:#243056;
+  --border-soft:#1a2444;
+  --blue:#00d4ff;
+  --green:#00ff88;
+  --purple:#8b5cf6;
+  --pink:#ec4899;
+  --yellow:#fbbf24;
+  --red:#ff5470;
+  --orange:#ff8a3d;
+  --radius:14px;
+  --radius-sm:10px;
+  --radius-xs:7px;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.3);
+  --shadow-lg:0 20px 60px rgba(0,0,0,.55);
+  --glow-blue:0 0 0 3px rgba(0,212,255,.16), 0 0 28px rgba(0,212,255,.22);
+  --glow-green:0 0 0 3px rgba(0,255,136,.16), 0 0 28px rgba(0,255,136,.22);
+  --glow-purple:0 0 0 3px rgba(139,92,246,.18), 0 0 28px rgba(139,92,246,.24);
+  --font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
+  --font-mono:'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;
+  --font-display:'Space Grotesk','Inter',sans-serif;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:var(--font);
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  background-image:
+    radial-gradient(1100px 600px at 78% -8%, rgba(0,212,255,.10), transparent 60%),
+    radial-gradient(900px 500px at 5% 5%, rgba(139,92,246,.08), transparent 55%),
+    radial-gradient(900px 700px at 100% 100%, rgba(0,255,136,.06), transparent 60%);
+  background-attachment:fixed;
+  min-height:100vh;
+  overflow-x:hidden;
+  position:relative;
+}
+/* Grid overlay */
+body::before{
+  content:"";
+  position:fixed;inset:0;
+  background-image:
+    linear-gradient(rgba(0,212,255,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,212,255,.04) 1px, transparent 1px);
+  background-size:48px 48px;
+  pointer-events:none;
+  z-index:0;
+  mask-image:radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 80%);
+  -webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 80%);
+}
+/* Animated orbs */
+.orb{
+  position:fixed;border-radius:50%;filter:blur(80px);opacity:.45;
+  pointer-events:none;z-index:0;animation:float 22s ease-in-out infinite;
+}
+.orb-1{width:380px;height:380px;background:radial-gradient(circle,#00d4ff,transparent 70%);top:-80px;right:-60px;}
+.orb-2{width:340px;height:340px;background:radial-gradient(circle,#8b5cf6,transparent 70%);top:30%;left:-100px;animation-delay:-7s;}
+.orb-3{width:300px;height:300px;background:radial-gradient(circle,#00ff88,transparent 70%);bottom:-60px;right:30%;animation-delay:-14s;}
+@keyframes float{
+  0%,100%{transform:translate(0,0) scale(1);}
+  33%{transform:translate(40px,-30px) scale(1.08);}
+  66%{transform:translate(-30px,40px) scale(.94);}
+}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;}
+.mono{font-family:var(--font-mono);}
+.display{font-family:var(--font-display);}
+
+/* ============ HEADER ============ */
+.site-header{
+  position:sticky;top:0;z-index:60;
+  background:rgba(13,18,36,.82);
+  backdrop-filter:blur(18px) saturate(140%);
+  -webkit-backdrop-filter:blur(18px) saturate(140%);
+  border-bottom:1px solid var(--border-soft);
+}
+.header-inner{
+  max-width:1240px;margin:0 auto;padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  position:relative;z-index:1;
+}
+.brand{display:flex;align-items:center;gap:13px;min-width:0;}
+.brand-mark{
+  width:46px;height:46px;border-radius:13px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,rgba(0,212,255,.20),rgba(139,92,246,.14));
+  border:1px solid rgba(0,212,255,.45);
+  box-shadow:0 0 28px rgba(0,212,255,.22), inset 0 0 14px rgba(0,212,255,.10);
+  position:relative;overflow:hidden;
+}
+.brand-mark::before{
+  content:"";position:absolute;inset:6px;border-radius:8px;
+  border:1.5px solid rgba(0,212,255,.7);
+  box-shadow:0 0 10px rgba(0,212,255,.5), inset 0 0 8px rgba(0,212,255,.3);
+}
+.brand-mark::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.14) 50%,transparent 70%);
+  animation:shimmer 4s linear infinite;
+}
+@keyframes shimmer{0%{transform:translateX(-100%);}100%{transform:translateX(100%);}}
+.brand-text{display:flex;flex-direction:column;line-height:1.15;min-width:0;}
+.brand-title{font-family:var(--font-display);font-size:17px;font-weight:700;letter-spacing:-.01em;white-space:nowrap;}
+.brand-title em{font-style:normal;color:var(--blue);}
+.brand-sub{font-size:11.5px;color:var(--text-muted);font-weight:500;white-space:nowrap;font-family:var(--font-mono);letter-spacing:.02em;}
+.header-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;}
+.link-pill{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:13px;font-weight:600;color:var(--text-muted);
+  padding:9px 14px;border-radius:999px;border:1px solid var(--border);
+  background:var(--surface);transition:.16s;cursor:pointer;
+}
+.link-pill:hover{color:var(--text);border-color:var(--blue);box-shadow:var(--glow-blue);}
+
+/* ============ BUTTONS ============ */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  cursor:pointer;font-weight:700;font-size:13.5px;border-radius:10px;
+  border:1px solid transparent;padding:10px 16px;transition:.15s;white-space:nowrap;
+  font-family:var(--font);line-height:1;
+}
+.btn:active{transform:scale(.97);}
+.btn-primary{
+  background:linear-gradient(135deg,var(--blue),#0099cc);
+  color:#06121f;
+  box-shadow:0 6px 18px rgba(0,212,255,.32), inset 0 1px 0 rgba(255,255,255,.25);
+}
+.btn-primary:hover{box-shadow:0 8px 24px rgba(0,212,255,.45), inset 0 1px 0 rgba(255,255,255,.3);filter:brightness(1.06);}
+.btn-secondary{
+  background:var(--surface-2);color:var(--text);
+  border-color:var(--border);
+}
+.btn-secondary:hover{border-color:var(--blue);background:var(--surface-3);box-shadow:var(--glow-blue);}
+.btn-ghost{
+  background:transparent;color:var(--text-muted);border-color:var(--border);
+}
+.btn-ghost:hover{color:var(--text);border-color:var(--blue);}
+.btn-green{
+  background:linear-gradient(135deg,var(--green),#00b85f);
+  color:#06200f;box-shadow:0 6px 18px rgba(0,255,136,.30), inset 0 1px 0 rgba(255,255,255,.25);
+}
+.btn-green:hover{filter:brightness(1.06);box-shadow:0 8px 24px rgba(0,255,136,.42);}
+.btn-sm{padding:7px 11px;font-size:12px;border-radius:8px;}
+.btn-icon{width:34px;height:34px;padding:0;border-radius:9px;}
+
+/* ============ HERO STRIP ============ */
+.hero-strip{
+  max-width:1240px;margin:0 auto;padding:34px 24px 14px;
+  position:relative;z-index:1;
+}
+.hero-strip h1{
+  font-family:var(--font-display);
+  font-size:clamp(28px,4vw,42px);
+  font-weight:700;letter-spacing:-.02em;margin:0 0 10px;line-height:1.1;
+}
+.hero-strip h1 .grad{
+  background:linear-gradient(120deg,var(--blue) 0%,var(--purple) 50%,var(--green) 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero-strip p{margin:0 0 18px;color:var(--text-muted);font-size:15px;max-width:760px;}
+.hero-badges{display:flex;gap:8px;flex-wrap:wrap;}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:12px;font-weight:600;color:var(--text-muted);
+  padding:6px 12px;border-radius:999px;
+  background:rgba(20,27,48,.7);border:1px solid var(--border-soft);
+  font-family:var(--font-mono);
+}
+.hero-badge .dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green);}
+.hero-badge .dot.b{background:var(--blue);box-shadow:0 0 8px var(--blue);}
+.hero-badge .dot.p{background:var(--purple);box-shadow:0 0 8px var(--purple);}
+
+/* ============ TABS ============ */
+.tab-bar-wrap{
+  position:sticky;top:73px;z-index:55;
+  background:rgba(13,18,36,.85);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  border-top:1px solid var(--border-soft);
+  border-bottom:1px solid var(--border-soft);
+}
+.tab-bar{
+  max-width:1240px;margin:0 auto;padding:10px 16px;
+  display:flex;gap:6px;overflow-x:auto;scrollbar-width:thin;scrollbar-color:var(--border) transparent;
+}
+.tab-bar::-webkit-scrollbar{height:6px;}
+.tab-bar::-webkit-scrollbar-thumb{background:var(--border);border-radius:6px;}
+.tab-btn{
+  flex:0 0 auto;display:inline-flex;align-items:center;gap:8px;
+  padding:9px 14px;border-radius:999px;border:1px solid var(--border-soft);
+  background:var(--surface);color:var(--text-muted);font-weight:600;font-size:13px;
+  cursor:pointer;transition:.15s;white-space:nowrap;font-family:var(--font);
+}
+.tab-btn:hover{color:var(--text);border-color:var(--blue);}
+.tab-btn.active{
+  color:#06121f;background:linear-gradient(135deg,var(--blue),#0099cc);
+  border-color:transparent;box-shadow:0 4px 14px rgba(0,212,255,.35);
+}
+.tab-btn .tnum{
+  font-family:var(--font-mono);font-size:10.5px;opacity:.7;
+  background:rgba(0,0,0,.18);padding:1px 6px;border-radius:6px;
+}
+.tab-btn.active .tnum{background:rgba(6,18,31,.25);opacity:.9;}
+
+/* ============ LAYOUT ============ */
+.wrap{
+  max-width:1240px;margin:0 auto;padding:28px 24px 60px;
+  position:relative;z-index:1;
+}
+.tool-panel{display:none;animation:fadeUp .35s ease;}
+.tool-panel.active{display:block;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
+.tool-head{
+  display:flex;align-items:flex-start;justify-content:space-between;gap:14px;
+  margin-bottom:22px;flex-wrap:wrap;
+}
+.tool-head h2{
+  font-family:var(--font-display);font-size:24px;font-weight:700;
+  margin:0 0 4px;letter-spacing:-.01em;display:flex;align-items:center;gap:10px;
+}
+.tool-head h2 .ic{
+  width:34px;height:34px;border-radius:9px;display:inline-flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,rgba(0,212,255,.18),rgba(139,92,246,.12));
+  border:1px solid rgba(0,212,255,.35);
+  color:var(--blue);flex-shrink:0;
+}
+.tool-head p{margin:0;color:var(--text-muted);font-size:13.5px;max-width:680px;}
+
+.grid{display:grid;gap:18px;}
+.grid-2{grid-template-columns:repeat(auto-fit,minmax(360px,1fr));}
+.grid-3{grid-template-columns:repeat(auto-fit,minmax(280px,1fr));}
+@media(max-width:760px){.grid-2,.grid-3{grid-template-columns:1fr;}}
+
+.card{
+  background:linear-gradient(180deg,var(--surface) 0%,rgba(20,27,48,.6) 100%);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:22px;
+  position:relative;overflow:hidden;
+  box-shadow:var(--shadow);
+}
+.card::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(0,212,255,.4),transparent);
+}
+.card-title{
+  font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;
+  color:var(--text-muted);margin:0 0 16px;display:flex;align-items:center;gap:8px;
+}
+.card-title .badge{
+  font-size:10px;padding:2px 8px;border-radius:999px;
+  background:rgba(0,212,255,.12);color:var(--blue);border:1px solid rgba(0,212,255,.3);
+  font-family:var(--font-mono);letter-spacing:.05em;
+}
+
+/* ============ INPUTS ============ */
+.field{margin-bottom:14px;}
+.field:last-child{margin-bottom:0;}
+.label{
+  display:block;font-size:12px;font-weight:600;color:var(--text-muted);
+  margin-bottom:6px;letter-spacing:.02em;
+}
+.label .req{color:var(--red);}
+.input,.textarea,.select{
+  width:100%;background:var(--bg-deep);border:1px solid var(--border);
+  color:var(--text);padding:11px 13px;border-radius:var(--radius-sm);
+  font-family:var(--font);font-size:14px;transition:.15s;outline:none;
+}
+.input:focus,.textarea:focus,.select:focus{
+  border-color:var(--blue);box-shadow:0 0 0 3px rgba(0,212,255,.12);
+}
+.input.mono,.textarea.mono{font-family:var(--font-mono);font-size:13.5px;}
+.textarea{min-height:130px;resize:vertical;line-height:1.55;}
+.select{appearance:none;-webkit-appearance:none;
+  background-image:linear-gradient(45deg,transparent 50%,var(--text-muted) 50%),linear-gradient(135deg,var(--text-muted) 50%,transparent 50%);
+  background-position:calc(100% - 18px) 50%,calc(100% - 13px) 50%;
+  background-size:5px 5px;background-repeat:no-repeat;padding-right:34px;cursor:pointer;
+}
+.input-row{display:flex;gap:8px;align-items:stretch;}
+.input-row .input{flex:1;}
+
+.kv{
+  display:flex;justify-content:space-between;align-items:center;gap:12px;
+  padding:9px 0;border-bottom:1px dashed var(--border-soft);
+}
+.kv:last-child{border-bottom:none;}
+.kv .k{font-size:12.5px;color:var(--text-muted);font-weight:500;}
+.kv .v{font-family:var(--font-mono);font-size:13px;color:var(--text);text-align:right;word-break:break-all;max-width:60%;}
+.kv .v.big{font-size:14px;font-weight:600;color:var(--blue);}
+
+.tag{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:3px 9px;border-radius:999px;font-size:11.5px;font-weight:700;
+  font-family:var(--font-mono);letter-spacing:.04em;text-transform:uppercase;
+}
+.tag-green{background:rgba(0,255,136,.12);color:var(--green);border:1px solid rgba(0,255,136,.3);}
+.tag-red{background:rgba(255,84,112,.12);color:var(--red);border:1px solid rgba(255,84,112,.3);}
+.tag-blue{background:rgba(0,212,255,.12);color:var(--blue);border:1px solid rgba(0,212,255,.3);}
+.tag-purple{background:rgba(139,92,246,.14);color:var(--purple);border:1px solid rgba(139,92,246,.3);}
+.tag-yellow{background:rgba(251,191,36,.12);color:var(--yellow);border:1px solid rgba(251,191,36,.3);}
+.tag-muted{background:rgba(141,155,191,.10);color:var(--text-muted);border:1px solid var(--border);}
+
+.result-box{
+  background:var(--bg-deep);border:1px solid var(--border);
+  border-radius:var(--radius-sm);padding:14px;
+  font-family:var(--font-mono);font-size:13px;
+  word-break:break-all;line-height:1.55;color:var(--text);
+}
+.result-box.success{border-color:rgba(0,255,136,.35);background:rgba(0,255,136,.04);}
+.result-box.error{border-color:rgba(255,84,112,.35);background:rgba(255,84,112,.04);}
+.result-box .hl{color:var(--blue);}
+.result-box .hl-g{color:var(--green);}
+.result-box .hl-p{color:var(--purple);}
+.result-box .hl-y{color:var(--yellow);}
+.result-box .hl-r{color:var(--red);}
+
+.callout{
+  display:flex;gap:11px;padding:12px 14px;border-radius:var(--radius-sm);
+  background:rgba(0,212,255,.06);border:1px solid rgba(0,212,255,.22);
+  font-size:13px;color:var(--text);line-height:1.55;margin-top:14px;
+}
+.callout.warn{background:rgba(251,191,36,.06);border-color:rgba(251,191,36,.28);}
+.callout.info{background:rgba(139,92,246,.06);border-color:rgba(139,92,246,.28);}
+.callout .ic{flex-shrink:0;font-weight:800;font-size:16px;line-height:1;color:var(--blue);}
+.callout.warn .ic{color:var(--yellow);}
+.callout.info .ic{color:var(--purple);}
+
+/* ============ WALLET VALIDATOR ============ */
+.chain-pill{
+  display:inline-flex;align-items:center;gap:7px;padding:7px 13px;border-radius:999px;
+  font-weight:700;font-size:13px;border:1px solid;
+}
+.chain-pill .glyph{
+  width:18px;height:18px;border-radius:50%;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-mono);font-weight:800;font-size:10px;
+}
+.chain-eth{color:var(--blue);border-color:rgba(0,212,255,.4);background:rgba(0,212,255,.08);}
+.chain-eth .glyph{background:var(--blue);color:#06121f;}
+.chain-btc{color:var(--orange);border-color:rgba(255,138,61,.4);background:rgba(255,138,61,.08);}
+.chain-btc .glyph{background:var(--orange);color:#1a0f06;}
+.chain-sol{color:var(--purple);border-color:rgba(139,92,246,.4);background:rgba(139,92,246,.08);}
+.chain-sol .glyph{background:var(--purple);color:#fff;}
+.chain-poly{color:var(--purple);border-color:rgba(139,92,246,.4);background:rgba(139,92,246,.08);}
+.chain-poly .glyph{background:var(--purple);color:#fff;}
+.chain-bsc{color:var(--yellow);border-color:rgba(251,191,36,.4);background:rgba(251,191,36,.08);}
+.chain-bsc .glyph{background:var(--yellow);color:#1a1408;}
+.chain-unknown{color:var(--text-muted);border-color:var(--border);background:var(--surface-2);}
+.chain-unknown .glyph{background:var(--text-muted);color:var(--bg);}
+
+.checksum-row{
+  display:flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:13.5px;
+  background:var(--bg-deep);border:1px solid var(--border);border-radius:var(--radius-sm);
+  padding:11px 13px;word-break:break-all;
+}
+.checksum-row .ch-up{color:var(--green);font-weight:600;}
+.checksum-row .ch-lo{color:var(--text-muted);}
+.checksum-row .ch-num{color:var(--blue);}
+.checksum-row .ch-prefix{color:var(--purple);}
+
+/* ============ CONVERTER ============ */
+.unit-grid{display:grid;grid-template-columns:1fr;gap:10px;}
+.unit-row{
+  display:grid;grid-template-columns:90px 1fr auto;gap:10px;align-items:center;
+  padding:10px 13px;background:var(--bg-deep);border:1px solid var(--border-soft);
+  border-radius:var(--radius-sm);transition:.15s;
+}
+.unit-row:hover{border-color:var(--blue);}
+.unit-row .uname{
+  font-family:var(--font-mono);font-size:11.5px;font-weight:700;color:var(--blue);
+  text-transform:uppercase;letter-spacing:.05em;
+}
+.unit-row .uval{
+  font-family:var(--font-mono);font-size:14px;color:var(--text);
+  text-align:right;word-break:break-all;
+}
+.unit-row .ucopy{
+  background:transparent;border:1px solid var(--border);color:var(--text-muted);
+  padding:5px 9px;border-radius:7px;font-size:11px;cursor:pointer;transition:.15s;
+  font-family:var(--font-mono);
+}
+.unit-row .ucopy:hover{color:var(--blue);border-color:var(--blue);}
+.unit-row.highlight{border-color:var(--green);box-shadow:var(--glow-green);}
+
+/* ============ GAS TRACKER ============ */
+.gas-tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:18px;}
+@media(max-width:720px){.gas-tiers{grid-template-columns:repeat(2,1fr);}}
+.gas-tier{
+  padding:14px;border-radius:var(--radius-sm);text-align:center;
+  background:var(--surface-2);border:1px solid var(--border);cursor:pointer;transition:.15s;
+}
+.gas-tier:hover{border-color:var(--blue);transform:translateY(-2px);}
+.gas-tier.active{border-color:var(--green);box-shadow:var(--glow-green);background:rgba(0,255,136,.06);}
+.gas-tier .tier-name{font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;}
+.gas-tier .tier-gwei{font-family:var(--font-mono);font-size:22px;font-weight:700;color:var(--text);}
+.gas-tier .tier-usd{font-size:11.5px;color:var(--text-muted);margin-top:3px;font-family:var(--font-mono);}
+.gas-tier.slow .tier-gwei{color:var(--blue);}
+.gas-tier.standard .tier-gwei{color:var(--green);}
+.gas-tier.fast .tier-gwei{color:var(--yellow);}
+.gas-tier.instant .tier-gwei{color:var(--red);}
+
+.tx-table{width:100%;border-collapse:collapse;font-size:13px;}
+.tx-table th{
+  text-align:left;padding:10px 12px;font-size:11px;font-weight:700;color:var(--text-muted);
+  text-transform:uppercase;letter-spacing:.06em;border-bottom:1px solid var(--border);
+}
+.tx-table td{padding:11px 12px;border-bottom:1px solid var(--border-soft);vertical-align:middle;}
+.tx-table tr:last-child td{border-bottom:none;}
+.tx-table tr:hover{background:rgba(0,212,255,.03);}
+.tx-table .mono{font-family:var(--font-mono);font-size:12.5px;}
+.tx-table .eth{color:var(--blue);font-family:var(--font-mono);}
+.tx-table .usd{color:var(--green);font-family:var(--font-mono);}
+
+.calc-output{
+  padding:18px;background:var(--bg-deep);border:1px solid var(--green);
+  border-radius:var(--radius-sm);text-align:center;
+  box-shadow:var(--glow-green);
+}
+.calc-output .lbl{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em;font-weight:700;}
+.calc-output .eth{font-family:var(--font-mono);font-size:26px;font-weight:700;color:var(--blue);margin:6px 0 4px;}
+.calc-output .usd{font-family:var(--font-mono);font-size:14px;color:var(--green);}
+
+/* ============ KECCAK ============ */
+.hash-display{
+  font-family:var(--font-mono);font-size:13.5px;word-break:break-all;
+  background:var(--bg-deep);border:1px solid var(--border);
+  border-radius:var(--radius-sm);padding:14px;line-height:1.7;color:var(--green);
+}
+.hash-display.empty{color:var(--text-dim);}
+.input-toggle{display:flex;gap:6px;margin-bottom:10px;}
+.toggle-btn{
+  padding:6px 12px;border-radius:8px;border:1px solid var(--border);
+  background:var(--surface-2);color:var(--text-muted);font-size:12px;
+  font-weight:600;cursor:pointer;transition:.15s;font-family:var(--font);
+}
+.toggle-btn.active{background:var(--blue);color:#06121f;border-color:transparent;}
+
+/* ============ ABI ============ */
+.abi-func{
+  background:var(--bg-deep);border:1px solid var(--border-soft);
+  border-radius:var(--radius-sm);padding:14px;margin-bottom:10px;
+  border-left:3px solid var(--blue);
+}
+.abi-func.event{border-left-color:var(--purple);}
+.abi-func.constructor{border-left-color:var(--yellow);}
+.abi-func.fallback{border-left-color:var(--orange);}
+.abi-func .sig{
+  font-family:var(--font-mono);font-size:13.5px;color:var(--text);
+  display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px;
+}
+.abi-func .sig .fname{color:var(--blue);font-weight:600;}
+.abi-func.event .sig .fname{color:var(--purple);}
+.abi-func .sig .ptype{color:var(--green);font-family:var(--font-mono);font-size:12px;}
+.abi-func .meta{font-size:11.5px;color:var(--text-muted);font-family:var(--font-mono);}
+
+/* ============ CHAIN TABLE ============ */
+.chain-search{margin-bottom:14px;}
+.chain-list{display:grid;gap:10px;}
+.chain-card{
+  background:var(--bg-deep);border:1px solid var(--border-soft);
+  border-radius:var(--radius-sm);padding:14px;cursor:pointer;transition:.15s;
+  display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;
+}
+.chain-card:hover{border-color:var(--blue);box-shadow:var(--glow-blue);}
+.chain-card .logo{
+  width:42px;height:42px;border-radius:50%;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-mono);font-weight:800;font-size:14px;
+  background:linear-gradient(135deg,var(--surface-3),var(--surface-2));
+  border:1px solid var(--border);color:var(--blue);
+}
+.chain-card .info{min-width:0;}
+.chain-card .name{font-weight:700;font-size:14px;margin-bottom:2px;}
+.chain-card .meta{font-size:11.5px;color:var(--text-muted);font-family:var(--font-mono);}
+.chain-card .right{text-align:right;}
+.chain-card .cid{
+  font-family:var(--font-mono);font-size:18px;font-weight:700;color:var(--green);
+}
+.chain-card .copy-hint{font-size:10.5px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.06em;}
+.chain-card.testnet{opacity:.78;}
+.chain-card.testnet .logo{color:var(--yellow);}
+
+/* ============ TOKEN FORMATTER ============ */
+.token-result{
+  padding:22px;text-align:center;background:var(--bg-deep);
+  border:1px solid var(--blue);border-radius:var(--radius-sm);
+  box-shadow:var(--glow-blue);margin-top:14px;
+}
+.token-result .lbl{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em;font-weight:700;}
+.token-result .val{font-family:var(--font-mono);font-size:22px;font-weight:700;color:var(--blue);margin:8px 0 4px;word-break:break-all;}
+.token-result .sub{font-size:12px;color:var(--text-muted);font-family:var(--font-mono);}
+
+.mode-toggle{display:flex;gap:6px;margin-bottom:14px;}
+.mode-toggle .mode-btn{
+  flex:1;padding:10px;border-radius:var(--radius-sm);border:1px solid var(--border);
+  background:var(--surface-2);color:var(--text-muted);font-weight:600;font-size:13px;
+  cursor:pointer;transition:.15s;text-align:center;
+}
+.mode-toggle .mode-btn.active{background:linear-gradient(135deg,rgba(0,212,255,.2),rgba(139,92,246,.14));color:var(--text);border-color:var(--blue);box-shadow:var(--glow-blue);}
+
+/* ============ ENS ============ */
+.ens-tree{
+  font-family:var(--font-mono);font-size:12.5px;background:var(--bg-deep);
+  border:1px solid var(--border);border-radius:var(--radius-sm);padding:16px;line-height:1.9;
+}
+.ens-tree .label-hash{color:var(--yellow);word-break:break-all;}
+.ens-tree .node-hash{color:var(--green);word-break:break-all;}
+.ens-tree .label-name{color:var(--blue);}
+.ens-tree .step{color:var(--text-muted);font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;font-weight:700;margin-top:10px;display:block;}
+.ens-tree .step:first-child{margin-top:0;}
+
+.gas-ops{display:grid;gap:8px;}
+.gas-op{
+  display:flex;justify-content:space-between;align-items:center;gap:10px;
+  padding:10px 13px;background:var(--bg-deep);border:1px solid var(--border-soft);
+  border-radius:var(--radius-sm);
+}
+.gas-op .op-name{font-size:13px;font-weight:600;}
+.gas-op .op-desc{font-size:11px;color:var(--text-muted);}
+.gas-op .op-cost{font-family:var(--font-mono);font-size:12.5px;color:var(--green);white-space:nowrap;}
+
+/* ============ FAQ ============ */
+.faq-section{max-width:1240px;margin:0 auto;padding:50px 24px 30px;position:relative;z-index:1;}
+.faq-section h2{
+  font-family:var(--font-display);font-size:30px;font-weight:700;
+  margin:0 0 6px;letter-spacing:-.01em;text-align:center;
+}
+.faq-section .sub{text-align:center;color:var(--text-muted);margin:0 0 32px;font-size:14.5px;}
+.faq-list{max-width:820px;margin:0 auto;}
+.faq-item{
+  background:linear-gradient(180deg,var(--surface) 0%,rgba(20,27,48,.6) 100%);
+  border:1px solid var(--border);border-radius:var(--radius);
+  margin-bottom:12px;overflow:hidden;transition:.2s;
+}
+.faq-item:hover{border-color:rgba(0,212,255,.4);}
+.faq-item.open{border-color:rgba(0,212,255,.45);box-shadow:var(--glow-blue);}
+.faq-q{
+  padding:18px 22px;cursor:pointer;display:flex;justify-content:space-between;
+  align-items:center;gap:14px;font-weight:600;font-size:15px;
+  user-select:none;
+}
+.faq-q .arrow{
+  flex-shrink:0;width:24px;height:24px;border-radius:50%;
+  background:var(--surface-3);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--blue);transition:.2s;font-size:14px;font-weight:800;
+}
+.faq-item.open .arrow{transform:rotate(45deg);background:var(--blue);color:#06121f;}
+.faq-a{
+  max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s ease;
+  padding:0 22px;color:var(--text-muted);font-size:14px;line-height:1.7;
+}
+.faq-item.open .faq-a{max-height:500px;padding:0 22px 20px;}
+
+/* ============ FOOTER ============ */
+.site-footer{
+  border-top:1px solid var(--border-soft);margin-top:40px;
+  padding:34px 24px;position:relative;z-index:1;
+  background:rgba(8,11,22,.6);
+}
+.footer-inner{max-width:1240px;margin:0 auto;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center;}
+.footer-left{display:flex;flex-direction:column;gap:6px;}
+.footer-credit{font-size:13.5px;color:var(--text);font-weight:600;}
+.footer-credit a{color:var(--blue);}
+.footer-credit a:hover{text-decoration:underline;}
+.footer-disclaimer{
+  font-size:11.5px;color:var(--text-dim);max-width:540px;line-height:1.55;
+  display:flex;align-items:flex-start;gap:6px;
+}
+.footer-disclaimer .ic{color:var(--yellow);flex-shrink:0;}
+.footer-links{display:flex;gap:14px;flex-wrap:wrap;align-items:center;}
+.footer-links a{font-size:12.5px;color:var(--text-muted);transition:.15s;}
+.footer-links a:hover{color:var(--blue);}
+
+/* ============ TOAST ============ */
+#toast{
+  position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);
+  background:linear-gradient(135deg,var(--surface-2),var(--surface-3));
+  border:1px solid var(--blue);color:var(--text);
+  padding:12px 20px;border-radius:999px;font-size:13.5px;font-weight:600;
+  box-shadow:var(--shadow-lg),var(--glow-blue);
+  opacity:0;pointer-events:none;transition:.3s cubic-bezier(.16,1,.3,1);z-index:9999;
+  display:flex;align-items:center;gap:9px;
+}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+#toast .dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green);}
+
+/* ============ MISC ============ */
+.copyable{
+  cursor:pointer;transition:.15s;
+}
+.copyable:hover{color:var(--blue);}
+.divider{height:1px;background:var(--border-soft);margin:18px 0;}
+.helper-text{font-size:11.5px;color:var(--text-dim);margin-top:5px;}
+.empty-state{
+  text-align:center;padding:40px 20px;color:var(--text-dim);font-size:13px;
+}
+.empty-state .ic{font-size:32px;margin-bottom:10px;opacity:.5;}
+.flex-between{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;}
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;}
+.stat{padding:12px;background:var(--bg-deep);border:1px solid var(--border-soft);border-radius:var(--radius-sm);text-align:center;}
+.stat .sv{font-family:var(--font-mono);font-size:18px;font-weight:700;color:var(--blue);}
+.stat .sl{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;margin-top:2px;}
+@media(max-width:560px){
+  .header-inner{padding:12px 14px;}
+  .wrap{padding:20px 14px 50px;}
+  .hero-strip{padding:24px 14px 10px;}
+  .faq-section{padding:36px 14px 24px;}
+  .card{padding:16px;}
+  .footer-inner{flex-direction:column;align-items:flex-start;}
+}
+</style>
+</head>
+<body>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">
+      <div class="brand-mark"></div>
+      <div class="brand-text">
+        <span class="brand-title">Premium <em>Web3</em> Toolkit</span>
+        <span class="brand-sub">8 tools · 100% client-side</span>
+      </div>
+    </div>
+    <div class="header-actions">
+      <a href="/all-in-one-toolkit" class="link-pill">All Toolkits</a>
+      <button class="btn btn-primary" onclick="downloadHTML()">Download HTML</button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero-strip">
+  <h1>Build on <span class="grad">Ethereum &amp; friends</span><br>with a sharper toolkit.</h1>
+  <p>Eight focused, browser-native Web3 tools for developers — validate wallets, hash with Keccak-256, decode ABIs, look up chain IDs, calculate gas, and compute ENS namehash. Everything runs locally in your browser. No data ever leaves your machine.</p>
+  <div class="hero-badges">
+    <span class="hero-badge"><span class="dot"></span>Keccak-256 verified</span>
+    <span class="hero-badge"><span class="dot b"></span>EIP-55 checksum</span>
+    <span class="hero-badge"><span class="dot p"></span>ENS namehash</span>
+    <span class="hero-badge"><span class="dot"></span>No API keys</span>
+    <span class="hero-badge"><span class="dot b"></span>30+ chains</span>
+  </div>
+</section>
+
+<!-- ============ TAB BAR ============ -->
+<div class="tab-bar-wrap">
+  <nav class="tab-bar" id="tabBar">
+    <button class="tab-btn active" data-tab="wallet"><span class="tnum">01</span>Wallet Validator</button>
+    <button class="tab-btn" data-tab="converter"><span class="tnum">02</span>Unit Converter</button>
+    <button class="tab-btn" data-tab="gas"><span class="tnum">03</span>Gas Tracker</button>
+    <button class="tab-btn" data-tab="keccak"><span class="tnum">04</span>Keccak-256</button>
+    <button class="tab-btn" data-tab="abi"><span class="tnum">05</span>ABI Formatter</button>
+    <button class="tab-btn" data-tab="chains"><span class="tnum">06</span>Chain ID Lookup</button>
+    <button class="tab-btn" data-tab="token"><span class="tnum">07</span>Token Formatter</button>
+    <button class="tab-btn" data-tab="ens"><span class="tnum">08</span>ENS Helper</button>
+  </nav>
+</div>
+
+<!-- ============ MAIN ============ -->
+<main class="wrap">
+
+  <!-- TOOL 1: WALLET VALIDATOR -->
+  <section class="tool-panel active" id="panel-wallet">
+    <div class="tool-head">
+      <div>
+        <h2><span class="ic">◆</span>Wallet Address Validator</h2>
+        <p>Paste any wallet address. The tool auto-detects the chain (Ethereum, Bitcoin, Solana, Polygon, BSC, and other EVM chains), validates the format, and verifies the EIP-55 checksum for Ethereum-style addresses.</p>
+      </div>
+    </div>
+    <div class="grid grid-2">
+      <div class="card">
+        <h3 class="card-title">Input Address <span class="badge">auto-detect</span></h3>
+        <div class="field">
+          <label class="label">Wallet address</label>
+          <div class="input-row">
+            <input class="input mono" id="walletInput" placeholder="0x... or bc1... or any EVM/Solana address" autocomplete="off" spellcheck="false">
+            <button class="btn btn-secondary btn-sm" onclick="pasteWallet()">Paste</button>
+          </div>
+          <div class="helper-text">Try: 0x5aAeb6053F3E94C9b9A09f33669435E7Ef1BeAed, 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045, bc1qar0srrr7xfkvy5l643lydnw9re59gtzzwf5mdq</div>
+        </div>
+        <div class="flex-between">
+          <button class="btn btn-primary btn-sm" onclick="validateWallet()">Validate</button>
+          <button class="btn btn-ghost btn-sm" onclick="loadSampleWallet()">Sample</button>
+        </div>
+      </div>
+      <div class="card">
+        <h3 class="card-title">Detection Result</h3>
+        <div id="walletResult">
+          <div class="empty-state">
+            <div class="ic">◇</div>
+            Enter an address to see chain detection, format validation, and checksum status.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOOL 2: UNIT CONVERTER -->
+  <section class="tool-panel" id="panel-converter">
+    <div class="tool-head">
+      <div>
+        <h2><span class="ic">⇄</span>ETH Unit Converter</h2>
+        <p>Convert between Ethereum's denomination units — wei, kwei, mwei, gwei, finney, and ether. Live conversion as you type. Includes a static ETH/USD rate (live rates require a price-feed API).</p>
+      </div>
+    </div>
+    <div class="grid grid-2">
+      <div class="card">
+        <h3 class="card-title">Source Value <span class="badge">live</span></h3>
+        <div class="field">
+          <label class="label">Amount</label>
+          <input class="input mono" id="convAmount" value="1.5" placeholder="1.5" autocomplete="off">
+        </div>
+        <div class="field">
+          <label class="label">From unit</label>
+          <select class="select" id="convUnit">
+            <option value="ether">ether (ETH)</option>
+            <option value="finney">finney (milliether)</option>
+            <option value="gwei">gwei (nano)</option>
+            <option value="mwei">mwei (micro)</option>
+            <option value="kwei">kwei (babbage)</option>
+            <option value="wei">wei (base unit)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label class="label">ETH/USD rate (static)</label>
+          <input class="input mono" id="convUsdRate" value="2450.00" autocomplete="off">
+          <div class="helper-text">Live rates require a price-feed API. Adjust this static rate for rough USD estimates.</div>
+        </div>
+      </div>
+      <div class="card">
+        <h3 class="card-title">Converted Values</h3>
+        <div class="unit-grid" id="convResults">
+          <div class="unit-row"><span class="uname">wei</span><span class="uval" id="r-wei">0</span><button class="ucopy" onclick="copyUnit('wei')">copy</button></div>
+          <div class="unit-row"><span class="uname">kwei</span><span class="uval" id="r-kwei">0</span><button class="ucopy" onclick="copyUnit('kwei')">copy</button></div>
+          <div class="unit-row"><span class="uname">mwei</span><span class="uval" id="r-mwei">0</span><button class="ucopy" onclick="copyUnit('mwei')">copy</button></div>
+          <div class="unit-row"><span class="uname">gwei</span><span class="uval" id="r-gwei">0</span><button class="ucopy" onclick="copyUnit('gwei')">copy</button></div>
+          <div class="unit-row"><span class="uname">finney</span><span class="uval" id="r-finney">0</span><button class="ucopy" onclick="copyUnit('finney')">copy</button></div>
+          <div class="unit-row highlight"><span class="uname">ether</span><span class="uval" id="r-ether">0</span><button class="ucopy" onclick="copyUnit('ether')">copy</button></div>
+        </div>
+        <div class="divider"></div>
+        <div class="kv"><span class="k">Estimated USD value</span><span class="v big" id="convUsd">$0.00</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOOL 3: GAS TRACKER -->
+  <section class="tool-panel" id="panel-gas">
+    <div class="tool-head">
+      <div>
+        <h2><span class="ic">⛽</span>Gas Tracker &amp; Calculator</h2>
+        <p>Static demo of network gas tiers and estimated transaction costs. Calculate custom gas costs by entering your own gas price and limit. All values are illustrative — real-time gas requires an oracle API.</p>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <h3 class="card-title">Sample Network Tiers <span class="badge">static</span></h3>
+        <div class="gas-tiers" id="gasTiers">
+          <div class="gas-tier slow" data-gwei="8" data-name="slow"><div class="tier-name">Slow</div><div class="tier-gwei">8</div><div class="tier-usd">~3-5 min</div></div>
+          <div class="gas-tier standard active" data-gwei="15" data-name="standard"><div class="tier-name">Standard</div><div class="tier-gwei">15</div><div class="tier-usd">~1 min</div></div>
+          <div class="gas-tier fast" data-gwei="25" data-name="fast"><div class="tier-name">Fast</div><div class="tier-gwei">25</div><div class="tier-usd">~15 sec</div></div>
+          <div class="gas-tier instant" data-gwei="40" data-name="instant"><div class="tier-name">Instant</div><div class="tier-gwei">40</div><div class="tier-usd">~next block</div></div>
+        </div>
+        <div class="callout warn">
+          <span class="ic">!</span>
+          <span>These are <strong>static sample values</strong> for demonstration. Real-time gas prices require a live oracle (Etherscan Gas API, ETH Gas Station, or node RPC). Pre-EIP-1559 model shown for clarity.</span>
+        </div>
+      </div>
+      <div class="grid grid-2">
+        <div class="card">
+          <h3 class="card-title">Custom Cost Calculator</h3>
+          <div class="field">
+            <label class="label">Gas price (gwei)</label>
+            <input class="input mono" id="calcGwei" value="15" autocomplete="off">
+          </div>
+          <div class="field">
+            <label class="label">Gas limit</label>
+            <input class="input mono" id="calcLimit" value="21000" autocomplete="off">
+          </div>
+          <div class="field">
+            <label class="label">ETH/USD rate</label>
+            <input class="input mono" id="calcUsd" value="2450.00" autocomplete="off">
+          </div>
+          <div class="calc-output" id="calcOutput">
+            <div class="lbl">Transaction Cost</div>
+            <div class="eth" id="calcEth">0.000315 ETH</div>
+            <div class="usd" id="calcUsdOut">$0.77</div>
+          </div>
+        </div>
+        <div class="card">
+          <h3 class="card-title">Estimated Costs by Tx Type</h3>
+          <div style="overflow-x:auto;">
+          <table class="tx-table">
+            <thead><tr><th>Transaction</th><th>Gas</th><th>ETH</th><th>USD</th></tr></thead>
+            <tbody id="txTableBody"></tbody>
+          </table>
+          </div>
+          <div class="callout info">
+            <span class="ic">i</span>
+            <span>Gas limits are typical estimates. Actual consumption depends on the contract, calldata, and storage state.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOOL 4: KECCAK-256 -->
+  <section class="tool-panel" id="panel-keccak">
+    <div class="tool-head">
+      <div>
+        <h2><span class="ic">#</span>Keccak-256 Hasher</h2>
+        <p>Ethereum's hash function. Implemented in pure JavaScript using the Keccak-f[1600] permutation with the original Keccak padding (0x01) — <strong>not</strong> NIST SHA-3 (which uses 0x06). Hash text or hex input, and compare two inputs side by side.</p>
+      </div>
+    </div>
+    <div class="grid grid-2">
+      <div class="card">
+        <h3 class="card-title">Input <span class="badge">keccak-256</span></h3>
+        <div class="input-toggle">
+          <button class="toggle-btn active" id="kModeText" onclick="setKMode('text')">Text input</button>
+          <button class="toggle-btn" id="kModeHex" onclick="setKMode('hex')">Hex input</button>
+        </div>
+        <div class="field">
+          <label class="label" id="kInputLabel">Text to hash</label>
+          <textarea class="textarea mono" id="kInput" placeholder="Hello, Ethereum!">Hello, Ethereum!</textarea>
+          <div class="helper-text" id="kInputHint">UTF-8 bytes are hashed directly.</div>
+        </div>
+        <div class="flex-between">
+          <button class="btn btn-primary btn-sm" onclick="hashKeccak()">Hash</button>
+          <button class="btn btn-ghost btn-sm" onclick="loadSampleHash()">Sample vector</button>
+        </div>
+      </div>
+      <div class="card">
+        <h3 class="card-title">Output</h3>
+        <div class="hash-display empty" id="kOutput">keccak256("") will appear here…</div>
+        <div class="divider"></div>
+        <h3 class="card-title" style="margin-top:0">Compare Two Inputs</h3>
+        <div class="field">
+          <label class="label">Input A (text)</label>
+          <input class="input mono" id="kCmpA" placeholder="vitalik.eth" autocomplete="off">
+        </div>
+        <div class="field">
+          <label class="label">Input B (text)</label>
+          <input class="input mono" id="kCmpB" placeholder="Vitalik.eth" autocomplete="off">
+        </div>
+        <div class="result-box" id="kCmpResult" style="margin-top:8px;">Hashes will appear here.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOOL 5: ABI FORMATTER -->
+  <section class="tool-panel" id="panel-abi">
+    <div class="tool-head">
+      <div>
+        <h2><span class="ic">{ }</span>ABI Formatter</h2>
+        <p>Paste a raw JSON ABI (smart contract interface). The tool parses, validates, and renders it as a human-readable list of functions, events, constructors, and fallbacks — with full type signatures.</p>
+      </div>
+    </div>
+    <div class="grid grid-2">
+      <div class="card">
+        <h3 class="card-title">Raw ABI JSON</h3>
+        <div class="field">
+          <textarea class="textarea mono" id="abiInput" placeholder='[{"type":"function","name":"transfer","inputs":[...],"outputs":[...]}]' style="min-height:280px;"></textarea>
+        </div>
+        <div class="flex-between">
+          <button class="btn btn-primary btn-sm" onclick="formatAbi()">Format &amp; Parse</button>
+          <button class="btn btn-ghost btn-sm" onclick="loadSampleAbi()">Load ERC-20 sample</button>
+        </div>
+      </div>
+      <div class="card">
+        <h3 class="card-title">Parsed Interface</h3>
+        <div id="abiResult">
+          <div class="empty-state">
+            <div class="ic">{ }</div>
+            Paste a valid ABI JSON array to see the parsed contract interface.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOOL 6: CHAIN ID LOOKUP -->
+  <section class="tool-panel" id="panel-chains">
+    <div class="tool-head">
+      <div>
+        <h2><span class="ic">⛓</span>Chain ID Lookup</h2>
+        <p>Browse 30+ blockchain networks with their chain IDs, native currencies, RPC URLs, and explorers. Search by name or chain ID. Click any chain card to copy its chain ID to your clipboard.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="chain-search">
+        <div class="field" style="margin-bottom:0;">
+          <label class="label">Search networks</label>
+          <input class="input mono" id="chainSearch" placeholder="Filter by name or chain ID — e.g. ethereum, 137, arbitrum" autocomplete="off">
+        </div>
+      </div>
+      <div class="stat-grid" style="margin-bottom:18px;">
+        <div class="stat"><div class="sv" id="chainCount">0</div><div class="sl">Networks</div></div>
+        <div class="stat"><div class="sv" id="chainMain">0</div><div class="sl">Mainnets</div></div>
+        <div class="stat"><div class="sv" id="chainTest">0</div><div class="sl">Testnets</div></div>
+        <div class="stat"><div class="sv">click</div><div class="sl">to copy ID</div></div>
+      </div>
+      <div class="chain-list" id="chainList"></div>
+    </div>
+  </section>
+
+  <!-- TOOL 7: TOKEN FORMATTER -->
+  <section class="tool-panel" id="panel-token">
+    <div class="tool-head">
+      <div>
+        <h2><span class="ic">⌬</span>Token Amount Formatter</h2>
+        <p>Convert between human-readable token amounts and raw smallest-unit (wei) values. Essential for ERC-20 transactions, where most tokens use 18 decimals but some (like USDC) use 6.</p>
+      </div>
+    </div>
+    <div class="grid grid-2">
+      <div class="card">
+        <h3 class="card-title">Conversion Mode</h3>
+        <div class="mode-toggle">
+          <button class="mode-btn active" id="modeH2R" onclick="setTokenMode('h2r')">Human → Raw</button>
+          <button class="mode-btn" id="modeR2H" onclick="setTokenMode('r2h')">Raw → Human</button>
+        </div>
+        <div class="field">
+          <label class="label" id="tAmountLabel">Human amount</label>
+          <input class="input mono" id="tAmount" value="1.5" autocomplete="off">
+        </div>
+        <div class="field">
+          <label class="label">Decimals</label>
+          <input class="input mono" id="tDecimals" value="18" autocomplete="off">
+          <div class="helper-text">Common values: ETH=18, USDC=6, WBTC=8, DAI=18</div>
+        </div>
+        <div class="field">
+          <label class="label">Token symbol (optional)</label>
+          <input class="input" id="tSymbol" value="ETH" autocomplete="off">
+        </div>
+        <button class="btn btn-primary btn-sm" onclick="convertToken()">Convert</button>
+        <div class="token-result" id="tokenResult">
+          <div class="lbl" id="tResLabel">Raw Amount (wei)</div>
+          <div class="val" id="tResValue">1500000000000000000</div>
+          <div class="sub" id="tResSub">1.5 ETH at 18 decimals</div>
+        </div>
+      </div>
+      <div class="card">
+        <h3 class="card-title">Quick Reference</h3>
+        <div class="kv"><span class="k">1 ETH (18 dec)</span><span class="v">1000000000000000000</span></div>
+        <div class="kv"><span class="k">1 USDC (6 dec)</span><span class="v">1000000</span></div>
+        <div class="kv"><span class="k">1 WBTC (8 dec)</span><span class="v">100000000</span></div>
+        <div class="kv"><span class="k">1 DAI (18 dec)</span><span class="v">1000000000000000000</span></div>
+        <div class="kv"><span class="k">0.5 ETH (18 dec)</span><span class="v">500000000000000000</span></div>
+        <div class="kv"><span class="k">0.001 ETH (18 dec)</span><span class="v">1000000000000000</span></div>
+        <div class="callout info">
+          <span class="ic">i</span>
+          <span>The raw value is what you actually pass to a contract's <code>transfer()</code> function — contracts never see decimals, only the integer smallest-unit amount.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOOL 8: ENS HELPER -->
+  <section class="tool-panel" id="panel-ens">
+    <div class="tool-head">
+      <div>
+        <h2><span class="ic">@</span>ENS / SNS Helper</h2>
+        <p>Validate ENS name format, compute the ENS namehash (EIP-137) used as the storage key in the ENS registry, and review typical gas costs for ENS operations. Real on-chain resolution requires a node RPC; this tool computes the algorithmic namehash locally.</p>
+      </div>
+    </div>
+    <div class="grid grid-2">
+      <div class="card">
+        <h3 class="card-title">ENS Name <span class="badge">namehash</span></h3>
+        <div class="field">
+          <label class="label">ENS name</label>
+          <input class="input mono" id="ensInput" value="vitalik.eth" autocomplete="off" spellcheck="false">
+          <div class="helper-text">Algorithm: namehash("") = 32 zero bytes; namehash(name) = keccak256(namehash(parent) || keccak256(label))</div>
+        </div>
+        <div class="flex-between">
+          <button class="btn btn-primary btn-sm" onclick="computeEns()">Compute Namehash</button>
+          <button class="btn btn-ghost btn-sm" onclick="loadSampleEns()">vitalik.eth</button>
+        </div>
+        <div class="divider"></div>
+        <div class="field">
+          <label class="label">Validation</label>
+          <div id="ensValid" class="result-box success">Valid ENS name format.</div>
+        </div>
+        <div class="field">
+          <label class="label">Namehash (node)</label>
+          <div class="result-box" id="ensNamehash">0x...</div>
+        </div>
+      </div>
+      <div class="card">
+        <h3 class="card-title">Namehash Computation Steps</h3>
+        <div class="ens-tree" id="ensTree">Enter an ENS name to see the step-by-step namehash computation.</div>
+        <div class="divider"></div>
+        <h3 class="card-title" style="margin-top:0">Typical ENS Gas Costs <span class="badge">static</span></h3>
+        <div class="gas-ops">
+          <div class="gas-op"><div><div class="op-name">Register 5+ char name</div><div class="op-desc">ETHRegistrarController</div></div><div class="op-cost">~280,000 gas</div></div>
+          <div class="gas-op"><div><div class="op-name">Resolve name (addr)</div><div class="op-desc">ENS resolver lookup</div></div><div class="op-cost">~50,000 gas</div></div>
+          <div class="gas-op"><div><div class="op-name">Set resolver record</div><div class="op-desc">setAddr() transaction</div></div><div class="op-cost">~55,000 gas</div></div>
+          <div class="gas-op"><div><div class="op-name">Set text record</div><div class="op-desc">setText() transaction</div></div><div class="op-cost">~58,000 gas</div></div>
+          <div class="gas-op"><div><div class="op-name">Transfer subdomain</div><div class="op-desc">subnode owner change</div></div><div class="op-cost">~80,000 gas</div></div>
+        </div>
+        <div class="callout info">
+          <span class="ic">i</span>
+          <span>The Ethereum Name Service (ENS) maps human-readable names like <code>vitalik.eth</code> to addresses, content hashes, and other records. The namehash is the deterministic 256-bit key used to look up records in the ENS registry.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FAQ ============ -->
+<section class="faq-section" id="faq">
+  <h2>Frequently Asked Questions</h2>
+  <p class="sub">Everything you need to know about this Web3 toolkit and how it works.</p>
+  <div class="faq-list" id="faqList">
+    <div class="faq-item">
+      <div class="faq-q">What is Keccak-256 and how is it different from SHA-3?<span class="arrow">+</span></div>
+      <div class="faq-a">Keccak-256 is the hash function used by Ethereum for addresses, transactions, and smart contracts. SHA-3-256 is the NIST-standardized version of Keccak. They use the same Keccak-f[1600] permutation but differ in padding: Ethereum's Keccak-256 uses the original 0x01 padding bit, while SHA-3 uses 0x06 as specified in FIPS 202. Because of this difference, the two algorithms produce different hashes for the same input, so they are not interchangeable. This toolkit implements the Ethereum variant — the one used for EIP-55 checksums and ENS namehash.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How does EIP-55 checksum work?<span class="arrow">+</span></div>
+      <div class="faq-a">EIP-55 adds case-based checksums to Ethereum addresses. The lowercase hex address (without 0x prefix) is hashed with Keccak-256. Then for each character in the address, if the character is a letter (a-f) and the corresponding nibble in the hash is 8 or higher, the letter is capitalized; otherwise it stays lowercase. Digits are never capitalized. To verify, you recompute the checksum and compare it to the input. This catches single-character typos and many transpositions without changing the address length or the underlying bytes. For example, 0x5aAeb6053F3E94C9b9A09f33669435E7Ef1BeAed is correctly checksummed; flipping any single letter case will fail validation.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What is a chain ID?<span class="arrow">+</span></div>
+      <div class="faq-a">A chain ID is a unique integer that identifies a blockchain network. It was introduced in EIP-155 to prevent transaction replay across different chains. For example, Ethereum Mainnet is 1, BSC is 56, Polygon is 137, and Arbitrum One is 42161. When you sign a transaction, the chain ID is included in the signed data, so a transaction valid on one chain cannot be replayed on another. Wallets use the chain ID to route transactions to the correct network, and dApps use it to detect which network the user is connected to before triggering contract calls.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How are gas fees calculated?<span class="arrow">+</span></div>
+      <div class="faq-a">Gas fees are calculated as gas limit multiplied by gas price. The gas limit is the maximum amount of gas a transaction can consume (21,000 for a simple ETH transfer, more for contract interactions). The gas price is what you pay per unit of gas, measured in gwei (1 gwei = 10^-9 ETH). Total cost in ETH = (gas limit × gas price in gwei) / 10^9. Since EIP-1559, the gas price is split into a base fee (burned) and an optional priority fee (tip to the validator). This toolkit shows the simpler pre-EIP-1559 model for clarity, but the math is the same: limit × price per unit.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Is my data sent to a server?<span class="arrow">+</span></div>
+      <div class="faq-a">No. Every tool in the Premium Web3 Toolkit runs entirely in your browser using client-side JavaScript. Your addresses, ABI JSON, text inputs, and other data never leave your device. The Keccak-256, EIP-55, and ENS namehash implementations are all inlined and execute locally. This makes the toolkit safe to use with sensitive development data. The Gas Tracker uses static demo values because real-time gas data would require an external API call. If you need live data, you can download the HTML and wire in your own RPC or oracle endpoint.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How does the ENS namehash algorithm work?<span class="arrow">+</span></div>
+      <div class="faq-a">The ENS namehash is a recursive algorithm defined in EIP-137 that produces a 256-bit hash for any ENS name. It starts with 32 zero bytes for the empty name. Then for each label (working from right to left, e.g. for vitalik.eth it processes 'eth' first then 'vitalik'), it computes: node = keccak256(node || keccak256(label)). The label is first normalized (lowercased here for simplicity; full ENS normalization uses Unicode NFKC) and hashed with Keccak-256. The final 32-byte value is the namehash used as the storage key in the ENS registry smart contract. This toolkit shows each intermediate step so you can verify the algorithm by hand.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-left">
+      <div class="footer-credit">© 2026 <a href="/all-in-one-toolkit">ExcuseMeWeb</a> — Premium Web3 Toolkit</div>
+      <div class="footer-disclaimer">
+        <span class="ic">!</span>
+        <span>This toolkit is for development and education. Always verify transactions on-chain. Never paste private keys or seed phrases into any tool.</span>
+      </div>
+    </div>
+    <div class="footer-links">
+      <a href="/all-in-one-toolkit">All Toolkits</a>
+      <a href="https://excusemeweb.com">ExcuseMeWeb</a>
+      <a href="#faq">FAQ</a>
+    </div>
+  </div>
+</footer>
+
+<div id="toast"><span class="dot"></span><span id="toastMsg">Copied</span></div>
+
+<script>
+/* ============================================================
+   PREMIUM WEB3 TOOLKIT — JavaScript
+   All logic runs client-side. No external API calls.
+   ============================================================ */
+
+/* ---------- Helper utilities ---------- */
+function copyText(text){
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(function(){
+      toast('Copied to clipboard');
+    }).catch(function(){ fallbackCopy(text); });
+  } else {
+    fallbackCopy(text);
+  }
+}
+function fallbackCopy(text){
+  var ta = document.createElement('textarea');
+  ta.value = text; ta.style.position='fixed'; ta.style.opacity='0';
+  document.body.appendChild(ta); ta.select();
+  try{ document.execCommand('copy'); toast('Copied to clipboard'); }
+  catch(e){ toast('Copy failed'); }
+  document.body.removeChild(ta);
+}
+var toastTimer = null;
+function toast(msg){
+  var el = document.getElementById('toast');
+  document.getElementById('toastMsg').textContent = msg;
+  el.classList.add('show');
+  if(toastTimer) clearTimeout(toastTimer);
+  toastTimer = setTimeout(function(){ el.classList.remove('show'); }, 2200);
+}
+function downloadFile(filename, content, mime){
+  var blob = new Blob([content], {type: mime || 'text/plain'});
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a'); a.href = url; a.download = filename;
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  toast('Downloaded ' + filename);
+}
+function downloadHTML(){
+  var html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+  downloadFile('premium-web3-toolkit.html', html, 'text/html');
+}
+
+/* ---------- Tab switching ---------- */
+(function(){
+  var btns = document.querySelectorAll('.tab-btn');
+  var panels = document.querySelectorAll('.tool-panel');
+  btns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var tab = btn.getAttribute('data-tab');
+      btns.forEach(function(b){ b.classList.remove('active'); });
+      panels.forEach(function(p){ p.classList.remove('active'); });
+      btn.classList.add('active');
+      var panel = document.getElementById('panel-' + tab);
+      if(panel) panel.classList.add('active');
+      // Scroll the tab into view on mobile
+      btn.scrollIntoView({behavior:'smooth', block:'nearest', inline:'center'});
+    });
+  });
+})();
+
+/* ---------- FAQ accordion ---------- */
+(function(){
+  var items = document.querySelectorAll('.faq-item');
+  items.forEach(function(item){
+    var q = item.querySelector('.faq-q');
+    q.addEventListener('click', function(){
+      var isOpen = item.classList.contains('open');
+      items.forEach(function(i){ i.classList.remove('open'); });
+      if(!isOpen) item.classList.add('open');
+    });
+  });
+})();
+
+/* ============================================================
+   KECCAK-256 IMPLEMENTATION (Ethereum variant, padding 0x01)
+   Uses BigInt for correctness on 64-bit lanes.
+   Verified against known test vectors:
+     keccak256("")       = c5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470
+     keccak256("abc")    = 4e03657aea45a94fc7d47ba826c8d667c0d1e6e33a64a036ec44f58fa12d6c45
+   ============================================================ */
+const KECCAK_RC = [
+  BigInt('0x0000000000000001'), BigInt('0x0000000000008082'),
+  BigInt('0x800000000000808a'), BigInt('0x8000000080008000'),
+  BigInt('0x000000000000808b'), BigInt('0x0000000080000001'),
+  BigInt('0x8000000080008081'), BigInt('0x8000000000008009'),
+  BigInt('0x000000000000008a'), BigInt('0x0000000000000088'),
+  BigInt('0x0000000080008009'), BigInt('0x000000008000000a'),
+  BigInt('0x000000008000808b'), BigInt('0x800000000000008b'),
+  BigInt('0x8000000000008089'), BigInt('0x8000000000008003'),
+  BigInt('0x8000000000008002'), BigInt('0x8000000000000080'),
+  BigInt('0x000000000000800a'), BigInt('0x800000008000000a'),
+  BigInt('0x8000000080008081'), BigInt('0x8000000000008080'),
+  BigInt('0x0000000080000001'), BigInt('0x8000000080008008')
+];
+/* Rho offsets: RHO[x][y] */
+const KECCAK_RHO = [
+  [0, 36, 3, 41, 18],
+  [1, 44, 10, 45, 2],
+  [62, 6, 43, 15, 61],
+  [28, 55, 25, 21, 56],
+  [27, 20, 39, 8, 14]
+];
+const MASK64 = BigInt('0xFFFFFFFFFFFFFFFF');
+
+function rotl64(x, n){
+  n = BigInt(n);
+  if(n === 0n) return x & MASK64;
+  return (((x << n) | (x >> (64n - n))) & MASK64);
+}
+
+function keccakF1600(state){
+  for(var round = 0; round < 24; round++){
+    /* Theta */
+    var C = new Array(5);
+    for(var x = 0; x < 5; x++){
+      C[x] = state[x][0] ^ state[x][1] ^ state[x][2] ^ state[x][3] ^ state[x][4];
+    }
+    var D = new Array(5);
+    for(var x = 0; x < 5; x++){
+      D[x] = C[(x + 4) % 5] ^ rotl64(C[(x + 1) % 5], 1);
+    }
+    for(var x = 0; x < 5; x++){
+      for(var y = 0; y < 5; y++){
+        state[x][y] = (state[x][y] ^ D[x]) & MASK64;
+      }
+    }
+    /* Rho + Pi */
+    var B = [[0n,0n,0n,0n,0n],[0n,0n,0n,0n,0n],[0n,0n,0n,0n,0n],[0n,0n,0n,0n,0n],[0n,0n,0n,0n,0n]];
+    for(var x = 0; x < 5; x++){
+      for(var y = 0; y < 5; y++){
+        B[y][(2*x + 3*y) % 5] = rotl64(state[x][y], KECCAK_RHO[x][y]);
+      }
+    }
+    /* Chi */
+    for(var x = 0; x < 5; x++){
+      for(var y = 0; y < 5; y++){
+        state[x][y] = (B[x][y] ^ ((~B[(x+1) % 5][y]) & B[(x+2) % 5][y])) & MASK64;
+      }
+    }
+    /* Iota */
+    state[0][0] = (state[0][0] ^ KECCAK_RC[round]) & MASK64;
+  }
+  return state;
+}
+
+function keccak256Bytes(msgBytes){
+  var rate = 136; /* bytes (1088 bits) for Keccak-256 */
+  /* Initialize 5x5 state of zero BigInt lanes */
+  var state = [[0n,0n,0n,0n,0n],[0n,0n,0n,0n,0n],[0n,0n,0n,0n,0n],[0n,0n,0n,0n,0n],[0n,0n,0n,0n,0n]];
+  /* Pad: append 0x01, fill zeros, set last byte's high bit (0x80) */
+  var msg = msgBytes.slice();
+  msg.push(0x01);
+  while(msg.length % rate !== 0){ msg.push(0); }
+  msg[msg.length - 1] |= 0x80;
+  /* Absorb */
+  for(var offset = 0; offset < msg.length; offset += rate){
+    for(var i = 0; i < rate / 8; i++){
+      var lane = 0n;
+      for(var j = 0; j < 8; j++){
+        lane |= BigInt(msg[offset + i*8 + j]) << BigInt(8 * j);
+      }
+      var x = i % 5;
+      var y = Math.floor(i / 5);
+      state[x][y] = (state[x][y] ^ lane) & MASK64;
+    }
+    keccakF1600(state);
+  }
+  /* Squeeze 32 bytes (4 lanes) */
+  var output = [];
+  for(var i = 0; i < 4; i++){
+    var x = i % 5;
+    var y = Math.floor(i / 5);
+    var lane = state[x][y];
+    for(var j = 0; j < 8; j++){
+      output.push(Number(lane & 0xffn));
+      lane = lane >> 8n;
+    }
+  }
+  return output;
+}
+
+function hexToBytes(hex){
+  hex = hex.replace(/^0x/, '');
+  if(hex.length % 2 !== 0) hex = '0' + hex;
+  var bytes = [];
+  for(var i = 0; i < hex.length; i += 2){
+    bytes.push(parseInt(hex.substr(i, 2), 16));
+  }
+  return bytes;
+}
+function bytesToHex(bytes){
+  return bytes.map(function(b){ return b.toString(16).padStart(2, '0'); }).join('');
+}
+
+function keccak256Hex(hexStr){
+  var bytes = hexToBytes(hexStr);
+  return bytesToHex(keccak256Bytes(bytes));
+}
+
+function utf8ToBytes(str){
+  var bytes = [];
+  for(var i = 0; i < str.length; i++){
+    var c = str.charCodeAt(i);
+    if(c < 0x80) bytes.push(c);
+    else if(c < 0x800){
+      bytes.push(0xc0 | (c >> 6));
+      bytes.push(0x80 | (c & 0x3f));
+    } else if(c < 0xd800 || c >= 0xe000){
+      bytes.push(0xe0 | (c >> 12));
+      bytes.push(0x80 | ((c >> 6) & 0x3f));
+      bytes.push(0x80 | (c & 0x3f));
+    } else {
+      /* surrogate pair */
+      i++;
+      var c2 = str.charCodeAt(i);
+      var cp = 0x10000 + (((c & 0x3ff) << 10) | (c2 & 0x3ff));
+      bytes.push(0xf0 | (cp >> 18));
+      bytes.push(0x80 | ((cp >> 12) & 0x3f));
+      bytes.push(0x80 | ((cp >> 6) & 0x3f));
+      bytes.push(0x80 | (cp & 0x3f));
+    }
+  }
+  return bytes;
+}
+
+function keccak256Str(text){
+  return bytesToHex(keccak256Bytes(utf8ToBytes(text)));
+}
+
+/* ============================================================
+   EIP-55 CHECKSUM (Ethereum address checksum)
+   ============================================================ */
+function toChecksumAddress(address){
+  address = String(address).toLowerCase().replace(/^0x/, '');
+  if(address.length !== 40 || !/^[0-9a-f]+$/.test(address)) return null;
+  /* EIP-55: hash the lowercase ASCII hex string (not its byte value) */
+  var hash = keccak256Str(address);
+  var result = '0x';
+  for(var i = 0; i < address.length; i++){
+    var c = address[i];
+    if(c >= '0' && c <= '9'){
+      result += c;
+    } else {
+      var hashNibble = parseInt(hash[i], 16);
+      result += hashNibble >= 8 ? c.toUpperCase() : c;
+    }
+  }
+  return result;
+}
+function isValidEthereumAddress(address){
+  if(!/^0x[0-9a-fA-F]{40}$/.test(address)) return false;
+  /* If all lower or all upper, accept as valid (no checksum encoded) */
+  var hexPart = address.slice(2);
+  if(hexPart === hexPart.toLowerCase() || hexPart === hexPart.toUpperCase()) return true;
+  /* Otherwise verify checksum */
+  return toChecksumAddress(address) === address;
+}
+
+/* ============================================================
+   ENS NAMEHASH (EIP-137)
+   namehash("") = 32 zero bytes
+   namehash(name) = keccak256(namehash(parent) || keccak256(label))
+   ============================================================ */
+function ensNamehash(name){
+  name = (name || '').toLowerCase().trim().replace(/\.$/, '');
+  var node = new Array(32).fill(0);
+  if(name !== ''){
+    var labels = name.split('.');
+    for(var i = labels.length - 1; i >= 0; i--){
+      var labelHash = keccak256Str(labels[i]);
+      var combined = bytesToHex(node) + labelHash;
+      var newHash = keccak256Hex(combined);
+      node = hexToBytes(newHash);
+    }
+  }
+  return '0x' + bytesToHex(node);
+}
+
+function ensNamehashWithSteps(name){
+  name = (name || '').toLowerCase().trim().replace(/\.$/, '');
+  var steps = [];
+  var node = new Array(32).fill(0);
+  steps.push({type:'init', node:'0x' + bytesToHex(node)});
+  if(name !== ''){
+    var labels = name.split('.');
+    for(var i = labels.length - 1; i >= 0; i--){
+      var label = labels[i];
+      var labelHash = keccak256Str(label);
+      var combined = bytesToHex(node) + labelHash;
+      var newHash = keccak256Hex(combined);
+      node = hexToBytes(newHash);
+      steps.push({type:'label', label:label, labelHash:labelHash, combined:combined, node:'0x' + bytesToHex(node)});
+    }
+  }
+  return {node:'0x' + bytesToHex(node), steps:steps};
+}
+
+function isValidEnsName(name){
+  name = (name || '').trim();
+  if(name.length === 0 || name.length > 253) return false;
+  if(name.startsWith('.') || name.endsWith('.')) return false;
+  var labels = name.split('.');
+  for(var i = 0; i < labels.length; i++){
+    var label = labels[i];
+    if(label.length === 0 || label.length > 63) return false;
+    /* Allow a-z 0-9 - _ and unicode letters */
+    if(!/^[a-z0-9_\u00a1-\uffff-]+$/i.test(label)) return false;
+    if(label.startsWith('-') || label.endsWith('-')) return false;
+  }
+  return true;
+}
+
+/* ============================================================
+   TOOL 1: WALLET ADDRESS VALIDATOR
+   ============================================================ */
+function detectChain(address){
+  address = String(address).trim();
+  if(!address) return null;
+  /* Ethereum / EVM (0x + 40 hex) */
+  if(/^0x[0-9a-fA-F]{40}$/.test(address)){
+    /* Could be Ethereum or any EVM chain — we treat as Ethereum mainnet
+       unless patterns suggest otherwise. For demo we return 'eth'. */
+    return {chain:'eth', name:'Ethereum', format:'HEX (EIP-55)', native:'ETH'};
+  }
+  /* Bitcoin — Bech32 (bc1...) */
+  if(/^bc1[ac-hj-np-z02-9]{6,87}$/i.test(address)){
+    return {chain:'btc', name:'Bitcoin', format:'Bech32 (SegWit)', native:'BTC'};
+  }
+  /* Bitcoin — Base58 (1, 3, or B prefix) */
+  if(/^[13][a-km-zA-HJ-NP-Z1-9]{25,34}$/.test(address)){
+    return {chain:'btc', name:'Bitcoin', format:'Base58 (P2PKH)', native:'BTC'};
+  }
+  if(/^bc1q[a-z0-9]{38}$/i.test(address) || /^bc1q[a-z0-9]{59}$/i.test(address)){
+    return {chain:'btc', name:'Bitcoin', format:'Bech32 (SegWit)', native:'BTC'};
+  }
+  /* Solana — base58, 32-44 chars, no 0/O/I/l */
+  if(/^[1-9A-HJ-NP-Za-km-z]{32,44}$/.test(address) && address.length >= 32 && address.length <= 44){
+    /* Heuristic: Solana addresses are 32-44 base58 chars.
+       Distinguish from Bitcoin by checking it doesn't start with bc1/1/3. */
+    return {chain:'sol', name:'Solana', format:'Base58 (Ed25519)', native:'SOL'};
+  }
+  /* Polygon detection is not address-format-distinguishable from Ethereum.
+     Same 0x format applies. We flag it as Ethereum-style. */
+  return null;
+}
+
+function validateWallet(){
+  var input = document.getElementById('walletInput').value.trim();
+  var out = document.getElementById('walletResult');
+  if(!input){
+    out.innerHTML = '<div class="empty-state"><div class="ic">◇</div>Please enter an address.</div>';
+    return;
+  }
+  var chain = detectChain(input);
+  if(!chain){
+    out.innerHTML = '<div class="result-box error"><span class="hl-r">⚠ Unrecognized format.</span><br>This does not match Ethereum/EVM, Bitcoin, or Solana address patterns.</div>';
+    return;
+  }
+
+  var html = '';
+  /* Chain pill */
+  var glyph = chain.chain === 'eth' ? 'Ξ' : (chain.chain === 'btc' ? '₿' : '◎');
+  html += '<div class="kv"><span class="k">Detected chain</span><span class="v"><span class="chain-pill chain-' + chain.chain + '"><span class="glyph">' + glyph + '</span>' + chain.name + '</span></span></div>';
+  html += '<div class="kv"><span class="k">Address format</span><span class="v">' + chain.format + '</span></div>';
+  html += '<div class="kv"><span class="k">Native currency</span><span class="v">' + chain.native + '</span></div>';
+
+  if(chain.chain === 'eth'){
+    /* Format check + checksum */
+    var isAllLower = input.slice(2) === input.slice(2).toLowerCase();
+    var isAllUpper = input.slice(2) === input.slice(2).toUpperCase();
+    var checksummed = toChecksumAddress(input);
+    var checksumValid = isAllLower || isAllUpper || (checksummed === input);
+
+    html += '<div class="kv"><span class="k">Checksum (EIP-55)</span><span class="v">';
+    if(isAllLower){
+      html += '<span class="tag tag-yellow">Not encoded</span> <span class="tag tag-blue">Valid</span>';
+    } else if(isAllUpper){
+      html += '<span class="tag tag-yellow">Not encoded</span> <span class="tag tag-blue">Valid</span>';
+    } else if(checksumValid){
+      html += '<span class="tag tag-green">Valid ✓</span>';
+    } else {
+      html += '<span class="tag tag-red">Invalid ✗</span>';
+    }
+    html += '</span></div>';
+
+    /* Checksummed address display with colored chars */
+    if(checksummed){
+      html += '<div class="field" style="margin-top:14px;"><label class="label">Checksummed address (EIP-55)</label>';
+      html += '<div class="checksum-row" onclick="copyText(\'' + checksummed + '\')" style="cursor:pointer;">';
+      html += '<span class="ch-prefix">0x</span>';
+      for(var i = 2; i < checksummed.length; i++){
+        var ch = checksummed[i];
+        if(ch >= '0' && ch <= '9') html += '<span class="ch-num">' + ch + '</span>';
+        else if(ch === ch.toUpperCase()) html += '<span class="ch-up">' + ch + '</span>';
+        else html += '<span class="ch-lo">' + ch + '</span>';
+      }
+      html += '</div><div class="helper-text">Click to copy. Uppercase letters are checksum characters per EIP-55.</div></div>';
+    }
+
+    /* Validity summary */
+    html += '<div class="callout ' + (checksumValid ? 'success' : 'warn') + '" style="background:' + (checksumValid ? 'rgba(0,255,136,.06)' : 'rgba(255,84,112,.06)') + ';border-color:' + (checksumValid ? 'rgba(0,255,136,.3)' : 'rgba(255,84,112,.3)') + ';">';
+    html += '<span class="ic" style="color:' + (checksumValid ? 'var(--green)' : 'var(--red)') + ';">' + (checksumValid ? '✓' : '✗') + '</span>';
+    html += '<span><strong>' + (checksumValid ? 'Valid Ethereum address.' : 'Invalid checksum.') + '</strong> ';
+    html += checksumValid ? 'This address passes EIP-55 verification and is safe to display in this format.' : 'The casing does not match the EIP-55 checksum for this address. Use the checksummed version above.';
+    html += '</span></div>';
+  } else if(chain.chain === 'btc'){
+    /* Bitcoin-specific checks */
+    var bech32 = /^bc1/i.test(input);
+    html += '<div class="kv"><span class="k">Encoding</span><span class="v">' + (bech32 ? 'Bech32' : 'Base58Check') + '</span></div>';
+    html += '<div class="kv"><span class="k">Network</span><span class="v">Mainnet</span></div>';
+    if(bech32){
+      var segwitLen = input.length;
+      html += '<div class="kv"><span class="k">SegWit program</span><span class="v">' + (segwitLen === 42 ? 'P2WPKH (20-byte)' : (segwitLen === 62 ? 'P2WSH (32-byte)' : 'Custom')) + '</span></div>';
+    }
+    html += '<div class="callout success"><span class="ic">✓</span><span><strong>Valid-looking Bitcoin address.</strong> Format matches mainnet pattern. Full Base58Check/Bech32 checksum verification requires a CRC32 implementation; this validator confirms format and length.</span></div>';
+  } else if(chain.chain === 'sol'){
+    html += '<div class="kv"><span class="k">Encoding</span><span class="v">Base58 (32-byte pubkey)</span></div>';
+    html += '<div class="kv"><span class="k">Length</span><span class="v">' + input.length + ' chars</span></div>';
+    html += '<div class="callout success"><span class="ic">✓</span><span><strong>Valid-looking Solana address.</strong> Format is 32-44 base58 characters. Full Ed25519 verification requires parsing the base58 into a 32-byte public key.</span></div>';
+  }
+
+  out.innerHTML = html;
+}
+function pasteWallet(){
+  if(navigator.clipboard && navigator.clipboard.readText){
+    navigator.clipboard.readText().then(function(text){
+      document.getElementById('walletInput').value = text.trim();
+      validateWallet();
+    }).catch(function(){ toast('Clipboard read denied'); });
+  } else {
+    toast('Clipboard not available');
+  }
+}
+function loadSampleWallet(){
+  document.getElementById('walletInput').value = '0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045';
+  validateWallet();
+}
+document.getElementById('walletInput').addEventListener('input', function(){
+  if(this.value.trim().length >= 6) validateWallet();
+});
+
+/* ============================================================
+   TOOL 2: ETH UNIT CONVERTER
+   ============================================================ */
+var UNITS = {
+  wei:    0,
+  kwei:   3,
+  mwei:   6,
+  gwei:   9,
+  finney: 12,
+  ether:  18
+};
+function bigPow10(exp){
+  /* Returns string representation of 10^exp */
+  var s = '1';
+  for(var i = 0; i < exp; i++) s += '0';
+  return s;
+}
+function decimalToBaseUnits(amountStr, unitExp){
+  /* Convert a decimal amount string into integer base-unit (wei) string */
+  amountStr = String(amountStr).trim();
+  if(!amountStr) return '0';
+  if(!/^\d*\.?\d*$/.test(amountStr)) return null;
+  var neg = amountStr.startsWith('-');
+  if(neg) amountStr = amountStr.slice(1);
+  var parts = amountStr.split('.');
+  var intPart = parts[0] || '0';
+  var fracPart = parts[1] || '';
+  /* Pad fractional part to unitExp digits */
+  if(fracPart.length > unitExp){
+    /* Truncate (no rounding for display safety) */
+    fracPart = fracPart.substring(0, unitExp);
+  }
+  while(fracPart.length < unitExp) fracPart += '0';
+  /* Strip leading zeros from intPart */
+  intPart = intPart.replace(/^0+/, '') || '0';
+  var combined = intPart + fracPart;
+  combined = combined.replace(/^0+/, '') || '0';
+  return (neg ? '-' : '') + combined;
+}
+function baseUnitsToUnit(baseUnitsStr, unitExp){
+  /* Convert wei string to a decimal string in the target unit */
+  baseUnitsStr = String(baseUnitsStr).replace('-','');
+  if(unitExp === 0) return baseUnitsStr;
+  if(baseUnitsStr.length <= unitExp){
+    baseUnitsStr = baseUnitsStr.padStart(unitExp + 1, '0');
+  }
+  var intPart = baseUnitsStr.slice(0, baseUnitsStr.length - unitExp);
+  var fracPart = baseUnitsStr.slice(baseUnitsStr.length - unitExp);
+  fracPart = fracPart.replace(/0+$/, '');
+  return fracPart ? intPart + '.' + fracPart : intPart;
+}
+function formatBigNumber(str){
+  /* Add thousand separators to integer string */
+  str = String(str);
+  var neg = str.startsWith('-');
+  if(neg) str = str.slice(1);
+  if(str.indexOf('.') >= 0){
+    var p = str.split('.');
+    return (neg?'-':'') + p[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',') + '.' + p[1];
+  }
+  return (neg?'-':'') + str.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
+function trimTrailingZeros(str){
+  if(str.indexOf('.') >= 0){
+    str = str.replace(/\.?0+$/, '');
+  }
+  return str || '0';
+}
+function convertUnits(){
+  var amount = document.getElementById('convAmount').value.trim();
+  var fromUnit = document.getElementById('convUnit').value;
+  var usdRate = parseFloat(document.getElementById('convUsdRate').value) || 0;
+  var fromExp = UNITS[fromUnit];
+  var baseUnits = decimalToBaseUnits(amount, fromExp);
+  if(baseUnits === null){
+    ['wei','kwei','mwei','gwei','finney','ether'].forEach(function(u){
+      document.getElementById('r-' + u).textContent = '—';
+    });
+    document.getElementById('convUsd').textContent = '$0.00';
+    return;
+  }
+  ['wei','kwei','mwei','gwei','finney','ether'].forEach(function(u){
+    var exp = UNITS[u];
+    var val = baseUnitsToUnit(baseUnits, exp);
+    /* Trim to reasonable precision for display */
+    if(val.indexOf('.') >= 0){
+      var parts = val.split('.');
+      if(parts[1].length > 12) val = parts[0] + '.' + parts[1].substring(0, 12);
+    }
+    document.getElementById('r-' + u).textContent = formatBigNumber(val);
+  });
+  /* USD value based on ether */
+  var etherVal = baseUnitsToUnit(baseUnits, 18);
+  var etherFloat = parseFloat(etherVal) || 0;
+  var usdVal = etherFloat * usdRate;
+  var usdStr;
+  if(usdVal === 0) usdStr = '$0.00';
+  else if(usdVal < 0.01) usdStr = '<$0.01';
+  else if(usdVal < 1000) usdStr = '$' + usdVal.toFixed(2);
+  else usdStr = '$' + usdVal.toLocaleString('en-US', {maximumFractionDigits:2});
+  document.getElementById('convUsd').textContent = usdStr;
+}
+function copyUnit(unit){
+  var el = document.getElementById('r-' + unit);
+  var text = el.textContent.replace(/,/g, '');
+  copyText(text);
+}
+['convAmount','convUnit','convUsdRate'].forEach(function(id){
+  document.getElementById(id).addEventListener('input', convertUnits);
+  document.getElementById(id).addEventListener('change', convertUnits);
+});
+convertUnits();
+
+/* ============================================================
+   TOOL 3: GAS TRACKER
+   ============================================================ */
+var TX_TYPES = [
+  {name:'Simple ETH transfer', gas:21000},
+  {name:'ERC-20 transfer', gas:65000},
+  {name:'ERC-20 approve', gas:46000},
+  {name:'Uniswap V2 swap', gas:150000},
+  {name:'Uniswap V3 swap', gas:185000},
+  {name:'NFT mint (ERC-721)', gas:170000},
+  {name:'NFT batch mint', gas:450000},
+  {name:'Contract deployment', gas:1200000},
+  {name:'7702 delegation', gas:250000},
+  {name:'Multi-sig execute', gas:90000}
+];
+function gweiToEth(gwei, gasLimit){
+  /* gwei * gasLimit / 10^9 -> ETH */
+  return (gwei * gasLimit) / 1e9;
+}
+function renderTxTable(){
+  var gwei = parseFloat(document.getElementById('calcGwei').value) || 0;
+  var usdRate = parseFloat(document.getElementById('calcUsd').value) || 0;
+  var tbody = document.getElementById('txTableBody');
+  var html = '';
+  TX_TYPES.forEach(function(tx){
+    var eth = gweiToEth(gwei, tx.gas);
+    var usd = eth * usdRate;
+    html += '<tr>';
+    html += '<td>' + tx.name + '</td>';
+    html += '<td class="mono">' + tx.gas.toLocaleString() + '</td>';
+    html += '<td class="eth">' + eth.toFixed(8) + '</td>';
+    html += '<td class="usd">$' + (usd < 0.01 ? '<0.01' : usd.toFixed(2)) + '</td>';
+    html += '</tr>';
+  });
+  tbody.innerHTML = html;
+}
+function updateCalcOutput(){
+  var gwei = parseFloat(document.getElementById('calcGwei').value) || 0;
+  var gasLimit = parseInt(document.getElementById('calcLimit').value) || 0;
+  var usdRate = parseFloat(document.getElementById('calcUsd').value) || 0;
+  var eth = gweiToEth(gwei, gasLimit);
+  var usd = eth * usdRate;
+  document.getElementById('calcEth').textContent = eth.toFixed(9) + ' ETH';
+  document.getElementById('calcUsdOut').textContent = usd < 0.01 ? '<$0.01' : '$' + usd.toFixed(2);
+  renderTxTable();
+}
+['calcGwei','calcLimit','calcUsd'].forEach(function(id){
+  document.getElementById(id).addEventListener('input', updateCalcOutput);
+});
+(function(){
+  var tiers = document.querySelectorAll('.gas-tier');
+  tiers.forEach(function(t){
+    t.addEventListener('click', function(){
+      tiers.forEach(function(x){ x.classList.remove('active'); });
+      t.classList.add('active');
+      document.getElementById('calcGwei').value = t.getAttribute('data-gwei');
+      updateCalcOutput();
+      toast('Selected ' + t.getAttribute('data-name') + ' tier');
+    });
+  });
+})();
+updateCalcOutput();
+
+/* ============================================================
+   TOOL 4: KECCAK-256 HASHER
+   ============================================================ */
+var kMode = 'text';
+function setKMode(mode){
+  kMode = mode;
+  document.getElementById('kModeText').classList.toggle('active', mode === 'text');
+  document.getElementById('kModeHex').classList.toggle('active', mode === 'hex');
+  document.getElementById('kInputLabel').textContent = mode === 'text' ? 'Text to hash' : 'Hex to hash (no 0x prefix)';
+  document.getElementById('kInputHint').textContent = mode === 'text' ? 'UTF-8 bytes are hashed directly.' : 'Bytes are decoded from hex, then hashed.';
+  hashKeccak();
+}
+function hashKeccak(){
+  var input = document.getElementById('kInput').value;
+  var out = document.getElementById('kOutput');
+  if(!input){
+    out.classList.add('empty');
+    out.textContent = 'keccak256("") will appear here…';
+    return;
+  }
+  var hash;
+  try{
+    if(kMode === 'text'){
+      hash = keccak256Str(input);
+    } else {
+      var cleaned = input.replace(/^0x/, '').replace(/\s+/g, '');
+      if(!/^[0-9a-fA-F]*$/.test(cleaned) || cleaned.length % 2 !== 0){
+        out.classList.remove('empty');
+        out.innerHTML = '<span class="hl-r">Invalid hex input. Use even-length hex characters.</span>';
+        return;
+      }
+      hash = keccak256Hex(cleaned);
+    }
+  } catch(e){
+    out.classList.remove('empty');
+    out.innerHTML = '<span class="hl-r">Error: ' + escapeHtml(e.message) + '</span>';
+    return;
+  }
+  out.classList.remove('empty');
+  out.innerHTML = '<span class="hl-g">0x</span>' + hash;
+  out.setAttribute('data-hash', hash);
+  out.style.cursor = 'pointer';
+  out.onclick = function(){ copyText('0x' + hash); };
+}
+function escapeHtml(s){
+  return String(s).replace(/[&<>"']/g, function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+  });
+}
+function loadSampleHash(){
+  setKMode('text');
+  document.getElementById('kInput').value = 'Hello, Ethereum!';
+  hashKeccak();
+}
+function compareKeccak(){
+  var a = document.getElementById('kCmpA').value;
+  var b = document.getElementById('kCmpB').value;
+  var out = document.getElementById('kCmpResult');
+  if(!a && !b){
+    out.textContent = 'Enter both inputs to compare.';
+    return;
+  }
+  var hashA = keccak256Str(a);
+  var hashB = keccak256Str(b);
+  var same = hashA === hashB;
+  var html = '';
+  html += '<div style="margin-bottom:8px;"><span class="hl-p">A:</span> <span class="hl-g">0x</span>' + hashA + '</div>';
+  html += '<div style="margin-bottom:10px;"><span class="hl-p">B:</span> <span class="hl-g">0x</span>' + hashB + '</div>';
+  html += '<span class="tag ' + (same ? 'tag-green' : 'tag-blue') + '">' + (same ? 'MATCH' : 'DIFFERENT') + '</span>';
+  out.innerHTML = html;
+}
+document.getElementById('kInput').addEventListener('input', hashKeccak);
+document.getElementById('kCmpA').addEventListener('input', compareKeccak);
+document.getElementById('kCmpB').addEventListener('input', compareKeccak);
+hashKeccak();
+
+/* ============================================================
+   TOOL 5: ABI FORMATTER
+   ============================================================ */
+function formatAbi(){
+  var raw = document.getElementById('abiInput').value.trim();
+  var out = document.getElementById('abiResult');
+  if(!raw){
+    out.innerHTML = '<div class="empty-state"><div class="ic">{ }</div>Paste an ABI JSON array to parse.</div>';
+    return;
+  }
+  var abi;
+  try{
+    abi = JSON.parse(raw);
+  } catch(e){
+    out.innerHTML = '<div class="result-box error"><span class="hl-r">⚠ Invalid JSON.</span><br>' + escapeHtml(e.message) + '</div>';
+    return;
+  }
+  if(!Array.isArray(abi)){
+    out.innerHTML = '<div class="result-box error"><span class="hl-r">⚠ ABI must be a JSON array.</span><br>Expected: [ { "type": "function", ... }, ... ]</div>';
+    return;
+  }
+  /* Categorize */
+  var functions = [], events = [], constructors = [], fallbacks = [], others = [];
+  var invalid = [];
+  abi.forEach(function(item, idx){
+    if(!item || typeof item !== 'object' || !item.type){
+      invalid.push({idx:idx, reason:'Missing "type" field'});
+      return;
+    }
+    if(item.type === 'function') functions.push(item);
+    else if(item.type === 'event') events.push(item);
+    else if(item.type === 'constructor') constructors.push(item);
+    else if(item.type === 'fallback' || item.type === 'receive') fallbacks.push(item);
+    else others.push(item);
+  });
+
+  var stats = [];
+  stats.push(functions.length + ' function' + (functions.length !== 1 ? 's' : ''));
+  if(events.length) stats.push(events.length + ' event' + (events.length !== 1 ? 's' : ''));
+  if(constructors.length) stats.push(constructors.length + ' constructor' + (constructors.length !== 1 ? 's' : ''));
+  if(fallbacks.length) stats.push(fallbacks.length + ' fallback');
+  if(others.length) stats.push(others.length + ' other');
+  if(invalid.length) stats.push('<span style="color:var(--red);">' + invalid.length + ' invalid</span>');
+
+  var html = '<div class="callout success" style="margin-bottom:14px;"><span class="ic">✓</span><span><strong>Valid ABI.</strong> ' + stats.join(' · ') + '</span></div>';
+
+  /* Constructor */
+  if(constructors.length){
+    html += '<div style="margin-bottom:14px;">';
+    html += '<div style="font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;font-weight:700;margin-bottom:8px;">Constructor</div>';
+    constructors.forEach(function(c){
+      var params = (c.inputs || []).map(function(i){ return (i.type || 'unknown') + ' ' + (i.name || '_'); }).join(', ');
+      html += '<div class="abi-func constructor"><div class="sig"><span class="tag tag-yellow">constructor</span> <span class="fname">contract</span>(' + escapeHtml(params) + ')</div>';
+      if(c.payable) html += '<div class="meta">payable</div>';
+      html += '</div>';
+    });
+    html += '</div>';
+  }
+
+  /* Functions */
+  if(functions.length){
+    html += '<div style="margin-bottom:14px;">';
+    html += '<div style="font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;font-weight:700;margin-bottom:8px;">Functions (' + functions.length + ')</div>';
+    functions.forEach(function(f){
+      var inputs = f.inputs || [];
+      var outputs = f.outputs || [];
+      var inParams = inputs.map(function(i){ return '<span class="ptype">' + escapeHtml(i.type) + '</span> ' + escapeHtml(i.name || '_'); }).join(', ');
+      var outParams = outputs.map(function(i){ return '<span class="ptype">' + escapeHtml(i.type) + '</span>' + (i.name ? ' ' + escapeHtml(i.name) : ''); }).join(', ');
+      var sig = f.name + '(' + inputs.map(function(i){ return i.type; }).join(',') + ')';
+      var sigHash = keccak256Str(sig).substring(0, 8);
+      var mut = f.stateMutability || (f.constant ? 'view' : (f.payable ? 'payable' : 'nonpayable'));
+      var mutTag = mut === 'view' || mut === 'pure' ? 'tag-green' : (mut === 'payable' ? 'tag-red' : 'tag-blue');
+      html += '<div class="abi-func">';
+      html += '<div class="sig"><span class="tag ' + mutTag + '">' + mut + '</span> <span class="fname">' + escapeHtml(f.name) + '</span>(' + inParams + ')';
+      if(outputs.length) html += ' <span style="color:var(--text-muted);">→</span> (' + outParams + ')';
+      html += '</div>';
+      html += '<div class="meta">selector: 0x' + sigHash + ' · signature: ' + escapeHtml(sig) + '</div>';
+      html += '</div>';
+    });
+    html += '</div>';
+  }
+
+  /* Events */
+  if(events.length){
+    html += '<div style="margin-bottom:14px;">';
+    html += '<div style="font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;font-weight:700;margin-bottom:8px;">Events (' + events.length + ')</div>';
+    events.forEach(function(e){
+      var inputs = e.inputs || [];
+      var params = inputs.map(function(i){ return (i.indexed ? '<span class="tag tag-purple" style="font-size:10px;padding:1px 6px;">indexed</span> ' : '') + '<span class="ptype">' + escapeHtml(i.type) + '</span> ' + escapeHtml(i.name || '_'); }).join(', ');
+      var sig = e.name + '(' + inputs.map(function(i){ return i.type; }).join(',') + ')';
+      var topicHash = keccak256Str(sig);
+      html += '<div class="abi-func event"><div class="sig"><span class="tag tag-purple">event</span> <span class="fname">' + escapeHtml(e.name) + '</span>(' + params + ')</div>';
+      html += '<div class="meta">topic0: 0x' + topicHash + '</div>';
+      html += '</div>';
+    });
+    html += '</div>';
+  }
+
+  /* Fallbacks */
+  if(fallbacks.length){
+    html += '<div style="margin-bottom:14px;">';
+    html += '<div style="font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;font-weight:700;margin-bottom:8px;">Fallbacks</div>';
+    fallbacks.forEach(function(fb){
+      var mut = fb.stateMutability || (fb.payable ? 'payable' : 'nonpayable');
+      html += '<div class="abi-func fallback"><div class="sig"><span class="tag tag-yellow">' + escapeHtml(fb.type) + '</span> <span class="fname">()</span></div>';
+      html += '<div class="meta">stateMutability: ' + escapeHtml(mut) + '</div>';
+      html += '</div>';
+    });
+    html += '</div>';
+  }
+
+  /* Invalid */
+  if(invalid.length){
+    html += '<div class="result-box error"><strong>Invalid entries:</strong><br>';
+    invalid.forEach(function(inv){
+      html += 'Item #' + inv.idx + ': ' + escapeHtml(inv.reason) + '<br>';
+    });
+    html += '</div>';
+  }
+
+  out.innerHTML = html;
+}
+function loadSampleAbi(){
+  var sample = [
+    {"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},
+    {"constant":false,"inputs":[{"name":"spender","type":"address"},{"name":"amount","type":"uint256"}],"name":"approve","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},
+    {"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},
+    {"constant":false,"inputs":[{"name":"from","type":"address"},{"name":"to","type":"address"},{"name":"amount","type":"uint256"}],"name":"transferFrom","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},
+    {"constant":true,"inputs":[],"name":"decimals","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},
+    {"constant":false,"inputs":[{"name":"to","type":"address"},{"name":"amount","type":"uint256"}],"name":"transfer","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},
+    {"anonymous":false,"inputs":[{"indexed":true,"name":"from","type":"address"},{"indexed":true,"name":"to","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Transfer","type":"event"},
+    {"anonymous":false,"inputs":[{"indexed":true,"name":"owner","type":"address"},{"indexed":true,"name":"spender","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Approval","type":"event"},
+    {"inputs":[{"name":"name_","type":"string"},{"name":"symbol_","type":"string"},{"name":"decimals_","type":"uint8"},{"name":"initialSupply","type":"uint256"}],"payable":false,"stateMutability":"nonpayable","type":"constructor"},
+    {"payable":false,"stateMutability":"nonpayable","type":"fallback"}
+  ];
+  document.getElementById('abiInput').value = JSON.stringify(sample, null, 2);
+  formatAbi();
+}
+
+/* ============================================================
+   TOOL 6: CHAIN ID LOOKUP
+   ============================================================ */
+var CHAINS = [
+  {name:'Ethereum Mainnet', id:1, native:'ETH', rpc:'https://eth.llamarpc.com', explorer:'https://etherscan.io', testnet:false, sym:'ETH'},
+  {name:'Ropsten (deprecated)', id:3, native:'ETH', rpc:'https://ropsten.infura.io/v3/', explorer:'https://ropsten.etherscan.io', testnet:true, sym:'Rop'},
+  {name:'Rinkeby (deprecated)', id:4, native:'ETH', rpc:'https://rinkeby.infura.io/v3/', explorer:'https://rinkeby.etherscan.io', testnet:true, sym:'Rin'},
+  {name:'Goerli Testnet', id:5, native:'ETH', rpc:'https://goerli.infura.io/v3/', explorer:'https://goerli.etherscan.io', testnet:true, sym:'Goe'},
+  {name:'Kovan Testnet', id:42, native:'ETH', rpc:'https://kovan.infura.io/v3/', explorer:'https://kovan.etherscan.io', testnet:true, sym:'Kov'},
+  {name:'Sepolia Testnet', id:11155111, native:'ETH', rpc:'https://sepolia.infura.io/v3/', explorer:'https://sepolia.etherscan.io', testnet:true, sym:'Sep'},
+  {name:'Holesky Testnet', id:17000, native:'ETH', rpc:'https://ethereum-holesky-rpc.publicnode.com', explorer:'https://holesky.etherscan.io', testnet:true, sym:'Hol'},
+  {name:'BNB Smart Chain', id:56, native:'BNB', rpc:'https://bsc-dataseed.binance.org', explorer:'https://bscscan.com', testnet:false, sym:'BSC'},
+  {name:'BSC Chapel Testnet', id:97, native:'BNB', rpc:'https://data-seed-prebsc-1-s1.binance.org:8545', explorer:'https://testnet.bscscan.com', testnet:true, sym:'Cha'},
+  {name:'Polygon Mainnet', id:137, native:'MATIC', rpc:'https://polygon-rpc.com', explorer:'https://polygonscan.com', testnet:false, sym:'Pol'},
+  {name:'Polygon Mumbai', id:80001, native:'MATIC', rpc:'https://rpc-mumbai.maticvigil.com', explorer:'https://mumbai.polygonscan.com', testnet:true, sym:'Mum'},
+  {name:'Polygon Amoy', id:80002, native:'MATIC', rpc:'https://rpc-amoy.polygon.technology', explorer:'https://amoy.polygonscan.com', testnet:true, sym:'Amo'},
+  {name:'Arbitrum One', id:42161, native:'ETH', rpc:'https://arb1.arbitrum.io/rpc', explorer:'https://arbiscan.io', testnet:false, sym:'Arb'},
+  {name:'Arbitrum Sepolia', id:421614, native:'ETH', rpc:'https://sepolia-rollup.arbitrum.io/rpc', explorer:'https://sepolia.arbiscan.io', testnet:true, sym:'ArS'},
+  {name:'Arbitrum Nova', id:42170, native:'ETH', rpc:'https://nova.arbitrum.io/rpc', explorer:'https://nova.arbiscan.io', testnet:false, sym:'NoA'},
+  {name:'Optimism', id:10, native:'ETH', rpc:'https://mainnet.optimism.io', explorer:'https://optimistic.etherscan.io', testnet:false, sym:'Opt'},
+  {name:'Optimism Sepolia', id:11155420, native:'ETH', rpc:'https://sepolia.optimism.io', explorer:'https://sepolia-optimistic.etherscan.io', testnet:true, sym:'OpS'},
+  {name:'Avalanche C-Chain', id:43114, native:'AVAX', rpc:'https://api.avax.network/ext/bc/C/rpc', explorer:'https://snowtrace.io', testnet:false, sym:'Avx'},
+  {name:'Avalanche Fuji', id:43113, native:'AVAX', rpc:'https://api.avax-test.network/ext/bc/C/rpc', explorer:'https://testnet.snowtrace.io', testnet:true, sym:'Fuj'},
+  {name:'Fantom Opera', id:250, native:'FTM', rpc:'https://rpc.ftm.tools', explorer:'https://ftmscan.com', testnet:false, sym:'Ftm'},
+  {name:'Fantom Testnet', id:4002, native:'FTM', rpc:'https://rpc.testnet.fantom.network', explorer:'https://testnet.ftmscan.com', testnet:true, sym:'FtT'},
+  {name:'Base', id:8453, native:'ETH', rpc:'https://mainnet.base.org', explorer:'https://basescan.org', testnet:false, sym:'Bas'},
+  {name:'Base Sepolia', id:84532, native:'ETH', rpc:'https://sepolia.base.org', explorer:'https://sepolia.basescan.org', testnet:true, sym:'BsS'},
+  {name:'Gnosis Chain (xDai)', id:100, native:'xDAI', rpc:'https://rpc.gnosischain.com', explorer:'https://gnosisscan.io', testnet:false, sym:'Gno'},
+  {name:'Celo Mainnet', id:42220, native:'CELO', rpc:'https://forno.celo.org', explorer:'https://celoscan.io', testnet:false, sym:'Cel'},
+  {name:'Celo Alfajores', id:44787, native:'CELO', rpc:'https://alfajores-forno.celo-testnet.org', explorer:'https://alfajores.celoscan.io', testnet:true, sym:'Alf'},
+  {name:'Moonbeam', id:1284, native:'GLMR', rpc:'https://rpc.api.moonbeam.network', explorer:'https://moonbeam.moonscan.io', testnet:false, sym:'Glm'},
+  {name:'Moonriver', id:1285, native:'MOVR', rpc:'https://rpc.api.moonriver.moonbeam.network', explorer:'https://moonriver.moonscan.io', testnet:false, sym:'Mvr'},
+  {name:'Cronos Mainnet', id:25, native:'CRO', rpc:'https://evm.cronos.org', explorer:'https://cronoscan.com', testnet:false, sym:'Cro'},
+  {name:'Harmony Mainnet (Shard 0)', id:1666600000, native:'ONE', rpc:'https://api.harmony.one', explorer:'https://explorer.harmony.one', testnet:false, sym:'Har'},
+  {name:'Aurora Mainnet', id:1313161554, native:'ETH', rpc:'https://mainnet.aurora.dev', explorer:'https://aurorascan.dev', testnet:false, sym:'Aur'},
+  {name:'Linea Mainnet', id:59144, native:'ETH', rpc:'https://rpc.linea.build', explorer:'https://lineascan.build', testnet:false, sym:'Lin'},
+  {name:'Scroll Mainnet', id:534352, native:'ETH', rpc:'https://rpc.scroll.io', explorer:'https://scrollscan.com', testnet:false, sym:'Scr'},
+  {name:'zkSync Era', id:324, native:'ETH', rpc:'https://mainnet.era.zksync.io', explorer:'https://explorer.zksync.io', testnet:false, sym:'zkS'},
+  {name:'Mantle Mainnet', id:5000, native:'MNT', rpc:'https://rpc.mantle.xyz', explorer:'https://mantlescan.xyz', testnet:false, sym:'Mnt'},
+  {name:'Blast Mainnet', id:81457, native:'ETH', rpc:'https://rpc.blast.io', explorer:'https://blastscan.io', testnet:false, sym:'Blt'},
+  {name:'Celo Baklava', id:62320, native:'CELO', rpc:'https://baklava-forno.celo-testnet.org', explorer:'https://baklava.celoscan.io', testnet:true, sym:'Bak'},
+  {name:'Rootstock Mainnet', id:30, native:'RBTC', rpc:'https://public-node.rsk.co', explorer:'https://explorer.rsk.co', testnet:false, sym:'RSK'},
+  {name:'Fuse Mainnet', id:122, native:'FUSE', rpc:'https://rpc.fuse.io', explorer:'https://explorer.fuse.io', testnet:false, sym:'Fus'}
+];
+function renderChains(filter){
+  filter = (filter || '').toLowerCase().trim();
+  var list = document.getElementById('chainList');
+  var matched = CHAINS.filter(function(c){
+    if(!filter) return true;
+    return c.name.toLowerCase().indexOf(filter) >= 0 || String(c.id).indexOf(filter) >= 0 || c.native.toLowerCase().indexOf(filter) >= 0;
+  });
+  if(matched.length === 0){
+    list.innerHTML = '<div class="empty-state"><div class="ic">∅</div>No networks match your search.</div>';
+    return;
+  }
+  var html = '';
+  matched.forEach(function(c){
+    var logoChar = c.sym.charAt(0);
+    html += '<div class="chain-card' + (c.testnet ? ' testnet' : '') + '" onclick="copyText(\'' + c.id + '\')" title="Click to copy chain ID">';
+    html += '<div class="logo">' + logoChar + '</div>';
+    html += '<div class="info">';
+    html += '<div class="name">' + escapeHtml(c.name) + (c.testnet ? ' <span class="tag tag-yellow" style="font-size:9px;padding:1px 6px;">testnet</span>' : '') + '</div>';
+    html += '<div class="meta">' + escapeHtml(c.native) + ' · ' + escapeHtml(c.rpc) + '</div>';
+    html += '</div>';
+    html += '<div class="right">';
+    html += '<div class="cid">' + c.id + '</div>';
+    html += '<div class="copy-hint">copy ID</div>';
+    html += '</div>';
+    html += '</div>';
+  });
+  list.innerHTML = html;
+}
+function updateChainStats(){
+  document.getElementById('chainCount').textContent = CHAINS.length;
+  document.getElementById('chainMain').textContent = CHAINS.filter(function(c){ return !c.testnet; }).length;
+  document.getElementById('chainTest').textContent = CHAINS.filter(function(c){ return c.testnet; }).length;
+}
+document.getElementById('chainSearch').addEventListener('input', function(){
+  renderChains(this.value);
+});
+updateChainStats();
+renderChains();
+
+/* ============================================================
+   TOOL 7: TOKEN AMOUNT FORMATTER
+   ============================================================ */
+var tokenMode = 'h2r';
+function setTokenMode(mode){
+  tokenMode = mode;
+  document.getElementById('modeH2R').classList.toggle('active', mode === 'h2r');
+  document.getElementById('modeR2H').classList.toggle('active', mode === 'r2h');
+  var label = document.getElementById('tAmountLabel');
+  var input = document.getElementById('tAmount');
+  if(mode === 'h2r'){
+    label.textContent = 'Human amount';
+    input.value = '1.5';
+  } else {
+    label.textContent = 'Raw amount (smallest unit)';
+    input.value = '1500000000000000000';
+  }
+  convertToken();
+}
+function convertToken(){
+  var amount = document.getElementById('tAmount').value.trim();
+  var decimals = parseInt(document.getElementById('tDecimals').value) || 0;
+  var symbol = document.getElementById('tSymbol').value.trim() || 'tokens';
+  var resVal = document.getElementById('tResValue');
+  var resLbl = document.getElementById('tResLabel');
+  var resSub = document.getElementById('tResSub');
+  if(decimals < 0 || decimals > 36){
+    resVal.textContent = 'Invalid decimals';
+    resSub.textContent = 'Decimals must be 0-36';
+    return;
+  }
+  if(!amount){
+    resVal.textContent = '0';
+    resSub.textContent = 'Enter an amount to convert';
+    return;
+  }
+  if(tokenMode === 'h2r'){
+    var raw = decimalToBaseUnits(amount, decimals);
+    if(raw === null){
+      resVal.textContent = '—';
+      resSub.textContent = 'Invalid number format';
+      return;
+    }
+    resLbl.textContent = 'Raw amount (smallest unit)';
+    resVal.textContent = raw;
+    resSub.textContent = amount + ' ' + symbol + ' at ' + decimals + ' decimals';
+    resVal.onclick = function(){ copyText(raw); };
+  } else {
+    /* raw -> human */
+    if(!/^\d+$/.test(amount)){
+      resVal.textContent = '—';
+      resSub.textContent = 'Raw amount must be a non-negative integer';
+      return;
+    }
+    var human = baseUnitsToUnit(amount, decimals);
+    resLbl.textContent = 'Human-readable amount';
+    resVal.textContent = human;
+    resSub.textContent = amount + ' raw units = ' + human + ' ' + symbol + ' (at ' + decimals + ' decimals)';
+    resVal.onclick = function(){ copyText(human); };
+  }
+}
+['tAmount','tDecimals','tSymbol'].forEach(function(id){
+  document.getElementById(id).addEventListener('input', convertToken);
+});
+convertToken();
+
+/* ============================================================
+   TOOL 8: ENS / SNS HELPER
+   ============================================================ */
+function computeEns(){
+  var name = document.getElementById('ensInput').value.trim();
+  var validBox = document.getElementById('ensValid');
+  var hashBox = document.getElementById('ensNamehash');
+  var tree = document.getElementById('ensTree');
+
+  if(!name){
+    validBox.className = 'result-box error';
+    validBox.innerHTML = '<span class="hl-r">Please enter an ENS name.</span>';
+    hashBox.textContent = '0x...';
+    tree.innerHTML = 'Enter an ENS name to see the step-by-step namehash computation.';
+    return;
+  }
+
+  var valid = isValidEnsName(name);
+  if(valid){
+    validBox.className = 'result-box success';
+    validBox.innerHTML = '<span class="hl-g">✓ Valid ENS name format.</span> Length and label rules pass. (Note: full ENS validation uses Unicode NFKC normalization.)';
+  } else {
+    validBox.className = 'result-box error';
+    validBox.innerHTML = '<span class="hl-r">✗ Invalid ENS name format.</span> Names must be 1-253 chars, labels 1-63 chars, no leading/trailing dots or hyphens, only a-z 0-9 - _ and Unicode letters.';
+  }
+
+  var result = ensNamehashWithSteps(name);
+  hashBox.innerHTML = '<span class="hl-g">0x</span>' + result.node.substring(2);
+  hashBox.style.cursor = 'pointer';
+  hashBox.onclick = function(){ copyText(result.node); };
+
+  /* Render steps */
+  var html = '';
+  result.steps.forEach(function(step, idx){
+    if(step.type === 'init'){
+      html += '<span class="step">Step 0 · Initialize</span>';
+      html += 'node = <span class="node-hash">' + step.node + '</span><br>';
+      html += '<span style="color:var(--text-dim);">(32 zero bytes — the namehash of empty string)</span>';
+    } else {
+      html += '<span class="step">Step ' + idx + ' · Process label "' + step.label + '"</span>';
+      html += 'keccak256("<span class="label-name">' + escapeHtml(step.label) + '</span>") =<br>';
+      html += '<span class="label-hash">' + step.labelHash + '</span><br>';
+      html += 'node = keccak256(node ‖ labelHash) =<br>';
+      html += 'keccak256(<span class="node-hash">' + step.combined + '</span>) =<br>';
+      html += '<span class="node-hash">' + step.node + '</span>';
+    }
+    if(idx < result.steps.length - 1) html += '<br><br>';
+  });
+  html += '<br><br><span class="step">Final namehash</span>';
+  html += '<span class="node-hash" style="font-size:13px;font-weight:700;">' + result.node + '</span>';
+  tree.innerHTML = html;
+}
+function loadSampleEns(){
+  document.getElementById('ensInput').value = 'vitalik.eth';
+  computeEns();
+}
+document.getElementById('ensInput').addEventListener('input', computeEns);
+computeEns();
+
+/* ---------- Self-test (console) ---------- */
+(function selfTest(){
+  try{
+    var t1 = keccak256Str('');
+    var t2 = keccak256Str('abc');
+    var ok1 = t1 === 'c5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470';
+    var ok2 = t2 === '4e03657aea45a94fc7d47ba826c8d667c0d1e6e33a64a036ec44f58fa12d6c45';
+    if(!ok1 || !ok2){
+      console.warn('Keccak-256 self-test FAILED. Empty:', t1, 'abc:', t2);
+    } else {
+      console.log('%c✓ Keccak-256 self-test passed', 'color:#00ff88;font-weight:bold;');
+      console.log('  keccak256("") =', t1);
+      console.log('  keccak256("abc") =', t2);
+    }
+    /* EIP-55 test */
+    var cs = toChecksumAddress('0x5aaeb6053f3e94c9b9a09f33669435e7ef1beaed');
+    if(cs === '0x5aAeb6053F3E94C9b9A09f33669435E7Ef1BeAed'){
+      console.log('%c✓ EIP-55 checksum self-test passed', 'color:#00ff88;font-weight:bold;');
+    } else {
+      console.warn('EIP-55 self-test FAILED. Got:', cs);
+    }
+    /* ENS namehash test (vitalik.eth) */
+    var nh = ensNamehash('vitalik.eth');
+    if(nh === '0xee6c4522aab0003e8d14cd40a6af439055fd2577951148c14b6cea9a53475835'){
+      console.log('%c✓ ENS namehash self-test passed (vitalik.eth)', 'color:#00ff88;font-weight:bold;');
+    } else {
+      console.warn('ENS namehash self-test FAILED. Got:', nh, '(expected 0xee6c4522aab0003e8d14cd40a6af439055fd2577951148c14b6cea9a53475835)');
+    }
+    /* ENS namehash of empty string */
+    var nh2 = ensNamehash('');
+    if(nh2 === '0x0000000000000000000000000000000000000000000000000000000000000000'){
+      console.log('%c✓ ENS namehash("") self-test passed', 'color:#00ff88;font-weight:bold;');
+    }
+    /* ENS namehash of "eth" — known value */
+    var nh3 = ensNamehash('eth');
+    if(nh3 === '0x93cdeb708b7545dc668eb9280176169d1c33cfd8ed6f04690a0bcc88a93fc4ae'){
+      console.log('%c✓ ENS namehash("eth") self-test passed', 'color:#00ff88;font-weight:bold;');
+    } else {
+      console.warn('ENS namehash("eth") FAILED. Got:', nh3);
+    }
+  } catch(e){
+    console.error('Self-test error:', e);
+  }
+})();
+</script>
+</body>
+</html>

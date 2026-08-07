@@ -1,0 +1,2065 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premium Data Toolkit — CSV, JSON, Stats, Regex, Diff, Hash | ExcuseMeWeb</title>
+<meta name="description" content="Premium data toolkit with 8 working tools: CSV viewer and editor, JSON↔CSV converter, data sorter, regex extractor, statistics calculator, base converter, text diff, and hash & encode utility.">
+<meta name="keywords" content="data toolkit, csv editor, json converter, statistics calculator, regex tester, text diff, base converter, hash generator, base64, sha256">
+<meta name="author" content="ExcuseMeWeb">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://excusemeweb.com/premium-data-toolkit">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Premium Data Toolkit — CSV, JSON, Stats, Regex, Diff, Hash">
+<meta property="og:description" content="Premium data toolkit with 8 working tools: CSV viewer and editor, JSON↔CSV converter, data sorter, regex extractor, statistics calculator, base converter, text diff, and hash & encode utility.">
+<meta property="og:url" content="https://excusemeweb.com/premium-data-toolkit">
+<meta property="og:site_name" content="ExcuseMeWeb">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Premium Data Toolkit — CSV, JSON, Stats, Regex, Diff, Hash">
+<meta name="twitter:description" content="Premium data toolkit with 8 working tools: CSV viewer and editor, JSON↔CSV converter, data sorter, regex extractor, statistics calculator, base converter, text diff, and hash & encode utility.">
+<meta name="twitter:url" content="https://excusemeweb.com/premium-data-toolkit">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%232563eb'/><text x='50' y='68' font-size='52' font-family='monospace' font-weight='bold' fill='white' text-anchor='middle'>DT</text></svg>">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Premium Data Toolkit",
+  "url": "https://excusemeweb.com/premium-data-toolkit",
+  "description": "Premium data toolkit with 8 working tools: CSV viewer and editor, JSON↔CSV converter, data sorter, regex extractor, statistics calculator, base converter, text diff, and hash & encode utility.",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Any",
+  "browserRequirements": "Requires JavaScript. Requires HTML5.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "ExcuseMeWeb",
+    "url": "https://excusemeweb.com"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How does the CSV parser handle commas inside quotes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The CSV parser implements a state machine that tracks whether it is currently inside a quoted field. When inside quotes, commas and newlines are treated as literal characters belonging to the field value rather than delimiters. Double quotes inside a quoted field are handled as escaped quotes (two consecutive quote characters represent one literal quote), following RFC 4180 conventions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What diff algorithm is used in the Text Diff tool?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Text Diff tool uses a Longest Common Subsequence (LCS) based algorithm. It builds a dynamic programming table comparing two sequences of lines, then backtracks through the table to identify which lines are unchanged, added, or deleted. This produces a minimal, readable line-by-line diff output with color-coded additions and deletions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can the statistics calculator handle large datasets?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The statistics calculator runs entirely in your browser and can handle tens of thousands of numbers comfortably. It uses single-pass algorithms for sum and mean and sorting for median, quartiles, and mode. Because all computation happens locally on your device, performance depends only on your computer, not on any server."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my data sent anywhere?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Every tool in the Premium Data Toolkit runs entirely client-side in your browser. Your CSV data, JSON, text, numbers, and passwords never leave your device. There are no server calls, no analytics on your input, and no tracking of the content you process. Hashing uses the built-in Web Crypto API which also runs locally."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does the JSON to CSV converter handle nested objects?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "When converting JSON to CSV, nested objects and arrays are flattened using dot notation for object keys (for example, address.city) and arrays are serialized to JSON strings so they fit into a single CSV cell. This preserves the data while keeping the CSV table structure flat and compatible with spreadsheet applications."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the base converter support fractional numbers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The base converter supports fractional numbers in all four bases (binary, octal, decimal, hexadecimal). It converts the integer and fractional parts separately and combines them. Editing any of the four fields instantly updates the other three, so you can convert in any direction. Invalid digits for a given base are flagged with validation."
+      }
+    }
+  ]
+}
+</script>
+
+<style>
+:root{
+  --bg:#f8fafc;
+  --surface:#ffffff;
+  --surface-2:#f1f5f9;
+  --border:#e2e8f0;
+  --border-strong:#cbd5e1;
+  --text:#0f172a;
+  --text-muted:#64748b;
+  --text-faint:#94a3b8;
+  --primary:#2563eb;
+  --primary-hover:#1d4ed8;
+  --primary-soft:#dbeafe;
+  --success:#16a34a;
+  --success-soft:#dcfce7;
+  --warning:#d97706;
+  --warning-soft:#fef3c7;
+  --error:#dc2626;
+  --error-soft:#fee2e2;
+  --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  --shadow-sm:0 1px 2px rgba(15,23,42,.04);
+  --shadow:0 1px 3px rgba(15,23,42,.06),0 1px 2px rgba(15,23,42,.04);
+  --shadow-md:0 4px 6px -1px rgba(15,23,42,.08),0 2px 4px -2px rgba(15,23,42,.05);
+  --radius:8px;
+  --radius-lg:12px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--sans);
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+  font-size:15px;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+input,textarea,select{font-family:inherit;color:inherit}
+a{color:var(--primary);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* ===== Header ===== */
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+}
+.header-inner{
+  max-width:1280px;
+  margin:0 auto;
+  padding:14px 24px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand:hover{text-decoration:none}
+.brand-mark{
+  width:38px;height:38px;
+  border-radius:9px;
+  background:linear-gradient(135deg,#2563eb,#1d4ed8);
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-weight:800;font-family:var(--mono);font-size:15px;
+  box-shadow:0 2px 8px rgba(37,99,235,.35);
+  letter-spacing:-.5px;
+}
+.brand-text{display:flex;flex-direction:column;line-height:1.2}
+.brand-title{font-weight:700;font-size:16px;color:var(--text);letter-spacing:-.2px}
+.brand-sub{font-size:11.5px;color:var(--text-muted);font-weight:500}
+.header-actions{display:flex;align-items:center;gap:10px}
+.link-btn{
+  color:var(--text-muted);
+  font-size:13.5px;
+  font-weight:500;
+  padding:8px 12px;
+  border-radius:6px;
+  display:inline-flex;align-items:center;gap:6px;
+  transition:color .15s,background .15s;
+}
+.link-btn:hover{color:var(--text);background:var(--surface-2);text-decoration:none}
+.btn-primary{
+  background:var(--primary);
+  color:#fff;
+  font-weight:600;
+  font-size:13.5px;
+  padding:9px 16px;
+  border-radius:7px;
+  display:inline-flex;align-items:center;gap:7px;
+  transition:background .15s,transform .1s;
+  box-shadow:0 1px 2px rgba(37,99,235,.3);
+}
+.btn-primary:hover{background:var(--primary-hover);text-decoration:none}
+.btn-primary:active{transform:translateY(1px)}
+
+/* ===== Hero ===== */
+.hero{
+  max-width:1280px;
+  margin:0 auto;
+  padding:48px 24px 24px;
+  text-align:center;
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--primary-soft);
+  color:var(--primary-hover);
+  font-size:12.5px;font-weight:600;
+  padding:5px 12px;border-radius:999px;
+  margin-bottom:18px;
+}
+.hero-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--primary)}
+.hero h1{
+  font-size:clamp(30px,5vw,46px);
+  font-weight:800;
+  letter-spacing:-1.2px;
+  line-height:1.1;
+  margin-bottom:14px;
+  color:var(--text);
+}
+.hero p{
+  font-size:17px;
+  color:var(--text-muted);
+  max-width:680px;
+  margin:0 auto;
+  line-height:1.6;
+}
+.hero-stats{
+  display:flex;justify-content:center;gap:32px;
+  margin-top:28px;flex-wrap:wrap;
+}
+.hero-stat{text-align:center}
+.hero-stat-num{font-family:var(--mono);font-size:24px;font-weight:700;color:var(--primary)}
+.hero-stat-label{font-size:12.5px;color:var(--text-muted);font-weight:500;margin-top:2px}
+
+/* ===== Tabs ===== */
+.tabs-wrap{
+  position:sticky;
+  top:67px;
+  z-index:90;
+  background:var(--bg);
+  border-bottom:1px solid var(--border);
+  margin-top:28px;
+}
+.tabs{
+  max-width:1280px;
+  margin:0 auto;
+  padding:12px 24px;
+  display:flex;
+  gap:6px;
+  overflow-x:auto;
+  scrollbar-width:thin;
+  scrollbar-color:var(--border-strong) transparent;
+  -webkit-overflow-scrolling:touch;
+}
+.tabs::-webkit-scrollbar{height:5px}
+.tabs::-webkit-scrollbar-thumb{background:var(--border-strong);border-radius:3px}
+.tab{
+  flex:0 0 auto;
+  padding:9px 15px;
+  border-radius:7px;
+  font-size:13.5px;
+  font-weight:500;
+  color:var(--text-muted);
+  background:transparent;
+  border:1px solid transparent;
+  white-space:nowrap;
+  transition:all .15s;
+  display:inline-flex;align-items:center;gap:7px;
+}
+.tab:hover{color:var(--text);background:var(--surface)}
+.tab.active{
+  background:var(--surface);
+  color:var(--primary);
+  border-color:var(--border);
+  box-shadow:var(--shadow-sm);
+  font-weight:600;
+}
+.tab .tab-num{
+  font-family:var(--mono);
+  font-size:10.5px;
+  font-weight:700;
+  background:var(--surface-2);
+  color:var(--text-muted);
+  padding:1px 6px;border-radius:4px;
+}
+.tab.active .tab-num{background:var(--primary-soft);color:var(--primary-hover)}
+
+/* ===== Main / Panels ===== */
+.main{
+  max-width:1280px;
+  margin:0 auto;
+  padding:32px 24px 64px;
+}
+.panel{display:none}
+.panel.active{display:block;animation:fadeIn .25s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+.panel-head{margin-bottom:22px}
+.panel-head h2{
+  font-size:24px;font-weight:700;letter-spacing:-.5px;
+  margin-bottom:6px;color:var(--text);
+}
+.panel-head p{color:var(--text-muted);font-size:14.5px;max-width:760px}
+
+/* ===== Tool layout ===== */
+.tool-grid{display:grid;gap:20px}
+.grid-2{grid-template-columns:1fr 1fr}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+@media(max-width:880px){
+  .grid-2,.grid-3{grid-template-columns:1fr}
+}
+
+.card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+  box-shadow:var(--shadow-sm);
+  overflow:hidden;
+}
+.card-head{
+  padding:14px 18px;
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+  gap:12px;flex-wrap:wrap;
+  background:var(--surface);
+}
+.card-title{
+  font-size:13px;font-weight:600;color:var(--text);
+  text-transform:uppercase;letter-spacing:.5px;
+  display:flex;align-items:center;gap:8px;
+}
+.card-title .pill{
+  font-family:var(--mono);font-size:10.5px;font-weight:600;
+  background:var(--surface-2);color:var(--text-muted);
+  padding:2px 7px;border-radius:4px;text-transform:none;letter-spacing:0;
+}
+.card-body{padding:18px}
+
+/* ===== Form controls ===== */
+label.field-label{
+  display:block;font-size:12.5px;font-weight:600;
+  color:var(--text-muted);margin-bottom:6px;
+  text-transform:uppercase;letter-spacing:.4px;
+}
+textarea,input[type=text],input[type=number],select{
+  width:100%;
+  padding:11px 13px;
+  border:1px solid var(--border-strong);
+  border-radius:8px;
+  font-size:14px;
+  background:var(--surface);
+  color:var(--text);
+  transition:border-color .15s,box-shadow .15s;
+  font-family:var(--sans);
+}
+textarea{
+  font-family:var(--mono);
+  font-size:13px;
+  line-height:1.55;
+  resize:vertical;
+  min-height:140px;
+}
+textarea:focus,input:focus,select:focus{
+  outline:none;
+  border-color:var(--primary);
+  box-shadow:0 0 0 3px var(--primary-soft);
+}
+textarea.mono,input.mono{font-family:var(--mono);font-size:13px}
+
+.input-group{margin-bottom:14px}
+.input-group:last-child{margin-bottom:0}
+
+.btn{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:9px 15px;
+  border-radius:7px;
+  font-size:13.5px;font-weight:600;
+  border:1px solid var(--border-strong);
+  background:var(--surface);
+  color:var(--text);
+  transition:all .15s;
+  white-space:nowrap;
+}
+.btn:hover{background:var(--surface-2);border-color:var(--text-faint);text-decoration:none}
+.btn:active{transform:translateY(1px)}
+.btn-primary-2{background:var(--primary);color:#fff;border-color:var(--primary)}
+.btn-primary-2:hover{background:var(--primary-hover);border-color:var(--primary-hover)}
+.btn-success{background:var(--success);color:#fff;border-color:var(--success)}
+.btn-success:hover{background:#15803d;border-color:#15803d}
+.btn-ghost{background:transparent;border-color:transparent;color:var(--text-muted)}
+.btn-ghost:hover{background:var(--surface-2);color:var(--text)}
+.btn-sm{padding:6px 11px;font-size:12.5px;border-radius:6px}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+
+.checkbox-row{display:flex;align-items:center;gap:8px;font-size:13.5px;color:var(--text);cursor:pointer}
+.checkbox-row input{width:auto;cursor:pointer}
+.toggle-group{
+  display:inline-flex;background:var(--surface-2);border:1px solid var(--border);
+  border-radius:8px;padding:3px;gap:2px;
+}
+.toggle-group button{
+  padding:6px 12px;font-size:12.5px;font-weight:500;border-radius:5px;
+  color:var(--text-muted);
+}
+.toggle-group button.active{background:var(--surface);color:var(--primary);box-shadow:var(--shadow-sm);font-weight:600}
+
+/* ===== Stats / result grid ===== */
+.stats-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
+  gap:12px;
+}
+.stat-tile{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:14px 16px;
+  transition:border-color .15s,transform .1s;
+}
+.stat-tile:hover{border-color:var(--border-strong)}
+.stat-tile-label{
+  font-size:11px;font-weight:600;color:var(--text-muted);
+  text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px;
+}
+.stat-tile-value{
+  font-family:var(--mono);font-size:18px;font-weight:700;color:var(--text);
+  word-break:break-all;line-height:1.3;
+}
+.stat-tile.accent-blue{border-left:3px solid var(--primary)}
+.stat-tile.accent-blue .stat-tile-value{color:var(--primary)}
+.stat-tile.accent-green{border-left:3px solid var(--success)}
+.stat-tile.accent-green .stat-tile-value{color:var(--success)}
+.stat-tile.accent-amber{border-left:3px solid var(--warning)}
+.stat-tile.accent-amber .stat-tile-value{color:var(--warning)}
+.stat-tile.accent-red{border-left:3px solid var(--error)}
+.stat-tile.accent-red .stat-tile-value{color:var(--error)}
+
+/* ===== Tables ===== */
+.table-wrap{
+  overflow:auto;
+  max-height:520px;
+  border:1px solid var(--border);
+  border-radius:8px;
+  background:var(--surface);
+}
+table.data-table{
+  border-collapse:collapse;
+  width:100%;
+  font-size:13px;
+}
+table.data-table th,table.data-table td{
+  border:1px solid var(--border);
+  padding:7px 10px;
+  text-align:left;
+  vertical-align:top;
+}
+table.data-table thead th{
+  background:var(--surface-2);
+  font-weight:600;
+  color:var(--text);
+  position:sticky;top:0;z-index:2;
+  cursor:pointer;
+  user-select:none;
+  white-space:nowrap;
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:.3px;
+}
+table.data-table thead th:hover{background:#e2e8f0}
+table.data-table th .sort-ind{font-family:var(--mono);font-size:10px;color:var(--primary);margin-left:4px}
+table.data-table tbody tr:nth-child(even){background:rgba(241,245,249,.4)}
+table.data-table tbody tr:hover{background:var(--primary-soft)}
+table.data-table td.cell-edit{padding:0}
+table.data-table td.cell-edit input{
+  width:100%;border:none;padding:7px 10px;font-size:13px;
+  background:transparent;font-family:var(--mono);border-radius:0;
+}
+table.data-table td.cell-edit input:focus{
+  outline:2px solid var(--primary);background:var(--surface);box-shadow:none;
+  position:relative;z-index:1;
+}
+table.data-table .row-num{
+  font-family:var(--mono);font-size:11px;color:var(--text-faint);
+  background:var(--surface-2);text-align:center;width:42px;min-width:42px;
+}
+table.data-table .action-cell{
+  text-align:center;white-space:nowrap;background:var(--surface-2);
+}
+table.data-table .action-cell button{
+  padding:3px 7px;font-size:11px;color:var(--error);
+  border-radius:4px;
+}
+table.data-table .action-cell button:hover{background:var(--error-soft)}
+
+/* ===== Diff ===== */
+.diff-output{
+  font-family:var(--mono);
+  font-size:12.5px;
+  line-height:1.7;
+  background:#0f172a;
+  color:#e2e8f0;
+  border-radius:8px;
+  padding:14px 0;
+  overflow:auto;
+  max-height:560px;
+  border:1px solid #1e293b;
+}
+.diff-line{
+  display:flex;align-items:flex-start;
+  padding:0 14px;white-space:pre;
+}
+.diff-line .ln{
+  color:#64748b;min-width:44px;text-align:right;padding-right:12px;
+  user-select:none;flex-shrink:0;
+}
+.diff-line .sign{min-width:18px;flex-shrink:0;font-weight:700}
+.diff-line.added{background:rgba(22,163,74,.16);color:#86efac}
+.diff-line.added .sign{color:#4ade80}
+.diff-line.removed{background:rgba(220,38,38,.16);color:#fca5a5}
+.diff-line.removed .sign{color:#f87171}
+.diff-line.unchanged{color:#94a3b8}
+.diff-line.unchanged .sign{color:#475569}
+
+/* ===== Regex matches ===== */
+.match-list{display:flex;flex-direction:column;gap:8px;max-height:520px;overflow:auto}
+.match-item{
+  background:var(--surface-2);
+  border:1px solid var(--border);
+  border-left:3px solid var(--primary);
+  border-radius:6px;
+  padding:9px 12px;
+  font-family:var(--mono);font-size:12.5px;
+  word-break:break-word;
+}
+.match-item .match-idx{
+  display:inline-block;font-size:10.5px;font-weight:700;
+  color:var(--primary);background:var(--primary-soft);
+  padding:1px 6px;border-radius:4px;margin-right:8px;
+}
+.match-item .match-groups{
+  margin-top:6px;padding-top:6px;border-top:1px dashed var(--border-strong);
+  font-size:11.5px;color:var(--text-muted);
+}
+.match-item .match-groups span{color:var(--text)}
+
+/* ===== Encode grid ===== */
+.encode-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:12px;
+}
+.encode-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:12px 14px;
+}
+.encode-card-head{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:8px;
+}
+.encode-card-label{
+  font-size:11px;font-weight:700;color:var(--text-muted);
+  text-transform:uppercase;letter-spacing:.5px;
+}
+.encode-card-value{
+  font-family:var(--mono);font-size:12px;
+  background:var(--surface-2);
+  border:1px solid var(--border);
+  border-radius:6px;
+  padding:8px 10px;
+  word-break:break-all;
+  max-height:120px;overflow:auto;
+  line-height:1.5;
+  color:var(--text);
+}
+.encode-card-value.empty{color:var(--text-faint);font-style:italic}
+
+/* ===== Base converter ===== */
+.base-row{
+  display:grid;
+  grid-template-columns:110px 1fr;
+  gap:12px;align-items:center;
+  margin-bottom:12px;
+}
+.base-row:last-child{margin-bottom:0}
+.base-label{
+  font-family:var(--mono);font-size:12px;font-weight:700;
+  color:var(--text-muted);text-transform:uppercase;
+  display:flex;align-items:center;gap:8px;
+}
+.base-dot{width:8px;height:8px;border-radius:2px}
+.base-row.invalid input{
+  border-color:var(--error);
+  background:var(--error-soft);
+}
+.base-hint{font-size:11px;color:var(--error);margin-top:4px;font-family:var(--mono);display:none}
+.base-row.invalid .base-hint{display:block}
+
+/* ===== Toolbar ===== */
+.toolbar{
+  display:flex;gap:10px;flex-wrap:wrap;align-items:center;
+  margin-bottom:14px;
+}
+.toolbar .spacer{flex:1}
+.search-box{
+  position:relative;flex:1;min-width:180px;
+}
+.search-box input{padding-left:32px}
+.search-box::before{
+  content:"";position:absolute;left:11px;top:50%;transform:translateY(-50%);
+  width:14px;height:14px;
+  border:1.5px solid var(--text-faint);border-radius:50%;
+}
+.search-box::after{
+  content:"";position:absolute;left:21px;top:calc(50% + 5px);
+  width:7px;height:1.5px;background:var(--text-faint);transform:rotate(45deg);
+  transform-origin:left;
+}
+
+.count-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:12px;font-weight:600;color:var(--text-muted);
+  background:var(--surface-2);border:1px solid var(--border);
+  padding:5px 10px;border-radius:6px;
+}
+.count-badge .num{font-family:var(--mono);color:var(--primary);font-weight:700}
+
+/* ===== Output preview ===== */
+.output-preview{
+  font-family:var(--mono);font-size:12.5px;
+  background:#0f172a;color:#e2e8f0;
+  border-radius:8px;padding:14px;
+  white-space:pre-wrap;word-break:break-word;
+  max-height:380px;overflow:auto;
+  line-height:1.6;
+  border:1px solid #1e293b;
+}
+
+/* ===== Empty state ===== */
+.empty-state{
+  text-align:center;padding:40px 20px;color:var(--text-muted);
+}
+.empty-state .es-icon{
+  font-size:32px;margin-bottom:10px;opacity:.4;font-family:var(--mono);
+}
+.empty-state p{font-size:13.5px}
+
+/* ===== Toast ===== */
+.toast{
+  position:fixed;
+  bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);
+  background:var(--text);color:#fff;
+  padding:11px 20px;border-radius:8px;
+  font-size:13.5px;font-weight:500;
+  box-shadow:0 8px 24px rgba(15,23,42,.25);
+  z-index:9999;
+  opacity:0;
+  transition:transform .3s cubic-bezier(.2,.8,.2,1),opacity .3s;
+  pointer-events:none;
+  display:flex;align-items:center;gap:8px;
+}
+.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+.toast::before{
+  content:"";width:7px;height:7px;border-radius:50%;background:var(--success);
+}
+
+/* ===== FAQ ===== */
+.faq-section{
+  max-width:860px;
+  margin:0 auto;
+  padding:48px 24px;
+}
+.faq-section h2{
+  font-size:28px;font-weight:700;letter-spacing:-.6px;
+  text-align:center;margin-bottom:8px;
+}
+.faq-section .faq-sub{
+  text-align:center;color:var(--text-muted);font-size:15px;margin-bottom:32px;
+}
+.faq-item{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:10px;
+  margin-bottom:10px;
+  overflow:hidden;
+  transition:box-shadow .15s,border-color .15s;
+}
+.faq-item.open{box-shadow:var(--shadow);border-color:var(--border-strong)}
+.faq-q{
+  width:100%;
+  text-align:left;
+  padding:16px 18px;
+  font-size:15px;font-weight:600;color:var(--text);
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  background:var(--surface);
+}
+.faq-q:hover{background:var(--surface-2)}
+.faq-q .faq-icon{
+  flex-shrink:0;width:22px;height:22px;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--primary);font-size:20px;font-weight:300;
+  transition:transform .25s;
+}
+.faq-item.open .faq-q .faq-icon{transform:rotate(45deg)}
+.faq-a{
+  max-height:0;overflow:hidden;
+  transition:max-height .3s ease;
+}
+.faq-a-inner{
+  padding:0 18px 16px;
+  color:var(--text-muted);font-size:14px;line-height:1.7;
+}
+
+/* ===== Footer ===== */
+.site-footer{
+  border-top:1px solid var(--border);
+  background:var(--surface);
+  padding:28px 24px;
+  text-align:center;
+}
+.footer-inner{max-width:1280px;margin:0 auto}
+.footer-credit{
+  font-size:13.5px;color:var(--text-muted);
+}
+.footer-credit a{font-weight:600}
+.footer-links{
+  display:flex;justify-content:center;gap:18px;
+  margin-bottom:12px;flex-wrap:wrap;font-size:13px;
+}
+
+/* ===== Responsive ===== */
+@media(max-width:680px){
+  .header-inner{padding:12px 16px}
+  .brand-sub{display:none}
+  .link-btn span{display:none}
+  .hero{padding:32px 16px 16px}
+  .tabs{padding:10px 16px}
+  .main{padding:24px 16px 48px}
+  .card-body{padding:14px}
+  .base-row{grid-template-columns:1fr;gap:6px}
+  .base-label{font-size:11px}
+  .hero-stats{gap:20px}
+}
+
+/* utility */
+.text-muted{color:var(--text-muted)}
+.text-mono{font-family:var(--mono)}
+.text-sm{font-size:12.5px}
+.mt-8{margin-top:8px}
+.mt-12{margin-top:12px}
+.mt-16{margin-top:16px}
+.mt-20{margin-top:20px}
+.mb-8{margin-bottom:8px}
+.mb-12{margin-bottom:12px}
+.flex{display:flex}
+.gap-8{gap:8px}
+.gap-12{gap:12px}
+.items-center{align-items:center}
+.justify-between{justify-content:space-between}
+.flex-wrap{flex-wrap:wrap}
+</style>
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/premium-data-toolkit" class="brand">
+      <div class="brand-mark">DT</div>
+      <div class="brand-text">
+        <span class="brand-title">Premium Data Toolkit</span>
+        <span class="brand-sub">8 tools for analysts & developers</span>
+      </div>
+    </a>
+    <div class="header-actions">
+      <a href="/all-in-one-toolkit" class="link-btn">
+        <span>All Toolkits</span>
+      </a>
+      <button class="btn-primary" onclick="downloadHTML()">
+        <span>↓</span> Download HTML
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ===== Hero ===== -->
+<section class="hero">
+  <div class="hero-eyebrow"><span class="dot"></span> 8 Working Tools · 100% Client-Side · No Data Leaves Your Browser</div>
+  <h1>Premium Data Toolkit</h1>
+  <p>A complete analyst's workbench in your browser — parse CSV, convert JSON, crunch statistics, test regex, diff text, encode hashes, and more. Every tool runs locally with real algorithms.</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="hero-stat-num">8</div><div class="hero-stat-label">Working Tools</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">0</div><div class="hero-stat-label">Server Calls</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">100%</div><div class="hero-stat-label">Private</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">∞</div><div class="hero-stat-label">Free Uses</div></div>
+  </div>
+</section>
+
+<!-- ===== Tabs ===== -->
+<div class="tabs-wrap">
+  <nav class="tabs" id="tabBar" role="tablist">
+    <button class="tab active" data-tab="csv" role="tab"><span class="tab-num">01</span> CSV Viewer & Editor</button>
+    <button class="tab" data-tab="json" role="tab"><span class="tab-num">02</span> JSON ↔ CSV</button>
+    <button class="tab" data-tab="sort" role="tab"><span class="tab-num">03</span> Data Sorter</button>
+    <button class="tab" data-tab="regex" role="tab"><span class="tab-num">04</span> Regex Extractor</button>
+    <button class="tab" data-tab="stats" role="tab"><span class="tab-num">05</span> Statistics</button>
+    <button class="tab" data-tab="base" role="tab"><span class="tab-num">06</span> Base Converter</button>
+    <button class="tab" data-tab="diff" role="tab"><span class="tab-num">07</span> Text Diff</button>
+    <button class="tab" data-tab="hash" role="tab"><span class="tab-num">08</span> Hash & Encode</button>
+  </nav>
+</div>
+
+<!-- ===== Main ===== -->
+<main class="main">
+
+<!-- ============ 01 CSV VIEWER & EDITOR ============ -->
+<section class="panel active" id="panel-csv">
+  <div class="panel-head">
+    <h2>CSV Viewer &amp; Editor</h2>
+    <p>Paste CSV data and edit it as a live table. Add or delete rows and columns, sort by clicking headers, filter with search, and export back to CSV. The parser handles quoted fields with commas and escaped quotes per RFC 4180.</p>
+  </div>
+
+  <div class="tool-grid">
+    <div class="card">
+      <div class="card-head">
+        <div class="card-title">CSV Input <span class="pill">paste or type</span></div>
+        <button class="btn btn-sm btn-ghost" onclick="loadCsvSample()">Load sample</button>
+      </div>
+      <div class="card-body">
+        <div class="input-group">
+          <label class="field-label">CSV Data</label>
+          <textarea id="csvInput" rows="7" placeholder="name,role,city,salary&#10;Alice,Engineer,Seattle,95000&#10;Bob,Designer,Portland,82000&#10;Carol,Manager,&quot;San Francisco&quot;,118000"></textarea>
+        </div>
+        <div class="toolbar" style="margin:0">
+          <select id="csvDelimiter" style="width:auto;min-width:120px">
+            <option value=",">Comma (,)</option>
+            <option value=";">Semicolon (;)</option>
+            <option value="\t">Tab</option>
+            <option value="|">Pipe (|)</option>
+          </select>
+          <label class="checkbox-row"><input type="checkbox" id="csvHeader" checked> First row is header</label>
+          <div class="spacer"></div>
+          <button class="btn btn-primary-2 btn-sm" onclick="csvParse()">Parse &amp; Load →</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <div class="card-title">Table <span class="pill" id="csvDims">0 × 0</span></div>
+        <div class="btn-row">
+          <button class="btn btn-sm" onclick="csvAddRow()">+ Row</button>
+          <button class="btn btn-sm" onclick="csvAddCol()">+ Column</button>
+          <button class="btn btn-sm btn-success" onclick="csvExport()">Export CSV</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="toolbar">
+          <div class="search-box"><input type="text" id="csvFilter" placeholder="Filter rows…" oninput="csvRender()"></div>
+          <span class="count-badge">Rows <span class="num" id="csvRowCount">0</span></span>
+          <span class="count-badge">Cols <span class="num" id="csvColCount">0</span></span>
+        </div>
+        <div class="table-wrap" id="csvTableWrap">
+          <div class="empty-state"><div class="es-icon">{ }</div><p>Parse CSV data to load the editable table.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 02 JSON ↔ CSV ============ -->
+<section class="panel" id="panel-json">
+  <div class="panel-head">
+    <h2>JSON ↔ CSV Converter</h2>
+    <p>Convert a JSON array of objects to CSV with proper escaping, or turn CSV into a JSON array. Nested objects are flattened with dot notation; arrays become JSON strings so they fit in a single cell.</p>
+  </div>
+
+  <div class="tool-grid">
+    <div class="card">
+      <div class="card-head">
+        <div class="card-title">Input</div>
+        <div class="btn-row">
+          <button class="btn btn-sm" onclick="jsonLoadSample()">Sample JSON</button>
+          <button class="btn btn-sm" onclick="csvLoadSample2()">Sample CSV</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="input-group">
+          <label class="field-label">JSON or CSV</label>
+          <textarea id="jsonInput" rows="10" placeholder='[{"name":"Alice","age":30},{"name":"Bob","age":25}]'></textarea>
+        </div>
+        <div class="btn-row">
+          <button class="btn btn-primary-2 btn-sm" onclick="jsonToCsv()">JSON → CSV</button>
+          <button class="btn btn-primary-2 btn-sm" onclick="csvToJson()">CSV → JSON</button>
+          <button class="btn btn-sm btn-ghost" onclick="document.getElementById('jsonInput').value='';document.getElementById('jsonOutput').value='';">Clear</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <div class="card-title">Output</div>
+        <div class="btn-row">
+          <button class="btn btn-sm" onclick="copyText(document.getElementById('jsonOutput').value)">Copy</button>
+          <button class="btn btn-sm" onclick="downloadOutput('json-converted.txt', document.getElementById('jsonOutput').value)">Download</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="input-group">
+          <label class="field-label">Result</label>
+          <textarea id="jsonOutput" rows="10" placeholder="Result appears here…"></textarea>
+        </div>
+        <div id="jsonStatus" class="text-sm text-muted"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 03 DATA SORTER ============ -->
+<section class="panel" id="panel-sort">
+  <div class="panel-head">
+    <h2>Data Sorter</h2>
+    <p>Paste any list — one item per line, or comma-separated. Sort alphabetically or numerically, by length, reverse, or shuffle. Remove duplicates with an optional case-sensitivity toggle.</p>
+  </div>
+
+  <div class="tool-grid">
+    <div class="card">
+      <div class="card-head"><div class="card-title">Input</div><button class="btn btn-sm btn-ghost" onclick="sortLoadSample()">Sample</button></div>
+      <div class="card-body">
+        <div class="input-group">
+          <label class="field-label">List (one per line or comma-separated)</label>
+          <textarea id="sortInput" rows="9" placeholder="banana&#10;apple&#10;cherry&#10;date"></textarea>
+        </div>
+        <div class="toolbar" style="margin:0">
+          <label class="checkbox-row"><input type="checkbox" id="sortCaseSensitive"> Case-sensitive</label>
+          <label class="checkbox-row"><input type="checkbox" id="sortRemoveDups"> Remove duplicates</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><div class="card-title">Output</div>
+        <div class="btn-row">
+          <button class="btn btn-sm" onclick="copyText(document.getElementById('sortOutput').value)">Copy</button>
+          <button class="btn btn-sm" onclick="downloadOutput('sorted.txt', document.getElementById('sortOutput').value)">Download</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="btn-row mb-12">
+          <button class="btn btn-sm" onclick="sortDo('az')">A → Z</button>
+          <button class="btn btn-sm" onclick="sortDo('za')">Z → A</button>
+          <button class="btn btn-sm" onclick="sortDo('num-asc')">0 → 9</button>
+          <button class="btn btn-sm" onclick="sortDo('num-desc')">9 → 0</button>
+          <button class="btn btn-sm" onclick="sortDo('len-asc')">Short → Long</button>
+          <button class="btn btn-sm" onclick="sortDo('len-desc')">Long → Short</button>
+          <button class="btn btn-sm" onclick="sortDo('shuffle')">Shuffle</button>
+          <button class="btn btn-sm" onclick="sortDo('reverse')">Reverse</button>
+        </div>
+        <div class="toolbar">
+          <span class="count-badge">Before <span class="num" id="sortBefore">0</span></span>
+          <span class="count-badge">After <span class="num" id="sortAfter">0</span></span>
+        </div>
+        <textarea id="sortOutput" rows="9" placeholder="Sorted result appears here…"></textarea>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 04 REGEX EXTRACTOR ============ -->
+<section class="panel" id="panel-regex">
+  <div class="panel-head">
+    <h2>Regex Extractor</h2>
+    <p>Enter a JavaScript regular expression with flags, paste text, and extract all matches with their capture groups. Export matches as JSON or copy them as plain text.</p>
+  </div>
+
+  <div class="tool-grid">
+    <div class="card">
+      <div class="card-head"><div class="card-title">Pattern &amp; Text</div><button class="btn btn-sm btn-ghost" onclick="regexLoadSample()">Sample</button></div>
+      <div class="card-body">
+        <div class="input-group">
+          <label class="field-label">Pattern (without slashes)</label>
+          <div class="flex gap-8">
+            <input type="text" id="regexPattern" placeholder="\b(\w+)@(\w+)\.(\w+)\b" style="flex:1">
+            <input type="text" id="regexFlags" placeholder="gi" style="width:90px" value="g">
+          </div>
+        </div>
+        <div class="input-group">
+          <label class="field-label">Text</label>
+          <textarea id="regexText" rows="9" placeholder="Contact alice@example.com or bob@test.org for details."></textarea>
+        </div>
+        <div class="btn-row">
+          <button class="btn btn-primary-2 btn-sm" onclick="regexExtract()">Extract Matches</button>
+          <button class="btn btn-sm btn-ghost" onclick="document.getElementById('regexOutput').innerHTML='';document.getElementById('regexCount').textContent='0';">Clear</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <div class="card-title">Matches <span class="pill" id="regexCount">0</span></div>
+        <div class="btn-row">
+          <button class="btn btn-sm" onclick="regexCopyAsText()">Copy Text</button>
+          <button class="btn btn-sm" onclick="regexDownloadJson()">JSON</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="match-list" id="regexOutput">
+          <div class="empty-state"><div class="es-icon">.*</div><p>Run the extractor to see matches.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 05 STATISTICS ============ -->
+<section class="panel" id="panel-stats">
+  <div class="panel-head">
+    <h2>Statistics Calculator</h2>
+    <p>Paste a list of numbers — separated by commas, spaces, or newlines. Get count, sum, mean, median, mode, min, max, range, variance, standard deviation, quartiles, and IQR in a clean grid.</p>
+  </div>
+
+  <div class="card mb-12">
+    <div class="card-head"><div class="card-title">Numbers</div><button class="btn btn-sm btn-ghost" onclick="statsLoadSample()">Sample</button></div>
+    <div class="card-body">
+      <div class="input-group">
+        <label class="field-label">Enter numbers (comma, space, or newline separated)</label>
+        <textarea id="statsInput" rows="5" placeholder="12, 18, 5, 24, 18, 30, 9, 15, 22, 18"></textarea>
+      </div>
+      <div class="btn-row">
+        <button class="btn btn-primary-2 btn-sm" onclick="statsCalc()">Calculate</button>
+        <button class="btn btn-sm btn-ghost" onclick="document.getElementById('statsInput').value='';document.getElementById('statsGrid').innerHTML='';">Clear</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="stats-grid" id="statsGrid">
+    <div class="empty-state" style="grid-column:1/-1"><div class="es-icon">Σ</div><p>Enter numbers and click Calculate.</p></div>
+  </div>
+</section>
+
+<!-- ============ 06 BASE CONVERTER ============ -->
+<section class="panel" id="panel-base">
+  <div class="panel-head">
+    <h2>Base Converter</h2>
+    <p>Convert a number between binary, octal, decimal, and hexadecimal — including fractional parts. Edit any field and the others update instantly. Invalid digits for each base are flagged.</p>
+  </div>
+
+  <div class="card" style="max-width:640px">
+    <div class="card-head"><div class="card-title">Number Bases</div><button class="btn btn-sm btn-ghost" onclick="baseLoadSample()">Sample</button></div>
+    <div class="card-body">
+      <div class="base-row" id="baseRowBin">
+        <div class="base-label"><span class="base-dot" style="background:#2563eb"></span> Binary · 2</div>
+        <div>
+          <input type="text" id="baseBin" placeholder="1010.01" oninput="baseConvert('bin')" autocomplete="off">
+          <div class="base-hint">Invalid: only 0 and 1 allowed</div>
+        </div>
+      </div>
+      <div class="base-row" id="baseRowOct">
+        <div class="base-label"><span class="base-dot" style="background:#16a34a"></span> Octal · 8</div>
+        <div>
+          <input type="text" id="baseOct" placeholder="12.2" oninput="baseConvert('oct')" autocomplete="off">
+          <div class="base-hint">Invalid: only 0–7 allowed</div>
+        </div>
+      </div>
+      <div class="base-row" id="baseRowDec">
+        <div class="base-label"><span class="base-dot" style="background:#d97706"></span> Decimal · 10</div>
+        <div>
+          <input type="text" id="baseDec" placeholder="10.25" oninput="baseConvert('dec')" autocomplete="off">
+          <div class="base-hint">Invalid: only 0–9 allowed</div>
+        </div>
+      </div>
+      <div class="base-row" id="baseRowHex">
+        <div class="base-label"><span class="base-dot" style="background:#dc2626"></span> Hex · 16</div>
+        <div>
+          <input type="text" id="baseHex" placeholder="A.4" oninput="baseConvert('hex')" autocomplete="off">
+          <div class="base-hint">Invalid: only 0–9 and A–F allowed</div>
+        </div>
+      </div>
+      <div class="toolbar mt-16">
+        <span class="count-badge">Value <span class="num" id="baseValue">—</span></span>
+        <div class="spacer"></div>
+        <button class="btn btn-sm" onclick="baseClear()">Clear</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 07 TEXT DIFF ============ -->
+<section class="panel" id="panel-diff">
+  <div class="panel-head">
+    <h2>Text Diff</h2>
+    <p>Compare two text blocks line by line using a Longest Common Subsequence (LCS) algorithm. Added lines are green, deleted lines are red, unchanged lines are gray. Statistics show lines added, deleted, and unchanged.</p>
+  </div>
+
+  <div class="tool-grid">
+    <div class="card">
+      <div class="card-head"><div class="card-title">Original Text</div><button class="btn btn-sm btn-ghost" onclick="diffLoadSample()">Sample</button></div>
+      <div class="card-body">
+        <textarea id="diffA" rows="10" placeholder="The quick brown fox&#10;jumps over&#10;the lazy dog&#10;today."></textarea>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-head"><div class="card-title">Modified Text</div></div>
+      <div class="card-body">
+        <textarea id="diffB" rows="10" placeholder="The quick brown fox&#10;leaps over&#10;the lazy dog&#10;tomorrow."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mt-20">
+    <div class="card-head">
+      <div class="card-title">Diff Result</div>
+      <div class="btn-row">
+        <span class="count-badge">+ <span class="num" id="diffAdded" style="color:var(--success)">0</span></span>
+        <span class="count-badge">− <span class="num" id="diffRemoved" style="color:var(--error)">0</span></span>
+        <span class="count-badge">= <span class="num" id="diffSame">0</span></span>
+        <button class="btn btn-sm" onclick="diffCompare()">Compare</button>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="diff-output" id="diffOutput">
+        <div class="diff-line unchanged"><span class="ln">1</span><span class="sign"> </span>Click "Compare" to see the line-by-line diff…</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 08 HASH & ENCODE ============ -->
+<section class="panel" id="panel-hash">
+  <div class="panel-head">
+    <h2>Hash &amp; Encode</h2>
+    <p>Enter text and instantly generate URL-encoded, HTML-entity-encoded, Base64, SHA-1, and SHA-256 versions. Hashing uses the browser's built-in Web Crypto API and runs entirely on your device.</p>
+  </div>
+
+  <div class="card mb-12">
+    <div class="card-head"><div class="card-title">Input Text</div><button class="btn btn-sm btn-ghost" onclick="hashLoadSample()">Sample</button></div>
+    <div class="card-body">
+      <div class="input-group">
+        <label class="field-label">Text to encode / hash</label>
+        <textarea id="hashInput" rows="4" placeholder="Hello, World! https://example.com?a=1&b=2"></textarea>
+      </div>
+      <div class="btn-row">
+        <button class="btn btn-primary-2 btn-sm" onclick="hashCompute()">Generate All</button>
+        <label class="checkbox-row"><input type="checkbox" id="hashLive" checked> Live update</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="encode-grid" id="encodeGrid">
+    <div class="empty-state" style="grid-column:1/-1"><div class="es-icon">#</div><p>Enter text and click Generate All.</p></div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== FAQ ===== -->
+<section class="faq-section">
+  <h2>Frequently Asked Questions</h2>
+  <p class="faq-sub">Everything you need to know about the Premium Data Toolkit.</p>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">How does the CSV parser handle commas inside quotes?<span class="faq-icon">+</span></button>
+    <div class="faq-a"><div class="faq-a-inner">The CSV parser implements a state machine that tracks whether it is currently inside a quoted field. When inside quotes, commas and newlines are treated as literal characters belonging to the field value rather than delimiters. Double quotes inside a quoted field are handled as escaped quotes (two consecutive quote characters represent one literal quote), following RFC 4180 conventions. This means a row like <code>"Smith, John","55,000"</code> correctly parses into two fields: <code>Smith, John</code> and <code>55,000</code>.</div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">What diff algorithm is used in the Text Diff tool?<span class="faq-icon">+</span></button>
+    <div class="faq-a"><div class="faq-a-inner">The Text Diff tool uses a Longest Common Subsequence (LCS) based algorithm. It builds a dynamic programming table comparing two sequences of lines, then backtracks through the table to identify which lines are unchanged, added, or deleted. This produces a minimal, readable line-by-line diff output with color-coded additions (green) and deletions (red). The algorithm runs in O(n·m) time where n and m are the line counts of the two inputs, which is fast enough for typical documents.</div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">Can the statistics calculator handle large datasets?<span class="faq-icon">+</span></button>
+    <div class="faq-a"><div class="faq-a-inner">Yes. The statistics calculator runs entirely in your browser and can comfortably handle tens of thousands of numbers. It uses single-pass algorithms for sum and mean, and a single sort operation for median, quartiles, and mode. Because all computation happens locally on your device, performance depends only on your computer's CPU and memory, not on any server. For extremely large inputs (hundreds of thousands of values) the sort step is the main cost, but it still completes in well under a second on modern hardware.</div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">Is my data sent anywhere?<span class="faq-icon">+</span></button>
+    <div class="faq-a"><div class="faq-a-inner">No. Every tool in the Premium Data Toolkit runs entirely client-side in your browser. Your CSV data, JSON, text, numbers, and any other input never leave your device. There are no server calls, no analytics on your input, and no tracking of the content you process. Hashing uses the built-in Web Crypto API, which also runs locally. This makes the toolkit safe for sensitive data like customer lists, financial figures, or internal logs.</div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">How does the JSON to CSV converter handle nested objects?<span class="faq-icon">+</span></button>
+    <div class="faq-a"><div class="faq-a-inner">When converting JSON to CSV, nested objects and arrays are flattened. Object keys use dot notation — for example, <code>{"address":{"city":"Seattle"}}</code> becomes a column named <code>address.city</code> with value <code>Seattle</code>. Arrays and values that cannot be flattened are serialized to JSON strings so they fit into a single CSV cell. This preserves all your data while keeping the resulting CSV table flat and compatible with spreadsheet applications like Excel and Google Sheets.</div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">Does the base converter support fractional numbers?<span class="faq-icon">+</span></button>
+    <div class="faq-a"><div class="faq-a-inner">Yes. The base converter supports fractional numbers in all four bases (binary, octal, decimal, hexadecimal). It parses the integer and fractional parts separately, converts through decimal as an intermediate, then formats the result for the target base. Editing any of the four fields instantly updates the other three, so you can convert in any direction. Invalid digits for a given base — for example a "2" in binary — are flagged with a red border and a validation message.</div></div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="/all-in-one-toolkit">All Toolkits</a>
+      <a href="/developer-toolkit">Developer Toolkit</a>
+      <a href="/premium-data-toolkit">Data Toolkit</a>
+      <a href="/calculators">Calculators</a>
+      <a href="/converters">Converters</a>
+    </div>
+    <div class="footer-credit">© 2026 <a href="/all-in-one-toolkit">ExcuseMeWeb</a> — Premium Data Toolkit</div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ============================================================
+   PREMIUM DATA TOOLKIT — all logic, client-side, no deps
+   ============================================================ */
+
+/* ---------- Helpers ---------- */
+function toast(msg){
+  var t=document.getElementById('toast');
+  t.textContent=msg;
+  // re-add the green dot via pseudo (content) — set text then prepend dot
+  t.classList.add('show');
+  clearTimeout(t._timer);
+  t._timer=setTimeout(function(){t.classList.remove('show');},2200);
+}
+function copyText(text){
+  if(!text){toast('Nothing to copy');return;}
+  // use textarea fallback for compatibility
+  var ta=document.createElement('textarea');
+  ta.value=text;ta.style.position='fixed';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy');toast('Copied to clipboard');}
+  catch(e){
+    if(navigator.clipboard){navigator.clipboard.writeText(text).then(function(){toast('Copied to clipboard');});}
+    else{toast('Copy failed');}
+  }
+  document.body.removeChild(ta);
+}
+function downloadFile(filename,content,mime){
+  var blob=new Blob([content],{type:mime||'text/plain'});
+  var url=URL.createObjectURL(blob);
+  var a=document.createElement('a');a.href=url;a.download=filename;
+  document.body.appendChild(a);a.click();document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  toast('Downloaded '+filename);
+}
+function downloadHTML(){
+  var html='<!DOCTYPE html>\n'+document.documentElement.outerHTML;
+  downloadFile('premium-data-toolkit.html',html,'text/html');
+}
+function downloadOutput(name,content){downloadFile(name,content);}
+function escapeHtml(s){
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+/* ---------- Tab switching ---------- */
+(function(){
+  var tabs=document.querySelectorAll('.tab');
+  var panels=document.querySelectorAll('.panel');
+  tabs.forEach(function(tab){
+    tab.addEventListener('click',function(){
+      var id=tab.dataset.tab;
+      tabs.forEach(function(t){t.classList.toggle('active',t===tab);});
+      panels.forEach(function(p){p.classList.toggle('active',p.id==='panel-'+id);});
+      // scroll active tab into view on mobile
+      tab.scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'});
+    });
+  });
+})();
+
+/* ---------- FAQ accordion ---------- */
+function toggleFaq(btn){
+  var item=btn.parentElement;
+  var ans=btn.nextElementSibling;
+  var isOpen=item.classList.contains('open');
+  // close all
+  document.querySelectorAll('.faq-item').forEach(function(f){
+    f.classList.remove('open');
+    f.querySelector('.faq-a').style.maxHeight='0';
+  });
+  if(!isOpen){
+    item.classList.add('open');
+    ans.style.maxHeight=ans.scrollHeight+'px';
+  }
+}
+
+/* ============================================================
+   01 · CSV VIEWER & EDITOR
+   ============================================================ */
+var csvState={headers:[],rows:[],sortCol:-1,sortDir:1};
+
+function getDelimiter(){
+  var v=document.getElementById('csvDelimiter').value;
+  if(v==='\\t')return '\t';
+  return v;
+}
+
+/* RFC-4180-ish CSV parser, state machine */
+function parseCSV(text,delim){
+  delim=delim||',';
+  var rows=[];
+  var row=[];
+  var field='';
+  var inQuotes=false;
+  var i=0;
+  var len=text.length;
+  // normalize CRLF -> LF
+  text=text.replace(/\r\n/g,'\n').replace(/\r/g,'\n');
+  while(i<len){
+    var c=text.charAt(i);
+    if(inQuotes){
+      if(c==='"'){
+        if(i+1<len && text.charAt(i+1)==='"'){
+          field+='"';i+=2;continue;
+        }else{
+          inQuotes=false;i++;continue;
+        }
+      }else{
+        field+=c;i++;continue;
+      }
+    }else{
+      if(c==='"'){
+        inQuotes=true;i++;continue;
+      }else if(c===delim){
+        row.push(field);field='';i++;continue;
+      }else if(c==='\n'){
+        row.push(field);rows.push(row);row=[];field='';i++;continue;
+      }else{
+        field+=c;i++;continue;
+      }
+    }
+  }
+  // last field
+  if(field.length>0 || row.length>0){
+    row.push(field);rows.push(row);
+  }
+  // trim fully-empty trailing rows
+  while(rows.length && rows[rows.length-1].length===1 && rows[rows.length-1][0]===''){
+    rows.pop();
+  }
+  return rows;
+}
+
+/* CSV serializer with proper escaping */
+function serializeCSV(rows,delim){
+  delim=delim||',';
+  return rows.map(function(row){
+    return row.map(function(cell){
+      cell=cell==null?'':String(cell);
+      if(cell.indexOf('"')!==-1 || cell.indexOf(delim)!==-1 || cell.indexOf('\n')!==-1 || cell.indexOf('\r')!==-1){
+        cell='"'+cell.replace(/"/g,'""')+'"';
+      }
+      return cell;
+    }).join(delim);
+  }).join('\n');
+}
+
+function csvParse(){
+  var text=document.getElementById('csvInput').value;
+  if(!text.trim()){toast('Paste some CSV first');return;}
+  var delim=getDelimiter();
+  var data=parseCSV(text,delim);
+  if(!data.length){toast('No rows parsed');return;}
+  var hasHeader=document.getElementById('csvHeader').checked;
+  if(hasHeader){
+    csvState.headers=data[0];
+    csvState.rows=data.slice(1);
+  }else{
+    csvState.headers=data[0].map(function(_,i){return 'Col '+(i+1);});
+    csvState.rows=data;
+  }
+  csvState.sortCol=-1;csvState.sortDir=1;
+  csvRender();
+  toast('Loaded '+(csvState.rows.length)+' rows × '+csvState.headers.length+' cols');
+}
+
+function csvRender(){
+  var filter=(document.getElementById('csvFilter').value||'').toLowerCase();
+  var wrap=document.getElementById('csvTableWrap');
+  var rows=csvState.rows;
+  // apply filter
+  var shown=rows.filter(function(r){
+    if(!filter)return true;
+    return r.some(function(c){return String(c).toLowerCase().indexOf(filter)!==-1;});
+  });
+  // apply sort
+  if(csvState.sortCol>=0){
+    shown=shown.slice().sort(function(a,b){
+      var av=a[csvState.sortCol]||'';
+      var bv=b[csvState.sortCol]||'';
+      var an=parseFloat(av),bn=parseFloat(bv);
+      if(!isNaN(an)&&!isNaN(bn)&&/^-?\d/.test(av)&&/^-?\d/.test(bv)){
+        return (an-bn)*csvState.sortDir;
+      }
+      return String(av).localeCompare(String(bv))*csvState.sortDir;
+    });
+  }
+  // counts
+  document.getElementById('csvRowCount').textContent=rows.length;
+  document.getElementById('csvColCount').textContent=csvState.headers.length;
+  document.getElementById('csvDims').textContent=rows.length+' × '+csvState.headers.length;
+
+  if(!csvState.headers.length){
+    wrap.innerHTML='<div class="empty-state"><div class="es-icon">{ }</div><p>Parse CSV data to load the editable table.</p></div>';
+    return;
+  }
+
+  var html=['<table class="data-table"><thead><tr><th class="row-num">#</th>'];
+  csvState.headers.forEach(function(h,i){
+    var ind='';
+    if(csvState.sortCol===i)ind=csvState.sortDir===1?' ▲':' ▼';
+    html.push('<th onclick="csvSort('+i+')" title="Click to sort">'+escapeHtml(h||'Col '+(i+1))+'<span class="sort-ind">'+ind+'</span></th>');
+  });
+  html.push('<th class="action-cell">×</th></tr></thead><tbody>');
+  if(!shown.length){
+    html.push('<tr><td colspan="'+(csvState.headers.length+2)+'" style="text-align:center;color:var(--text-muted);padding:24px">No rows match filter.</td></tr>');
+  }else{
+    shown.forEach(function(r,ri){
+      // find actual index in rows for deletion
+      var realIdx=rows.indexOf(r);
+      html.push('<tr><td class="row-num">'+(realIdx+1)+'</td>');
+      csvState.headers.forEach(function(_,ci){
+        var val=r[ci]||'';
+        html.push('<td class="cell-edit"><input type="text" value="'+escapeHtml(val)+'" onchange="csvSetCell('+realIdx+','+ci+',this.value)" /></td>');
+      });
+      html.push('<td class="action-cell"><button onclick="csvDeleteRow('+realIdx+')" title="Delete row">✕</button></td></tr>');
+    });
+  }
+  html.push('</tbody></table>');
+  wrap.innerHTML=html.join('');
+}
+
+function csvSetCell(ri,ci,val){
+  if(csvState.rows[ri])csvState.rows[ri][ci]=val;
+}
+function csvDeleteRow(ri){
+  csvState.rows.splice(ri,1);
+  csvRender();
+}
+function csvAddRow(){
+  var n=csvState.headers.length;
+  var row=new Array(n).fill('');
+  csvState.rows.push(row);
+  csvRender();
+}
+function csvAddCol(){
+  var name='Col '+(csvState.headers.length+1);
+  csvState.headers.push(name);
+  csvState.rows.forEach(function(r){r.push('');});
+  csvRender();
+}
+function csvSort(ci){
+  if(csvState.sortCol===ci){csvState.sortDir*=-1;}
+  else{csvState.sortCol=ci;csvState.sortDir=1;}
+  csvRender();
+}
+function csvExport(){
+  if(!csvState.headers.length){toast('Nothing to export');return;}
+  var all=[csvState.headers].concat(csvState.rows);
+  var out=serializeCSV(all,getDelimiter());
+  downloadFile('data.csv',out,'text/csv');
+}
+function loadCsvSample(){
+  document.getElementById('csvInput').value='name,role,city,salary,remote\nAlice Chen,Engineer,Seattle,95000,true\nBob Garcia,Designer,Portland,82000,false\nCarol Lee,Manager,"San Francisco",118000,true\nDan Kim,Analyst,Chicago,76000,false\nEve Park,Engineer,Austin,91000,true';
+  csvParse();
+}
+
+/* ============================================================
+   02 · JSON ↔ CSV CONVERTER
+   ============================================================ */
+function flattenObject(obj,prefix,res){
+  res=res||{};
+  prefix=prefix||'';
+  for(var k in obj){
+    if(!obj.hasOwnProperty(k))continue;
+    var v=obj[k];
+    var key=prefix?prefix+'.'+k:k;
+    if(v!==null && typeof v==='object' && !Array.isArray(v)){
+      flattenObject(v,key,res);
+    }else{
+      res[key]=v;
+    }
+  }
+  return res;
+}
+
+function jsonToCsv(){
+  var raw=document.getElementById('jsonInput').value.trim();
+  var status=document.getElementById('jsonStatus');
+  if(!raw){toast('Paste JSON first');return;}
+  var data;
+  try{data=JSON.parse(raw);}
+  catch(e){status.innerHTML='<span style="color:var(--error)">Invalid JSON: '+escapeHtml(e.message)+'</span>';return;}
+  if(!Array.isArray(data)){status.innerHTML='<span style="color:var(--error)">Input must be a JSON array of objects.</span>';return;}
+  if(!data.length){status.innerHTML='<span style="color:var(--warning)">Empty array — nothing to convert.</span>';return;}
+
+  // flatten each row and collect all keys (preserve insertion order)
+  var flatRows=data.map(function(o){return flattenObject(o);});
+  var keys=[];
+  flatRows.forEach(function(r){
+    Object.keys(r).forEach(function(k){if(keys.indexOf(k)===-1)keys.push(k);});
+  });
+  var out=[keys.join(',')];
+  flatRows.forEach(function(r){
+    var row=keys.map(function(k){
+      var v=r[k];
+      if(v===undefined||v===null)v='';
+      else if(typeof v==='object')v=JSON.stringify(v);
+      else v=String(v);
+      if(v.indexOf(',')!==-1||v.indexOf('"')!==-1||v.indexOf('\n')!==-1){
+        v='"'+v.replace(/"/g,'""')+'"';
+      }
+      return v;
+    });
+    out.push(row.join(','));
+  });
+  document.getElementById('jsonOutput').value=out.join('\n');
+  status.innerHTML='<span style="color:var(--success)">Converted '+data.length+' records × '+keys.length+' columns.</span>';
+}
+
+function csvToJson(){
+  var raw=document.getElementById('jsonInput').value.trim();
+  var status=document.getElementById('jsonStatus');
+  if(!raw){toast('Paste CSV first');return;}
+  var rows=parseCSV(raw,',');
+  if(rows.length<1){status.innerHTML='<span style="color:var(--error)">No CSV rows found.</span>';return;}
+  var headers=rows[0];
+  var out=[];
+  for(var i=1;i<rows.length;i++){
+    var obj={};
+    headers.forEach(function(h,ci){
+      var v=rows[i][ci]||'';
+      // try to coerce numbers, booleans, null
+      if(v!=='' && !isNaN(v) && /^-?\d+(\.\d+)?$/.test(v))v=Number(v);
+      else if(v==='true')v=true;
+      else if(v==='false')v=false;
+      obj[h]=v;
+    });
+    out.push(obj);
+  }
+  document.getElementById('jsonOutput').value=JSON.stringify(out,null,2);
+  status.innerHTML='<span style="color:var(--success)">Converted '+(rows.length-1)+' rows to JSON objects.</span>';
+}
+
+function jsonLoadSample(){
+  document.getElementById('jsonInput').value=JSON.stringify([
+    {id:1,name:'Alice',email:'alice@example.com',address:{city:'Seattle',zip:'98101'},active:true},
+    {id:2,name:'Bob',email:'bob@test.org',address:{city:'Portland',zip:'97201'},active:false},
+    {id:3,name:'Carol',email:'carol@demo.net',address:{city:'Austin',zip:'73301'},active:true}
+  ],null,2);
+  document.getElementById('jsonOutput').value='';
+  document.getElementById('jsonStatus').textContent='';
+}
+function csvLoadSample2(){
+  document.getElementById('jsonInput').value='id,name,email,active\n1,Alice,alice@example.com,true\n2,Bob,bob@test.org,false\n3,Carol,carol@demo.net,true';
+  document.getElementById('jsonOutput').value='';
+  document.getElementById('jsonStatus').textContent='';
+}
+
+/* ============================================================
+   03 · DATA SORTER
+   ============================================================ */
+function sortGetItems(){
+  var raw=document.getElementById('sortInput').value;
+  // split on newline or comma
+  var items=raw.split(/[\n,]+/).map(function(s){return s.replace(/\r/g,'');});
+  // keep empties? remove pure empties but keep items that are whitespace? trim each
+  return items.map(function(s){return s.trim();}).filter(function(s){return s!=='';});
+}
+function sortDo(mode){
+  var items=sortGetItems();
+  var before=items.length;
+  document.getElementById('sortBefore').textContent=before;
+  var caseSens=document.getElementById('sortCaseSensitive').checked;
+  var removeDups=document.getElementById('sortRemoveDups').checked;
+
+  var work=items.slice();
+
+  if(mode==='az'||mode==='za'){
+    work.sort(function(a,b){
+      var ax=caseSens?a:a.toLowerCase();
+      var bx=caseSens?b:b.toLowerCase();
+      if(ax<bx)return -1;
+      if(ax>bx)return 1;
+      return 0;
+    });
+    if(mode==='za')work.reverse();
+  }else if(mode==='num-asc'||mode==='num-desc'){
+    work.sort(function(a,b){
+      var an=parseFloat(a),bn=parseFloat(b);
+      if(isNaN(an))an=Infinity;
+      if(isNaN(bn))bn=Infinity;
+      return an-bn;
+    });
+    if(mode==='num-desc')work.reverse();
+  }else if(mode==='len-asc'||mode==='len-desc'){
+    work.sort(function(a,b){return a.length-b.length;});
+    if(mode==='len-desc')work.reverse();
+  }else if(mode==='shuffle'){
+    // Fisher-Yates
+    for(var i=work.length-1;i>0;i--){
+      var j=Math.floor(Math.random()*(i+1));
+      var tmp=work[i];work[i]=work[j];work[j]=tmp;
+    }
+  }else if(mode==='reverse'){
+    work.reverse();
+  }
+
+  if(removeDups){
+    var seen={};var out=[];
+    work.forEach(function(s){
+      var key=caseSens?s:s.toLowerCase();
+      if(!seen[key]){seen[key]=true;out.push(s);}
+    });
+    work=out;
+  }
+
+  document.getElementById('sortAfter').textContent=work.length;
+  document.getElementById('sortOutput').value=work.join('\n');
+}
+function sortLoadSample(){
+  document.getElementById('sortInput').value='banana\napple\nCherry\ndate\napple\nElderberry\ncherry\nfig\nBanana';
+}
+
+/* ============================================================
+   04 · REGEX EXTRACTOR
+   ============================================================ */
+var regexLastMatches=[];
+function regexExtract(){
+  var pattern=document.getElementById('regexPattern').value;
+  var flags=document.getElementById('regexFlags').value;
+  var text=document.getElementById('regexText').value;
+  var out=document.getElementById('regexOutput');
+  if(!pattern){toast('Enter a regex pattern');return;}
+  if(flags.indexOf('g')===-1)flags+='g';
+  var re;
+  try{re=new RegExp(pattern,flags);}
+  catch(e){out.innerHTML='<div class="empty-state"><div class="es-icon">!</div><p style="color:var(--error)">Invalid regex: '+escapeHtml(e.message)+'</p></div>';return;}
+
+  var matches=[];
+  var m;
+  // iterate matches
+  if(flags.indexOf('g')!==-1){
+    while((m=re.exec(text))!==null){
+      matches.push({match:m[0],index:m.index,groups:Array.prototype.slice.call(m,1)});
+      if(m[0]===''){re.lastIndex++;}
+    }
+  }else{
+    m=re.exec(text);
+    if(m)matches.push({match:m[0],index:m.index,groups:Array.prototype.slice.call(m,1)});
+  }
+  regexLastMatches=matches;
+  document.getElementById('regexCount').textContent=matches.length;
+
+  if(!matches.length){
+    out.innerHTML='<div class="empty-state"><div class="es-icon">∅</div><p>No matches found.</p></div>';
+    return;
+  }
+  var html=[];
+  matches.forEach(function(mm,i){
+    html.push('<div class="match-item"><span class="match-idx">#'+(i+1)+'</span>'+escapeHtml(mm.match));
+    if(mm.groups && mm.groups.length){
+      html.push('<div class="match-groups">');
+      mm.groups.forEach(function(g,gi){
+        html.push('<div>Group '+(gi+1)+': <span>'+escapeHtml(g===undefined?'(undefined)':g)+'</span> · index '+mm.index+'</div>');
+      });
+      html.push('</div>');
+    }else{
+      html.push('<div class="match-groups">index: <span>'+mm.index+'</span></div>');
+    }
+    html.push('</div>');
+  });
+  out.innerHTML=html.join('');
+}
+function regexCopyAsText(){
+  if(!regexLastMatches.length){toast('No matches to copy');return;}
+  copyText(regexLastMatches.map(function(m){return m.match;}).join('\n'));
+}
+function regexDownloadJson(){
+  if(!regexLastMatches.length){toast('No matches to download');return;}
+  downloadFile('regex-matches.json',JSON.stringify(regexLastMatches,null,2),'application/json');
+}
+function regexLoadSample(){
+  document.getElementById('regexPattern').value='\\b(\\w+)@(\\w+)\\.(\\w+)\\b';
+  document.getElementById('regexFlags').value='gi';
+  document.getElementById('regexText').value='Contact alice@example.com or bob@test.org for details. You can also reach carol@demo.net on weekdays. Reach dave@company.io anytime.';
+}
+
+/* ============================================================
+   05 · STATISTICS CALCULATOR
+   ============================================================ */
+function statsParseNumbers(){
+  var raw=document.getElementById('statsInput').value;
+  return raw.split(/[\s,;]+/).map(function(s){return s.trim();}).filter(function(s){return s!=='';}).map(Number).filter(function(n){return !isNaN(n);});
+}
+function statsCalc(){
+  var nums=statsParseNumbers();
+  var grid=document.getElementById('statsGrid');
+  if(!nums.length){
+    grid.innerHTML='<div class="empty-state" style="grid-column:1/-1"><div class="es-icon">Σ</div><p>No valid numbers found. Enter numbers separated by commas, spaces, or newlines.</p></div>';
+    return;
+  }
+  var n=nums.length;
+  var sorted=nums.slice().sort(function(a,b){return a-b;});
+  var sum=nums.reduce(function(a,b){return a+b;},0);
+  var mean=sum/n;
+  var min=sorted[0];
+  var max=sorted[sorted.length-1];
+  var range=max-min;
+  // median
+  var median;
+  if(n%2===1)median=sorted[(n-1)/2];
+  else median=(sorted[n/2-1]+sorted[n/2])/2;
+  // mode
+  var freq={};var maxF=0;
+  nums.forEach(function(x){freq[x]=(freq[x]||0)+1;if(freq[x]>maxF)maxF=freq[x];});
+  var modes=Object.keys(freq).filter(function(k){return freq[k]===maxF;}).map(Number);
+  if(maxF===1)modes=[]; // no repeated value
+  var modeStr=modes.length?modes.map(function(m){return String(m);}).join(', '):'None';
+  // variance (population & sample)
+  var sqDiff=nums.map(function(x){var d=x-mean;return d*d;});
+  var sumSq=sqDiff.reduce(function(a,b){return a+b;},0);
+  var popVar=sumSq/n;
+  var sampVar=n>1?sumSq/(n-1):0;
+  var popStd=Math.sqrt(popVar);
+  var sampStd=Math.sqrt(sampVar);
+  // quartiles using linear interpolation (Tukey's hinges-ish)
+  function quantile(p){
+    if(n===1)return sorted[0];
+    var pos=(n-1)*p;
+    var base=Math.floor(pos);
+    var rest=pos-base;
+    if(base+1<n)return sorted[base]+rest*(sorted[base+1]-sorted[base]);
+    return sorted[base];
+  }
+  var q1=quantile(0.25);
+  var q2=quantile(0.50);
+  var q3=quantile(0.75);
+  var iqr=q3-q1;
+
+  var fmt=function(x){
+    if(Number.isInteger(x))return String(x);
+    return Number(x.toFixed(6)).toString();
+  };
+  var tiles=[
+    ['Count',n,'blue'],
+    ['Sum',fmt(sum),'blue'],
+    ['Mean (Average)',fmt(mean),'blue'],
+    ['Median',fmt(median),'green'],
+    ['Mode',modeStr,'green'],
+    ['Min',fmt(min),'amber'],
+    ['Max',fmt(max),'amber'],
+    ['Range',fmt(range),'amber'],
+    ['Variance (Population)',fmt(popVar),''],
+    ['Std Dev (Population)',fmt(popStd),''],
+    ['Variance (Sample)',fmt(sampVar),''],
+    ['Std Dev (Sample)',fmt(sampStd),''],
+    ['Q1 (25%)',fmt(q1),'red'],
+    ['Q2 / Median (50%)',fmt(q2),'red'],
+    ['Q3 (75%)',fmt(q3),'red'],
+    ['IQR (Q3 − Q1)',fmt(iqr),'red']
+  ];
+  var html=tiles.map(function(t){
+    var cls=t[2]?'accent-'+t[2]:'';
+    return '<div class="stat-tile '+cls+'"><div class="stat-tile-label">'+t[0]+'</div><div class="stat-tile-value">'+escapeHtml(t[1])+'</div></div>';
+  }).join('');
+  grid.innerHTML=html;
+}
+function statsLoadSample(){
+  document.getElementById('statsInput').value='12, 18, 5, 24, 18, 30, 9, 15, 22, 18, 7, 28, 14, 20';
+}
+
+/* ============================================================
+   06 · BASE CONVERTER
+   ============================================================ */
+function baseIsValid(value,base){
+  if(value==='')return true;
+  var patterns={
+    2:/^[01]*\.?[01]*$/,
+    8:/^[0-7]*\.?[0-7]*$/,
+    10:/^[0-9]*\.?[0-9]*$/,
+    16:/^[0-9a-fA-F]*\.?[0-9a-fA-F]*$/
+  };
+  return patterns[base].test(value);
+}
+function baseToDecimal(value,base){
+  if(value==='')return null;
+  var neg=false;
+  if(value.charAt(0)==='-'){neg=true;value=value.slice(1);}
+  var parts=value.split('.');
+  var intPart=parts[0]||'0';
+  var fracPart=parts[1]||'';
+  var intVal=0;
+  for(var i=0;i<intPart.length;i++){
+    intVal=intVal*base+parseInt(intPart.charAt(i),base);
+  }
+  var fracVal=0;
+  for(var j=0;j<fracPart.length;j++){
+    fracVal+=parseInt(fracPart.charAt(j),base)/Math.pow(base,j+1);
+  }
+  var result=intVal+fracVal;
+  return neg?-result:result;
+}
+function decimalToBase(num,base){
+  if(num===null||isNaN(num))return '';
+  var neg=num<0;
+  num=Math.abs(num);
+  var intPart=Math.floor(num);
+  var fracPart=num-intPart;
+  var digits='0123456789ABCDEF';
+  var intStr='';
+  if(intPart===0)intStr='0';
+  else{
+    while(intPart>0){
+      intStr=digits[intPart%base]+intStr;
+      intPart=Math.floor(intPart/base);
+    }
+  }
+  var fracStr='';
+  if(fracPart>0){
+    fracStr='.';
+    var count=0;
+    while(fracPart>0 && count<12){
+      fracPart*=base;
+      var d=Math.floor(fracPart);
+      fracStr+=digits[d];
+      fracPart-=d;
+      count++;
+    }
+  }
+  return (neg?'-':'')+intStr+fracStr;
+}
+function baseConvert(source){
+  var bin=document.getElementById('baseBin');
+  var oct=document.getElementById('baseOct');
+  var dec=document.getElementById('baseDec');
+  var hex=document.getElementById('baseHex');
+  var valueEl=document.getElementById('baseValue');
+  var rowBin=document.getElementById('baseRowBin');
+  var rowOct=document.getElementById('baseRowOct');
+  var rowDec=document.getElementById('baseRowDec');
+  var rowHex=document.getElementById('baseRowHex');
+
+  var srcMap={bin:{el:bin,base:2,row:rowBin},oct:{el:oct,base:8,row:rowOct},dec:{el:dec,base:10,row:rowDec},hex:{el:hex,base:16,row:rowHex}};
+  var src=srcMap[source];
+  var val=src.el.value.trim();
+
+  // validate source
+  if(!baseIsValid(val,src.base)){
+    src.row.classList.add('invalid');
+    valueEl.textContent='invalid';
+    return;
+  }
+  src.row.classList.remove('invalid');
+
+  if(val===''){
+    Object.keys(srcMap).forEach(function(k){if(k!==source)srcMap[k].el.value='';});
+    // clear other validation
+    Object.keys(srcMap).forEach(function(k){srcMap[k].row.classList.remove('invalid');});
+    valueEl.textContent='—';
+    return;
+  }
+
+  var decVal=baseToDecimal(val,src.base);
+  valueEl.textContent=decimalToBase(decVal,10);
+
+  // update others
+  Object.keys(srcMap).forEach(function(k){
+    if(k===source)return;
+    srcMap[k].el.value=decimalToBase(decVal,srcMap[k].base);
+    srcMap[k].row.classList.remove('invalid');
+  });
+}
+function baseLoadSample(){
+  document.getElementById('baseDec').value='255.75';
+  baseConvert('dec');
+}
+function baseClear(){
+  document.getElementById('baseBin').value='';
+  document.getElementById('baseOct').value='';
+  document.getElementById('baseDec').value='';
+  document.getElementById('baseHex').value='';
+  ['baseRowBin','baseRowOct','baseRowDec','baseRowHex'].forEach(function(id){document.getElementById(id).classList.remove('invalid');});
+  document.getElementById('baseValue').textContent='—';
+}
+
+/* ============================================================
+   07 · TEXT DIFF (LCS)
+   ============================================================ */
+function diffLines(a,b){
+  a=a||[];b=b||[];
+  var n=a.length,m=b.length;
+  // dp table
+  var dp=[];
+  for(var i=0;i<=n;i++){dp.push(new Array(m+1).fill(0));}
+  for(i=1;i<=n;i++){
+    for(var j=1;j<=m;j++){
+      if(a[i-1]===b[j-1])dp[i][j]=dp[i-1][j-1]+1;
+      else dp[i][j]=Math.max(dp[i-1][j],dp[i][j-1]);
+    }
+  }
+  // backtrack
+  var ops=[];
+  i=n;j=m;
+  while(i>0&&j>0){
+    if(a[i-1]===b[j-1]){
+      ops.unshift({type:'eq',text:a[i-1]});
+      i--;j--;
+    }else if(dp[i-1][j]>=dp[i][j-1]){
+      ops.unshift({type:'del',text:a[i-1]});
+      i--;
+    }else{
+      ops.unshift({type:'add',text:b[j-1]});
+      j--;
+    }
+  }
+  while(i>0){ops.unshift({type:'del',text:a[i-1]});i--;}
+  while(j>0){ops.unshift({type:'add',text:b[j-1]});j--;}
+  return ops;
+}
+function diffCompare(){
+  var aText=document.getElementById('diffA').value;
+  var bText=document.getElementById('diffB').value;
+  var aLines=aText.split('\n');
+  var bLines=bText.split('\n');
+  var ops=diffLines(aLines,bLines);
+  var added=0,removed=0,same=0;
+  var html=[];
+  var lineA=1,lineB=1;
+  ops.forEach(function(op){
+    if(op.type==='add'){
+      html.push('<div class="diff-line added"><span class="ln">'+(lineB++)+'</span><span class="sign">+</span>'+escapeHtml(op.text)+'</div>');
+      added++;
+    }else if(op.type==='del'){
+      html.push('<div class="diff-line removed"><span class="ln">'+(lineA++)+'</span><span class="sign">−</span>'+escapeHtml(op.text)+'</div>');
+      removed++;
+    }else{
+      html.push('<div class="diff-line unchanged"><span class="ln">'+lineA+'/'+lineB+'</span><span class="sign"> </span>'+escapeHtml(op.text)+'</div>');
+      lineA++;lineB++;
+      same++;
+    }
+  });
+  document.getElementById('diffAdded').textContent=added;
+  document.getElementById('diffRemoved').textContent=removed;
+  document.getElementById('diffSame').textContent=same;
+  document.getElementById('diffOutput').innerHTML=html.length?html.join(''):'<div class="diff-line unchanged"><span class="ln"></span><span class="sign"> </span>(both inputs empty)</div>';
+}
+function diffLoadSample(){
+  document.getElementById('diffA').value='The quick brown fox\njumps over\nthe lazy dog\ntoday.\nIt was a sunny morning.';
+  document.getElementById('diffB').value='The quick brown fox\nleaps over\nthe lazy dog\ntomorrow.\nIt was a sunny morning.\nA new line was added.';
+}
+
+/* ============================================================
+   08 · HASH & ENCODE
+   ============================================================ */
+function htmlEncode(s){
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+}
+function htmlDecode(s){
+  var ta=document.createElement('textarea');
+  ta.innerHTML=s;
+  return ta.value;
+}
+function base64Encode(s){
+  // handle unicode
+  return btoa(unescape(encodeURIComponent(s)));
+}
+function base64Decode(s){
+  try{return decodeURIComponent(escape(atob(s)));}
+  catch(e){return 'Invalid Base64';}
+}
+function urlEncode(s){return encodeURIComponent(s);}
+function urlDecode(s){try{return decodeURIComponent(s);}catch(e){return 'Invalid URL encoding';}}
+
+async function sha(algo,text){
+  try{
+    var buf=new TextEncoder().encode(text);
+    var hash=await crypto.subtle.digest(algo,buf);
+    var bytes=new Uint8Array(hash);
+    var hex=[];
+    for(var i=0;i<bytes.length;i++){
+      hex.push(bytes[i].toString(16).padStart(2,'0'));
+    }
+    return hex.join('');
+  }catch(e){return 'Error: '+e.message;}
+}
+
+function encodeCard(label,value,mono){
+  var empty=!value;
+  return '<div class="encode-card">'+
+    '<div class="encode-card-head"><span class="encode-card-label">'+label+'</span>'+
+    '<button class="btn btn-sm btn-ghost" onclick="copyText('+JSON.stringify(String(value)).replace(/"/g,'&quot;')+')">Copy</button></div>'+
+    '<div class="encode-card-value'+(empty?' empty':'')+'">'+(empty?'—':escapeHtml(value))+'</div>'+
+  '</div>';
+}
+// safer copy: store values in a registry to avoid escaping issues
+var encodeRegistry={};
+function encodeCardSafe(id,label,value){
+  encodeRegistry[id]=value;
+  var empty=!value;
+  return '<div class="encode-card">'+
+    '<div class="encode-card-head"><span class="encode-card-label">'+label+'</span>'+
+    '<button class="btn btn-sm btn-ghost" onclick="copyText(encodeRegistry.'+id+')">Copy</button></div>'+
+    '<div class="encode-card-value'+(empty?' empty':'')+'">'+(empty?'—':escapeHtml(value))+'</div>'+
+  '</div>';
+}
+
+async function hashCompute(){
+  var input=document.getElementById('hashInput').value;
+  var grid=document.getElementById('encodeGrid');
+  if(!input){
+    grid.innerHTML='<div class="empty-state" style="grid-column:1/-1"><div class="es-icon">#</div><p>Enter text first.</p></div>';
+    return;
+  }
+  var sha1=await sha('SHA-1',input);
+  var sha256=await sha('SHA-256',input);
+  var cards=[];
+  cards.push(encodeCardSafe('v_url_enc','URL Encode',urlEncode(input)));
+  cards.push(encodeCardSafe('v_url_dec','URL Decode',urlDecode(input)));
+  cards.push(encodeCardSafe('v_html_enc','HTML Entity Encode',htmlEncode(input)));
+  cards.push(encodeCardSafe('v_html_dec','HTML Entity Decode',htmlDecode(input)));
+  cards.push(encodeCardSafe('v_b64_enc','Base64 Encode',base64Encode(input)));
+  cards.push(encodeCardSafe('v_b64_dec','Base64 Decode (of input)',base64Decode(input)));
+  cards.push(encodeCardSafe('v_sha1','SHA-1',sha1));
+  cards.push(encodeCardSafe('v_sha256','SHA-256',sha256));
+  grid.innerHTML=cards.join('');
+}
+function hashLoadSample(){
+  document.getElementById('hashInput').value='Hello, World! https://example.com?a=1&b=2';
+  hashCompute();
+}
+// live update
+document.addEventListener('DOMContentLoaded',function(){
+  var hi=document.getElementById('hashInput');
+  if(hi){
+    hi.addEventListener('input',function(){
+      if(document.getElementById('hashLive').checked){
+        clearTimeout(hi._timer);
+        hi._timer=setTimeout(hashCompute,300);
+      }
+    });
+  }
+  // also live update regex for convenience? keep manual to avoid surprises.
+  // initial empty states are fine
+});
+
+/* auto-run any panel that has live defaults on first load is not needed */
+</script>
+</body>
+</html>

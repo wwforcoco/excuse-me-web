@@ -1,0 +1,2866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premium Video Toolkit — Titles, Tags, Hooks, Thumbnails, Money Calc | ExcuseMeWeb</title>
+<meta name="description" content="Premium YouTube creator toolkit with 8 working tools: title optimizer, description writer, tag generator, thumbnail color picker, timestamp generator, video length calculator, hook generator, and YouTube money calculator.">
+<meta name="keywords" content="youtube toolkit, video creator tools, youtube title optimizer, youtube description writer, youtube tag generator, thumbnail color picker, youtube timestamp generator, video length calculator, youtube hook generator, youtube money calculator, rpm calculator, cpm calculator">
+<meta name="author" content="ExcuseMeWeb">
+<meta name="theme-color" content="#ffffff">
+<link rel="canonical" href="https://excusemeweb.com/premium-video-toolkit">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Premium Video Toolkit — Titles, Tags, Hooks, Thumbnails, Money Calc | ExcuseMeWeb">
+<meta property="og:description" content="Premium YouTube creator toolkit with 8 working tools: title optimizer, description writer, tag generator, thumbnail color picker, timestamp generator, video length calculator, hook generator, and YouTube money calculator.">
+<meta property="og:url" content="https://excusemeweb.com/premium-video-toolkit">
+<meta property="og:site_name" content="ExcuseMeWeb">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_app">
+<meta name="twitter:title" content="Premium Video Toolkit — Titles, Tags, Hooks, Thumbnails, Money Calc">
+<meta name="twitter:description" content="8 working YouTube creator tools that run 100% in your browser. Titles, descriptions, tags, thumbnail colors, timestamps, video length, hooks, and money calculator.">
+<meta name="twitter:url" content="https://excusemeweb.com/premium-video-toolkit">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- WebApplication JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Premium Video Toolkit",
+  "url": "https://excusemeweb.com/premium-video-toolkit",
+  "description": "Premium YouTube creator toolkit with 8 working tools: title optimizer, description writer, tag generator, thumbnail color picker, timestamp generator, video length calculator, hook generator, and YouTube money calculator.",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "Any (web-based)",
+  "browserRequirements": "Requires a modern web browser with JavaScript enabled",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@type": "Organization", "name": "ExcuseMeWeb", "url": "https://excusemeweb.com" },
+  "featureList": [
+    "Title Optimizer",
+    "Description Writer",
+    "Tag Generator",
+    "Thumbnail Color Picker",
+    "Timestamp Generator",
+    "Video Length Calculator",
+    "Hook Generator",
+    "YouTube Money Calculator"
+  ]
+}
+</script>
+
+<!-- FAQPage JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How are the title strength scores calculated?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Each generated title is scored on a 0-100 scale based on five signals: the presence of numbers, the count of power words like ultimate, proven, and secret, the count of emotional triggers like truth, mistakes, and exposed, the use of brackets or parentheses, and the character length. Titles between 40 and 60 characters get a length bonus because YouTube truncates titles around 70 characters in search results. Titles over 70 characters or under 30 characters receive a penalty. The signals are weighted and capped so the final score reflects real-world clickability heuristics." }
+    },
+    {
+      "@type": "Question",
+      "name": "What's a good YouTube tag count?",
+      "acceptedAnswer": { "@type": "Answer", "text": "YouTube allows up to 500 characters of tags total, including commas. Aim for 15 to 25 highly relevant tags mixing broad, specific, and long-tail phrases. Quality beats quantity: a tight set of tags that closely matches your title, description, and content will outperform 30 loosely related ones. Always include your primary keyword phrase first, then variations, then a few branded tags. The Tag Generator in this toolkit shows your running character total so you stay under the 500-character limit." }
+    },
+    {
+      "@type": "Question",
+      "name": "How accurate is the YouTube money calculator?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The calculator produces estimates only, not guarantees. Real earnings vary widely based on niche, audience geography, watch time, ad placement, whether viewers use premium, and seasonality. The default RPM of $2 is a reasonable average across English-language content, but actual RPMs range from $0.50 in low-commercial-intent niches like gaming or vlogs to $20 or more in finance, software, and B2B niches. Use the calculator for planning and goal-setting, then track your real YouTube Analytics data once monetized." }
+    },
+    {
+      "@type": "Question",
+      "name": "What RPM should I use for my channel?",
+      "acceptedAnswer": { "@type": "Answer", "text": "RPM, or revenue per mille, is what you earn per 1,000 views after YouTube takes its 45 percent cut. Typical ranges by niche are: gaming and entertainment $1 to $3, vlogs and lifestyle $2 to $5, tech reviews $4 to $8, education and how-to $5 to $10, finance and business $8 to $20, and B2B or SaaS $15 to $30. New channels often start lower and grow as audience trust and watch time improve. If you are not yet monetized, use $1 to $2 as a conservative planning figure." }
+    },
+    {
+      "@type": "Question",
+      "name": "Do these tools send my data to a server?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. Every tool in the Premium Video Toolkit runs entirely in your browser using client-side JavaScript. Your video topics, titles, descriptions, and channel data never leave your device. There are no analytics on your inputs, no backend calls, and no account required. You can safely use the toolkit for unpublished videos, client work, and sensitive channel planning." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use these tools offline?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. After the page loads once, all tools work completely offline because every line of logic is embedded in this single HTML file. Use the Download HTML button in the header to save a local copy, then open it directly in any modern browser with no internet connection required. The only external resource is the Google Fonts stylesheet, which gracefully falls back to system fonts when offline." }
+    }
+  ]
+}
+</script>
+
+<style>
+:root{
+  --bg:#ffffff;
+  --bg-soft:#fafafa;
+  --bg-deep:#f4f4f5;
+  --surface:#ffffff;
+  --surface-2:#fafafa;
+  --surface-3:#f4f4f5;
+  --text:#0a0a0a;
+  --text-soft:#27272a;
+  --text-muted:#71717a;
+  --text-dim:#a1a1aa;
+  --border:#e4e4e7;
+  --border-soft:#f1f1f4;
+  --border-strong:#d4d4d8;
+  --red:#dc2626;
+  --red-dark:#b91c1c;
+  --red-soft:#ef4444;
+  --red-tint:#fef2f2;
+  --red-tint-2:#fee2e2;
+  --green:#16a34a;
+  --green-tint:#f0fdf4;
+  --amber:#d97706;
+  --amber-tint:#fffbeb;
+  --blue:#2563eb;
+  --blue-tint:#eff6ff;
+  --purple:#7c3aed;
+  --purple-tint:#f5f3ff;
+  --radius:14px;
+  --radius-lg:20px;
+  --radius-sm:10px;
+  --shadow-sm:0 1px 2px rgba(10,10,15,.04), 0 1px 3px rgba(10,10,15,.06);
+  --shadow:0 4px 14px rgba(10,10,15,.06), 0 2px 6px rgba(10,10,15,.04);
+  --shadow-lg:0 12px 40px rgba(10,10,15,.10), 0 4px 12px rgba(10,10,15,.06);
+  --shadow-red:0 10px 30px rgba(220,38,38,.18);
+  --font-body:'Inter',system-ui,-apple-system,sans-serif;
+  --font-display:'Space Grotesk','Inter',system-ui,sans-serif;
+  --font-mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font-body);
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.55;
+  font-size:15px;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  overflow-x:hidden;
+}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+input,textarea,select{font-family:inherit;font-size:inherit;color:inherit}
+a{color:var(--red);text-decoration:none;transition:color .15s}
+a:hover{color:var(--red-dark)}
+
+/* ============== Header ============== */
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(255,255,255,.85);
+  backdrop-filter:saturate(180%) blur(14px);
+  -webkit-backdrop-filter:saturate(180%) blur(14px);
+  border-bottom:1px solid var(--border);
+}
+.header-inner{
+  max-width:1280px;
+  margin:0 auto;
+  padding:14px 28px;
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:17px;
+  color:var(--text);
+  letter-spacing:-0.01em;
+}
+.brand-mark{
+  width:34px;
+  height:34px;
+  border-radius:9px;
+  background:linear-gradient(135deg,var(--red) 0%,var(--red-dark) 100%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  box-shadow:var(--shadow-red);
+  position:relative;
+}
+.brand-mark::before{
+  content:"";
+  width:0;
+  height:0;
+  border-left:9px solid #fff;
+  border-top:6px solid transparent;
+  border-bottom:6px solid transparent;
+  margin-left:3px;
+}
+.header-spacer{flex:1}
+.header-link{
+  font-size:14px;
+  font-weight:500;
+  color:var(--text-soft);
+  padding:9px 14px;
+  border-radius:9px;
+  transition:background .15s,color .15s;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+}
+.header-link:hover{background:var(--bg-deep);color:var(--text)}
+.header-link svg{width:15px;height:15px}
+.btn-download{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:var(--text);
+  color:#fff;
+  font-weight:600;
+  font-size:14px;
+  padding:10px 16px;
+  border-radius:10px;
+  transition:transform .15s,box-shadow .15s,background .15s;
+  box-shadow:var(--shadow-sm);
+}
+.btn-download:hover{background:#000;transform:translateY(-1px);box-shadow:var(--shadow)}
+.btn-download svg{width:15px;height:15px}
+
+/* ============== Hero ============== */
+.hero{
+  max-width:1280px;
+  margin:0 auto;
+  padding:60px 28px 32px;
+  text-align:center;
+}
+.hero-eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:6px 14px;
+  border-radius:999px;
+  background:var(--red-tint);
+  color:var(--red-dark);
+  font-size:12.5px;
+  font-weight:600;
+  letter-spacing:.02em;
+  text-transform:uppercase;
+  margin-bottom:20px;
+}
+.hero-eyebrow::before{
+  content:"";
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:var(--red);
+  box-shadow:0 0 0 4px rgba(220,38,38,.18);
+}
+.hero h1{
+  font-family:var(--font-display);
+  font-size:clamp(34px,5.2vw,58px);
+  line-height:1.05;
+  letter-spacing:-0.025em;
+  font-weight:700;
+  margin-bottom:18px;
+}
+.hero h1 .accent{
+  background:linear-gradient(120deg,var(--red) 0%,var(--red-dark) 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.hero p.lead{
+  font-size:18px;
+  color:var(--text-muted);
+  max-width:680px;
+  margin:0 auto 30px;
+  line-height:1.6;
+}
+.hero-stats{
+  display:inline-flex;
+  gap:0;
+  padding:6px;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:14px;
+  box-shadow:var(--shadow-sm);
+  flex-wrap:wrap;
+  justify-content:center;
+}
+.hero-stat{
+  padding:10px 22px;
+  border-right:1px solid var(--border);
+  text-align:center;
+  min-width:110px;
+}
+.hero-stat:last-child{border-right:none}
+.hero-stat-num{
+  font-family:var(--font-display);
+  font-size:22px;
+  font-weight:700;
+  color:var(--text);
+  letter-spacing:-0.02em;
+}
+.hero-stat-label{
+  font-size:12px;
+  color:var(--text-muted);
+  font-weight:500;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+}
+
+/* ============== Tabs ============== */
+.tabs-wrap{
+  max-width:1280px;
+  margin:24px auto 0;
+  padding:0 28px;
+}
+.tabs-bar{
+  display:flex;
+  gap:6px;
+  overflow-x:auto;
+  scrollbar-width:none;
+  padding:6px;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:14px;
+  box-shadow:var(--shadow-sm);
+  -webkit-overflow-scrolling:touch;
+}
+.tabs-bar::-webkit-scrollbar{display:none}
+.tab-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:11px 16px;
+  font-size:14px;
+  font-weight:600;
+  color:var(--text-muted);
+  border-radius:10px;
+  white-space:nowrap;
+  transition:all .15s;
+  flex-shrink:0;
+}
+.tab-btn:hover{color:var(--text);background:var(--bg-deep)}
+.tab-btn.active{
+  background:linear-gradient(135deg,var(--red) 0%,var(--red-dark) 100%);
+  color:#fff;
+  box-shadow:var(--shadow-red);
+}
+.tab-num{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:22px;
+  height:22px;
+  border-radius:6px;
+  background:rgba(255,255,255,.18);
+  font-size:11px;
+  font-weight:700;
+  font-family:var(--font-mono);
+}
+.tab-btn:not(.active) .tab-num{
+  background:var(--bg-deep);
+  color:var(--text-muted);
+}
+
+/* ============== Main Layout ============== */
+.main-wrap{
+  max-width:1280px;
+  margin:0 auto;
+  padding:32px 28px 80px;
+}
+.tool-panel{
+  display:none;
+  animation:fadeIn .25s ease-out;
+}
+.tool-panel.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+.tool-header{
+  margin-bottom:28px;
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:20px;
+  flex-wrap:wrap;
+}
+.tool-header-left{max-width:680px}
+.tool-tag{
+  display:inline-block;
+  font-family:var(--font-mono);
+  font-size:11px;
+  font-weight:600;
+  color:var(--red);
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  margin-bottom:8px;
+}
+.tool-header h2{
+  font-family:var(--font-display);
+  font-size:clamp(24px,3vw,32px);
+  font-weight:700;
+  letter-spacing:-0.02em;
+  margin-bottom:8px;
+}
+.tool-header p{
+  color:var(--text-muted);
+  font-size:15px;
+  line-height:1.6;
+}
+
+/* ============== Cards ============== */
+.card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+  padding:28px;
+  box-shadow:var(--shadow-sm);
+}
+.card + .card{margin-top:20px}
+.card-title{
+  font-family:var(--font-display);
+  font-size:17px;
+  font-weight:600;
+  margin-bottom:6px;
+  letter-spacing:-0.01em;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.card-title .dot{
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:var(--red);
+}
+.card-desc{
+  font-size:13.5px;
+  color:var(--text-muted);
+  margin-bottom:20px;
+}
+
+/* ============== Inputs ============== */
+.field{margin-bottom:18px}
+.field:last-child{margin-bottom:0}
+.field-label{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  font-size:13px;
+  font-weight:600;
+  color:var(--text-soft);
+  margin-bottom:8px;
+  letter-spacing:-0.005em;
+}
+.field-hint{
+  font-size:12px;
+  color:var(--text-muted);
+  font-weight:500;
+  font-family:var(--font-mono);
+}
+.input,.textarea,.select{
+  width:100%;
+  background:var(--surface);
+  border:1.5px solid var(--border);
+  border-radius:11px;
+  padding:12px 14px;
+  font-size:14.5px;
+  color:var(--text);
+  transition:border-color .15s,box-shadow .15s,background .15s;
+  font-family:inherit;
+}
+.input:focus,.textarea:focus,.select:focus{
+  outline:none;
+  border-color:var(--red);
+  box-shadow:0 0 0 4px rgba(220,38,38,.10);
+  background:#fff;
+}
+.input::placeholder,.textarea::placeholder{color:var(--text-dim)}
+.textarea{resize:vertical;min-height:90px;line-height:1.55}
+.input-mono{font-family:var(--font-mono);font-size:13.5px}
+
+.field-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+@media (max-width:640px){.field-row{grid-template-columns:1fr}}
+
+.input-with-suffix{
+  position:relative;
+}
+.input-with-suffix .input{padding-right:70px}
+.input-suffix{
+  position:absolute;
+  right:12px;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:12px;
+  font-weight:600;
+  color:var(--text-muted);
+  font-family:var(--font-mono);
+  background:var(--bg-deep);
+  padding:4px 8px;
+  border-radius:6px;
+  pointer-events:none;
+}
+
+/* ============== Buttons ============== */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:11px 18px;
+  font-size:14px;
+  font-weight:600;
+  border-radius:11px;
+  transition:all .15s;
+  white-space:nowrap;
+}
+.btn-primary{
+  background:linear-gradient(135deg,var(--red) 0%,var(--red-dark) 100%);
+  color:#fff;
+  box-shadow:var(--shadow-red);
+}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 12px 32px rgba(220,38,38,.28)}
+.btn-primary:active{transform:translateY(0)}
+.btn-secondary{
+  background:var(--text);
+  color:#fff;
+}
+.btn-secondary:hover{background:#000;transform:translateY(-1px)}
+.btn-ghost{
+  background:var(--bg-deep);
+  color:var(--text-soft);
+  border:1px solid var(--border);
+}
+.btn-ghost:hover{background:var(--border);color:var(--text)}
+.btn-sm{padding:7px 12px;font-size:12.5px;border-radius:8px}
+.btn-icon{padding:9px;width:36px;height:36px}
+.btn-block{width:100%}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap}
+.btn:disabled{opacity:.5;cursor:not-allowed;transform:none!important}
+
+/* ============== Tool Layout ============== */
+.tool-grid{
+  display:grid;
+  grid-template-columns:380px 1fr;
+  gap:24px;
+  align-items:flex-start;
+}
+@media (max-width:960px){.tool-grid{grid-template-columns:1fr}}
+.tool-input-col{position:sticky;top:120px}
+@media (max-width:960px){.tool-input-col{position:static}}
+
+/* ============== Title Optimizer ============== */
+.title-list{display:flex;flex-direction:column;gap:12px}
+.title-item{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:13px;
+  padding:16px 18px;
+  transition:border-color .15s,box-shadow .15s,transform .15s;
+  position:relative;
+}
+.title-item:hover{border-color:var(--border-strong);box-shadow:var(--shadow)}
+.title-top{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:14px;
+  margin-bottom:12px;
+}
+.title-text{
+  font-size:16px;
+  font-weight:600;
+  line-height:1.4;
+  color:var(--text);
+  letter-spacing:-0.005em;
+  flex:1;
+}
+.title-formula{
+  display:inline-block;
+  font-family:var(--font-mono);
+  font-size:10.5px;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  padding:3px 8px;
+  border-radius:6px;
+  background:var(--red-tint);
+  color:var(--red-dark);
+  margin-bottom:8px;
+}
+.title-meta{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  flex-wrap:wrap;
+  font-size:12.5px;
+}
+.meta-pill{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  color:var(--text-muted);
+  font-weight:500;
+}
+.meta-pill .num{
+  font-family:var(--font-mono);
+  font-weight:700;
+  color:var(--text);
+}
+.score-bar{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+}
+.score-track{
+  width:80px;
+  height:6px;
+  background:var(--bg-deep);
+  border-radius:3px;
+  overflow:hidden;
+}
+.score-fill{
+  height:100%;
+  border-radius:3px;
+  background:linear-gradient(90deg,#ef4444 0%,#f59e0b 40%,#22c55e 70%);
+  transition:width .35s ease-out;
+}
+.score-num{
+  font-family:var(--font-mono);
+  font-weight:700;
+  font-size:13px;
+  color:var(--text);
+}
+.copy-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  padding:6px 10px;
+  background:var(--bg-deep);
+  border:1px solid var(--border);
+  border-radius:8px;
+  font-size:12px;
+  font-weight:600;
+  color:var(--text-soft);
+  transition:all .15s;
+}
+.copy-btn:hover{background:var(--text);color:#fff;border-color:var(--text)}
+.copy-btn svg{width:13px;height:13px}
+.copy-btn.copied{background:var(--green);color:#fff;border-color:var(--green)}
+
+/* ============== Description Writer ============== */
+.desc-output{
+  background:#0a0a0a;
+  color:#e4e4e7;
+  border-radius:13px;
+  padding:22px 24px;
+  font-family:var(--font-mono);
+  font-size:13px;
+  line-height:1.7;
+  white-space:pre-wrap;
+  word-break:break-word;
+  min-height:300px;
+  max-height:540px;
+  overflow-y:auto;
+  border:1px solid #18181b;
+}
+.desc-output::-webkit-scrollbar{width:8px;height:8px}
+.desc-output::-webkit-scrollbar-track{background:#18181b}
+.desc-output::-webkit-scrollbar-thumb{background:#3f3f46;border-radius:4px}
+.desc-stat-row{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:14px;
+}
+.stat-chip{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 12px;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:9px;
+  font-size:12.5px;
+}
+.stat-chip .label{color:var(--text-muted);font-weight:500}
+.stat-chip .val{font-family:var(--font-mono);font-weight:700;color:var(--text)}
+.stat-chip.warn .val{color:var(--amber)}
+.stat-chip.good .val{color:var(--green)}
+
+/* ============== Tag Generator ============== */
+.tag-stats-bar{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+  margin-bottom:18px;
+}
+@media (max-width:640px){.tag-stats-bar{grid-template-columns:repeat(2,1fr)}}
+.tag-stat{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:11px;
+  padding:14px;
+  text-align:center;
+}
+.tag-stat .v{
+  font-family:var(--font-display);
+  font-size:20px;
+  font-weight:700;
+  color:var(--text);
+  letter-spacing:-0.02em;
+}
+.tag-stat .v.warn{color:var(--amber)}
+.tag-stat .v.good{color:var(--green)}
+.tag-stat .l{
+  font-size:11px;
+  color:var(--text-muted);
+  text-transform:uppercase;
+  letter-spacing:.04em;
+  font-weight:600;
+  margin-top:2px;
+}
+.tag-section{margin-bottom:18px}
+.tag-section-title{
+  font-size:13px;
+  font-weight:700;
+  color:var(--text);
+  margin-bottom:10px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.tag-section-title .count{
+  font-family:var(--font-mono);
+  font-size:11px;
+  font-weight:600;
+  color:var(--text-muted);
+  background:var(--bg-deep);
+  padding:2px 8px;
+  border-radius:6px;
+}
+.tag-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  gap:8px;
+}
+.tag-chip{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:9px 12px;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:9px;
+  transition:all .15s;
+  cursor:pointer;
+  font-size:13px;
+}
+.tag-chip:hover{border-color:var(--red);background:var(--red-tint)}
+.tag-chip.selected{
+  background:var(--red-tint);
+  border-color:var(--red);
+  color:var(--red-dark);
+}
+.tag-chip .check{
+  width:14px;
+  height:14px;
+  border-radius:4px;
+  border:1.5px solid var(--border-strong);
+  flex-shrink:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#fff;
+}
+.tag-chip.selected .check{background:var(--red);border-color:var(--red)}
+.tag-chip.selected .check::after{
+  content:"";
+  width:6px;
+  height:3px;
+  border-left:1.5px solid #fff;
+  border-bottom:1.5px solid #fff;
+  transform:rotate(-45deg) translate(0,-1px);
+}
+.tag-text{flex:1;font-weight:500;word-break:break-word}
+.tag-vol{
+  font-family:var(--font-mono);
+  font-size:10px;
+  font-weight:700;
+  padding:3px 6px;
+  border-radius:5px;
+  letter-spacing:.04em;
+}
+.tag-vol.high{background:var(--red-tint);color:var(--red-dark)}
+.tag-vol.medium{background:var(--amber-tint);color:var(--amber)}
+.tag-vol.low{background:var(--green-tint);color:var(--green)}
+
+/* ============== Thumbnail Color Picker ============== */
+.color-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:24px;
+}
+@media (max-width:900px){.color-grid{grid-template-columns:1fr}}
+.color-input-block{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:13px;
+  padding:18px;
+}
+.color-pick-row{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:16px;
+}
+.color-swatch-big{
+  width:64px;
+  height:64px;
+  border-radius:12px;
+  border:1px solid var(--border);
+  flex-shrink:0;
+  position:relative;
+  overflow:hidden;
+}
+.color-swatch-big input[type="color"]{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  border:none;
+  background:none;
+  cursor:pointer;
+  opacity:0;
+}
+.color-info-block{flex:1;min-width:0}
+.color-hex{
+  font-family:var(--font-mono);
+  font-size:18px;
+  font-weight:700;
+  color:var(--text);
+  letter-spacing:-0.01em;
+  text-transform:uppercase;
+}
+.color-rgb,.color-hsl{
+  font-family:var(--font-mono);
+  font-size:12px;
+  color:var(--text-muted);
+  margin-top:3px;
+}
+.scheme-list{display:flex;flex-direction:column;gap:10px}
+.scheme-item{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:10px 12px;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:10px;
+}
+.scheme-name{
+  font-size:11px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  color:var(--text-muted);
+  width:120px;
+  flex-shrink:0;
+}
+.scheme-swatches{display:flex;gap:6px;flex:1}
+.scheme-swatch{
+  flex:1;
+  height:32px;
+  border-radius:7px;
+  border:1px solid rgba(0,0,0,.08);
+  position:relative;
+  cursor:pointer;
+  transition:transform .12s;
+}
+.scheme-swatch:hover{transform:scale(1.05)}
+.scheme-swatch .hex-label{
+  position:absolute;
+  bottom:-18px;
+  left:50%;
+  transform:translateX(-50%);
+  font-family:var(--font-mono);
+  font-size:9px;
+  font-weight:600;
+  color:var(--text-muted);
+  white-space:nowrap;
+}
+.thumb-preview{
+  border-radius:13px;
+  overflow:hidden;
+  border:1px solid var(--border);
+  aspect-ratio:16/9;
+  position:relative;
+  box-shadow:var(--shadow);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:6% 8%;
+}
+.thumb-bg{
+  position:absolute;
+  inset:0;
+  z-index:0;
+}
+.thumb-content{position:relative;z-index:1;display:flex;flex-direction:column;gap:6%}
+.thumb-eyebrow{
+  display:inline-block;
+  align-self:flex-start;
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:clamp(10px,1.4vw,14px);
+  padding:6px 12px;
+  border-radius:6px;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+}
+.thumb-headline{
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:clamp(20px,4.5vw,46px);
+  line-height:1.05;
+  letter-spacing:-0.025em;
+  text-transform:uppercase;
+}
+.thumb-sub{
+  font-family:var(--font-body);
+  font-weight:600;
+  font-size:clamp(11px,1.5vw,15px);
+  letter-spacing:.02em;
+}
+.contrast-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:10px 14px;
+  background:var(--bg-soft);
+  border:1px solid var(--border);
+  border-radius:9px;
+  margin-top:10px;
+  font-size:12.5px;
+}
+.contrast-row + .contrast-row{margin-top:6px}
+.contrast-label{font-weight:600;color:var(--text-soft)}
+.contrast-val{font-family:var(--font-mono);font-weight:700;color:var(--text)}
+.contrast-badge{
+  font-size:11px;
+  font-weight:700;
+  padding:3px 8px;
+  border-radius:5px;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+}
+.contrast-badge.pass{background:var(--green-tint);color:var(--green)}
+.contrast-badge.fail{background:var(--red-tint);color:var(--red-dark)}
+
+/* ============== Timestamp Generator ============== */
+.ts-options{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:12px;
+  margin-bottom:18px;
+}
+@media (max-width:640px){.ts-options{grid-template-columns:1fr}}
+.ts-list{display:flex;flex-direction:column;gap:8px}
+.ts-row{
+  display:grid;
+  grid-template-columns:120px 1fr 32px;
+  gap:10px;
+  align-items:center;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:8px 10px;
+}
+@media (max-width:640px){.ts-row{grid-template-columns:90px 1fr}}
+.ts-time{
+  font-family:var(--font-mono);
+  font-size:13px;
+  font-weight:600;
+  text-align:center;
+  background:var(--bg-deep);
+  border:1px solid var(--border);
+  border-radius:7px;
+  padding:8px 4px;
+  color:var(--text);
+  letter-spacing:-0.02em;
+}
+.ts-time:focus{outline:none;border-color:var(--red);box-shadow:0 0 0 3px rgba(220,38,38,.1)}
+.ts-name{
+  font-size:14px;
+  font-weight:500;
+  color:var(--text);
+  padding:8px 10px;
+  background:transparent;
+  border:1px solid transparent;
+  border-radius:7px;
+  width:100%;
+}
+.ts-name:focus{outline:none;border-color:var(--red);background:#fff}
+.ts-remove{
+  width:30px;
+  height:30px;
+  border-radius:7px;
+  background:transparent;
+  color:var(--text-muted);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:16px;
+  transition:all .15s;
+}
+.ts-remove:hover{background:var(--red-tint);color:var(--red)}
+.ts-output{
+  background:#0a0a0a;
+  color:#e4e4e7;
+  border-radius:13px;
+  padding:20px 22px;
+  font-family:var(--font-mono);
+  font-size:13px;
+  line-height:1.7;
+  white-space:pre-wrap;
+  word-break:break-word;
+  border:1px solid #18181b;
+  min-height:120px;
+}
+
+/* ============== Video Length Calculator ============== */
+.calc-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+@media (max-width:760px){.calc-grid{grid-template-columns:1fr}}
+.calc-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:22px;
+}
+.calc-card-title{
+  font-family:var(--font-display);
+  font-size:15px;
+  font-weight:700;
+  margin-bottom:14px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.calc-card-title .arrow{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:22px;
+  height:22px;
+  border-radius:6px;
+  background:var(--red-tint);
+  color:var(--red-dark);
+  font-size:13px;
+  font-weight:700;
+}
+.calc-result{
+  margin-top:14px;
+  padding:18px 20px;
+  background:linear-gradient(135deg,var(--red) 0%,var(--red-dark) 100%);
+  border-radius:13px;
+  color:#fff;
+  text-align:center;
+  box-shadow:var(--shadow-red);
+}
+.calc-result .big{
+  font-family:var(--font-display);
+  font-size:38px;
+  font-weight:700;
+  letter-spacing:-0.025em;
+  line-height:1.1;
+}
+.calc-result .sub{
+  font-size:13px;
+  opacity:.9;
+  margin-top:4px;
+  font-weight:500;
+}
+.pacing-tips{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:12px;
+  margin-top:8px;
+}
+.pacing-tip{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:11px;
+  padding:14px 16px;
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+}
+.pacing-tip-num{
+  flex-shrink:0;
+  width:22px;
+  height:22px;
+  border-radius:6px;
+  background:var(--red-tint);
+  color:var(--red-dark);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:var(--font-mono);
+  font-size:11px;
+  font-weight:700;
+}
+.pacing-tip-text{font-size:13px;color:var(--text-soft);line-height:1.55}
+.pacing-tip-text b{color:var(--text)}
+
+/* ============== Hook Generator ============== */
+.hook-list{display:flex;flex-direction:column;gap:14px}
+.hook-item{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:13px;
+  padding:18px 20px;
+  transition:border-color .15s,box-shadow .15s;
+  position:relative;
+}
+.hook-item:hover{border-color:var(--border-strong);box-shadow:var(--shadow)}
+.hook-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:10px;
+}
+.hook-formula{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  font-size:11px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  color:var(--red-dark);
+  background:var(--red-tint);
+  padding:4px 9px;
+  border-radius:6px;
+}
+.hook-num{
+  font-family:var(--font-mono);
+  font-size:11px;
+  font-weight:700;
+  color:var(--text-muted);
+}
+.hook-text{
+  font-size:15px;
+  line-height:1.6;
+  color:var(--text);
+  margin-bottom:12px;
+  font-weight:500;
+}
+.hook-foot{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+.hook-meta{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  font-size:11.5px;
+  color:var(--text-muted);
+  font-weight:500;
+}
+.hook-meta .dot-sep{opacity:.4}
+
+/* ============== Money Calculator ============== */
+.money-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:24px;
+  align-items:stretch;
+}
+@media (max-width:900px){.money-grid{grid-template-columns:1fr}}
+.money-hero{
+  background:linear-gradient(135deg,#0a0a0a 0%,#1f1f23 100%);
+  border-radius:var(--radius-lg);
+  padding:32px;
+  color:#fff;
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  min-height:340px;
+}
+.money-hero::before{
+  content:"";
+  position:absolute;
+  top:-40px;
+  right:-40px;
+  width:200px;
+  height:200px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(220,38,38,.4) 0%,transparent 70%);
+}
+.money-hero-eyebrow{
+  font-size:11px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  color:rgba(255,255,255,.6);
+  margin-bottom:8px;
+  position:relative;
+}
+.money-hero-amount{
+  font-family:var(--font-display);
+  font-size:clamp(40px,7vw,64px);
+  font-weight:700;
+  letter-spacing:-0.03em;
+  line-height:1;
+  background:linear-gradient(120deg,#fff 0%,#fca5a5 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  position:relative;
+}
+.money-hero-sub{
+  font-size:14px;
+  color:rgba(255,255,255,.7);
+  margin-top:8px;
+  font-weight:500;
+  position:relative;
+}
+.money-hero-totals{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+  margin-top:24px;
+  position:relative;
+}
+.money-total{
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:12px;
+  padding:14px 16px;
+}
+.money-total .l{
+  font-size:11px;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  color:rgba(255,255,255,.6);
+  margin-bottom:6px;
+}
+.money-total .v{
+  font-family:var(--font-display);
+  font-size:22px;
+  font-weight:700;
+  color:#fff;
+  letter-spacing:-0.02em;
+}
+.tier-list{display:flex;flex-direction:column;gap:12px}
+.tier-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:13px;
+  padding:18px 20px;
+  display:flex;
+  align-items:center;
+  gap:16px;
+  transition:all .15s;
+}
+.tier-card.active{
+  border-color:var(--red);
+  background:var(--red-tint);
+  box-shadow:var(--shadow);
+}
+.tier-icon{
+  width:48px;
+  height:48px;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:18px;
+  flex-shrink:0;
+  color:#fff;
+}
+.tier-icon.s{background:linear-gradient(135deg,#64748b 0%,#475569 100%)}
+.tier-icon.m{background:linear-gradient(135deg,#3b82f6 0%,#1d4ed8 100%)}
+.tier-icon.l{background:linear-gradient(135deg,var(--red) 0%,var(--red-dark) 100%)}
+.tier-info{flex:1;min-width:0}
+.tier-name{
+  font-family:var(--font-display);
+  font-size:15px;
+  font-weight:700;
+  color:var(--text);
+  margin-bottom:2px;
+}
+.tier-detail{
+  font-size:12.5px;
+  color:var(--text-muted);
+}
+.tier-estimate{
+  text-align:right;
+  flex-shrink:0;
+}
+.tier-estimate .v{
+  font-family:var(--font-display);
+  font-size:18px;
+  font-weight:700;
+  color:var(--text);
+  letter-spacing:-0.01em;
+}
+.tier-estimate .l{
+  font-size:10.5px;
+  color:var(--text-muted);
+  text-transform:uppercase;
+  letter-spacing:.04em;
+  font-weight:600;
+}
+.estimate-note{
+  background:var(--amber-tint);
+  border:1px solid #fde68a;
+  color:#92400e;
+  border-radius:11px;
+  padding:12px 16px;
+  font-size:12.5px;
+  margin-top:14px;
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  line-height:1.5;
+}
+.estimate-note b{color:#78350f}
+
+/* ============== FAQ ============== */
+.faq-section{
+  max-width:1280px;
+  margin:0 auto;
+  padding:60px 28px;
+  border-top:1px solid var(--border);
+}
+.faq-header{text-align:center;margin-bottom:40px}
+.faq-header .tool-tag{margin-bottom:8px}
+.faq-header h2{
+  font-family:var(--font-display);
+  font-size:clamp(28px,4vw,38px);
+  font-weight:700;
+  letter-spacing:-0.02em;
+  margin-bottom:10px;
+}
+.faq-header p{color:var(--text-muted);max-width:560px;margin:0 auto}
+.faq-list{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+.faq-item{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:13px;
+  overflow:hidden;
+  transition:border-color .15s,box-shadow .15s;
+}
+.faq-item.open{border-color:var(--red);box-shadow:var(--shadow)}
+.faq-q{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding:18px 22px;
+  text-align:left;
+  font-size:15px;
+  font-weight:600;
+  color:var(--text);
+  font-family:var(--font-body);
+}
+.faq-q:hover{color:var(--red-dark)}
+.faq-toggle{
+  flex-shrink:0;
+  width:26px;
+  height:26px;
+  border-radius:7px;
+  background:var(--bg-deep);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:18px;
+  font-weight:600;
+  color:var(--text-muted);
+  transition:all .2s;
+}
+.faq-item.open .faq-toggle{background:var(--red);color:#fff;transform:rotate(45deg)}
+.faq-a{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .3s ease-out;
+}
+.faq-a-inner{
+  padding:0 22px 20px;
+  color:var(--text-soft);
+  font-size:14px;
+  line-height:1.65;
+}
+
+/* ============== Footer ============== */
+.site-footer{
+  background:#0a0a0a;
+  color:#a1a1aa;
+  padding:48px 28px 32px;
+}
+.footer-inner{
+  max-width:1280px;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  flex-wrap:wrap;
+}
+.footer-brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-family:var(--font-display);
+  font-weight:600;
+  color:#fff;
+  font-size:15px;
+}
+.footer-brand .brand-mark{width:30px;height:30px;border-radius:8px}
+.footer-brand .brand-mark::before{border-left-width:8px;border-top-width:5px;border-bottom-width:5px}
+.footer-links{display:flex;gap:18px;flex-wrap:wrap}
+.footer-links a{color:#a1a1aa;font-size:13.5px;font-weight:500}
+.footer-links a:hover{color:#fff}
+.footer-copy{
+  width:100%;
+  text-align:center;
+  padding-top:24px;
+  margin-top:24px;
+  border-top:1px solid #18181b;
+  font-size:13px;
+  color:#71717a;
+}
+.footer-copy a{color:#a1a1aa;font-weight:500}
+
+/* ============== Toast ============== */
+.toast{
+  position:fixed;
+  bottom:30px;
+  left:50%;
+  transform:translateX(-50%) translateY(20px);
+  background:var(--text);
+  color:#fff;
+  padding:12px 20px;
+  border-radius:11px;
+  font-size:13.5px;
+  font-weight:600;
+  box-shadow:var(--shadow-lg);
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .25s,transform .25s;
+  z-index:1000;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.toast .check-icon{
+  width:16px;
+  height:16px;
+  border-radius:50%;
+  background:var(--green);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  font-size:11px;
+  font-weight:700;
+}
+
+/* ============== Responsive ============== */
+@media (max-width:720px){
+  .header-inner{padding:12px 18px;gap:10px}
+  .header-link{display:none}
+  .brand{font-size:15px}
+  .hero{padding:40px 18px 24px}
+  .tabs-wrap{padding:0 18px}
+  .main-wrap{padding:24px 18px 60px}
+  .faq-section{padding:48px 18px}
+  .card{padding:20px}
+  .footer-inner{flex-direction:column;text-align:center}
+}
+@media (max-width:480px){
+  .hero-stat{padding:8px 14px;min-width:90px}
+  .hero-stat-num{font-size:18px}
+  .tab-btn{padding:10px 12px;font-size:13px}
+  .tool-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ============== HEADER ============== -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="brand">
+      <span class="brand-mark"></span>
+      <span>Premium Video Toolkit</span>
+    </a>
+    <span class="header-spacer"></span>
+    <a href="/all-in-one-toolkit" class="header-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      All Toolkits
+    </a>
+    <button class="btn-download" onclick="downloadHTML()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>
+      Download HTML
+    </button>
+  </div>
+</header>
+
+<!-- ============== HERO ============== -->
+<section class="hero">
+  <span class="hero-eyebrow">8 Working Tools · Runs 100% In Your Browser</span>
+  <h1>The <span class="accent">Premium Video Toolkit</span><br>for YouTube Creators</h1>
+  <p class="lead">Everything you need to ship better YouTube videos, faster — title optimizer, description writer, tag generator, thumbnail color picker, timestamps, length calculator, hook writer, and an ad-revenue money calculator. No servers, no images.</p>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="hero-stat-num">8</div>
+      <div class="hero-stat-label">Working Tools</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">0</div>
+      <div class="hero-stat-label">Images Used</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">100%</div>
+      <div class="hero-stat-label">Client-Side</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">Free</div>
+      <div class="hero-stat-label">Forever</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== TABS ============== -->
+<div class="tabs-wrap">
+  <nav class="tabs-bar" role="tablist" aria-label="Video toolkit tools">
+    <button class="tab-btn active" data-tab="titles" role="tab"><span class="tab-num">1</span>Title Optimizer</button>
+    <button class="tab-btn" data-tab="desc" role="tab"><span class="tab-num">2</span>Description Writer</button>
+    <button class="tab-btn" data-tab="tags" role="tab"><span class="tab-num">3</span>Tag Generator</button>
+    <button class="tab-btn" data-tab="thumb" role="tab"><span class="tab-num">4</span>Thumbnail Colors</button>
+    <button class="tab-btn" data-tab="ts" role="tab"><span class="tab-num">5</span>Timestamps</button>
+    <button class="tab-btn" data-tab="len" role="tab"><span class="tab-num">6</span>Video Length</button>
+    <button class="tab-btn" data-tab="hooks" role="tab"><span class="tab-num">7</span>Hook Generator</button>
+    <button class="tab-btn" data-tab="money" role="tab"><span class="tab-num">8</span>Money Calc</button>
+  </nav>
+</div>
+
+<!-- ============== MAIN ============== -->
+<main class="main-wrap">
+
+<!-- ============== TOOL 1: TITLE OPTIMIZER ============== -->
+<section class="tool-panel active" id="panel-titles">
+  <div class="tool-header">
+    <div class="tool-header-left">
+      <span class="tool-tag">Tool 01 · Title Optimizer</span>
+      <h2>Generate titles that earn the click</h2>
+      <p>Drop in your video topic and instantly get 12 title variations built from proven YouTube formulas — each scored on strength and length so you can pick the winner.</p>
+    </div>
+  </div>
+  <div class="tool-grid">
+    <div class="tool-input-col">
+      <div class="card">
+        <div class="card-title"><span class="dot"></span> Your Video Topic</div>
+        <p class="card-desc">Be specific. "Build a PC under $1000" beats "PC building".</p>
+        <div class="field">
+          <label class="field-label">Topic <span class="field-hint">required</span></label>
+          <input type="text" class="input" id="titleTopic" placeholder="e.g. learn Python for data science" value="learn Python for data science">
+        </div>
+        <button class="btn btn-primary btn-block" onclick="generateTitles()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 3l1.5 4L11 8.5 6.5 10 5 14l-1.5-4L-1 8.5 3.5 7 5 3zM18 13l1 2.5L22 17l-3 1.5L18 21l-1-2.5L14 17l3-1.5L18 13z" transform="translate(2 0)"/></svg>
+          Generate 12 Titles
+        </button>
+      </div>
+      <div class="card" style="margin-top:16px">
+        <div class="card-title"><span class="dot" style="background:var(--blue)"></span> Title Strength Guide</div>
+        <div style="display:flex;flex-direction:column;gap:8px;font-size:12.5px;color:var(--text-soft)">
+          <div style="display:flex;justify-content:space-between"><span>70 – 100</span><b style="color:var(--green)">Excellent — ship it</b></div>
+          <div style="display:flex;justify-content:space-between"><span>50 – 69</span><b style="color:var(--amber)">Solid — try a tweak</b></div>
+          <div style="display:flex;justify-content:space-between"><span>0 – 49</span><b style="color:var(--red)">Weak — pick another</b></div>
+          <div style="margin-top:8px;padding-top:8px;border-top:1px solid var(--border);color:var(--text-muted);font-size:11.5px">Scored on power words, numbers, emotional triggers, brackets, and length.</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot"></span> Generated Titles</div>
+      <p class="card-desc">Click any title to copy. Hover for the formula breakdown.</p>
+      <div class="title-list" id="titleList"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== TOOL 2: DESCRIPTION WRITER ============== -->
+<section class="tool-panel" id="panel-desc">
+  <div class="tool-header">
+    <div class="tool-header-left">
+      <span class="tool-tag">Tool 02 · Description Writer</span>
+      <h2>Write YouTube descriptions that convert</h2>
+      <p>Generate a fully-formatted description with a hook, summary, timestamps placeholder, links, call-to-action, and hashtags — all tuned for both viewers and the YouTube search algorithm.</p>
+    </div>
+  </div>
+  <div class="tool-grid">
+    <div class="tool-input-col">
+      <div class="card">
+        <div class="card-title"><span class="dot"></span> Video Details</div>
+        <div class="field">
+          <label class="field-label">Video Title <span class="field-hint">required</span></label>
+          <input type="text" class="input" id="descTitle" placeholder="e.g. Python for Data Science: Full Beginner Course" value="Python for Data Science: Full Beginner Course">
+        </div>
+        <div class="field">
+          <label class="field-label">Topic / Subject <span class="field-hint">required</span></label>
+          <textarea class="textarea" id="descTopic" placeholder="e.g. Learning Python from scratch for a career in data science">Learning Python from scratch for a career in data science</textarea>
+        </div>
+        <div class="field">
+          <label class="field-label">Channel Name</label>
+          <input type="text" class="input" id="descChannel" placeholder="Your channel name" value="ExcuseMeWeb">
+        </div>
+        <div class="field">
+          <label class="field-label">Best Hashtag <span class="field-hint">no #</span></label>
+          <input type="text" class="input" id="descHash" placeholder="python" value="python">
+        </div>
+        <button class="btn btn-primary btn-block" onclick="generateDescription()">Write Description</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="btn-row" style="margin-bottom:14px;justify-content:space-between">
+        <div class="card-title" style="margin:0"><span class="dot"></span> Generated Description</div>
+        <div class="btn-row">
+          <button class="btn btn-ghost btn-sm" onclick="copyText(document.getElementById('descOutput').textContent)">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 012-2h10"/></svg>
+            Copy
+          </button>
+          <button class="btn btn-secondary btn-sm" onclick="downloadDescription()">Download .txt</button>
+        </div>
+      </div>
+      <div class="desc-output" id="descOutput"></div>
+      <div class="desc-stat-row" id="descStats"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== TOOL 3: TAG GENERATOR ============== -->
+<section class="tool-panel" id="panel-tags">
+  <div class="tool-header">
+    <div class="tool-header-left">
+      <span class="tool-tag">Tool 03 · Tag Generator</span>
+      <h2>30 tags, perfectly organized</h2>
+      <p>Get 30 YouTube-ready tags split across broad, specific, long-tail, and branded buckets — each tagged with an estimated search-volume tier so you can prioritize.</p>
+    </div>
+  </div>
+  <div class="tool-grid">
+    <div class="tool-input-col">
+      <div class="card">
+        <div class="card-title"><span class="dot"></span> Topic</div>
+        <p class="card-desc">One phrase works best. The generator builds variations.</p>
+        <div class="field">
+          <label class="field-label">Video Topic <span class="field-hint">required</span></label>
+          <input type="text" class="input" id="tagTopic" placeholder="e.g. python data science" value="python data science">
+        </div>
+        <div class="field">
+          <label class="field-label">Brand Name <span class="field-hint">optional</span></label>
+          <input type="text" class="input" id="tagBrand" placeholder="your channel name" value="ExcuseMeWeb">
+        </div>
+        <button class="btn btn-primary btn-block" onclick="generateTags()">Generate 30 Tags</button>
+      </div>
+      <div class="card" style="margin-top:16px">
+        <div class="card-title"><span class="dot" style="background:var(--blue)"></span> Export &amp; Copy</div>
+        <div class="btn-row" style="flex-direction:column;align-items:stretch">
+          <button class="btn btn-ghost btn-sm" onclick="copyAllTags()">Copy All (Comma-Separated)</button>
+          <button class="btn btn-ghost btn-sm" onclick="copySelectedTags()">Copy Selected Only</button>
+          <button class="btn btn-secondary btn-sm" onclick="selectAllTags(true)">Select All</button>
+          <button class="btn btn-ghost btn-sm" onclick="selectAllTags(false)">Deselect All</button>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="tag-stats-bar" id="tagStats"></div>
+      <div id="tagContainer"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== TOOL 4: THUMBNAIL COLOR PICKER ============== -->
+<section class="tool-panel" id="panel-thumb">
+  <div class="tool-header">
+    <div class="tool-header-left">
+      <span class="tool-tag">Tool 04 · Thumbnail Color Picker</span>
+      <h2>Colors that pop on the YouTube grid</h2>
+      <p>Pick a brand color and instantly get complementary, analogous, triadic, and split-complementary palettes — plus a live 16:9 thumbnail preview with WCAG contrast ratios for every combination.</p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="color-grid">
+      <div>
+        <div class="color-input-block">
+          <div class="color-pick-row">
+            <div class="color-swatch-big" id="primarySwatch" style="background:#dc2626">
+              <input type="color" id="primaryColor" value="#dc2626" oninput="updateColorScheme()">
+            </div>
+            <div class="color-info-block">
+              <div class="color-hex" id="primaryHex">#DC2626</div>
+              <div class="color-rgb" id="primaryRgb">RGB: 220, 38, 38</div>
+              <div class="color-hsl" id="primaryHsl">HSL: 0°, 70%, 51%</div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:18px">
+          <div class="card-title" style="font-size:14px;margin-bottom:10px"><span class="dot"></span> Color Schemes</div>
+          <div class="scheme-list" id="schemeList"></div>
+        </div>
+        <div style="margin-top:24px">
+          <div class="card-title" style="font-size:14px;margin-bottom:8px"><span class="dot" style="background:var(--green)"></span> Contrast Ratios (WCAG)</div>
+          <div id="contrastList"></div>
+        </div>
+      </div>
+      <div>
+        <div class="card-title" style="font-size:14px;margin-bottom:12px"><span class="dot" style="background:var(--purple)"></span> Thumbnail Preview</div>
+        <div class="thumb-preview" id="thumbPreview">
+          <div class="thumb-bg" id="thumbBg" style="background:#dc2626"></div>
+          <div class="thumb-content">
+            <span class="thumb-eyebrow" id="thumbEyebrow" style="background:#fff;color:#dc2626">NEW VIDEO</span>
+            <div class="thumb-headline" id="thumbHeadline" style="color:#fff">YOUR TITLE HERE</div>
+            <div class="thumb-sub" id="thumbSub" style="color:#fff">watch now →</div>
+          </div>
+        </div>
+        <div style="margin-top:14px">
+          <div class="field">
+            <label class="field-label">Headline Text</label>
+            <input type="text" class="input" id="thumbTitle" value="YOUR TITLE HERE" oninput="updateThumbPreview()">
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label class="field-label">Background</label>
+              <select class="select" id="thumbBgSelect" onchange="updateThumbPreview()">
+                <option value="primary">Primary Color</option>
+                <option value="comp">Complementary</option>
+                <option value="dark">Dark (#0a0a0a)</option>
+                <option value="light">Light (#ffffff)</option>
+              </select>
+            </div>
+            <div class="field">
+              <label class="field-label">Text Color</label>
+              <select class="select" id="thumbTextSelect" onchange="updateThumbPreview()">
+                <option value="white">White</option>
+                <option value="black">Black</option>
+                <option value="primary">Primary</option>
+                <option value="comp">Complementary</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== TOOL 5: TIMESTAMP GENERATOR ============== -->
+<section class="tool-panel" id="panel-ts">
+  <div class="tool-header">
+    <div class="tool-header-left">
+      <span class="tool-tag">Tool 05 · Timestamp Generator</span>
+      <h2>Chapters in the format YouTube loves</h2>
+      <p>Paste chapter names, choose your interval, and get perfectly-formatted timestamps (00:00, 01:30, 03:00…) ready to paste into your description. Edit any start time manually too.</p>
+    </div>
+  </div>
+  <div class="tool-grid">
+    <div class="tool-input-col">
+      <div class="card">
+        <div class="card-title"><span class="dot"></span> Chapter Names</div>
+        <p class="card-desc">One chapter per line.</p>
+        <div class="field">
+          <textarea class="textarea" id="tsInput" style="min-height:200px;font-family:var(--font-mono);font-size:13px">Intro
+What is Python
+Setting Up
+Your First Program
+Variables and Types
+Working with Lists
+Functions
+Closing Thoughts</textarea>
+        </div>
+        <div class="ts-options">
+          <div>
+            <label class="field-label" style="font-size:11.5px">Start At (sec)</label>
+            <input type="number" class="input" id="tsStart" value="0" min="0" style="padding:9px 10px;font-size:13px">
+          </div>
+          <div>
+            <label class="field-label" style="font-size:11.5px">Interval (sec)</label>
+            <input type="number" class="input" id="tsInterval" value="60" min="5" style="padding:9px 10px;font-size:13px">
+          </div>
+          <div style="display:flex;align-items:flex-end">
+            <button class="btn btn-primary btn-block" onclick="generateTimestamps()">Generate</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="btn-row" style="justify-content:space-between;margin-bottom:14px">
+        <div class="card-title" style="margin:0"><span class="dot"></span> Editable Timestamps</div>
+        <div class="btn-row">
+          <button class="btn btn-ghost btn-sm" onclick="addTimestampRow()">+ Add Chapter</button>
+          <button class="btn btn-ghost btn-sm" onclick="autoFillTimestamps()">Re-auto-fill</button>
+        </div>
+      </div>
+      <div class="ts-list" id="tsList"></div>
+      <div style="margin-top:20px">
+        <div class="card-title" style="font-size:14px;margin-bottom:10px"><span class="dot" style="background:var(--green)"></span> Copy This Into Your Description</div>
+        <div class="ts-output" id="tsOutput"></div>
+        <div class="btn-row" style="margin-top:12px">
+          <button class="btn btn-secondary btn-sm" onclick="copyText(document.getElementById('tsOutput').textContent)">Copy Timestamps</button>
+          <button class="btn btn-ghost btn-sm" onclick="downloadTimestamps()">Download .txt</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== TOOL 6: VIDEO LENGTH CALCULATOR ============== -->
+<section class="tool-panel" id="panel-len">
+  <div class="tool-header">
+    <div class="tool-header-left">
+      <span class="tool-tag">Tool 06 · Video Length Calculator</span>
+      <h2>How long should your script be?</h2>
+      <p>Convert word count to runtime and back. Set your speaking rate, see how many minutes your script fills, or figure out how many words you need to hit a target video length.</p>
+    </div>
+  </div>
+  <div class="calc-grid">
+    <div class="calc-card">
+      <div class="calc-card-title"><span class="arrow">→</span> Words to Runtime</div>
+      <div class="field">
+        <label class="field-label">Word Count <span class="field-hint" id="wordsToTimeHint">script length</span></label>
+        <input type="number" class="input" id="lenWords" value="1500" min="0" oninput="calcWordsToTime()">
+      </div>
+      <div class="field">
+        <label class="field-label">Speaking Rate <span class="field-hint">words / minute</span></label>
+        <input type="number" class="input" id="lenWpm" value="150" min="60" max="300" oninput="calcWordsToTime()">
+      </div>
+      <div class="calc-result" id="lenResult1">
+        <div class="big">10:00</div>
+        <div class="sub">at 150 words per minute</div>
+      </div>
+    </div>
+    <div class="calc-card">
+      <div class="calc-card-title"><span class="arrow">←</span> Runtime to Words</div>
+      <div class="field-row">
+        <div class="field">
+          <label class="field-label">Minutes</label>
+          <input type="number" class="input" id="lenMin" value="8" min="0" oninput="calcTimeToWords()">
+        </div>
+        <div class="field">
+          <label class="field-label">Seconds</label>
+          <input type="number" class="input" id="lenSec" value="0" min="0" max="59" oninput="calcTimeToWords()">
+        </div>
+      </div>
+      <div class="field">
+        <label class="field-label">Speaking Rate <span class="field-hint">words / minute</span></label>
+        <input type="number" class="input" id="lenWpm2" value="150" min="60" max="300" oninput="calcTimeToWords()">
+      </div>
+      <div class="calc-result" id="lenResult2">
+        <div class="big">1,200</div>
+        <div class="sub">words to write</div>
+      </div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:20px">
+    <div class="card-title"><span class="dot" style="background:var(--amber)"></span> Pacing &amp; Speaking Rate Tips</div>
+    <p class="card-desc">Choose the rate that matches your delivery style and audience.</p>
+    <div class="pacing-tips">
+      <div class="pacing-tip"><div class="pacing-tip-num">1</div><div class="pacing-tip-text"><b>120 WPM</b> — slow, deliberate. Best for tutorials, technical explainers, and educational content where viewers need to absorb details.</div></div>
+      <div class="pacing-tip"><div class="pacing-tip-num">2</div><div class="pacing-tip-text"><b>150 WPM</b> — natural conversational pace. The YouTube default. Works for most vlogs, reviews, and how-tos.</div></div>
+      <div class="pacing-tip"><div class="pacing-tip-num">3</div><div class="pacing-tip-text"><b>180 WPM</b> — fast and energetic. Ideal for entertainment, gaming, and reaction content where momentum matters.</div></div>
+      <div class="pacing-tip"><div class="pacing-tip-num">4</div><div class="pacing-tip-text"><b>200+ WPM</b> — very fast. Use sparingly. Viewers may struggle to follow dense information at this pace.</div></div>
+      <div class="pacing-tip"><div class="pacing-tip-num">5</div><div class="pacing-tip-text"><b>Cut 10%</b> after writing. Most scripts benefit from a trim pass — tighter pacing keeps retention higher.</div></div>
+      <div class="pacing-tip"><div class="pacing-tip-num">6</div><div class="pacing-tip-text"><b>Watch the first 30s</b> — your opening should be 60–90 words max. Don't burn retention on a slow intro.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== TOOL 7: HOOK GENERATOR ============== -->
+<section class="tool-panel" id="panel-hooks">
+  <div class="tool-header">
+    <div class="tool-header-left">
+      <span class="tool-tag">Tool 07 · Hook Generator</span>
+      <h2>Win the first 8 seconds</h2>
+      <p>The first 8 seconds decide whether viewers stay or bounce. Generate 10 hook variations using proven retention formulas — each one is 2–3 sentences designed to stop the scroll.</p>
+    </div>
+  </div>
+  <div class="tool-grid">
+    <div class="tool-input-col">
+      <div class="card">
+        <div class="card-title"><span class="dot"></span> Video Topic</div>
+        <p class="card-desc">What is this video about?</p>
+        <div class="field">
+          <label class="field-label">Topic <span class="field-hint">required</span></label>
+          <input type="text" class="input" id="hookTopic" placeholder="e.g. editing videos in DaVinci Resolve" value="editing videos in DaVinci Resolve">
+        </div>
+        <button class="btn btn-primary btn-block" onclick="generateHooks()">Generate 10 Hooks</button>
+      </div>
+      <div class="card" style="margin-top:16px">
+        <div class="card-title"><span class="dot" style="background:var(--blue)"></span> Hook Formulas Used</div>
+        <div style="display:flex;flex-direction:column;gap:6px;font-size:12px;color:var(--text-soft)">
+          <div>· Question</div><div>· Bold claim</div><div>· Story teaser</div>
+          <div>· Statistic</div><div>· Contrarian</div><div>· Demonstration</div>
+          <div>· Problem</div><div>· List</div><div>· Curiosity gap</div><div>· Direct promise</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot"></span> Generated Hooks</div>
+      <p class="card-desc">Each hook targets the first 8 seconds. Pick your favorite and adapt the wording to your style.</p>
+      <div class="hook-list" id="hookList"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== TOOL 8: YOUTUBE MONEY CALCULATOR ============== -->
+<section class="tool-panel" id="panel-money">
+  <div class="tool-header">
+    <div class="tool-header-left">
+      <span class="tool-tag">Tool 08 · YouTube Money Calculator</span>
+      <h2>Estimate your ad-revenue potential</h2>
+      <p>Plug in your monthly views and RPM (revenue per mille) to see estimated monthly and yearly earnings, plus a comparison of what small, mid, and large channels typically make.</p>
+    </div>
+  </div>
+  <div class="money-grid">
+    <div>
+      <div class="card">
+        <div class="card-title"><span class="dot"></span> Channel Inputs</div>
+        <div class="field">
+          <label class="field-label">Monthly Views <span class="field-hint" id="moneyViewsHint">last 28 days</span></label>
+          <div class="input-with-suffix">
+            <input type="number" class="input" id="moneyViews" value="50000" min="0" oninput="calcMoney()">
+            <span class="input-suffix">views</span>
+          </div>
+        </div>
+        <div class="field">
+          <label class="field-label">RPM (Revenue per 1,000 views) <span class="field-hint">default $2</span></label>
+          <div class="input-with-suffix">
+            <input type="number" class="input" id="moneyRpm" value="2" min="0" step="0.1" oninput="calcMoney()">
+            <span class="input-suffix">USD</span>
+          </div>
+        </div>
+        <div class="field">
+          <label class="field-label">CPM (Cost per 1,000 impressions) <span class="field-hint">optional</span></label>
+          <div class="input-with-suffix">
+            <input type="number" class="input" id="moneyCpm" value="5" min="0" step="0.1" oninput="calcMoney()">
+            <span class="input-suffix">USD</span>
+          </div>
+        </div>
+        <div class="field">
+          <label class="field-label">Monetized View Rate <span class="field-hint">how many views see ads</span></label>
+          <div class="input-with-suffix">
+            <input type="number" class="input" id="moneyMonRate" value="60" min="0" max="100" oninput="calcMoney()">
+            <span class="input-suffix">%</span>
+          </div>
+        </div>
+        <button class="btn btn-primary btn-block" onclick="calcMoney()">Recalculate</button>
+        <div class="estimate-note">
+          <span>⚠</span>
+          <div><b>Estimates only.</b> Real earnings depend on niche, audience geography, watch time, ad placement, and seasonality. Use this for planning, not promises.</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="money-hero">
+        <div>
+          <div class="money-hero-eyebrow">Estimated Monthly Revenue</div>
+          <div class="money-hero-amount" id="moneyMonthly">$100.00</div>
+          <div class="money-hero-sub" id="moneyMonthlySub">based on 50,000 views at $2.00 RPM</div>
+        </div>
+        <div class="money-hero-totals">
+          <div class="money-total">
+            <div class="l">Yearly Estimate</div>
+            <div class="v" id="moneyYearly">$1,200</div>
+          </div>
+          <div class="money-total">
+            <div class="l">Per 1K Views</div>
+            <div class="v" id="moneyPerK">$2.00</div>
+          </div>
+        </div>
+      </div>
+      <div class="card" style="margin-top:20px">
+        <div class="card-title"><span class="dot"></span> Channel Tier Comparison</div>
+        <p class="card-desc">What channels of each size typically earn per month, using your current RPM.</p>
+        <div class="tier-list" id="tierList"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============== FAQ ============== -->
+<section class="faq-section">
+  <div class="faq-header">
+    <span class="tool-tag">Frequently Asked</span>
+    <h2>Video Toolkit FAQs</h2>
+    <p>Quick answers to the most common questions about how these tools work and what the numbers mean.</p>
+  </div>
+  <div class="faq-list" id="faqList"></div>
+</section>
+
+<!-- ============== FOOTER ============== -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="brand-mark"></span>
+      <span>ExcuseMeWeb</span>
+    </div>
+    <nav class="footer-links">
+      <a href="/all-in-one-toolkit">All Toolkits</a>
+      <a href="/premium-content-toolkit">Content Toolkit</a>
+      <a href="/premium-developer-toolkit">Developer Toolkit</a>
+      <a href="/premium-design-toolkit">Design Toolkit</a>
+      <a href="/">Home</a>
+    </nav>
+    <div class="footer-copy">
+      © 2026 <a href="/all-in-one-toolkit">ExcuseMeWeb</a> — Premium Video Toolkit
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ====================================================================
+   PREMIUM VIDEO TOOLKIT — JAVASCRIPT
+   All logic runs 100% client-side. No external API calls.
+====================================================================== */
+
+/* ============== Helpers ============== */
+function toast(msg){
+  var t = document.getElementById('toast');
+  t.innerHTML = '<span class="check-icon">✓</span><span>' + msg + '</span>';
+  t.classList.add('show');
+  clearTimeout(window._toastTimer);
+  window._toastTimer = setTimeout(function(){ t.classList.remove('show'); }, 2200);
+}
+
+function copyText(text){
+  if(!text){ toast('Nothing to copy yet'); return; }
+  text = String(text).trim();
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(function(){
+      toast('Copied to clipboard');
+    }).catch(function(){ fallbackCopy(text); });
+  } else {
+    fallbackCopy(text);
+  }
+}
+
+function fallbackCopy(text){
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.select();
+  try{ document.execCommand('copy'); toast('Copied to clipboard'); }
+  catch(e){ toast('Copy failed — select and copy manually'); }
+  document.body.removeChild(ta);
+}
+
+function downloadFile(filename, content, mime){
+  var blob = new Blob([content], {type: mime || 'text/plain'});
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a'); a.href = url; a.download = filename;
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  toast('Downloaded ' + filename);
+}
+function downloadHTML(){
+  var html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+  downloadFile('premium-video-toolkit.html', html, 'text/html');
+}
+
+function escapeHtml(s){
+  return String(s).replace(/[&<>"']/g, function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+  });
+}
+function titleCase(s){
+  return s.replace(/\w\S*/g, function(t){ return t.charAt(0).toUpperCase() + t.substr(1).toLowerCase(); });
+}
+function pad2(n){ return (n<10?'0':'') + n; }
+function formatNum(n){ return n.toLocaleString('en-US'); }
+function formatMoney(n){ return '$' + n.toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2}); }
+
+/* ============== Tab Switching ============== */
+document.querySelectorAll('.tab-btn').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var tab = btn.getAttribute('data-tab');
+    document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
+    document.querySelectorAll('.tool-panel').forEach(function(p){ p.classList.remove('active'); });
+    btn.classList.add('active');
+    document.getElementById('panel-' + tab).classList.add('active');
+    // scroll tool into view under header
+    window.scrollTo({ top: document.querySelector('.tabs-wrap').offsetTop - 80, behavior: 'smooth' });
+  });
+});
+
+/* ====================================================================
+   TOOL 1: TITLE OPTIMIZER
+====================================================================== */
+var POWER_WORDS = ['ultimate','best','proven','amazing','essential','complete','secret','hidden','exclusive','insider','top','fast','easy','simple','powerful','effective','instant','free','new','advanced','beginner','full','definitive','expert','professional','killer','premium','master','step','hack','trick','real','truth'];
+var EMOTIONAL_TRIGGERS = ['truth','shocking','never','always','mistakes','avoid','warning','exposed','real','finally','nobody','lie','myth','change','transform','weird','strange','crazy','insane','banned','illegal','secret','hack','trick','wrong','right','better','worse'];
+
+function titleScore(title){
+  var t = title.toLowerCase();
+  var words = t.split(/\s+/);
+  var score = 30; // base
+  // numbers
+  if(/\d/.test(t)) score += 15;
+  // power words
+  var pw = POWER_WORDS.filter(function(w){ return t.indexOf(w) >= 0; });
+  score += Math.min(pw.length * 5, 20);
+  // emotional triggers
+  var et = EMOTIONAL_TRIGGERS.filter(function(w){ return t.indexOf(w) >= 0; });
+  score += Math.min(et.length * 4, 16);
+  // brackets
+  if(/[\(\[]/.test(t)) score += 8;
+  // length
+  var len = title.length;
+  if(len >= 40 && len <= 60) score += 12;
+  else if(len >= 30 && len < 40) score += 6;
+  else if(len >= 60 && len <= 70) score += 4;
+  else if(len > 70) score -= 10;
+  else if(len < 30) score -= 8;
+  // question
+  if(/\?/.test(t)) score += 3;
+  // colon or dash
+  if(/[:—-]/.test(t)) score += 3;
+  return Math.max(0, Math.min(100, score));
+}
+
+function generateTitles(){
+  var topic = document.getElementById('titleTopic').value.trim();
+  if(!topic){ toast('Enter a video topic first'); return; }
+  var capTopic = topic.charAt(0).toUpperCase() + topic.slice(1);
+  var topTitle = titleCase(topic);
+  var formulas = [
+    { name:'Numbers',         text: '7 ' + topTitle + ' Tips That Actually Work' },
+    { name:'Brackets',        text: topTitle + ' (Complete 2026 Guide)' },
+    { name:'Curiosity Gap',   text: 'The Truth About ' + topic + ' Nobody Tells You' },
+    { name:'How-To',          text: 'How to Master ' + topic + ' in 30 Days' },
+    { name:'VS',              text: 'Beginner vs Pro: ' + topTitle + ' Compared' },
+    { name:'Ultimate Guide',  text: 'The Ultimate Guide to ' + topic },
+    { name:'Mistakes',        text: '5 ' + topTitle + ' Mistakes Costing You Time' },
+    { name:'Secrets',         text: topTitle + ' Secrets the Pros Won\'t Share' },
+    { name:'Why',             text: 'Why ' + topic + ' Is Easier Than You Think' },
+    { name:'Question',        text: 'Is ' + topic + ' Worth It in 2026?' },
+    { name:'Bold Claim',      text: 'I Tried ' + topic + ' for 30 Days — Here\'s What Happened' },
+    { name:'Step-by-Step',    text: topTitle + ' Step by Step (Full Tutorial)' }
+  ];
+  var html = formulas.map(function(f, i){
+    var score = titleScore(f.text);
+    var len = f.text.length;
+    var lenClass = len > 70 ? 'warn' : (len <= 60 ? 'good' : '');
+    var scoreColor = score >= 70 ? 'var(--green)' : (score >= 50 ? 'var(--amber)' : 'var(--red)');
+    return '<div class="title-item">' +
+      '<div class="title-top">' +
+        '<div>' +
+          '<span class="title-formula">' + f.name + '</span>' +
+          '<div class="title-text">' + escapeHtml(f.text) + '</div>' +
+        '</div>' +
+        '<button class="copy-btn" onclick="copyTitle(this, ' + i + ')" data-text="' + escapeHtml(f.text).replace(/"/g, '&quot;') + '">' +
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 012-2h10"/></svg>' +
+          'Copy' +
+        '</button>' +
+      '</div>' +
+      '<div class="title-meta">' +
+        '<span class="meta-pill">Characters: <span class="num ' + lenClass + '" style="' + (lenClass==='warn'?'color:var(--amber)':(lenClass==='good'?'color:var(--green)':'')) + '">' + len + '</span></span>' +
+        (len > 70 ? '<span class="meta-pill" style="color:var(--amber)">⚠ over 70 chars</span>' : (len <= 60 ? '<span class="meta-pill" style="color:var(--green)">✓ ideal length</span>' : '')) +
+        '<span class="score-bar" style="margin-left:auto">' +
+          '<span class="score-track"><span class="score-fill" style="width:' + score + '%"></span></span>' +
+          '<span class="score-num" style="color:' + scoreColor + '">' + score + '</span>' +
+        '</span>' +
+      '</div>' +
+    '</div>';
+  }).join('');
+  document.getElementById('titleList').innerHTML = html;
+  window._lastTitles = formulas.map(function(f){ return f.text; });
+  toast('Generated 12 titles');
+}
+
+function copyTitle(btn, i){
+  copyText(window._lastTitles[i]);
+  btn.classList.add('copied');
+  btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg> Copied';
+  setTimeout(function(){
+    btn.classList.remove('copied');
+    btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 012-2h10"/></svg> Copy';
+  }, 1600);
+}
+
+/* ====================================================================
+   TOOL 2: DESCRIPTION WRITER
+====================================================================== */
+function generateDescription(){
+  var title = document.getElementById('descTitle').value.trim();
+  var topic = document.getElementById('descTopic').value.trim();
+  var channel = document.getElementById('descChannel').value.trim() || 'Our Channel';
+  var hash = document.getElementById('descHash').value.trim().replace(/^#/, '') || 'youtube';
+  if(!title || !topic){ toast('Title and topic are required'); return; }
+
+  var topicLower = topic.toLowerCase();
+  var topicCap = topic.charAt(0).toUpperCase() + topic.slice(1);
+  var hashLower = hash.toLowerCase().replace(/\s+/g, '');
+
+  var desc = '';
+  // Hook (first 2 lines — these show above "Show More")
+  desc += 'In this video, you\'ll learn ' + topicLower + ' — explained step by step, with real examples you can use today.\n';
+  desc += 'Whether you\'re just starting out or leveling up, this is the guide I wish I had on day one.\n';
+  desc += '\n';
+  // About
+  desc += '📋 ABOUT THIS VIDEO\n';
+  desc += 'We break down ' + topicLower + ' into clear, actionable steps. No fluff, no jargon — just what you need to actually get results. By the end, you\'ll have a complete understanding and a clear next step.\n';
+  desc += '\n';
+  // Timestamps placeholder
+  desc += '⏱ TIMESTAMPS\n';
+  desc += '00:00 Intro\n';
+  desc += '00:45 What is ' + titleCase(topic) + '\n';
+  desc += '02:15 Getting Started\n';
+  desc += '05:30 Step-by-Step Walkthrough\n';
+  desc += '10:45 Common Mistakes to Avoid\n';
+  desc += '14:20 Pro Tips & Tricks\n';
+  desc += '17:30 Final Thoughts\n';
+  desc += '\n';
+  // Links section
+  desc += '🔗 LINKS & RESOURCES\n';
+  desc += '• Free Starter Guide: https://example.com/guide\n';
+  desc += '• Recommended Tools: https://example.com/tools\n';
+  desc += '• Subscribe to ' + channel + ': https://youtube.com/@' + channel.toLowerCase().replace(/\s+/g, '') + '?sub_confirmation=1\n';
+  desc += '\n';
+  // CTA
+  desc += '🙌 SUPPORT THE CHANNEL\n';
+  desc += 'If this video helped you, smash that Like button, Subscribe for more weekly content, and ring the bell so you never miss an upload. Drop a comment below with your biggest takeaway — I read every single one.\n';
+  desc += '\n';
+  // Hashtags
+  desc += '#' + hashLower + ' #' + hashLower + 'tutorial #' + hashLower + 'forbeginners #youtube #' + channel.toLowerCase().replace(/\s+/g, '') + ' #2026\n';
+
+  document.getElementById('descOutput').textContent = desc;
+
+  var chars = desc.length;
+  var lines = desc.split('\n').length;
+  var words = desc.trim().split(/\s+/).length;
+  var hashtags = (desc.match(/#\w+/g) || []).length;
+
+  var charClass = chars > 5000 ? 'warn' : (chars >= 250 && chars <= 5000 ? 'good' : '');
+  document.getElementById('descStats').innerHTML =
+    '<span class="stat-chip ' + charClass + '"><span class="label">Characters</span><span class="val">' + formatNum(chars) + '</span></span>' +
+    '<span class="stat-chip"><span class="label">Words</span><span class="val">' + formatNum(words) + '</span></span>' +
+    '<span class="stat-chip"><span class="label">Lines</span><span class="val">' + lines + '</span></span>' +
+    '<span class="stat-chip"><span class="label">Hashtags</span><span class="val">' + hashtags + '</span></span>' +
+    '<span class="stat-chip ' + (chars > 5000 ? 'warn' : 'good') + '"><span class="label">Status</span><span class="val">' + (chars > 5000 ? 'Trim it' : 'Good') + '</span></span>';
+  toast('Description generated');
+}
+
+function downloadDescription(){
+  var content = document.getElementById('descOutput').textContent;
+  if(!content){ toast('Generate a description first'); return; }
+  downloadFile('youtube-description.txt', content, 'text/plain');
+}
+
+/* ====================================================================
+   TOOL 3: TAG GENERATOR
+====================================================================== */
+var _tags = [];
+var _tagSelection = {};
+
+function volTier(tag, type){
+  // pseudo-deterministic based on length + type
+  var len = tag.length;
+  var hash = 0;
+  for(var i=0;i<tag.length;i++){ hash = (hash * 31 + tag.charCodeAt(i)) & 0xfffffff; }
+  var r = (hash % 100) / 100;
+  if(type === 'broad') return r < 0.65 ? 'high' : (r < 0.9 ? 'medium' : 'low');
+  if(type === 'specific') return r < 0.5 ? 'high' : (r < 0.85 ? 'medium' : 'low');
+  if(type === 'longtail') return r < 0.3 ? 'medium' : 'low';
+  if(type === 'branded') return r < 0.4 ? 'medium' : 'low';
+  return 'medium';
+}
+
+function generateTags(){
+  var topic = document.getElementById('tagTopic').value.trim().toLowerCase();
+  var brand = document.getElementById('tagBrand').value.trim();
+  if(!topic){ toast('Enter a topic first'); return; }
+  var topicTitle = titleCase(topic);
+  var brandLower = (brand || 'excusemeweb').toLowerCase().replace(/\s+/g, '');
+
+  var broad = [
+    topic,
+    topic + ' tutorial',
+    topic + ' guide',
+    topic + ' tips',
+    topic + ' for beginners',
+    topic + ' 2026',
+    'best ' + topic,
+    'learn ' + topic
+  ];
+  var specific = [
+    'how to ' + topic,
+    topic + ' step by step',
+    topic + ' explained',
+    topic + ' basics',
+    topic + ' tips and tricks',
+    topic + ' for beginners 2026',
+    topic + ' full course',
+    topic + ' tutorial for beginners',
+    topic + ' walkthrough',
+    topic + ' demo'
+  ];
+  var longtail = [
+    'how to get started with ' + topic,
+    topic + ' tutorial for absolute beginners',
+    'best way to learn ' + topic + ' fast',
+    topic + ' mistakes to avoid',
+    'is ' + topic + ' worth learning',
+    topic + ' from scratch',
+    'complete ' + topic + ' course free',
+    topic + ' step by step tutorial'
+  ];
+  var branded = [
+    brandLower + ' ' + topic,
+    topic + ' ' + brandLower,
+    brandLower,
+    topicTitle + ' by ' + brandLower
+  ];
+
+  _tags = [];
+  _tagSelection = {};
+  broad.forEach(function(t){ _tags.push({ text:t, type:'broad', vol: volTier(t,'broad') }); });
+  specific.forEach(function(t){ _tags.push({ text:t, type:'specific', vol: volTier(t,'specific') }); });
+  longtail.forEach(function(t){ _tags.push({ text:t, type:'longtail', vol: volTier(t,'longtail') }); });
+  branded.forEach(function(t){ _tags.push({ text:t, type:'branded', vol: volTier(t,'branded') }); });
+
+  // default: select all
+  _tags.forEach(function(t, i){ _tagSelection[i] = true; });
+
+  renderTags();
+  toast('Generated 30 tags');
+}
+
+function renderTags(){
+  var types = [
+    { key:'broad',    label:'Broad Tags',    list:[] },
+    { key:'specific', label:'Specific Tags', list:[] },
+    { key:'longtail', label:'Long-Tail Tags',list:[] },
+    { key:'branded',  label:'Branded Tags',  list:[] }
+  ];
+  _tags.forEach(function(t, i){
+    var grp = types.find(function(g){ return g.key === t.type; });
+    if(grp) grp.list.push({ tag:t, idx:i });
+  });
+
+  var html = '';
+  types.forEach(function(g){
+    html += '<div class="tag-section">';
+    html += '<div class="tag-section-title">' + g.label + ' <span class="count">' + g.list.length + ' tags</span></div>';
+    html += '<div class="tag-grid">';
+    g.list.forEach(function(item){
+      var sel = _tagSelection[item.idx] ? 'selected' : '';
+      html += '<div class="tag-chip ' + sel + '" onclick="toggleTag(' + item.idx + ')">';
+      html += '<span class="check"></span>';
+      html += '<span class="tag-text">' + escapeHtml(item.tag.text) + '</span>';
+      html += '<span class="tag-vol ' + item.tag.vol + '">' + item.tag.vol.toUpperCase() + '</span>';
+      html += '</div>';
+    });
+    html += '</div></div>';
+  });
+  document.getElementById('tagContainer').innerHTML = html;
+  updateTagStats();
+}
+
+function toggleTag(i){
+  _tagSelection[i] = !_tagSelection[i];
+  renderTags();
+}
+
+function selectAllTags(val){
+  _tags.forEach(function(t, i){ _tagSelection[i] = val; });
+  renderTags();
+  toast(val ? 'All tags selected' : 'All tags deselected');
+}
+
+function updateTagStats(){
+  var selectedTags = _tags.filter(function(t, i){ return _tagSelection[i]; });
+  var allChars = _tags.map(function(t){ return t.text; }).join(', ').length;
+  var selChars = selectedTags.map(function(t){ return t.text; }).join(', ').length;
+  var pct = Math.round((allChars / 500) * 100);
+  var selPct = Math.round((selChars / 500) * 100);
+  var allClass = allChars > 500 ? 'warn' : 'good';
+  document.getElementById('tagStats').innerHTML =
+    '<div class="tag-stat"><div class="v">' + _tags.length + '</div><div class="l">Total Tags</div></div>' +
+    '<div class="tag-stat"><div class="v">' + selectedTags.length + '</div><div class="l">Selected</div></div>' +
+    '<div class="tag-stat"><div class="v ' + allClass + '">' + allChars + '/500</div><div class="l">All Chars</div></div>' +
+    '<div class="tag-stat"><div class="v ' + (selChars > 500 ? 'warn' : 'good') + '">' + selChars + '/500</div><div class="l">Selected Chars</div></div>';
+}
+
+function copyAllTags(){
+  if(!_tags.length){ toast('Generate tags first'); return; }
+  var text = _tags.map(function(t){ return t.text; }).join(', ');
+  copyText(text);
+}
+function copySelectedTags(){
+  var selected = _tags.filter(function(t, i){ return _tagSelection[i]; });
+  if(!selected.length){ toast('No tags selected'); return; }
+  var text = selected.map(function(t){ return t.text; }).join(', ');
+  copyText(text);
+}
+
+/* ====================================================================
+   TOOL 4: THUMBNAIL COLOR PICKER
+====================================================================== */
+function hexToRgb(hex){
+  hex = hex.replace('#','');
+  if(hex.length === 3) hex = hex.split('').map(function(c){ return c+c; }).join('');
+  var num = parseInt(hex, 16);
+  return { r:(num >> 16) & 255, g:(num >> 8) & 255, b:num & 255 };
+}
+function rgbToHex(r, g, b){
+  return '#' + [r,g,b].map(function(v){
+    var h = Math.round(Math.max(0, Math.min(255, v))).toString(16);
+    return h.length === 1 ? '0'+h : h;
+  }).join('');
+}
+function rgbToHsl(r, g, b){
+  r /= 255; g /= 255; b /= 255;
+  var max = Math.max(r,g,b), min = Math.min(r,g,b);
+  var h, s, l = (max+min)/2;
+  if(max === min){ h = s = 0; }
+  else {
+    var d = max - min;
+    s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+    switch(max){
+      case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+      case g: h = (b - r) / d + 2; break;
+      case b: h = (r - g) / d + 4; break;
+    }
+    h /= 6;
+  }
+  return { h: Math.round(h*360), s: Math.round(s*100), l: Math.round(l*100) };
+}
+function hslToRgb(h, s, l){
+  h /= 360; s /= 100; l /= 100;
+  var r, g, b;
+  if(s === 0){ r = g = b = l; }
+  else {
+    var hue2rgb = function(p, q, t){
+      if(t < 0) t += 1;
+      if(t > 1) t -= 1;
+      if(t < 1/6) return p + (q - p) * 6 * t;
+      if(t < 1/2) return q;
+      if(t < 2/3) return p + (q - p) * (2/3 - t) * 6;
+      return p;
+    };
+    var q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+    var p = 2 * l - q;
+    r = hue2rgb(p, q, h + 1/3);
+    g = hue2rgb(p, q, h);
+    b = hue2rgb(p, q, h - 1/3);
+  }
+  return { r: Math.round(r*255), g: Math.round(g*255), b: Math.round(b*255) };
+}
+function relLuminance(rgb){
+  var transform = function(c){
+    c /= 255;
+    return c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
+  };
+  return 0.2126 * transform(rgb.r) + 0.7152 * transform(rgb.g) + 0.0722 * transform(rgb.b);
+}
+function contrastRatio(rgb1, rgb2){
+  var l1 = relLuminance(rgb1);
+  var l2 = relLuminance(rgb2);
+  if(l1 < l2){ var t = l1; l1 = l2; l2 = t; }
+  return (l1 + 0.05) / (l2 + 0.05);
+}
+function shiftHue(hex, deg){
+  var rgb = hexToRgb(hex);
+  var hsl = rgbToHsl(rgb.r, rgb.g, rgb.b);
+  hsl.h = (hsl.h + deg + 360) % 360;
+  var newRgb = hslToRgb(hsl.h, hsl.s, hsl.l);
+  return rgbToHex(newRgb.r, newRgb.g, newRgb.b);
+}
+
+function updateColorScheme(){
+  var hex = document.getElementById('primaryColor').value;
+  var rgb = hexToRgb(hex);
+  var hsl = rgbToHsl(rgb.r, rgb.g, rgb.b);
+  document.getElementById('primarySwatch').style.background = hex;
+  document.getElementById('primaryHex').textContent = hex.toUpperCase();
+  document.getElementById('primaryRgb').textContent = 'RGB: ' + rgb.r + ', ' + rgb.g + ', ' + rgb.b;
+  document.getElementById('primaryHsl').textContent = 'HSL: ' + hsl.h + '°, ' + hsl.s + '%, ' + hsl.l + '%';
+
+  var schemes = [
+    { name:'Complementary',       colors:[hex, shiftHue(hex, 180)] },
+    { name:'Analogous',           colors:[shiftHue(hex, -30), hex, shiftHue(hex, 30)] },
+    { name:'Triadic',             colors:[hex, shiftHue(hex, 120), shiftHue(hex, 240)] },
+    { name:'Split-Complementary', colors:[hex, shiftHue(hex, 150), shiftHue(hex, 210)] },
+    { name:'Tetradic',            colors:[hex, shiftHue(hex, 90), shiftHue(hex, 180), shiftHue(hex, 270)] }
+  ];
+
+  var html = schemes.map(function(s){
+    var swatches = s.colors.map(function(c){
+      return '<div class="scheme-swatch" style="background:' + c + '" title="' + c.toUpperCase() + '" onclick="copySwatch(this, \'' + c + '\')"><span class="hex-label">' + c.toUpperCase() + '</span></div>';
+    }).join('');
+    return '<div class="scheme-item"><span class="scheme-name">' + s.name + '</span><div class="scheme-swatches">' + swatches + '</div></div>';
+  }).join('');
+  document.getElementById('schemeList').innerHTML = html;
+
+  // Contrast ratios
+  var white = hexToRgb('#ffffff');
+  var black = hexToRgb('#000000');
+  var primaryRgb = hexToRgb(hex);
+  var compHex = shiftHue(hex, 180);
+  var compRgb = hexToRgb(compHex);
+  var ratios = [
+    { name:'Primary on White', bg: white, fg: primaryRgb, ratio: contrastRatio(primaryRgb, white) },
+    { name:'White on Primary', bg: primaryRgb, fg: white, ratio: contrastRatio(primaryRgb, white) },
+    { name:'Primary on Black', bg: black, fg: primaryRgb, ratio: contrastRatio(primaryRgb, black) },
+    { name:'Complementary on White', bg: white, fg: compRgb, ratio: contrastRatio(compRgb, white) },
+    { name:'Primary vs Complementary', bg: primaryRgb, fg: compRgb, ratio: contrastRatio(primaryRgb, compRgb) }
+  ];
+  document.getElementById('contrastList').innerHTML = ratios.map(function(r){
+    var pass = r.ratio >= 4.5;
+    var badge = pass ? '<span class="contrast-badge pass">AA Pass</span>' : '<span class="contrast-badge fail">Below AA</span>';
+    return '<div class="contrast-row"><span class="contrast-label">' + r.name + '</span><span style="display:flex;gap:8px;align-items:center"><span class="contrast-val">' + r.ratio.toFixed(2) + ':1</span>' + badge + '</span></div>';
+  }).join('');
+
+  updateThumbPreview();
+}
+
+function copySwatch(el, hex){
+  copyText(hex);
+}
+
+function updateThumbPreview(){
+  var primaryHex = document.getElementById('primaryColor').value;
+  var compHex = shiftHue(primaryHex, 180);
+  var bgChoice = document.getElementById('thumbBgSelect').value;
+  var textChoice = document.getElementById('thumbTextSelect').value;
+  var title = document.getElementById('thumbTitle').value || 'YOUR TITLE HERE';
+
+  var bgMap = { primary: primaryHex, comp: compHex, dark: '#0a0a0a', light: '#ffffff' };
+  var textMap = { white: '#ffffff', black: '#0a0a0a', primary: primaryHex, comp: compHex };
+  var bg = bgMap[bgChoice];
+  var text = textMap[textChoice];
+
+  document.getElementById('thumbBg').style.background = bg;
+  document.getElementById('thumbHeadline').style.color = text;
+  document.getElementById('thumbHeadline').textContent = title.toUpperCase();
+  document.getElementById('thumbSub').style.color = text;
+
+  // eyebrow color: contrast with bg
+  var bgRgb = hexToRgb(bg);
+  var textRgb = hexToRgb(text);
+  // eyebrow bg = text color, eyebrow text = bg color (inverse)
+  document.getElementById('thumbEyebrow').style.background = text;
+  document.getElementById('thumbEyebrow').style.color = bg;
+
+  var ratio = contrastRatio(bgRgb, textRgb);
+  // could update preview subtitle to show ratio
+}
+
+/* ====================================================================
+   TOOL 5: TIMESTAMP GENERATOR
+====================================================================== */
+var _tsRows = [];
+
+function generateTimestamps(){
+  var input = document.getElementById('tsInput').value;
+  var start = parseInt(document.getElementById('tsStart').value) || 0;
+  var interval = parseInt(document.getElementById('tsInterval').value) || 60;
+  var lines = input.split('\n').map(function(l){ return l.trim(); }).filter(Boolean);
+  if(!lines.length){ toast('Add at least one chapter name'); return; }
+  _tsRows = lines.map(function(name, i){
+    return { time: start + i * interval, name: name };
+  });
+  renderTimestamps();
+  toast('Generated ' + lines.length + ' timestamps');
+}
+
+function renderTimestamps(){
+  var html = _tsRows.map(function(r, i){
+    var mm = Math.floor(r.time / 60);
+    var ss = r.time % 60;
+    var timeStr = pad2(mm) + ':' + pad2(ss);
+    return '<div class="ts-row">' +
+      '<input class="ts-time" value="' + timeStr + '" onchange="updateTsTime(' + i + ', this.value)" oninput="updateTsTime(' + i + ', this.value)">' +
+      '<input class="ts-name" value="' + escapeHtml(r.name) + '" onchange="updateTsName(' + i + ', this.value)" oninput="updateTsName(' + i + ', this.value)">' +
+      '<button class="ts-remove" onclick="removeTimestampRow(' + i + ')" title="Remove">✕</button>' +
+    '</div>';
+  }).join('');
+  document.getElementById('tsList').innerHTML = html;
+  renderTsOutput();
+}
+
+function updateTsTime(i, val){
+  var parts = val.split(':').map(function(p){ return parseInt(p) || 0; });
+  var secs;
+  if(parts.length === 2) secs = parts[0]*60 + parts[1];
+  else if(parts.length === 3) secs = parts[0]*3600 + parts[1]*60 + parts[2];
+  else secs = parseInt(val) || 0;
+  _tsRows[i].time = secs;
+  renderTsOutput();
+}
+
+function updateTsName(i, val){
+  _tsRows[i].name = val;
+  renderTsOutput();
+}
+
+function removeTimestampRow(i){
+  _tsRows.splice(i, 1);
+  renderTimestamps();
+}
+
+function addTimestampRow(){
+  var lastTime = _tsRows.length ? _tsRows[_tsRows.length-1].time : 0;
+  var interval = parseInt(document.getElementById('tsInterval').value) || 60;
+  _tsRows.push({ time: lastTime + interval, name: 'New Chapter' });
+  renderTimestamps();
+}
+
+function autoFillTimestamps(){
+  var start = parseInt(document.getElementById('tsStart').value) || 0;
+  var interval = parseInt(document.getElementById('tsInterval').value) || 60;
+  _tsRows.forEach(function(r, i){ r.time = start + i * interval; });
+  renderTimestamps();
+  toast('Timestamps auto-filled');
+}
+
+function renderTsOutput(){
+  var text = _tsRows.map(function(r){
+    var mm = Math.floor(r.time / 60);
+    var ss = r.time % 60;
+    return pad2(mm) + ':' + pad2(ss) + ' ' + r.name;
+  }).join('\n');
+  document.getElementById('tsOutput').textContent = text;
+}
+
+function downloadTimestamps(){
+  var content = document.getElementById('tsOutput').textContent;
+  if(!content){ toast('Generate timestamps first'); return; }
+  downloadFile('youtube-timestamps.txt', content, 'text/plain');
+}
+
+/* ====================================================================
+   TOOL 6: VIDEO LENGTH CALCULATOR
+====================================================================== */
+function calcWordsToTime(){
+  var words = parseInt(document.getElementById('lenWords').value) || 0;
+  var wpm = parseInt(document.getElementById('lenWpm').value) || 150;
+  if(wpm < 1) wpm = 150;
+  var totalSec = Math.round(words / wpm * 60);
+  var mm = Math.floor(totalSec / 60);
+  var ss = totalSec % 60;
+  var big = pad2(mm) + ':' + pad2(ss);
+  var hrs = Math.floor(mm / 60);
+  var subText;
+  if(hrs > 0){
+    subText = pad2(hrs) + ':' + pad2(mm % 60) + ':' + pad2(ss) + ' at ' + wpm + ' WPM';
+  } else {
+    subText = 'at ' + wpm + ' words per minute';
+  }
+  document.getElementById('lenResult1').innerHTML =
+    '<div class="big">' + big + '</div><div class="sub">' + subText + '</div>';
+}
+
+function calcTimeToWords(){
+  var min = parseInt(document.getElementById('lenMin').value) || 0;
+  var sec = parseInt(document.getElementById('lenSec').value) || 0;
+  var wpm = parseInt(document.getElementById('lenWpm2').value) || 150;
+  if(wpm < 1) wpm = 150;
+  var totalMin = min + sec / 60;
+  var words = Math.round(totalMin * wpm);
+  document.getElementById('lenResult2').innerHTML =
+    '<div class="big">' + formatNum(words) + '</div><div class="sub">words to write at ' + wpm + ' WPM</div>';
+}
+
+/* ====================================================================
+   TOOL 7: HOOK GENERATOR
+====================================================================== */
+function generateHooks(){
+  var topic = document.getElementById('hookTopic').value.trim();
+  if(!topic){ toast('Enter a topic first'); return; }
+  var topicLower = topic.toLowerCase();
+  var topicCap = topic.charAt(0).toUpperCase() + topic.slice(1);
+  var hooks = [
+    { formula:'Question', text:'What if I told you ' + topicLower + ' could change the way you work forever? In the next few minutes, I\'ll show you exactly how — and why most people get it wrong.' },
+    { formula:'Bold Claim', text:topicCap + ' is the single most underrated skill you can learn this year. By the end of this video, you\'ll understand why — and exactly how to start.' },
+    { formula:'Story Teaser', text:'Three years ago, I knew absolutely nothing about ' + topicLower + '. Today, I\'m going to share the shortcuts that took me from confused to confident — fast.' },
+    { formula:'Statistic', text:'92 percent of people who try ' + topicLower + ' give up in the first month. Stick around till the end, and you won\'t be one of them.' },
+    { formula:'Contrarian', text:'Everything you\'ve heard about ' + topicLower + ' is probably wrong. The advice floating around online? Most of it is outdated, oversimplified, or just plain bad. Here\'s what actually works.' },
+    { formula:'Demonstration', text:'Watch this. In the next thirty seconds, you\'re going to see ' + topicLower + ' work in real time — no theory, no fluff. Don\'t blink, because this changes everything.' },
+    { formula:'Problem', text:'Struggling with ' + topicLower + '? You\'re not alone — and it\'s not your fault. By the end of this video, the pieces will finally click into place.' },
+    { formula:'List', text:'Here are five ' + topicLower + ' tips that took me from total beginner to confident pro. Number three is the one I wish I\'d known on day one.' },
+    { formula:'Curiosity Gap', text:'This one ' + topicLower + ' trick saved me hundreds of hours — and almost no one talks about it. I\'ll show you in just a moment.' },
+    { formula:'Direct Promise', text:'If you want to master ' + topicLower + ' in 2026, this is the only video you\'ll need. No fluff, no filler — just the exact steps, in order. Let\'s dive in.' }
+  ];
+  var html = hooks.map(function(h, i){
+    var wordCount = h.text.split(/\s+/).length;
+    var estSec = Math.round(wordCount / 2.5); // ~150 WPM = 2.5 words/sec
+    return '<div class="hook-item">' +
+      '<div class="hook-head">' +
+        '<span class="hook-formula">' + h.formula + '</span>' +
+        '<span class="hook-num">Hook ' + (i+1).toString().padStart(2,'0') + '</span>' +
+      '</div>' +
+      '<div class="hook-text">' + escapeHtml(h.text) + '</div>' +
+      '<div class="hook-foot">' +
+        '<span class="hook-meta"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> ~' + estSec + 's spoken <span class="dot-sep">·</span> ' + wordCount + ' words</span>' +
+        '<button class="copy-btn" onclick="copyHook(this, ' + i + ')">' +
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 012-2h10"/></svg> Copy' +
+        '</button>' +
+      '</div>' +
+    '</div>';
+  }).join('');
+  document.getElementById('hookList').innerHTML = html;
+  window._lastHooks = hooks.map(function(h){ return h.text; });
+  toast('Generated 10 hooks');
+}
+
+function copyHook(btn, i){
+  copyText(window._lastHooks[i]);
+  btn.classList.add('copied');
+  btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg> Copied';
+  setTimeout(function(){
+    btn.classList.remove('copied');
+    btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 012-2h10"/></svg> Copy';
+  }, 1600);
+}
+
+/* ====================================================================
+   TOOL 8: YOUTUBE MONEY CALCULATOR
+====================================================================== */
+function calcMoney(){
+  var views = parseInt(document.getElementById('moneyViews').value) || 0;
+  var rpm = parseFloat(document.getElementById('moneyRpm').value) || 0;
+  var cpm = parseFloat(document.getElementById('moneyCpm').value) || 0;
+  var monRate = parseFloat(document.getElementById('moneyMonRate').value) || 0;
+  if(monRate > 100) monRate = 100;
+  if(monRate < 0) monRate = 0;
+
+  // RPM-based monthly (primary method)
+  var monthly = views / 1000 * rpm;
+  // CPM-based cross-check (CPM * monetized rate * YouTube's 55% cut)
+  var cpmMonthly = views / 1000 * (cpm * monRate / 100) * 0.55;
+  var yearly = monthly * 12;
+  var perK = rpm;
+
+  document.getElementById('moneyMonthly').textContent = formatMoney(monthly);
+  document.getElementById('moneyMonthlySub').textContent = 'based on ' + formatNum(views) + ' views at $' + rpm.toFixed(2) + ' RPM';
+  document.getElementById('moneyYearly').textContent = formatMoney(yearly);
+  document.getElementById('moneyPerK').textContent = '$' + perK.toFixed(2);
+
+  // Tier comparison using current RPM
+  var tiers = [
+    { key:'s', name:'Small Channel', detail:'10,000 monthly views · just getting started', views: 10000 },
+    { key:'m', name:'Mid Channel', detail:'250,000 monthly views · consistent growth', views: 250000 },
+    { key:'l', name:'Large Channel', detail:'1,000,000 monthly views · established creator', views: 1000000 }
+  ];
+  // Mark the tier closest to user's views as "active"
+  var userTier = 's';
+  if(views >= 250000) userTier = 'm';
+  if(views >= 1000000) userTier = 'l';
+  document.getElementById('tierList').innerHTML = tiers.map(function(t){
+    var tMonthly = t.views / 1000 * rpm;
+    var tYearly = tMonthly * 12;
+    var isActive = t.key === userTier ? 'active' : '';
+    return '<div class="tier-card ' + isActive + '">' +
+      '<div class="tier-icon ' + t.key + '">' + t.key.toUpperCase() + '</div>' +
+      '<div class="tier-info">' +
+        '<div class="tier-name">' + t.name + '</div>' +
+        '<div class="tier-detail">' + t.detail + '</div>' +
+      '</div>' +
+      '<div class="tier-estimate"><div class="v">' + formatMoney(tMonthly) + '/mo</div><div class="l">' + formatMoney(tYearly) + ' /yr</div></div>' +
+    '</div>';
+  }).join('');
+}
+
+/* ====================================================================
+   FAQ ACCORDION
+====================================================================== */
+var FAQS = [
+  { q:'How are the title strength scores calculated?',
+    a:'Each generated title is scored on a 0–100 scale based on five signals: the presence of numbers, the count of power words like "ultimate", "proven", and "secret", the count of emotional triggers like "truth", "mistakes", and "exposed", the use of brackets or parentheses, and the character length. Titles between 40 and 60 characters get a length bonus because YouTube truncates titles around 70 characters in search results. Titles over 70 characters or under 30 characters receive a penalty. The signals are weighted and capped so the final score reflects real-world clickability heuristics.' },
+  { q:'What\'s a good YouTube tag count?',
+    a:'YouTube allows up to 500 characters of tags total, including commas. Aim for 15 to 25 highly relevant tags mixing broad, specific, and long-tail phrases. Quality beats quantity: a tight set of tags that closely matches your title, description, and content will outperform 30 loosely related ones. Always include your primary keyword phrase first, then variations, then a few branded tags. The Tag Generator in this toolkit shows your running character total so you stay under the 500-character limit.' },
+  { q:'How accurate is the YouTube money calculator?',
+    a:'The calculator produces estimates only, not guarantees. Real earnings vary widely based on niche, audience geography, watch time, ad placement, whether viewers use premium, and seasonality. The default RPM of $2 is a reasonable average across English-language content, but actual RPMs range from $0.50 in low-commercial-intent niches like gaming or vlogs to $20 or more in finance, software, and B2B niches. Use the calculator for planning and goal-setting, then track your real YouTube Analytics data once monetized.' },
+  { q:'What RPM should I use for my channel?',
+    a:'RPM, or revenue per mille, is what you earn per 1,000 views after YouTube takes its 45 percent cut. Typical ranges by niche are: gaming and entertainment $1 to $3, vlogs and lifestyle $2 to $5, tech reviews $4 to $8, education and how-to $5 to $10, finance and business $8 to $20, and B2B or SaaS $15 to $30. New channels often start lower and grow as audience trust and watch time improve. If you are not yet monetized, use $1 to $2 as a conservative planning figure.' },
+  { q:'Do these tools send my data to a server?',
+    a:'No. Every tool in the Premium Video Toolkit runs entirely in your browser using client-side JavaScript. Your video topics, titles, descriptions, and channel data never leave your device. There are no analytics on your inputs, no backend calls, and no account required. You can safely use the toolkit for unpublished videos, client work, and sensitive channel planning.' },
+  { q:'Can I use these tools offline?',
+    a:'Yes. After the page loads once, all tools work completely offline because every line of logic is embedded in this single HTML file. Use the Download HTML button in the header to save a local copy, then open it directly in any modern browser with no internet connection required. The only external resource is the Google Fonts stylesheet, which gracefully falls back to system fonts when offline.' }
+];
+
+function renderFAQs(){
+  var html = FAQS.map(function(f, i){
+    return '<div class="faq-item" id="faq-' + i + '">' +
+      '<button class="faq-q" onclick="toggleFAQ(' + i + ')">' +
+        '<span>' + escapeHtml(f.q) + '</span>' +
+        '<span class="faq-toggle">+</span>' +
+      '</button>' +
+      '<div class="faq-a"><div class="faq-a-inner">' + escapeHtml(f.a) + '</div></div>' +
+    '</div>';
+  }).join('');
+  document.getElementById('faqList').innerHTML = html;
+}
+
+function toggleFAQ(i){
+  var item = document.getElementById('faq-' + i);
+  var a = item.querySelector('.faq-a');
+  var inner = item.querySelector('.faq-a-inner');
+  if(item.classList.contains('open')){
+    item.classList.remove('open');
+    a.style.maxHeight = '0';
+  } else {
+    item.classList.add('open');
+    a.style.maxHeight = inner.offsetHeight + 40 + 'px';
+  }
+}
+
+/* ====================================================================
+   INIT
+====================================================================== */
+(function init(){
+  renderFAQs();
+  // generate defaults for all tools so nothing looks empty
+  generateTitles();
+  generateDescription();
+  generateTags();
+  updateColorScheme();
+  generateTimestamps();
+  calcWordsToTime();
+  calcTimeToWords();
+  generateHooks();
+  calcMoney();
+})();
+</script>
+</body>
+</html>

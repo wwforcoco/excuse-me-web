@@ -1,0 +1,2393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premium Forms Toolkit — Builder, Validator, Regex Library, Accessibility | ExcuseMeWeb</title>
+<meta name="description" content="Premium forms toolkit with 8 working tools: visual form builder, input validator, regex pattern library, HTML form generator, accessibility checker, password strength checker, form analytics calculator, and multi-step form planner.">
+<meta name="keywords" content="forms toolkit, form builder, input validator, regex library, regex patterns, html form generator, accessibility checker, password strength, form analytics, multi step form, form designer">
+<meta name="author" content="ExcuseMeWeb">
+<meta name="theme-color" content="#4f46e5">
+<link rel="canonical" href="https://excusemeweb.com/premium-forms-toolkit">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Premium Forms Toolkit — Builder, Validator, Regex Library, Accessibility | ExcuseMeWeb">
+<meta property="og:description" content="Premium forms toolkit with 8 working tools: visual form builder, input validator, regex pattern library, HTML form generator, accessibility checker, password strength checker, form analytics calculator, and multi-step form planner.">
+<meta property="og:url" content="https://excusemeweb.com/premium-forms-toolkit">
+<meta property="og:site_name" content="ExcuseMeWeb">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_app">
+<meta name="twitter:title" content="Premium Forms Toolkit — Builder, Validator, Regex Library, Accessibility">
+<meta name="twitter:description" content="8 working forms tools that run 100% in your browser. Form builder, input validator, regex library, HTML form generator, accessibility checker, password strength, form analytics, and multi-step planner.">
+<meta name="twitter:url" content="https://excusemeweb.com/premium-forms-toolkit">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- WebApplication JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Premium Forms Toolkit",
+  "url": "https://excusemeweb.com/premium-forms-toolkit",
+  "description": "Premium forms toolkit with 8 working tools: visual form builder, input validator, regex pattern library, HTML form generator, accessibility checker, password strength checker, form analytics calculator, and multi-step form planner.",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Any (web-based)",
+  "browserRequirements": "Requires a modern web browser with JavaScript enabled",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "publisher": { "@type": "Organization", "name": "ExcuseMeWeb", "url": "https://excusemeweb.com" },
+  "featureList": [
+    "Form Builder",
+    "Input Validator",
+    "Regex Pattern Library",
+    "HTML Form Generator",
+    "Accessibility Checker",
+    "Password Strength Checker",
+    "Form Analytics Calculator",
+    "Multi-Step Form Planner"
+  ]
+}
+</script>
+
+<!-- FAQPage JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How does the password strength calculator work?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The Password Strength Checker scores passwords on a 0-100 scale using a transparent rule-based algorithm. Points are awarded for length (up to 40), the presence of lowercase letters, uppercase letters, digits, and symbols, and bonus points for length over 12 characters. Points are deducted for all-lowercase passwords, common keyboard patterns like qwerty and 123456, dictionary words like password and welcome, and repeating character sequences. The crack-time estimate multiplies the character set size raised to the password length and divides by an assumed 10 billion guesses per second, representing a fast offline attack against a stolen hash." }
+    },
+    {
+      "@type": "Question",
+      "name": "Are the regex patterns production-ready?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The patterns in the Regex Pattern Library are well-tested expressions drawn from common community conventions for each format. They handle the vast majority of valid inputs and reject obvious invalid ones, making them excellent for client-side validation and prototyping. For server-side validation or critical flows like payment processing, always combine regex with additional checks such as Luhn for credit cards, checksum for IBAN, and a real verification email for email addresses, because no single regex can fully model every edge case of formats like IPv6 or international phone numbers." }
+    },
+    {
+      "@type": "Question",
+      "name": "How accurate is the form analytics calculator?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The Form Analytics Calculator uses industry-published heuristics rather than your specific data. The convention that each additional field reduces conversion by roughly 3 to 10 percent is widely cited from studies by HubSpot, Formstack, and Unbounce, and we use a 4 percent midpoint. The projected conversion and revenue impact numbers are directional estimates meant to inform design decisions, not guarantees. For accurate results on your own forms, instrument them with analytics and A/B test field reduction directly." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use the generated forms commercially?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. All HTML, CSS, and accessibility markup generated by this toolkit is produced locally in your browser and belongs to you with no licensing restrictions. You can paste it into commercial websites, client projects, products, templates, and paid courses without attribution. We recommend reviewing the generated code for compliance with your specific legal requirements, such as GDPR consent language or regional accessibility regulations, before deploying to production." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the accessibility checker guarantee WCAG compliance?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. The Accessibility Checker performs static analysis on the HTML you paste, looking for common, well-documented issues such as missing label associations, missing required indicators, absent fieldset and legend for grouped fields, missing autocomplete attributes, and non-descriptive button text. Passing the checker does not guarantee full WCAG compliance, which also requires keyboard testing, screen reader testing, color contrast analysis, and consideration of cognitive load. Treat the checker as a first-pass automated lint, not a certification." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my form data or password sent to a server?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. Every tool in the Premium Forms Toolkit runs entirely in your browser using client-side JavaScript. The text you type into the password field, the HTML you paste into the accessibility checker, and the form configurations you build never leave your device. There are no analytics on input content, no backend calls, and no account required. You can safely paste sensitive drafts, real passwords you are auditing, or unpublished client code." }
+    }
+  ]
+}
+</script>
+
+<style>
+:root{
+  --bg:#f8fafc;
+  --bg-deep:#f1f5f9;
+  --surface:#ffffff;
+  --surface-2:#f8fafc;
+  --surface-3:#f1f5f9;
+  --text:#0f172a;
+  --text-soft:#334155;
+  --text-muted:#64748b;
+  --text-dim:#94a3b8;
+  --border:#e2e8f0;
+  --border-soft:#eef2f7;
+  --border-strong:#cbd5e1;
+  --indigo:#4f46e5;
+  --indigo-soft:#6366f1;
+  --indigo-light:#818cf8;
+  --indigo-pale:#eef2ff;
+  --success:#16a34a;
+  --success-soft:#22c55e;
+  --success-pale:#f0fdf4;
+  --error:#dc2626;
+  --error-soft:#ef4444;
+  --error-pale:#fef2f2;
+  --warning:#d97706;
+  --warning-soft:#f59e0b;
+  --warning-pale:#fffbeb;
+  --radius:14px;
+  --radius-sm:9px;
+  --radius-xs:6px;
+  --shadow:0 1px 2px rgba(15,23,42,.04), 0 6px 18px rgba(15,23,42,.06);
+  --shadow-lg:0 18px 48px rgba(15,23,42,.10);
+  --shadow-soft:0 1px 0 rgba(15,23,42,.03);
+  --font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
+  --font-mono:'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:var(--font);
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  background-image:
+    radial-gradient(1100px 540px at 88% -8%, rgba(99,102,241,.08), transparent 60%),
+    radial-gradient(900px 480px at -5% 5%, rgba(79,70,229,.05), transparent 55%);
+  background-attachment:fixed;
+  min-height:100vh;
+}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;}
+.mono{font-family:var(--font-mono);}
+.hidden{display:none!important;}
+.spacer-12{height:12px;}
+.spacer-20{height:20px;}
+
+/* ============ HEADER ============ */
+.site-header{
+  position:sticky;top:0;z-index:60;
+  background:rgba(248,250,252,.86);
+  backdrop-filter:blur(18px) saturate(140%);
+  -webkit-backdrop-filter:blur(18px) saturate(140%);
+  border-bottom:1px solid var(--border);
+}
+.header-inner{
+  max-width:1200px;margin:0 auto;padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+}
+.brand{display:flex;align-items:center;gap:13px;min-width:0;}
+.brand-mark{
+  width:46px;height:46px;border-radius:12px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--indigo),var(--indigo-soft));
+  box-shadow:0 6px 18px rgba(79,70,229,.28), inset 0 0 12px rgba(255,255,255,.18);
+  position:relative;overflow:hidden;
+}
+.brand-mark::before{
+  content:"";position:absolute;inset:7px;border-radius:7px;
+  border:2px solid rgba(255,255,255,.85);
+  border-top:2px solid rgba(255,255,255,.45);
+}
+.brand-mark::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);
+  animation:shimmer 5s linear infinite;
+}
+@keyframes shimmer{0%{transform:translateX(-100%);}100%{transform:translateX(100%);}}
+.brand-text{display:flex;flex-direction:column;line-height:1.15;min-width:0;}
+.brand-title{font-size:16px;font-weight:800;letter-spacing:-.01em;white-space:nowrap;color:var(--text);}
+.brand-title em{font-style:normal;color:var(--indigo);}
+.brand-sub{font-size:11.5px;color:var(--text-muted);font-weight:500;white-space:nowrap;font-family:var(--font-mono);}
+.header-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;}
+.link-pill{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:13px;font-weight:600;color:var(--text-soft);
+  padding:9px 14px;border-radius:999px;border:1px solid var(--border-strong);
+  background:var(--surface);transition:.16s;cursor:pointer;
+}
+.link-pill:hover{color:var(--indigo);border-color:var(--indigo);box-shadow:0 0 0 3px rgba(79,70,229,.10);}
+.link-pill svg{width:14px;height:14px;}
+
+/* ============ BUTTONS ============ */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  cursor:pointer;font-weight:700;font-size:13.5px;border-radius:10px;
+  border:1px solid transparent;padding:10px 16px;transition:.15s;white-space:nowrap;
+  font-family:var(--font);line-height:1;
+}
+.btn:active{transform:scale(.97);}
+.btn-primary{
+  background:linear-gradient(135deg,var(--indigo),var(--indigo-soft));
+  color:#fff;box-shadow:0 0 0 1px rgba(79,70,229,.4),0 8px 22px rgba(79,70,229,.22);
+}
+.btn-primary:hover{box-shadow:0 0 0 1px rgba(79,70,229,.6),0 10px 28px rgba(79,70,229,.32);transform:translateY(-1px);}
+.btn-success{
+  background:linear-gradient(135deg,var(--success),var(--success-soft));color:#fff;
+  box-shadow:0 0 0 1px rgba(22,163,74,.4),0 8px 22px rgba(22,163,74,.18);
+}
+.btn-success:hover{transform:translateY(-1px);}
+.btn-error{
+  background:linear-gradient(135deg,var(--error),var(--error-soft));color:#fff;
+  box-shadow:0 0 0 1px rgba(220,38,38,.4),0 8px 22px rgba(220,38,38,.18);
+}
+.btn-error:hover{transform:translateY(-1px);}
+.btn-warning{
+  background:linear-gradient(135deg,var(--warning),var(--warning-soft));color:#fff;
+  box-shadow:0 0 0 1px rgba(217,119,6,.4),0 8px 22px rgba(217,119,6,.18);
+}
+.btn-warning:hover{transform:translateY(-1px);}
+.btn-ghost{background:var(--surface);color:var(--text);border-color:var(--border-strong);}
+.btn-ghost:hover{border-color:var(--indigo);color:var(--indigo);box-shadow:0 0 0 3px rgba(79,70,229,.10);}
+.btn-soft{background:var(--indigo-pale);color:var(--indigo);border-color:transparent;}
+.btn-soft:hover{background:#e0e7ff;}
+.btn-sm{padding:7px 12px;font-size:12.5px;border-radius:8px;}
+.btn-xs{padding:5px 9px;font-size:11.5px;border-radius:6px;}
+.btn-ghost-soft{background:transparent;color:var(--text-muted);border:1px solid var(--border);}
+.btn-ghost-soft:hover{color:var(--indigo);border-color:var(--border-strong);background:var(--surface-2);}
+.btn-icon{padding:7px 10px;}
+.btn:disabled{opacity:.45;cursor:not-allowed;transform:none!important;box-shadow:none;}
+
+/* ============ HERO ============ */
+.hero{padding:46px 24px 24px;max-width:1200px;margin:0 auto;}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--font-mono);font-size:12px;color:var(--indigo);
+  padding:5px 13px;border-radius:999px;border:1px solid rgba(79,70,229,.25);
+  background:var(--indigo-pale);margin-bottom:18px;font-weight:600;
+}
+.hero-tag::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--indigo);box-shadow:0 0 8px var(--indigo);animation:pulse 2s ease-in-out infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.4;}}
+.hero h1{
+  font-size:clamp(30px,5.2vw,50px);font-weight:900;letter-spacing:-.025em;line-height:1.05;margin:0 0 14px;
+  color:var(--text);
+}
+.hero h1 em{font-style:normal;font-weight:500;color:var(--indigo);background:linear-gradient(135deg,var(--indigo),var(--indigo-light));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+.hero p{font-size:16.5px;color:var(--text-soft);max-width:760px;margin:0;}
+.hero p code{font-family:var(--font-mono);color:var(--indigo);background:var(--indigo-pale);padding:1px 7px;border-radius:5px;font-size:13px;}
+.hero-stats{display:flex;gap:24px;margin-top:22px;flex-wrap:wrap;}
+.hero-stat{display:flex;align-items:baseline;gap:7px;}
+.hero-stat-num{font-family:var(--font-mono);font-size:22px;font-weight:800;color:var(--indigo);}
+.hero-stat-label{font-size:12.5px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.04em;}
+
+/* ============ TAB BAR ============ */
+.tabbar-wrap{
+  position:sticky;top:71px;z-index:40;
+  background:rgba(248,250,252,.9);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border-top:1px solid var(--border-soft);
+  border-bottom:1px solid var(--border);
+  overflow-x:auto;-webkit-overflow-scrolling:touch;
+  scrollbar-width:thin;scrollbar-color:var(--border-strong) transparent;
+}
+.tabbar-wrap::-webkit-scrollbar{height:6px;}
+.tabbar-wrap::-webkit-scrollbar-thumb{background:var(--border-strong);border-radius:3px;}
+.tabbar{
+  display:flex;gap:7px;padding:12px 24px;max-width:1200px;margin:0 auto;
+  width:max-content;min-width:100%;
+}
+.tab{
+  flex-shrink:0;display:inline-flex;align-items:center;gap:9px;
+  padding:9px 15px;border-radius:999px;border:1px solid var(--border-strong);
+  background:var(--surface);color:var(--text-muted);
+  font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;transition:.15s;
+  font-family:var(--font);
+}
+.tab .tab-num{
+  font-family:var(--font-mono);font-size:10.5px;font-weight:700;
+  color:var(--text-dim);background:var(--surface-3);padding:1px 6px;border-radius:5px;
+  transition:.15s;
+}
+.tab:hover{border-color:var(--indigo);color:var(--text);}
+.tab:hover .tab-num{color:var(--indigo);}
+.tab.active{
+  background:linear-gradient(135deg,rgba(79,70,229,.10),rgba(99,102,241,.05));
+  border-color:var(--indigo);color:var(--indigo);
+  box-shadow:0 0 0 1px rgba(79,70,229,.25),0 0 18px rgba(79,70,229,.12);
+}
+.tab.active .tab-num{background:var(--indigo);color:#fff;}
+
+/* ============ MAIN / PANELS ============ */
+.main{max-width:1200px;margin:0 auto;padding:30px 24px 44px;}
+.panel{display:none;animation:fadein .35s ease;}
+.panel.active{display:block;}
+@keyframes fadein{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
+.panel-head{margin-bottom:24px;}
+.panel-head h2{
+  font-size:30px;font-weight:900;letter-spacing:-.02em;margin:0 0 8px;
+  display:flex;align-items:center;gap:13px;line-height:1.15;
+}
+.panel-head h2 em{font-style:normal;font-weight:500;color:var(--indigo);}
+.panel-head .ph-icon{
+  width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;
+  font-weight:900;font-size:15px;flex-shrink:0;font-family:var(--font-mono);
+}
+.ic-indigo{background:var(--indigo-pale);color:var(--indigo);border:1px solid rgba(79,70,229,.3);}
+.ic-success{background:var(--success-pale);color:var(--success);border:1px solid rgba(22,163,74,.3);}
+.ic-error{background:var(--error-pale);color:var(--error);border:1px solid rgba(220,38,38,.3);}
+.ic-warning{background:var(--warning-pale);color:var(--warning);border:1px solid rgba(217,119,6,.3);}
+.ic-slate{background:var(--surface-3);color:var(--text-soft);border:1px solid var(--border-strong);}
+.panel-head p.desc{color:var(--text-soft);font-size:14.5px;margin:0;max-width:820px;line-height:1.65;}
+
+/* ============ CARDS ============ */
+.card{
+  background:var(--surface);
+  border:1px solid var(--border);border-radius:var(--radius);
+  padding:24px;box-shadow:var(--shadow);position:relative;overflow:hidden;
+}
+.card+.card{margin-top:18px;}
+.card-title{
+  font-size:13px;font-weight:700;color:var(--text-soft);
+  text-transform:uppercase;letter-spacing:.06em;margin:0 0 16px;
+  display:flex;align-items:center;gap:9px;
+}
+.card-title .ct-dot{width:7px;height:7px;border-radius:50%;background:var(--indigo);}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.grid-2-uneven{display:grid;grid-template-columns:1.3fr 1fr;gap:18px;}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+@media (max-width:880px){.grid-2,.grid-2-uneven,.grid-3{grid-template-columns:1fr;}}
+
+/* ============ FORM ============ */
+label.field-label{
+  display:block;font-size:11.5px;font-weight:700;color:var(--text-soft);
+  margin-bottom:7px;text-transform:uppercase;letter-spacing:.05em;
+  font-family:var(--font);
+}
+input[type=text],input[type=number],input[type=search],input[type=date],input[type=datetime-local],input[type=tel],input[type=email],input[type=url],input[type=password],select,textarea{
+  width:100%;padding:11px 13px;border-radius:10px;border:1px solid var(--border-strong);
+  background:var(--surface-2);color:var(--text);font-size:14px;font-family:inherit;
+  transition:.15s;line-height:1.5;
+}
+input.mono,textarea.mono,select.mono{font-family:var(--font-mono);font-size:13px;}
+input:focus,select:focus,textarea:focus{
+  outline:none;border-color:var(--indigo);
+  box-shadow:0 0 0 3px rgba(79,70,229,.13);
+  background:var(--surface);
+}
+textarea{resize:vertical;min-height:130px;line-height:1.6;}
+textarea.code{font-family:var(--font-mono);font-size:13px;min-height:200px;tab-size:2;white-space:pre;}
+.field{margin-bottom:16px;}
+.field:last-child{margin-bottom:0;}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;}
+.row-end{justify-content:flex-end;}
+.row-between{justify-content:space-between;}
+.gap-sm{gap:6px;}
+.grow{flex:1 1 auto;min-width:0;}
+
+.checkbox{
+  display:inline-flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;font-weight:600;color:var(--text);
+  user-select:none;
+}
+.checkbox input{position:absolute;opacity:0;width:0;height:0;}
+.checkbox .cb-box{
+  width:18px;height:18px;border-radius:5px;border:1.5px solid var(--border-strong);
+  background:var(--surface);display:flex;align-items:center;justify-content:center;transition:.15s;flex-shrink:0;
+}
+.checkbox input:checked+.cb-box{background:var(--indigo);border-color:var(--indigo);}
+.checkbox input:checked+.cb-box::after{content:"";width:5px;height:9px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg) translate(-1px,-1px);}
+.checkbox input:focus-visible+.cb-box{box-shadow:0 0 0 3px rgba(79,70,229,.2);}
+
+.toggle-group{display:inline-flex;border:1px solid var(--border-strong);border-radius:10px;overflow:hidden;background:var(--surface-2);flex-wrap:wrap;}
+.toggle-group button{
+  background:transparent;border:none;color:var(--text-muted);padding:8px 13px;
+  font-size:12.5px;font-weight:700;cursor:pointer;transition:.15s;font-family:var(--font);
+}
+.toggle-group button:hover{color:var(--text);}
+.toggle-group button.active{background:var(--indigo);color:#fff;}
+
+/* chips */
+.chips{display:flex;flex-wrap:wrap;gap:8px;}
+.chip{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:8px 14px;border-radius:999px;border:1px solid var(--border-strong);
+  background:var(--surface);color:var(--text-soft);font-size:12.5px;font-weight:700;cursor:pointer;transition:.15s;
+  font-family:var(--font);
+}
+.chip:hover{border-color:var(--indigo);color:var(--indigo);}
+.chip.active{
+  background:linear-gradient(135deg,rgba(79,70,229,.12),rgba(99,102,241,.06));
+  border-color:var(--indigo);color:var(--indigo);
+  box-shadow:0 0 0 1px rgba(79,70,229,.25);
+}
+
+/* ============ OUTPUT ============ */
+.output-box{
+  background:#0f172a;color:#e2e8f0;border:1px solid #1e293b;border-radius:10px;
+  padding:16px;font-family:var(--font-mono);font-size:13px;line-height:1.7;
+  white-space:pre-wrap;word-break:break-word;
+  max-height:520px;overflow:auto;
+}
+.output-box.light{background:var(--surface-2);color:var(--text);border:1px solid var(--border);}
+.output-box.empty{color:var(--text-dim);font-style:italic;white-space:normal;font-family:var(--font);}
+.output-box.success{border-color:rgba(22,163,74,.4);background:var(--success-pale);color:#14532d;}
+.output-box.error{border-color:rgba(220,38,38,.4);background:var(--error-pale);color:#7f1d1d;}
+.output-box.warn{border-color:rgba(217,119,6,.4);background:var(--warning-pale);color:#78350f;}
+.output-box.light code, .output-box code{font-family:inherit;}
+
+/* ============ BADGES / CHIPS ============ */
+.badge{
+  display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:700;
+  padding:3px 9px;border-radius:999px;font-family:var(--font-mono);letter-spacing:.02em;
+}
+.badge-indigo{background:var(--indigo-pale);color:var(--indigo);border:1px solid rgba(79,70,229,.3);}
+.badge-error{background:var(--error-pale);color:var(--error);border:1px solid rgba(220,38,38,.3);}
+.badge-warning{background:var(--warning-pale);color:var(--warning);border:1px solid rgba(217,119,6,.3);}
+.badge-success{background:var(--success-pale);color:var(--success);border:1px solid rgba(22,163,74,.3);}
+.badge-muted{background:var(--surface-3);color:var(--text-muted);border:1px solid var(--border);}
+.badge-ink{background:rgba(15,23,42,.08);color:var(--text);border:1px solid rgba(15,23,42,.2);}
+
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-top:14px;}
+.stat{
+  background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:13px 15px;
+}
+.stat-label{font-size:10.5px;font-weight:700;color:var(--text-dim);text-transform:uppercase;letter-spacing:.05em;}
+.stat-value{font-family:var(--font-mono);font-size:19px;font-weight:700;color:var(--text);margin-top:3px;word-break:break-all;}
+.stat-value.indigo{color:var(--indigo);}
+.stat-value.success{color:var(--success);}
+.stat-value.error{color:var(--error);}
+.stat-value.warning{color:var(--warning);}
+
+/* ============ TOAST ============ */
+.toast-wrap{
+  position:fixed;bottom:24px;left:50%;transform:translateX(-50%);z-index:9999;
+  display:flex;flex-direction:column;gap:8px;align-items:center;pointer-events:none;
+}
+.toast{
+  background:rgba(15,23,42,.96);backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,.08);border-left:3px solid var(--indigo);
+  border-radius:10px;padding:11px 18px;font-size:13.5px;font-weight:600;color:#fff;
+  box-shadow:var(--shadow-lg);display:flex;align-items:center;gap:10px;
+  animation:toastin .25s ease;max-width:90vw;
+}
+.toast.error{border-left-color:var(--error);}
+.toast.warn{border-left-color:var(--warning);}
+.toast.success{border-left-color:var(--success);}
+.toast svg{width:16px;height:16px;flex-shrink:0;color:var(--indigo-light);}
+.toast.error svg{color:var(--error-soft);}
+.toast.warn svg{color:var(--warning-soft);}
+.toast.success svg{color:var(--success-soft);}
+@keyframes toastin{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
+.toast.out{animation:toastout .25s ease forwards;}
+@keyframes toastout{to{opacity:0;transform:translateY(14px);}}
+
+/* ============ TOOL: FORM BUILDER ============ */
+.fb-layout{display:grid;grid-template-columns:280px 1fr;gap:18px;}
+@media (max-width:880px){.fb-layout{grid-template-columns:1fr;}}
+.fb-palette{display:flex;flex-direction:column;gap:6px;}
+.fb-palette-item{
+  display:flex;align-items:center;gap:10px;padding:9px 12px;
+  background:var(--surface);border:1px solid var(--border);border-radius:9px;
+  cursor:pointer;font-size:13px;font-weight:600;color:var(--text-soft);transition:.15s;
+}
+.fb-palette-item:hover{border-color:var(--indigo);color:var(--indigo);background:var(--indigo-pale);}
+.fb-palette-item .fp-icon{
+  width:24px;height:24px;border-radius:6px;background:var(--surface-3);color:var(--text-muted);
+  display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:11px;font-weight:700;flex-shrink:0;
+}
+.fb-palette-item:hover .fp-icon{background:var(--indigo);color:#fff;}
+.fb-field-list{display:flex;flex-direction:column;gap:8px;}
+.fb-field-item{
+  display:flex;align-items:center;gap:10px;padding:11px 13px;
+  background:var(--surface);border:1px solid var(--border);border-radius:10px;
+  cursor:pointer;transition:.15s;
+}
+.fb-field-item:hover{border-color:var(--border-strong);}
+.fb-field-item.selected{border-color:var(--indigo);background:var(--indigo-pale);box-shadow:0 0 0 1px rgba(79,70,229,.25);}
+.fb-field-item .ffi-icon{
+  width:30px;height:30px;border-radius:7px;background:var(--surface-3);color:var(--text-muted);
+  display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:11px;font-weight:700;flex-shrink:0;
+}
+.fb-field-item.selected .ffi-icon{background:var(--indigo);color:#fff;}
+.fb-field-item .ffi-label{flex:1;min-width:0;}
+.fb-field-item .ffi-name{font-size:13.5px;font-weight:700;color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.fb-field-item .ffi-type{font-size:11px;font-family:var(--font-mono);color:var(--text-muted);text-transform:uppercase;}
+.fb-field-item .ffi-required{font-size:10px;color:var(--error);font-weight:700;}
+.fb-field-item .ffi-del{
+  border:none;background:transparent;color:var(--text-dim);cursor:pointer;padding:5px;border-radius:6px;font-size:14px;line-height:1;
+}
+.fb-field-item .ffi-del:hover{color:var(--error);background:var(--error-pale);}
+.fb-empty{padding:32px 16px;text-align:center;color:var(--text-muted);font-size:13.5px;border:1.5px dashed var(--border-strong);border-radius:10px;background:var(--surface-2);}
+
+/* ============ TOOL: REGEX LIBRARY ============ */
+.regex-search{margin-bottom:14px;}
+.regex-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:14px;}
+.regex-card{
+  background:var(--surface);border:1px solid var(--border);border-radius:12px;
+  padding:16px;display:flex;flex-direction:column;gap:11px;transition:.15s;
+}
+.regex-card:hover{border-color:var(--border-strong);box-shadow:var(--shadow);}
+.regex-card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;}
+.regex-card-name{font-size:14.5px;font-weight:800;color:var(--text);margin:0;}
+.regex-card-cat{font-size:10.5px;font-weight:700;color:var(--text-muted);font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.04em;margin-top:2px;}
+.regex-card-pattern{
+  font-family:var(--font-mono);font-size:12px;background:var(--surface-3);color:var(--text-soft);
+  padding:8px 10px;border-radius:7px;border:1px solid var(--border);word-break:break-all;line-height:1.5;
+  position:relative;
+}
+.regex-card-desc{font-size:12.5px;color:var(--text-muted);line-height:1.55;margin:0;}
+.regex-test-row{display:flex;gap:7px;align-items:stretch;}
+.regex-test-row input{flex:1;font-family:var(--font-mono);font-size:12.5px;padding:8px 10px;}
+.regex-result{
+  display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:700;
+  padding:5px 10px;border-radius:7px;font-family:var(--font-mono);white-space:nowrap;
+}
+.regex-result.pass{background:var(--success-pale);color:var(--success);border:1px solid rgba(22,163,74,.3);}
+.regex-result.fail{background:var(--error-pale);color:var(--error);border:1px solid rgba(220,38,38,.3);}
+
+/* ============ TOOL: ACCESSIBILITY CHECKER ============ */
+.ax-issue-list{display:flex;flex-direction:column;gap:10px;}
+.ax-issue{
+  display:grid;grid-template-columns:90px 1fr;gap:13px;padding:13px 15px;
+  border-radius:10px;border:1px solid var(--border);background:var(--surface);
+}
+.ax-issue.error{border-left:3px solid var(--error);background:var(--error-pale);}
+.ax-issue.warning{border-left:3px solid var(--warning);background:var(--warning-pale);}
+.ax-issue.info{border-left:3px solid var(--indigo);background:var(--indigo-pale);}
+.ax-issue.pass{border-left:3px solid var(--success);background:var(--success-pale);}
+.ax-sev{font-family:var(--font-mono);font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;align-self:flex-start;padding:3px 8px;border-radius:5px;}
+.ax-sev.error{background:var(--error);color:#fff;}
+.ax-sev.warning{background:var(--warning);color:#fff;}
+.ax-sev.info{background:var(--indigo);color:#fff;}
+.ax-sev.pass{background:var(--success);color:#fff;}
+.ax-body{font-size:13.5px;color:var(--text);line-height:1.55;}
+.ax-body strong{display:block;margin-bottom:3px;}
+.ax-body .ax-fix{display:block;font-size:12.5px;color:var(--text-soft);margin-top:5px;font-style:italic;}
+.ax-body code{font-family:var(--font-mono);font-size:12px;background:var(--surface-3);padding:1px 6px;border-radius:4px;color:var(--indigo);}
+.ax-summary{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:18px;}
+.ax-summary-stat{flex:1 1 140px;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:13px 16px;display:flex;align-items:center;gap:11px;}
+.ax-summary-stat .axs-num{font-family:var(--font-mono);font-size:24px;font-weight:800;}
+.ax-summary-stat.error .axs-num{color:var(--error);}
+.ax-summary-stat.warning .axs-num{color:var(--warning);}
+.ax-summary-stat.info .axs-num{color:var(--indigo);}
+.ax-summary-stat.pass .axs-num{color:var(--success);}
+.ax-summary-stat .axs-label{font-size:11.5px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.04em;}
+
+/* ============ TOOL: PASSWORD ============ */
+.pw-input-wrap{position:relative;}
+.pw-input-wrap input{padding-right:46px;font-family:var(--font-mono);letter-spacing:.05em;}
+.pw-toggle{
+  position:absolute;right:8px;top:50%;transform:translateY(-50%);
+  border:none;background:transparent;color:var(--text-muted);cursor:pointer;
+  padding:7px;border-radius:6px;font-size:13px;
+}
+.pw-toggle:hover{color:var(--indigo);background:var(--indigo-pale);}
+.pw-meter{
+  height:10px;border-radius:6px;background:var(--surface-3);overflow:hidden;
+  margin-top:14px;position:relative;
+}
+.pw-meter-fill{
+  height:100%;width:0%;border-radius:6px;transition:width .4s ease, background .3s ease;
+  background:var(--border-strong);
+}
+.pw-meter-fill.weak{background:linear-gradient(90deg,var(--error),var(--error-soft));}
+.pw-meter-fill.fair{background:linear-gradient(90deg,var(--warning),var(--warning-soft));}
+.pw-meter-fill.good{background:linear-gradient(90deg,#0891b2,#06b6d4);}
+.pw-meter-fill.strong{background:linear-gradient(90deg,var(--success),var(--success-soft));}
+.pw-meter-labels{display:flex;justify-content:space-between;margin-top:8px;font-size:10.5px;font-family:var(--font-mono);color:var(--text-dim);font-weight:700;text-transform:uppercase;letter-spacing:.04em;}
+.pw-meter-labels span.active{color:var(--text);}
+.pw-meter-labels span.weak.active{color:var(--error);}
+.pw-meter-labels span.fair.active{color:var(--warning);}
+.pw-meter-labels span.good.active{color:#0891b2;}
+.pw-meter-labels span.strong.active{color:var(--success);}
+.pw-charset{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+.pw-charset-item{
+  display:inline-flex;align-items:center;gap:7px;padding:7px 11px;border-radius:8px;
+  background:var(--surface-2);border:1px solid var(--border);font-size:12.5px;font-weight:600;color:var(--text-muted);
+}
+.pw-charset-item.on{background:var(--success-pale);border-color:rgba(22,163,74,.35);color:var(--success);}
+.pw-charset-item .pw-cb{width:14px;height:14px;border-radius:4px;border:1.5px solid var(--border-strong);display:inline-flex;align-items:center;justify-content:center;}
+.pw-charset-item.on .pw-cb{background:var(--success);border-color:var(--success);color:#fff;}
+.pw-charset-item.on .pw-cb::after{content:"";width:3px;height:7px;border:solid #fff;border-width:0 1.5px 1.5px 0;transform:rotate(45deg) translate(0,-1px);}
+.pw-suggestions{display:flex;flex-direction:column;gap:6px;margin-top:14px;}
+.pw-sug{
+  display:flex;gap:9px;align-items:flex-start;font-size:13px;color:var(--text-soft);
+  padding:8px 12px;background:var(--surface-2);border:1px solid var(--border);border-radius:8px;
+}
+.pw-sug.fixed{background:var(--success-pale);border-color:rgba(22,163,74,.3);color:var(--success);}
+.pw-sug .pw-sug-icon{flex-shrink:0;width:16px;height:16px;border-radius:50%;background:var(--warning);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;}
+.pw-sug.fixed .pw-sug-icon{background:var(--success);}
+
+/* ============ TOOL: MULTI-STEP ============ */
+.ms-step-list{display:flex;flex-direction:column;gap:14px;}
+.ms-step{
+  background:var(--surface);border:1px solid var(--border);border-radius:12px;
+  padding:16px 18px;display:flex;flex-direction:column;gap:11px;
+}
+.ms-step-head{display:flex;align-items:center;gap:13px;}
+.ms-step-num{
+  width:36px;height:36px;border-radius:50%;background:var(--indigo);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-weight:800;font-size:14px;flex-shrink:0;
+}
+.ms-step-title{flex:1;min-width:0;}
+.ms-step-title .ms-name{font-size:15px;font-weight:800;color:var(--text);}
+.ms-step-title .ms-meta{font-size:12px;color:var(--text-muted);font-family:var(--font-mono);}
+.ms-step-keep{
+  font-family:var(--font-mono);font-size:12px;font-weight:700;padding:4px 9px;border-radius:6px;
+  background:var(--success-pale);color:var(--success);border:1px solid rgba(22,163,74,.3);
+}
+.ms-step-keep.low{background:var(--error-pale);color:var(--error);border-color:rgba(220,38,38,.3);}
+.ms-step-keep.mid{background:var(--warning-pale);color:var(--warning);border-color:rgba(217,119,6,.3);}
+.ms-progress{height:7px;background:var(--surface-3);border-radius:4px;overflow:hidden;}
+.ms-progress-fill{height:100%;background:linear-gradient(90deg,var(--indigo),var(--indigo-soft));border-radius:4px;transition:width .4s ease;}
+.ms-suggestion{font-size:12.5px;color:var(--text-soft);line-height:1.55;padding:9px 12px;background:var(--indigo-pale);border-radius:8px;border:1px solid rgba(79,70,229,.15);}
+.ms-suggestion strong{color:var(--indigo);font-weight:700;}
+
+/* ============ LIVE FORM PREVIEW (shared) ============ */
+.preview-frame{
+  background:var(--surface-2);border:1px solid var(--border);border-radius:12px;padding:22px;
+}
+.preview-frame .pv-field{margin-bottom:14px;}
+.preview-frame .pv-field:last-child{margin-bottom:0;}
+.preview-frame label{display:block;font-size:13px;font-weight:600;color:var(--text);margin-bottom:5px;}
+.preview-frame label .pv-req{color:var(--error);margin-left:3px;}
+.preview-frame .pv-help{font-size:11.5px;color:var(--text-muted);margin-top:4px;}
+.preview-frame input, .preview-frame textarea, .preview-frame select{
+  background:var(--surface);font-size:14px;padding:9px 11px;border-radius:8px;
+  border:1px solid var(--border-strong);
+}
+.preview-frame .pv-radio, .preview-frame .pv-check{display:flex;align-items:center;gap:7px;font-size:13.5px;color:var(--text);font-weight:400;margin-bottom:5px;}
+.preview-frame fieldset{border:1px solid var(--border);border-radius:8px;padding:10px 14px;margin:0;}
+.preview-frame legend{font-size:13px;font-weight:600;color:var(--text);padding:0 6px;}
+
+/* ============ FAQ ============ */
+.faq-section{max-width:1200px;margin:0 auto;padding:52px 24px 44px;border-top:1px solid var(--border);}
+.faq-section h2{font-size:32px;font-weight:900;letter-spacing:-.02em;margin:0 0 10px;}
+.faq-section h2 em{font-style:normal;font-weight:500;color:var(--indigo);}
+.faq-section .faq-intro{color:var(--text-soft);font-size:15px;margin:0 0 28px;max-width:760px;line-height:1.6;}
+.faq-list{display:flex;flex-direction:column;gap:12px;}
+.faq-item{
+  background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;
+  transition:.2s;
+}
+.faq-item.open{border-color:rgba(79,70,229,.35);box-shadow:var(--shadow);}
+.faq-q{
+  width:100%;text-align:left;background:transparent;border:none;padding:18px 24px;
+  font-size:15.5px;font-weight:700;color:var(--text);cursor:pointer;
+  display:flex;align-items:center;justify-content:space-between;gap:14px;font-family:var(--font);
+}
+.faq-q:hover{color:var(--indigo);}
+.faq-q .faq-chevron{flex-shrink:0;width:18px;height:18px;color:var(--text-muted);transition:transform .25s ease;}
+.faq-item.open .faq-chevron{transform:rotate(180deg);color:var(--indigo);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--text-soft);font-size:14.5px;line-height:1.75;}
+.faq-a-inner{padding:0 24px 22px;}
+.faq-a code{font-family:var(--font-mono);font-size:13px;background:var(--surface-3);padding:1px 6px;border-radius:4px;color:var(--indigo);}
+.faq-a strong{color:var(--text);}
+
+/* ============ FOOTER ============ */
+.site-footer{
+  border-top:1px solid var(--border);background:var(--surface);
+  padding:30px 24px;
+}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;}
+.footer-credit{font-size:13px;color:var(--text-muted);}
+.footer-credit a{color:var(--indigo);font-weight:700;}
+.footer-credit a:hover{text-decoration:underline;}
+.footer-links{display:flex;gap:16px;font-size:13px;color:var(--text-muted);flex-wrap:wrap;}
+.footer-links a:hover{color:var(--indigo);}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:720px){
+  .hero{padding:32px 16px 18px;}
+  .hero h1{font-size:30px;}
+  .main{padding:22px 16px 34px;}
+  .card{padding:18px;}
+  .faq-section{padding:38px 16px 30px;}
+  .faq-section h2{font-size:26px;}
+  .tabbar{padding:10px 16px;}
+  .panel-head h2{font-size:24px;}
+  .faq-q{font-size:15px;padding:16px 18px;}
+  .faq-a-inner{padding:0 18px 18px;}
+  .ax-issue{grid-template-columns:1fr;}
+  .header-inner{padding:12px 16px;}
+}
+@media (max-width:480px){
+  .hero-stats{gap:14px;}
+  .hero-stat-num{font-size:18px;}
+  .brand-sub{display:none;}
+}
+
+/* ============ MISC ============ */
+.kbd{
+  font-family:var(--font-mono);font-size:11.5px;font-weight:700;
+  padding:2px 6px;border-radius:5px;background:var(--surface-3);
+  border:1px solid var(--border-strong);border-bottom-width:2px;color:var(--text-soft);
+}
+.divider{height:1px;background:var(--border);margin:18px 0;border:none;}
+.note{
+  font-size:12.5px;color:var(--text-muted);padding:10px 13px;
+  background:var(--surface-2);border:1px solid var(--border);border-radius:8px;
+  display:flex;gap:9px;align-items:flex-start;line-height:1.55;
+}
+.note.info{background:var(--indigo-pale);border-color:rgba(79,70,229,.2);color:var(--text-soft);}
+.note.info::before{content:"i";font-family:var(--font-mono);font-weight:800;color:var(--indigo);width:18px;height:18px;border-radius:50%;background:#fff;border:1px solid var(--indigo);display:inline-flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0;}
+.scrollbox{max-height:380px;overflow:auto;}
+.tag-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;}
+.empty-state{text-align:center;padding:30px 16px;color:var(--text-muted);}
+.empty-state svg{width:36px;height:36px;color:var(--text-dim);margin:0 auto 10px;display:block;}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">
+      <div class="brand-mark" aria-hidden="true"></div>
+      <div class="brand-text">
+        <span class="brand-title">Premium Forms <em>Toolkit</em></span>
+        <span class="brand-sub">excusemeweb.com / forms</span>
+      </div>
+    </div>
+    <div class="header-actions">
+      <a class="link-pill" href="/all-in-one-toolkit" aria-label="View all toolkits">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h12M2 8h12M2 12h12"/></svg>
+        All Toolkits
+      </a>
+      <button class="btn btn-primary" onclick="downloadHTML()" aria-label="Download this page as HTML">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M8 2v9m-3-3l3 3 3-3M2 14h12"/></svg>
+        Download HTML
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <span class="hero-tag">8 working forms tools · runs 100% in your browser</span>
+  <h1>Build, validate, and ship <em>forms that convert</em>.</h1>
+  <p>A premium single-page toolkit for web developers and product designers. Visually compose accessible forms, test validation rules, browse a curated regex library, audit markup for accessibility, and model conversion impact — all in one file, all offline.</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><span class="hero-stat-num">8</span><span class="hero-stat-label">Working tools</span></div>
+    <div class="hero-stat"><span class="hero-stat-num">36+</span><span class="hero-stat-label">Regex patterns</span></div>
+    <div class="hero-stat"><span class="hero-stat-num">11</span><span class="hero-stat-label">Field types</span></div>
+    <div class="hero-stat"><span class="hero-stat-num">8</span><span class="hero-stat-label">Form templates</span></div>
+  </div>
+</section>
+
+<!-- ============ TAB BAR ============ -->
+<nav class="tabbar-wrap" aria-label="Tool tabs">
+  <div class="tabbar" id="tabbar" role="tablist">
+    <button class="tab active" data-tab="builder" role="tab"><span class="tab-num">01</span>Form Builder</button>
+    <button class="tab" data-tab="validator" role="tab"><span class="tab-num">02</span>Input Validator</button>
+    <button class="tab" data-tab="regex" role="tab"><span class="tab-num">03</span>Regex Library</button>
+    <button class="tab" data-tab="generator" role="tab"><span class="tab-num">04</span>HTML Generator</button>
+    <button class="tab" data-tab="a11y" role="tab"><span class="tab-num">05</span>Accessibility</button>
+    <button class="tab" data-tab="password" role="tab"><span class="tab-num">06</span>Password</button>
+    <button class="tab" data-tab="analytics" role="tab"><span class="tab-num">07</span>Analytics</button>
+    <button class="tab" data-tab="multistep" role="tab"><span class="tab-num">08</span>Multi-Step</button>
+  </div>
+</nav>
+
+<!-- ============ MAIN ============ -->
+<main class="main">
+
+  <!-- ============ PANEL 1: FORM BUILDER ============ -->
+  <section class="panel active" id="panel-builder" role="tabpanel">
+    <div class="panel-head">
+      <h2><span class="ph-icon ic-indigo">FB</span>Form <em>Builder</em></h2>
+      <p class="desc">Compose a form field by field. Pick a type, configure label, placeholder, helper text, required flag, and validation rules, then live-preview the rendered form and copy accessible HTML with proper <code class="mono">label</code>, ARIA, and constraint attributes.</p>
+    </div>
+    <div class="card">
+      <div class="fb-layout">
+        <div>
+          <div class="card-title"><span class="ct-dot"></span>Add field</div>
+          <div class="fb-palette" id="fb-palette"></div>
+        </div>
+        <div>
+          <div class="row row-between" style="margin-bottom:12px;">
+            <div class="card-title" style="margin:0;"><span class="ct-dot"></span>Your fields <span class="badge badge-muted" id="fb-count">0</span></div>
+            <button class="btn btn-ghost-soft btn-sm" onclick="clearFormBuilder()">Clear all</button>
+          </div>
+          <div class="fb-field-list" id="fb-field-list"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-2-uneven">
+      <div class="card">
+        <div class="card-title"><span class="ct-dot"></span>Field properties</div>
+        <div id="fb-editor">
+          <div class="fb-empty">Select a field above to edit its properties — or add a new field from the palette.</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="ct-dot"></span>Generated HTML</div>
+        <div class="output-box light empty" id="fb-code">// Add some fields to see generated HTML</div>
+        <div class="row gap-sm" style="margin-top:12px;">
+          <button class="btn btn-soft btn-sm" onclick="copyFbCode()">Copy HTML</button>
+          <button class="btn btn-ghost-soft btn-sm" onclick="downloadFbCode()">Download .html</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="ct-dot"></span>Live preview</div>
+      <div class="preview-frame" id="fb-preview">
+        <div class="fb-empty">Your form preview will appear here.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PANEL 2: INPUT VALIDATOR ============ -->
+  <section class="panel" id="panel-validator" role="tabpanel">
+    <div class="panel-head">
+      <h2><span class="ph-icon ic-success">IV</span>Input <em>Validator</em></h2>
+      <p class="desc">Configure a validation rule set for a single field, type a test value, and see exactly which rules pass or fail. Useful for prototyping constraint messages before wiring them into a real form.</p>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title"><span class="ct-dot"></span>Rules</div>
+        <div class="field">
+          <label class="field-label">Field type</label>
+          <select id="iv-type" onchange="ivRender()">
+            <option value="text">Text</option>
+            <option value="email">Email</option>
+            <option value="url">URL</option>
+            <option value="tel">Phone (tel)</option>
+            <option value="number">Number</option>
+            <option value="date">Date</option>
+            <option value="password">Password</option>
+          </select>
+        </div>
+        <div class="field">
+          <label class="field-label">Preset format (overrides pattern)</label>
+          <select id="iv-preset" onchange="ivRender()">
+            <option value="none">None</option>
+            <option value="email">Email format</option>
+            <option value="url">URL format</option>
+            <option value="phone">Phone format</option>
+            <option value="alphanumeric">Alphanumeric only</option>
+            <option value="numeric">Numeric only</option>
+            <option value="alpha">Letters only</option>
+          </select>
+        </div>
+        <div class="field">
+          <label class="checkbox"><input type="checkbox" id="iv-required" onchange="ivRender()"><span class="cb-box"></span>Required</label>
+        </div>
+        <div class="grid-2">
+          <div class="field">
+            <label class="field-label">Min length</label>
+            <input type="number" id="iv-minlen" min="0" value="0" onchange="ivRender()">
+          </div>
+          <div class="field">
+            <label class="field-label">Max length</label>
+            <input type="number" id="iv-maxlen" min="0" value="0" onchange="ivRender()">
+          </div>
+        </div>
+        <div class="grid-2">
+          <div class="field">
+            <label class="field-label">Min value (number)</label>
+            <input type="number" id="iv-minval" onchange="ivRender()">
+          </div>
+          <div class="field">
+            <label class="field-label">Max value (number)</label>
+            <input type="number" id="iv-maxval" onchange="ivRender()">
+          </div>
+        </div>
+        <div class="field">
+          <label class="field-label">Custom regex pattern</label>
+          <input type="text" id="iv-pattern" class="mono" placeholder="e.g. ^[A-Z]{2}-\d{4}$" onchange="ivRender()">
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="ct-dot"></span>Test value</div>
+        <div class="field">
+          <label class="field-label">Value to test</label>
+          <input type="text" id="iv-value" class="mono" placeholder="Type something to validate…" oninput="ivRender()">
+        </div>
+        <div id="iv-result"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PANEL 3: REGEX LIBRARY ============ -->
+  <section class="panel" id="panel-regex" role="tabpanel">
+    <div class="panel-head">
+      <h2><span class="ph-icon ic-warning">RX</span>Regex Pattern <em>Library</em></h2>
+      <p class="desc">A curated library of 36 production-flavored regex patterns for the formats developers validate most. Each card shows the pattern, a short description, and a live test input — type and watch the match state update instantly.</p>
+    </div>
+    <div class="card">
+      <div class="regex-search">
+        <label class="field-label">Filter patterns</label>
+        <input type="search" id="regex-search" placeholder="Search by name or category…" oninput="renderRegexLibrary()">
+      </div>
+      <div class="regex-grid" id="regex-grid"></div>
+    </div>
+  </section>
+
+  <!-- ============ PANEL 4: HTML FORM GENERATOR ============ -->
+  <section class="panel" id="panel-generator" role="tabpanel">
+    <div class="panel-head">
+      <h2><span class="ph-icon ic-indigo">FG</span>HTML Form <em>Generator</em></h2>
+      <p class="desc">Pick a form type and instantly get a complete, accessible HTML form with appropriate fields, labels, validation attributes, and a styled submit button. Toggle inline CSS and validation attributes on or off.</p>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="ct-dot"></span>Choose a form type</div>
+      <div class="chips" id="fg-chips">
+        <button class="chip active" data-form="contact">Contact</button>
+        <button class="chip" data-form="login">Login</button>
+        <button class="chip" data-form="signup">Signup</button>
+        <button class="chip" data-form="newsletter">Newsletter</button>
+        <button class="chip" data-form="survey">Survey</button>
+        <button class="chip" data-form="order">Order</button>
+        <button class="chip" data-form="rsvp">RSVP</button>
+        <button class="chip" data-form="job">Job Application</button>
+      </div>
+      <div class="row" style="margin-top:14px;">
+        <label class="checkbox"><input type="checkbox" id="fg-css" checked onchange="generateForm()"><span class="cb-box"></span>Include inline CSS</label>
+        <label class="checkbox"><input type="checkbox" id="fg-validation" checked onchange="generateForm()"><span class="cb-box"></span>Include validation attributes</label>
+        <label class="checkbox"><input type="checkbox" id="fg-aria" checked onchange="generateForm()"><span class="cb-box"></span>Include ARIA labels</label>
+      </div>
+    </div>
+    <div class="grid-2-uneven">
+      <div class="card">
+        <div class="card-title"><span class="ct-dot"></span>Generated HTML</div>
+        <div class="output-box" id="fg-output"></div>
+        <div class="row gap-sm" style="margin-top:12px;">
+          <button class="btn btn-soft btn-sm" onclick="copyGeneratedForm()">Copy HTML</button>
+          <button class="btn btn-ghost-soft btn-sm" onclick="downloadGeneratedForm()">Download .html</button>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="ct-dot"></span>Live preview</div>
+        <div class="preview-frame" id="fg-preview"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PANEL 5: ACCESSIBILITY CHECKER ============ -->
+  <section class="panel" id="panel-a11y" role="tabpanel">
+    <div class="panel-head">
+      <h2><span class="ph-icon ic-error">AX</span>Accessibility <em>Checker</em></h2>
+      <p class="desc">Paste an HTML form and the checker audits it for common accessibility issues: label associations, required indicators, ARIA usage, fieldset/legend for groups, autocomplete hints, input type choices, and button text quality.</p>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="ct-dot"></span>Paste your form HTML</div>
+      <textarea id="ax-input" class="code" placeholder="<form>...</form>"></textarea>
+      <div class="row" style="margin-top:12px;">
+        <button class="btn btn-primary btn-sm" onclick="runA11yCheck()">Run accessibility check</button>
+        <button class="btn btn-ghost-soft btn-sm" onclick="loadA11ySample()">Load sample</button>
+        <button class="btn btn-ghost-soft btn-sm" onclick="clearA11y()">Clear</button>
+      </div>
+    </div>
+    <div class="card" id="ax-results-card" style="display:none;">
+      <div class="card-title"><span class="ct-dot"></span>Results</div>
+      <div class="ax-summary" id="ax-summary"></div>
+      <div class="ax-issue-list" id="ax-issues"></div>
+    </div>
+  </section>
+
+  <!-- ============ PANEL 6: PASSWORD STRENGTH ============ -->
+  <section class="panel" id="panel-password" role="tabpanel">
+    <div class="panel-head">
+      <h2><span class="ph-icon ic-warning">PW</span>Password <em>Strength Checker</em></h2>
+      <p class="desc">Type a password and watch a transparent rule-based strength score update live. The score rewards length, character-class diversity, and absence of common patterns and dictionary words, and estimates crack time against a fast offline attack.</p>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title"><span class="ct-dot"></span>Password input</div>
+        <div class="field">
+          <label class="field-label">Password</label>
+          <div class="pw-input-wrap">
+            <input type="password" id="pw-input" placeholder="Type or paste a password…" oninput="analyzePassword()" autocomplete="off">
+            <button class="pw-toggle" id="pw-toggle" onclick="togglePwVisibility()" aria-label="Show password">Show</button>
+          </div>
+        </div>
+        <div class="pw-meter"><div class="pw-meter-fill" id="pw-fill"></div></div>
+        <div class="pw-meter-labels">
+          <span id="pw-l-weak">Weak</span>
+          <span id="pw-l-fair">Fair</span>
+          <span id="pw-l-good">Good</span>
+          <span id="pw-l-strong">Strong</span>
+        </div>
+        <div class="stat-grid">
+          <div class="stat"><div class="stat-label">Score</div><div class="stat-value indigo" id="pw-score">0<span style="font-size:13px;color:var(--text-muted);">/100</span></div></div>
+          <div class="stat"><div class="stat-label">Rating</div><div class="stat-value" id="pw-rating">—</div></div>
+          <div class="stat"><div class="stat-label">Length</div><div class="stat-value" id="pw-length">0</div></div>
+          <div class="stat"><div class="stat-label">Charset size</div><div class="stat-value" id="pw-charset">0</div></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="ct-dot"></span>Crack-time estimate</div>
+        <div class="stat">
+          <div class="stat-label">Offline fast attack (10¹⁰ guesses/sec)</div>
+          <div class="stat-value indigo" id="pw-crack">—</div>
+        </div>
+        <div class="note info" style="margin-top:12px;">Crack time assumes an attacker has the password hash and uses fast hardware. A longer crack time is better; aim for "centuries".</div>
+        <hr class="divider">
+        <div class="card-title"><span class="ct-dot"></span>Character types present</div>
+        <div class="pw-charset" id="pw-charset-list"></div>
+        <hr class="divider">
+        <div class="card-title"><span class="ct-dot"></span>Suggestions</div>
+        <div class="pw-suggestions" id="pw-suggestions">
+          <div class="pw-sug"><span class="pw-sug-icon">!</span><span>Start typing a password to see analysis.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PANEL 7: FORM ANALYTICS CALCULATOR ============ -->
+  <section class="panel" id="panel-analytics" role="tabpanel">
+    <div class="panel-head">
+      <h2><span class="ph-icon ic-success">FA</span>Form Analytics <em>Calculator</em></h2>
+      <p class="desc">Model the conversion impact of form length using a widely cited industry heuristic: each additional field reduces conversion by roughly 3–10%. Project abandonment volume, completion speed, and revenue impact of removing fields.</p>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title"><span class="ct-dot"></span>Current form metrics</div>
+        <div class="field">
+          <label class="field-label">Number of form fields</label>
+          <input type="number" id="fa-fields" min="0" value="8" oninput="calcAnalytics()">
+        </div>
+        <div class="grid-2">
+          <div class="field">
+            <label class="field-label">Current conversion rate (%)</label>
+            <input type="number" id="fa-conv" min="0" max="100" step="0.1" value="22" oninput="calcAnalytics()">
+          </div>
+          <div class="field">
+            <label class="field-label">Current abandonment rate (%)</label>
+            <input type="number" id="fa-aban" min="0" max="100" step="0.1" value="68" oninput="calcAnalytics()">
+          </div>
+        </div>
+        <div class="field">
+          <label class="field-label">Average time to fill (seconds)</label>
+          <input type="number" id="fa-time" min="0" value="45" oninput="calcAnalytics()">
+        </div>
+        <div class="grid-2">
+          <div class="field">
+            <label class="field-label">Avg order value ($)</label>
+            <input type="number" id="fa-aov" min="0" value="60" oninput="calcAnalytics()">
+          </div>
+          <div class="field">
+            <label class="field-label">Fields to remove (N)</label>
+            <input type="number" id="fa-remove" min="0" value="3" oninput="calcAnalytics()">
+          </div>
+        </div>
+        <div class="field">
+          <label class="field-label">Conversion drop per added field (%)</label>
+          <input type="number" id="fa-perfield" min="0" max="20" step="0.5" value="4" oninput="calcAnalytics()">
+        </div>
+        <div class="note info">Industry research (HubSpot, Formstack, Unbounce) places this drop between 3% and 10% per field. Default is a 4% midpoint.</div>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="ct-dot"></span>Results</div>
+        <div class="stat-grid">
+          <div class="stat"><div class="stat-label">Abandonment / 1000 visits</div><div class="stat-value error" id="fa-r-aban">0</div></div>
+          <div class="stat"><div class="stat-label">Completions / 1000 visits</div><div class="stat-value success" id="fa-r-comp">0</div></div>
+          <div class="stat"><div class="stat-label">Fields per second</div><div class="stat-value indigo" id="fa-r-fps">0</div></div>
+          <div class="stat"><div class="stat-label">Sec per field</div><div class="stat-value" id="fa-r-spf">0</div></div>
+        </div>
+        <hr class="divider">
+        <div class="card-title"><span class="ct-dot"></span>If you remove <span id="fa-r-n">3</span> fields</div>
+        <div class="stat-grid">
+          <div class="stat"><div class="stat-label">Projected conversion</div><div class="stat-value success" id="fa-r-proj">0%</div></div>
+          <div class="stat"><div class="stat-label">Conversion lift</div><div class="stat-value indigo" id="fa-r-lift">0%</div></div>
+          <div class="stat"><div class="stat-label">Extra conversions / 1000</div><div class="stat-value success" id="fa-r-extra">0</div></div>
+          <div class="stat"><div class="stat-label">Revenue impact / 1000</div><div class="stat-value warning" id="fa-r-rev">$0</div></div>
+        </div>
+        <hr class="divider">
+        <div class="card-title"><span class="ct-dot"></span>Interpretation</div>
+        <div id="fa-r-narrative" class="note"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PANEL 8: MULTI-STEP FORM PLANNER ============ -->
+  <section class="panel" id="panel-multistep" role="tabpanel">
+    <div class="panel-head">
+      <h2><span class="ph-icon ic-slate">MS</span>Multi-Step Form <em>Planner</em></h2>
+      <p class="desc">Plan a multi-step form: tell us how many fields and how many steps, and the planner distributes fields across steps, draws a visual mockup with progress and per-step completion estimates, suggests field groupings, and exports a structured outline.</p>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title"><span class="ct-dot"></span>Plan parameters</div>
+        <div class="field">
+          <label class="field-label">Total fields</label>
+          <input type="number" id="ms-total" min="1" max="80" value="12" oninput="renderMultistep()">
+        </div>
+        <div class="field">
+          <label class="field-label">Desired steps</label>
+          <input type="number" id="ms-steps" min="1" max="10" value="3" oninput="renderMultistep()">
+        </div>
+        <div class="field">
+          <label class="field-label">Per-step drop-off heuristic (%)</label>
+          <input type="number" id="ms-dropoff" min="0" max="50" step="0.5" value="8" oninput="renderMultistep()">
+        </div>
+        <div class="field">
+          <label class="field-label">Form context</label>
+          <select id="ms-context" onchange="renderMultistep()">
+            <option value="checkout">Checkout / order</option>
+            <option value="signup">Signup / onboarding</option>
+            <option value="leadgen">Lead generation</option>
+            <option value="survey">Survey / questionnaire</option>
+            <option value="application">Application (job, loan, etc.)</option>
+          </select>
+        </div>
+        <div class="note info">Per-step drop-off is the share of users who start a step but leave before finishing it. Industry reports typically range 5–15% per step.</div>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="ct-dot"></span>Plan summary</div>
+        <div class="stat-grid">
+          <div class="stat"><div class="stat-label">Total fields</div><div class="stat-value indigo" id="ms-r-total">0</div></div>
+          <div class="stat"><div class="stat-label">Total steps</div><div class="stat-value" id="ms-r-steps">0</div></div>
+          <div class="stat"><div class="stat-label">Avg fields / step</div><div class="stat-value" id="ms-r-avg">0</div></div>
+          <div class="stat"><div class="stat-label">End-to-end completion</div><div class="stat-value success" id="ms-r-completion">0%</div></div>
+        </div>
+        <hr class="divider">
+        <div class="card-title"><span class="ct-dot"></span>Step distribution</div>
+        <div class="ms-step-list" id="ms-steps-list"></div>
+        <hr class="divider">
+        <div class="card-title"><span class="ct-dot"></span>Export outline</div>
+        <div class="output-box light" id="ms-outline" style="max-height:280px;"></div>
+        <div class="row gap-sm" style="margin-top:12px;">
+          <button class="btn btn-soft btn-sm" onclick="copyMultistepOutline()">Copy outline</button>
+          <button class="btn btn-ghost-soft btn-sm" onclick="downloadMultistepOutline()">Download .md</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FAQ ============ -->
+<section class="faq-section" id="faq">
+  <h2>Frequently asked <em>questions</em></h2>
+  <p class="faq-intro">Everything you need to know about how each tool in the Premium Forms Toolkit works under the hood, how reliable the outputs are, and what you can do with them.</p>
+  <div class="faq-list" id="faq-list">
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        How does the password strength calculator work?
+        <svg class="faq-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">The Password Strength Checker scores passwords on a <strong>0–100 scale</strong> using a transparent rule-based algorithm. Points are awarded for length (up to 40), the presence of lowercase letters, uppercase letters, digits, and symbols, and bonus points for length over 12 characters. Points are deducted for all-lowercase passwords, common keyboard patterns like <code>qwerty</code> and <code>123456</code>, dictionary words like <code>password</code> and <code>welcome</code>, and repeating character sequences. The crack-time estimate multiplies the character set size raised to the password length and divides by an assumed <code>10¹⁰</code> guesses per second, representing a fast offline attack against a stolen hash.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Are the regex patterns production-ready?
+        <svg class="faq-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">The patterns in the Regex Pattern Library are well-tested expressions drawn from common community conventions for each format. They handle the vast majority of valid inputs and reject obvious invalid ones, making them excellent for client-side validation and prototyping. For server-side validation or critical flows like payment processing, always combine regex with additional checks such as <strong>Luhn</strong> for credit cards, <strong>checksum</strong> for IBAN, and a real verification email for email addresses, because no single regex can fully model every edge case of formats like IPv6 or international phone numbers.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        How accurate is the form analytics calculator?
+        <svg class="faq-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">The Form Analytics Calculator uses industry-published heuristics rather than your specific data. The convention that each additional field reduces conversion by roughly <strong>3 to 10 percent</strong> is widely cited from studies by HubSpot, Formstack, and Unbounce, and we use a <code>4%</code> midpoint by default. The projected conversion and revenue impact numbers are directional estimates meant to inform design decisions, not guarantees. For accurate results on your own forms, instrument them with analytics and A/B test field reduction directly.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Can I use the generated forms commercially?
+        <svg class="faq-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">Yes. All HTML, CSS, and accessibility markup generated by this toolkit is produced locally in your browser and belongs to you with no licensing restrictions. You can paste it into commercial websites, client projects, products, templates, and paid courses without attribution. We recommend reviewing the generated code for compliance with your specific legal requirements, such as <strong>GDPR</strong> consent language or regional accessibility regulations, before deploying to production.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Does the accessibility checker guarantee WCAG compliance?
+        <svg class="faq-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">No. The Accessibility Checker performs <strong>static analysis</strong> on the HTML you paste, looking for common, well-documented issues such as missing label associations, missing required indicators, absent <code>fieldset</code> and <code>legend</code> for grouped fields, missing <code>autocomplete</code> attributes, and non-descriptive button text. Passing the checker does not guarantee full WCAG compliance, which also requires keyboard testing, screen reader testing, color contrast analysis, and consideration of cognitive load. Treat the checker as a first-pass automated lint, not a certification.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Is my form data or password sent to a server?
+        <svg class="faq-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">No. Every tool in the Premium Forms Toolkit runs entirely in your browser using client-side JavaScript. The text you type into the password field, the HTML you paste into the accessibility checker, and the form configurations you build <strong>never leave your device</strong>. There are no analytics on input content, no backend calls, and no account required. You can safely paste sensitive drafts, real passwords you are auditing, or unpublished client code.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-credit">© 2026 <a href="/all-in-one-toolkit">ExcuseMeWeb</a> — Premium Forms Toolkit</div>
+    <div class="footer-links">
+      <a href="/all-in-one-toolkit">All Toolkits</a>
+      <a href="https://excusemeweb.com">Home</a>
+      <a href="#faq">FAQ</a>
+    </div>
+  </div>
+</footer>
+
+<div class="toast-wrap" id="toast-wrap" aria-live="polite" aria-atomic="true"></div>
+
+<script>
+/* ============================================================
+   PREMIUM FORMS TOOLKIT — single-file JS
+   ============================================================ */
+
+/* ---------- Helper: toast ---------- */
+function toast(msg, type){
+  var wrap = document.getElementById('toast-wrap');
+  var el = document.createElement('div');
+  el.className = 'toast' + (type ? ' ' + type : '');
+  var iconOk = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 4L6 11l-3-3"/></svg>';
+  var iconErr = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 5v4"/><circle cx="8" cy="12" r=".5" fill="currentColor"/><circle cx="8" cy="8" r="6.5"/></svg>';
+  el.innerHTML = (type === 'error' || type === 'warn' ? iconErr : iconOk) + '<span>' + escapeHtml(msg) + '</span>';
+  wrap.appendChild(el);
+  setTimeout(function(){ el.classList.add('out'); setTimeout(function(){ if(el.parentNode) el.parentNode.removeChild(el); }, 260); }, 2200);
+}
+
+/* ---------- Helper: escape HTML ---------- */
+function escapeHtml(s){
+  return String(s).replace(/[&<>"']/g, function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+  });
+}
+function escapeAttr(s){ return escapeHtml(s); }
+
+/* ---------- Helper: copy text ---------- */
+function copyText(text, msg){
+  if(text === null || text === undefined || text === ''){ toast('Nothing to copy', 'warn'); return; }
+  text = String(text);
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(function(){
+      toast(msg || 'Copied to clipboard');
+    }).catch(function(){ fallbackCopy(text, msg); });
+  } else {
+    fallbackCopy(text, msg);
+  }
+}
+function fallbackCopy(text, msg){
+  try{
+    var ta = document.createElement('textarea');
+    ta.value = text; ta.style.position='fixed'; ta.style.opacity='0';
+    document.body.appendChild(ta); ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    toast(msg || 'Copied to clipboard');
+  }catch(e){ toast('Copy failed', 'error'); }
+}
+
+/* ---------- Helper: download ---------- */
+function downloadFile(filename, content, mime){
+  var blob = new Blob([content], {type: mime || 'text/plain'});
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a'); a.href = url; a.download = filename;
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  toast('Downloaded ' + filename);
+}
+function downloadHTML(){
+  var html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+  downloadFile('premium-forms-toolkit.html', html, 'text/html');
+}
+
+/* ---------- Helper: misc ---------- */
+function slugify(s){ return String(s).toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,''); }
+function clamp(n, lo, hi){ return Math.max(lo, Math.min(hi, n)); }
+function fmtNum(n, d){ d = d === undefined ? 0 : d; return Number(n).toLocaleString(undefined, {minimumFractionDigits:d, maximumFractionDigits:d}); }
+function fmtMoney(n){ return '$' + Number(n).toLocaleString(undefined, {minimumFractionDigits:0, maximumFractionDigits:0}); }
+
+/* ---------- Tab switching ---------- */
+(function(){
+  var tabs = document.querySelectorAll('.tab');
+  var panels = document.querySelectorAll('.panel');
+  tabs.forEach(function(t){
+    t.addEventListener('click', function(){
+      var id = t.getAttribute('data-tab');
+      tabs.forEach(function(x){ x.classList.toggle('active', x === t); });
+      panels.forEach(function(p){ p.classList.toggle('active', p.id === 'panel-' + id); });
+      t.scrollIntoView({behavior:'smooth', block:'nearest', inline:'center'});
+    });
+  });
+})();
+
+/* ---------- FAQ accordion ---------- */
+function toggleFaq(btn){
+  var item = btn.parentNode;
+  var ans = btn.nextElementSibling;
+  var isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(function(it){
+    it.classList.remove('open');
+    it.querySelector('.faq-a').style.maxHeight = null;
+  });
+  if(!isOpen){
+    item.classList.add('open');
+    ans.style.maxHeight = ans.scrollHeight + 'px';
+  }
+}
+
+/* ============================================================
+   TOOL 1 — FORM BUILDER
+   ============================================================ */
+var FB_FIELD_TYPES = [
+  {type:'text',     label:'Text',     icon:'Aa'},
+  {type:'email',    label:'Email',    icon:'@'},
+  {type:'password', label:'Password', icon:'**'},
+  {type:'number',   label:'Number',   icon:'#'},
+  {type:'textarea', label:'Textarea', icon:'¶'},
+  {type:'select',   label:'Select',   icon:'▾'},
+  {type:'radio',    label:'Radio',    icon:'◉'},
+  {type:'checkbox', label:'Checkbox', icon:'☑'},
+  {type:'date',     label:'Date',     icon:'DD'},
+  {type:'tel',      label:'Tel',      icon:'T'},
+  {type:'url',      label:'URL',      icon:'/'}
+];
+var fbFields = [];
+var fbSelected = null;
+var fbSeq = 0;
+
+(function(){
+  var palette = document.getElementById('fb-palette');
+  FB_FIELD_TYPES.forEach(function(ft){
+    var el = document.createElement('div');
+    el.className = 'fb-palette-item';
+    el.innerHTML = '<span class="fp-icon">' + ft.icon + '</span><span>' + ft.label + '</span>';
+    el.onclick = function(){ addField(ft.type); };
+    palette.appendChild(el);
+  });
+})();
+
+function addField(type){
+  fbSeq++;
+  var f = {
+    id: 'f' + fbSeq,
+    type: type,
+    name: type + '_' + fbSeq,
+    label: defaultLabel(type) + ' ' + fbSeq,
+    placeholder: '',
+    helper: '',
+    required: false,
+    minLength: '',
+    maxLength: '',
+    pattern: '',
+    minValue: '',
+    maxValue: '',
+    options: type === 'select' || type === 'radio' || type === 'checkbox' ? ['Option 1','Option 2','Option 3'] : []
+  };
+  fbFields.push(f);
+  fbSelected = f.id;
+  renderFbList();
+  renderFbEditor();
+  renderFbPreview();
+  renderFbCode();
+}
+function defaultLabel(type){
+  return {text:'Text Field',email:'Email',password:'Password',number:'Number',textarea:'Message',select:'Select',radio:'Choice',checkbox:'Options',date:'Date',tel:'Phone',url:'Website'}[type] || 'Field';
+}
+function deleteField(id){
+  fbFields = fbFields.filter(function(f){ return f.id !== id; });
+  if(fbSelected === id) fbSelected = fbFields.length ? fbFields[0].id : null;
+  renderFbList(); renderFbEditor(); renderFbPreview(); renderFbCode();
+}
+function selectField(id){ fbSelected = id; renderFbList(); renderFbEditor(); }
+function clearFormBuilder(){
+  if(!fbFields.length){ toast('Already empty','warn'); return; }
+  fbFields = []; fbSelected = null;
+  renderFbList(); renderFbEditor(); renderFbPreview(); renderFbCode();
+  toast('Cleared all fields');
+}
+function moveField(id, dir){
+  var i = fbFields.findIndex(function(f){ return f.id === id; });
+  if(i < 0) return;
+  var j = i + dir;
+  if(j < 0 || j >= fbFields.length) return;
+  var tmp = fbFields[i]; fbFields[i] = fbFields[j]; fbFields[j] = tmp;
+  renderFbList(); renderFbPreview(); renderFbCode();
+}
+function renderFbList(){
+  var list = document.getElementById('fb-field-list');
+  document.getElementById('fb-count').textContent = fbFields.length;
+  if(!fbFields.length){
+    list.innerHTML = '<div class="fb-empty">No fields yet. Add one from the palette on the left.</div>';
+    return;
+  }
+  list.innerHTML = fbFields.map(function(f, idx){
+    var ft = FB_FIELD_TYPES.find(function(t){ return t.type === f.type; });
+    return '<div class="fb-field-item ' + (f.id === fbSelected ? 'selected' : '') + '" onclick="selectField(\'' + f.id + '\')">' +
+      '<span class="ffi-icon">' + (ft ? ft.icon : '?') + '</span>' +
+      '<div class="ffi-label"><div class="ffi-name">' + escapeHtml(f.label) + (f.required ? ' <span class="ffi-required">*</span>' : '') + '</div>' +
+      '<div class="ffi-type">' + f.type + '</div></div>' +
+      '<button class="btn btn-ghost-soft btn-xs btn-icon" title="Move up" onclick="event.stopPropagation();moveField(\'' + f.id + '\',-1)">↑</button>' +
+      '<button class="btn btn-ghost-soft btn-xs btn-icon" title="Move down" onclick="event.stopPropagation();moveField(\'' + f.id + '\',1)">↓</button>' +
+      '<button class="ffi-del" title="Delete" onclick="event.stopPropagation();deleteField(\'' + f.id + '\')">×</button>' +
+      '</div>';
+  }).join('');
+}
+function renderFbEditor(){
+  var ed = document.getElementById('fb-editor');
+  if(!fbSelected){
+    ed.innerHTML = '<div class="fb-empty">Select a field above to edit its properties — or add a new field from the palette.</div>';
+    return;
+  }
+  var f = fbFields.find(function(x){ return x.id === fbSelected; });
+  if(!f){ ed.innerHTML = ''; return; }
+  var hasOptions = f.type === 'select' || f.type === 'radio' || f.type === 'checkbox';
+  var hasMinMaxLen = ['text','email','password','textarea','tel','url','number'].indexOf(f.type) >= 0;
+  var hasMinMaxVal = f.type === 'number' || f.type === 'date';
+  var html = '<div class="grid-2">' +
+    '<div class="field"><label class="field-label">Label</label><input type="text" value="' + escapeAttr(f.label) + '" oninput="updateFbField(\'label\', this.value)"></div>' +
+    '<div class="field"><label class="field-label">Name (HTML)</label><input type="text" class="mono" value="' + escapeAttr(f.name) + '" oninput="updateFbField(\'name\', this.value)"></div>' +
+    '</div>';
+  if(f.type !== 'checkbox' && f.type !== 'radio' && f.type !== 'date'){
+    html += '<div class="field"><label class="field-label">Placeholder</label><input type="text" value="' + escapeAttr(f.placeholder) + '" oninput="updateFbField(\'placeholder\', this.value)"></div>';
+  }
+  html += '<div class="field"><label class="field-label">Helper text</label><input type="text" value="' + escapeAttr(f.helper) + '" oninput="updateFbField(\'helper\', this.value)"></div>';
+  html += '<div class="field"><label class="checkbox"><input type="checkbox" ' + (f.required ? 'checked' : '') + ' onchange="updateFbField(\'required\', this.checked)"><span class="cb-box"></span>Required</label></div>';
+  if(hasMinMaxLen){
+    html += '<div class="grid-2">' +
+      '<div class="field"><label class="field-label">Min length</label><input type="number" min="0" value="' + escapeAttr(f.minLength) + '" oninput="updateFbField(\'minLength\', this.value)"></div>' +
+      '<div class="field"><label class="field-label">Max length</label><input type="number" min="0" value="' + escapeAttr(f.maxLength) + '" oninput="updateFbField(\'maxLength\', this.value)"></div>' +
+      '</div>';
+  }
+  if(hasMinMaxVal){
+    html += '<div class="grid-2">' +
+      '<div class="field"><label class="field-label">Min value</label><input type="number" value="' + escapeAttr(f.minValue) + '" oninput="updateFbField(\'minValue\', this.value)"></div>' +
+      '<div class="field"><label class="field-label">Max value</label><input type="number" value="' + escapeAttr(f.maxValue) + '" oninput="updateFbField(\'maxValue\', this.value)"></div>' +
+      '</div>';
+  }
+  if(['text','email','password','tel','url','number'].indexOf(f.type) >= 0){
+    html += '<div class="field"><label class="field-label">Regex pattern</label><input type="text" class="mono" value="' + escapeAttr(f.pattern) + '" placeholder="e.g. ^[A-Z]{2}-\\d{4}$" oninput="updateFbField(\'pattern\', this.value)"></div>';
+  }
+  if(hasOptions){
+    html += '<div class="field"><label class="field-label">Options (one per line)</label><textarea class="mono" style="min-height:90px;" oninput="updateFbOptions(this.value)">' + escapeHtml(f.options.join('\n')) + '</textarea></div>';
+  }
+  ed.innerHTML = html;
+}
+function updateFbField(key, val){
+  var f = fbFields.find(function(x){ return x.id === fbSelected; });
+  if(!f) return;
+  f[key] = val;
+  renderFbList(); renderFbPreview(); renderFbCode();
+}
+function updateFbOptions(text){
+  var f = fbFields.find(function(x){ return x.id === fbSelected; });
+  if(!f) return;
+  f.options = text.split('\n').map(function(s){ return s.trim(); }).filter(Boolean);
+  renderFbPreview(); renderFbCode();
+}
+function renderFbPreview(){
+  var pv = document.getElementById('fb-preview');
+  if(!fbFields.length){
+    pv.innerHTML = '<div class="fb-empty">Your form preview will appear here.</div>';
+    return;
+  }
+  pv.innerHTML = fbFields.map(function(f){
+    var id = 'pv_' + f.name;
+    var label = '<label for="' + id + '">' + escapeHtml(f.label) + (f.required ? ' <span class="pv-req">*</span>' : '') + '</label>';
+    var help = f.helper ? '<div class="pv-help">' + escapeHtml(f.helper) + '</div>' : '';
+    var input = '';
+    if(f.type === 'textarea'){
+      input = '<textarea id="' + id + '" name="' + escapeAttr(f.name) + '" placeholder="' + escapeAttr(f.placeholder) + '"' + (f.required?' required':'') + (f.minLength?' minlength="'+escapeAttr(f.minLength)+'"':'') + (f.maxLength?' maxlength="'+escapeAttr(f.maxLength)+'"':'') + '></textarea>';
+    } else if(f.type === 'select'){
+      input = '<select id="' + id + '" name="' + escapeAttr(f.name) + '"' + (f.required?' required':'') + '>' + f.options.map(function(o){ return '<option value="' + escapeAttr(o) + '">' + escapeHtml(o) + '</option>'; }).join('') + '</select>';
+    } else if(f.type === 'radio'){
+      input = '<fieldset><legend>' + escapeHtml(f.label) + (f.required?' <span class="pv-req">*</span>':'') + '</legend>' + f.options.map(function(o, i){
+        return '<label class="pv-radio"><input type="radio" name="' + escapeAttr(f.name) + '" value="' + escapeAttr(o) + '"' + (f.required && i===0?' required':'') + '><span>' + escapeHtml(o) + '</span></label>';
+      }).join('') + '</fieldset>';
+      label = '';
+    } else if(f.type === 'checkbox'){
+      input = '<fieldset><legend>' + escapeHtml(f.label) + '</legend>' + f.options.map(function(o){
+        return '<label class="pv-check"><input type="checkbox" name="' + escapeAttr(f.name) + '" value="' + escapeAttr(o) + '"><span>' + escapeHtml(o) + '</span></label>';
+      }).join('') + '</fieldset>';
+      label = '';
+    } else {
+      input = '<input type="' + f.type + '" id="' + id + '" name="' + escapeAttr(f.name) + '" placeholder="' + escapeAttr(f.placeholder) + '"' + (f.required?' required':'') + (f.minLength?' minlength="'+escapeAttr(f.minLength)+'"':'') + (f.maxLength?' maxlength="'+escapeAttr(f.maxLength)+'"':'') + (f.pattern?' pattern="'+escapeAttr(f.pattern)+'"':'') + (f.minValue !== ''?' min="'+escapeAttr(f.minValue)+'"':'') + (f.maxValue !== ''?' max="'+escapeAttr(f.maxValue)+'"':'') + '>';
+    }
+    return '<div class="pv-field">' + label + input + help + '</div>';
+  }).join('') + '<button class="btn btn-primary" type="button">Submit</button>';
+}
+function renderFbCode(){
+  var box = document.getElementById('fb-code');
+  if(!fbFields.length){
+    box.className = 'output-box light empty';
+    box.textContent = '// Add some fields to see generated HTML';
+    return;
+  }
+  box.className = 'output-box light';
+  var lines = [];
+  lines.push('<form action="#" method="post" novalidate>');
+  fbFields.forEach(function(f){
+    lines.push('');
+    var id = 'id_' + f.name;
+    var attrs = ' id="' + id + '" name="' + f.name + '"';
+    if(f.required) attrs += ' required';
+    if(f.minLength) attrs += ' minlength="' + f.minLength + '"';
+    if(f.maxLength) attrs += ' maxlength="' + f.maxLength + '"';
+    if(f.pattern) attrs += ' pattern="' + f.pattern + '"';
+    if(f.minValue !== '') attrs += ' min="' + f.minValue + '"';
+    if(f.maxValue !== '') attrs += ' max="' + f.maxValue + '"';
+    if(f.placeholder && f.type !== 'radio' && f.type !== 'checkbox' && f.type !== 'date') attrs += ' placeholder="' + f.placeholder.replace(/"/g,'&quot;') + '"';
+    if(f.helper) attrs += ' aria-describedby="' + id + '_help"';
+    if(f.type === 'textarea'){
+      lines.push('  <div class="form-group">');
+      lines.push('    <label for="' + id + '">' + escapeHtml(f.label) + (f.required?' <span aria-hidden="true">*</span>':'') + '</label>');
+      lines.push('    <textarea' + attrs + '></textarea>');
+      if(f.helper) lines.push('    <small id="' + id + '_help" class="form-text">' + escapeHtml(f.helper) + '</small>');
+      lines.push('  </div>');
+    } else if(f.type === 'select'){
+      lines.push('  <div class="form-group">');
+      lines.push('    <label for="' + id + '">' + escapeHtml(f.label) + (f.required?' <span aria-hidden="true">*</span>':'') + '</label>');
+      lines.push('    <select' + attrs + '>');
+      f.options.forEach(function(o){ lines.push('      <option value="' + o + '">' + escapeHtml(o) + '</option>'); });
+      lines.push('    </select>');
+      if(f.helper) lines.push('    <small id="' + id + '_help" class="form-text">' + escapeHtml(f.helper) + '</small>');
+      lines.push('  </div>');
+    } else if(f.type === 'radio'){
+      lines.push('  <fieldset>');
+      lines.push('    <legend>' + escapeHtml(f.label) + (f.required?' <span aria-hidden="true">*</span>':'') + '</legend>');
+      if(f.helper) lines.push('    <small class="form-text">' + escapeHtml(f.helper) + '</small>');
+      f.options.forEach(function(o, i){
+        var oattrs = ' type="radio" name="' + f.name + '" value="' + o + '" id="' + id + '_' + i + '"';
+        if(f.required && i === 0) oattrs += ' required';
+        lines.push('    <label for="' + id + '_' + i + '"><input' + oattrs + '> ' + escapeHtml(o) + '</label>');
+      });
+      lines.push('  </fieldset>');
+    } else if(f.type === 'checkbox'){
+      lines.push('  <fieldset>');
+      lines.push('    <legend>' + escapeHtml(f.label) + '</legend>');
+      if(f.helper) lines.push('    <small class="form-text">' + escapeHtml(f.helper) + '</small>');
+      f.options.forEach(function(o, i){
+        lines.push('    <label for="' + id + '_' + i + '"><input type="checkbox" name="' + f.name + '" value="' + o + '" id="' + id + '_' + i + '"> ' + escapeHtml(o) + '</label>');
+      });
+      lines.push('  </fieldset>');
+    } else {
+      lines.push('  <div class="form-group">');
+      lines.push('    <label for="' + id + '">' + escapeHtml(f.label) + (f.required?' <span aria-hidden="true">*</span>':'') + '</label>');
+      lines.push('    <input type="' + f.type + '"' + attrs + '>');
+      if(f.helper) lines.push('    <small id="' + id + '_help" class="form-text">' + escapeHtml(f.helper) + '</small>');
+      lines.push('  </div>');
+    }
+  });
+  lines.push('');
+  lines.push('  <button type="submit">Submit</button>');
+  lines.push('</form>');
+  box.textContent = lines.join('\n');
+}
+function copyFbCode(){
+  var code = document.getElementById('fb-code').textContent;
+  copyText(code, 'Form HTML copied');
+}
+function downloadFbCode(){
+  var code = document.getElementById('fb-code').textContent;
+  if(!fbFields.length){ toast('Add a field first','warn'); return; }
+  var full = '<!DOCTYPE html>\n<html lang="en">\n<head>\n<meta charset="UTF-8">\n<meta name="viewport" content="width=device-width, initial-scale=1">\n<title>Generated Form</title>\n<style>\nbody{font-family:system-ui,sans-serif;max-width:480px;margin:40px auto;padding:0 16px;color:#0f172a}\n.form-group{margin-bottom:16px}\nlabel{display:block;font-weight:600;margin-bottom:4px}\ninput,textarea,select{width:100%;padding:9px 11px;border:1px solid #cbd5e1;border-radius:8px;font:inherit}\nbutton{background:#4f46e5;color:#fff;border:none;padding:10px 18px;border-radius:8px;font-weight:700;cursor:pointer}\nfieldset{border:1px solid #cbd5e1;border-radius:8px;padding:10px 14px}\n.form-text{display:block;color:#64748b;font-size:12.5px;margin-top:4px}\n</style>\n</head>\n<body>\n' + code + '\n</body>\n</html>\n';
+  downloadFile('form.html', full, 'text/html');
+}
+
+/* ============================================================
+   TOOL 2 — INPUT VALIDATOR
+   ============================================================ */
+function ivGetRules(){
+  return {
+    type: document.getElementById('iv-type').value,
+    preset: document.getElementById('iv-preset').value,
+    required: document.getElementById('iv-required').checked,
+    minLength: parseInt(document.getElementById('iv-minlen').value, 10) || 0,
+    maxLength: parseInt(document.getElementById('iv-maxlen').value, 10) || 0,
+    minValue: document.getElementById('iv-minval').value,
+    maxValue: document.getElementById('iv-maxval').value,
+    pattern: document.getElementById('iv-pattern').value,
+    value: document.getElementById('iv-value').value
+  };
+}
+var IV_PRESETS = {
+  email: { regex: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/, label: 'Email format' },
+  url:   { regex: /^https?:\/\/[^\s]+$/i, label: 'URL format' },
+  phone: { regex: /^[+]?[\d\s().-]{7,20}$/, label: 'Phone format' },
+  alphanumeric: { regex: /^[a-zA-Z0-9]*$/, label: 'Alphanumeric only' },
+  numeric: { regex: /^\d*$/, label: 'Numeric only' },
+  alpha: { regex: /^[a-zA-Z]*$/, label: 'Letters only' }
+};
+function ivRender(){
+  var r = ivGetRules();
+  var v = r.value;
+  var checks = [];
+  var isEmpty = v.length === 0;
+  if(r.required && isEmpty){
+    checks.push({name:'Required', pass:false, msg:'Value is required.'});
+  } else if(isEmpty){
+    checks.push({name:'Required', pass:true, msg:'Empty allowed (not required).'});
+  } else {
+    checks.push({name:'Required', pass:true, msg:'Value provided.'});
+  }
+  if(!isEmpty){
+    if(r.minLength > 0){
+      checks.push({name:'Min length ' + r.minLength, pass: v.length >= r.minLength, msg: v.length >= r.minLength ? 'Length OK ('+v.length+' chars).' : 'Too short — '+v.length+' chars, need ≥ '+r.minLength+'.'});
+    }
+    if(r.maxLength > 0){
+      checks.push({name:'Max length ' + r.maxLength, pass: v.length <= r.maxLength, msg: v.length <= r.maxLength ? 'Length OK ('+v.length+' chars).' : 'Too long — '+v.length+' chars, need ≤ '+r.maxLength+'.'});
+    }
+    if(r.preset !== 'none' && IV_PRESETS[r.preset]){
+      var p = IV_PRESETS[r.preset];
+      var ok = p.regex.test(v);
+      checks.push({name:p.label, pass:ok, msg: ok ? 'Matches '+p.label+'.' : 'Does not match '+p.label+'.'});
+    }
+    if(r.pattern){
+      try{
+        var re = new RegExp(r.pattern);
+        var okp = re.test(v);
+        checks.push({name:'Custom pattern', pass:okp, msg: okp ? 'Matches regex /'+r.pattern+'/.' : 'Does not match regex /'+r.pattern+'/.'});
+      }catch(e){
+        checks.push({name:'Custom pattern', pass:false, msg:'Invalid regex: ' + e.message});
+      }
+    }
+    if(r.type === 'number' && v !== ''){
+      var n = Number(v);
+      if(isNaN(n)){
+        checks.push({name:'Numeric', pass:false, msg:'Not a valid number.'});
+      } else {
+        if(r.minValue !== '' && n < Number(r.minValue)) checks.push({name:'Min value '+r.minValue, pass:false, msg:'Below minimum ('+v+' < '+r.minValue+').'});
+        else if(r.minValue !== '') checks.push({name:'Min value '+r.minValue, pass:true, msg:'Above minimum.'});
+        if(r.maxValue !== '' && n > Number(r.maxValue)) checks.push({name:'Max value '+r.maxValue, pass:false, msg:'Above maximum ('+v+' > '+r.maxValue+').'});
+        else if(r.maxValue !== '') checks.push({name:'Max value '+r.maxValue, pass:true, msg:'Below maximum.'});
+      }
+    }
+  }
+  var allPass = checks.every(function(c){ return c.pass; });
+  var result = document.getElementById('iv-result');
+  var html = '<div class="output-box ' + (allPass ? 'success' : (isEmpty ? 'light' : 'error')) + '" style="margin-bottom:12px;">';
+  if(isEmpty && !r.required){
+    html += '⏸ No value to validate yet — and the field is optional.';
+  } else if(allPass){
+    html += '✓ VALID — all rules pass.';
+  } else {
+    html += '✗ INVALID — ' + checks.filter(function(c){ return !c.pass; }).length + ' rule(s) failed.';
+  }
+  html += '</div>';
+  html += '<div class="card-title" style="margin-top:8px;"><span class="ct-dot"></span>Rule-by-rule breakdown</div>';
+  html += '<div class="ax-issue-list">';
+  checks.forEach(function(c){
+    html += '<div class="ax-issue ' + (c.pass ? 'pass' : 'error') + '" style="grid-template-columns:110px 1fr;">' +
+      '<span class="ax-sev ' + (c.pass ? 'pass' : 'error') + '">' + (c.pass ? 'PASS' : 'FAIL') + '</span>' +
+      '<div class="ax-body"><strong>' + escapeHtml(c.name) + '</strong>' + escapeHtml(c.msg) + '</div></div>';
+  });
+  html += '</div>';
+  result.innerHTML = html;
+}
+
+/* ============================================================
+   TOOL 3 — REGEX PATTERN LIBRARY
+   ============================================================ */
+var REGEX_LIBRARY = [
+  {name:'Email', cat:'Contact', pattern:'^[^\\s@]+@[^\\s@]+\\.[^\\s@]{2,}$', desc:'Standard email format. Catches most invalid addresses; pair with verification email for production.', test:'user@example.com'},
+  {name:'URL', cat:'Web', pattern:'^https?:\\/\\/(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b([-a-zA-Z0-9()@:%_\\+.~#?&//=]*)$', desc:'HTTP/HTTPS URLs with optional www and path. Does not allow other schemes like ftp.', test:'https://example.com/path?q=1'},
+  {name:'Phone (US)', cat:'Contact', pattern:'^(\\+1|1)?[\\s.-]?\\(?([2-9]\\d{2})\\)?[\\s.-]?(\\d{3})[\\s.-]?(\\d{4})$', desc:'North American phone with optional country code, parentheses, dashes, or dots.', test:'(415) 555-1234'},
+  {name:'Phone (UK)', cat:'Contact', pattern:'^(\\+44|0)7[0-9]{9}$', desc:'UK mobile number with optional +44 country code.', test:'07911 123456'},
+  {name:'Phone (intl)', cat:'Contact', pattern:'^\\+[1-9]\\d{6,14}$', desc:'E.164 international phone format, 7–15 digits, leading +.', test:'+14155551234'},
+  {name:'ZIP Code (US)', cat:'Location', pattern:'^\\d{5}(-\\d{4})?$', desc:'5-digit ZIP or ZIP+4 with dash separator.', test:'94107-1234'},
+  {name:'Postcode (UK)', cat:'Location', pattern:'^[A-Z]{1,2}\\d[A-Z\\d]? ?\\d[A-Z]{2}$', desc:'UK postcode, case-insensitive (uppercase input).', test:'SW1A 1AA'},
+  {name:'Postal Code (CA)', cat:'Location', pattern:'^[A-Z]\\d[A-Z] ?\\d[A-Z]\\d$', desc:'Canadian postal code in A1A 1A1 format.', test:'K1A 0B1'},
+  {name:'Credit Card (Visa)', cat:'Finance', pattern:'^4[0-9]{12}(?:[0-9]{3})?$', desc:'Visa card numbers: 13 or 16 digits starting with 4. Add Luhn check for production.', test:'4111111111111111'},
+  {name:'Credit Card (Mastercard)', cat:'Finance', pattern:'^(?:5[1-5][0-9]{2}|222[1-9]|22[3-9][0-9]|2[3-6][0-9]{2}|27[01][0-9]|2720)[0-9]{12}$', desc:'Mastercard: 16 digits starting 51-55 or 2221-2720.', test:'5555555555554444'},
+  {name:'Credit Card (Amex)', cat:'Finance', pattern:'^3[47][0-9]{13}$', desc:'American Express: 15 digits starting 34 or 37.', test:'378282246310005'},
+  {name:'Credit Card (Discover)', cat:'Finance', pattern:'^6(?:011|5[0-9]{2})[0-9]{12}$', desc:'Discover: 16 digits starting 6011 or 65.', test:'6011111111111117'},
+  {name:'IPv4 Address', cat:'Network', pattern:'^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$', desc:'Dotted-quad IPv4, each octet 0–255.', test:'192.168.1.1'},
+  {name:'IPv6 Address', cat:'Network', pattern:'^(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$', desc:'Full and compressed IPv6 with :: shorthand.', test:'2001:0db8:85a3::8a2e:0370:7334'},
+  {name:'MAC Address', cat:'Network', pattern:'^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$', desc:'MAC address with colon or dash separators.', test:'00:1A:2B:3C:4D:5E'},
+  {name:'Date (YYYY-MM-DD)', cat:'Date/Time', pattern:'^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$', desc:'ISO 8601 calendar date. Validates format only, not real dates.', test:'2026-03-15'},
+  {name:'Date (MM/DD/YYYY)', cat:'Date/Time', pattern:'^(0[1-9]|1[0-2])\\/(0[1-9]|[12]\\d|3[01])\\/\\d{4}$', desc:'US-style date with slashes.', test:'03/15/2026'},
+  {name:'Date (DD/MM/YYYY)', cat:'Date/Time', pattern:'^(0[1-9]|[12]\\d|3[01])\\/(0[1-9]|1[0-2])\\/\\d{4}$', desc:'European-style date with slashes.', test:'15/03/2026'},
+  {name:'Time (24h)', cat:'Date/Time', pattern:'^([01]\\d|2[0-3]):([0-5]\\d)$', desc:'24-hour time HH:MM.', test:'14:30'},
+  {name:'Time (12h)', cat:'Date/Time', pattern:'^(0?[1-9]|1[0-2]):([0-5]\\d)\\s?([AaPp][Mm])$', desc:'12-hour time with AM/PM.', test:'2:30 PM'},
+  {name:'Hex Color', cat:'Design', pattern:'^#?([0-9A-Fa-f]{3}|[0-9A-Fa-f]{6})$', desc:'3- or 6-digit hex color, optional leading #.', test:'#4f46e5'},
+  {name:'Username', cat:'Identity', pattern:'^[a-zA-Z0-9_.-]{3,20}$', desc:'Username allowing letters, digits, dot, underscore, dash, 3–20 chars.', test:'john_doe.42'},
+  {name:'Username (no specials)', cat:'Identity', pattern:'^[a-zA-Z0-9]{3,20}$', desc:'Strict username: letters and digits only, 3–20 chars.', test:'johndoe42'},
+  {name:'Strong Password', cat:'Security', pattern:'^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[^A-Za-z0-9]).{12,}$', desc:'12+ chars with lowercase, uppercase, digit, and symbol.', test:'Str0ng!Pass2026'},
+  {name:'Slug', cat:'Web', pattern:'^[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$', desc:'URL slug: lowercase letters, digits, single dashes; not starting or ending with dash.', test:'premium-forms-toolkit'},
+  {name:'ISBN-13', cat:'Publishing', pattern:'^97(?:8|9)-?\\d{1,5}-?\\d{1,7}-?\\d{1,7}-?\\d$', desc:'ISBN-13 with optional dashes. Verify checksum in production.', test:'978-0-13-468599-1'},
+  {name:'ISSN', cat:'Publishing', pattern:'^\\d{4}-\\d{3}[\\dXx]$', desc:'8-character ISSN with dash and optional X check digit.', test:'0317-8471'},
+  {name:'IBAN', cat:'Finance', pattern:'^[A-Z]{2}\\d{2}[A-Z0-9]{1,30}$', desc:'International Bank Account Number, 2 country + 2 check + BBAN.', test:'GB29NWBK60161331926819'},
+  {name:'SWIFT/BIC', cat:'Finance', pattern:'^[A-Z]{4}[A-Z]{2}[A-Z0-9]{2}([A-Z0-9]{3})?$', desc:'8- or 11-character SWIFT/BIC bank code.', test:'DEUTDEFF500'},
+  {name:'Bitcoin Address (Legacy)', cat:'Crypto', pattern:'^[13][a-km-zA-HJ-NP-Z1-9]{25,34}$', desc:'Legacy P2PKH/P2SH Bitcoin address starting with 1 or 3.', test:'1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa'},
+  {name:'Ethereum Address', cat:'Crypto', pattern:'^0x[a-fA-F0-9]{40}$', desc:'Ethereum wallet address, 0x + 40 hex chars.', test:'0x71C7656EC7ab88b098defB751B7401B5f6d8976F'},
+  {name:'SSN (last 4)', cat:'Identity', pattern:'^\\d{3,4}$', desc:'3- or 4-digit SSN tail. Never store or collect full SSNs in client-side code.', test:'1234'},
+  {name:'US License Plate', cat:'Identity', pattern:'^[A-Z0-9 -]{2,8}$', desc:'Loose US license plate format. Varies by state — verify locally.', test:'ABC-1234'},
+  {name:'Currency (USD)', cat:'Finance', pattern:'^\\$?\\d{1,3}(?:,\\d{3})*(?:\\.\\d{2})?$', desc:'US currency with optional $ and comma grouping.', test:'$1,234.50'},
+  {name:'Decimal Number', cat:'Numeric', pattern:'^-?\\d+\\.\\d+$', desc:'Signed decimal with required fractional part.', test:'-3.14'},
+  {name:'Integer', cat:'Numeric', pattern:'^-?\\d+$', desc:'Signed integer, no decimal point.', test:'-42'}
+];
+function renderRegexLibrary(){
+  var q = (document.getElementById('regex-search').value || '').toLowerCase();
+  var grid = document.getElementById('regex-grid');
+  var list = REGEX_LIBRARY.map(function(p, i){ return {p:p, i:i}; }).filter(function(item){
+    if(!q) return true;
+    return (item.p.name + ' ' + item.p.cat + ' ' + item.p.desc).toLowerCase().indexOf(q) >= 0;
+  });
+  if(!list.length){
+    grid.innerHTML = '<div class="empty-state">No patterns match your filter.</div>';
+    return;
+  }
+  grid.innerHTML = list.map(function(item, idx){
+    var id = 'rx_' + idx;
+    return '<div class="regex-card">' +
+      '<div class="regex-card-head"><div><div class="regex-card-name">' + escapeHtml(item.p.name) + '</div><div class="regex-card-cat">' + escapeHtml(item.p.cat) + '</div></div>' +
+      '<button class="btn btn-ghost-soft btn-xs" onclick="copyText(\'' + item.p.pattern.replace(/'/g,"\\'") + '\', \'Pattern copied\')">Copy</button></div>' +
+      '<div class="regex-card-pattern">' + escapeHtml(item.p.pattern) + '</div>' +
+      '<div class="regex-card-desc">' + escapeHtml(item.p.desc) + '</div>' +
+      '<div class="regex-test-row">' +
+        '<input type="text" id="' + id + '" value="' + escapeAttr(item.p.test) + '" oninput="testRegexByIdx(' + idx + ', \'' + id + '\')" placeholder="Type test string…">' +
+        '<span class="regex-result" id="' + id + '_r">—</span>' +
+      '</div>' +
+      '</div>';
+  }).join('');
+  list.forEach(function(item, idx){ testRegex(item.p, 'rx_' + idx); });
+}
+function testRegexByIdx(filterIdx, inputId){
+  var q = (document.getElementById('regex-search').value || '').toLowerCase();
+  var list = REGEX_LIBRARY.map(function(p, i){ return {p:p, i:i}; }).filter(function(item){
+    if(!q) return true;
+    return (item.p.name + ' ' + item.p.cat + ' ' + item.p.desc).toLowerCase().indexOf(q) >= 0;
+  });
+  if(list[filterIdx]) testRegex(list[filterIdx].p, inputId);
+}
+function testRegex(p, inputId){
+  var v = document.getElementById(inputId).value;
+  var r = document.getElementById(inputId + '_r');
+  var ok = false, err = null;
+  try{
+    var re = new RegExp(p.pattern);
+    ok = re.test(v);
+  }catch(e){ err = e.message; }
+  if(err){
+    r.className = 'regex-result fail';
+    r.textContent = 'regex err';
+  } else if(ok){
+    r.className = 'regex-result pass';
+    r.textContent = '✓ match';
+  } else {
+    r.className = 'regex-result fail';
+    r.textContent = '✗ no match';
+  }
+}
+
+/* ============================================================
+   TOOL 4 — HTML FORM GENERATOR
+   ============================================================ */
+var FG_CURRENT = 'contact';
+(function(){
+  var chips = document.querySelectorAll('#fg-chips .chip');
+  chips.forEach(function(c){
+    c.addEventListener('click', function(){
+      chips.forEach(function(x){ x.classList.toggle('active', x === c); });
+      FG_CURRENT = c.getAttribute('data-form');
+      generateForm();
+    });
+  });
+})();
+function generateForm(){
+  var withCss = document.getElementById('fg-css').checked;
+  var withVal = document.getElementById('fg-validation').checked;
+  var withAria = document.getElementById('fg-aria').checked;
+  var spec = FG_SPECS[FG_CURRENT];
+  var body = spec.build(withVal, withAria);
+  var css = withCss ? FG_CSS : '';
+  var html = '<form action="' + (spec.action||'#') + '" method="' + (spec.method||'post') + '"' + (withAria? ' aria-label="'+spec.label+'"':'') + '>\n' + body + '\n</form>';
+  var full = '<!DOCTYPE html>\n<html lang="en">\n<head>\n<meta charset="UTF-8">\n<meta name="viewport" content="width=device-width, initial-scale=1">\n<title>' + spec.label + '</title>\n' + (css ? '<style>\n' + css + '\n</style>\n' : '') + '</head>\n<body>\n' + html + '\n</body>\n</html>\n';
+  document.getElementById('fg-output').textContent = full;
+  document.getElementById('fg-preview').innerHTML = html;
+}
+var FG_CSS = 'form{font-family:system-ui,sans-serif;max-width:480px;margin:40px auto;padding:24px;background:#fff;border-radius:12px;box-shadow:0 6px 18px rgba(15,23,42,.06)}\nh2{margin:0 0 16px;font-size:22px}\nlabel{display:block;font-weight:600;margin-bottom:5px;font-size:14px}\ninput,textarea,select{width:100%;padding:10px 12px;border:1px solid #cbd5e1;border-radius:8px;font:inherit;margin-bottom:14px}\nbutton{background:#4f46e5;color:#fff;border:none;padding:11px 18px;border-radius:8px;font-weight:700;cursor:pointer;width:100%}\nsmall{display:block;color:#64748b;font-size:12px;margin-top:-10px;margin-bottom:14px}\nfieldset{border:1px solid #cbd5e1;border-radius:8px;padding:10px 14px;margin-bottom:14px}\nlegend{font-weight:600;padding:0 6px}';
+var FG_SPECS = {
+  contact: {
+    label: 'Contact Form', action: '/contact', method: 'post',
+    build: function(v, a){
+      var r = v?' required':'';
+      var h = '';
+      h += '  <h2>Contact us</h2>\n';
+      h += '  <label for="cf_name">Name'+(v?'<span aria-hidden="true">*</span>':'')+'</label>\n';
+      h += '  <input type="text" id="cf_name" name="name" placeholder="Your name"' + r + (a?' autocomplete="name"':'') + '>\n';
+      h += '  <label for="cf_email">Email'+(v?'<span aria-hidden="true">*</span>':'')+'</label>\n';
+      h += '  <input type="email" id="cf_email" name="email" placeholder="you@example.com"' + r + (a?' autocomplete="email"':'') + '>\n';
+      h += '  <label for="cf_subject">Subject</label>\n';
+      h += '  <input type="text" id="cf_subject" name="subject"' + (v?'':'') + '>\n';
+      h += '  <label for="cf_msg">Message'+(v?'<span aria-hidden="true">*</span>':'')+'</label>\n';
+      h += '  <textarea id="cf_msg" name="message" rows="5" placeholder="How can we help?"' + r + '></textarea>\n';
+      h += '  <button type="submit">Send message</button>\n';
+      return h;
+    }
+  },
+  login: {
+    label: 'Login Form', action: '/login', method: 'post',
+    build: function(v, a){
+      var r = v?' required':'';
+      var h = '';
+      h += '  <h2>Sign in</h2>\n';
+      h += '  <label for="lg_email">Email'+(v?'<span aria-hidden="true">*</span>':'')+'</label>\n';
+      h += '  <input type="email" id="lg_email" name="email"' + r + (a?' autocomplete="email"':'') + '>\n';
+      h += '  <label for="lg_pw">Password'+(v?'<span aria-hidden="true">*</span>':'')+'</label>\n';
+      h += '  <input type="password" id="lg_pw" name="password"' + r + (a?' autocomplete="current-password"':'') + '>\n';
+      h += '  <label style="font-weight:400"><input type="checkbox" name="remember" style="width:auto;margin:0 6px 0 0"' + (a?' autocomplete="on"':'') + '> Remember me</label>\n';
+      h += '  <button type="submit">Sign in</button>\n';
+      return h;
+    }
+  },
+  signup: {
+    label: 'Signup Form', action: '/signup', method: 'post',
+    build: function(v, a){
+      var r = v?' required':'';
+      var h = '';
+      h += '  <h2>Create your account</h2>\n';
+      h += '  <label for="su_name">Full name'+(v?'<span aria-hidden="true">*</span>':'')+'</label>\n';
+      h += '  <input type="text" id="su_name" name="name"' + r + (a?' autocomplete="name"':'') + '>\n';
+      h += '  <label for="su_email">Email'+(v?'<span aria-hidden="true">*</span>':'')+'</label>\n';
+      h += '  <input type="email" id="su_email" name="email"' + r + (a?' autocomplete="email"':'') + '>\n';
+      h += '  <label for="su_pw">Password'+(v?'<span aria-hidden="true">*</span>':'')+'</label>\n';
+      h += '  <input type="password" id="su_pw" name="password"' + r + (v?' minlength="12"':'') + (a?' autocomplete="new-password"':'') + '>\n';
+      if(v) h += '  <small>Use at least 12 characters with a mix of letters, digits, and symbols.</small>\n';
+      h += '  <label for="su_pw2">Confirm password'+(v?'<span aria-hidden="true">*</span>':'')+'</label>\n';
+      h += '  <input type="password" id="su_pw2" name="password_confirm"' + r + (a?' autocomplete="new-password"':'') + '>\n';
+      h += '  <label style="font-weight:400"><input type="checkbox" name="terms" style="width:auto;margin:0 6px 0 0"' + r + '> I agree to the Terms</label>\n';
+      h += '  <button type="submit">Create account</button>\n';
+      return h;
+    }
+  },
+  newsletter: {
+    label: 'Newsletter Signup', action: '/subscribe', method: 'post',
+    build: function(v, a){
+      var r = v?' required':'';
+      var h = '';
+      h += '  <h2>Subscribe to our newsletter</h2>\n';
+      h += '  <label for="nl_email">Email'+(v?'<span aria-hidden="true">*</span>':'')+'</label>\n';
+      h += '  <input type="email" id="nl_email" name="email" placeholder="you@example.com"' + r + (a?' autocomplete="email"':'') + '>\n';
+      h += '  <label for="nl_freq">Delivery frequency</label>\n';
+      h += '  <select id="nl_freq" name="frequency">\n    <option value="daily">Daily</option>\n    <option value="weekly" selected>Weekly</option>\n    <option value="monthly">Monthly</option>\n  </select>\n';
+      h += '  <label style="font-weight:400"><input type="checkbox" name="consent" style="width:auto;margin:0 6px 0 0"' + r + '> I consent to receive emails</label>\n';
+      h += '  <button type="submit">Subscribe</button>\n';
+      return h;
+    }
+  },
+  survey: {
+    label: 'Survey Form', action: '/survey', method: 'post',
+    build: function(v, a){
+      var r = v?' required':'';
+      var h = '';
+      h += '  <h2>Quick survey</h2>\n';
+      h += '  <fieldset>\n    <legend>How did you hear about us?'+(v?'<span aria-hidden="true">*</span>':'')+'</legend>\n';
+      ['Search engine','Social media','Friend or colleague','Advertisement','Other'].forEach(function(o, i){
+        h += '    <label style="font-weight:400"><input type="radio" name="source" value="' + o + '"' + (v&&i===0?' required':'') + ' style="width:auto;margin:0 6px 0 0"> ' + o + '</label>\n';
+      });
+      h += '  </fieldset>\n';
+      h += '  <label for="sv_rate">Overall satisfaction</label>\n';
+      h += '  <select id="sv_rate" name="rating"' + r + '>\n    <option value="">Choose…</option>\n    <option value="5">5 — Very satisfied</option>\n    <option value="4">4 — Satisfied</option>\n    <option value="3">3 — Neutral</option>\n    <option value="2">2 — Dissatisfied</option>\n    <option value="1">1 — Very dissatisfied</option>\n  </select>\n';
+      h += '  <label for="sv_comments">Comments</label>\n';
+      h += '  <textarea id="sv_comments" name="comments" rows="4" placeholder="Tell us more…"></textarea>\n';
+      h += '  <button type="submit">Submit survey</button>\n';
+      return h;
+    }
+  },
+  order: {
+    label: 'Order Form', action: '/order', method: 'post',
+    build: function(v, a){
+      var r = v?' required':'';
+      var h = '';
+      h += '  <h2>Place your order</h2>\n';
+      h += '  <label for="od_name">Full name'+(v?'<span aria-hidden="true">*</span>':'')+'</label>\n';
+      h += '  <input type="text" id="od_name" name="name"' + r + (a?' autocomplete="name"':'') + '>\n';
+      h += '  <label for="od_addr">Shipping address'+(v?'<span aria-hidden="true">*</span>':'')+'</label>\n';
+      h += '  <textarea id="od_addr" name="address" rows="3"' + r + (a?' autocomplete="street-address"':'') + '></textarea>\n';
+      h += '  <label for="od_city">City'+(v?'<span aria-hidden="true">*</span>':'')+'</label>\n';
+      h += '  <input type="text" id="od_city" name="city"' + r + (a?' autocomplete="address-level2"':'') + '>\n';
+      h += '  <label for="od_zip">ZIP / Postal code'+(v?'<span aria-hidden="true">*</span>':'')+'</label>\n';
+      h += '  <input type="text" id="od_zip" name="zip"' + r + (a?' autocomplete="postal-code"':'') + '>\n';
+      h += '  <label for="od_cc">Credit card'+(v?'<span aria-hidden="true">*</span>':'')+'</label>\n';
+      h += '  <input type="text" id="od_cc" name="cc" inputmode="numeric" placeholder="1234 5678 9012 3456"' + r + (a?' autocomplete="cc-number"':'') + '>\n';
+      h += '  <button type="submit">Place order</button>\n';
+      return h;
+    }
+  },
+  rsvp: {
+    label: 'RSVP Form', action: '/rsvp', method: 'post',
+    build: function(v, a){
+      var r = v?' required':'';
+      var h = '';
+      h += '  <h2>RSVP</h2>\n';
+      h += '  <label for="rsvp_name">Your name'+(v?'<span aria-hidden="true">*</span>':'')+'</label>\n';
+      h += '  <input type="text" id="rsvp_name" name="name"' + r + (a?' autocomplete="name"':'') + '>\n';
+      h += '  <label for="rsvp_email">Email'+(v?'<span aria-hidden="true">*</span>':'')+'</label>\n';
+      h += '  <input type="email" id="rsvp_email" name="email"' + r + (a?' autocomplete="email"':'') + '>\n';
+      h += '  <fieldset>\n    <legend>Will you attend?'+(v?'<span aria-hidden="true">*</span>':'')+'</legend>\n';
+      h += '    <label style="font-weight:400"><input type="radio" name="attend" value="yes"' + (v?' required':'') + ' style="width:auto;margin:0 6px 0 0"> Yes, with pleasure</label>\n';
+      h += '    <label style="font-weight:400"><input type="radio" name="attend" value="no" style="width:auto;margin:0 6px 0 0"> Sorry, can\'t make it</label>\n';
+      h += '  </fieldset>\n';
+      h += '  <label for="rsvp_guests">Number of guests</label>\n';
+      h += '  <input type="number" id="rsvp_guests" name="guests" min="0" max="5" value="0">\n';
+      h += '  <label for="rsvp_note">Dietary restrictions / notes</label>\n';
+      h += '  <textarea id="rsvp_note" name="notes" rows="3"></textarea>\n';
+      h += '  <button type="submit">Send RSVP</button>\n';
+      return h;
+    }
+  },
+  job: {
+    label: 'Job Application Form', action: '/apply', method: 'post',
+    build: function(v, a){
+      var r = v?' required':'';
+      var h = '';
+      h += '  <h2>Apply for this role</h2>\n';
+      h += '  <label for="jb_name">Full name'+(v?'<span aria-hidden="true">*</span>':'')+'</label>\n';
+      h += '  <input type="text" id="jb_name" name="name"' + r + (a?' autocomplete="name"':'') + '>\n';
+      h += '  <label for="jb_email">Email'+(v?'<span aria-hidden="true">*</span>':'')+'</label>\n';
+      h += '  <input type="email" id="jb_email" name="email"' + r + (a?' autocomplete="email"':'') + '>\n';
+      h += '  <label for="jb_phone">Phone</label>\n';
+      h += '  <input type="tel" id="jb_phone" name="phone"' + (a?' autocomplete="tel"':'') + '>\n';
+      h += '  <label for="jb_role">Role you are applying for'+(v?'<span aria-hidden="true">*</span>':'')+'</label>\n';
+      h += '  <select id="jb_role" name="role"' + r + '>\n    <option value="">Choose…</option>\n    <option>Frontend Engineer</option>\n    <option>Backend Engineer</option>\n    <option>Product Designer</option>\n    <option>Product Manager</option>\n  </select>\n';
+      h += '  <label for="jb_exp">Years of experience'+(v?'<span aria-hidden="true">*</span>':'')+'</label>\n';
+      h += '  <input type="number" id="jb_exp" name="experience" min="0" max="50"' + r + '>\n';
+      h += '  <label for="jb_cover">Cover letter'+(v?'<span aria-hidden="true">*</span>':'')+'</label>\n';
+      h += '  <textarea id="jb_cover" name="cover_letter" rows="5"' + r + '></textarea>\n';
+      h += '  <label for="jb_resume">Resume link'+(v?'<span aria-hidden="true">*</span>':'')+'</label>\n';
+      h += '  <input type="url" id="jb_resume" name="resume" placeholder="https://…"' + r + '>\n';
+      h += '  <button type="submit">Submit application</button>\n';
+      return h;
+    }
+  }
+};
+function copyGeneratedForm(){
+  var code = document.getElementById('fg-output').textContent;
+  copyText(code, 'Generated form copied');
+}
+function downloadGeneratedForm(){
+  var code = document.getElementById('fg-output').textContent;
+  downloadFile('form-' + FG_CURRENT + '.html', code, 'text/html');
+}
+
+/* ============================================================
+   TOOL 5 — ACCESSIBILITY CHECKER
+   ============================================================ */
+function loadA11ySample(){
+  document.getElementById('ax-input').value = '<form action="/contact" method="post">\n  <input type="text" name="name" placeholder="Your name" required>\n  <input type="email" name="email" required>\n  <div>\n    <input type="radio" name="topic" value="sales"> Sales\n    <input type="radio" name="topic" value="support"> Support\n  </div>\n  <textarea name="msg" required></textarea>\n  <button type="submit">→</button>\n</form>';
+}
+function clearA11y(){
+  document.getElementById('ax-input').value = '';
+  document.getElementById('ax-results-card').style.display = 'none';
+}
+function runA11yCheck(){
+  var html = document.getElementById('ax-input').value;
+  if(!html.trim()){ toast('Paste some HTML first','warn'); return; }
+  var doc = new DOMParser().parseFromString('<!DOCTYPE html><html><body>' + html + '</body></html>', 'text/html');
+  var issues = [];
+  var passes = [];
+  var forms = doc.querySelectorAll('form');
+  if(!forms.length){
+    issues.push({sev:'error', title:'No <form> element found', fix:'Wrap your inputs in a <form> element with action and method attributes.'});
+  }
+  forms.forEach(function(form, fi){
+    if(!form.getAttribute('action')) issues.push({sev:'warning', title:'Form #' + (fi+1) + ' has no action attribute', fix:'Add action=\"URL\" so the form knows where to submit.'});
+    if(!form.getAttribute('method')) issues.push({sev:'warning', title:'Form #' + (fi+1) + ' has no method attribute', fix:'Add method=\"post\" (or \"get\") explicitly.'});
+    if(!form.getAttribute('aria-label') && !form.querySelector('h1,h2,h3')) issues.push({sev:'info', title:'Form #' + (fi+1) + ' has no accessible name', fix:'Add aria-label or a heading inside the form so screen readers can announce its purpose.'});
+  });
+  var inputs = doc.querySelectorAll('input, select, textarea');
+  inputs.forEach(function(el, i){
+    var type = (el.getAttribute('type') || el.tagName.toLowerCase());
+    var name = el.getAttribute('name') || ('#' + (i+1));
+    var id = el.getAttribute('id');
+    var ariaLabel = el.getAttribute('aria-label');
+    var ariaLabelledBy = el.getAttribute('aria-labelledby');
+    var placeholder = el.getAttribute('placeholder');
+    var hasLabel = false;
+    if(id){
+      var lbl = doc.querySelector('label[for="' + CSS.escape(id) + '"]');
+      if(lbl) hasLabel = true;
+    }
+    var wrap = el.closest('label');
+    if(wrap) hasLabel = true;
+    if(ariaLabel || ariaLabelledBy) hasLabel = true;
+    if(type === 'hidden' || type === 'submit' || type === 'button'){
+      // skip
+    } else if(!hasLabel){
+      if(placeholder){
+        issues.push({sev:'error', title:'<' + type + '> name="' + name + '" has no <label>, only a placeholder', fix:'Placeholders disappear on input and are not accessible name substitutes. Add a <label for="id">.'});
+      } else {
+        issues.push({sev:'error', title:'<' + type + '> name="' + name + '" has no associated label', fix:'Add a <label for="id"> element and matching id on the input, or wrap the input inside a <label>.'});
+      }
+    } else {
+      passes.push({sev:'pass', title:'<' + type + '> name="' + name + '" has a proper label', fix:''});
+    }
+    if(el.hasAttribute('required')){
+      if(!el.getAttribute('aria-required')){
+        issues.push({sev:'info', title:'<' + type + '> name="' + name + '" is required but missing aria-required="true"', fix:'aria-required is redundant with the native required attribute but improves compatibility with older screen readers.'});
+      }
+      var asterisk = id ? (function(){ var l = doc.querySelector('label[for="' + CSS.escape(id) + '"]'); return l && /\*/.test(l.textContent); })() : false;
+      if(!asterisk && !ariaLabel){
+        issues.push({sev:'warning', title:'<' + type + '> name="' + name + '" is required with no visible indicator', fix:'Visually mark required fields with an asterisk and a text alternative like "required".'});
+      }
+    }
+    var t = (el.getAttribute('type') || '').toLowerCase();
+    if(t === 'email' && !el.getAttribute('autocomplete')) issues.push({sev:'info', title:'Email input name="' + name + '" has no autocomplete attribute', fix:'Add autocomplete="email" so browsers can autofill it.'});
+    if(t === 'tel' && !el.getAttribute('autocomplete')) issues.push({sev:'info', title:'Tel input name="' + name + '" has no autocomplete attribute', fix:'Add autocomplete="tel".'});
+    if(t === 'password' && !el.getAttribute('autocomplete')) issues.push({sev:'info', title:'Password input name="' + name + '" has no autocomplete attribute', fix:'Use autocomplete="current-password" for login or "new-password" for signup.'});
+    if(t === 'text' && /name/i.test(name) && !el.getAttribute('autocomplete')) issues.push({sev:'info', title:'Name input name="' + name + '" has no autocomplete attribute', fix:'Add autocomplete="name".'});
+    if(t === 'url' && !el.getAttribute('autocomplete')) issues.push({sev:'info', title:'URL input name="' + name + '" has no autocomplete attribute', fix:'Add autocomplete="url".'});
+  });
+  var radioGroups = {};
+  doc.querySelectorAll('input[type="radio"]').forEach(function(r){
+    var n = r.getAttribute('name');
+    if(!n) return;
+    radioGroups[n] = (radioGroups[n]||0) + 1;
+  });
+  Object.keys(radioGroups).forEach(function(n){
+    var first = doc.querySelector('input[type="radio"][name="' + CSS.escape(n) + '"]');
+    var fs = first ? first.closest('fieldset') : null;
+    if(!fs){
+      issues.push({sev:'warning', title:'Radio group name="' + n + '" is not inside a <fieldset>', fix:'Group related radios in a <fieldset> with a <legend> describing the question.'});
+    } else if(!fs.querySelector('legend')){
+      issues.push({sev:'warning', title:'Fieldset for radio group name="' + n + '" has no <legend>', fix:'Add a <legend> as the first child of the fieldset to label the group.'});
+    }
+  });
+  var cbs = doc.querySelectorAll('input[type="checkbox"]');
+  cbs.forEach(function(cb, i){
+    var fs = cb.closest('fieldset');
+    if(cbs.length > 1 && !fs && i === 0){
+      issues.push({sev:'info', title:'Multiple checkboxes detected with no <fieldset>', fix:'If they share a theme, group them in a <fieldset> with a <legend>.'});
+    }
+  });
+  var buttons = doc.querySelectorAll('button, input[type="submit"], input[type="button"]');
+  buttons.forEach(function(b, i){
+    var txt = (b.textContent || b.value || '').trim();
+    if(!txt){
+      issues.push({sev:'error', title:'Button #' + (i+1) + ' has no text content', fix:'Give every button a descriptive text label (or aria-label) so screen readers can announce it.'});
+    } else if(txt.length <= 2 && !/^(ok|go|✓|→)$/.test(txt)){
+      issues.push({sev:'warning', title:'Button "' + txt + '" has very short text', fix:'Use a descriptive label like "Submit form" or "Sign in" rather than a single character or arrow.'});
+    } else if(/^(→|←|↑|↓|✓|×)$/.test(txt)){
+      issues.push({sev:'warning', title:'Button uses a symbol ("' + txt + '") as its only label', fix:'Symbol-only buttons are ambiguous. Add a text label or aria-label like "Submit".'});
+    }
+  });
+  var allInputs = Array.from(doc.querySelectorAll('input, select, textarea, button'));
+  var tabIndexes = allInputs.filter(function(el){ return el.getAttribute('tabindex') && parseInt(el.getAttribute('tabindex'),10) > 0; });
+  if(tabIndexes.length){
+    issues.push({sev:'warning', title:'Positive tabindex values detected (' + tabIndexes.length + ')', fix:'Avoid tabindex > 0; it overrides natural tab order and confuses keyboard users. Use tabindex="0" or restructure the DOM.'});
+  }
+  var summary = {
+    error: issues.filter(function(i){ return i.sev === 'error'; }).length,
+    warning: issues.filter(function(i){ return i.sev === 'warning'; }).length,
+    info: issues.filter(function(i){ return i.sev === 'info'; }).length,
+    pass: passes.length
+  };
+  document.getElementById('ax-results-card').style.display = 'block';
+  document.getElementById('ax-summary').innerHTML =
+    '<div class="ax-summary-stat error"><span class="axs-num">' + summary.error + '</span><span class="axs-label">Errors</span></div>' +
+    '<div class="ax-summary-stat warning"><span class="axs-num">' + summary.warning + '</span><span class="axs-label">Warnings</span></div>' +
+    '<div class="ax-summary-stat info"><span class="axs-num">' + summary.info + '</span><span class="axs-label">Info</span></div>' +
+    '<div class="ax-summary-stat pass"><span class="axs-num">' + summary.pass + '</span><span class="axs-label">Passed</span></div>';
+  var list = document.getElementById('ax-issues');
+  if(!issues.length){
+    list.innerHTML = '<div class="ax-issue pass" style="grid-template-columns:1fr;"><div class="ax-body"><strong>No issues found.</strong>The checked form follows the most common accessibility conventions. Remember this is a static lint — also test with a keyboard and a screen reader.</div></div>';
+  } else {
+    list.innerHTML = issues.map(function(it){
+      return '<div class="ax-issue ' + it.sev + '">' +
+        '<span class="ax-sev ' + it.sev + '">' + it.sev + '</span>' +
+        '<div class="ax-body"><strong>' + escapeHtml(it.title) + '</strong>' + (it.fix ? '<span class="ax-fix">Fix: ' + escapeHtml(it.fix) + '</span>' : '') + '</div></div>';
+    }).join('');
+  }
+  toast('Checked ' + inputs.length + ' inputs · ' + summary.error + ' errors', summary.error ? 'error' : 'success');
+}
+
+/* ============================================================
+   TOOL 6 — PASSWORD STRENGTH CHECKER
+   ============================================================ */
+var PW_COMMON = ['password','passw0rd','admin','welcome','letmein','qwerty','monkey','dragon','master','hello','abc','login','starwars','trustno1','iloveyou','sunshine','princess','football','baseball','superman','batman','123456','12345678','111111','000000','654321','123123','121212'];
+var PW_KB_PATTERNS = ['qwerty','qwertz','azerty','asdf','zxcv','1234','2345','3456','4567','5678','6789','abcd','bcde','qaz','wsx','edc'];
+function analyzePassword(){
+  var pw = document.getElementById('pw-input').value;
+  var score = 0;
+  var reasons = [];
+  var fixes = [];
+  var len = pw.length;
+  var hasLower = /[a-z]/.test(pw);
+  var hasUpper = /[A-Z]/.test(pw);
+  var hasDigit = /[0-9]/.test(pw);
+  var hasSymbol = /[^a-zA-Z0-9]/.test(pw);
+  if(!pw.length){
+    setPwMeter(0, '', '—', []);
+    document.getElementById('pw-length').textContent = 0;
+    document.getElementById('pw-charset').textContent = 0;
+    document.getElementById('pw-crack').textContent = '—';
+    document.getElementById('pw-charset-list').innerHTML = charsetItems(false,false,false,false);
+    document.getElementById('pw-suggestions').innerHTML = '<div class="pw-sug"><span class="pw-sug-icon">!</span><span>Start typing a password to see analysis.</span></div>';
+    return;
+  }
+  // Length score (up to 40)
+  var lenScore = Math.min(len * 4, 40);
+  score += lenScore;
+  if(len < 8){ fixes.push('Use at least 8 characters — ideally 12 or more.'); }
+  else if(len < 12){ fixes.push('Aim for 12+ characters for a stronger password.'); }
+  // Character class bonuses
+  if(hasLower){ score += 8; } else { fixes.push('Add lowercase letters.'); }
+  if(hasUpper){ score += 10; } else { fixes.push('Add uppercase letters.'); }
+  if(hasDigit){ score += 10; } else { fixes.push('Add digits.'); }
+  if(hasSymbol){ score += 15; } else { fixes.push('Add symbols (!@#$% etc).'); }
+  // Length bonus
+  if(len >= 12) score += 7;
+  if(len >= 16) score += 3;
+  // Penalties
+  if(hasLower && !hasUpper && !hasDigit && !hasSymbol){ score -= 10; reasons.push('All-lowercase'); }
+  // Common patterns
+  var lower = pw.toLowerCase();
+  var hitPattern = null;
+  for(var i=0;i<PW_KB_PATTERNS.length;i++){
+    if(lower.indexOf(PW_KB_PATTERNS[i]) >= 0){ hitPattern = PW_KB_PATTERNS[i]; break; }
+  }
+  if(hitPattern){ score -= 18; reasons.push('Keyboard/sequence pattern: ' + hitPattern); fixes.push('Avoid keyboard patterns like "qwerty" or "1234" — replace with random characters.'); }
+  // Dictionary words
+  var hitWord = null;
+  for(var j=0;j<PW_COMMON.length;j++){
+    if(lower.indexOf(PW_COMMON[j]) >= 0){ hitWord = PW_COMMON[j]; break; }
+  }
+  if(hitWord){ score -= 20; reasons.push('Dictionary word: ' + hitWord); fixes.push('Avoid common words like "' + hitWord + '" — they are in every cracking dictionary.'); }
+  // Repeating characters
+  if(/(.)\1\1/.test(pw)){ score -= 10; reasons.push('Repeating characters'); fixes.push('Avoid 3+ repeating characters like "aaa" or "111".'); }
+  // Sequential duplicates / only digits
+  if(/^\d+$/.test(pw)){ score -= 15; reasons.push('All digits'); fixes.push('Mix letters and symbols with your digits.'); }
+  // Entropy diversity bonus
+  var uniq = new Set(pw.split('')).size;
+  if(uniq < len * 0.5 && len >= 6){ score -= 8; reasons.push('Low character diversity'); fixes.push('Use more distinct characters — too many repeats reduces entropy.'); }
+  score = clamp(Math.round(score), 0, 100);
+  // Rating
+  var rating, cls;
+  if(score < 40){ rating = 'Weak'; cls = 'weak'; }
+  else if(score < 60){ rating = 'Fair'; cls = 'fair'; }
+  else if(score < 80){ rating = 'Good'; cls = 'good'; }
+  else { rating = 'Strong'; cls = 'strong'; }
+  // Charset size & crack time
+  var charsetSize = (hasLower?26:0) + (hasUpper?26:0) + (hasDigit?10:0) + (hasSymbol?33:0);
+  if(charsetSize === 0) charsetSize = 1;
+  var combinations = Math.pow(charsetSize, len);
+  var seconds = combinations / 1e10; // 10 billion guesses/sec
+  setPwMeter(score, cls, rating, reasons, len, charsetSize, seconds);
+  document.getElementById('pw-length').textContent = len;
+  document.getElementById('pw-charset').textContent = charsetSize;
+  document.getElementById('pw-charset-list').innerHTML = charsetItems(hasLower, hasUpper, hasDigit, hasSymbol);
+  var sugHtml = '';
+  if(!fixes.length){
+    sugHtml = '<div class="pw-sug fixed"><span class="pw-sug-icon">✓</span><span>Excellent — no obvious weaknesses detected. Use a unique password for every site and a password manager.</span></div>';
+  } else {
+    sugHtml = fixes.map(function(f){ return '<div class="pw-sug"><span class="pw-sug-icon">!</span><span>' + escapeHtml(f) + '</span></div>'; }).join('');
+    if(reasons.length){
+      sugHtml += '<div class="pw-sug"><span class="pw-sug-icon">i</span><span>Detected weaknesses: ' + escapeHtml(reasons.join('; ')) + '.</span></div>';
+    }
+  }
+  document.getElementById('pw-suggestions').innerHTML = sugHtml;
+}
+function setPwMeter(score, cls, rating, reasons, len, charsetSize, seconds){
+  var fill = document.getElementById('pw-fill');
+  fill.className = 'pw-meter-fill ' + (cls || '');
+  fill.style.width = (score || 0) + '%';
+  document.getElementById('pw-score').innerHTML = (score||0) + '<span style="font-size:13px;color:var(--text-muted);">/100</span>';
+  var ratingEl = document.getElementById('pw-rating');
+  ratingEl.textContent = rating || '—';
+  ratingEl.className = 'stat-value ' + (cls === 'weak' ? 'error' : cls === 'fair' ? 'warning' : cls === 'good' ? 'indigo' : cls === 'strong' ? 'success' : '');
+  ['weak','fair','good','strong'].forEach(function(k){
+    document.getElementById('pw-l-' + k).classList.toggle('active', cls === k);
+    document.getElementById('pw-l-' + k).className = 'pw-l-' + k.replace('pw-l-','') + ' ' + (cls === k ? 'active ' + k : '');
+  });
+  if(len === undefined) return;
+  document.getElementById('pw-crack').textContent = formatCrackTime(seconds);
+}
+function formatCrackTime(seconds){
+  if(seconds < 1) return 'instant';
+  if(seconds < 60) return Math.round(seconds) + ' seconds';
+  if(seconds < 3600) return Math.round(seconds/60) + ' minutes';
+  if(seconds < 86400) return Math.round(seconds/3600) + ' hours';
+  if(seconds < 2592000) return Math.round(seconds/86400) + ' days';
+  if(seconds < 31536000) return Math.round(seconds/2592000) + ' months';
+  var years = seconds / 31536000;
+  if(years < 1000) return Math.round(years) + ' years';
+  if(years < 1e6) return Math.round(years/1000) + ' thousand years';
+  if(years < 1e9) return Math.round(years/1e6) + ' million years';
+  if(years < 1e12) return Math.round(years/1e9) + ' billion years';
+  if(years < 1e15) return (years/1e12).toFixed(1).replace(/\.0$/,'') + ' trillion years';
+  if(years < 1e18) return Math.round(years/1e15) + ' quadrillion years';
+  return years.toExponential(1).replace('e+','×10^') + ' years';
+}
+function charsetItems(l,u,d,s){
+  return [
+    {label:'Lowercase a-z', on:l},
+    {label:'Uppercase A-Z', on:u},
+    {label:'Digits 0-9', on:d},
+    {label:'Symbols !@#$', on:s}
+  ].map(function(it){
+    return '<span class="pw-charset-item ' + (it.on?'on':'') + '"><span class="pw-cb"></span>' + it.label + '</span>';
+  }).join('');
+}
+function togglePwVisibility(){
+  var inp = document.getElementById('pw-input');
+  var btn = document.getElementById('pw-toggle');
+  if(inp.type === 'password'){ inp.type = 'text'; btn.textContent = 'Hide'; }
+  else { inp.type = 'password'; btn.textContent = 'Show'; }
+  inp.focus();
+}
+
+/* ============================================================
+   TOOL 7 — FORM ANALYTICS CALCULATOR
+   ============================================================ */
+function calcAnalytics(){
+  var fields = parseFloat(document.getElementById('fa-fields').value) || 0;
+  var conv = parseFloat(document.getElementById('fa-conv').value) || 0;
+  var aban = parseFloat(document.getElementById('fa-aban').value) || 0;
+  var time = parseFloat(document.getElementById('fa-time').value) || 0;
+  var aov = parseFloat(document.getElementById('fa-aov').value) || 0;
+  var remove = parseFloat(document.getElementById('fa-remove').value) || 0;
+  var perField = parseFloat(document.getElementById('fa-perfield').value) || 0;
+  // Derived
+  var abanPer1k = aban / 100 * 1000;
+  var compPer1k = conv / 100 * 1000;
+  var fps = time > 0 ? fields / time : 0;
+  var spf = fields > 0 ? time / fields : 0;
+  // Projection: removing N fields lifts conversion by N * perField %
+  var liftPct = remove * perField; // percentage points relative to baseline
+  var projectedConv = conv * (1 + liftPct / 100);
+  projectedConv = clamp(projectedConv, 0, 100);
+  var projectedLiftPct = projectedConv - conv;
+  var extraPer1k = Math.round(projectedLiftPct / 100 * 1000);
+  var revenuePer1k = extraPer1k * aov;
+  document.getElementById('fa-r-aban').textContent = fmtNum(abanPer1k);
+  document.getElementById('fa-r-comp').textContent = fmtNum(compPer1k);
+  document.getElementById('fa-r-fps').textContent = fps.toFixed(2);
+  document.getElementById('fa-r-spf').textContent = spf.toFixed(1) + 's';
+  document.getElementById('fa-r-n').textContent = remove;
+  document.getElementById('fa-r-proj').textContent = projectedConv.toFixed(1) + '%';
+  document.getElementById('fa-r-lift').textContent = (projectedLiftPct >= 0 ? '+' : '') + projectedLiftPct.toFixed(1) + 'pp';
+  document.getElementById('fa-r-extra').textContent = fmtNum(extraPer1k);
+  document.getElementById('fa-r-rev').textContent = fmtMoney(revenuePer1k);
+  // Narrative
+  var nar = '';
+  if(fields <= 4){
+    nar = 'Your form is already short (' + fields + ' fields). Removal will yield limited lift — focus on field clarity, error messaging, and trust signals instead.';
+  } else if(fields <= 8){
+    nar = 'Your form is in the typical range. Removing ' + remove + ' field(s) projects ~' + projectedLiftPct.toFixed(1) + 'pp conversion lift, or about ' + fmtMoney(revenuePer1k) + ' extra revenue per 1,000 visits at your AOV.';
+  } else {
+    nar = 'Your form is long (' + fields + ' fields) — a prime candidate for trimming. Removing ' + remove + ' field(s) projects ~' + projectedLiftPct.toFixed(1) + 'pp lift and ' + fmtMoney(revenuePer1k) + ' per 1,000 visits. Consider moving non-essential fields to a follow-up step or making them optional.';
+  }
+  if(aban > 70){
+    nar += ' Your abandonment rate is above 70% — above the typical 60-67% benchmark. Investigate friction, trust, and mobile UX.';
+  }
+  if(spf > 12){
+    nar += ' At ' + spf.toFixed(1) + 's per field you may have cognitive load issues — break long fields into multiple choice or pre-fill where possible.';
+  }
+  document.getElementById('fa-r-narrative').innerHTML = escapeHtml(nar);
+}
+
+/* ============================================================
+   TOOL 8 — MULTI-STEP FORM PLANNER
+   ============================================================ */
+var MS_GROUPINGS = {
+  checkout: ['Contact & shipping','Delivery options','Payment','Review & confirm'],
+  signup: ['Account credentials','Profile details','Preferences','Verify & finish'],
+  leadgen: ['Qualification','Contact info','Needs & budget','Thank you'],
+  survey: ['Demographics','Section A','Section B','Comments & submit'],
+  application: ['About you','Experience','Documents','Review & submit']
+};
+function renderMultistep(){
+  var total = parseInt(document.getElementById('ms-total').value, 10) || 1;
+  var steps = parseInt(document.getElementById('ms-steps').value, 10) || 1;
+  var dropoff = parseFloat(document.getElementById('ms-dropoff').value) || 0;
+  var ctx = document.getElementById('ms-context').value;
+  total = clamp(total, 1, 80);
+  steps = clamp(steps, 1, 10);
+  // Distribute fields as evenly as possible (earlier steps get the remainder)
+  var base = Math.floor(total / steps);
+  var remainder = total % steps;
+  var dist = [];
+  for(var i=0; i<steps; i++){
+    dist.push(base + (i < remainder ? 1 : 0));
+  }
+  // Groupings
+  var groups = MS_GROUPINGS[ctx] || [];
+  // Completion rate per step (heuristic): each step keeps (100 - dropoff) of arrivals
+  var completion = 1;
+  var stepCompletions = [];
+  for(var j=0; j<steps; j++){
+    completion *= (1 - dropoff/100);
+    stepCompletions.push(completion);
+  }
+  var endCompletion = completion * 100;
+  // Summary
+  document.getElementById('ms-r-total').textContent = total;
+  document.getElementById('ms-r-steps').textContent = steps;
+  document.getElementById('ms-r-avg').textContent = (total/steps).toFixed(1);
+  document.getElementById('ms-r-completion').textContent = endCompletion.toFixed(1) + '%';
+  // Step list
+  var list = document.getElementById('ms-steps-list');
+  var html = '';
+  var carriedPct = 100;
+  for(var k=0; k<steps; k++){
+    var fieldsInStep = dist[k];
+    var pctOfTotal = total > 0 ? (fieldsInStep / total * 100) : 0;
+    var arrivesPct = (k === 0 ? 100 : stepCompletions[k-1] * 100);
+    var completesPct = stepCompletions[k] * 100;
+    var dropFromStep = arrivesPct - completesPct;
+    var keepCls = dropFromStep < 5 ? '' : (dropFromStep < 10 ? 'mid' : 'low');
+    var stepName = groups[k] || ('Step ' + (k+1));
+    var suggestion = msSuggestion(k, steps, ctx, fieldsInStep);
+    html += '<div class="ms-step">' +
+      '<div class="ms-step-head">' +
+        '<div class="ms-step-num">' + (k+1) + '</div>' +
+        '<div class="ms-step-title"><div class="ms-name">' + escapeHtml(stepName) + '</div>' +
+        '<div class="ms-meta">' + fieldsInStep + ' field' + (fieldsInStep===1?'':'s') + ' · ' + pctOfTotal.toFixed(0) + '% of form · ' + arrivesPct.toFixed(0) + '% arrive · ' + completesPct.toFixed(0) + '% complete</div></div>' +
+        '<span class="ms-step-keep ' + keepCls + '">−' + dropFromStep.toFixed(1) + '% drop</span>' +
+      '</div>' +
+      '<div class="ms-progress"><div class="ms-progress-fill" style="width:' + pctOfTotal + '%"></div></div>' +
+      '<div class="ms-suggestion"><strong>Suggested:</strong> ' + escapeHtml(suggestion) + '</div>' +
+    '</div>';
+  }
+  list.innerHTML = html;
+  // Outline
+  var outline = '# Multi-Step Form Plan\n\n';
+  outline += '- Context: ' + ctx + '\n';
+  outline += '- Total fields: ' + total + '\n';
+  outline += '- Steps: ' + steps + '\n';
+  outline += '- Per-step drop-off heuristic: ' + dropoff + '%\n';
+  outline += '- Projected end-to-end completion: ' + endCompletion.toFixed(1) + '%\n\n';
+  for(var m=0; m<steps; m++){
+    var fname = groups[m] || ('Step ' + (m+1));
+    outline += '## Step ' + (m+1) + ' — ' + fname + '\n';
+    outline += '- Fields: ' + dist[m] + '\n';
+    outline += '- Arriving users: ' + (m===0?100:(stepCompletions[m-1]*100).toFixed(1)) + '%\n';
+    outline += '- Completing users: ' + (stepCompletions[m]*100).toFixed(1) + '%\n';
+    outline += '- Suggestion: ' + msSuggestion(m, steps, ctx, dist[m]) + '\n\n';
+  }
+  document.getElementById('ms-outline').textContent = outline;
+}
+function msSuggestion(stepIdx, totalSteps, ctx, fieldCount){
+  var groups = MS_GROUPINGS[ctx] || [];
+  var name = groups[stepIdx] || ('Step ' + (stepIdx+1));
+  var tips = {
+    'Contact & shipping': 'Group name, email, and address fields. Use autocomplete attributes and a single address textarea where possible.',
+    'Delivery options': 'Offer radio cards for shipping speed. Pre-select the cheapest option to reduce decisions.',
+    'Payment': 'Use inputmode="numeric" and autocomplete="cc-*" attributes. Show accepted card brands clearly. Never store CVV.',
+    'Review & confirm': 'Summarize all prior inputs in read-only form. Show the total prominently and a clear "Place order" CTA.',
+    'Account credentials': 'Just email and password. Allow social sign-in. Use autocomplete="new-password" and a strength meter.',
+    'Profile details': 'Name, avatar, role. Make all of these optional — they can be filled in later from settings.',
+    'Preferences': 'Notification, language, and theme toggles. Default to the most common setting; users can change later.',
+    'Verify & finish': 'Email verification prompt and consent checkbox. Show progress: "1 step left!"',
+    'Qualification': '1-2 multiple-choice questions to segment leads. Avoid free-text here; it lowers completion.',
+    'Contact info': 'Name, email, phone. Use field-level help text and clear labels. Mark only email as required.',
+    'Needs & budget': 'Dropdowns for project type, budget range, timeline. Provide "Not sure" options to reduce friction.',
+    'Thank you': 'Confirmation message, expected next step, and an optional "schedule a call" CTA. No more inputs.',
+    'Demographics': 'Optional age, location, role. Always include "Prefer not to say" options.',
+    'Section A': 'Core questions only. 3-5 questions max per section to avoid fatigue.',
+    'Section B': 'Branching questions if applicable. Make logic visible with subtle section labels.',
+    'Comments & submit': 'A single optional textarea and a prominent Submit button. Show estimated completion time upfront.',
+    'About you': 'Name, contact, location. Use autocomplete attributes.',
+    'Experience': 'Role, years, current company. Make resume upload optional — link is faster.',
+    'Documents': 'Resume link, cover letter textarea. Avoid large file uploads on mobile.',
+    'Review & submit': 'Read-only summary of all answers with edit links. Clear submit and a note about next steps.'
+  };
+  if(tips[name]) return tips[name];
+  if(fieldCount > 6) return 'This step has ' + fieldCount + ' fields — consider splitting it. Users abandon long steps.';
+  if(fieldCount <= 2) return 'Short step — combine with the next one or add a clear "Continue" CTA.';
+  if(stepIdx === totalSteps - 1) return 'Final step. Use a clear, action-oriented submit button and show progress ("Last step!").';
+  if(stepIdx === 0) return 'First step sets the tone — keep it to 2-3 fields and a clear value proposition.';
+  return 'Use a progress indicator and a clear "Next" button. Save partial progress so users can resume.';
+}
+function copyMultistepOutline(){
+  var t = document.getElementById('ms-outline').textContent;
+  copyText(t, 'Outline copied');
+}
+function downloadMultistepOutline(){
+  var t = document.getElementById('ms-outline').textContent;
+  downloadFile('form-plan.md', t, 'text/markdown');
+}
+
+/* ============================================================
+   INIT
+   ============================================================ */
+(function init(){
+  renderFbList();
+  renderFbEditor();
+  renderFbPreview();
+  renderFbCode();
+  ivRender();
+  renderRegexLibrary();
+  generateForm();
+  analyzePassword();
+  calcAnalytics();
+  renderMultistep();
+})();
+</script>
+</body>
+</html>
