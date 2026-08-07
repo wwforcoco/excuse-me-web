@@ -1,0 +1,2004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Éclat — Premium Beauty Brand Landing Page Template | ExcuseMeWeb</title>
+<meta name="description" content="Éclat is a premium beauty and cosmetic brand landing page template. Editorial layout, pure-CSS product bottles, botanical ingredients, ritual steps, reviews and newsletter signup. No images — crafted entirely from CSS art.">
+<meta name="keywords" content="beauty landing page, cosmetic ecommerce template, premium skincare, luxury beauty brand, editorial landing page, ExcuseMeWeb">
+<meta name="author" content="ExcuseMeWeb">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://excusemeweb.com/premium-ecommerce-landing">
+<link rel="icon" href="/favicon.ico">
+<meta name="theme-color" content="#faf6f2">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Éclat — Premium Beauty Brand Landing Page Template">
+<meta property="og:description" content="Editorial beauty and cosmetic brand landing page template with pure-CSS product bottles, botanical ingredients and ritual steps.">
+<meta property="og:url" content="https://excusemeweb.com/premium-ecommerce-landing">
+<meta property="og:site_name" content="ExcuseMeWeb">
+<meta property="og:image" content="https://excusemeweb.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Éclat — Premium Beauty Brand Landing Page Template">
+<meta name="twitter:description" content="Editorial beauty and cosmetic brand landing page template with pure-CSS product bottles, botanical ingredients and ritual steps.">
+<meta name="twitter:image" content="https://excusemeweb.com/og-image.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Store","name":"Éclat","description":"Premium beauty and cosmetic brand offering botanical skincare, serums, creams and ritual sets.","url":"https://excusemeweb.com/premium-ecommerce-landing","logo":"https://excusemeweb.com/logo.png","currenciesAccepted":"USD","paymentAccepted":"Credit Card, PayPal","address":{"@type":"PostalAddress","addressLocality":"New York","addressRegion":"NY","postalCode":"10012","addressCountry":"US"},"contactPoint":{"@type":"ContactPoint","contactType":"customer service","email":"concierge@eclat.beauty","telephone":"+1-212-555-0148"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Brand","name":"Éclat","slogan":"Botanical luxury, clinically considered.","description":"Éclat is a luxury beauty house crafting botanical skincare and cosmetic rituals."}</script>
+<style>
+/* ============================================================
+   ÉCLAT — Premium Beauty Landing Page
+   Pure CSS art · no images · editorial layout
+   ============================================================ */
+
+:root{
+  --cream:#faf6f2;
+  --cream-2:#fef7f3;
+  --blush:#f5e6e0;
+  --blush-2:#efd9d3;
+  --rose-petal:#e8c5cf;
+  --plum:#4a1f2e;
+  --plum-deep:#2a1620;
+  --rose:#b56b8a;
+  --rose-deep:#7c2d4a;
+  --wine:#5e2238;
+  --gold:#c9a96e;
+  --gold-2:#bfa06a;
+  --gold-light:#e0c89a;
+  --ink:#2a1620;
+  --ink-soft:#5a4450;
+  --ink-mute:#8a7480;
+  --line:rgba(74,31,46,0.12);
+  --line-soft:rgba(74,31,46,0.06);
+  --glass:rgba(255,255,255,0.55);
+  --glass-strong:rgba(255,255,255,0.78);
+  --shadow-sm:0 4px 14px rgba(74,31,46,0.06);
+  --shadow:0 14px 40px rgba(74,31,46,0.10);
+  --shadow-lg:0 30px 80px rgba(74,31,46,0.14);
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  --maxw:1280px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--sans);
+  background:var(--cream);
+  color:var(--ink);
+  line-height:1.65;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+::selection{background:var(--rose-deep);color:var(--cream)}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:none} /* safety: never display images */
+ul{list-style:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+input{font-family:inherit}
+
+/* ---------- Layout helpers ---------- */
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 32px}
+.eyebrow{
+  font-family:var(--sans);
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:0.28em;
+  text-transform:uppercase;
+  color:var(--rose-deep);
+  display:inline-flex;
+  align-items:center;
+  gap:14px;
+}
+.eyebrow::before,.eyebrow.center::after{
+  content:"";
+  width:34px;height:1px;
+  background:var(--rose-deep);
+  opacity:0.5;
+}
+.eyebrow.center{text-align:center;justify-content:center}
+.eyebrow.solo::before{display:none}
+.serif{font-family:var(--serif)}
+.italic{font-style:italic}
+.section{padding:120px 0;position:relative}
+.section-head{max-width:680px;margin:0 auto 64px;text-align:center}
+.section-head h2{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:clamp(36px,5vw,60px);
+  line-height:1.08;
+  letter-spacing:-0.01em;
+  color:var(--plum-deep);
+  margin:18px 0 0;
+}
+.section-head p{
+  margin-top:18px;
+  color:var(--ink-soft);
+  font-size:17px;
+  line-height:1.7;
+  max-width:560px;
+  margin-left:auto;margin-right:auto;
+}
+
+/* ---------- Decorative botanical leaf (reusable) ---------- */
+.leaf{
+  width:54px;height:90px;
+  background:linear-gradient(135deg,var(--rose) 0%,var(--rose-deep) 100%);
+  border-radius:0 100% 0 100%;
+  position:relative;
+  box-shadow:inset -4px -4px 12px rgba(0,0,0,0.08);
+}
+.leaf::after{
+  content:"";position:absolute;
+  top:8%;left:50%;width:1px;height:84%;
+  background:rgba(255,255,255,0.4);
+  transform:translateX(-50%);
+}
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+.nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(250,246,242,0.72);
+  backdrop-filter:blur(18px) saturate(140%);
+  -webkit-backdrop-filter:blur(18px) saturate(140%);
+  border-bottom:1px solid var(--line-soft);
+  transition:padding .3s ease,background .3s ease;
+}
+.nav-inner{
+  max-width:var(--maxw);margin:0 auto;
+  padding:18px 32px;
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  align-items:center;
+  gap:24px;
+}
+.brand{
+  font-family:var(--serif);
+  font-size:28px;
+  font-weight:600;
+  letter-spacing:0.06em;
+  color:var(--plum-deep);
+  display:inline-flex;align-items:baseline;gap:2px;
+}
+.brand .accent{color:var(--rose-deep);font-style:italic}
+.brand small{
+  display:block;
+  font-family:var(--sans);
+  font-size:8.5px;
+  font-weight:600;
+  letter-spacing:0.4em;
+  color:var(--gold-2);
+  margin-top:-4px;
+  text-transform:uppercase;
+}
+.nav-links{
+  display:flex;gap:38px;justify-content:center;
+}
+.nav-links a{
+  font-size:13px;font-weight:500;
+  letter-spacing:0.04em;
+  color:var(--ink-soft);
+  position:relative;
+  padding:6px 0;
+  transition:color .25s ease;
+}
+.nav-links a::after{
+  content:"";position:absolute;left:0;bottom:0;
+  width:0;height:1px;background:var(--rose-deep);
+  transition:width .3s ease;
+}
+.nav-links a:hover{color:var(--rose-deep)}
+.nav-links a:hover::after{width:100%}
+.nav-actions{
+  display:flex;align-items:center;gap:18px;justify-content:flex-end;
+}
+.nav-icon-btn{
+  width:38px;height:38px;border-radius:50%;
+  display:grid;place-items:center;
+  color:var(--plum-deep);
+  transition:background .25s ease,transform .25s ease;
+  position:relative;
+}
+.nav-icon-btn:hover{background:var(--blush);transform:translateY(-1px)}
+.cart-count{
+  position:absolute;top:4px;right:4px;
+  min-width:17px;height:17px;padding:0 4px;
+  background:var(--rose-deep);
+  color:var(--cream);
+  font-size:10px;font-weight:600;
+  border-radius:9px;
+  display:grid;place-items:center;
+  transform:scale(0);transition:transform .3s cubic-bezier(.34,1.56,.64,1);
+}
+.cart-count.show{transform:scale(1)}
+.cart-count.bump{animation:bump .5s ease}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.4)}100%{transform:scale(1)}}
+.nav-toggle{display:none;width:38px;height:38px;flex-direction:column;justify-content:center;gap:5px;align-items:center}
+.nav-toggle span{width:20px;height:1.5px;background:var(--plum-deep);transition:.3s}
+.nav-toggle.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.nav-toggle.open span:nth-child(2){opacity:0}
+.nav-toggle.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{
+  position:relative;
+  padding:80px 0 100px;
+  overflow:hidden;
+  background:
+    radial-gradient(ellipse 80% 60% at 80% 20%, rgba(181,107,138,0.12), transparent 60%),
+    radial-gradient(ellipse 60% 50% at 10% 80%, rgba(201,169,110,0.10), transparent 60%),
+    linear-gradient(180deg,var(--cream-2) 0%,var(--cream) 100%);
+}
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background-image:radial-gradient(rgba(74,31,46,0.04) 1px,transparent 1px);
+  background-size:28px 28px;
+  opacity:0.5;pointer-events:none;
+}
+.hero-grid{
+  position:relative;z-index:2;
+  display:grid;
+  grid-template-columns:1.05fr 1fr;
+  gap:60px;align-items:center;
+}
+.hero-copy{max-width:560px}
+.hero h1{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:clamp(48px,7vw,92px);
+  line-height:1.02;
+  letter-spacing:-0.015em;
+  color:var(--plum-deep);
+  margin:24px 0 0;
+}
+.hero h1 .it{
+  font-style:italic;
+  color:var(--rose-deep);
+  font-weight:400;
+}
+.hero h1 .amp{font-family:var(--serif);font-style:italic;color:var(--gold-2)}
+.hero-sub{
+  margin-top:28px;
+  font-size:18px;
+  line-height:1.75;
+  color:var(--ink-soft);
+  max-width:480px;
+}
+.hero-cta-row{
+  margin-top:40px;
+  display:flex;align-items:center;gap:24px;flex-wrap:wrap;
+}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:16px 32px;
+  font-family:var(--sans);
+  font-size:13px;font-weight:600;
+  letter-spacing:0.12em;text-transform:uppercase;
+  border-radius:40px;
+  transition:all .3s ease;
+  cursor:pointer;
+}
+.btn-primary{
+  background:var(--plum-deep);
+  color:var(--cream);
+  box-shadow:0 12px 30px rgba(74,31,46,0.25);
+}
+.btn-primary:hover{
+  background:var(--rose-deep);
+  transform:translateY(-2px);
+  box-shadow:0 18px 40px rgba(124,45,74,0.3);
+}
+.btn-ghost{
+  color:var(--plum-deep);
+  padding:16px 8px;
+  position:relative;
+}
+.btn-ghost::after{
+  content:"";position:absolute;left:8px;right:8px;bottom:10px;
+  height:1px;background:var(--plum-deep);opacity:0.4;
+  transition:opacity .3s;
+}
+.btn-ghost:hover::after{opacity:1}
+.btn-arrow{display:inline-block;transition:transform .3s}
+.btn-ghost:hover .btn-arrow,.btn-primary:hover .btn-arrow{transform:translateX(4px)}
+.hero-meta{
+  margin-top:54px;
+  display:flex;gap:42px;
+  padding-top:28px;
+  border-top:1px solid var(--line);
+}
+.hero-meta div{display:flex;flex-direction:column}
+.hero-meta .num{font-family:var(--serif);font-size:34px;color:var(--rose-deep);line-height:1;font-weight:600}
+.hero-meta .lbl{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-mute);margin-top:6px}
+
+/* ---- Hero CSS-art product (Dropper Serum Bottle) ---- */
+.hero-stage{
+  position:relative;
+  display:flex;align-items:center;justify-content:center;
+  min-height:560px;
+}
+.hero-stage::before{
+  content:"";position:absolute;
+  width:420px;height:420px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,0.7) 0%,rgba(232,197,207,0.4) 50%,transparent 75%);
+  filter:blur(8px);
+}
+.hero-stage::after{
+  content:"";position:absolute;
+  width:300px;height:300px;border-radius:50%;
+  background:conic-gradient(from 0deg,transparent 0deg,rgba(201,169,110,0.18) 90deg,transparent 180deg,rgba(181,107,138,0.18) 270deg,transparent 360deg);
+  filter:blur(40px);
+  animation:spin 24s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ====== DROPPER BOTTLE (hero) ====== */
+.bottle{
+  position:relative;
+  transform-style:preserve-3d;
+  filter:drop-shadow(0 30px 40px rgba(74,31,46,0.18));
+}
+.bottle--hero{
+  width:170px;height:470px;
+  animation:floaty 6s ease-in-out infinite;
+}
+@keyframes floaty{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-14px) rotate(1deg)}}
+.bulb{
+  position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:42px;height:30px;
+  background:radial-gradient(ellipse at 35% 30%,#d9a3b6,#7c2d4a 70%,#4a1f2e);
+  border-radius:50% 50% 40% 40%;
+  box-shadow:inset -3px -3px 6px rgba(0,0,4,0.3),inset 4px 3px 6px rgba(255,255,255,0.25);
+}
+.bulb::after{
+  content:"";position:absolute;bottom:-4px;left:50%;transform:translateX(-50%);
+  width:14px;height:6px;background:var(--plum-deep);border-radius:3px;
+}
+.cap{
+  position:absolute;top:26px;left:50%;transform:translateX(-50%);
+  width:46px;height:54px;
+  background:linear-gradient(180deg,#f3e6dc 0%,#d9c4b2 40%,#b89a86 100%);
+  border-radius:6px 6px 4px 4px;
+  box-shadow:inset -4px 0 8px rgba(74,31,46,0.2),inset 4px 0 8px rgba(255,255,255,0.4),0 2px 6px rgba(74,31,46,0.15);
+}
+.cap::before{
+  content:"";position:absolute;left:6px;right:6px;top:4px;height:1px;
+  background:rgba(74,31,46,0.18);
+  box-shadow:0 8px 0 rgba(74,31,46,0.12),0 16px 0 rgba(74,31,46,0.08);
+}
+.neck{
+  position:absolute;top:78px;left:50%;transform:translateX(-50%);
+  width:40px;height:18px;
+  background:linear-gradient(180deg,#caa0ac,#8a5266);
+  border-radius:3px 3px 0 0;
+  box-shadow:inset -3px 0 6px rgba(0,0,0,0.15);
+}
+.body{
+  position:absolute;top:96px;left:50%;transform:translateX(-50%);
+  width:170px;height:374px;
+  background:
+    linear-gradient(105deg,rgba(255,255,255,0.55) 0%,rgba(255,255,255,0.1) 22%,transparent 40%,transparent 60%,rgba(124,45,74,0.18) 100%),
+    linear-gradient(180deg,rgba(232,197,207,0.5) 0%,rgba(181,107,138,0.4) 100%);
+  border:1.5px solid rgba(74,31,46,0.22);
+  border-radius:22px 22px 30px 30px;
+  overflow:hidden;
+  box-shadow:
+    inset 14px 0 30px rgba(255,255,255,0.35),
+    inset -14px 0 30px rgba(74,31,46,0.18),
+    inset 0 -20px 40px rgba(124,45,74,0.2);
+}
+.liquid{
+  position:absolute;bottom:0;left:0;right:0;height:60%;
+  background:linear-gradient(180deg,rgba(201,160,176,0.7) 0%,rgba(181,107,138,0.85) 40%,rgba(124,45,74,0.95) 100%);
+  box-shadow:inset 0 8px 18px rgba(255,255,255,0.25);
+}
+.liquid::before{
+  content:"";position:absolute;top:-2px;left:0;right:0;height:6px;
+  background:rgba(255,255,255,0.3);border-radius:50%;
+  filter:blur(2px);
+}
+.body-shine{
+  position:absolute;top:30px;left:24px;
+  width:18px;height:280px;
+  background:linear-gradient(180deg,rgba(255,255,255,0.7),rgba(255,255,255,0.1));
+  border-radius:50%;filter:blur(3px);
+  transform:skewX(-8deg);
+}
+.body-shine-2{
+  position:absolute;top:60px;right:30px;
+  width:6px;height:200px;
+  background:linear-gradient(180deg,rgba(255,255,255,0.5),transparent);
+  border-radius:50%;filter:blur(1.5px);
+}
+.label{
+  position:absolute;top:175px;left:50%;transform:translateX(-50%);
+  width:118px;padding:18px 10px 16px;
+  background:linear-gradient(180deg,rgba(254,247,243,0.95),rgba(250,246,242,0.9));
+  border:1px solid rgba(74,31,46,0.12);
+  border-radius:4px;
+  text-align:center;
+  box-shadow:0 4px 12px rgba(74,31,46,0.08);
+  backdrop-filter:blur(2px);
+}
+.label .l-eyebrow{font-size:7px;letter-spacing:0.32em;color:var(--gold-2);font-weight:600;text-transform:uppercase}
+.label .l-name{font-family:var(--serif);font-size:17px;color:var(--plum-deep);line-height:1.1;margin-top:4px;font-weight:600;font-style:italic}
+.label .l-rule{width:24px;height:1px;background:var(--rose-deep);margin:7px auto;opacity:0.5}
+.label .l-tag{font-size:8px;letter-spacing:0.18em;color:var(--ink-mute);text-transform:uppercase}
+
+/* ============================================================
+   PRESS STRIP
+   ============================================================ */
+.press{
+  padding:48px 0;
+  background:var(--cream-2);
+  border-top:1px solid var(--line-soft);
+  border-bottom:1px solid var(--line-soft);
+}
+.press-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.press .press-cap{
+  font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:var(--ink-mute);font-weight:500;
+}
+.press-logos{display:flex;align-items:center;gap:48px;flex-wrap:wrap;flex:1;justify-content:center}
+.press-logos span{
+  font-family:var(--serif);
+  font-size:22px;
+  color:var(--plum);
+  letter-spacing:0.04em;
+  opacity:0.7;
+  transition:opacity .3s,color .3s;
+  font-weight:500;
+}
+.press-logos span:hover{opacity:1;color:var(--rose-deep)}
+.press-logos span.italic{font-style:italic}
+.press-logos span.condensed{letter-spacing:0.18em;font-weight:600;font-size:18px}
+
+/* ============================================================
+   FEATURED PRODUCTS
+   ============================================================ */
+.products{background:var(--cream)}
+.product-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:28px;
+}
+.product-card{
+  background:linear-gradient(180deg,var(--cream-2),#fff);
+  border:1px solid var(--line-soft);
+  border-radius:20px;
+  padding:28px 24px 26px;
+  text-align:center;
+  position:relative;
+  transition:transform .4s ease,box-shadow .4s ease,border-color .4s;
+  overflow:hidden;
+}
+.product-card::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,transparent,var(--rose-deep),transparent);
+  transform:scaleX(0);transition:transform .4s ease;
+  transform-origin:left;
+}
+.product-card:hover{
+  transform:translateY(-6px);
+  box-shadow:var(--shadow);
+  border-color:rgba(124,45,74,0.18);
+}
+.product-card:hover::before{transform:scaleX(1)}
+.product-stage{
+  height:280px;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+  margin-bottom:24px;
+}
+.product-stage::before{
+  content:"";position:absolute;bottom:14px;left:50%;transform:translateX(-50%);
+  width:120px;height:14px;
+  background:radial-gradient(ellipse,rgba(74,31,46,0.18),transparent 70%);
+  border-radius:50%;
+}
+.product-tag{
+  position:absolute;top:0;left:0;
+  background:var(--plum-deep);color:var(--cream);
+  font-size:9px;letter-spacing:0.18em;text-transform:uppercase;font-weight:600;
+  padding:6px 12px;border-radius:20px 0 14px 0;z-index:3;
+}
+.product-tag.gold{background:var(--gold-2);color:var(--plum-deep)}
+.product-tag.rose{background:var(--rose-deep)}
+.product-name{
+  font-family:var(--serif);
+  font-size:24px;
+  font-weight:600;
+  color:var(--plum-deep);
+  line-height:1.1;
+}
+.product-ingredient{
+  font-size:11px;letter-spacing:0.16em;text-transform:uppercase;
+  color:var(--rose-deep);margin-top:8px;font-weight:600;
+}
+.product-desc{font-size:13.5px;color:var(--ink-soft);margin-top:10px;line-height:1.55;min-height:42px}
+.product-foot{
+  margin-top:18px;display:flex;align-items:center;justify-content:space-between;gap:12px;
+}
+.product-price{font-family:var(--serif);font-size:24px;color:var(--plum-deep);font-weight:600}
+.product-price span{font-size:13px;color:var(--ink-mute);font-family:var(--sans);font-weight:400;margin-left:2px}
+.add-btn{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:10px 16px;
+  background:var(--plum-deep);color:var(--cream);
+  font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;
+  border-radius:30px;
+  transition:all .3s;
+}
+.add-btn:hover{background:var(--rose-deep);transform:scale(1.04)}
+.add-btn .plus{font-size:14px;line-height:1}
+.add-btn.added{background:var(--gold-2);color:var(--plum-deep)}
+.add-btn.added .plus::before{content:"✓"}
+
+/* ====== PUMP BOTTLE (product 1) ====== */
+.bottle--pump{width:96px;height:260px}
+.bottle--pump .pump-head{
+  position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:34px;height:14px;background:linear-gradient(180deg,#d9c4b2,#a98875);
+  border-radius:3px 8px 3px 3px;
+  box-shadow:inset -2px 0 4px rgba(0,0,0,0.18);
+}
+.bottle--pump .pump-nozzle{
+  position:absolute;top:3px;left:calc(50% + 14px);
+  width:22px;height:6px;background:linear-gradient(180deg,#c9b4a2,#8a6b58);
+  border-radius:0 4px 4px 0;
+}
+.bottle--pump .pump-stem{
+  position:absolute;top:14px;left:50%;transform:translateX(-50%);
+  width:6px;height:20px;background:linear-gradient(180deg,#b89a86,#7a5b48);
+}
+.bottle--pump .pump-body{
+  position:absolute;top:32px;left:50%;transform:translateX(-50%);
+  width:96px;height:228px;
+  background:
+    linear-gradient(105deg,rgba(255,255,255,0.6) 0%,transparent 35%,transparent 65%,rgba(124,45,74,0.2) 100%),
+    linear-gradient(180deg,#f3e0d8 0%,#e0b4c0 100%);
+  border:1.5px solid rgba(74,31,46,0.2);
+  border-radius:16px 16px 22px 22px;
+  overflow:hidden;
+  box-shadow:inset 10px 0 24px rgba(255,255,255,0.3),inset -10px 0 24px rgba(74,31,46,0.15);
+}
+.bottle--pump .pump-body::before{
+  content:"";position:absolute;top:18px;left:14px;width:10px;height:180px;
+  background:linear-gradient(180deg,rgba(255,255,255,0.6),transparent);
+  border-radius:50%;filter:blur(2px);
+}
+.bottle--pump .p-label{
+  position:absolute;top:96px;left:50%;transform:translateX(-50%);
+  width:70px;padding:9px 4px;
+  background:rgba(254,247,243,0.95);
+  border:1px solid rgba(74,31,46,0.1);
+  border-radius:3px;text-align:center;
+}
+.bottle--pump .p-label .pe{font-size:6px;letter-spacing:0.3em;color:var(--gold-2);font-weight:600}
+.bottle--pump .p-label .pn{font-family:var(--serif);font-size:11px;color:var(--plum-deep);font-weight:600;font-style:italic;margin-top:2px}
+
+/* ====== CREAM JAR (product 2) ====== */
+.bottle--jar{width:140px;height:200px}
+.bottle--jar .jar-lid{
+  position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:128px;height:54px;
+  background:
+    linear-gradient(180deg,#f0e2d4 0%,#d4b89e 50%,#a98875 100%);
+  border-radius:14px 14px 6px 6px;
+  box-shadow:inset 0 -6px 12px rgba(74,31,46,0.2),inset 6px 0 12px rgba(255,255,255,0.35),inset -6px 0 12px rgba(74,31,46,0.15);
+}
+.bottle--jar .jar-lid::before{
+  content:"";position:absolute;top:8px;left:50%;transform:translateX(-50%);
+  width:54px;height:1px;background:rgba(74,31,46,0.15);
+}
+.bottle--jar .jar-lid::after{
+  content:"É";position:absolute;top:18px;left:50%;transform:translateX(-50%);
+  font-family:var(--serif);font-style:italic;font-size:18px;color:var(--plum-deep);opacity:0.7;
+}
+.bottle--jar .jar-neck{
+  position:absolute;top:52px;left:50%;transform:translateX(-50%);
+  width:124px;height:8px;background:linear-gradient(180deg,#c9a0b0,#8a5266);
+  border-radius:2px;
+}
+.bottle--jar .jar-body{
+  position:absolute;top:60px;left:50%;transform:translateX(-50%);
+  width:140px;height:140px;
+  background:
+    linear-gradient(105deg,rgba(255,255,255,0.6) 0%,transparent 40%,rgba(124,45,74,0.15) 100%),
+    linear-gradient(180deg,rgba(245,230,224,0.6) 0%,rgba(181,107,138,0.4) 100%);
+  border:1.5px solid rgba(74,31,46,0.2);
+  border-radius:10px 10px 16px 16px;
+  overflow:hidden;
+  box-shadow:inset 12px 0 28px rgba(255,255,255,0.3),inset -12px 0 28px rgba(74,31,46,0.15);
+}
+.bottle--jar .jar-cream{
+  position:absolute;top:0;left:0;right:0;height:40%;
+  background:linear-gradient(180deg,rgba(255,247,240,0.9),rgba(232,197,207,0.7));
+}
+.bottle--jar .jar-label{
+  position:absolute;top:60px;left:50%;transform:translateX(-50%);
+  width:88px;padding:8px 4px;
+  background:rgba(254,247,243,0.95);
+  border:1px solid rgba(74,31,46,0.1);
+  border-radius:3px;text-align:center;
+}
+.bottle--jar .jar-label .je{font-size:6px;letter-spacing:0.3em;color:var(--gold-2);font-weight:600}
+.bottle--jar .jar-label .jn{font-family:var(--serif);font-size:11px;color:var(--plum-deep);font-weight:600;font-style:italic;margin-top:2px}
+
+/* ====== TUBE (product 3) ====== */
+.bottle--tube{width:78px;height:280px;transform:rotate(-8deg)}
+.bottle--tube .tube-cap{
+  position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:34px;height:40px;
+  background:linear-gradient(180deg,#d9c4b2,#a98875);
+  border-radius:4px 4px 2px 2px;
+  box-shadow:inset -3px 0 6px rgba(0,0,0,0.18),inset 3px 0 6px rgba(255,255,255,0.3);
+}
+.bottle--tube .tube-shoulder{
+  position:absolute;top:38px;left:50%;transform:translateX(-50%);
+  width:0;height:0;
+  border-left:30px solid transparent;
+  border-right:30px solid transparent;
+  border-top:18px solid;
+  border-top-color:#e8c5cf;
+}
+.bottle--tube .tube-body{
+  position:absolute;top:54px;left:50%;transform:translateX(-50%);
+  width:78px;height:226px;
+  background:
+    linear-gradient(105deg,rgba(255,255,255,0.55) 0%,transparent 35%,rgba(124,45,74,0.18) 100%),
+    linear-gradient(180deg,#e8c5cf 0%,#c98aa0 50%,#7c2d4a 100%);
+  border:1.5px solid rgba(74,31,46,0.2);
+  border-radius:6px 6px 14px 14px;
+  overflow:hidden;
+  box-shadow:inset 8px 0 20px rgba(255,255,255,0.3),inset -8px 0 20px rgba(74,31,46,0.18);
+}
+.bottle--tube .tube-body::before{
+  content:"";position:absolute;top:14px;left:12px;width:8px;height:180px;
+  background:linear-gradient(180deg,rgba(255,255,255,0.5),transparent);
+  border-radius:50%;filter:blur(1.5px);
+}
+.bottle--tube .tube-label{
+  position:absolute;top:108px;left:50%;transform:translateX(-50%);
+  width:58px;padding:8px 3px;
+  background:rgba(254,247,243,0.95);
+  border:1px solid rgba(74,31,46,0.1);
+  border-radius:3px;text-align:center;
+}
+.bottle--tube .tube-label .te{font-size:5.5px;letter-spacing:0.3em;color:var(--gold-2);font-weight:600}
+.bottle--tube .tube-label .tn{font-family:var(--serif);font-size:10px;color:var(--plum-deep);font-weight:600;font-style:italic;margin-top:2px}
+
+/* ====== MIST BOTTLE (product 4) ====== */
+.bottle--mist{width:96px;height:280px}
+.bottle--mist .mist-cap{
+  position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:30px;height:22px;
+  background:linear-gradient(180deg,#d9c4b2,#a98875);
+  border-radius:4px 4px 2px 2px;
+  box-shadow:inset -2px 0 4px rgba(0,0,0,0.18);
+}
+.bottle--mist .mist-nozzle{
+  position:absolute;top:2px;left:calc(50% - 28px);
+  width:8px;height:6px;background:#8a6b58;border-radius:3px 0 0 3px;
+}
+.bottle--mist .mist-trigger{
+  position:absolute;top:18px;left:calc(50% + 8px);
+  width:18px;height:14px;
+  background:linear-gradient(180deg,#c9b4a2,#8a6b58);
+  border-radius:0 6px 8px 0;
+}
+.bottle--mist .mist-neck{
+  position:absolute;top:22px;left:50%;transform:translateX(-50%);
+  width:38px;height:14px;background:linear-gradient(180deg,#caa0ac,#7a4858);
+  border-radius:3px 3px 0 0;
+}
+.bottle--mist .mist-body{
+  position:absolute;top:36px;left:50%;transform:translateX(-50%);
+  width:96px;height:244px;
+  background:
+    linear-gradient(105deg,rgba(255,255,255,0.65) 0%,transparent 40%,rgba(124,45,74,0.18) 100%),
+    linear-gradient(180deg,rgba(245,230,224,0.55) 0%,rgba(232,197,207,0.6) 100%);
+  border:1.5px solid rgba(74,31,46,0.2);
+  border-radius:14px 14px 20px 20px;
+  overflow:hidden;
+  box-shadow:inset 10px 0 26px rgba(255,255,255,0.4),inset -10px 0 26px rgba(74,31,46,0.15);
+}
+.bottle--mist .mist-body::before{
+  content:"";position:absolute;top:20px;left:14px;width:12px;height:190px;
+  background:linear-gradient(180deg,rgba(255,255,255,0.7),rgba(255,255,255,0.1));
+  border-radius:50%;filter:blur(2px);
+}
+.bottle--mist .mist-label{
+  position:absolute;top:108px;left:50%;transform:translateX(-50%);
+  width:70px;padding:9px 4px;
+  background:rgba(254,247,243,0.95);
+  border:1px solid rgba(74,31,46,0.1);
+  border-radius:3px;text-align:center;
+}
+.bottle--mist .mist-label .me{font-size:6px;letter-spacing:0.3em;color:var(--gold-2);font-weight:600}
+.bottle--mist .mist-label .mn{font-family:var(--serif);font-size:11px;color:var(--plum-deep);font-weight:600;font-style:italic;margin-top:2px}
+
+/* ============================================================
+   BRAND STORY
+   ============================================================ */
+.story{background:linear-gradient(180deg,var(--cream) 0%,var(--cream-2) 100%);position:relative;overflow:hidden}
+.story-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:80px;align-items:center}
+.story-art{
+  position:relative;height:520px;
+  display:flex;align-items:center;justify-content:center;
+}
+.story-art-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(circle at 50% 50%,rgba(232,197,207,0.5),transparent 60%);
+  border-radius:50%;
+}
+.story-monogram{
+  position:relative;z-index:2;
+  width:300px;height:300px;border-radius:50%;
+  border:1px solid rgba(124,45,74,0.25);
+  display:grid;place-items:center;
+  background:radial-gradient(circle,rgba(255,255,255,0.6),transparent);
+  backdrop-filter:blur(4px);
+}
+.story-monogram::before{
+  content:"";position:absolute;inset:-22px;border-radius:50%;
+  border:1px dashed rgba(124,45,74,0.2);
+}
+.story-monogram .mono-letter{
+  font-family:var(--serif);font-style:italic;
+  font-size:160px;line-height:1;color:var(--rose-deep);
+  font-weight:500;
+}
+.story-monogram .mono-sub{
+  position:absolute;bottom:54px;left:50%;transform:translateX(-50%);
+  font-size:9px;letter-spacing:0.32em;color:var(--gold-2);font-weight:600;
+}
+/* floating leaves around monogram */
+.story-leaf{position:absolute;width:48px;height:78px;z-index:1;opacity:0.85}
+.story-leaf.l1{top:30px;left:40px;transform:rotate(-35deg)}
+.story-leaf.l2{top:60px;right:50px;transform:rotate(40deg);background:linear-gradient(135deg,var(--gold-2),var(--rose-deep))}
+.story-leaf.l3{bottom:80px;left:30px;transform:rotate(-110deg);background:linear-gradient(135deg,var(--rose),var(--wine))}
+.story-leaf.l4{bottom:50px;right:60px;transform:rotate(140deg)}
+.story-leaf.l5{top:160px;left:8px;transform:rotate(-70deg);width:38px;height:62px;opacity:0.6}
+.story-leaf.l6{top:200px;right:8px;transform:rotate(80deg);width:38px;height:62px;opacity:0.6;background:linear-gradient(135deg,var(--gold-2),var(--rose-deep))}
+
+.story-copy h2{
+  font-family:var(--serif);font-weight:500;
+  font-size:clamp(34px,4.5vw,56px);line-height:1.08;
+  color:var(--plum-deep);margin:18px 0 26px;letter-spacing:-0.01em;
+}
+.story-copy h2 .it{font-style:italic;color:var(--rose-deep)}
+.story-copy p{color:var(--ink-soft);font-size:17px;line-height:1.8;margin-bottom:18px}
+.story-copy .lead::first-letter{
+  font-family:var(--serif);font-size:64px;float:left;line-height:0.9;
+  padding:8px 12px 0 0;color:var(--rose-deep);font-weight:600;
+}
+.story-signature{
+  margin-top:34px;display:flex;align-items:center;gap:18px;
+  padding-top:24px;border-top:1px solid var(--line);
+}
+.story-signature .sig-name{font-family:var(--serif);font-style:italic;font-size:24px;color:var(--plum-deep)}
+.story-signature .sig-role{font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-mute);margin-top:2px}
+
+/* ============================================================
+   INGREDIENTS
+   ============================================================ */
+.ingredients{background:var(--cream-2);position:relative}
+.ingredients::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:radial-gradient(rgba(124,45,74,0.04) 1.5px,transparent 1.5px);
+  background-size:32px 32px;opacity:0.6;
+}
+.ing-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+  position:relative;z-index:1;
+}
+.ing-card{
+  background:rgba(255,255,255,0.6);
+  backdrop-filter:blur(8px);
+  border:1px solid var(--line-soft);
+  border-radius:18px;
+  padding:36px 30px;
+  transition:transform .35s,box-shadow .35s,border-color .35s;
+  position:relative;overflow:hidden;
+}
+.ing-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:rgba(124,45,74,0.16)}
+.ing-icon{
+  width:84px;height:84px;border-radius:50%;
+  display:grid;place-items:center;
+  background:radial-gradient(circle,rgba(232,197,207,0.6),rgba(232,197,207,0.2));
+  margin-bottom:22px;
+  position:relative;
+}
+.ing-icon::after{
+  content:"";position:absolute;inset:-6px;border-radius:50%;
+  border:1px dashed rgba(124,45,74,0.18);
+}
+.ing-card h3{font-family:var(--serif);font-size:26px;color:var(--plum-deep);font-weight:600;line-height:1.1}
+.ing-card .ing-latin{font-family:var(--serif);font-style:italic;font-size:14px;color:var(--rose-deep);margin-top:4px;display:block}
+.ing-card p{color:var(--ink-soft);font-size:14.5px;line-height:1.7;margin-top:14px}
+.ing-card .ing-benefit{
+  margin-top:16px;display:inline-flex;align-items:center;gap:8px;
+  font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold-2);font-weight:600;
+}
+
+/* CSS-art botanical icons */
+/* Rose flower */
+.ico-rose{position:relative;width:46px;height:46px}
+.ico-rose .petal{
+  position:absolute;width:22px;height:22px;
+  background:linear-gradient(135deg,var(--rose),var(--rose-deep));
+  border-radius:50% 50% 50% 0;top:50%;left:50%;
+  transform-origin:0 0;
+}
+.ico-rose .petal:nth-child(1){transform:rotate(0deg)}
+.ico-rose .petal:nth-child(2){transform:rotate(72deg)}
+.ico-rose .petal:nth-child(3){transform:rotate(144deg)}
+.ico-rose .petal:nth-child(4){transform:rotate(216deg)}
+.ico-rose .petal:nth-child(5){transform:rotate(288deg)}
+.ico-rose .center{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:14px;height:14px;border-radius:50%;
+  background:radial-gradient(circle,var(--gold-light),var(--gold-2));z-index:2;
+}
+/* Leaf sprig */
+.ico-leaf{position:relative;width:50px;height:54px}
+.ico-leaf .stem{
+  position:absolute;left:50%;top:0;bottom:0;width:2px;
+  background:linear-gradient(180deg,var(--rose-deep),var(--wine));
+  transform:translateX(-50%);border-radius:2px;
+}
+.ico-leaf .blade{
+  position:absolute;width:20px;height:30px;
+  background:linear-gradient(135deg,var(--rose),var(--rose-deep));
+  border-radius:0 100% 0 100%;top:6px;
+}
+.ico-leaf .blade:nth-child(2){left:50%;transform:translateX(-100%) rotate(-30deg)}
+.ico-leaf .blade:nth-child(3){left:50%;transform:rotate(30deg);top:14px}
+.ico-leaf .blade:nth-child(4){left:50%;transform:translateX(-100%) rotate(-30deg);top:22px}
+.ico-leaf .blade:nth-child(5){left:50%;transform:rotate(30deg);top:30px;width:16px;height:22px}
+/* Droplet */
+.ico-drop{position:relative;width:40px;height:54px}
+.ico-drop .drop{
+  width:34px;height:34px;
+  background:radial-gradient(circle at 35% 30%,#f3c9d6,var(--rose-deep) 70%,var(--wine));
+  border-radius:50% 50% 50% 0;transform:rotate(45deg);
+  position:absolute;left:50%;top:14px;transform:translateX(-50%) rotate(45deg);
+  box-shadow:inset -3px -3px 6px rgba(0,0,0,0.15),inset 4px 3px 6px rgba(255,255,255,0.4);
+}
+.ico-drop .drop::after{
+  content:"";position:absolute;top:6px;left:8px;width:7px;height:7px;
+  background:rgba(255,255,255,0.7);border-radius:50%;filter:blur(1px);
+}
+/* Bloom flower (5 round petals) */
+.ico-bloom{position:relative;width:50px;height:50px}
+.ico-bloom .bl{
+  position:absolute;width:18px;height:18px;border-radius:50%;
+  background:linear-gradient(135deg,var(--rose-petal),var(--rose));
+  top:50%;left:50%;transform-origin:0 0;
+}
+.ico-bloom .bl:nth-child(1){transform:rotate(0deg) translate(-9px,-9px)}
+.ico-bloom .bl:nth-child(2){transform:rotate(72deg) translate(-9px,-9px)}
+.ico-bloom .bl:nth-child(3){transform:rotate(144deg) translate(-9px,-9px)}
+.ico-bloom .bl:nth-child(4){transform:rotate(216deg) translate(-9px,-9px)}
+.ico-bloom .bl:nth-child(5){transform:rotate(288deg) translate(-9px,-9px)}
+.ico-bloom .bl-c{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:14px;height:14px;border-radius:50%;
+  background:radial-gradient(circle,#fff,var(--gold-light));z-index:2;
+  box-shadow:0 0 0 3px rgba(201,169,110,0.3);
+}
+/* Citrus / circle slice */
+.ico-citrus{position:relative;width:48px;height:48px}
+.ico-citrus .c-outer{
+  position:absolute;inset:0;border-radius:50%;
+  background:radial-gradient(circle,var(--gold-light),var(--gold-2));
+  box-shadow:inset 0 0 0 3px rgba(255,255,255,0.5),inset -4px -4px 8px rgba(74,31,46,0.15);
+}
+.ico-citrus .c-seg{
+  position:absolute;top:50%;left:50%;width:2px;height:18px;
+  background:rgba(255,255,255,0.55);transform-origin:center top;
+}
+.ico-citrus .c-seg:nth-child(2){transform:translate(-50%,4px) rotate(0deg)}
+.ico-citrus .c-seg:nth-child(3){transform:translate(-50%,4px) rotate(60deg)}
+.ico-citrus .c-seg:nth-child(4){transform:translate(-50%,4px) rotate(120deg)}
+.ico-citrus .c-seg:nth-child(5){transform:translate(-50%,4px) rotate(180deg)}
+.ico-citrus .c-seg:nth-child(6){transform:translate(-50%,4px) rotate(240deg)}
+.ico-citrus .c-seg:nth-child(7){transform:translate(-50%,4px) rotate(300deg)}
+.ico-citrus .c-core{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:8px;height:8px;border-radius:50%;background:#fff;
+}
+/* Seed / grain */
+.ico-seed{position:relative;width:44px;height:52px}
+.ico-seed .s1,.ico-seed .s2{
+  position:absolute;width:18px;height:26px;border-radius:50%;
+  background:linear-gradient(135deg,var(--gold-light),var(--gold-2));
+  top:50%;left:50%;box-shadow:inset -2px -2px 4px rgba(74,31,46,0.15);
+}
+.ico-seed .s1{transform:translate(-100%,-50%) rotate(-20deg)}
+.ico-seed .s2{transform:translate(0,-50%) rotate(20deg)}
+.ico-seed .s3{position:absolute;width:14px;height:20px;border-radius:50%;
+  background:linear-gradient(135deg,var(--rose-petal),var(--rose));
+  top:50%;left:50%;transform:translate(-50%,-30%)}
+
+/* ============================================================
+   BENEFITS
+   ============================================================ */
+.benefits{background:var(--cream)}
+.benefit-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.benefit-card{
+  text-align:center;padding:40px 26px;
+  background:linear-gradient(180deg,#fff,var(--cream-2));
+  border:1px solid var(--line-soft);
+  border-radius:18px;
+  transition:transform .35s,box-shadow .35s;
+}
+.benefit-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.benefit-ico{
+  width:72px;height:72px;margin:0 auto 22px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(232,197,207,0.55),transparent);
+  display:grid;place-items:center;position:relative;
+}
+.benefit-ico::before{
+  content:"";position:absolute;inset:0;border-radius:50%;
+  border:1px solid rgba(124,45,74,0.16);
+}
+.benefit-card h3{font-family:var(--serif);font-size:22px;color:var(--plum-deep);font-weight:600;line-height:1.15}
+.benefit-card p{color:var(--ink-soft);font-size:14px;line-height:1.65;margin-top:12px}
+
+/* benefit icons */
+.b-ico{position:relative}
+.b-ico-glow{position:absolute;width:38px;height:38px;border-radius:50%;
+  background:radial-gradient(circle,var(--rose-petal),transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%)}
+/* shield */
+.b-ico-shield{width:30px;height:36px;background:linear-gradient(180deg,var(--rose),var(--rose-deep));
+  border-radius:50% 50% 40% 40% / 60% 60% 40% 40%;position:relative;z-index:1;
+  box-shadow:inset -3px -2px 6px rgba(0,0,0,0.15),inset 3px 2px 4px rgba(255,255,255,0.3)}
+.b-ico-shield::after{content:"✓";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff;font-size:16px;font-weight:600}
+/* sparkle */
+.b-ico-spark{width:32px;height:32px;position:relative;z-index:1}
+.b-ico-spark::before,.b-ico-spark::after{content:"";position:absolute;background:linear-gradient(135deg,var(--gold-light),var(--gold-2));border-radius:2px}
+.b-ico-spark::before{top:50%;left:50%;width:32px;height:8px;transform:translate(-50%,-50%) rotate(45deg)}
+.b-ico-spark::after{top:50%;left:50%;width:8px;height:32px;transform:translate(-50%,-50%) rotate(45deg)}
+/* heart */
+.b-ico-heart{width:30px;height:28px;position:relative;z-index:1}
+.b-ico-heart::before,.b-ico-heart::after{
+  content:"";position:absolute;width:16px;height:24px;
+  background:linear-gradient(180deg,var(--rose),var(--rose-deep));
+  border-radius:16px 16px 0 0;top:0;left:14px;
+  transform:rotate(-45deg);transform-origin:0 100%;
+  box-shadow:inset -2px -2px 4px rgba(0,0,0,0.12);
+}
+.b-ico-heart::after{left:0;transform:rotate(45deg);transform-origin:100% 100%}
+/* droplet small */
+.b-ico-droplet{width:26px;height:34px;position:relative;z-index:1}
+.b-ico-droplet::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:0;height:0;border-left:13px solid transparent;border-right:13px solid transparent;
+  border-bottom:13px solid var(--rose-deep)}
+.b-ico-droplet::after{content:"";position:absolute;bottom:0;left:50%;transform:translateX(-50%);
+  width:26px;height:26px;background:linear-gradient(135deg,var(--rose),var(--rose-deep));border-radius:50%;
+  box-shadow:inset -2px -2px 4px rgba(0,0,0,0.15),inset 3px 2px 4px rgba(255,255,255,0.35)}
+
+/* ============================================================
+   RITUAL
+   ============================================================ */
+.ritual{background:linear-gradient(180deg,var(--cream-2),var(--cream));position:relative;overflow:hidden}
+.ritual::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--line),transparent);
+}
+.ritual-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;position:relative}
+.ritual-steps::before{
+  content:"";position:absolute;top:120px;left:14%;right:14%;height:1px;
+  background:repeating-linear-gradient(90deg,var(--rose-deep) 0 8px,transparent 8px 16px);
+  opacity:0.35;z-index:0;
+}
+.ritual-step{position:relative;z-index:1;text-align:center}
+.ritual-num{
+  font-family:var(--serif);font-style:italic;font-size:18px;
+  color:var(--gold-2);letter-spacing:0.04em;font-weight:500;
+}
+.ritual-stage{
+  height:200px;display:flex;align-items:flex-end;justify-content:center;
+  position:relative;margin:18px 0 24px;
+}
+.ritual-stage::before{
+  content:"";position:absolute;bottom:6px;left:50%;transform:translateX(-50%);
+  width:90px;height:10px;border-radius:50%;
+  background:radial-gradient(ellipse,rgba(74,31,46,0.15),transparent 70%);
+}
+.ritual-step h3{font-family:var(--serif);font-size:28px;color:var(--plum-deep);font-weight:600;line-height:1.12}
+.ritual-step .ritual-time{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--rose-deep);font-weight:600;margin-top:8px}
+.ritual-step p{color:var(--ink-soft);font-size:15px;line-height:1.7;margin-top:14px;max-width:300px;margin-left:auto;margin-right:auto}
+
+/* ritual mini-bottles */
+.r-bottle{position:relative;filter:drop-shadow(0 12px 18px rgba(74,31,46,0.14))}
+/* step 1 - mist */
+.r-mist{width:62px;height:170px}
+.r-mist .rm-cap{position:absolute;top:0;left:50%;transform:translateX(-50%);width:20px;height:14px;background:linear-gradient(180deg,#d9c4b2,#a98875);border-radius:3px 3px 1px 1px}
+.r-mist .rm-body{position:absolute;top:14px;left:50%;transform:translateX(-50%);width:62px;height:156px;background:linear-gradient(105deg,rgba(255,255,255,0.6),transparent 40%,rgba(124,45,74,0.2)),linear-gradient(180deg,#f3e0d8,#e0b4c0);border:1.2px solid rgba(74,31,46,0.2);border-radius:10px 10px 14px 14px;box-shadow:inset 8px 0 18px rgba(255,255,255,0.3),inset -8px 0 18px rgba(74,31,46,0.15);overflow:hidden}
+.r-mist .rm-body::before{content:"";position:absolute;top:14px;left:10px;width:6px;height:120px;background:linear-gradient(180deg,rgba(255,255,255,0.6),transparent);border-radius:50%;filter:blur(1px)}
+.r-mist .rm-label{position:absolute;top:70px;left:50%;transform:translateX(-50%);width:44px;padding:5px 2px;background:rgba(254,247,243,0.95);border:1px solid rgba(74,31,46,0.1);border-radius:2px;text-align:center;font-family:var(--serif);font-style:italic;font-size:9px;color:var(--plum-deep);font-weight:600}
+/* step 2 - dropper */
+.r-drop{width:54px;height:200px}
+.r-drop .rd-bulb{position:absolute;top:0;left:50%;transform:translateX(-50%);width:20px;height:14px;background:radial-gradient(ellipse at 35% 30%,#d9a3b6,#7c2d4a);border-radius:50% 50% 40% 40%}
+.r-drop .rd-cap{position:absolute;top:12px;left:50%;transform:translateX(-50%);width:24px;height:26px;background:linear-gradient(180deg,#f3e6dc,#b89a86);border-radius:4px 4px 2px 2px;box-shadow:inset -2px 0 4px rgba(0,0,0,0.18)}
+.r-drop .rd-body{position:absolute;top:38px;left:50%;transform:translateX(-50%);width:54px;height:162px;background:linear-gradient(105deg,rgba(255,255,255,0.6),transparent 40%,rgba(124,45,74,0.2)),linear-gradient(180deg,rgba(232,197,207,0.5),rgba(181,107,138,0.4));border:1.2px solid rgba(74,31,46,0.2);border-radius:10px 10px 14px 14px;overflow:hidden;box-shadow:inset 6px 0 16px rgba(255,255,255,0.35),inset -6px 0 16px rgba(74,31,46,0.18)}
+.r-drop .rd-liquid{position:absolute;bottom:0;left:0;right:0;height:60%;background:linear-gradient(180deg,rgba(201,160,176,0.7),rgba(124,45,74,0.95))}
+.r-drop .rd-label{position:absolute;top:74px;left:50%;transform:translateX(-50%);width:38px;padding:5px 2px;background:rgba(254,247,243,0.95);border:1px solid rgba(74,31,46,0.1);border-radius:2px;text-align:center;font-family:var(--serif);font-style:italic;font-size:9px;color:var(--plum-deep);font-weight:600;z-index:2}
+/* step 3 - jar */
+.r-jar{width:90px;height:128px}
+.r-jar .rj-lid{position:absolute;top:0;left:50%;transform:translateX(-50%);width:84px;height:34px;background:linear-gradient(180deg,#f0e2d4,#a98875);border-radius:10px 10px 4px 4px;box-shadow:inset 0 -4px 8px rgba(74,31,46,0.2),inset 4px 0 8px rgba(255,255,255,0.3)}
+.r-jar .rj-body{position:absolute;top:34px;left:50%;transform:translateX(-50%);width:90px;height:94px;background:linear-gradient(105deg,rgba(255,255,255,0.6),transparent 40%,rgba(124,45,74,0.18)),linear-gradient(180deg,#f5e6e0,#d9a3b6);border:1.2px solid rgba(74,31,46,0.2);border-radius:6px 6px 12px 12px;overflow:hidden;box-shadow:inset 8px 0 18px rgba(255,255,255,0.3),inset -8px 0 18px rgba(74,31,46,0.15)}
+.r-jar .rj-cream{position:absolute;top:0;left:0;right:0;height:40%;background:linear-gradient(180deg,rgba(255,247,240,0.9),rgba(232,197,207,0.7))}
+.r-jar .rj-label{position:absolute;top:48px;left:50%;transform:translateX(-50%);width:56px;padding:5px 2px;background:rgba(254,247,243,0.95);border:1px solid rgba(74,31,46,0.1);border-radius:2px;text-align:center;font-family:var(--serif);font-style:italic;font-size:9px;color:var(--plum-deep);font-weight:600;z-index:2}
+
+/* ============================================================
+   REVIEWS
+   ============================================================ */
+.reviews{background:var(--cream)}
+.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.review-card{
+  background:linear-gradient(180deg,#fff,var(--cream-2));
+  border:1px solid var(--line-soft);
+  border-radius:20px;padding:34px 30px;
+  position:relative;transition:transform .35s,box-shadow .35s;
+}
+.review-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.review-quote{
+  position:absolute;top:14px;right:24px;
+  font-family:var(--serif);font-style:italic;font-size:72px;line-height:1;
+  color:var(--rose-petal);opacity:0.6;
+}
+.stars{display:flex;gap:3px;margin-bottom:18px}
+.star{
+  width:16px;height:16px;position:relative;
+  background:linear-gradient(180deg,var(--gold-light),var(--gold-2));
+  clip-path:polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+.review-text{
+  font-family:var(--serif);font-size:19px;line-height:1.5;color:var(--plum-deep);
+  font-weight:500;font-style:italic;
+}
+.review-foot{
+  margin-top:24px;padding-top:20px;border-top:1px solid var(--line-soft);
+  display:flex;align-items:center;gap:14px;
+}
+.review-avatar{
+  width:48px;height:48px;border-radius:50%;flex-shrink:0;
+  position:relative;overflow:hidden;
+  display:grid;place-items:center;
+  box-shadow:inset -3px -3px 8px rgba(74,31,46,0.18),inset 3px 3px 6px rgba(255,255,255,0.3);
+}
+.review-avatar::before{
+  content:"";position:absolute;inset:0;border-radius:50%;
+  border:2px solid rgba(255,255,255,0.6);
+}
+.review-avatar .ra-init{
+  font-family:var(--serif);font-style:italic;font-size:20px;font-weight:600;
+  color:#fff;position:relative;z-index:1;
+}
+.av-1{background:linear-gradient(135deg,var(--rose),var(--rose-deep))}
+.av-2{background:linear-gradient(135deg,var(--gold-2),var(--wine))}
+.av-3{background:linear-gradient(135deg,var(--plum),var(--rose-deep))}
+.review-meta .name{font-family:var(--serif);font-size:18px;color:var(--plum-deep);font-weight:600;line-height:1.2}
+.review-meta .bought{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-mute);margin-top:3px}
+.review-meta .bought span{color:var(--rose-deep);font-weight:600}
+
+/* ============================================================
+   NEWSLETTER
+   ============================================================ */
+.newsletter{
+  background:linear-gradient(135deg,var(--plum-deep) 0%,var(--wine) 60%,var(--rose-deep) 100%);
+  color:var(--cream);
+  position:relative;overflow:hidden;
+}
+.newsletter::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(circle at 20% 30%,rgba(232,197,207,0.18),transparent 50%),
+    radial-gradient(circle at 80% 70%,rgba(201,169,110,0.16),transparent 50%);
+}
+.newsletter::after{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:0.5;
+  background-image:radial-gradient(rgba(255,255,255,0.06) 1px,transparent 1px);
+  background-size:24px 24px;
+}
+.news-inner{
+  position:relative;z-index:2;
+  max-width:680px;margin:0 auto;text-align:center;
+}
+.news-inner .eyebrow{color:var(--gold-light)}
+.news-inner .eyebrow::before,.news-inner .eyebrow.center::after{background:var(--gold-light)}
+.news-inner h2{
+  font-family:var(--serif);font-weight:500;
+  font-size:clamp(34px,4.5vw,54px);line-height:1.1;
+  margin:18px 0 16px;letter-spacing:-0.01em;
+}
+.news-inner h2 .it{font-style:italic;color:var(--rose-petal)}
+.news-inner p{color:rgba(254,247,243,0.78);font-size:16px;line-height:1.7;max-width:480px;margin:0 auto 32px}
+.news-form{
+  display:flex;gap:10px;max-width:480px;margin:0 auto;
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.18);
+  backdrop-filter:blur(10px);
+  border-radius:50px;padding:6px;
+}
+.news-form input{
+  flex:1;background:transparent;border:none;outline:none;
+  padding:14px 22px;color:var(--cream);font-size:14px;
+}
+.news-form input::placeholder{color:rgba(254,247,243,0.5)}
+.news-form button{
+  padding:14px 26px;
+  background:var(--cream);color:var(--plum-deep);
+  border-radius:40px;font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;
+  transition:background .3s,transform .3s;
+}
+.news-form button:hover{background:var(--gold-light);transform:translateY(-1px)}
+.news-msg{
+  margin-top:16px;font-size:13px;min-height:20px;
+  color:var(--gold-light);opacity:0;transition:opacity .3s;
+}
+.news-msg.show{opacity:1}
+.news-note{margin-top:24px;font-size:11px;letter-spacing:0.1em;color:rgba(254,247,243,0.5);text-transform:uppercase}
+
+/* ============================================================
+   FINAL CTA
+   ============================================================ */
+.final-cta{
+  background:var(--cream-2);
+  text-align:center;
+  position:relative;overflow:hidden;
+  padding:120px 0;
+}
+.final-cta::before{
+  content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:560px;height:560px;border-radius:50%;
+  background:radial-gradient(circle,rgba(232,197,207,0.5),transparent 65%);
+  filter:blur(10px);
+}
+.final-cta-inner{position:relative;z-index:1;max-width:680px;margin:0 auto}
+.final-cta h2{
+  font-family:var(--serif);font-weight:500;
+  font-size:clamp(40px,6vw,72px);line-height:1.05;
+  color:var(--plum-deep);margin:18px 0 20px;letter-spacing:-0.015em;
+}
+.final-cta h2 .it{font-style:italic;color:var(--rose-deep)}
+.final-cta p{color:var(--ink-soft);font-size:18px;line-height:1.7;max-width:480px;margin:0 auto 36px}
+.final-cta .cta-row{display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
+.btn-light{background:var(--cream);color:var(--plum-deep);box-shadow:var(--shadow-sm)}
+.btn-light:hover{background:#fff;transform:translateY(-2px)}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer{
+  background:var(--plum-deep);
+  color:rgba(254,247,243,0.7);
+  padding:80px 0 36px;
+  position:relative;
+}
+.footer-top{
+  display:grid;
+  grid-template-columns:1.4fr 1fr 1fr 1fr 1fr;
+  gap:40px;
+  padding-bottom:54px;
+  border-bottom:1px solid rgba(255,255,255,0.1);
+}
+.footer-brand .brand{color:var(--cream);font-size:30px}
+.footer-brand .brand .accent{color:var(--rose-petal)}
+.footer-brand .brand small{color:var(--gold-light)}
+.footer-brand p{font-size:14px;line-height:1.7;margin-top:20px;max-width:300px}
+.footer-social{display:flex;gap:12px;margin-top:24px}
+.footer-social a{
+  width:36px;height:36px;border-radius:50%;
+  display:grid;place-items:center;
+  border:1px solid rgba(255,255,255,0.18);
+  color:rgba(254,247,243,0.7);font-size:12px;font-weight:600;letter-spacing:0.04em;
+  transition:all .3s;
+}
+.footer-social a:hover{background:var(--rose-deep);border-color:var(--rose-deep);color:var(--cream);transform:translateY(-2px)}
+.footer-col h4{
+  font-family:var(--sans);font-size:11px;font-weight:600;
+  letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-light);
+  margin-bottom:20px;
+}
+.footer-col ul li{margin-bottom:12px}
+.footer-col ul a{font-size:14px;color:rgba(254,247,243,0.65);transition:color .25s,padding-left .25s}
+.footer-col ul a:hover{color:var(--rose-petal);padding-left:4px}
+.footer-bottom{
+  padding-top:30px;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;
+}
+.footer-bottom p{font-size:13px;color:rgba(254,247,243,0.55)}
+.footer-bottom a{color:var(--gold-light);transition:color .25s}
+.footer-bottom a:hover{color:var(--rose-petal)}
+.footer-legal{display:flex;gap:24px;flex-wrap:wrap}
+.footer-legal a{font-size:13px;color:rgba(254,247,243,0.55)}
+.footer-legal a:hover{color:var(--rose-petal)}
+
+/* ============================================================
+   DOWNLOAD FAB
+   ============================================================ */
+.download-fab{
+  position:fixed;bottom:26px;right:26px;z-index:200;
+  display:inline-flex;align-items:center;gap:10px;
+  padding:14px 22px;
+  background:var(--plum-deep);color:var(--cream);
+  border-radius:50px;
+  font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;
+  box-shadow:0 14px 34px rgba(74,31,46,0.35),0 0 0 1px rgba(201,169,110,0.25);
+  transition:transform .3s,background .3s,box-shadow .3s;
+}
+.download-fab:hover{
+  background:var(--rose-deep);
+  transform:translateY(-3px);
+  box-shadow:0 20px 44px rgba(124,45,74,0.4),0 0 0 1px rgba(201,169,110,0.4);
+}
+.download-fab .fab-ico{
+  width:20px;height:20px;display:inline-grid;place-items:center;
+}
+.download-fab .fab-ico::before{
+  content:"";width:10px;height:14px;
+  border:2px solid var(--cream);border-top:none;
+  border-radius:0 0 3px 3px;
+}
+.download-fab .fab-ico::after{
+  content:"";width:2px;height:8px;background:var(--cream);
+  margin-top:-2px;border-radius:1px;
+  position:absolute;top:4px;
+}
+.download-fab .fab-ico{position:relative}
+.fab-arrow{
+  position:absolute;bottom:5px;left:50%;transform:translateX(-50%);
+  width:0;height:0;
+  border-left:5px solid transparent;
+  border-right:5px solid transparent;
+  border-top:6px solid var(--cream);
+}
+
+/* ============================================================
+   ANIMATIONS — Intersection Observer reveal
+   ============================================================ */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:translateY(0)}
+.reveal.delay-1{transition-delay:.1s}
+.reveal.delay-2{transition-delay:.2s}
+.reveal.delay-3{transition-delay:.3s}
+.reveal.delay-4{transition-delay:.4s}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width:1024px){
+  .product-grid{grid-template-columns:repeat(2,1fr)}
+  .ing-grid{grid-template-columns:repeat(2,1fr)}
+  .benefit-grid{grid-template-columns:repeat(2,1fr)}
+  .footer-top{grid-template-columns:1fr 1fr 1fr;gap:32px}
+  .footer-brand{grid-column:1/-1}
+}
+@media (max-width:860px){
+  .nav-links{display:none}
+  .nav-toggle{display:flex}
+  .nav-inner{grid-template-columns:auto 1fr auto}
+  .nav-desktop-only{display:none}
+  .nav-links.open{
+    display:flex;flex-direction:column;
+    position:absolute;top:100%;left:0;right:0;
+    background:rgba(250,246,242,0.97);
+    backdrop-filter:blur(18px);
+    padding:24px 32px;gap:18px;
+    border-bottom:1px solid var(--line);
+  }
+  .hero-grid{grid-template-columns:1fr;gap:60px}
+  .hero-stage{min-height:440px}
+  .story-grid{grid-template-columns:1fr;gap:48px}
+  .ritual-steps{grid-template-columns:1fr;gap:48px}
+  .ritual-steps::before{display:none}
+  .review-grid{grid-template-columns:1fr}
+  .section{padding:80px 0}
+  .wrap{padding:0 22px}
+}
+@media (max-width:560px){
+  .product-grid{grid-template-columns:1fr}
+  .ing-grid{grid-template-columns:1fr}
+  .benefit-grid{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr 1fr}
+  .hero-meta{gap:24px;flex-wrap:wrap}
+  .news-form{flex-direction:column;border-radius:24px;padding:10px}
+  .news-form input{text-align:center}
+  .news-form button{border-radius:30px}
+  .download-fab{padding:12px 16px;font-size:11px}
+  .download-fab .fab-text{display:none}
+  .press-logos{gap:24px}
+  .press-logos span{font-size:18px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none !important;transition:none !important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ====================== NAV ====================== -->
+<header class="nav" id="top">
+  <div class="nav-inner">
+    <a href="#top" class="brand">Éclat<span class="accent">.</span>
+      <small>Maison de Beauté</small>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#products">Shop</a>
+      <a href="#story">About</a>
+      <a href="#ingredients">Ingredients</a>
+      <a href="#journal">Journal</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="nav-icon-btn nav-desktop-only" aria-label="Search">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </button>
+      <button class="nav-icon-btn nav-desktop-only" aria-label="Account">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+      </button>
+      <button class="nav-icon-btn" aria-label="Cart" id="cartBtn">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 2 4 6h16l-2-4"/><path d="M5 6h14l-1.5 13.5a2 2 0 0 1-2 1.5h-7a2 2 0 0 1-2-1.5L5 6z"/></svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ====================== HERO ====================== -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow">New · Botanical Collection 02</span>
+      <h1>Skin, <span class="it">illuminated</span><br>by the <span class="amp">&amp;</span> garden.</h1>
+      <p class="hero-sub">A maison of botanical skincare, distilled from rare rose, golden citron and cold-pressed seed oils. Clean actives. Clinically considered. Crafted for the modern ritual.</p>
+      <div class="hero-cta-row">
+        <a href="#products" class="btn btn-primary">Shop the collection <span class="btn-arrow">→</span></a>
+        <a href="#story" class="btn btn-ghost">Our philosophy</a>
+      </div>
+      <div class="hero-meta">
+        <div><span class="num">28</span><span class="lbl">Botanical actives</span></div>
+        <div><span class="num">12k+</span><span class="lbl">Five-star rituals</span></div>
+        <div><span class="num">100%</span><span class="lbl">Clean formulation</span></div>
+      </div>
+    </div>
+
+    <div class="hero-stage">
+      <!-- Hero dropper bottle — pure CSS -->
+      <div class="bottle bottle--hero">
+        <div class="bulb"></div>
+        <div class="cap"></div>
+        <div class="neck"></div>
+        <div class="body">
+          <div class="liquid"></div>
+          <div class="body-shine"></div>
+          <div class="body-shine-2"></div>
+          <div class="label">
+            <div class="l-eyebrow">Éclat · No. 01</div>
+            <div class="l-name">Rose Lumière</div>
+            <div class="l-rule"></div>
+            <div class="l-tag">Radiance Serum</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== PRESS STRIP ====================== -->
+<section class="press">
+  <div class="wrap press-inner">
+    <span class="press-cap">As seen in</span>
+    <div class="press-logos">
+      <span class="italic">Vogue</span>
+      <span>Allure</span>
+      <span class="italic">Elle</span>
+      <span class="condensed">HARPER'S BAZAAR</span>
+      <span class="italic">Marie Claire</span>
+    </div>
+    <span class="press-cap">Est. 2019 · Paris</span>
+  </div>
+</section>
+
+<!-- ====================== FEATURED PRODUCTS ====================== -->
+<section class="section products" id="products">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow center">The Collection</span>
+      <h2>Four rituals, <span class="serif italic" style="color:var(--rose-deep)">one luminous</span> glow.</h2>
+      <p>Each formula is built around a single hero botanical, cold-pressed and clinically balanced to work in harmony with your skin's own rhythm.</p>
+    </div>
+
+    <div class="product-grid">
+
+      <!-- Product 1: Pump Bottle -->
+      <article class="product-card reveal">
+        <span class="product-tag rose">Bestseller</span>
+        <div class="product-stage">
+          <div class="bottle bottle--pump">
+            <div class="pump-head"></div>
+            <div class="pump-nozzle"></div>
+            <div class="pump-stem"></div>
+            <div class="pump-body">
+              <div class="p-label">
+                <div class="pe">No. 02</div>
+                <div class="pn">Velvet Crème</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h3 class="product-name">Velvet Crème</h3>
+        <div class="product-ingredient">Damask Rose · Hyaluronic</div>
+        <p class="product-desc">A weightless moisturizer that drenches skin in 72-hour hydration.</p>
+        <div class="product-foot">
+          <div class="product-price">$84<span>USD</span></div>
+          <button class="add-btn" data-add><span class="plus">+</span> Add</button>
+        </div>
+      </article>
+
+      <!-- Product 2: Cream Jar -->
+      <article class="product-card reveal delay-1">
+        <span class="product-tag gold">New</span>
+        <div class="product-stage">
+          <div class="bottle bottle--jar">
+            <div class="jar-lid"></div>
+            <div class="jar-neck"></div>
+            <div class="jar-body">
+              <div class="jar-cream"></div>
+              <div class="jar-label">
+                <div class="je">No. 03</div>
+                <div class="jn">Lumière Balm</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h3 class="product-name">Lumière Balm</h3>
+        <div class="product-ingredient">Golden Citron · Squalane</div>
+        <p class="product-desc">An overnight nourishing balm that restores radiance by morning.</p>
+        <div class="product-foot">
+          <div class="product-price">$96<span>USD</span></div>
+          <button class="add-btn" data-add><span class="plus">+</span> Add</button>
+        </div>
+      </article>
+
+      <!-- Product 3: Tube -->
+      <article class="product-card reveal delay-2">
+        <div class="product-stage">
+          <div class="bottle bottle--tube">
+            <div class="tube-cap"></div>
+            <div class="tube-shoulder"></div>
+            <div class="tube-body">
+              <div class="tube-label">
+                <div class="te">No. 04</div>
+                <div class="tn">Pure Cleanser</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h3 class="product-name">Pure Cleanser</h3>
+        <div class="product-ingredient">Camellia · Niacinamide</div>
+        <p class="product-desc">A milky gel that melts away makeup without stripping the barrier.</p>
+        <div class="product-foot">
+          <div class="product-price">$52<span>USD</span></div>
+          <button class="add-btn" data-add><span class="plus">+</span> Add</button>
+        </div>
+      </article>
+
+      <!-- Product 4: Mist Bottle -->
+      <article class="product-card reveal delay-3">
+        <span class="product-tag">Limited</span>
+        <div class="product-stage">
+          <div class="bottle bottle--mist">
+            <div class="mist-cap"></div>
+            <div class="mist-nozzle"></div>
+            <div class="mist-trigger"></div>
+            <div class="mist-neck"></div>
+            <div class="mist-body">
+              <div class="mist-label">
+                <div class="me">No. 05</div>
+                <div class="mn">Rose Mist</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h3 class="product-name">Rose Mist</h3>
+        <div class="product-ingredient">Rosewater · Aloe Vera</div>
+        <p class="product-desc">A botanic toning mist that refreshes and sets the ritual canvas.</p>
+        <div class="product-foot">
+          <div class="product-price">$48<span>USD</span></div>
+          <button class="add-btn" data-add><span class="plus">+</span> Add</button>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ====================== BRAND STORY ====================== -->
+<section class="section story" id="story">
+  <div class="wrap story-grid">
+    <div class="story-art reveal">
+      <div class="story-art-bg"></div>
+      <div class="story-leaf leaf l1"></div>
+      <div class="story-leaf leaf l2"></div>
+      <div class="story-leaf leaf l3"></div>
+      <div class="story-leaf leaf l4"></div>
+      <div class="story-leaf leaf l5"></div>
+      <div class="story-leaf leaf l6"></div>
+      <div class="story-monogram">
+        <span class="mono-letter">É</span>
+        <span class="mono-sub">Est. MMXIX</span>
+      </div>
+    </div>
+
+    <div class="story-copy reveal delay-1">
+      <span class="eyebrow">Our Philosophy</span>
+      <h2>Beauty, distilled<br>from the <span class="it">garden</span>.</h2>
+      <p class="lead">Éclat began in a small atelier in the sixth arrondissement, where our founder — a third-generation herbalist and a cosmetic chemist — set out to prove that luxury and clean formulation were never opposites. We harvest rare botanicals at their peak, cold-press them within hours, and balance each active with clinical precision.</p>
+      <p>Every formula is small-batch, vegan, and never tested on animals. We believe a ritual should feel as considered as it looks — that the bottle on your shelf is the start of a quiet, daily act of care.</p>
+      <div class="story-signature">
+        <div class="review-avatar av-1"><span class="ra-init">C</span></div>
+        <div>
+          <div class="sig-name">Camille Aveline</div>
+          <div class="sig-role">Founder &amp; Master Formulator</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== INGREDIENTS ====================== -->
+<section class="section ingredients" id="ingredients">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow center">Hero Ingredients</span>
+      <h2>Botanicals, <span class="serif italic" style="color:var(--rose-deep)">clinically</span> considered.</h2>
+      <p>Six hero actives form the backbone of every Éclat formula — each traceable to a single estate, each chosen for measurable results.</p>
+    </div>
+
+    <div class="ing-grid">
+      <article class="ing-card reveal">
+        <div class="ing-icon"><div class="ico-rose"><span class="petal"></span><span class="petal"></span><span class="petal"></span><span class="petal"></span><span class="petal"></span><span class="center"></span></div></div>
+        <h3>Damask Rose</h3>
+        <span class="ing-latin">Rosa damascena</span>
+        <p>Hand-harvested in the Isparta valleys at dawn, our rose otto calms redness and restores the skin's natural luminosity.</p>
+        <span class="ing-benefit">↳ Calms · Brightens</span>
+      </article>
+
+      <article class="ing-card reveal delay-1">
+        <div class="ing-icon"><div class="ico-leaf"><span class="blade"></span><span class="stem"></span><span class="blade"></span><span class="blade"></span><span class="blade"></span></div></div>
+        <h3>Camellia Leaf</h3>
+        <span class="ing-latin">Camellia sinensis</span>
+        <p>Cold-pressed green tea catechins deliver antioxidant defense against the visible effects of daily pollution.</p>
+        <span class="ing-benefit">↳ Protects · Defends</span>
+      </article>
+
+      <article class="ing-card reveal delay-2">
+        <div class="ing-icon"><div class="ico-drop"><span class="drop"></span></div></div>
+        <h3>Hyaluronic Complex</h3>
+        <span class="ing-latin">Sodium hyaluronate</span>
+        <p>A triple-weight complex that draws moisture deep into the skin, plumping from within for a sustained 72-hour glow.</p>
+        <span class="ing-benefit">↳ Hydrates · Plumps</span>
+      </article>
+
+      <article class="ing-card reveal">
+        <div class="ing-icon"><div class="ico-citrus"><div class="c-outer"></div><span class="c-seg"></span><span class="c-seg"></span><span class="c-seg"></span><span class="c-seg"></span><span class="c-seg"></span><span class="c-seg"></span><div class="c-core"></div></div></div>
+        <h3>Golden Citron</h3>
+        <span class="ing-latin">Citrus medica</span>
+        <p>A stabilized vitamin-C complex that visibly fades dark spots and evens tone over an eight-week course.</p>
+        <span class="ing-benefit">↳ Brightens · Evens</span>
+      </article>
+
+      <article class="ing-card reveal delay-1">
+        <div class="ing-icon"><div class="ico-bloom"><span class="bl"></span><span class="bl"></span><span class="bl"></span><span class="bl"></span><span class="bl"></span><span class="bl-c"></span></div></div>
+        <h3>Evening Primrose</h3>
+        <span class="ing-latin">Oenothera biennis</span>
+        <p>Rich gamma-linolenic acid rebalances the barrier and softens the look of fine lines around the eyes and mouth.</p>
+        <span class="ing-benefit">↳ Nourishes · Restores</span>
+      </article>
+
+      <article class="ing-card reveal delay-2">
+        <div class="ing-icon"><div class="ico-seed"><span class="s1"></span><span class="s2"></span><span class="s3"></span></div></div>
+        <h3>Cold-Pressed Squalane</h3>
+        <span class="ing-latin">Olive-derived</span>
+        <p>A weightless oil that mirrors skin's own sebum, locking in moisture without a hint of greasiness.</p>
+        <span class="ing-benefit">↳ Seals · Softens</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== BENEFITS ====================== -->
+<section class="section benefits">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow center">The Results</span>
+      <h2>Visible change, <span class="serif italic" style="color:var(--rose-deep)">measurable</span> care.</h2>
+      <p>Clinically tested under dermatological control. In an 8-week consumer study of 124 participants.</p>
+    </div>
+
+    <div class="benefit-grid">
+      <article class="benefit-card reveal">
+        <div class="benefit-ico"><div class="b-ico"><span class="b-ico-glow"></span><div class="b-ico-shield"></div></div></div>
+        <h3>Barrier Support</h3>
+        <p>94% saw reduced sensitivity and a stronger, more resilient skin barrier within four weeks.</p>
+      </article>
+
+      <article class="benefit-card reveal delay-1">
+        <div class="benefit-ico"><div class="b-ico"><span class="b-ico-glow"></span><div class="b-ico-spark"></div></div></div>
+        <h3>Visible Radiance</h3>
+        <p>91% reported a measurable improvement in luminosity and a more even, lit-from-within tone.</p>
+      </article>
+
+      <article class="benefit-card reveal delay-2">
+        <div class="benefit-ico"><div class="b-ico"><span class="b-ico-glow"></span><div class="b-ico-heart"></div></div></div>
+        <h3>Deep Hydration</h3>
+        <p>72-hour continuous moisture, confirmed by corneometry — even in low-humidity climates.</p>
+      </article>
+
+      <article class="benefit-card reveal delay-3">
+        <div class="benefit-ico"><div class="b-ico"><span class="b-ico-glow"></span><div class="b-ico-droplet"></div></div></div>
+        <h3>Lightweight Feel</h3>
+        <p>97% said formulas absorbed instantly with zero greasy residue — perfect under makeup.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== RITUAL ====================== -->
+<section class="section ritual" id="journal">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow center">The Ritual</span>
+      <h2>Three steps to <span class="serif italic" style="color:var(--rose-deep)">luminous</span> skin.</h2>
+      <p>A morning and evening ritual, designed to layer with intention. Slow. Considered. Whole.</p>
+    </div>
+
+    <div class="ritual-steps">
+      <article class="ritual-step reveal">
+        <div class="ritual-num">Step I</div>
+        <div class="ritual-stage">
+          <div class="r-bottle r-mist">
+            <div class="rm-cap"></div>
+            <div class="rm-body"><div class="rm-label">Mist</div></div>
+          </div>
+        </div>
+        <h3>Prepare &amp; Tone</h3>
+        <div class="ritual-time">Morning · 30 seconds</div>
+        <p>Mist Rose Mist across clean skin to set the canvas, balance pH and ready the barrier for what follows.</p>
+      </article>
+
+      <article class="ritual-step reveal delay-1">
+        <div class="ritual-num">Step II</div>
+        <div class="ritual-stage">
+          <div class="r-bottle r-drop">
+            <div class="rd-bulb"></div>
+            <div class="rd-cap"></div>
+            <div class="rd-body"><div class="rd-liquid"></div><div class="rd-label">Serum</div></div>
+          </div>
+        </div>
+        <h3>Treat &amp; Correct</h3>
+        <div class="ritual-time">Morning &amp; night · 1 minute</div>
+        <p>Press three drops of Rose Lumière serum between palms and pat into skin, focusing on tone and texture.</p>
+      </article>
+
+      <article class="ritual-step reveal delay-2">
+        <div class="ritual-num">Step III</div>
+        <div class="ritual-stage">
+          <div class="r-bottle r-jar">
+            <div class="rj-lid"></div>
+            <div class="rj-body"><div class="rj-cream"></div><div class="rj-label">Crème</div></div>
+          </div>
+        </div>
+        <h3>Seal &amp; Soften</h3>
+        <div class="ritual-time">Night · 2 minutes</div>
+        <p>Warm a pea of Velvet Crème between fingertips and massage upward to lock in the ritual overnight.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== REVIEWS ====================== -->
+<section class="section reviews">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow center">Loved by Many</span>
+      <h2>The Éclat <span class="serif italic" style="color:var(--rose-deep)">community</span>.</h2>
+      <p>Over 12,000 five-star rituals and counting. A few words from the people who made Éclat part of their daily practice.</p>
+    </div>
+
+    <div class="review-grid">
+      <article class="review-card reveal">
+        <span class="review-quote">"</span>
+        <div class="stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div>
+        <p class="review-text">The Rose Lumière serum changed my skin in three weeks. The texture, the scent, the ritual — it feels like a small luxury every single morning.</p>
+        <div class="review-foot">
+          <div class="review-avatar av-1"><span class="ra-init">I</span></div>
+          <div class="review-meta">
+            <div class="name">Isabelle R.</div>
+            <div class="bought">Bought <span>Rose Lumière Serum</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="review-card reveal delay-1">
+        <span class="review-quote">"</span>
+        <div class="stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div>
+        <p class="review-text">I have sensitive, reactive skin and most creams break me out. Velvet Crème is the first that hydrates deeply without any flare-up. Genuinely transformative.</p>
+        <div class="review-foot">
+          <div class="review-avatar av-2"><span class="ra-init">M</span></div>
+          <div class="review-meta">
+            <div class="name">Maya T.</div>
+            <div class="bought">Bought <span>Velvet Crème</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="review-card reveal delay-2">
+        <span class="review-quote">"</span>
+        <div class="stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div>
+        <p class="review-text">The full ritual is now the only part of my day that is truly mine. Beautiful formulas, beautiful packaging, beautiful results. Nothing else compares.</p>
+        <div class="review-foot">
+          <div class="review-avatar av-3"><span class="ra-init">S</span></div>
+          <div class="review-meta">
+            <div class="name">Sofia L.</div>
+            <div class="bought">Bought <span>The Full Ritual Set</span></div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== NEWSLETTER ====================== -->
+<section class="section newsletter" id="contact">
+  <div class="wrap news-inner reveal">
+    <span class="eyebrow center">The Atelier Letter</span>
+    <h2>Join the <span class="it">inner circle</span>.</h2>
+    <p>Subscribe for early access to new botanical collections, private rituals, and a 15% welcome on your first order.</p>
+    <form class="news-form" id="newsForm" novalidate>
+      <input type="email" id="newsEmail" placeholder="your@email.com" aria-label="Email address" required>
+      <button type="submit">Subscribe</button>
+    </form>
+    <p class="news-msg" id="newsMsg"></p>
+    <p class="news-note">No spam — only beautiful things, occasionally.</p>
+  </div>
+</section>
+
+<!-- ====================== FINAL CTA ====================== -->
+<section class="final-cta">
+  <div class="wrap final-cta-inner reveal">
+    <span class="eyebrow center">Begin Your Ritual</span>
+    <h2>Your most <span class="it">luminous</span><br>skin awaits.</h2>
+    <p>Discover the full Éclat collection — botanical, considered, and crafted to last a lifetime of rituals.</p>
+    <div class="cta-row">
+      <a href="#products" class="btn btn-primary">Shop the collection <span class="btn-arrow">→</span></a>
+      <a href="#story" class="btn btn-light">Read our story</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ====================== FOOTER ====================== -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#top" class="brand">Éclat<span class="accent">.</span>
+          <small>Maison de Beauté</small>
+        </a>
+        <p>Botanical luxury, clinically considered. Crafted in small batches from a Parisian atelier since 2019.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="Pinterest">Pn</a>
+          <a href="#" aria-label="TikTok">Tk</a>
+          <a href="#" aria-label="YouTube">Yt</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="#products">Serums</a></li>
+          <li><a href="#products">Moisturizers</a></li>
+          <li><a href="#products">Cleansers</a></li>
+          <li><a href="#products">Mists &amp; Toners</a></li>
+          <li><a href="#products">Ritual Sets</a></li>
+          <li><a href="#products">Gift Cards</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>About</h4>
+        <ul>
+          <li><a href="#story">Our Story</a></li>
+          <li><a href="#ingredients">Ingredients</a></li>
+          <li><a href="#journal">The Journal</a></li>
+          <li><a href="#">Sustainability</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="#">Careers</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Help</h4>
+        <ul>
+          <li><a href="#">Contact Concierge</a></li>
+          <li><a href="#">Shipping &amp; Returns</a></li>
+          <li><a href="#">Order Tracking</a></li>
+          <li><a href="#">Skin Consultation</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Refill Program</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="#contact">Newsletter</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Pinterest</a></li>
+          <li><a href="#">TikTok</a></li>
+          <li><a href="#">The Atelier</a></li>
+          <li><a href="#">Stockists</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Éclat. Template by <a href="https://excusemeweb.com/landing-pages" target="_blank" rel="noopener">ExcuseMeWeb</a>.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Cookies</a>
+        <a href="#">Accessibility</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ====================== DOWNLOAD FAB ====================== -->
+<button class="download-fab" onclick="downloadPage()" aria-label="Download HTML">
+  <span class="fab-ico"><span class="fab-arrow"></span></span>
+  <span class="fab-text">Download HTML</span>
+</button>
+
+<script>
+/* ============================================================
+   Smooth scroll, mobile nav, intersection reveals,
+   add-to-cart, newsletter validation, download.
+   ============================================================ */
+
+/* ---- Mobile nav toggle (uses duplicate toggle for small screens) ---- */
+(function(){
+  var toggles = document.querySelectorAll('.nav-toggle');
+  var links = document.getElementById('navLinks');
+  toggles.forEach(function(t){
+    t.addEventListener('click', function(){
+      links.classList.toggle('open');
+      toggles.forEach(function(x){ x.classList.toggle('open'); });
+    });
+  });
+  links.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      links.classList.remove('open');
+      toggles.forEach(function(x){ x.classList.remove('open'); });
+    });
+  });
+})();
+
+/* ---- Intersection Observer reveal ---- */
+(function(){
+  var els = document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){
+    els.forEach(function(e){ e.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){
+        en.target.classList.add('in');
+        io.unobserve(en.target);
+      }
+    });
+  }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(e){ io.observe(e); });
+})();
+
+/* ---- Add to cart ---- */
+(function(){
+  var count = 0;
+  var countEl = document.getElementById('cartCount');
+  var buttons = document.querySelectorAll('[data-add]');
+  countEl.classList.add('show');
+  buttons.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      count++;
+      countEl.textContent = count;
+      countEl.classList.add('show');
+      countEl.classList.remove('bump');
+      void countEl.offsetWidth; /* restart animation */
+      countEl.classList.add('bump');
+      var orig = btn.innerHTML;
+      btn.classList.add('added');
+      btn.innerHTML = '<span class="plus"></span> Added';
+      setTimeout(function(){
+        btn.classList.remove('added');
+        btn.innerHTML = orig;
+      }, 1600);
+    });
+  });
+})();
+
+/* ---- Newsletter validation ---- */
+(function(){
+  var form = document.getElementById('newsForm');
+  var email = document.getElementById('newsEmail');
+  var msg = document.getElementById('newsMsg');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var val = email.value.trim();
+    var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if(!re.test(val)){
+      msg.textContent = 'Please enter a valid email address.';
+      msg.style.color = '#f3c9d6';
+      msg.classList.add('show');
+      email.focus();
+      return;
+    }
+    msg.textContent = 'Welcome to the atelier. Check your inbox for 15% off.';
+    msg.style.color = '#e0c89a';
+    msg.classList.add('show');
+    email.value = '';
+  });
+})();
+
+/* ---- Sticky nav shrink on scroll ---- */
+(function(){
+  var nav = document.querySelector('.nav');
+  var inner = document.querySelector('.nav-inner');
+  var last = 0;
+  window.addEventListener('scroll', function(){
+    var y = window.scrollY;
+    if(y > 40){
+      inner.style.padding = '12px 32px';
+    } else {
+      inner.style.padding = '18px 32px';
+    }
+    last = y;
+  }, {passive:true});
+})();
+
+/* ---- Download page as HTML ---- */
+function downloadPage(){
+  const html='<!DOCTYPE html>\n'+document.documentElement.outerHTML;
+  const blob=new Blob([html],{type:'text/html'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;
+  a.download='premium-ecommerce-landing-page.html';
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+}
+</script>
+</body>
+</html>

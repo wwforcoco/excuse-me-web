@@ -1,0 +1,3361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lumina Learn — Premium Online Course Landing Page Template | ExcuseMeWeb</title>
+<meta name="description" content="Lumina Learn is a premium online education platform landing page template featuring a modern course marketplace, top instructors, animated stats, pricing tiers, and pure CSS design. Build your online learning platform today.">
+<meta name="keywords" content="online courses, education platform, elearning template, course landing page, learning management system, LMS template, online learning, education website">
+<meta name="author" content="ExcuseMeWeb">
+<link rel="canonical" href="https://excusemeweb.com/premium-education-landing">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Lumina Learn — Premium Online Course Landing Page Template | ExcuseMeWeb">
+<meta property="og:description" content="A premium online education platform landing page template with a modern course marketplace, animated stats, top instructors, pricing tiers, and pure CSS design.">
+<meta property="og:url" content="https://excusemeweb.com/premium-education-landing">
+<meta property="og:site_name" content="ExcuseMeWeb">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lumina Learn — Premium Online Course Landing Page Template | ExcuseMeWeb">
+<meta name="twitter:description" content="A premium online education platform landing page template with a modern course marketplace, animated stats, top instructors, pricing tiers, and pure CSS design.">
+<meta name="twitter:url" content="https://excusemeweb.com/premium-education-landing">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- JSON-LD Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "name": "Lumina Learn",
+  "description": "Premium online education platform offering courses in Web Development, Design, Data Science, Marketing, Business, Photography, Music, and Languages.",
+  "url": "https://excusemeweb.com/premium-education-landing",
+  "logo": "https://excusemeweb.com/logo.png",
+  "sameAs": [
+    "https://twitter.com/excusemeweb",
+    "https://facebook.com/excusemeweb",
+    "https://linkedin.com/company/excusemeweb"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "Modern Web Development Bootcamp",
+  "description": "Master HTML, CSS, JavaScript, and React by building real-world projects. From beginner to job-ready developer in 12 weeks.",
+  "provider": {
+    "@type": "Organization",
+    "name": "Lumina Learn",
+    "url": "https://excusemeweb.com/premium-education-landing"
+  },
+  "hasCourseInstance": {
+    "@type": "CourseInstance",
+    "courseMode": "Online",
+    "courseWorkload": "PT48H"
+  }
+}
+</script>
+
+<style>
+/* ===================== RESET & BASE ===================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #fafafa;
+  --bg-alt: #ffffff;
+  --bg-dark: #0f1027;
+  --indigo: #4f46e5;
+  --indigo-light: #6366f1;
+  --indigo-dark: #4338ca;
+  --indigo-50: #eef2ff;
+  --indigo-100: #e0e7ff;
+  --emerald: #059669;
+  --emerald-light: #10b981;
+  --emerald-50: #ecfdf5;
+  --coral: #f97316;
+  --coral-light: #fb923c;
+  --coral-50: #fff7ed;
+  --amber: #f59e0b;
+  --pink: #ec4899;
+  --purple: #8b5cf6;
+  --sky: #0ea5e9;
+  --text: #0f172a;
+  --text-muted: #64748b;
+  --text-light: #94a3b8;
+  --border: #e2e8f0;
+  --border-light: #f1f5f9;
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 4px 16px rgba(15, 23, 42, 0.06);
+  --shadow-lg: 0 12px 32px rgba(15, 23, 42, 0.08);
+  --shadow-xl: 0 24px 60px rgba(79, 70, 229, 0.16);
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-xl: 32px;
+  --gradient-indigo: linear-gradient(135deg, #6366f1 0%, #4f46e5 50%, #4338ca 100%);
+  --gradient-emerald: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  --gradient-coral: linear-gradient(135deg, #fb923c 0%, #f97316 100%);
+  --gradient-sunset: linear-gradient(135deg, #f97316 0%, #ec4899 50%, #8b5cf6 100%);
+  --gradient-aurora: linear-gradient(135deg, #6366f1 0%, #8b5cf6 33%, #ec4899 66%, #f97316 100%);
+  --gradient-ocean: linear-gradient(135deg, #0ea5e9 0%, #4f46e5 100%);
+  --gradient-mint: linear-gradient(135deg, #10b981 0%, #0ea5e9 100%);
+  --gradient-charcoal: linear-gradient(135deg, #1e293b 0%, #0f1027 100%);
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, .display {
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+input { font-family: inherit; }
+ul { list-style: none; }
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+section { padding: 96px 0; position: relative; }
+@media (max-width: 768px) { section { padding: 64px 0; } }
+
+/* ===================== BUTTONS ===================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+}
+.btn-primary {
+  background: var(--gradient-indigo);
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(79, 70, 229, 0.3);
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 28px rgba(79, 70, 229, 0.4); }
+.btn-ghost {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--border);
+}
+.btn-ghost:hover { background: var(--bg-alt); border-color: var(--indigo); color: var(--indigo); }
+.btn-dark { background: var(--text); color: #fff; }
+.btn-dark:hover { transform: translateY(-2px); background: #1e293b; }
+.btn-lg { padding: 16px 30px; font-size: 16px; }
+.btn-sm { padding: 8px 16px; font-size: 13px; }
+.btn-block { width: 100%; }
+
+/* ===================== NAV ===================== */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: saturate(180%) blur(18px);
+  -webkit-backdrop-filter: saturate(180%) blur(18px);
+  border-bottom: 1px solid var(--border-light);
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+  gap: 24px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--text);
+}
+.brand-mark {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: var(--gradient-indigo);
+  position: relative;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 6px 14px rgba(79, 70, 229, 0.35);
+}
+.brand-mark::before {
+  content: "";
+  width: 14px; height: 14px;
+  border-radius: 4px;
+  background: linear-gradient(135deg, #fff 0%, #c7d2fe 100%);
+  transform: rotate(45deg);
+}
+.brand-mark::after {
+  content: "";
+  position: absolute;
+  width: 6px; height: 6px;
+  background: var(--coral);
+  border-radius: 50%;
+  top: 5px; right: 5px;
+}
+.brand span { color: var(--indigo); }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+.nav-links a {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: color 0.2s;
+  position: relative;
+}
+.nav-links a:hover { color: var(--indigo); }
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -6px; left: 0;
+  width: 0; height: 2px;
+  background: var(--indigo);
+  border-radius: 2px;
+  transition: width 0.25s;
+}
+.nav-links a:hover::after { width: 100%; }
+
+.nav-search {
+  display: flex;
+  align-items: center;
+  background: var(--bg);
+  border: 1.5px solid var(--border-light);
+  border-radius: 999px;
+  padding: 7px 14px 7px 14px;
+  width: 220px;
+  transition: border-color 0.2s;
+}
+.nav-search:focus-within { border-color: var(--indigo-light); background: #fff; }
+.nav-search-icon {
+  width: 16px; height: 16px;
+  border: 2px solid var(--text-light);
+  border-radius: 50%;
+  position: relative;
+  flex-shrink: 0;
+}
+.nav-search-icon::after {
+  content: "";
+  position: absolute;
+  width: 7px; height: 2px;
+  background: var(--text-light);
+  bottom: -3px; right: -5px;
+  transform: rotate(45deg);
+  border-radius: 2px;
+}
+.nav-search input {
+  border: none; background: transparent; outline: none;
+  font-size: 14px; width: 100%;
+  padding: 0 8px;
+  color: var(--text);
+}
+.nav-search input::placeholder { color: var(--text-light); }
+
+.nav-actions { display: flex; align-items: center; gap: 10px; }
+.nav-signin {
+  font-size: 15px; font-weight: 500;
+  color: var(--text);
+  padding: 10px 16px;
+  border-radius: 999px;
+  transition: background 0.2s;
+}
+.nav-signin:hover { background: var(--indigo-50); color: var(--indigo); }
+
+.nav-toggle { display: none; }
+
+@media (max-width: 1024px) {
+  .nav-search { display: none; }
+}
+@media (max-width: 860px) {
+  .nav-links { display: none; }
+  .nav-signin { display: none; }
+  .nav-toggle {
+    display: grid;
+    place-items: center;
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    border: 1.5px solid var(--border);
+  }
+  .nav-toggle span {
+    display: block;
+    width: 18px; height: 2px;
+    background: var(--text);
+    position: relative;
+  }
+  .nav-toggle span::before, .nav-toggle span::after {
+    content: "";
+    position: absolute;
+    width: 18px; height: 2px;
+    background: var(--text);
+    left: 0;
+  }
+  .nav-toggle span::before { top: -6px; }
+  .nav-toggle span::after { top: 6px; }
+}
+
+/* ===================== HERO ===================== */
+.hero {
+  padding: 72px 0 100px;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 600px 400px at 85% 10%, rgba(99, 102, 241, 0.12), transparent 60%),
+    radial-gradient(ellipse 500px 400px at 5% 80%, rgba(249, 115, 22, 0.08), transparent 60%),
+    var(--bg);
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 56px;
+  align-items: center;
+}
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--indigo-50);
+  color: var(--indigo);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 7px 14px 7px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--indigo-100);
+  margin-bottom: 22px;
+}
+.hero-eyebrow::before {
+  content: "";
+  width: 8px; height: 8px;
+  background: var(--emerald);
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+}
+.hero h1 {
+  font-size: clamp(36px, 5.4vw, 64px);
+  letter-spacing: -0.03em;
+  margin-bottom: 22px;
+}
+.hero h1 .accent {
+  background: var(--gradient-aurora);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.hero-sub {
+  font-size: 18px;
+  color: var(--text-muted);
+  max-width: 540px;
+  margin-bottom: 32px;
+  line-height: 1.7;
+}
+.hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 36px;
+}
+.hero-trust {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.hero-trust-avatars {
+  display: flex;
+}
+.hero-trust-avatars .avatar {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  margin-left: -10px;
+  box-shadow: var(--shadow-sm);
+}
+.hero-trust-avatars .avatar:first-child { margin-left: 0; }
+.hero-trust-text {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+.hero-trust-text strong { color: var(--text); }
+.hero-trust-stars { color: var(--amber); letter-spacing: 1px; }
+
+/* CSS avatars (varied) */
+.avatar {
+  display: inline-block;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+}
+.avatar.a1 { background: var(--gradient-coral); }
+.avatar.a2 { background: var(--gradient-emerald); }
+.avatar.a3 { background: var(--gradient-ocean); }
+.avatar.a4 { background: var(--gradient-sunset); }
+.avatar.a5 { background: var(--gradient-mint); }
+.avatar.a6 { background: linear-gradient(135deg, #f59e0b 0%, #ec4899 100%); }
+.avatar.a7 { background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%); }
+.avatar.a8 { background: linear-gradient(135deg, #0ea5e9 0%, #10b981 100%); }
+
+/* ===================== HERO COURSE CARD ===================== */
+.hero-card-wrap {
+  position: relative;
+  perspective: 1200px;
+}
+.hero-card {
+  background: #fff;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+  position: relative;
+  transform: rotate(-2deg);
+  transition: transform 0.4s ease;
+  border: 1px solid var(--border-light);
+}
+.hero-card:hover { transform: rotate(0deg) translateY(-6px); }
+
+.hero-card-thumb {
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+  background: var(--gradient-aurora);
+}
+.hero-card-thumb::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(255,255,255,0.35) 0%, transparent 35%),
+    radial-gradient(circle at 80% 70%, rgba(255,255,255,0.2) 0%, transparent 30%);
+}
+.hero-card-thumb::after {
+  content: "</>";
+  position: absolute;
+  top: 18px; left: 22px;
+  font-family: 'Space Grotesk', monospace;
+  font-size: 30px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.9);
+  letter-spacing: -2px;
+}
+.hero-card-play {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70px; height: 70px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.95);
+  display: grid;
+  place-items: center;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+.hero-card-play::after {
+  content: "";
+  width: 0; height: 0;
+  border-left: 18px solid var(--indigo);
+  border-top: 11px solid transparent;
+  border-bottom: 11px solid transparent;
+  margin-left: 4px;
+}
+.hero-card-time {
+  position: absolute;
+  bottom: 14px; right: 14px;
+  background: rgba(15,23,42,0.8);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+  backdrop-filter: blur(4px);
+}
+.hero-card-body { padding: 22px 24px 24px; }
+.hero-card-tag {
+  display: inline-block;
+  background: var(--coral-50);
+  color: var(--coral);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
+.hero-card-title {
+  font-size: 21px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  line-height: 1.3;
+}
+.hero-card-instructor {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.hero-card-instructor .avatar { width: 32px; height: 32px; }
+.hero-card-instructor-name { font-size: 14px; font-weight: 600; }
+.hero-card-instructor-role { font-size: 12px; color: var(--text-light); }
+.hero-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+  margin-bottom: 16px;
+}
+.hero-card-rating { display: flex; align-items: center; gap: 6px; }
+.hero-card-rating .stars { color: var(--amber); font-size: 14px; letter-spacing: 1px; }
+.hero-card-rating .score { font-weight: 700; font-size: 14px; }
+.hero-card-rating .count { font-size: 12px; color: var(--text-light); }
+.hero-card-students {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+.hero-card-students::before {
+  content: "";
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: var(--indigo-100);
+  position: relative;
+}
+.hero-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.hero-card-price {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text);
+}
+.hero-card-price-old {
+  font-size: 14px;
+  color: var(--text-light);
+  text-decoration: line-through;
+  margin-left: 6px;
+  font-weight: 500;
+}
+
+/* Floating decoration cards */
+.hero-float-card {
+  position: absolute;
+  background: #fff;
+  border-radius: 16px;
+  padding: 14px 16px;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid var(--border-light);
+}
+.hero-float-card.top {
+  top: -16px; left: -32px;
+  animation: float 5s ease-in-out infinite;
+}
+.hero-float-card.bottom {
+  bottom: -20px; right: -28px;
+  animation: float 5s ease-in-out infinite 1.5s;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+.hero-float-icon {
+  width: 38px; height: 38px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.hero-float-icon.green { background: var(--emerald-50); color: var(--emerald); }
+.hero-float-icon.green::before {
+  content: "";
+  width: 18px; height: 14px;
+  border: 2px solid var(--emerald);
+  border-radius: 3px;
+  position: relative;
+}
+.hero-float-icon.green::after {
+  content: "";
+  position: absolute;
+  width: 8px; height: 4px;
+  border-left: 2px solid var(--emerald);
+  border-bottom: 2px solid var(--emerald);
+  transform: rotate(-45deg);
+  margin-top: -2px;
+}
+.hero-float-icon.amber { background: var(--coral-50); color: var(--coral); }
+.hero-float-icon.amber::before {
+  content: "";
+  width: 18px; height: 18px;
+  background: var(--coral);
+  border-radius: 50%;
+  clip-path: polygon(0 0, 100% 0, 100% 60%, 60% 60%, 60% 100%, 0 100%);
+}
+.hero-float-text strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+}
+.hero-float-text span {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+@media (max-width: 1024px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+  .hero-card-wrap { max-width: 460px; margin: 0 auto; }
+}
+
+/* ===================== STATS STRIP ===================== */
+.stats {
+  padding: 56px 0;
+  background: var(--bg-dark);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.stats::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 15% 50%, rgba(99,102,241,0.25), transparent 40%),
+    radial-gradient(circle at 85% 50%, rgba(249,115,22,0.18), transparent 40%);
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  position: relative;
+  z-index: 1;
+}
+.stat {
+  text-align: center;
+  position: relative;
+}
+.stat:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: -16px; top: 50%;
+  transform: translateY(-50%);
+  width: 1px; height: 60px;
+  background: rgba(255,255,255,0.12);
+}
+.stat-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(36px, 4vw, 52px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, #fff 0%, #c7d2fe 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 6px;
+}
+.stat-num .suffix { -webkit-text-fill-color: #fbbf24; }
+.stat-label {
+  font-size: 14px;
+  color: rgba(255,255,255,0.7);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+@media (max-width: 768px) {
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 32px 16px; }
+  .stat:not(:last-child)::after { display: none; }
+}
+
+/* ===================== SECTION HEADER ===================== */
+.sec-head {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 56px;
+}
+.sec-eyebrow {
+  display: inline-block;
+  background: var(--indigo-50);
+  color: var(--indigo);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 999px;
+  margin-bottom: 16px;
+}
+.sec-eyebrow.coral { background: var(--coral-50); color: var(--coral); }
+.sec-eyebrow.emerald { background: var(--emerald-50); color: var(--emerald); }
+.sec-title {
+  font-size: clamp(28px, 3.5vw, 42px);
+  margin-bottom: 14px;
+}
+.sec-sub {
+  font-size: 17px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* ===================== CATEGORIES ===================== */
+.categories { background: var(--bg); }
+.cat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+.cat-card {
+  background: #fff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.cat-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 3px;
+  background: var(--accent, var(--indigo));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.cat-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: transparent;
+}
+.cat-card:hover::before { transform: scaleX(1); }
+.cat-icon {
+  width: 56px; height: 56px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 18px;
+  position: relative;
+}
+.cat-icon.web { background: linear-gradient(135deg, #eef2ff, #e0e7ff); color: var(--indigo); }
+.cat-icon.design { background: linear-gradient(135deg, #fce7f3, #fbcfe8); color: var(--pink); }
+.cat-icon.data { background: linear-gradient(135deg, #d1fae5, #a7f3d0); color: var(--emerald); }
+.cat-icon.marketing { background: linear-gradient(135deg, #ffedd5, #fed7aa); color: var(--coral); }
+.cat-icon.business { background: linear-gradient(135deg, #fef3c7, #fde68a); color: var(--amber); }
+.cat-icon.photo { background: linear-gradient(135deg, #cffafe, #a5f3fc); color: var(--sky); }
+.cat-icon.music { background: linear-gradient(135deg, #ede9fe, #ddd6fe); color: var(--purple); }
+.cat-icon.lang { background: linear-gradient(135deg, #e0e7ff, #c7d2fe); color: var(--indigo-dark); }
+
+/* CSS art icons inside category cards */
+.icon-shape {
+  position: relative;
+  width: 28px; height: 28px;
+}
+.icon-web::before {
+  content: "<";
+  font-family: 'Space Grotesk', monospace;
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--indigo);
+  line-height: 1;
+}
+.icon-web::after {
+  content: "/>";
+  font-family: 'Space Grotesk', monospace;
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--indigo);
+  line-height: 1;
+  position: absolute;
+  left: 12px; top: 0;
+}
+/* Simpler approach: each icon uses CSS shapes */
+.icon-shape {
+  width: 30px; height: 30px;
+  position: relative;
+}
+.cat-icon.web .icon-shape {
+  border-left: 4px solid var(--indigo);
+  border-right: 4px solid var(--indigo);
+  width: 24px; height: 22px;
+  margin: 3px;
+}
+.cat-icon.web .icon-shape::before {
+  content: "";
+  position: absolute;
+  width: 12px; height: 2px;
+  background: var(--indigo);
+  top: -2px; left: 50%;
+  transform: translateX(-50%) rotate(20deg);
+}
+.cat-icon.web .icon-shape::after {
+  content: "";
+  position: absolute;
+  width: 12px; height: 2px;
+  background: var(--indigo);
+  bottom: -2px; left: 50%;
+  transform: translateX(-50%) rotate(-20deg);
+}
+
+.cat-icon.design .icon-shape {
+  display: flex;
+  gap: 2px;
+  align-items: flex-end;
+  height: 26px;
+}
+.cat-icon.design .icon-shape::before,
+.cat-icon.design .icon-shape::after {
+  content: "";
+  width: 8px; height: 26px;
+  background: var(--pink);
+  border-radius: 3px;
+}
+.cat-icon.design .icon-shape::after {
+  height: 18px;
+  background: #f59e0b;
+}
+
+.cat-icon.data .icon-shape {
+  display: flex;
+  gap: 3px;
+  align-items: flex-end;
+  height: 28px;
+}
+.cat-icon.data .icon-shape i {
+  display: block;
+  width: 6px;
+  background: var(--emerald);
+  border-radius: 2px;
+}
+.cat-icon.data .icon-shape i:nth-child(1) { height: 40%; }
+.cat-icon.data .icon-shape i:nth-child(2) { height: 75%; }
+.cat-icon.data .icon-shape i:nth-child(3) { height: 100%; }
+.cat-icon.data .icon-shape i:nth-child(4) { height: 60%; }
+
+.cat-icon.marketing .icon-shape {
+  width: 0; height: 0;
+  border-left: 14px solid var(--coral);
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
+.cat-icon.marketing .icon-shape::after {
+  content: "";
+  position: absolute;
+  width: 18px; height: 18px;
+  border: 3px solid var(--coral);
+  border-radius: 50%;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  top: -4px; left: 8px;
+  transform: rotate(45deg);
+}
+
+.cat-icon.business .icon-shape {
+  width: 26px; height: 22px;
+  background: var(--amber);
+  border-radius: 3px;
+  position: relative;
+}
+.cat-icon.business .icon-shape::before {
+  content: "";
+  position: absolute;
+  width: 100%; height: 4px;
+  background: var(--amber);
+  top: -6px; left: 0;
+  border-radius: 2px 2px 0 0;
+}
+.cat-icon.business .icon-shape::after {
+  content: "";
+  position: absolute;
+  width: 6px; height: 10px;
+  background: #fff;
+  top: 6px; left: 50%;
+  transform: translateX(-50%);
+  border-radius: 1px;
+}
+
+.cat-icon.photo .icon-shape {
+  width: 28px; height: 22px;
+  border: 3px solid var(--sky);
+  border-radius: 4px;
+  position: relative;
+}
+.cat-icon.photo .icon-shape::before {
+  content: "";
+  position: absolute;
+  width: 10px; height: 10px;
+  border: 2px solid var(--sky);
+  border-radius: 50%;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+}
+.cat-icon.photo .icon-shape::after {
+  content: "";
+  position: absolute;
+  width: 6px; height: 6px;
+  background: var(--sky);
+  border-radius: 50%;
+  top: 2px; right: 2px;
+}
+
+.cat-icon.music .icon-shape {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 28px;
+}
+.cat-icon.music .icon-shape::before,
+.cat-icon.music .icon-shape::after {
+  content: "";
+  width: 5px;
+  background: var(--purple);
+  border-radius: 2px;
+}
+.cat-icon.music .icon-shape::before { height: 100%; }
+.cat-icon.music .icon-shape::after { height: 65%; }
+.cat-icon.music .icon-shape i {
+  display: block;
+  width: 5px;
+  background: var(--purple);
+  border-radius: 2px;
+  height: 80%;
+}
+
+.cat-icon.lang .icon-shape {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--indigo-dark);
+  letter-spacing: -2px;
+  line-height: 1;
+}
+.cat-icon.lang .icon-shape::before { content: "A"; }
+.cat-icon.lang .icon-shape::after {
+  content: "文";
+  position: absolute;
+  font-size: 14px;
+  bottom: -2px; right: -6px;
+  color: var(--coral);
+}
+
+.cat-name {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.cat-count {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+.cat-count strong { color: var(--text); font-weight: 600; }
+
+@media (max-width: 1024px) { .cat-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 768px) { .cat-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .cat-grid { grid-template-columns: 1fr; } }
+
+/* ===================== FEATURED COURSES ===================== */
+.featured { background: var(--bg-alt); }
+.featured-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.featured-head .sec-head { margin: 0; text-align: left; }
+.featured-filters {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.filter-chip {
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1.5px solid var(--border);
+  background: #fff;
+  color: var(--text-muted);
+  transition: all 0.2s;
+}
+.filter-chip:hover { border-color: var(--indigo); color: var(--indigo); }
+.filter-chip.active {
+  background: var(--indigo);
+  border-color: var(--indigo);
+  color: #fff;
+}
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+.course-card {
+  background: #fff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+.course-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: transparent;
+}
+
+.course-thumb {
+  height: 180px;
+  position: relative;
+  overflow: hidden;
+}
+.course-thumb::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 25% 25%, rgba(255,255,255,0.25) 0%, transparent 40%);
+}
+/* Unique thumbnails using CSS */
+.thumb-web {
+  background: linear-gradient(135deg, #4f46e5 0%, #6366f1 50%, #818cf8 100%);
+}
+.thumb-web::before {
+  content: "{ }";
+  position: absolute;
+  font-family: 'Space Grotesk', monospace;
+  font-size: 80px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.18);
+  bottom: -10px; right: 12px;
+  letter-spacing: -6px;
+}
+.thumb-web .code-lines {
+  position: absolute;
+  top: 20px; left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.thumb-web .code-lines span {
+  display: block;
+  height: 5px;
+  background: rgba(255,255,255,0.7);
+  border-radius: 3px;
+}
+.thumb-web .code-lines span:nth-child(1) { width: 60px; }
+.thumb-web .code-lines span:nth-child(2) { width: 90px; margin-left: 10px; }
+.thumb-web .code-lines span:nth-child(3) { width: 50px; margin-left: 20px; }
+.thumb-web .code-lines span:nth-child(4) { width: 80px; }
+
+.thumb-design {
+  background: linear-gradient(135deg, #ec4899 0%, #f472b6 50%, #f9a8d4 100%);
+}
+.thumb-design .swatches {
+  position: absolute;
+  bottom: 18px; left: 18px;
+  display: flex;
+  gap: 6px;
+}
+.thumb-design .swatches span {
+  display: block;
+  width: 28px; height: 28px;
+  border-radius: 8px;
+  border: 2px solid #fff;
+}
+.thumb-design .swatches span:nth-child(1) { background: #fbbf24; }
+.thumb-design .swatches span:nth-child(2) { background: #06b6d4; }
+.thumb-design .swatches span:nth-child(3) { background: #84cc16; }
+.thumb-design .swatches span:nth-child(4) { background: #fff; }
+.thumb-design::before {
+  content: "";
+  position: absolute;
+  top: 18px; right: 20px;
+  width: 50px; height: 50px;
+  background: #fff;
+  border-radius: 50%;
+  opacity: 0.9;
+}
+.thumb-design::after {
+  content: "";
+  position: absolute;
+  top: 26px; right: 28px;
+  width: 34px; height: 34px;
+  background: var(--coral);
+  border-radius: 50%;
+}
+
+.thumb-data {
+  background: linear-gradient(135deg, #059669 0%, #10b981 50%, #34d399 100%);
+}
+.thumb-data .bars {
+  position: absolute;
+  bottom: 0; left: 0;
+  display: flex;
+  align-items: flex-end;
+  width: 100%; height: 100%;
+  padding: 18px;
+  gap: 8px;
+}
+.thumb-data .bars span {
+  flex: 1;
+  background: rgba(255,255,255,0.85);
+  border-radius: 4px 4px 0 0;
+}
+.thumb-data .bars span:nth-child(1) { height: 40%; }
+.thumb-data .bars span:nth-child(2) { height: 65%; }
+.thumb-data .bars span:nth-child(3) { height: 50%; }
+.thumb-data .bars span:nth-child(4) { height: 85%; }
+.thumb-data .bars span:nth-child(5) { height: 70%; }
+.thumb-data .bars span:nth-child(6) { height: 95%; }
+.thumb-data::before {
+  content: "";
+  position: absolute;
+  top: 18px; left: 18px;
+  width: 30px; height: 30px;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  border-right-color: transparent;
+  transform: rotate(-30deg);
+}
+
+.thumb-marketing {
+  background: linear-gradient(135deg, #f97316 0%, #fb923c 50%, #fdba74 100%);
+}
+.thumb-marketing::before {
+  content: "";
+  position: absolute;
+  top: 24px; left: 22px;
+  width: 0; height: 0;
+  border-left: 28px solid #fff;
+  border-top: 18px solid transparent;
+  border-bottom: 18px solid transparent;
+}
+.thumb-marketing .megaphone {
+  position: absolute;
+  bottom: 20px; right: 20px;
+  display: flex;
+  gap: 4px;
+  align-items: flex-end;
+}
+.thumb-marketing .megaphone span {
+  display: block;
+  width: 5px;
+  background: #fff;
+  border-radius: 2px;
+}
+.thumb-marketing .megaphone span:nth-child(1) { height: 14px; }
+.thumb-marketing .megaphone span:nth-child(2) { height: 20px; }
+.thumb-marketing .megaphone span:nth-child(3) { height: 28px; }
+
+.thumb-business {
+  background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 50%, #fcd34d 100%);
+}
+.thumb-business::before {
+  content: "";
+  position: absolute;
+  top: 30px; left: 30px;
+  width: 50px; height: 40px;
+  background: #fff;
+  clip-path: polygon(0 100%, 25% 60%, 50% 80%, 75% 30%, 100% 50%, 100% 100%);
+}
+.thumb-business::after {
+  content: "";
+  position: absolute;
+  top: 30px; left: 30px;
+  width: 50px; height: 40px;
+  background:
+    linear-gradient(to top, transparent 60%, rgba(255,255,255,0.4) 60%) no-repeat,
+    linear-gradient(to right, #fff 1.5px, transparent 1.5px) no-repeat;
+}
+.thumb-business .coin {
+  position: absolute;
+  bottom: 18px; right: 22px;
+  width: 36px; height: 36px;
+  background: #fff;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--amber);
+}
+
+.thumb-photo {
+  background: linear-gradient(135deg, #0ea5e9 0%, #38bdf8 50%, #7dd3fc 100%);
+}
+.thumb-photo::before {
+  content: "";
+  position: absolute;
+  top: 24px; left: 50%;
+  transform: translateX(-50%);
+  width: 70px; height: 50px;
+  background: #fff;
+  border-radius: 8px;
+}
+.thumb-photo::after {
+  content: "";
+  position: absolute;
+  top: 38px; left: 50%;
+  transform: translateX(-50%);
+  width: 38px; height: 38px;
+  border: 4px solid var(--sky);
+  border-radius: 50%;
+  background: #fff;
+}
+
+.course-level {
+  position: absolute;
+  top: 14px; left: 14px;
+  background: rgba(255,255,255,0.95);
+  color: var(--text);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 5px 10px;
+  border-radius: 6px;
+  backdrop-filter: blur(4px);
+  z-index: 2;
+}
+.course-level.beginner { color: var(--emerald); }
+.course-level.intermediate { color: var(--coral); }
+.course-level.advanced { color: var(--pink); }
+
+.course-duration {
+  position: absolute;
+  bottom: 14px; right: 14px;
+  background: rgba(15,23,42,0.85);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+  z-index: 2;
+  backdrop-filter: blur(4px);
+}
+
+.course-body {
+  padding: 22px 22px 22px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.course-title {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.35;
+  margin-bottom: 14px;
+  color: var(--text);
+}
+.course-card:hover .course-title { color: var(--indigo); }
+.course-instructor {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.course-instructor .avatar { width: 28px; height: 28px; }
+.course-instructor-name { font-size: 13px; color: var(--text-muted); font-weight: 500; }
+
+.course-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 0;
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+.course-rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+}
+.course-rating .star { color: var(--amber); }
+.course-rating .score { font-weight: 700; color: var(--text); }
+.course-rating .count { color: var(--text-light); }
+.course-students {
+  font-size: 13px;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.course-students::before {
+  content: "";
+  width: 12px; height: 12px;
+  border: 2px solid var(--text-light);
+  border-radius: 50%;
+}
+
+.course-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+}
+.course-price {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text);
+}
+.course-price-old {
+  font-size: 13px;
+  color: var(--text-light);
+  text-decoration: line-through;
+  margin-left: 4px;
+  font-weight: 500;
+}
+.enroll-btn {
+  background: var(--indigo-50);
+  color: var(--indigo);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 9px 18px;
+  border-radius: 999px;
+  transition: all 0.2s;
+}
+.enroll-btn:hover { background: var(--indigo); color: #fff; }
+
+@media (max-width: 1024px) { .courses-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .courses-grid { grid-template-columns: 1fr; } }
+
+/* ===================== INSTRUCTORS ===================== */
+.instructors { background: var(--bg); }
+.instructors-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.instructor-card {
+  background: #fff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 30px 22px;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.instructor-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 80px;
+  background: var(--gradient-aurora);
+  opacity: 0.12;
+}
+.instructor-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: transparent;
+}
+.instructor-card:nth-child(2)::before { background: var(--gradient-mint); }
+.instructor-card:nth-child(3)::before { background: var(--gradient-sunset); }
+.instructor-card:nth-child(4)::before { background: var(--gradient-ocean); }
+
+.instructor-avatar {
+  width: 90px; height: 90px;
+  border-radius: 50%;
+  margin: 0 auto 16px;
+  border: 4px solid #fff;
+  box-shadow: var(--shadow-md);
+  position: relative;
+  z-index: 1;
+}
+.instructor-name {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.instructor-title {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 18px;
+}
+.instructor-stats {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 14px 0;
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+  margin-bottom: 16px;
+}
+.instructor-stat-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+}
+.instructor-stat-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.instructor-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+.instructor-rating .star { color: var(--amber); font-size: 15px; }
+.instructor-rating strong { color: var(--text); }
+
+@media (max-width: 1024px) { .instructors-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .instructors-grid { grid-template-columns: 1fr; } }
+
+/* ===================== HOW IT WORKS ===================== */
+.how {
+  background: var(--bg-dark);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.how::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(99,102,241,0.25), transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(249,115,22,0.18), transparent 40%);
+}
+.how .sec-head { position: relative; z-index: 1; }
+.how .sec-title { color: #fff; }
+.how .sec-sub { color: rgba(255,255,255,0.7); }
+.how .sec-eyebrow { background: rgba(99,102,241,0.2); color: #c7d2fe; }
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  position: relative;
+  z-index: 1;
+}
+.steps-grid::before {
+  content: "";
+  position: absolute;
+  top: 32px; left: 12%; right: 12%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(99,102,241,0.5), rgba(249,115,22,0.5), transparent);
+  z-index: 0;
+}
+.step {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+.step-num {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  background: var(--gradient-indigo);
+  display: grid;
+  place-items: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 auto 20px;
+  box-shadow: 0 8px 24px rgba(79,70,229,0.4);
+  border: 4px solid var(--bg-dark);
+  position: relative;
+}
+.step:nth-child(2) .step-num { background: var(--gradient-emerald); box-shadow: 0 8px 24px rgba(5,150,105,0.4); }
+.step:nth-child(3) .step-num { background: var(--gradient-coral); box-shadow: 0 8px 24px rgba(249,115,22,0.4); }
+.step:nth-child(4) .step-num { background: var(--gradient-sunset); box-shadow: 0 8px 24px rgba(236,72,153,0.4); }
+
+.step-title {
+  font-size: 19px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.step-desc {
+  font-size: 14px;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.6;
+}
+@media (max-width: 1024px) { .steps-grid { grid-template-columns: repeat(2, 1fr); } .steps-grid::before { display: none; } }
+@media (max-width: 480px) { .steps-grid { grid-template-columns: 1fr; } }
+
+/* ===================== FEATURES ===================== */
+.features { background: var(--bg-alt); }
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.feature-card {
+  background: #fff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 30px 26px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: transparent;
+}
+.feature-icon {
+  width: 56px; height: 56px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 18px;
+  position: relative;
+  background: var(--indigo-50);
+}
+.feature-card:nth-child(2) .feature-icon { background: var(--emerald-50); }
+.feature-card:nth-child(3) .feature-icon { background: var(--coral-50); }
+.feature-card:nth-child(4) .feature-icon { background: #fce7f3; }
+.feature-card:nth-child(5) .feature-icon { background: #fef3c7; }
+.feature-card:nth-child(6) .feature-icon { background: #ede9fe; }
+
+.feature-icon .ic { width: 26px; height: 26px; position: relative; }
+/* Lifetime — infinity */
+.feat-lifetime .ic::before, .feat-lifetime .ic::after {
+  content: "";
+  position: absolute;
+  width: 12px; height: 12px;
+  border: 3px solid var(--indigo);
+  border-radius: 50%;
+  top: 6px;
+}
+.feat-lifetime .ic::before { left: 0; }
+.feat-lifetime .ic::after { right: 0; }
+
+/* Certificate — ribbon */
+.feat-cert .ic {
+  width: 24px; height: 28px;
+  background: var(--emerald);
+  border-radius: 3px;
+  position: relative;
+}
+.feat-cert .ic::before {
+  content: "";
+  position: absolute;
+  width: 100%; height: 3px;
+  background: #fff;
+  top: 8px; left: 0;
+}
+.feat-cert .ic::after {
+  content: "";
+  position: absolute;
+  width: 0; height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 8px solid var(--emerald);
+  bottom: -7px; left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Community — people */
+.feat-community .ic {
+  display: flex;
+  gap: 4px;
+}
+.feat-community .ic::before, .feat-community .ic::after {
+  content: "";
+  width: 10px;
+  background: var(--coral);
+  border-radius: 5px 5px 0 0;
+  position: relative;
+}
+.feat-community .ic::before { height: 18px; }
+.feat-community .ic::after { height: 14px; align-self: flex-end; }
+
+/* Mobile app — phone */
+.feat-mobile .ic {
+  width: 16px; height: 26px;
+  border: 3px solid var(--pink);
+  border-radius: 4px;
+  position: relative;
+}
+.feat-mobile .ic::before {
+  content: "";
+  position: absolute;
+  width: 4px; height: 4px;
+  background: var(--pink);
+  border-radius: 50%;
+  bottom: 2px; left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Project-based — folder */
+.feat-project .ic {
+  width: 26px; height: 22px;
+  background: var(--amber);
+  border-radius: 0 4px 4px 4px;
+  position: relative;
+}
+.feat-project .ic::before {
+  content: "";
+  position: absolute;
+  width: 12px; height: 4px;
+  background: var(--amber);
+  top: -4px; left: 0;
+  border-radius: 2px 2px 0 0;
+}
+
+/* Money-back — shield */
+.feat-money .ic {
+  width: 22px; height: 26px;
+  background: var(--purple);
+  clip-path: polygon(50% 0%, 100% 20%, 100% 60%, 50% 100%, 0% 60%, 0% 20%);
+  position: relative;
+}
+.feat-money .ic::before {
+  content: "$";
+  position: absolute;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.feature-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.feature-desc {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+@media (max-width: 1024px) { .features-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .features-grid { grid-template-columns: 1fr; } }
+
+/* ===================== TESTIMONIALS ===================== */
+.testimonials { background: var(--bg); }
+.test-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+.test-card {
+  background: #fff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 30px 26px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+.test-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: transparent;
+}
+.test-quote-mark {
+  font-family: 'Space Grotesk', serif;
+  font-size: 64px;
+  font-weight: 700;
+  color: var(--indigo-100);
+  line-height: 0.7;
+  position: absolute;
+  top: 24px; right: 26px;
+}
+.test-stars {
+  color: var(--amber);
+  font-size: 16px;
+  letter-spacing: 2px;
+  margin-bottom: 14px;
+}
+.test-text {
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.7;
+  margin-bottom: 22px;
+}
+.test-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border-light);
+}
+.test-author .avatar { width: 44px; height: 44px; }
+.test-author-info strong {
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+}
+.test-author-info span {
+  display: block;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+.test-outcome {
+  display: inline-block;
+  background: var(--emerald-50);
+  color: var(--emerald);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 4px 10px;
+  border-radius: 6px;
+  margin-top: 4px;
+}
+@media (max-width: 1024px) { .test-grid { grid-template-columns: 1fr; max-width: 600px; margin: 0 auto; } }
+
+/* ===================== PRICING ===================== */
+.pricing { background: var(--bg-alt); }
+.pricing-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 48px;
+}
+.toggle-label {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.toggle-label.active { color: var(--text); }
+.toggle-switch {
+  width: 54px; height: 30px;
+  background: var(--border);
+  border-radius: 999px;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.25s;
+  border: none;
+}
+.toggle-switch::after {
+  content: "";
+  position: absolute;
+  top: 3px; left: 3px;
+  width: 24px; height: 24px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  transition: transform 0.25s;
+}
+.toggle-switch.yearly { background: var(--indigo); }
+.toggle-switch.yearly::after { transform: translateX(24px); }
+.toggle-save {
+  background: var(--emerald-50);
+  color: var(--emerald);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+  align-items: stretch;
+}
+.price-card {
+  background: #fff;
+  border: 1.5px solid var(--border-light);
+  border-radius: var(--radius-xl);
+  padding: 36px 30px;
+  position: relative;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+.price-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+.price-card.featured {
+  border-color: var(--indigo);
+  box-shadow: var(--shadow-xl);
+  background: linear-gradient(180deg, #fff 0%, var(--indigo-50) 100%);
+}
+.price-card.featured::before {
+  content: "Most Popular";
+  position: absolute;
+  top: -13px; left: 50%;
+  transform: translateX(-50%);
+  background: var(--gradient-indigo);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 999px;
+  box-shadow: 0 6px 14px rgba(79,70,229,0.35);
+}
+.price-name {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.price-desc {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+.price-amount {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-bottom: 4px;
+}
+.price-amount .currency { font-size: 22px; font-weight: 600; color: var(--text-muted); }
+.price-amount .num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 52px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--text);
+}
+.price-amount .per { font-size: 14px; color: var(--text-muted); }
+.price-period {
+  font-size: 13px;
+  color: var(--text-light);
+  margin-bottom: 26px;
+}
+.price-features {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 28px;
+  flex: 1;
+}
+.price-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--text);
+}
+.price-feature::before {
+  content: "";
+  width: 18px; height: 18px;
+  flex-shrink: 0;
+  background: var(--emerald-50);
+  border-radius: 50%;
+  position: relative;
+  margin-top: 1px;
+}
+.price-feature::after {
+  content: "";
+  position: absolute;
+  width: 7px; height: 4px;
+  border-left: 2px solid var(--emerald);
+  border-bottom: 2px solid var(--emerald);
+  transform: rotate(-45deg);
+  margin-top: 6px;
+  margin-left: 5px;
+}
+.price-feature.muted { color: var(--text-light); }
+.price-feature.muted::before { background: var(--border-light); }
+.price-feature.muted::after {
+  border-left-color: var(--text-light);
+  border-bottom-color: var(--text-light);
+}
+.price-feature span { padding-left: 0; }
+
+.price-btn {
+  width: 100%;
+  padding: 14px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 15px;
+  transition: all 0.25s;
+  text-align: center;
+  cursor: pointer;
+}
+.price-btn.primary {
+  background: var(--gradient-indigo);
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(79,70,229,0.3);
+}
+.price-btn.primary:hover { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(79,70,229,0.4); }
+.price-btn.secondary {
+  background: var(--text);
+  color: #fff;
+}
+.price-btn.secondary:hover { background: #1e293b; transform: translateY(-2px); }
+.price-btn.tertiary {
+  background: var(--bg);
+  color: var(--text);
+  border: 1.5px solid var(--border);
+}
+.price-btn.tertiary:hover { border-color: var(--indigo); color: var(--indigo); }
+
+@media (max-width: 1024px) { .pricing-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; } }
+
+/* ===================== FAQ ===================== */
+.faq { background: var(--bg); }
+.faq-wrap {
+  max-width: 820px;
+  margin: 0 auto;
+}
+.faq-item {
+  background: #fff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  margin-bottom: 14px;
+  overflow: hidden;
+  transition: all 0.2s;
+}
+.faq-item.open {
+  box-shadow: var(--shadow-md);
+  border-color: var(--indigo-100);
+}
+.faq-q {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  text-align: left;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.faq-q:hover { color: var(--indigo); }
+.faq-icon {
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  background: var(--indigo-50);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  position: relative;
+  transition: background 0.2s;
+}
+.faq-icon::before, .faq-icon::after {
+  content: "";
+  position: absolute;
+  background: var(--indigo);
+  border-radius: 2px;
+  transition: transform 0.25s, background 0.2s;
+}
+.faq-icon::before { width: 12px; height: 2px; }
+.faq-icon::after { width: 2px; height: 12px; }
+.faq-item.open .faq-icon { background: var(--indigo); }
+.faq-item.open .faq-icon::before, .faq-item.open .faq-icon::after { background: #fff; }
+.faq-item.open .faq-icon::after { transform: rotate(90deg); }
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+.faq-a-inner {
+  padding: 0 24px 22px;
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* ===================== FINAL CTA ===================== */
+.final-cta {
+  padding: 80px 0;
+  background: var(--bg-alt);
+}
+.cta-card {
+  background: var(--gradient-charcoal);
+  border-radius: var(--radius-xl);
+  padding: 64px 48px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+}
+.cta-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(99,102,241,0.4), transparent 40%),
+    radial-gradient(circle at 85% 80%, rgba(249,115,22,0.35), transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(236,72,153,0.2), transparent 50%);
+}
+.cta-card > * { position: relative; z-index: 1; }
+.cta-eyebrow {
+  display: inline-block;
+  background: rgba(255,255,255,0.12);
+  color: #c7d2fe;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 999px;
+  margin-bottom: 18px;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+.cta-title {
+  font-size: clamp(28px, 4vw, 44px);
+  color: #fff;
+  margin-bottom: 14px;
+  letter-spacing: -0.03em;
+}
+.cta-sub {
+  font-size: 17px;
+  color: rgba(255,255,255,0.75);
+  max-width: 560px;
+  margin: 0 auto 32px;
+  line-height: 1.7;
+}
+.cta-form {
+  display: flex;
+  max-width: 520px;
+  margin: 0 auto;
+  gap: 10px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 999px;
+  padding: 6px;
+  backdrop-filter: blur(8px);
+}
+.cta-form input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 15px;
+  padding: 12px 18px;
+}
+.cta-form input::placeholder { color: rgba(255,255,255,0.5); }
+.cta-form button {
+  background: #fff;
+  color: var(--indigo);
+  font-weight: 700;
+  font-size: 15px;
+  padding: 12px 24px;
+  border-radius: 999px;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.cta-form button:hover { transform: translateY(-1px); box-shadow: 0 8px 18px rgba(0,0,0,0.3); }
+.cta-note {
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+  margin-top: 16px;
+}
+
+@media (max-width: 600px) {
+  .cta-card { padding: 48px 24px; }
+  .cta-form { flex-direction: column; border-radius: var(--radius-md); }
+  .cta-form button { width: 100%; }
+}
+
+/* ===================== FOOTER ===================== */
+.footer {
+  background: var(--bg-dark);
+  color: rgba(255,255,255,0.7);
+  padding: 72px 0 32px;
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.4fr repeat(4, 1fr);
+  gap: 40px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.footer-brand .brand { color: #fff; margin-bottom: 16px; }
+.footer-brand p {
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 22px;
+  max-width: 320px;
+}
+.footer-social {
+  display: flex;
+  gap: 10px;
+}
+.footer-social a {
+  width: 38px; height: 38px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.08);
+  display: grid;
+  place-items: center;
+  transition: all 0.2s;
+  position: relative;
+}
+.footer-social a:hover { background: var(--indigo); transform: translateY(-2px); }
+.footer-social .social-x,
+.footer-social .social-fb,
+.footer-social .social-ig,
+.footer-social .social-in {
+  width: 16px; height: 16px;
+  position: relative;
+}
+.social-x::before, .social-x::after {
+  content: "";
+  position: absolute;
+  width: 16px; height: 2px;
+  background: #fff;
+  top: 7px; left: 0;
+  border-radius: 1px;
+}
+.social-x::before { transform: rotate(45deg); }
+.social-x::after { transform: rotate(-45deg); }
+.social-fb {
+  width: 10px; height: 16px;
+  background: #fff;
+  border-radius: 2px;
+  position: relative;
+  clip-path: polygon(0 100%, 100% 100%, 100% 60%, 70% 60%, 70% 40%, 100% 40%, 100% 0, 60% 0, 60% 20%, 0 20%);
+}
+.social-ig {
+  width: 16px; height: 16px;
+  border: 2px solid #fff;
+  border-radius: 4px;
+}
+.social-ig::before {
+  content: "";
+  position: absolute;
+  width: 6px; height: 6px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  top: 2px; left: 2px;
+}
+.social-in {
+  width: 14px; height: 14px;
+  position: relative;
+}
+.social-in::before {
+  content: "in";
+  position: absolute;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  top: -3px; left: 0;
+}
+
+.footer-col h4 {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 18px;
+  letter-spacing: 0.01em;
+}
+.footer-col ul { display: flex; flex-direction: column; gap: 11px; }
+.footer-col a {
+  font-size: 14px;
+  color: rgba(255,255,255,0.65);
+  transition: color 0.2s;
+}
+.footer-col a:hover { color: #fff; }
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 28px;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+.footer-credit {
+  font-size: 13px;
+  color: rgba(255,255,255,0.55);
+}
+.footer-credit a { color: #c7d2fe; transition: color 0.2s; }
+.footer-credit a:hover { color: #fff; }
+.footer-legal {
+  display: flex;
+  gap: 22px;
+}
+.footer-legal a {
+  font-size: 13px;
+  color: rgba(255,255,255,0.55);
+  transition: color 0.2s;
+}
+.footer-legal a:hover { color: #fff; }
+
+@media (max-width: 1024px) {
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 36px; }
+}
+@media (max-width: 600px) {
+  .footer-top { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+}
+
+/* ===================== FLOATING DOWNLOAD ===================== */
+.download-fab {
+  position: fixed;
+  bottom: 24px; right: 24px;
+  z-index: 200;
+  background: var(--gradient-indigo);
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 14px 22px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 14px 32px rgba(79,70,229,0.45);
+  cursor: pointer;
+  transition: all 0.25s;
+  border: none;
+}
+.download-fab:hover { transform: translateY(-3px); box-shadow: 0 20px 40px rgba(79,70,229,0.55); }
+.download-fab-icon {
+  width: 18px; height: 18px;
+  position: relative;
+}
+.download-fab-icon::before {
+  content: "";
+  position: absolute;
+  width: 14px; height: 14px;
+  border: 2px solid #fff;
+  border-radius: 3px;
+  top: 0; left: 2px;
+}
+.download-fab-icon::after {
+  content: "";
+  position: absolute;
+  width: 2px; height: 10px;
+  background: #fff;
+  top: 4px; left: 8px;
+}
+.download-fab-icon i {
+  position: absolute;
+  width: 0; height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid #fff;
+  bottom: 0; left: 5px;
+}
+
+/* ===================== ANIMATIONS ===================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.08s; }
+.reveal-delay-2 { transition-delay: 0.16s; }
+.reveal-delay-3 { transition-delay: 0.24s; }
+.reveal-delay-4 { transition-delay: 0.32s; }
+.reveal-delay-5 { transition-delay: 0.4s; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}
+
+/* Toast */
+.toast {
+  position: fixed;
+  bottom: 90px; right: 24px;
+  background: var(--text);
+  color: #fff;
+  padding: 14px 20px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: var(--shadow-lg);
+  z-index: 300;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s, transform 0.3s;
+  pointer-events: none;
+}
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.toast::before {
+  content: "";
+  display: inline-block;
+  width: 8px; height: 8px;
+  background: var(--emerald);
+  border-radius: 50%;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+</style>
+</head>
+<body>
+
+<!-- ===================== NAV ===================== -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="#" class="brand">
+      <span class="brand-mark"></span>
+      Lumina<span>Learn</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#categories">Courses</a></li>
+      <li><a href="#instructors">Instructors</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+    <div class="nav-search">
+      <span class="nav-search-icon"></span>
+      <input type="text" placeholder="Search 2,400+ courses..." aria-label="Search courses">
+    </div>
+    <div class="nav-actions">
+      <a href="#" class="nav-signin">Sign in</a>
+      <a href="#pricing" class="btn btn-primary btn-sm">Get started</a>
+      <button class="nav-toggle" aria-label="Toggle menu"><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero">
+  <div class="container hero-grid">
+    <div class="hero-left">
+      <span class="hero-eyebrow">Over 480,000 learners worldwide</span>
+      <h1>Master new skills with <span class="accent">premium online courses</span> built for real careers</h1>
+      <p class="hero-sub">Lumina Learn brings world-class instructors, project-based curricula, and a thriving community together — so you can go from curious beginner to confident professional, on your schedule.</p>
+      <div class="hero-cta">
+        <a href="#courses" class="btn btn-primary btn-lg">Browse courses</a>
+        <a href="#how" class="btn btn-ghost btn-lg">How it works</a>
+      </div>
+      <div class="hero-trust">
+        <div class="hero-trust-avatars">
+          <span class="avatar a1"></span>
+          <span class="avatar a2"></span>
+          <span class="avatar a3"></span>
+          <span class="avatar a4"></span>
+          <span class="avatar a5"></span>
+        </div>
+        <div class="hero-trust-text">
+          <span class="hero-trust-stars">★★★★★</span><br>
+          <strong>4.9/5</strong> from 38,000+ reviews
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-card-wrap">
+        <div class="hero-float-card top">
+          <span class="hero-float-icon green"></span>
+          <div class="hero-float-text">
+            <strong>Certificate earned</strong>
+            <span>Just now</span>
+          </div>
+        </div>
+        <div class="hero-float-card bottom">
+          <span class="hero-float-icon amber"></span>
+          <div class="hero-float-text">
+            <strong>+1,284 students</strong>
+            <span>enrolled this week</span>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="hero-card-thumb">
+            <span class="hero-card-time">12:48</span>
+            <div class="hero-card-play"></div>
+          </div>
+          <div class="hero-card-body">
+            <span class="hero-card-tag">Bestseller</span>
+            <h3 class="hero-card-title">The Complete Web Development Bootcamp 2026</h3>
+            <div class="hero-card-instructor">
+              <span class="avatar a3"></span>
+              <div>
+                <div class="hero-card-instructor-name">Sarah Chen</div>
+                <div class="hero-card-instructor-role">Senior Engineer @ Stripe</div>
+              </div>
+            </div>
+            <div class="hero-card-meta">
+              <div class="hero-card-rating">
+                <span class="stars">★★★★★</span>
+                <span class="score">4.9</span>
+                <span class="count">(12,480)</span>
+              </div>
+              <div class="hero-card-students">42.5k students</div>
+            </div>
+            <div class="hero-card-footer">
+              <div>
+                <span class="hero-card-price">$89</span>
+                <span class="hero-card-price-old">$199</span>
+              </div>
+              <a href="#" class="btn btn-primary btn-sm">Enroll now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== STATS ===================== -->
+<section class="stats" style="padding: 56px 0;">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat">
+        <div class="stat-num" data-target="482000" data-suffix="+">0</div>
+        <div class="stat-label">Students enrolled</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num" data-target="2400" data-suffix="+">0</div>
+        <div class="stat-label">Premium courses</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num" data-target="380" data-suffix="+">0</div>
+        <div class="stat-label">Expert instructors</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num" data-target="94" data-suffix="%">0</div>
+        <div class="stat-label">Completion rate</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CATEGORIES ===================== -->
+<section class="categories" id="categories">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-eyebrow">Explore categories</span>
+      <h2 class="sec-title">Find your path across 8 in-demand fields</h2>
+      <p class="sec-sub">From coding to creative arts, every category is curated by industry experts and updated quarterly to match what employers actually hire for.</p>
+    </div>
+    <div class="cat-grid">
+      <div class="cat-card reveal" style="--accent: var(--indigo);">
+        <div class="cat-icon web"><span class="icon-shape"></span></div>
+        <div class="cat-name">Web Development</div>
+        <div class="cat-count"><strong>428</strong> courses</div>
+      </div>
+      <div class="cat-card reveal reveal-delay-1" style="--accent: var(--pink);">
+        <div class="cat-icon design"><span class="icon-shape"></span></div>
+        <div class="cat-name">Design</div>
+        <div class="cat-count"><strong>312</strong> courses</div>
+      </div>
+      <div class="cat-card reveal reveal-delay-2" style="--accent: var(--emerald);">
+        <div class="cat-icon data"><span class="icon-shape"><i></i><i></i><i></i><i></i></span></div>
+        <div class="cat-name">Data Science</div>
+        <div class="cat-count"><strong>264</strong> courses</div>
+      </div>
+      <div class="cat-card reveal reveal-delay-3" style="--accent: var(--coral);">
+        <div class="cat-icon marketing"><span class="icon-shape"></span></div>
+        <div class="cat-name">Marketing</div>
+        <div class="cat-count"><strong>198</strong> courses</div>
+      </div>
+      <div class="cat-card reveal" style="--accent: var(--amber);">
+        <div class="cat-icon business"><span class="icon-shape"></span></div>
+        <div class="cat-name">Business</div>
+        <div class="cat-count"><strong>246</strong> courses</div>
+      </div>
+      <div class="cat-card reveal reveal-delay-1" style="--accent: var(--sky);">
+        <div class="cat-icon photo"><span class="icon-shape"></span></div>
+        <div class="cat-name">Photography</div>
+        <div class="cat-count"><strong>154</strong> courses</div>
+      </div>
+      <div class="cat-card reveal reveal-delay-2" style="--accent: var(--purple);">
+        <div class="cat-icon music"><span class="icon-shape"><i></i></span></div>
+        <div class="cat-name">Music</div>
+        <div class="cat-count"><strong>132</strong> courses</div>
+      </div>
+      <div class="cat-card reveal reveal-delay-3" style="--accent: var(--indigo-dark);">
+        <div class="cat-icon lang"><span class="icon-shape"></span></div>
+        <div class="cat-name">Languages</div>
+        <div class="cat-count"><strong>176</strong> courses</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FEATURED COURSES ===================== -->
+<section class="featured" id="courses">
+  <div class="container">
+    <div class="featured-head">
+      <div class="sec-head reveal" style="margin: 0; text-align: left;">
+        <span class="sec-eyebrow coral">Featured courses</span>
+        <h2 class="sec-title">This week's most enrolled courses</h2>
+        <p class="sec-sub" style="margin: 0;">Hand-picked by our learning team based on ratings, project quality, and outcomes.</p>
+      </div>
+      <div class="featured-filters reveal">
+        <button class="filter-chip active">All</button>
+        <button class="filter-chip">Web Dev</button>
+        <button class="filter-chip">Design</button>
+        <button class="filter-chip">Data</button>
+        <button class="filter-chip">Marketing</button>
+      </div>
+    </div>
+
+    <div class="courses-grid">
+      <!-- Course 1: Web Dev -->
+      <div class="course-card reveal">
+        <div class="course-thumb thumb-web">
+          <span class="course-level beginner">Beginner</span>
+          <span class="course-duration">42h 30m</span>
+          <div class="code-lines"><span></span><span></span><span></span><span></span></div>
+        </div>
+        <div class="course-body">
+          <h3 class="course-title">Modern React &amp; TypeScript Masterclass</h3>
+          <div class="course-instructor">
+            <span class="avatar a3"></span>
+            <span class="course-instructor-name">Sarah Chen</span>
+          </div>
+          <div class="course-meta">
+            <div class="course-rating">
+              <span class="star">★</span>
+              <span class="score">4.9</span>
+              <span class="count">(8,421)</span>
+            </div>
+            <div class="course-students">28,400 students</div>
+          </div>
+          <div class="course-footer">
+            <div>
+              <span class="course-price">$79</span>
+              <span class="course-price-old">$179</span>
+            </div>
+            <a href="#" class="enroll-btn">Enroll</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course 2: Design -->
+      <div class="course-card reveal reveal-delay-1">
+        <div class="course-thumb thumb-design">
+          <span class="course-level intermediate">Intermediate</span>
+          <span class="course-duration">28h 15m</span>
+          <div class="swatches"><span></span><span></span><span></span><span></span></div>
+        </div>
+        <div class="course-body">
+          <h3 class="course-title">UI/UX Design Systems from Scratch</h3>
+          <div class="course-instructor">
+            <span class="avatar a4"></span>
+            <span class="course-instructor-name">Marcus Rivera</span>
+          </div>
+          <div class="course-meta">
+            <div class="course-rating">
+              <span class="star">★</span>
+              <span class="score">4.8</span>
+              <span class="count">(5,612)</span>
+            </div>
+            <div class="course-students">18,920 students</div>
+          </div>
+          <div class="course-footer">
+            <div>
+              <span class="course-price">$69</span>
+              <span class="course-price-old">$149</span>
+            </div>
+            <a href="#" class="enroll-btn">Enroll</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course 3: Data Science -->
+      <div class="course-card reveal reveal-delay-2">
+        <div class="course-thumb thumb-data">
+          <span class="course-level advanced">Advanced</span>
+          <span class="course-duration">36h 45m</span>
+          <div class="bars"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        </div>
+        <div class="course-body">
+          <h3 class="course-title">Python for Data Science &amp; Machine Learning</h3>
+          <div class="course-instructor">
+            <span class="avatar a2"></span>
+            <span class="course-instructor-name">Dr. Amara Okafor</span>
+          </div>
+          <div class="course-meta">
+            <div class="course-rating">
+              <span class="star">★</span>
+              <span class="score">4.9</span>
+              <span class="count">(11,205)</span>
+            </div>
+            <div class="course-students">42,180 students</div>
+          </div>
+          <div class="course-footer">
+            <div>
+              <span class="course-price">$94</span>
+              <span class="course-price-old">$209</span>
+            </div>
+            <a href="#" class="enroll-btn">Enroll</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course 4: Marketing -->
+      <div class="course-card reveal">
+        <div class="course-thumb thumb-marketing">
+          <span class="course-level beginner">Beginner</span>
+          <span class="course-duration">22h 10m</span>
+          <div class="megaphone"><span></span><span></span><span></span></div>
+        </div>
+        <div class="course-body">
+          <h3 class="course-title">Digital Marketing &amp; Growth Strategy</h3>
+          <div class="course-instructor">
+            <span class="avatar a6"></span>
+            <span class="course-instructor-name">Priya Nair</span>
+          </div>
+          <div class="course-meta">
+            <div class="course-rating">
+              <span class="star">★</span>
+              <span class="score">4.7</span>
+              <span class="count">(4,308)</span>
+            </div>
+            <div class="course-students">15,640 students</div>
+          </div>
+          <div class="course-footer">
+            <div>
+              <span class="course-price">$59</span>
+              <span class="course-price-old">$129</span>
+            </div>
+            <a href="#" class="enroll-btn">Enroll</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course 5: Business -->
+      <div class="course-card reveal reveal-delay-1">
+        <div class="course-thumb thumb-business">
+          <span class="course-level intermediate">Intermediate</span>
+          <span class="course-duration">18h 50m</span>
+          <div class="coin">$</div>
+        </div>
+        <div class="course-body">
+          <h3 class="course-title">Startup Finance &amp; Fundraising Essentials</h3>
+          <div class="course-instructor">
+            <span class="avatar a7"></span>
+            <span class="course-instructor-name">James Whitfield</span>
+          </div>
+          <div class="course-meta">
+            <div class="course-rating">
+              <span class="star">★</span>
+              <span class="score">4.8</span>
+              <span class="count">(3,914)</span>
+            </div>
+            <div class="course-students">9,820 students</div>
+          </div>
+          <div class="course-footer">
+            <div>
+              <span class="course-price">$74</span>
+              <span class="course-price-old">$159</span>
+            </div>
+            <a href="#" class="enroll-btn">Enroll</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course 6: Photography -->
+      <div class="course-card reveal reveal-delay-2">
+        <div class="course-thumb thumb-photo">
+          <span class="course-level beginner">Beginner</span>
+          <span class="course-duration">16h 20m</span>
+        </div>
+        <div class="course-body">
+          <h3 class="course-title">Photography Fundamentals &amp; Editing</h3>
+          <div class="course-instructor">
+            <span class="avatar a8"></span>
+            <span class="course-instructor-name">Elena Volkov</span>
+          </div>
+          <div class="course-meta">
+            <div class="course-rating">
+              <span class="star">★</span>
+              <span class="score">4.9</span>
+              <span class="count">(6,732)</span>
+            </div>
+            <div class="course-students">21,540 students</div>
+          </div>
+          <div class="course-footer">
+            <div>
+              <span class="course-price">$64</span>
+              <span class="course-price-old">$139</span>
+            </div>
+            <a href="#" class="enroll-btn">Enroll</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== INSTRUCTORS ===================== -->
+<section class="instructors" id="instructors">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-eyebrow emerald">Meet the mentors</span>
+      <h2 class="sec-title">Learn from practitioners, not professors</h2>
+      <p class="sec-sub">Every instructor has shipped real products at companies like Stripe, Airbnb, Spotify, and Netflix — and they teach the exact workflows they use today.</p>
+    </div>
+    <div class="instructors-grid">
+      <div class="instructor-card reveal">
+        <div class="instructor-avatar avatar a3"></div>
+        <div class="instructor-name">Sarah Chen</div>
+        <div class="instructor-title">Senior Engineer @ Stripe</div>
+        <div class="instructor-stats">
+          <div>
+            <div class="instructor-stat-num">14</div>
+            <div class="instructor-stat-label">Courses</div>
+          </div>
+          <div>
+            <div class="instructor-stat-num">68k</div>
+            <div class="instructor-stat-label">Students</div>
+          </div>
+        </div>
+        <div class="instructor-rating">
+          <span class="star">★</span>
+          <strong>4.9</strong>
+          <span>instructor rating</span>
+        </div>
+      </div>
+
+      <div class="instructor-card reveal reveal-delay-1">
+        <div class="instructor-avatar avatar a4"></div>
+        <div class="instructor-name">Marcus Rivera</div>
+        <div class="instructor-title">Design Lead @ Airbnb</div>
+        <div class="instructor-stats">
+          <div>
+            <div class="instructor-stat-num">9</div>
+            <div class="instructor-stat-label">Courses</div>
+          </div>
+          <div>
+            <div class="instructor-stat-num">42k</div>
+            <div class="instructor-stat-label">Students</div>
+          </div>
+        </div>
+        <div class="instructor-rating">
+          <span class="star">★</span>
+          <strong>4.8</strong>
+          <span>instructor rating</span>
+        </div>
+      </div>
+
+      <div class="instructor-card reveal reveal-delay-2">
+        <div class="instructor-avatar avatar a2"></div>
+        <div class="instructor-name">Dr. Amara Okafor</div>
+        <div class="instructor-title">ML Researcher @ Spotify</div>
+        <div class="instructor-stats">
+          <div>
+            <div class="instructor-stat-num">11</div>
+            <div class="instructor-stat-label">Courses</div>
+          </div>
+          <div>
+            <div class="instructor-stat-num">85k</div>
+            <div class="instructor-stat-label">Students</div>
+          </div>
+        </div>
+        <div class="instructor-rating">
+          <span class="star">★</span>
+          <strong>4.9</strong>
+          <span>instructor rating</span>
+        </div>
+      </div>
+
+      <div class="instructor-card reveal reveal-delay-3">
+        <div class="instructor-avatar avatar a6"></div>
+        <div class="instructor-name">Priya Nair</div>
+        <div class="instructor-title">Growth Lead @ Notion</div>
+        <div class="instructor-stats">
+          <div>
+            <div class="instructor-stat-num">7</div>
+            <div class="instructor-stat-label">Courses</div>
+          </div>
+          <div>
+            <div class="instructor-stat-num">34k</div>
+            <div class="instructor-stat-label">Students</div>
+          </div>
+        </div>
+        <div class="instructor-rating">
+          <span class="star">★</span>
+          <strong>4.7</strong>
+          <span>instructor rating</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== HOW IT WORKS ===================== -->
+<section class="how" id="how">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-eyebrow">How it works</span>
+      <h2 class="sec-title">From curious to certified in four steps</h2>
+      <p class="sec-sub">A structured path that adapts to your pace, with mentorship and project feedback baked in.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step reveal">
+        <div class="step-num">1</div>
+        <h3 class="step-title">Choose your course</h3>
+        <p class="step-desc">Browse 2,400+ courses across 8 categories and pick the path that matches your goals.</p>
+      </div>
+      <div class="step reveal reveal-delay-1">
+        <div class="step-num">2</div>
+        <h3 class="step-title">Learn at your pace</h3>
+        <p class="step-desc">Watch HD lessons anywhere, take notes, and revisit any module — lifetime access, on every device.</p>
+      </div>
+      <div class="step reveal reveal-delay-2">
+        <div class="step-num">3</div>
+        <h3 class="step-title">Build real projects</h3>
+        <p class="step-desc">Apply each concept to portfolio-grade projects with feedback from instructors and peers.</p>
+      </div>
+      <div class="step reveal reveal-delay-3">
+        <div class="step-num">4</div>
+        <h3 class="step-title">Get certified</h3>
+        <p class="step-desc">Earn a verifiable certificate and share it with employers — 92% of grads land a role within 6 months.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FEATURES ===================== -->
+<section class="features" id="about">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-eyebrow">Why Lumina Learn</span>
+      <h2 class="sec-title">Everything you need to actually finish what you start</h2>
+      <p class="sec-sub">Most platforms sell courses. We build learning systems designed to get you to the finish line — and beyond.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card reveal">
+        <div class="feature-icon feat-lifetime"><span class="ic"></span></div>
+        <h3 class="feature-title">Lifetime access</h3>
+        <p class="feature-desc">Pay once and own forever. Every update, new module, and bonus resource is included at no extra cost.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-1">
+        <div class="feature-icon feat-cert"><span class="ic"></span></div>
+        <h3 class="feature-title">Verified certificates</h3>
+        <p class="feature-desc">Industry-recognized, shareable certificates that recruiters trust — backed by your real project work.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <div class="feature-icon feat-community"><span class="ic"></span></div>
+        <h3 class="feature-title">Active community</h3>
+        <p class="feature-desc">Join 480k+ learners in study groups, weekly live Q&amp;A sessions, and peer project reviews.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon feat-mobile"><span class="ic"></span></div>
+        <h3 class="feature-title">Mobile &amp; offline app</h3>
+        <p class="feature-desc">Download lessons for offline viewing, sync progress across devices, and learn on your commute.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-1">
+        <div class="feature-icon feat-project"><span class="ic"></span></div>
+        <h3 class="feature-title">Project-based learning</h3>
+        <p class="feature-desc">Every course ships with 3-8 portfolio projects graded by instructors — not auto-graded quizzes.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <div class="feature-icon feat-money"><span class="ic"></span></div>
+        <h3 class="feature-title">30-day money-back</h3>
+        <p class="feature-desc">Not the right fit? Get a full refund within 30 days, no questions asked. We mean it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TESTIMONIALS ===================== -->
+<section class="testimonials">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-eyebrow coral">Success stories</span>
+      <h2 class="sec-title">Real learners. Real career outcomes.</h2>
+      <p class="sec-sub">Over 92% of Lumina Learn graduates report a positive career change within six months of completing a track.</p>
+    </div>
+    <div class="test-grid">
+      <div class="test-card reveal">
+        <span class="test-quote-mark">"</span>
+        <div class="test-stars">★★★★★</div>
+        <p class="test-text">I went from teaching high school math to landing a junior frontend role in 5 months. The React masterclass gave me three portfolio projects that actually impressed hiring managers.</p>
+        <div class="test-author">
+          <span class="avatar a5"></span>
+          <div class="test-author-info">
+            <strong>David Martinez</strong>
+            <span>Frontend Developer @ Shopify</span>
+            <span class="test-outcome">+38% salary bump</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="test-card reveal reveal-delay-1">
+        <span class="test-quote-mark">"</span>
+        <div class="test-stars">★★★★★</div>
+        <p class="test-text">The design systems course completely changed how I work. I went from junior designer to leading the design system at my agency within a year. Worth every dollar.</p>
+        <div class="test-author">
+          <span class="avatar a6"></span>
+          <div class="test-author-info">
+            <strong>Olivia Brooks</strong>
+            <span>Lead Designer @ Pulse Agency</span>
+            <span class="test-outcome">Promotion in 8 months</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="test-card reveal reveal-delay-2">
+        <span class="test-quote-mark">"</span>
+        <div class="test-stars">★★★★★</div>
+        <p class="test-text">As a career switcher from finance, the Python for Data Science track was a lifeline. I built a real ML pipeline for my capstone and got hired at a fintech two weeks later.</p>
+        <div class="test-author">
+          <span class="avatar a8"></span>
+          <div class="test-author-info">
+            <strong>Raj Patel</strong>
+            <span>Data Analyst @ Plaid</span>
+            <span class="test-outcome">Career switch success</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PRICING ===================== -->
+<section class="pricing" id="pricing">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-eyebrow">Pricing</span>
+      <h2 class="sec-title">Simple plans. No hidden fees. Cancel anytime.</h2>
+      <p class="sec-sub">Start free, upgrade when you're ready. All paid plans include a 30-day money-back guarantee.</p>
+    </div>
+
+    <div class="pricing-toggle reveal">
+      <span class="toggle-label active" data-period="monthly">Monthly</span>
+      <button class="toggle-switch" id="toggleSwitch" aria-label="Toggle billing period"></button>
+      <span class="toggle-label" data-period="yearly">Yearly</span>
+      <span class="toggle-save">Save 20%</span>
+    </div>
+
+    <div class="pricing-grid">
+      <div class="price-card reveal">
+        <div class="price-name">Free</div>
+        <div class="price-desc">Perfect for trying things out</div>
+        <div class="price-amount">
+          <span class="currency">$</span>
+          <span class="num" data-monthly="0" data-yearly="0">0</span>
+          <span class="per">/month</span>
+        </div>
+        <div class="price-period">No credit card required</div>
+        <div class="price-features">
+          <div class="price-feature"><span>Access to 40+ intro courses</span></div>
+          <div class="price-feature"><span>Community discussion access</span></div>
+          <div class="price-feature"><span>Mobile app (online only)</span></div>
+          <div class="price-feature muted"><span>Verified certificates</span></div>
+          <div class="price-feature muted"><span>Project feedback</span></div>
+          <div class="price-feature muted"><span>Live Q&amp;A sessions</span></div>
+        </div>
+        <button class="price-btn tertiary">Start for free</button>
+      </div>
+
+      <div class="price-card featured reveal reveal-delay-1">
+        <div class="price-name">Pro</div>
+        <div class="price-desc">For serious learners &amp; career switchers</div>
+        <div class="price-amount">
+          <span class="currency">$</span>
+          <span class="num" data-monthly="29" data-yearly="23">29</span>
+          <span class="per">/month</span>
+        </div>
+        <div class="price-period" data-monthly="Billed monthly" data-yearly="Billed annually at $276">Billed monthly</div>
+        <div class="price-features">
+          <div class="price-feature"><span>Access to all 2,400+ courses</span></div>
+          <div class="price-feature"><span>Verified certificates</span></div>
+          <div class="price-feature"><span>Offline mobile downloads</span></div>
+          <div class="price-feature"><span>Project feedback from mentors</span></div>
+          <div class="price-feature"><span>Weekly live Q&amp;A sessions</span></div>
+          <div class="price-feature muted"><span>Team analytics &amp; admin</span></div>
+        </div>
+        <button class="price-btn primary">Start 7-day free trial</button>
+      </div>
+
+      <div class="price-card reveal reveal-delay-2">
+        <div class="price-name">Teams</div>
+        <div class="price-desc">For teams &amp; organizations of 5+</div>
+        <div class="price-amount">
+          <span class="currency">$</span>
+          <span class="num" data-monthly="49" data-yearly="39">49</span>
+          <span class="per">/user/mo</span>
+        </div>
+        <div class="price-period" data-monthly="Billed monthly" data-yearly="Billed annually at $468/user">Billed monthly</div>
+        <div class="price-features">
+          <div class="price-feature"><span>Everything in Pro, for each seat</span></div>
+          <div class="price-feature"><span>Team analytics dashboard</span></div>
+          <div class="price-feature"><span>Admin &amp; SSO controls</span></div>
+          <div class="price-feature"><span>Custom learning paths</span></div>
+          <div class="price-feature"><span>Dedicated success manager</span></div>
+          <div class="price-feature"><span>Priority instructor support</span></div>
+        </div>
+        <button class="price-btn secondary">Book a demo</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section class="faq">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-eyebrow">FAQ</span>
+      <h2 class="sec-title">Questions, answered</h2>
+      <p class="sec-sub">Everything you need to know before you enroll. Still curious? Reach out to our team anytime.</p>
+    </div>
+    <div class="faq-wrap">
+      <div class="faq-item reveal">
+        <button class="faq-q">
+          Do I get a certificate after completing a course?
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Yes. Every paid course includes a verifiable completion certificate you can add to LinkedIn, your resume, or share with a unique URL. Pro and Teams plans also include skill-track certificates for completing multi-course paths.</div>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">
+          How long do I have access to a course?
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Lifetime access on every paid course. Once you enroll, the course — including all future updates and bonus modules — is yours forever. Free courses remain accessible as long as your account is active.</div>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">
+          What if a course isn't right for me?
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">We offer a 30-day, no-questions-asked money-back guarantee on every course and subscription. If it's not the right fit, contact support within 30 days for a full refund.</div>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">
+          Do I need any prior experience to start?
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">No. Every category includes beginner-friendly courses that assume zero prior knowledge. Each course lists prerequisites clearly, and most tracks offer a recommended learning order so you always know what to take next.</div>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">
+          Can I learn on mobile and offline?
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Absolutely. Our iOS and Android apps support full course playback, note-taking, and offline downloads (Pro and Teams plans). Your progress syncs seamlessly across web, mobile, and tablet.</div>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">
+          Are instructors really industry professionals?
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Yes. Every Lumina Learn instructor is vetted for both deep industry experience (5+ years at top companies) and teaching ability. We reject over 90% of instructor applicants to keep quality high.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FINAL CTA ===================== -->
+<section class="final-cta">
+  <div class="container">
+    <div class="cta-card reveal">
+      <span class="cta-eyebrow">Start learning today</span>
+      <h2 class="cta-title">Join 480,000+ learners growing with Lumina</h2>
+      <p class="cta-sub">Get weekly course drops, learning tips, and exclusive subscriber discounts. No spam — unsubscribe in one click.</p>
+      <form class="cta-form" id="newsletterForm" onsubmit="return subscribeNewsletter(event)">
+        <input type="email" placeholder="you@example.com" required aria-label="Email address">
+        <button type="submit">Subscribe free</button>
+      </form>
+      <p class="cta-note">By subscribing you agree to our Privacy Policy. We send 1 email per week, max.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#" class="brand">
+          <span class="brand-mark"></span>
+          Lumina<span>Learn</span>
+        </a>
+        <p>Premium online courses taught by industry practitioners. Lifetime access, project-based learning, and a community of 480,000+ learners.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="X / Twitter"><span class="social-x"></span></a>
+          <a href="#" aria-label="Facebook"><span class="social-fb"></span></a>
+          <a href="#" aria-label="Instagram"><span class="social-ig"></span></a>
+          <a href="#" aria-label="LinkedIn"><span class="social-in"></span></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Learn</h4>
+        <ul>
+          <li><a href="#categories">All courses</a></li>
+          <li><a href="#categories">Categories</a></li>
+          <li><a href="#courses">Featured</a></li>
+          <li><a href="#">Learning paths</a></li>
+          <li><a href="#">Free courses</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About us</a></li>
+          <li><a href="#instructors">Instructors</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Press kit</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="#">Help center</a></li>
+          <li><a href="#">Community</a></li>
+          <li><a href="#">Webinars</a></li>
+          <li><a href="#">For teams</a></li>
+          <li><a href="#">Affiliates</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Terms of service</a></li>
+          <li><a href="#">Privacy policy</a></li>
+          <li><a href="#">Cookie policy</a></li>
+          <li><a href="#">Refund policy</a></li>
+          <li><a href="#">Accessibility</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-credit">© 2026 Lumina Learn. Template by <a href="https://excusemeweb.com/landing-pages">ExcuseMeWeb</a></div>
+      <div class="footer-legal">
+        <a href="#">Terms</a>
+        <a href="#">Privacy</a>
+        <a href="#">Cookies</a>
+        <a href="#">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ===================== FLOATING DOWNLOAD ===================== -->
+<button class="download-fab" onclick="downloadPage()" aria-label="Download this page as HTML">
+  <span class="download-fab-icon"><i></i></span>
+  Download HTML
+</button>
+
+<!-- ===================== TOAST ===================== -->
+<div class="toast" id="toast">Subscribed! Check your inbox.</div>
+
+<script>
+/* ===================== DOWNLOAD PAGE ===================== */
+function downloadPage(){
+  const html='<!DOCTYPE html>\n'+document.documentElement.outerHTML;
+  const blob=new Blob([html],{type:'text/html'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;
+  a.download='premium-education-landing-page.html';
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+}
+
+/* ===================== NEWSLETTER ===================== */
+function subscribeNewsletter(e){
+  e.preventDefault();
+  const form = e.target;
+  const input = form.querySelector('input');
+  const toast = document.getElementById('toast');
+  toast.textContent = 'Subscribed! Check your inbox at ' + input.value;
+  toast.classList.add('show');
+  input.value = '';
+  setTimeout(() => toast.classList.remove('show'), 3200);
+  return false;
+}
+
+/* ===================== ANIMATED COUNTERS ===================== */
+function animateCounter(el){
+  const target = parseInt(el.dataset.target, 10);
+  const suffix = el.dataset.suffix || '';
+  const duration = 1800;
+  const start = performance.now();
+  function tick(now){
+    const elapsed = now - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const value = Math.floor(target * eased);
+    el.innerHTML = formatNumber(value) + '<span class="suffix">' + suffix + '</span>';
+    if (progress < 1) requestAnimationFrame(tick);
+    else el.innerHTML = formatNumber(target) + '<span class="suffix">' + suffix + '</span>';
+  }
+  requestAnimationFrame(tick);
+}
+function formatNumber(n){
+  if (n >= 1000) return (n / 1000).toFixed(n >= 10000 ? 0 : 1).replace(/\.0$/, '') + 'k';
+  return n.toString();
+}
+
+/* ===================== INTERSECTION OBSERVER ===================== */
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting){
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting){
+      animateCounter(entry.target);
+      counterObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.4 });
+
+document.querySelectorAll('.stat-num').forEach(el => counterObserver.observe(el));
+
+/* ===================== PRICING TOGGLE ===================== */
+const toggleSwitch = document.getElementById('toggleSwitch');
+const toggleLabels = document.querySelectorAll('.toggle-label');
+let isYearly = false;
+
+toggleSwitch.addEventListener('click', () => {
+  isYearly = !isYearly;
+  toggleSwitch.classList.toggle('yearly', isYearly);
+  toggleLabels.forEach(l => l.classList.toggle('active', l.dataset.period === (isYearly ? 'yearly' : 'monthly')));
+  document.querySelectorAll('.price-amount .num').forEach(num => {
+    const val = isYearly ? num.dataset.yearly : num.dataset.monthly;
+    num.textContent = val;
+  });
+  document.querySelectorAll('.price-period').forEach(p => {
+    const val = isYearly ? p.dataset.yearly : p.dataset.monthly;
+    if (val) p.textContent = val;
+  });
+});
+
+toggleLabels.forEach(label => {
+  label.addEventListener('click', () => {
+    if (label.dataset.period === 'yearly' && !isYearly) toggleSwitch.click();
+    else if (label.dataset.period === 'monthly' && isYearly) toggleSwitch.click();
+  });
+});
+
+/* ===================== FAQ ACCORDION ===================== */
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => {
+    const item = q.parentElement;
+    const answer = item.querySelector('.faq-a');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(openItem => {
+      openItem.classList.remove('open');
+      openItem.querySelector('.faq-a').style.maxHeight = '0';
+    });
+    if (!isOpen){
+      item.classList.add('open');
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
+  });
+});
+
+/* ===================== FILTER CHIPS ===================== */
+document.querySelectorAll('.filter-chip').forEach(chip => {
+  chip.addEventListener('click', () => {
+    document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+    chip.classList.add('active');
+  });
+});
+
+/* ===================== SMOOTH SCROLL (native via CSS, with offset fallback) ===================== */
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e){
+    const href = this.getAttribute('href');
+    if (href === '#' || href.length < 2) return;
+    const target = document.querySelector(href);
+    if (target){
+      e.preventDefault();
+      const offset = 80;
+      const y = target.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  });
+});
+
+/* ===================== NAV SCROLL EFFECT ===================== */
+const nav = document.querySelector('.nav');
+let lastScroll = 0;
+window.addEventListener('scroll', () => {
+  const curr = window.scrollY;
+  if (curr > 20){
+    nav.style.boxShadow = '0 4px 20px rgba(15, 23, 42, 0.06)';
+  } else {
+    nav.style.boxShadow = 'none';
+  }
+  lastScroll = curr;
+});
+
+/* ===================== OPEN FIRST FAQ BY DEFAULT ===================== */
+window.addEventListener('load', () => {
+  const firstFaq = document.querySelector('.faq-item');
+  if (firstFaq){
+    firstFaq.classList.add('open');
+    const ans = firstFaq.querySelector('.faq-a');
+    ans.style.maxHeight = ans.scrollHeight + 'px';
+  }
+});
+</script>
+
+</body>
+</html>

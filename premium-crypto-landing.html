@@ -1,0 +1,1634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zenith — Premium Crypto Exchange Landing Page Template | ExcuseMeWeb</title>
+<meta name="description" content="A premium, dark, futuristic crypto exchange landing page template with live tickers, candlestick chart mockups, tokenomics, staking calculator, security showcase and more. Pure CSS art — no images.">
+<meta name="robots" content="index, follow">
+<meta name="author" content="ExcuseMeWeb">
+<link rel="canonical" href="https://excusemeweb.com/premium-crypto-landing">
+<link rel="icon" href="/favicon.ico">
+<meta name="theme-color" content="#0a0e1a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<meta property="og:title" content="Zenith — Premium Crypto Exchange Landing Page Template">
+<meta property="og:description" content="A premium, dark, futuristic crypto exchange landing page template with live tickers, candlestick charts, tokenomics and staking calculator. Pure CSS art.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://excusemeweb.com/premium-crypto-landing">
+<meta property="og:site_name" content="ExcuseMeWeb">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Zenith — Premium Crypto Exchange Landing Page Template">
+<meta name="twitter:description" content="A premium, dark, futuristic crypto exchange landing page template. Pure CSS art — no images.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FinancialService","name":"Zenith","description":"Premium crypto exchange landing page template featuring live tickers, trading dashboards, tokenomics, staking calculator and security showcases.","url":"https://excusemeweb.com/premium-crypto-landing","provider":{"@type":"Organization","name":"ExcuseMeWeb","url":"https://excusemeweb.com"},"areaServed":"Worldwide","serviceType":"Cryptocurrency Exchange"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is Zenith a real exchange?","acceptedAnswer":{"@type":"Answer","text":"No — Zenith is a premium landing page template for crypto exchanges, built with pure CSS. It is not a financial product."}},{"@type":"Question","name":"Does the template use any images?","acceptedAnswer":{"@type":"Answer","text":"No. Every visual — logos, charts, avatars, icons — is crafted from pure CSS gradients, shapes and inline SVG."}},{"@type":"Question","name":"Is the staking calculator functional?","acceptedAnswer":{"@type":"Answer","text":"Yes. The staking calculator runs entirely in the browser using JavaScript and updates returns in real time as you change the inputs."}}]}
+</script>
+<style>
+/* ============================================================
+   ZENITH — Premium Crypto Exchange Landing Page
+   Pure CSS art. No images. Dark futuristic theme.
+   ============================================================ */
+:root{
+  --bg:#0a0e1a;
+  --bg-2:#0d1224;
+  --bg-3:#111936;
+  --surface:#0f1530;
+  --surface-2:#141c3e;
+  --surface-3:#1a2348;
+  --ink:#eef2ff;
+  --ink-2:#c4cce8;
+  --muted:#8a93b8;
+  --dim:#5d6789;
+  --border:rgba(120,140,200,0.14);
+  --border-strong:rgba(140,160,220,0.24);
+  --blue:#00d4ff;
+  --blue-deep:#0098e0;
+  --green:#00ff88;
+  --green-deep:#00c968;
+  --purple:#8b5cf6;
+  --purple-deep:#6d3fd1;
+  --pink:#ff4d8d;
+  --red:#ff5267;
+  --amber:#ffb020;
+  --grad-primary:linear-gradient(135deg,#00d4ff 0%,#8b5cf6 100%);
+  --grad-green:linear-gradient(135deg,#00ff88 0%,#00d4ff 100%);
+  --grad-purple:linear-gradient(135deg,#8b5cf6 0%,#ff4d8d 100%);
+  --grad-bg:radial-gradient(ellipse at top,#0d1224 0%,#0a0e1a 60%);
+  --radius:14px;
+  --radius-sm:8px;
+  --radius-lg:22px;
+  --radius-xl:32px;
+  --font:'Space Grotesk',sans-serif;
+  --font-body:'Inter',sans-serif;
+  --font-mono:'JetBrains Mono',monospace;
+  --maxw:1280px;
+  --shadow:0 10px 40px rgba(0,0,0,0.4);
+  --shadow-lg:0 30px 80px rgba(0,0,0,0.5);
+  --glow-blue:0 0 30px rgba(0,212,255,0.45);
+  --glow-green:0 0 30px rgba(0,255,136,0.4);
+  --glow-purple:0 0 30px rgba(139,92,246,0.45);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font-body);
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+::selection{background:rgba(0,212,255,0.3);color:#fff}
+a{color:inherit}
+.container{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+h1,h2,h3,h4{font-family:var(--font);letter-spacing:-0.02em;line-height:1.15;color:var(--ink)}
+.mono{font-family:var(--font-mono);font-variant-numeric:tabular-nums}
+
+/* ============ Background decorations ============ */
+.bg-decor{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.orb{position:absolute;border-radius:50%;filter:blur(90px);opacity:0.55;animation:float 18s ease-in-out infinite}
+.orb-1{width:560px;height:560px;background:radial-gradient(circle,#00d4ff,transparent 65%);top:-180px;right:-160px;animation-delay:0s}
+.orb-2{width:480px;height:480px;background:radial-gradient(circle,#8b5cf6,transparent 65%);top:38%;left:-220px;animation-delay:-6s}
+.orb-3{width:420px;height:420px;background:radial-gradient(circle,#00ff88,transparent 65%);bottom:-160px;right:18%;opacity:0.35;animation-delay:-12s}
+@keyframes float{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(40px,-30px) scale(1.05)}66%{transform:translate(-30px,20px) scale(0.96)}}
+.bg-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(120,140,200,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(120,140,200,0.05) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse at 50% 0%,black 0%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse at 50% 0%,black 0%,transparent 75%)}
+.bg-noise{position:absolute;inset:0;opacity:0.4;background-image:repeating-linear-gradient(45deg,transparent 0 2px,rgba(255,255,255,0.012) 2px 4px)}
+
+main,header,footer,.ticker-bar,.download-fab{position:relative;z-index:2}
+
+/* ============ Buttons ============ */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  font-family:var(--font-body);font-weight:600;font-size:0.94rem;
+  padding:13px 26px;border-radius:var(--radius-sm);
+  text-decoration:none;cursor:pointer;border:none;
+  transition:transform 0.18s ease,box-shadow 0.18s ease,background 0.18s ease;
+  white-space:nowrap;
+}
+.btn-primary{
+  background:var(--grad-primary);color:#04101a;
+  box-shadow:0 8px 30px rgba(0,212,255,0.35),inset 0 1px 0 rgba(255,255,255,0.3);
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,212,255,0.55),inset 0 1px 0 rgba(255,255,255,0.4)}
+.btn-ghost{
+  background:rgba(255,255,255,0.04);color:var(--ink);
+  border:1px solid var(--border-strong);backdrop-filter:blur(10px);
+}
+.btn-ghost:hover{background:rgba(255,255,255,0.08);border-color:rgba(0,212,255,0.4)}
+.btn-green{background:var(--grad-green);color:#04130a;box-shadow:0 8px 30px rgba(0,255,136,0.3)}
+.btn-green:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,255,136,0.5)}
+.btn-lg{padding:16px 34px;font-size:1rem}
+
+/* ============ Nav ============ */
+.nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(10,14,26,0.72);
+  backdrop-filter:blur(20px) saturate(180%);
+  -webkit-backdrop-filter:blur(20px) saturate(180%);
+  border-bottom:1px solid var(--border);
+}
+.nav-inner{max-width:var(--maxw);margin:0 auto;padding:16px 28px;display:flex;align-items:center;justify-content:space-between;gap:28px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
+.brand-mark{
+  width:40px;height:40px;border-radius:11px;
+  background:var(--grad-primary);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+  box-shadow:var(--glow-blue);
+}
+.brand-mark::before{content:"";position:absolute;inset:6px;border-radius:7px;background:var(--bg);z-index:1}
+.brand-mark::after{content:"Z";position:absolute;font-family:var(--font);font-weight:700;font-size:1.1rem;background:var(--grad-primary);-webkit-background-clip:text;background-clip:text;color:transparent;z-index:2}
+.brand-name{font-family:var(--font);font-weight:700;font-size:1.3rem;letter-spacing:-0.5px}
+.brand-name span{color:var(--blue)}
+.nav-links{display:flex;align-items:center;gap:30px;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:0.92rem;font-weight:500;transition:color 0.2s;position:relative}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--grad-primary);transition:width 0.25s}
+.nav-links a:hover::after{width:100%}
+.nav-actions{display:flex;align-items:center;gap:12px}
+.nav-signin{color:var(--ink-2);text-decoration:none;font-size:0.9rem;font-weight:500;padding:8px 4px}
+.nav-signin:hover{color:var(--blue)}
+.nav-toggle{display:none;background:none;border:1px solid var(--border-strong);color:var(--ink);width:40px;height:40px;border-radius:10px;cursor:pointer;font-size:1.2rem}
+
+/* ============ Ticker bar ============ */
+.ticker-bar{
+  background:rgba(13,18,36,0.9);
+  border-bottom:1px solid var(--border);
+  overflow:hidden;
+  padding:10px 0;
+  backdrop-filter:blur(8px);
+}
+.ticker-track{display:flex;gap:48px;white-space:nowrap;animation:scrollX 38s linear infinite;width:max-content}
+.ticker-bar:hover .ticker-track{animation-play-state:paused}
+@keyframes scrollX{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.ticker-item{display:inline-flex;align-items:center;gap:10px;font-size:0.85rem;color:var(--ink-2)}
+.ticker-coin{display:inline-flex;align-items:center;gap:8px;font-weight:600;color:var(--ink)}
+.ticker-dot{width:18px;height:18px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:0.55rem;font-weight:700;color:#04101a;font-family:var(--font)}
+.dot-btc{background:linear-gradient(135deg,#f7931a,#ffb020)}
+.dot-eth{background:linear-gradient(135deg,#627eea,#8b5cf6)}
+.dot-sol{background:linear-gradient(135deg,#00ff88,#00d4ff)}
+.dot-bnb{background:linear-gradient(135deg,#f3ba2f,#ffb020)}
+.dot-xrp{background:linear-gradient(135deg,#00d4ff,#8b5cf6)}
+.dot-ada{background:linear-gradient(135deg,#0066ff,#00d4ff)}
+.dot-doge{background:linear-gradient(135deg,#c2a633,#ffb020)}
+.dot-avax{background:linear-gradient(135deg,#e84142,#ff4d8d)}
+.ticker-price{font-family:var(--font-mono);font-weight:500}
+.ticker-up{color:var(--green);font-size:0.78rem;font-family:var(--font-mono)}
+.ticker-down{color:var(--red);font-size:0.78rem;font-family:var(--font-mono)}
+
+/* ============ Hero ============ */
+.hero{position:relative;padding:90px 0 70px;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:60px;align-items:center}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;padding:7px 14px;border-radius:100px;background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.25);font-size:0.78rem;font-weight:500;color:var(--blue);margin-bottom:24px}
+.hero-eyebrow .pulse{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--green);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+.hero h1{font-size:clamp(2.6rem,5.4vw,4.4rem);font-weight:700;margin-bottom:24px}
+.hero h1 .grad{background:var(--grad-primary);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero h1 .grad-green{background:var(--grad-green);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-sub{font-size:1.12rem;color:var(--ink-2);max-width:540px;margin-bottom:34px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:34px}
+.hero-trust{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:8px;font-size:0.85rem;color:var(--muted)}
+.check-ic{width:18px;height:18px;border-radius:50%;background:rgba(0,255,136,0.15);color:var(--green);display:inline-flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:700}
+
+/* Hero visual — CSS trading card */
+.hero-card{
+  position:relative;
+  background:linear-gradient(160deg,rgba(20,28,62,0.95),rgba(15,21,48,0.95));
+  border:1px solid var(--border-strong);
+  border-radius:var(--radius-lg);
+  padding:24px;
+  box-shadow:var(--shadow-lg);
+  backdrop-filter:blur(14px);
+}
+.hero-card::before{content:"";position:absolute;inset:-1px;border-radius:var(--radius-lg);padding:1px;background:linear-gradient(135deg,rgba(0,212,255,0.5),transparent 40%,transparent 60%,rgba(139,92,246,0.5));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.hero-card-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.hc-pair{display:flex;align-items:center;gap:10px}
+.hc-pair .ticker-dot{width:30px;height:30px;font-size:0.7rem}
+.hc-pair-name{font-family:var(--font);font-weight:600;font-size:0.95rem}
+.hc-pair-name span{color:var(--muted);font-weight:400;font-size:0.78rem}
+.hc-price{text-align:right}
+.hc-price-val{font-family:var(--font-mono);font-weight:700;font-size:1.15rem;color:var(--ink)}
+.hc-price-chg{font-family:var(--font-mono);font-size:0.78rem;color:var(--green)}
+.hc-stats{display:flex;gap:8px;margin-bottom:16px}
+.hc-stat{flex:1;background:rgba(0,0,0,0.25);border:1px solid var(--border);border-radius:10px;padding:9px 10px}
+.hc-stat-l{font-size:0.66rem;color:var(--dim);text-transform:uppercase;letter-spacing:0.04em;margin-bottom:3px}
+.hc-stat-v{font-family:var(--font-mono);font-size:0.82rem;color:var(--ink-2);font-weight:500}
+
+/* CSS Candlestick chart */
+.candles{position:relative;height:170px;background:linear-gradient(180deg,rgba(0,212,255,0.04),transparent);border-radius:10px;padding:10px;display:flex;align-items:flex-end;gap:4px;overflow:hidden;border:1px solid var(--border)}
+.candles::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(120,140,200,0.06) 1px,transparent 1px);background-size:100% 28px;pointer-events:none}
+.candle{flex:1;position:relative;display:flex;flex-direction:column;align-items:center;height:100%;justify-content:flex-end}
+.candle-wick{position:absolute;width:2px;left:50%;transform:translateX(-50%);border-radius:2px}
+.candle-body{width:70%;border-radius:2px;position:relative;z-index:1}
+.candle.up .candle-wick{background:rgba(0,255,136,0.55)}
+.candle.up .candle-body{background:linear-gradient(180deg,#00ff88,#00c968);box-shadow:0 0 6px rgba(0,255,136,0.4)}
+.candle.down .candle-wick{background:rgba(255,82,103,0.55)}
+.candle.down .candle-body{background:linear-gradient(180deg,#ff5267,#cc3a4d);box-shadow:0 0 6px rgba(255,82,103,0.35)}
+
+/* Hero order row */
+.hc-orders{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.hc-order-col{background:rgba(0,0,0,0.25);border:1px solid var(--border);border-radius:10px;padding:10px}
+.hc-order-h{display:flex;justify-content:space-between;font-size:0.7rem;color:var(--dim);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.04em}
+.hc-row{display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:0.74rem;padding:3px 0;position:relative}
+.hc-row .bar{position:absolute;right:0;top:0;bottom:0;border-radius:3px;z-index:0}
+.hc-row.ask .bar{background:rgba(255,82,103,0.12)}
+.hc-row.bid .bar{background:rgba(0,255,136,0.12)}
+.hc-row span{position:relative;z-index:1}
+.hc-row.ask span:first-child{color:var(--red)}
+.hc-row.bid span:first-child{color:var(--green)}
+.hc-row span:last-child{color:var(--ink-2)}
+.hc-actions{display:flex;gap:8px;margin-top:14px}
+.hc-btn{flex:1;padding:11px;border-radius:9px;border:none;font-family:var(--font-body);font-weight:600;font-size:0.85rem;cursor:pointer;transition:transform 0.15s}
+.hc-buy{background:linear-gradient(180deg,#00ff88,#00c968);color:#04130a;box-shadow:0 4px 14px rgba(0,255,136,0.3)}
+.hc-sell{background:linear-gradient(180deg,#ff5267,#cc3a4d);color:#fff;box-shadow:0 4px 14px rgba(255,82,103,0.3)}
+.hc-btn:hover{transform:translateY(-1px)}
+
+/* Floating mini cards on hero visual */
+.hero-floats{position:absolute;inset:auto}
+.hero-float{position:absolute;background:rgba(15,21,48,0.92);border:1px solid var(--border-strong);border-radius:14px;padding:12px 14px;box-shadow:var(--shadow);backdrop-filter:blur(10px);font-size:0.78rem;animation:floatY 5s ease-in-out infinite}
+.hf-1{top:-22px;left:-28px}
+.hf-2{bottom:-20px;right:-22px;animation-delay:-2.5s}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.hf-l{color:var(--dim);font-size:0.7rem;margin-bottom:4px;text-transform:uppercase;letter-spacing:0.05em}
+.hf-v{font-family:var(--font-mono);font-weight:600;color:var(--ink)}
+.hf-1 .hf-v{color:var(--green)}
+.hf-2 .hf-v{color:var(--blue)}
+
+/* ============ Stats strip ============ */
+.stats{padding:60px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:rgba(13,18,36,0.5)}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.stat{text-align:center;position:relative}
+.stat:not(:last-child)::after{content:"";position:absolute;right:-12px;top:15%;height:70%;width:1px;background:var(--border)}
+.stat-num{font-family:var(--font);font-weight:700;font-size:2.6rem;letter-spacing:-0.03em;background:var(--grad-primary);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1}
+.stat-num .sym{font-size:1.6rem;opacity:0.85}
+.stat-l{margin-top:10px;color:var(--muted);font-size:0.9rem;font-weight:500}
+
+/* ============ Section base ============ */
+section{padding:90px 0;position:relative}
+.section-head{text-align:center;max-width:680px;margin:0 auto 56px}
+.section-eyebrow{display:inline-block;padding:6px 14px;border-radius:100px;background:rgba(139,92,246,0.1);border:1px solid rgba(139,92,246,0.25);color:var(--purple);font-size:0.74rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:18px}
+.section-title{font-size:clamp(2rem,3.8vw,2.9rem);font-weight:700;margin-bottom:16px}
+.section-title .grad{background:var(--grad-primary);-webkit-background-clip:text;background-clip:text;color:transparent}
+.section-sub{color:var(--muted);font-size:1.05rem;max-width:560px;margin:0 auto}
+
+/* ============ Features grid ============ */
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.feature{
+  background:linear-gradient(160deg,rgba(20,28,62,0.6),rgba(15,21,48,0.4));
+  border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+  padding:32px 28px;
+  transition:transform 0.25s,border-color 0.25s,background 0.25s;
+  position:relative;overflow:hidden;
+}
+.feature::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:var(--grad-primary);opacity:0;transition:opacity 0.25s}
+.feature:hover{transform:translateY(-4px);border-color:rgba(0,212,255,0.3);background:linear-gradient(160deg,rgba(20,28,62,0.85),rgba(15,21,48,0.6))}
+.feature:hover::before{opacity:1}
+.feature-ic{
+  width:54px;height:54px;border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:22px;position:relative;
+}
+.feature-ic.green{background:linear-gradient(135deg,rgba(0,255,136,0.2),rgba(0,255,136,0.05));border:1px solid rgba(0,255,136,0.3)}
+.feature-ic.blue{background:linear-gradient(135deg,rgba(0,212,255,0.2),rgba(0,212,255,0.05));border:1px solid rgba(0,212,255,0.3)}
+.feature-ic.purple{background:linear-gradient(135deg,rgba(139,92,246,0.2),rgba(139,92,246,0.05));border:1px solid rgba(139,92,246,0.3)}
+.feature-ic.pink{background:linear-gradient(135deg,rgba(255,77,141,0.2),rgba(255,77,141,0.05));border:1px solid rgba(255,77,141,0.3)}
+.feature-ic.amber{background:linear-gradient(135deg,rgba(255,176,32,0.2),rgba(255,176,32,0.05));border:1px solid rgba(255,176,32,0.3)}
+.feature-ic.cyan{background:linear-gradient(135deg,rgba(0,212,255,0.2),rgba(0,255,136,0.05));border:1px solid rgba(0,212,255,0.3)}
+.feature h3{font-size:1.18rem;margin-bottom:10px;font-weight:600}
+.feature p{color:var(--muted);font-size:0.92rem;line-height:1.65}
+/* CSS-art icons inside .feature-ic */
+.ic-fee{width:24px;height:24px;position:relative}
+.ic-fee::before{content:"";position:absolute;inset:0;border:2px solid var(--green);border-radius:6px}
+.ic-fee::after{content:"%";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--font);font-weight:700;font-size:0.85rem;color:var(--green)}
+.ic-bolt{width:22px;height:26px;background:var(--blue);clip-path:polygon(60% 0,0 60%,40% 60%,30% 100%,100% 40%,55% 40%,70% 0)}
+.ic-shield{width:24px;height:28px;background:var(--purple);clip-path:polygon(50% 0,100% 18%,100% 65%,50% 100%,0 65%,0 18%);position:relative}
+.ic-shield::after{content:"";position:absolute;inset:6px 6px auto 6px;height:8px;border-bottom:2px solid var(--bg);border-left:2px solid var(--bg);transform:rotate(-45deg);top:5px;left:8px}
+.ic-headset{width:26px;height:24px;position:relative}
+.ic-headset::before{content:"";position:absolute;top:2px;left:2px;right:2px;height:14px;border:2px solid var(--pink);border-radius:12px 12px 0 0;border-bottom:none}
+.ic-headset::after{content:"";position:absolute;bottom:0;left:0;width:8px;height:10px;background:var(--pink);border-radius:3px;box-shadow:16px 0 0 var(--pink)}
+.ic-phone{width:18px;height:26px;border:2px solid var(--amber);border-radius:4px;position:relative}
+.ic-phone::before{content:"";position:absolute;bottom:2px;left:50%;transform:translateX(-50%);width:6px;height:2px;background:var(--amber);border-radius:2px}
+.ic-stake{width:24px;height:24px;position:relative}
+.ic-stake::before{content:"";position:absolute;inset:0;background:var(--green);clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%)}
+.ic-stake::after{content:"";position:absolute;inset:6px;background:var(--bg);clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%)}
+
+/* ============ Trading interface preview ============ */
+.trading-wrap{background:linear-gradient(160deg,rgba(20,28,62,0.7),rgba(15,21,48,0.5));border:1px solid var(--border-strong);border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-lg)}
+.trading-head{display:flex;justify-content:space-between;align-items:center;padding:18px 24px;border-bottom:1px solid var(--border);flex-wrap:wrap;gap:12px}
+.trading-tabs{display:flex;gap:6px;background:rgba(0,0,0,0.3);padding:5px;border-radius:10px}
+.trading-tab{padding:7px 14px;border-radius:7px;font-size:0.82rem;font-weight:500;color:var(--muted);cursor:pointer;transition:all 0.2s}
+.trading-tab.active{background:var(--grad-primary);color:#04101a;font-weight:600}
+.trading-pair{display:flex;align-items:center;gap:10px}
+.trading-pair .ticker-dot{width:30px;height:30px;font-size:0.7rem}
+.trading-pair-name{font-family:var(--font);font-weight:600}
+.trading-pair-name span{color:var(--muted);font-weight:400;font-size:0.82rem;margin-left:6px}
+.trading-price-block{text-align:right}
+.trading-price{font-family:var(--font-mono);font-weight:700;font-size:1.3rem;color:var(--ink)}
+.trading-chg{font-family:var(--font-mono);font-size:0.85rem;color:var(--green)}
+
+.trading-body{display:grid;grid-template-columns:1.4fr 0.8fr 0.9fr;gap:0}
+.td-panel{padding:20px;border-right:1px solid var(--border)}
+.td-panel:last-child{border-right:none}
+.td-panel-h{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--dim);margin-bottom:14px;font-weight:600}
+
+/* Big candlestick chart */
+.chart-main{height:340px;position:relative;background:linear-gradient(180deg,rgba(0,212,255,0.03),transparent);border-radius:10px;padding:14px;display:flex;align-items:flex-end;gap:5px;overflow:hidden;border:1px solid var(--border)}
+.chart-main::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(120,140,200,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(120,140,200,0.05) 1px,transparent 1px);background-size:100% 38px,8% 100%;pointer-events:none}
+.chart-main .candle{flex:1}
+.chart-line{position:absolute;left:0;right:0;height:1px;background:rgba(0,255,136,0.5);box-shadow:0 0 10px rgba(0,255,136,0.5);z-index:3}
+.chart-label{position:absolute;right:8px;font-family:var(--font-mono);font-size:0.7rem;color:var(--muted);background:rgba(10,14,26,0.85);padding:2px 6px;border-radius:4px;border:1px solid var(--border);z-index:4}
+
+/* Order book panel */
+.ob-rows{display:flex;flex-direction:column;gap:1px}
+.ob-row{display:grid;grid-template-columns:1fr 1fr 1fr;font-family:var(--font-mono);font-size:0.74rem;padding:4px 6px;position:relative;border-radius:3px}
+.ob-row .bar{position:absolute;top:0;bottom:0;right:0;z-index:0;border-radius:3px}
+.ob-row.ask .bar{background:rgba(255,82,103,0.12)}
+.ob-row.bid .bar{background:rgba(0,255,136,0.12)}
+.ob-row span{position:relative;z-index:1}
+.ob-row .p{font-weight:500}
+.ob-row.ask .p{color:var(--red)}
+.ob-row.bid .p{color:var(--green)}
+.ob-spread{display:flex;justify-content:space-between;align-items:center;padding:10px 6px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin:6px 0;font-family:var(--font-mono);font-size:0.78rem}
+.ob-spread .last{color:var(--green);font-weight:700;font-size:1rem}
+.ob-spread .arrow{color:var(--green)}
+
+/* Buy/Sell panel */
+.trade-tabs{display:flex;gap:6px;margin-bottom:16px}
+.trade-tab{flex:1;padding:9px;border-radius:8px;background:rgba(0,0,0,0.3);border:1px solid var(--border);color:var(--muted);font-family:var(--font-body);font-weight:600;font-size:0.85rem;cursor:pointer;text-align:center;transition:all 0.2s}
+.trade-tab.buy.active{background:rgba(0,255,136,0.15);border-color:rgba(0,255,136,0.4);color:var(--green)}
+.trade-tab.sell.active{background:rgba(255,82,103,0.15);border-color:rgba(255,82,103,0.4);color:var(--red)}
+.trade-field{margin-bottom:12px}
+.trade-field-l{font-size:0.72rem;color:var(--dim);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;display:flex;justify-content:space-between}
+.trade-input{width:100%;background:rgba(0,0,0,0.3);border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:var(--ink);font-family:var(--font-mono);font-size:0.9rem;outline:none;transition:border-color 0.2s}
+.trade-input:focus{border-color:rgba(0,212,255,0.5)}
+.trade-slider{height:4px;background:rgba(120,140,200,0.15);border-radius:4px;margin:14px 0;position:relative}
+.trade-slider-fill{position:absolute;left:0;top:0;bottom:0;width:25%;background:var(--grad-primary);border-radius:4px}
+.trade-slider-knob{position:absolute;left:25%;top:50%;transform:translate(-50%,-50%);width:14px;height:14px;border-radius:50%;background:#fff;box-shadow:0 0 0 3px rgba(0,212,255,0.3)}
+.trade-pcts{display:flex;gap:6px;margin-bottom:14px}
+.trade-pct{flex:1;padding:6px;background:rgba(0,0,0,0.3);border:1px solid var(--border);border-radius:6px;font-family:var(--font-mono);font-size:0.72rem;color:var(--muted);text-align:center;cursor:pointer}
+.trade-pct:hover{color:var(--blue);border-color:rgba(0,212,255,0.3)}
+.trade-summary{background:rgba(0,0,0,0.25);border-radius:8px;padding:10px 12px;margin-bottom:14px;font-size:0.78rem}
+.trade-summary-row{display:flex;justify-content:space-between;padding:3px 0;color:var(--muted)}
+.trade-summary-row span:last-child{color:var(--ink-2);font-family:var(--font-mono)}
+.trade-submit{width:100%;padding:13px;border-radius:9px;border:none;font-family:var(--font-body);font-weight:700;font-size:0.95rem;cursor:pointer;background:linear-gradient(180deg,#00ff88,#00c968);color:#04130a;box-shadow:0 6px 18px rgba(0,255,136,0.3);transition:transform 0.15s}
+.trade-submit:hover{transform:translateY(-1px)}
+
+/* ============ Coins / Tokenomics ============ */
+.coins-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.coin{
+  background:linear-gradient(160deg,rgba(20,28,62,0.65),rgba(15,21,48,0.45));
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:22px 20px;
+  transition:all 0.25s;
+  position:relative;overflow:hidden;
+}
+.coin:hover{transform:translateY(-3px);border-color:rgba(0,212,255,0.3);background:linear-gradient(160deg,rgba(20,28,62,0.9),rgba(15,21,48,0.65))}
+.coin-head{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.coin-logo{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font);font-weight:700;font-size:0.92rem;color:#04101a;position:relative;flex-shrink:0}
+.coin-logo::after{content:"";position:absolute;inset:-3px;border-radius:50%;border:1px solid var(--border-strong);opacity:0.6}
+.cl-btc{background:linear-gradient(135deg,#f7931a,#ffb020)}
+.cl-eth{background:linear-gradient(135deg,#627eea,#8b5cf6);color:#fff}
+.cl-sol{background:linear-gradient(135deg,#00ff88,#00d4ff)}
+.cl-bnb{background:linear-gradient(135deg,#f3ba2f,#ffb020)}
+.cl-xrp{background:linear-gradient(135deg,#00d4ff,#8b5cf6);color:#fff}
+.cl-ada{background:linear-gradient(135deg,#0066ff,#00d4ff);color:#fff}
+.cl-doge{background:linear-gradient(135deg,#c2a633,#ffb020)}
+.cl-avax{background:linear-gradient(135deg,#e84142,#ff4d8d);color:#fff}
+.coin-name{font-family:var(--font);font-weight:600;font-size:1rem;line-height:1.2}
+.coin-sym{color:var(--muted);font-size:0.78rem;font-family:var(--font-mono)}
+.coin-price{font-family:var(--font-mono);font-weight:700;font-size:1.35rem;color:var(--ink);margin-bottom:4px}
+.coin-chg{font-family:var(--font-mono);font-size:0.82rem;font-weight:500;display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:6px;margin-bottom:14px}
+.coin-chg.up{color:var(--green);background:rgba(0,255,136,0.1)}
+.coin-chg.down{color:var(--red);background:rgba(255,82,103,0.1)}
+.coin-chg-arrow{font-size:0.7rem}
+/* Sparkline — pure CSS */
+.spark{height:42px;display:flex;align-items:flex-end;gap:2px;position:relative}
+.spark-bar{flex:1;border-radius:2px 2px 0 0;opacity:0.85;transition:opacity 0.2s}
+.spark.up .spark-bar{background:linear-gradient(180deg,#00ff88,rgba(0,255,136,0.3))}
+.spark.down .spark-bar{background:linear-gradient(180deg,#ff5267,rgba(255,82,103,0.3))}
+.coin:hover .spark-bar{opacity:1}
+.coin-foot{display:flex;justify-content:space-between;margin-top:14px;font-size:0.72rem;color:var(--dim);font-family:var(--font-mono)}
+.coin-foot span:last-child{color:var(--ink-2)}
+
+/* ============ Security section ============ */
+.security{background:linear-gradient(180deg,transparent,rgba(139,92,246,0.04),transparent)}
+.security-grid{display:grid;grid-template-columns:0.9fr 1.1fr;gap:60px;align-items:center}
+.shield-wrap{position:relative;display:flex;align-items:center;justify-content:center;min-height:420px}
+.shield-orb{position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(139,92,246,0.25),transparent 65%);filter:blur(20px);animation:pulse 4s infinite}
+.shield-rings{position:absolute;width:300px;height:300px;border-radius:50%;border:1px solid rgba(139,92,246,0.25);animation:spin 22s linear infinite}
+.shield-rings::before,.shield-rings::after{content:"";position:absolute;inset:20px;border-radius:50%;border:1px dashed rgba(0,212,255,0.2)}
+.shield-rings::after{inset:48px;border:1px solid rgba(0,255,136,0.15);animation:spin 16s linear infinite reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+.shield-core{
+  width:200px;height:230px;
+  background:linear-gradient(180deg,rgba(139,92,246,0.9),rgba(109,63,209,0.7));
+  clip-path:polygon(50% 0,100% 14%,100% 60%,50% 100%,0 60%,0 14%);
+  position:relative;z-index:2;
+  box-shadow:0 0 60px rgba(139,92,246,0.5);
+  display:flex;align-items:center;justify-content:center;
+}
+.shield-check{width:80px;height:80px;border-radius:50%;background:rgba(10,14,26,0.5);display:flex;align-items:center;justify-content:center;position:relative}
+.shield-check::before{content:"";position:absolute;width:32px;height:18px;border-left:5px solid var(--green);border-bottom:5px solid var(--green);transform:rotate(-50deg) translate(2px,-3px);filter:drop-shadow(0 0 8px var(--green))}
+.shield-badge{position:absolute;background:rgba(15,21,48,0.95);border:1px solid var(--border-strong);border-radius:10px;padding:8px 12px;font-size:0.75rem;font-family:var(--font-mono);box-shadow:var(--shadow);backdrop-filter:blur(10px);z-index:3}
+.sb-1{top:10%;left:5%;color:var(--green)}
+.sb-2{top:25%;right:5%;color:var(--blue)}
+.sb-3{bottom:15%;left:8%;color:var(--purple)}
+.sb-4{bottom:25%;right:8%;color:var(--amber)}
+.shield-badge .lbl{color:var(--dim);font-size:0.65rem;display:block;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:2px}
+.security-list{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:30px}
+.sec-item{background:linear-gradient(160deg,rgba(20,28,62,0.5),rgba(15,21,48,0.35));border:1px solid var(--border);border-radius:var(--radius);padding:20px}
+.sec-item-ic{width:38px;height:38px;border-radius:10px;background:rgba(0,212,255,0.12);border:1px solid rgba(0,212,255,0.25);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.sec-item-ic .dot{width:10px;height:10px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green)}
+.sec-item h4{font-size:1.02rem;margin-bottom:6px;font-weight:600}
+.sec-item p{color:var(--muted);font-size:0.85rem;line-height:1.6}
+
+/* ============ Earn / Staking ============ */
+.earn-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.earn-cards{display:grid;gap:14px}
+.earn-tier{display:flex;justify-content:space-between;align-items:center;padding:18px 22px;background:linear-gradient(160deg,rgba(20,28,62,0.55),rgba(15,21,48,0.35));border:1px solid var(--border);border-radius:var(--radius);transition:all 0.2s}
+.earn-tier:hover{border-color:rgba(0,212,255,0.3);transform:translateX(4px)}
+.earn-tier-l{display:flex;align-items:center;gap:14px}
+.earn-tier-ic{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:var(--font);font-weight:700;font-size:0.95rem;color:#04101a}
+.et-flex{background:linear-gradient(135deg,#00d4ff,#8b5cf6);color:#fff}
+.et-locked{background:linear-gradient(135deg,#00ff88,#00d4ff)}
+.et-defi{background:linear-gradient(135deg,#8b5cf6,#ff4d8d);color:#fff}
+.earn-tier-n{font-family:var(--font);font-weight:600;font-size:1rem}
+.earn-tier-d{color:var(--muted);font-size:0.78rem;margin-top:2px}
+.earn-tier-apr{font-family:var(--font-mono);font-weight:700;font-size:1.2rem;color:var(--green)}
+.earn-tier-apr span{font-size:0.7rem;color:var(--muted);font-weight:400}
+
+/* Calculator */
+.calc{background:linear-gradient(160deg,rgba(20,28,62,0.85),rgba(15,21,48,0.65));border:1px solid var(--border-strong);border-radius:var(--radius-lg);padding:32px;box-shadow:var(--shadow-lg);position:relative;overflow:hidden}
+.calc::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad-primary)}
+.calc-h{font-family:var(--font);font-weight:600;font-size:1.3rem;margin-bottom:6px}
+.calc-sub{color:var(--muted);font-size:0.9rem;margin-bottom:24px}
+.calc-field{margin-bottom:18px}
+.calc-field-l{display:flex;justify-content:space-between;font-size:0.82rem;color:var(--ink-2);margin-bottom:8px;font-weight:500}
+.calc-field-l span:last-child{color:var(--blue);font-family:var(--font-mono)}
+.calc-input-wrap{display:flex;align-items:center;gap:10px;background:rgba(0,0,0,0.3);border:1px solid var(--border);border-radius:10px;padding:4px 4px 4px 16px;transition:border-color 0.2s}
+.calc-input-wrap:focus-within{border-color:rgba(0,212,255,0.5)}
+.calc-input{flex:1;background:none;border:none;color:var(--ink);font-family:var(--font-mono);font-size:1.05rem;font-weight:600;outline:none;padding:10px 0;width:100%}
+.calc-currency{padding:8px 14px;background:rgba(0,212,255,0.12);border-radius:7px;font-family:var(--font-mono);font-size:0.85rem;color:var(--blue);font-weight:600}
+.calc-slider{width:100%;height:6px;background:rgba(120,140,200,0.15);border-radius:6px;appearance:none;-webkit-appearance:none;outline:none;margin-top:8px;cursor:pointer}
+.calc-slider::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--grad-primary);box-shadow:0 0 0 4px rgba(0,212,255,0.2);cursor:pointer}
+.calc-slider::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:#00d4ff;border:none;box-shadow:0 0 0 4px rgba(0,212,255,0.2);cursor:pointer}
+.calc-result{background:linear-gradient(135deg,rgba(0,255,136,0.08),rgba(0,212,255,0.04));border:1px solid rgba(0,255,136,0.2);border-radius:var(--radius);padding:22px;margin-top:10px}
+.calc-result-row{display:flex;justify-content:space-between;align-items:baseline;padding:8px 0;font-size:0.88rem}
+.calc-result-row span:first-child{color:var(--muted)}
+.calc-result-row span:last-child{font-family:var(--font-mono);font-weight:600;color:var(--ink-2)}
+.calc-result-total{border-top:1px solid rgba(0,255,136,0.2);margin-top:8px;padding-top:14px}
+.calc-result-total span:first-child{color:var(--ink);font-weight:600;font-size:0.95rem}
+.calc-result-total span:last-child{font-family:var(--font);font-weight:700;font-size:1.6rem;background:var(--grad-green);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* ============ Testimonials ============ */
+.test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.test{background:linear-gradient(160deg,rgba(20,28,62,0.6),rgba(15,21,48,0.4));border:1px solid var(--border);border-radius:var(--radius-lg);padding:30px 26px;position:relative;transition:all 0.25s}
+.test:hover{transform:translateY(-3px);border-color:rgba(139,92,246,0.3)}
+.test-quote{font-size:0.96rem;color:var(--ink-2);line-height:1.7;margin-bottom:24px}
+.test-stars{display:flex;gap:3px;margin-bottom:18px}
+.star{width:16px;height:16px;position:relative;display:inline-block}
+.star::before{content:"";position:absolute;inset:0;background:var(--amber);clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
+.test-author{display:flex;align-items:center;gap:14px}
+.avatar{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font);font-weight:700;font-size:1rem;color:#04101a;position:relative;flex-shrink:0}
+.avatar::after{content:"";position:absolute;inset:-2px;border-radius:50%;border:1px solid var(--border-strong)}
+.av-1{background:linear-gradient(135deg,#00d4ff,#8b5cf6);color:#fff}
+.av-2{background:linear-gradient(135deg,#00ff88,#00d4ff)}
+.av-3{background:linear-gradient(135deg,#ff4d8d,#8b5cf6);color:#fff}
+.test-name{font-family:var(--font);font-weight:600;font-size:0.95rem}
+.test-role{color:var(--muted);font-size:0.8rem;font-family:var(--font-mono)}
+
+/* ============ Press strip ============ */
+.press{padding:50px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:rgba(13,18,36,0.4)}
+.press-l{text-align:center;color:var(--dim);font-size:0.78rem;text-transform:uppercase;letter-spacing:0.15em;margin-bottom:24px;font-weight:600}
+.press-grid{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:48px}
+.press-item{font-family:var(--font);font-weight:700;font-size:1.4rem;color:var(--muted);opacity:0.7;letter-spacing:-0.02em;transition:opacity 0.2s,color 0.2s;display:flex;align-items:center;gap:8px}
+.press-item:hover{opacity:1;color:var(--ink)}
+.press-item .pi-mark{width:26px;height:26px;border-radius:6px;display:inline-flex;align-items:center;justify-content:center;font-size:0.9rem;color:var(--blue);background:rgba(0,212,255,0.1);border:1px solid rgba(0,212,255,0.2)}
+
+/* ============ Pricing ============ */
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch}
+.price-card{background:linear-gradient(160deg,rgba(20,28,62,0.6),rgba(15,21,48,0.4));border:1px solid var(--border);border-radius:var(--radius-lg);padding:34px 30px;position:relative;transition:all 0.25s;display:flex;flex-direction:column}
+.price-card.featured{border-color:rgba(0,212,255,0.4);background:linear-gradient(160deg,rgba(0,212,255,0.08),rgba(139,92,246,0.05));box-shadow:0 0 40px rgba(0,212,255,0.15)}
+.price-card.featured::before{content:"Most Popular";position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--grad-primary);color:#04101a;font-family:var(--font-body);font-weight:700;font-size:0.72rem;padding:5px 14px;border-radius:100px;text-transform:uppercase;letter-spacing:0.06em;box-shadow:0 4px 12px rgba(0,212,255,0.4)}
+.price-card:hover{transform:translateY(-3px)}
+.price-tier{font-family:var(--font);font-weight:600;font-size:1.15rem;margin-bottom:8px;display:flex;align-items:center;gap:10px}
+.price-tier-ic{width:30px;height:30px;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:700;color:#04101a}
+.pti-1{background:linear-gradient(135deg,#8a93b8,#5d6789)}
+.pti-2{background:linear-gradient(135deg,#00d4ff,#8b5cf6);color:#fff}
+.pti-3{background:linear-gradient(135deg,#ffb020,#ff4d8d)}
+.price-amount{display:flex;align-items:baseline;gap:6px;margin-bottom:6px}
+.price-amount .amt{font-family:var(--font);font-weight:700;font-size:2.6rem;letter-spacing:-0.03em}
+.price-amount .per{color:var(--muted);font-size:0.9rem}
+.price-desc{color:var(--muted);font-size:0.86rem;margin-bottom:24px}
+.price-fee{background:rgba(0,0,0,0.25);border-radius:10px;padding:14px;margin-bottom:22px;display:flex;justify-content:space-between;align-items:center}
+.price-fee-l{font-size:0.78rem;color:var(--muted)}
+.price-fee-v{font-family:var(--font-mono);font-weight:700;font-size:1.1rem;color:var(--green)}
+.price-feats{list-style:none;margin-bottom:26px;flex:1}
+.price-feats li{display:flex;align-items:center;gap:10px;padding:7px 0;font-size:0.88rem;color:var(--ink-2)}
+.price-feats li .pf-ic{width:18px;height:18px;border-radius:50%;background:rgba(0,255,136,0.15);color:var(--green);display:inline-flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:700;flex-shrink:0}
+.price-feats li.disabled{color:var(--dim)}
+.price-feats li.disabled .pf-ic{background:rgba(120,140,200,0.1);color:var(--dim)}
+.price-btn{width:100%;padding:13px;border-radius:9px;font-family:var(--font-body);font-weight:600;font-size:0.92rem;cursor:pointer;transition:all 0.2s;border:none}
+.price-card.featured .price-btn{background:var(--grad-primary);color:#04101a;box-shadow:0 6px 18px rgba(0,212,255,0.3)}
+.price-card.featured .price-btn:hover{transform:translateY(-1px);box-shadow:0 10px 26px rgba(0,212,255,0.5)}
+.price-card:not(.featured) .price-btn{background:rgba(255,255,255,0.05);color:var(--ink);border:1px solid var(--border-strong)}
+.price-card:not(.featured) .price-btn:hover{background:rgba(255,255,255,0.1);border-color:rgba(0,212,255,0.4)}
+
+/* ============ FAQ ============ */
+.faq-wrap{max-width:820px;margin:0 auto}
+.faq-item{background:linear-gradient(160deg,rgba(20,28,62,0.45),rgba(15,21,48,0.3));border:1px solid var(--border);border-radius:var(--radius);margin-bottom:12px;overflow:hidden;transition:border-color 0.2s}
+.faq-item.open{border-color:rgba(0,212,255,0.3);background:linear-gradient(160deg,rgba(20,28,62,0.7),rgba(15,21,48,0.5))}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:20px 24px;cursor:pointer;font-family:var(--font);font-weight:600;font-size:1.02rem;color:var(--ink);list-style:none}
+.faq-q::-webkit-details-marker{display:none}
+.faq-ic{width:28px;height:28px;border-radius:8px;background:rgba(0,212,255,0.1);border:1px solid rgba(0,212,255,0.2);color:var(--blue);display:flex;align-items:center;justify-content:center;font-size:1.1rem;transition:transform 0.25s;flex-shrink:0;margin-left:14px}
+.faq-item.open .faq-ic{transform:rotate(45deg);background:var(--grad-primary);color:#04101a;border-color:transparent}
+.faq-a{padding:0 24px 22px;color:var(--muted);font-size:0.94rem;line-height:1.7;max-height:0;overflow:hidden;transition:max-height 0.3s ease,padding 0.3s ease}
+.faq-item.open .faq-a{max-height:300px}
+
+/* ============ Final CTA ============ */
+.final-cta{padding:100px 0;position:relative;overflow:hidden}
+.cta-card{
+  background:linear-gradient(135deg,rgba(0,212,255,0.1),rgba(139,92,246,0.08),rgba(0,255,136,0.05));
+  border:1px solid var(--border-strong);
+  border-radius:var(--radius-xl);
+  padding:70px 40px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+  box-shadow:var(--shadow-lg);
+}
+.cta-card::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(120,140,200,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(120,140,200,0.04) 1px,transparent 1px);background-size:40px 40px;mask-image:radial-gradient(circle at center,black 0%,transparent 70%);-webkit-mask-image:radial-gradient(circle at center,black 0%,transparent 70%)}
+.cta-card > *{position:relative;z-index:1}
+.cta-card h2{font-size:clamp(2rem,4vw,3rem);margin-bottom:16px}
+.cta-card p{color:var(--ink-2);font-size:1.1rem;max-width:540px;margin:0 auto 32px}
+.cta-form{display:flex;gap:10px;max-width:520px;margin:0 auto;flex-wrap:wrap;justify-content:center}
+.cta-input{flex:1;min-width:240px;padding:14px 18px;background:rgba(10,14,26,0.6);border:1px solid var(--border-strong);border-radius:var(--radius-sm);color:var(--ink);font-family:var(--font-body);font-size:0.95rem;outline:none;transition:border-color 0.2s}
+.cta-input:focus{border-color:rgba(0,212,255,0.5)}
+.cta-note{margin-top:18px;font-size:0.8rem;color:var(--dim)}
+
+/* ============ Footer ============ */
+.footer{background:linear-gradient(180deg,var(--bg),#06080f);border-top:1px solid var(--border);padding:70px 0 30px;position:relative}
+.footer-grid{display:grid;grid-template-columns:1.5fr repeat(4,1fr);gap:40px;margin-bottom:50px}
+.footer-brand .brand{margin-bottom:18px}
+.footer-about{color:var(--muted);font-size:0.88rem;line-height:1.7;max-width:280px;margin-bottom:20px}
+.footer-social{display:flex;gap:10px}
+.social-link{width:36px;height:36px;border-radius:9px;background:rgba(255,255,255,0.04);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--muted);text-decoration:none;transition:all 0.2s;position:relative}
+.social-link:hover{background:rgba(0,212,255,0.1);border-color:rgba(0,212,255,0.3);color:var(--blue)}
+/* CSS social icons */
+.si-tw::before{content:"";width:14px;height:12px;background:currentColor;clip-path:polygon(0 100%,20% 60%,40% 70%,75% 25%,100% 100%,75% 90%,55% 75%,35% 95%,15% 88%)}
+.si-tg::before{content:"";width:14px;height:12px;background:currentColor;clip-path:polygon(20% 0,100% 0,80% 100%,0 100%,30% 60%,90% 20%)}
+.si-dc::before{content:"";width:14px;height:12px;background:currentColor;clip-path:polygon(20% 10%,80% 10%,90% 50%,80% 90%,20% 90%,10% 50%);border-radius:30%}
+.si-gh::before{content:"";width:14px;height:14px;background:currentColor;mask:radial-gradient(circle at 50% 35%,transparent 18%,black 19%);-webkit-mask:radial-gradient(circle at 50% 35%,transparent 18%,black 19%);border-radius:50%}
+.si-in::before{content:"in";font-family:var(--font);font-weight:700;font-size:0.7rem}
+.footer-col h4{font-family:var(--font);font-size:0.82rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--ink);margin-bottom:18px}
+.footer-col ul{list-style:none}
+.footer-col ul li{margin-bottom:10px}
+.footer-col ul a{color:var(--muted);text-decoration:none;font-size:0.88rem;transition:color 0.2s}
+.footer-col ul a:hover{color:var(--blue)}
+.footer-bottom{border-top:1px solid var(--border);padding-top:28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-copy{color:var(--muted);font-size:0.85rem}
+.footer-copy a{color:var(--blue);text-decoration:none}
+.footer-copy a:hover{text-decoration:underline}
+.footer-legal{display:flex;gap:22px;flex-wrap:wrap}
+.footer-legal a{color:var(--muted);text-decoration:none;font-size:0.82rem;transition:color 0.2s}
+.footer-legal a:hover{color:var(--ink-2)}
+.risk{margin-top:28px;padding:16px 20px;background:rgba(255,176,32,0.05);border:1px solid rgba(255,176,32,0.15);border-radius:var(--radius-sm);color:var(--dim);font-size:0.78rem;line-height:1.6;display:flex;gap:12px;align-items:flex-start}
+.risk-ic{width:20px;height:20px;border-radius:50%;background:rgba(255,176,32,0.2);color:var(--amber);display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:0.8rem;flex-shrink:0;font-family:var(--font)}
+
+/* ============ Download FAB ============ */
+.download-fab{
+  position:fixed;bottom:26px;right:26px;z-index:200;
+  background:var(--grad-primary);color:#04101a;
+  border:none;cursor:pointer;
+  padding:14px 22px;border-radius:100px;
+  font-family:var(--font-body);font-weight:700;font-size:0.9rem;
+  display:inline-flex;align-items:center;gap:10px;
+  box-shadow:0 12px 36px rgba(0,212,255,0.45),inset 0 1px 0 rgba(255,255,255,0.3);
+  transition:transform 0.2s,box-shadow 0.2s;
+}
+.download-fab:hover{transform:translateY(-2px);box-shadow:0 16px 44px rgba(0,212,255,0.6),inset 0 1px 0 rgba(255,255,255,0.4)}
+.download-fab-ic{width:18px;height:18px;position:relative;display:inline-block}
+.download-fab-ic::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:3px;height:11px;background:#04101a;border-radius:2px}
+.download-fab-ic::after{content:"";position:absolute;bottom:0;left:50%;transform:translateX(-50%) rotate(45deg);width:10px;height:10px;border-right:3px solid #04101a;border-bottom:3px solid #04101a;border-radius:0 0 3px 0}
+
+/* ============ Animations on scroll ============ */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.7s ease,transform 0.7s ease}
+.reveal.in{opacity:1;transform:translateY(0)}
+.reveal-d1{transition-delay:0.08s}
+.reveal-d2{transition-delay:0.16s}
+.reveal-d3{transition-delay:0.24s}
+.reveal-d4{transition-delay:0.32s}
+
+/* ============ Responsive ============ */
+@media (max-width:1024px){
+  .hero-grid{grid-template-columns:1fr;gap:50px}
+  .features-grid{grid-template-columns:repeat(2,1fr)}
+  .coins-grid{grid-template-columns:repeat(2,1fr)}
+  .trading-body{grid-template-columns:1fr 1fr}
+  .td-panel:last-child{grid-column:1/-1;border-right:none;border-top:1px solid var(--border)}
+  .security-grid,.earn-grid{grid-template-columns:1fr;gap:48px}
+  .shield-wrap{min-height:360px}
+  .footer-grid{grid-template-columns:1fr 1fr 1fr;gap:32px}
+  .footer-brand{grid-column:1/-1}
+}
+@media (max-width:760px){
+  .nav-links{display:none}
+  .nav-toggle{display:inline-flex;align-items:center;justify-content:center}
+  .nav-signin{display:none}
+  .stats-grid{grid-template-columns:1fr 1fr;gap:32px 16px}
+  .stat:not(:last-child)::after{display:none}
+  .stat:nth-child(2)::after{display:none}
+  .features-grid,.test-grid,.pricing-grid,.coins-grid{grid-template-columns:1fr}
+  .trading-body{grid-template-columns:1fr}
+  .td-panel{border-right:none;border-bottom:1px solid var(--border)}
+  .td-panel:last-child{border-bottom:none}
+  .chart-main{height:240px}
+  .security-list,.footer-grid{grid-template-columns:1fr}
+  .hero{padding:60px 0 40px}
+  section{padding:64px 0}
+  .cta-card{padding:48px 24px}
+  .hero-floats{display:none}
+  .download-fab{padding:12px 18px;font-size:0.82rem;bottom:18px;right:18px}
+  .download-fab span{display:none}
+}
+@media (max-width:480px){
+  .container{padding:0 18px}
+  .nav-inner{padding:14px 18px}
+  .hero-cta{flex-direction:column}
+  .hero-cta .btn{width:100%}
+  .cta-form{flex-direction:column}
+  .cta-form .btn{width:100%}
+  .press-grid{gap:28px}
+  .press-item{font-size:1.1rem}
+}
+</style>
+</head>
+<body>
+
+<div class="bg-decor" aria-hidden="true">
+  <div class="bg-grid"></div>
+  <div class="bg-noise"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+</div>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand" aria-label="Zenith home">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-name">Zen<span>ith</span></span>
+    </a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#trade">Trade</a></li>
+        <li><a href="#markets">Markets</a></li>
+        <li><a href="#earn">Earn</a></li>
+        <li><a href="#learn">Learn</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <a href="#" class="nav-signin">Sign in</a>
+      <a href="#cta" class="btn btn-primary">Get started</a>
+      <button class="nav-toggle" aria-label="Open menu">≡</button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ TICKER BAR ============ -->
+<div class="ticker-bar" aria-label="Live crypto prices">
+  <div class="ticker-track">
+    <span class="ticker-item"><span class="ticker-coin"><span class="ticker-dot dot-btc">B</span>BTC</span><span class="ticker-price">$67,842.10</span><span class="ticker-up">▲ 2.34%</span></span>
+    <span class="ticker-item"><span class="ticker-coin"><span class="ticker-dot dot-eth">E</span>ETH</span><span class="ticker-price">$3,548.92</span><span class="ticker-up">▲ 1.82%</span></span>
+    <span class="ticker-item"><span class="ticker-coin"><span class="ticker-dot dot-sol">S</span>SOL</span><span class="ticker-price">$184.66</span><span class="ticker-up">▲ 4.21%</span></span>
+    <span class="ticker-item"><span class="ticker-coin"><span class="ticker-dot dot-bnb">B</span>BNB</span><span class="ticker-price">$612.38</span><span class="ticker-down">▼ 0.74%</span></span>
+    <span class="ticker-item"><span class="ticker-coin"><span class="ticker-dot dot-xrp">X</span>XRP</span><span class="ticker-price">$0.5234</span><span class="ticker-up">▲ 3.11%</span></span>
+    <span class="ticker-item"><span class="ticker-coin"><span class="ticker-dot dot-ada">A</span>ADA</span><span class="ticker-price">$0.4589</span><span class="ticker-down">▼ 1.22%</span></span>
+    <span class="ticker-item"><span class="ticker-coin"><span class="ticker-dot dot-doge">D</span>DOGE</span><span class="ticker-price">$0.1623</span><span class="ticker-up">▲ 5.67%</span></span>
+    <span class="ticker-item"><span class="ticker-coin"><span class="ticker-dot dot-avax">A</span>AVAX</span><span class="ticker-price">$38.94</span><span class="ticker-up">▲ 2.88%</span></span>
+    <!-- duplicate for seamless loop -->
+    <span class="ticker-item"><span class="ticker-coin"><span class="ticker-dot dot-btc">B</span>BTC</span><span class="ticker-price">$67,842.10</span><span class="ticker-up">▲ 2.34%</span></span>
+    <span class="ticker-item"><span class="ticker-coin"><span class="ticker-dot dot-eth">E</span>ETH</span><span class="ticker-price">$3,548.92</span><span class="ticker-up">▲ 1.82%</span></span>
+    <span class="ticker-item"><span class="ticker-coin"><span class="ticker-dot dot-sol">S</span>SOL</span><span class="ticker-price">$184.66</span><span class="ticker-up">▲ 4.21%</span></span>
+    <span class="ticker-item"><span class="ticker-coin"><span class="ticker-dot dot-bnb">B</span>BNB</span><span class="ticker-price">$612.38</span><span class="ticker-down">▼ 0.74%</span></span>
+    <span class="ticker-item"><span class="ticker-coin"><span class="ticker-dot dot-xrp">X</span>XRP</span><span class="ticker-price">$0.5234</span><span class="ticker-up">▲ 3.11%</span></span>
+    <span class="ticker-item"><span class="ticker-coin"><span class="ticker-dot dot-ada">A</span>ADA</span><span class="ticker-price">$0.4589</span><span class="ticker-down">▼ 1.22%</span></span>
+    <span class="ticker-item"><span class="ticker-coin"><span class="ticker-dot dot-doge">D</span>DOGE</span><span class="ticker-price">$0.1623</span><span class="ticker-up">▲ 5.67%</span></span>
+    <span class="ticker-item"><span class="ticker-coin"><span class="ticker-dot dot-avax">A</span>AVAX</span><span class="ticker-price">$38.94</span><span class="ticker-up">▲ 2.88%</span></span>
+  </div>
+</div>
+
+<main id="top">
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <span class="hero-eyebrow"><span class="pulse"></span> Trusted by 4.2M traders worldwide</span>
+        <h1>Trade smarter.<br><span class="grad">Earn more.</span><br><span class="grad-green">Without limits.</span></h1>
+        <p class="hero-sub">The next-generation crypto exchange engineered for speed, security and serious returns. Deep liquidity, ultra-low fees and institutional-grade infrastructure — all in one beautiful platform.</p>
+        <div class="hero-cta">
+          <a href="#cta" class="btn btn-primary btn-lg">Get started — it's free</a>
+          <a href="#trade" class="btn btn-ghost btn-lg">▶ Watch demo</a>
+        </div>
+        <div class="hero-trust">
+          <div class="trust-item"><span class="check-ic">✓</span> No KYC for swaps under $1k</div>
+          <div class="trust-item"><span class="check-ic">✓</span> $250M insurance fund</div>
+          <div class="trust-item"><span class="check-ic">✓</span> SOC 2 audited</div>
+        </div>
+      </div>
+
+      <div class="hero-visual" style="position:relative">
+        <div class="hero-card">
+          <div class="hero-card-head">
+            <div class="hc-pair">
+              <span class="ticker-dot dot-btc">B</span>
+              <div class="hc-pair-name">BTC / USDT <span>Spot</span></div>
+            </div>
+            <div class="hc-price">
+              <div class="hc-price-val">$67,842.10</div>
+              <div class="hc-price-chg">▲ +2.34% / 24h</div>
+            </div>
+          </div>
+          <div class="hc-stats">
+            <div class="hc-stat"><div class="hc-stat-l">24h High</div><div class="hc-stat-v">$68,910.0</div></div>
+            <div class="hc-stat"><div class="hc-stat-l">24h Low</div><div class="hc-stat-v">$66,012.5</div></div>
+            <div class="hc-stat"><div class="hc-stat-l">24h Vol</div><div class="hc-stat-v">$1.84B</div></div>
+          </div>
+          <div class="candles" id="hero-candles"></div>
+          <div class="hc-orders">
+            <div class="hc-order-col">
+              <div class="hc-order-h"><span>Price</span><span>Amount</span></div>
+              <div class="hc-row ask"><span class="bar" style="width:55%"></span><span>67,845</span><span>0.124</span></div>
+              <div class="hc-row ask"><span class="bar" style="width:38%"></span><span>67,843</span><span>0.082</span></div>
+              <div class="hc-row ask"><span class="bar" style="width:72%"></span><span>67,842</span><span>0.245</span></div>
+              <div class="hc-row bid"><span class="bar" style="width:48%"></span><span>67,841</span><span>0.156</span></div>
+              <div class="hc-row bid"><span class="bar" style="width:65%"></span><span>67,840</span><span>0.198</span></div>
+              <div class="hc-row bid"><span class="bar" style="width:30%"></span><span>67,838</span><span>0.064</span></div>
+            </div>
+            <div class="hc-order-col" style="display:flex;flex-direction:column;gap:6px">
+              <button class="hc-btn hc-buy">Buy BTC</button>
+              <button class="hc-btn hc-sell">Sell BTC</button>
+              <div style="font-size:0.7rem;color:var(--dim);text-align:center;padding:4px 0">Fee · 0.10% taker</div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-floats">
+          <div class="hero-float hf-1">
+            <div class="hf-l">24h Volume</div>
+            <div class="hf-v">$3.2B</div>
+          </div>
+          <div class="hero-float hf-2">
+            <div class="hf-l">Avg. fill</div>
+            <div class="hf-v">8 ms</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS STRIP ============ -->
+<section class="stats" style="padding:50px 0">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat reveal">
+        <div class="stat-num"><span class="counter" data-target="3.2">0</span><span class="sym">B</span></div>
+        <div class="stat-l">24h Trading Volume</div>
+      </div>
+      <div class="stat reveal reveal-d1">
+        <div class="stat-num"><span class="counter" data-target="4.2">0</span><span class="sym">M+</span></div>
+        <div class="stat-l">Active Users</div>
+      </div>
+      <div class="stat reveal reveal-d2">
+        <div class="stat-num"><span class="counter" data-target="640">0</span><span class="sym">+</span></div>
+        <div class="stat-l">Coins Listed</div>
+      </div>
+      <div class="stat reveal reveal-d3">
+        <div class="stat-num"><span class="counter" data-target="190">0</span><span class="sym">+</span></div>
+        <div class="stat-l">Countries Supported</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURES ============ -->
+<section id="about">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">Why Zenith</span>
+      <h2 class="section-title">Built for traders who <span class="grad">demand more</span></h2>
+      <p class="section-sub">Every detail engineered around performance, security and a frictionless trading experience.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature reveal">
+        <div class="feature-ic green"><span class="ic-fee"></span></div>
+        <h3>Ultra-low fees</h3>
+        <p>From just 0.05% per trade — among the lowest in the industry. Save more on every swap, every withdrawal, every conversion.</p>
+      </div>
+      <div class="feature reveal reveal-d1">
+        <div class="feature-ic blue"><span class="ic-bolt"></span></div>
+        <h3>Lightning execution</h3>
+        <p>Matching engine processes 2.4M orders/sec with sub-10ms median latency. Your fills happen before the market moves.</p>
+      </div>
+      <div class="feature reveal reveal-d2">
+        <div class="feature-ic purple"><span class="ic-shield"></span></div>
+        <h3>Cold storage security</h3>
+        <p>98% of assets held in geographically distributed cold wallets with multi-signature protection and 24/7 monitoring.</p>
+      </div>
+      <div class="feature reveal">
+        <div class="feature-ic pink"><span class="ic-headset"></span></div>
+        <h3>24/7 human support</h3>
+        <p>Real people, real answers — any hour, any day. Median first-response under 90 seconds via chat, email and phone.</p>
+      </div>
+      <div class="feature reveal reveal-d1">
+        <div class="feature-ic amber"><span class="ic-phone"></span></div>
+        <h3>Mobile-first app</h3>
+        <p>iOS and Android apps with full desktop parity. Trade, stake and earn from anywhere with biometric-secured access.</p>
+      </div>
+      <div class="feature reveal reveal-d2">
+        <div class="feature-ic cyan"><span class="ic-stake"></span></div>
+        <h3>Staking rewards</h3>
+        <p>Earn up to 18% APR on 40+ supported assets. Flexible terms — stake, unstake and compound on your schedule.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRADING INTERFACE PREVIEW ============ -->
+<section id="trade">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">Pro Terminal</span>
+      <h2 class="section-title">A trading workspace that <span class="grad">feels like magic</span></h2>
+      <p class="section-sub">Real-time charts, deep order books, one-click trading and the deepest liquidity in crypto — all on a single screen.</p>
+    </div>
+    <div class="trading-wrap reveal">
+      <div class="trading-head">
+        <div class="trading-tabs">
+          <div class="trading-tab active">Spot</div>
+          <div class="trading-tab">Margin</div>
+          <div class="trading-tab">Futures</div>
+          <div class="trading-tab">Options</div>
+        </div>
+        <div class="trading-pair">
+          <span class="ticker-dot dot-eth">E</span>
+          <div class="trading-pair-name">ETH / USDT <span>Spot</span></div>
+        </div>
+        <div class="trading-price-block">
+          <div class="trading-price">$3,548.92</div>
+          <div class="trading-chg">▲ +1.82% · $62.84</div>
+        </div>
+      </div>
+      <div class="trading-body">
+        <!-- Chart panel -->
+        <div class="td-panel">
+          <div class="td-panel-h">Price · ETH/USDT · 1H</div>
+          <div class="chart-main" id="main-chart">
+            <div class="chart-line" style="bottom:42%"></div>
+            <div class="chart-label" style="bottom:42%">3,548.92</div>
+          </div>
+        </div>
+        <!-- Order book -->
+        <div class="td-panel">
+          <div class="td-panel-h">Order Book</div>
+          <div class="ob-rows" id="ob-asks"></div>
+          <div class="ob-spread">
+            <span class="last">$3,548.92</span>
+            <span class="arrow">▲</span>
+            <span style="color:var(--dim)">Spread 0.02</span>
+          </div>
+          <div class="ob-rows" id="ob-bids"></div>
+        </div>
+        <!-- Buy/Sell -->
+        <div class="td-panel">
+          <div class="td-panel-h">Place Order</div>
+          <div class="trade-tabs">
+            <div class="trade-tab buy active">Buy</div>
+            <div class="trade-tab sell">Sell</div>
+          </div>
+          <div class="trade-field">
+            <div class="trade-field-l"><span>Price</span><span>USDT</span></div>
+            <input class="trade-input" type="text" value="3,548.92" />
+          </div>
+          <div class="trade-field">
+            <div class="trade-field-l"><span>Amount</span><span>ETH</span></div>
+            <input class="trade-input" type="text" value="0.500" />
+          </div>
+          <div class="trade-slider"><div class="trade-slider-fill"></div><div class="trade-slider-knob"></div></div>
+          <div class="trade-pcts">
+            <div class="trade-pct">25%</div>
+            <div class="trade-pct">50%</div>
+            <div class="trade-pct">75%</div>
+            <div class="trade-pct">100%</div>
+          </div>
+          <div class="trade-summary">
+            <div class="trade-summary-row"><span>Available</span><span>12,480.50 USDT</span></div>
+            <div class="trade-summary-row"><span>Est. fee (0.05%)</span><span>0.887 USDT</span></div>
+            <div class="trade-summary-row"><span>Total</span><span>1,774.46 USDT</span></div>
+          </div>
+          <button class="trade-submit">Buy ETH</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COINS / TOKENOMICS ============ -->
+<section id="markets">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">Markets</span>
+      <h2 class="section-title">Trade <span class="grad">640+ assets</span> across 1,200 pairs</h2>
+      <p class="section-sub">Deep liquidity on the assets that matter — from blue-chip majors to emerging Layer-1s and DeFi tokens.</p>
+    </div>
+    <div class="coins-grid" id="coins-grid"></div>
+  </div>
+</section>
+
+<!-- ============ SECURITY ============ -->
+<section class="security">
+  <div class="container">
+    <div class="security-grid">
+      <div class="shield-wrap reveal">
+        <div class="shield-orb"></div>
+        <div class="shield-rings"></div>
+        <div class="shield-core">
+          <div class="shield-check"></div>
+        </div>
+        <div class="shield-badge sb-1"><span class="lbl">SOC 2 Type II</span>Audited</div>
+        <div class="shield-badge sb-2"><span class="lbl">Insurance</span>$250M fund</div>
+        <div class="shield-badge sb-3"><span class="lbl">Cold storage</span>98% of assets</div>
+        <div class="shield-badge sb-4"><span class="lbl">Uptime</span>99.99% SLA</div>
+      </div>
+      <div class="reveal reveal-d1">
+        <span class="section-eyebrow">Security First</span>
+        <h2 class="section-title" style="text-align:left">Your assets, <span class="grad">fortress-protected</span></h2>
+        <p class="section-sub" style="margin:0 0 30px;text-align:left">From cold-storage architecture to insurance funds and real-time fraud monitoring — security isn't a feature, it's the foundation.</p>
+        <div class="security-list">
+          <div class="sec-item">
+            <div class="sec-item-ic"><span class="dot"></span></div>
+            <h4>Multi-sig cold storage</h4>
+            <p>Geographically distributed vaults with time-locked withdrawal and multi-party authorization.</p>
+          </div>
+          <div class="sec-item">
+            <div class="sec-item-ic"><span class="dot"></span></div>
+            <h4>2FA & passkeys</h4>
+            <p>Hardware keys, TOTP and biometric passkeys — plus withdrawal address allow-listing.</p>
+          </div>
+          <div class="sec-item">
+            <div class="sec-item-ic"><span class="dot"></span></div>
+            <h4>Insurance fund</h4>
+            <p>$250M self-funded reserve covering user assets in the event of a catastrophic breach.</p>
+          </div>
+          <div class="sec-item">
+            <div class="sec-item-ic"><span class="dot"></span></div>
+            <h4>Quarterly audits</h4>
+            <p>Independent SOC 2 Type II, proof-of-reserves and smart-contract audits published every quarter.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EARN / STAKING ============ -->
+<section id="earn">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">Earn</span>
+      <h2 class="section-title">Put your crypto to <span class="grad-green">work</span></h2>
+      <p class="section-sub">Flexible staking, locked vaults and DeFi strategies — all managed from a single dashboard.</p>
+    </div>
+    <div class="earn-grid">
+      <div class="earn-cards reveal">
+        <div class="earn-tier">
+          <div class="earn-tier-l">
+            <div class="earn-tier-ic et-flex">F</div>
+            <div>
+              <div class="earn-tier-n">Flexible Staking</div>
+              <div class="earn-tier-d">Unstake anytime · 40+ assets</div>
+            </div>
+          </div>
+          <div class="earn-tier-apr">8.2<span>% APR</span></div>
+        </div>
+        <div class="earn-tier">
+          <div class="earn-tier-l">
+            <div class="earn-tier-ic et-locked">L</div>
+            <div>
+              <div class="earn-tier-n">Locked Vault · 90d</div>
+              <div class="earn-tier-d">Higher yield · fixed term</div>
+            </div>
+          </div>
+          <div class="earn-tier-apr">12.4<span>% APR</span></div>
+        </div>
+        <div class="earn-tier">
+          <div class="earn-tier-l">
+            <div class="earn-tier-ic et-defi">D</div>
+            <div>
+              <div class="earn-tier-n">DeFi Strategies</div>
+              <div class="earn-tier-d">Auto-managed yield farming</div>
+            </div>
+          </div>
+          <div class="earn-tier-apr">18.0<span>% APR</span></div>
+        </div>
+      </div>
+
+      <div class="calc reveal reveal-d1">
+        <div class="calc-h">Staking calculator</div>
+        <div class="calc-sub">See what your crypto could earn. Numbers update live as you adjust.</div>
+        <div class="calc-field">
+          <div class="calc-field-l"><span>Amount to stake</span><span id="calc-amount-l">$10,000</span></div>
+          <div class="calc-input-wrap">
+            <input id="calc-amount" class="calc-input" type="number" value="10000" min="100" step="100" />
+            <span class="calc-currency">USDT</span>
+          </div>
+        </div>
+        <div class="calc-field">
+          <div class="calc-field-l"><span>APR</span><span id="calc-apr-l">12.4%</span></div>
+          <input id="calc-apr" class="calc-slider" type="range" min="3" max="18" value="12.4" step="0.1" />
+        </div>
+        <div class="calc-field">
+          <div class="calc-field-l"><span>Duration</span><span id="calc-days-l">365 days</span></div>
+          <input id="calc-days" class="calc-slider" type="range" min="30" max="1095" value="365" step="30" />
+        </div>
+        <div class="calc-result">
+          <div class="calc-result-row"><span>Principal</span><span id="r-principal">$10,000.00</span></div>
+          <div class="calc-result-row"><span>Estimated earnings</span><span id="r-earnings" style="color:var(--green)">+$1,240.00</span></div>
+          <div class="calc-result-row calc-result-total"><span>Total after term</span><span id="r-total">$11,240.00</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section id="learn">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">Loved by traders</span>
+      <h2 class="section-title">4.9/5 from <span class="grad">38,000+ reviews</span></h2>
+      <p class="section-sub">From day-one hobbyists to full-time professionals, Zenith is the exchange traders come back to.</p>
+    </div>
+    <div class="test-grid">
+      <div class="test reveal">
+        <div class="test-stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div>
+        <p class="test-quote">"The execution speed is unreal. I run a small prop desk and Zenith's matching engine beats every exchange we've used. Withdrawals land in minutes, not hours."</p>
+        <div class="test-author">
+          <div class="avatar av-1">M</div>
+          <div>
+            <div class="test-name">Marcus Reine</div>
+            <div class="test-role">Prop trader · 7 yrs</div>
+          </div>
+        </div>
+      </div>
+      <div class="test reveal reveal-d1">
+        <div class="test-stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div>
+        <p class="test-quote">"I moved my entire long-term stack here for staking. The 18% DeFi vaults compound automatically and the interface is the cleanest in crypto. Zero complaints."</p>
+        <div class="test-author">
+          <div class="avatar av-2">A</div>
+          <div>
+            <div class="test-name">Aiko Tanaka</div>
+            <div class="test-role">Long-term investor</div>
+          </div>
+        </div>
+      </div>
+      <div class="test reveal reveal-d2">
+        <div class="test-stars"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div>
+        <p class="test-quote">"I've tried every major exchange. Zenith is the first one where fees, speed and support are all genuinely best-in-class. The mobile app alone is worth switching for."</p>
+        <div class="test-author">
+          <div class="avatar av-3">D</div>
+          <div>
+            <div class="test-name">Diego Hernández</div>
+            <div class="test-role">Swing trader · mobile-first</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRESS STRIP ============ -->
+<div class="press">
+  <div class="container">
+    <div class="press-l">As featured in</div>
+    <div class="press-grid">
+      <div class="press-item"><span class="pi-mark">C</span>CoinDesk</div>
+      <div class="press-item"><span class="pi-mark">B</span>Bloomberg</div>
+      <div class="press-item"><span class="pi-mark">F</span>Forbes</div>
+      <div class="press-item"><span class="pi-mark">R</span>Reuters</div>
+      <div class="press-item"><span class="pi-mark">T</span>The Block</div>
+      <div class="press-item"><span class="pi-mark">W</span>WSJ</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ PRICING ============ -->
+<section id="pricing">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">Fee Tiers</span>
+      <h2 class="section-title">Simple pricing, <span class="grad">scaled to you</span></h2>
+      <p class="section-sub">Trade more, pay less. Fees drop automatically as your volume grows — no negotiation needed.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card reveal">
+        <div class="price-tier"><span class="price-tier-ic pti-1">S</span>Starter</div>
+        <div class="price-amount"><span class="amt">$0</span><span class="per">/ month</span></div>
+        <div class="price-desc">For new traders exploring the platform.</div>
+        <div class="price-fee"><span class="price-fee-l">Maker / Taker</span><span class="price-fee-v">0.10 / 0.10%</span></div>
+        <ul class="price-feats">
+          <li><span class="pf-ic">✓</span>Spot & convert trading</li>
+          <li><span class="pf-ic">✓</span>Up to $1k no-KYC swaps</li>
+          <li><span class="pf-ic">✓</span>Standard support</li>
+          <li><span class="pf-ic">✓</span>Mobile app access</li>
+          <li class="disabled"><span class="pf-ic">✕</span>Margin trading</li>
+          <li class="disabled"><span class="pf-ic">✕</span>API access</li>
+        </ul>
+        <button class="price-btn">Start free</button>
+      </div>
+      <div class="price-card featured reveal reveal-d1">
+        <div class="price-tier"><span class="price-tier-ic pti-2">P</span>Pro</div>
+        <div class="price-amount"><span class="amt">$29</span><span class="per">/ month</span></div>
+        <div class="price-desc">For active traders who live in the order book.</div>
+        <div class="price-fee"><span class="price-fee-l">Maker / Taker</span><span class="price-fee-v">0.05 / 0.05%</span></div>
+        <ul class="price-feats">
+          <li><span class="pf-ic">✓</span>Everything in Starter</li>
+          <li><span class="pf-ic">✓</span>Up to 10x margin trading</li>
+          <li><span class="pf-ic">✓</span>Priority 24/7 support</li>
+          <li><span class="pf-ic">✓</span>Full REST + WebSocket API</li>
+          <li><span class="pf-ic">✓</span>Advanced charting tools</li>
+          <li><span class="pf-ic">✓</span>Reduced withdrawal fees</li>
+        </ul>
+        <button class="price-btn">Go Pro</button>
+      </div>
+      <div class="price-card reveal reveal-d2">
+        <div class="price-tier"><span class="price-tier-ic pti-3">V</span>VIP</div>
+        <div class="price-amount"><span class="amt">$299</span><span class="per">/ month</span></div>
+        <div class="price-desc">For institutions, funds and high-volume desks.</div>
+        <div class="price-fee"><span class="price-fee-l">Maker / Taker</span><span class="price-fee-v">0.02 / 0.03%</span></div>
+        <ul class="price-feats">
+          <li><span class="pf-ic">✓</span>Everything in Pro</li>
+          <li><span class="pf-ic">✓</span>Up to 50x leverage</li>
+          <li><span class="pf-ic">✓</span>Dedicated account manager</li>
+          <li><span class="pf-ic">✓</span>OTC desk & dark pool</li>
+          <li><span class="pf-ic">✓</span>Custom API rate limits</li>
+          <li><span class="pf-ic">✓</span>Institutional custody</li>
+        </ul>
+        <button class="price-btn">Contact sales</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">FAQ</span>
+      <h2 class="section-title">Questions, <span class="grad">answered</span></h2>
+      <p class="section-sub">Everything you need to know before your first trade. Still curious? Our team is on chat 24/7.</p>
+    </div>
+    <div class="faq-wrap reveal">
+      <details class="faq-item open">
+        <summary class="faq-q">Is Zenith a real exchange?<span class="faq-ic">+</span></summary>
+        <div class="faq-a">No — Zenith is a premium landing page template for crypto exchanges, built with pure CSS. It is not a financial product and does not facilitate real trading. Use it as a starting point for your own exchange marketing site.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Does the template use any images?<span class="faq-ic">+</span></summary>
+        <div class="faq-a">No. Every visual — coin logos, candlestick charts, sparklines, avatars, the security shield and all icons — is crafted from pure CSS gradients, clip-paths and shapes. No &lt;img&gt; tags, no background-image URLs, no external assets beyond Google Fonts.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Is the staking calculator functional?<span class="faq-ic">+</span></summary>
+        <div class="faq-a">Yes. The staking calculator runs entirely in the browser using vanilla JavaScript. Adjust the amount, APR and duration sliders and the estimated earnings update in real time using the formula: earnings = principal × (apr / 100) × (days / 365).</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">How do I customize the brand?<span class="faq-ic">+</span></summary>
+        <div class="faq-a">All colors, fonts and spacing live in CSS custom properties at the top of the &lt;style&gt; block. Change --blue, --green and --purple to retheme the entire page instantly, and swap "Zenith" in the nav and footer for your own brand name.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Is it mobile responsive?<span class="faq-ic">+</span></summary>
+        <div class="faq-a">Fully. The layout collapses cleanly at 1024px, 760px and 480px breakpoints. The trading dashboard stacks vertically on mobile, the nav collapses to a toggle, and all tap targets remain comfortable on touch screens.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Can I use this commercially?<span class="faq-ic">+</span></summary>
+        <div class="faq-a">Yes. This template is free to use for personal and commercial projects. A credit link to ExcuseMeWeb in the footer is appreciated but not required. Cryptocurrency services shown are illustrative only.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">How do I download the source?<span class="faq-ic">+</span></summary>
+        <div class="faq-a">Click the floating "Download HTML" button in the bottom-right corner of the page. The complete, self-contained HTML file — including all CSS and JavaScript — will download as premium-crypto-landing-page.html.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="final-cta" id="cta">
+  <div class="container">
+    <div class="cta-card reveal">
+      <h2>Ready to trade <span style="background:var(--grad-green);-webkit-background-clip:text;background-clip:text;color:transparent">smarter</span>?</h2>
+      <p>Join 4.2 million traders building their future on Zenith. Create your free account in under 60 seconds — no credit card required.</p>
+      <form class="cta-form" onsubmit="return false">
+        <input class="cta-input" type="email" placeholder="you@email.com" aria-label="Email address" />
+        <button class="btn btn-green btn-lg" type="submit">Create free account</button>
+      </form>
+      <p class="cta-note">No credit card · No minimum · Cancel anytime</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#top" class="brand">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-name">Zen<span>ith</span></span>
+        </a>
+        <p class="footer-about">The next-generation crypto exchange engineered for speed, security and serious returns. Trade smarter, earn more.</p>
+        <div class="footer-social">
+          <a href="#" class="social-link si-tw" aria-label="Twitter"></a>
+          <a href="#" class="social-link si-tg" aria-label="Telegram"></a>
+          <a href="#" class="social-link si-dc" aria-label="Discord"></a>
+          <a href="#" class="social-link si-gh" aria-label="GitHub"></a>
+          <a href="#" class="social-link si-in" aria-label="LinkedIn"></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="#trade">Spot trading</a></li>
+          <li><a href="#trade">Margin & futures</a></li>
+          <li><a href="#earn">Staking</a></li>
+          <li><a href="#markets">Markets</a></li>
+          <li><a href="#">OTC desk</a></li>
+          <li><a href="#">Mobile app</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About us</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Press kit</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Roadmap</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="#learn">Learn hub</a></li>
+          <li><a href="#">API docs</a></li>
+          <li><a href="#">Status</a></li>
+          <li><a href="#">Proof of reserves</a></li>
+          <li><a href="#">Fees</a></li>
+          <li><a href="#faq">Help center</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Terms of service</a></li>
+          <li><a href="#">Privacy policy</a></li>
+          <li><a href="#">Cookie policy</a></li>
+          <li><a href="#">AML / KYC</a></li>
+          <li><a href="#">Licenses</a></li>
+          <li><a href="#">Risk disclosure</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="risk">
+      <span class="risk-ic">!</span>
+      <span><strong>Risk disclaimer:</strong> Cryptocurrency trading involves risk. This is a template, not financial advice. Crypto assets are volatile and you may lose your entire principal. Past performance does not guarantee future results. Zenith is a demonstration template and does not provide financial, legal or tax services.</span>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 Zenith. Template by <a href="https://excusemeweb.com/landing-pages" target="_blank" rel="noopener">ExcuseMeWeb</a></div>
+      <div class="footer-legal">
+        <a href="#">Terms</a>
+        <a href="#">Privacy</a>
+        <a href="#">Cookies</a>
+        <a href="#">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ DOWNLOAD FAB ============ -->
+<button class="download-fab" onclick="downloadPage()" aria-label="Download this page as HTML">
+  <span class="download-fab-ic"></span>
+  <span>Download HTML</span>
+</button>
+
+<script>
+/* ============ Download function ============ */
+function downloadPage(){
+  const html='<!DOCTYPE html>\n'+document.documentElement.outerHTML;
+  const blob=new Blob([html],{type:'text/html'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;
+  a.download='premium-crypto-landing-page.html';
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+}
+
+/* ============ Candlestick generator ============ */
+function makeCandles(container, count, opts){
+  opts = opts || {};
+  const h = opts.height || 100;
+  let price = 50 + Math.random()*20;
+  const html = [];
+  for(let i=0;i<count;i++){
+    const dir = Math.random() > 0.42 ? 'up' : 'down';
+    const bodyH = 8 + Math.random()*40;
+    const wickTop = 4 + Math.random()*18;
+    const wickBot = 4 + Math.random()*18;
+    html.push('<div class="candle '+dir+'">'+
+      '<div class="candle-wick" style="height:'+(bodyH+wickTop+wickBot)+'px;top:'+wickTop+'px"></div>'+
+      '<div class="candle-body" style="height:'+bodyH+'px"></div>'+
+      '</div>');
+  }
+  container.innerHTML = html.join('');
+}
+
+/* ============ Sparkline generator ============ */
+function makeSpark(container, trend){
+  const bars = 24;
+  let base = 30;
+  const html = [];
+  for(let i=0;i<bars;i++){
+    let v;
+    if(trend === 'up'){
+      base += (Math.random()-0.35)*8;
+    } else {
+      base += (Math.random()-0.65)*8;
+    }
+    base = Math.max(10, Math.min(95, base));
+    v = base + Math.random()*15;
+    html.push('<div class="spark-bar" style="height:'+v+'%"></div>');
+  }
+  container.innerHTML = html.join('');
+}
+
+/* ============ Order book generator ============ */
+function makeOrderBook(container, type, basePrice, count){
+  const html = [];
+  let p = basePrice;
+  for(let i=0;i<count;i++){
+    const inc = i===0 ? 0 : (Math.random()*0.04 + 0.005);
+    if(type==='ask') p = basePrice + inc;
+    else p = basePrice - inc;
+    const amt = (Math.random()*2 + 0.05).toFixed(3);
+    const w = 25 + Math.random()*65;
+    html.push('<div class="ob-row '+type+'">'+
+      '<span class="bar" style="width:'+w+'%"></span>'+
+      '<span class="p">'+p.toFixed(2)+'</span>'+
+      '<span>'+amt+'</span>'+
+      '<span style="text-align:right;color:var(--ink-2)">'+(p*amt).toFixed(2)+'</span>'+
+    '</div>');
+  }
+  container.innerHTML = html.join('');
+}
+
+/* ============ Coins data + render ============ */
+const coins = [
+  {sym:'BTC',name:'Bitcoin',logo:'cl-btc',dot:'dot-btc',price:'$67,842.10',chg:'+2.34%',up:true,vol:'$28.4B',cap:'$1.34T'},
+  {sym:'ETH',name:'Ethereum',logo:'cl-eth',dot:'dot-eth',price:'$3,548.92',chg:'+1.82%',up:true,vol:'$14.2B',cap:'$427.8B'},
+  {sym:'SOL',name:'Solana',logo:'cl-sol',dot:'dot-sol',price:'$184.66',chg:'+4.21%',up:true,vol:'$4.8B',cap:'$86.1B'},
+  {sym:'BNB',name:'BNB Chain',logo:'cl-bnb',dot:'dot-bnb',price:'$612.38',chg:'-0.74%',up:false,vol:'$1.9B',cap:'$90.3B'},
+  {sym:'XRP',name:'Ripple',logo:'cl-xrp',dot:'dot-xrp',price:'$0.5234',chg:'+3.11%',up:true,vol:'$2.1B',cap:'$29.1B'},
+  {sym:'ADA',name:'Cardano',logo:'cl-ada',dot:'dot-ada',price:'$0.4589',chg:'-1.22%',up:false,vol:'$890M',cap:'$16.2B'},
+  {sym:'DOGE',name:'Dogecoin',logo:'cl-doge',dot:'dot-doge',price:'$0.1623',chg:'+5.67%',up:true,vol:'$1.4B',cap:'$23.5B'},
+  {sym:'AVAX',name:'Avalanche',logo:'cl-avax',dot:'dot-avax',price:'$38.94',chg:'+2.88%',up:true,vol:'$620M',cap:'$15.3B'}
+];
+function renderCoins(){
+  const grid = document.getElementById('coins-grid');
+  if(!grid) return;
+  grid.innerHTML = coins.map((c,i)=>{
+    const arrow = c.up ? '▲' : '▼';
+    return '<div class="coin reveal" style="transition-delay:'+( (i%4)*0.06 )+'s">'+
+      '<div class="coin-head">'+
+        '<div class="coin-logo '+c.logo+'">'+c.sym.charAt(0)+'</div>'+
+        '<div><div class="coin-name">'+c.name+'</div><div class="coin-sym">'+c.sym+'</div></div>'+
+      '</div>'+
+      '<div class="coin-price">'+c.price+'</div>'+
+      '<div class="coin-chg '+(c.up?'up':'down')+'"><span class="coin-chg-arrow">'+arrow+'</span>'+c.chg+'</div>'+
+      '<div class="spark '+(c.up?'up':'down')+'" data-trend="'+(c.up?'up':'down')+'"></div>'+
+      '<div class="coin-foot"><span>Vol '+c.vol+'</span><span>MC '+c.cap+'</span></div>'+
+    '</div>';
+  }).join('');
+  // build sparklines
+  grid.querySelectorAll('.spark').forEach(s=>{
+    makeSpark(s, s.dataset.trend);
+  });
+}
+
+/* ============ Animated counters ============ */
+function animateCounters(){
+  const counters = document.querySelectorAll('.counter');
+  counters.forEach(el=>{
+    const target = parseFloat(el.dataset.target);
+    const isDecimal = target % 1 !== 0;
+    const dur = 1800;
+    const start = performance.now();
+    function tick(now){
+      const t = Math.min((now-start)/dur, 1);
+      const eased = 1 - Math.pow(1-t, 3);
+      const v = target * eased;
+      el.textContent = isDecimal ? v.toFixed(1) : Math.round(v).toLocaleString();
+      if(t < 1) requestAnimationFrame(tick);
+      else el.textContent = isDecimal ? target.toFixed(1) : Math.round(target).toLocaleString();
+    }
+    requestAnimationFrame(tick);
+  });
+}
+
+/* ============ Staking calculator ============ */
+function setupCalc(){
+  const amount = document.getElementById('calc-amount');
+  const apr = document.getElementById('calc-apr');
+  const days = document.getElementById('calc-days');
+  const aL = document.getElementById('calc-amount-l');
+  const pL = document.getElementById('calc-apr-l');
+  const dL = document.getElementById('calc-days-l');
+  const rP = document.getElementById('r-principal');
+  const rE = document.getElementById('r-earnings');
+  const rT = document.getElementById('r-total');
+  if(!amount || !apr || !days) return;
+  function fmt(n){ return '$' + n.toLocaleString('en-US',{minimumFractionDigits:2, maximumFractionDigits:2}); }
+  function update(){
+    const a = Math.max(0, parseFloat(amount.value)||0);
+    const r = parseFloat(apr.value);
+    const d = parseInt(days.value,10);
+    const earnings = a * (r/100) * (d/365);
+    aL.textContent = '$' + a.toLocaleString('en-US');
+    pL.textContent = r.toFixed(1) + '%';
+    dL.textContent = d + ' days';
+    rP.textContent = fmt(a);
+    rE.textContent = '+' + fmt(earnings);
+    rT.textContent = fmt(a + earnings);
+  }
+  amount.addEventListener('input', update);
+  apr.addEventListener('input', update);
+  days.addEventListener('input', update);
+  update();
+}
+
+/* ============ FAQ accordion ============ */
+function setupFAQ(){
+  document.querySelectorAll('.faq-item').forEach(item=>{
+    const q = item.querySelector('.faq-q');
+    q.addEventListener('click', ()=>{
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+      if(!isOpen) item.classList.add('open');
+    });
+  });
+}
+
+/* ============ Trading tabs (visual only) ============ */
+function setupTabs(){
+  document.querySelectorAll('.trading-tab').forEach(t=>{
+    t.addEventListener('click', ()=>{
+      t.parentElement.querySelectorAll('.trading-tab').forEach(x=>x.classList.remove('active'));
+      t.classList.add('active');
+    });
+  });
+  document.querySelectorAll('.trade-tab').forEach(t=>{
+    t.addEventListener('click', ()=>{
+      t.parentElement.querySelectorAll('.trade-tab').forEach(x=>x.classList.remove('active'));
+      t.classList.add('active');
+      const submit = document.querySelector('.trade-submit');
+      const isBuy = t.classList.contains('buy');
+      if(submit){
+        submit.textContent = isBuy ? 'Buy ETH' : 'Sell ETH';
+        submit.style.background = isBuy
+          ? 'linear-gradient(180deg,#00ff88,#00c968)'
+          : 'linear-gradient(180deg,#ff5267,#cc3a4d)';
+        submit.style.color = isBuy ? '#04130a' : '#fff';
+      }
+    });
+  });
+  document.querySelectorAll('.trade-pct').forEach(p=>{
+    p.addEventListener('click', ()=>{
+      document.querySelectorAll('.trade-pct').forEach(x=>{x.style.color='var(--muted)';x.style.borderColor='var(--border)'});
+      p.style.color='var(--blue)';
+      p.style.borderColor='rgba(0,212,255,0.3)';
+      const fill = document.querySelector('.trade-slider-fill');
+      const knob = document.querySelector('.trade-slider-knob');
+      const pct = parseInt(p.textContent,10);
+      if(fill) fill.style.width = pct + '%';
+      if(knob) knob.style.left = pct + '%';
+    });
+  });
+}
+
+/* ============ Intersection observer for reveals ============ */
+function setupReveals(){
+  const els = document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){
+    els.forEach(e=>e.classList.add('in'));
+    return;
+  }
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(en=>{
+      if(en.isIntersecting){
+        en.target.classList.add('in');
+        io.unobserve(en.target);
+      }
+    });
+  }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+  els.forEach(e=>io.observe(e));
+}
+
+/* ============ Mobile nav toggle ============ */
+function setupNav(){
+  const toggle = document.querySelector('.nav-toggle');
+  const links = document.querySelector('.nav-links');
+  if(!toggle || !links) return;
+  toggle.addEventListener('click', ()=>{
+    if(links.style.display === 'flex'){
+      links.style.display = '';
+    } else {
+      links.style.display = 'flex';
+      links.style.position = 'absolute';
+      links.style.top = '100%';
+      links.style.right = '18px';
+      links.style.flexDirection = 'column';
+      links.style.background = 'rgba(13,18,36,0.98)';
+      links.style.border = '1px solid var(--border-strong)';
+      links.style.borderRadius = '12px';
+      links.style.padding = '16px';
+      links.style.gap = '14px';
+      links.style.boxShadow = 'var(--shadow)';
+    }
+  });
+}
+
+/* ============ Init ============ */
+document.addEventListener('DOMContentLoaded', ()=>{
+  const heroCandles = document.getElementById('hero-candles');
+  if(heroCandles) makeCandles(heroCandles, 22, {height:120});
+  const mainChart = document.getElementById('main-chart');
+  if(mainChart){
+    makeCandles(mainChart, 40, {height:300});
+    // re-append line + label that makeCandles cleared
+    const line = document.createElement('div');
+    line.className = 'chart-line';
+    line.style.bottom = '42%';
+    mainChart.appendChild(line);
+    const lbl = document.createElement('div');
+    lbl.className = 'chart-label';
+    lbl.style.bottom = '42%';
+    lbl.textContent = '3,548.92';
+    mainChart.appendChild(lbl);
+  }
+  const asks = document.getElementById('ob-asks');
+  const bids = document.getElementById('ob-bids');
+  if(asks) makeOrderBook(asks, 'ask', 3548.92, 7);
+  if(bids) makeOrderBook(bids, 'bid', 3548.92, 7);
+  renderCoins();
+  setupCalc();
+  setupFAQ();
+  setupTabs();
+  setupReveals();
+  setupNav();
+
+  // Trigger counters when stats section enters view
+  const statsSec = document.querySelector('.stats');
+  if(statsSec && 'IntersectionObserver' in window){
+    const sio = new IntersectionObserver((entries)=>{
+      entries.forEach(en=>{
+        if(en.isIntersecting){
+          animateCounters();
+          sio.disconnect();
+        }
+      });
+    }, {threshold:0.4});
+    sio.observe(statsSec);
+  } else {
+    animateCounters();
+  }
+});
+</script>
+</body>
+</html>

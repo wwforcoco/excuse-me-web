@@ -1,0 +1,2793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FrontierConf 2026 — Premium Conference Landing Page Template | ExcuseMeWeb</title>
+<meta name="description" content="FrontierConf 2026 is a premium conference & event landing page template featuring a bold hero, live countdown, animated stats, featured speakers, a 3-day schedule, tracks, tiered sponsors, a CSS-art venue map, testimonials, ticket pricing tiers, and an FAQ accordion. Pure CSS art, no images.">
+<meta name="keywords" content="conference landing page, event template, tech conference, FrontierConf, convention website, speaker schedule, ticket pricing, countdown timer, event landing page template">
+<meta name="author" content="ExcuseMeWeb">
+<meta name="theme-color" content="#0a0a14">
+<link rel="canonical" href="https://excusemeweb.com/premium-event-landing">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="FrontierConf 2026 — Premium Conference Landing Page Template | ExcuseMeWeb">
+<meta property="og:description" content="A premium conference landing page template with live countdown, animated stats, featured speakers, 3-day schedule, tracks, tiered sponsors, CSS-art venue map, testimonials, ticket tiers, and FAQ. Pure CSS art — no images.">
+<meta property="og:url" content="https://excusemeweb.com/premium-event-landing">
+<meta property="og:site_name" content="ExcuseMeWeb">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FrontierConf 2026 — Premium Conference Landing Page Template | ExcuseMeWeb">
+<meta name="twitter:description" content="A premium conference landing page template with live countdown, animated stats, featured speakers, 3-day schedule, tracks, tiered sponsors, CSS-art venue map, testimonials, ticket tiers, and FAQ. Pure CSS art — no images.">
+<meta name="twitter:url" content="https://excusemeweb.com/premium-event-landing">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- JSON-LD Event Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "FrontierConf 2026",
+  "description": "Three days of frontier tech talks, workshops, and networking across AI, Web, DevOps, Design, and Leadership tracks. 80+ speakers, 120+ sessions, 6,000 attendees expected.",
+  "startDate": "2026-09-15T09:00:00-07:00",
+  "endDate": "2026-09-17T18:00:00-07:00",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "url": "https://excusemeweb.com/premium-event-landing",
+  "image": "https://excusemeweb.com/og/frontierconf-2026.png",
+  "location": {
+    "@type": "Place",
+    "name": "Aurora Convention Center",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "1 Harbor Boulevard",
+      "addressLocality": "San Francisco",
+      "addressRegion": "CA",
+      "postalCode": "94133",
+      "addressCountry": "US"
+    }
+  },
+  "organizer": {
+    "@type": "Organization",
+    "name": "FrontierConf",
+    "url": "https://excusemeweb.com/premium-event-landing"
+  },
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Early Bird",
+      "price": "499.00",
+      "priceCurrency": "USD",
+      "validFrom": "2026-01-15",
+      "availability": "https://schema.org/InStock",
+      "url": "https://excusemeweb.com/premium-event-landing"
+    },
+    {
+      "@type": "Offer",
+      "name": "General Admission",
+      "price": "799.00",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock",
+      "url": "https://excusemeweb.com/premium-event-landing"
+    },
+    {
+      "@type": "Offer",
+      "name": "VIP Pass",
+      "price": "1499.00",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/LimitedAvailability",
+      "url": "https://excusemeweb.com/premium-event-landing"
+    }
+  ],
+  "performer": [
+    {"@type": "Person", "name": "Dr. Amara Okafor"},
+    {"@type": "Person", "name": "Liang Wei"},
+    {"@type": "Person", "name": "Sofia Marchetti"},
+    {"@type": "Person", "name": "Marcus Bell"}
+  ]
+}
+</script>
+
+<style>
+/* ===================== RESET & BASE ===================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0a0a14;
+  --bg-2: #0f0f1e;
+  --bg-3: #14142b;
+  --panel: rgba(20, 20, 43, 0.55);
+  --panel-solid: #14142b;
+  --panel-border: rgba(255, 255, 255, 0.08);
+  --panel-border-strong: rgba(255, 255, 255, 0.16);
+
+  --purple: #7c3aed;
+  --purple-light: #a855f7;
+  --purple-dark: #6d28d9;
+  --pink: #ec4899;
+  --pink-light: #f472b6;
+  --blue: #2563eb;
+  --blue-light: #3b82f6;
+  --cyan: #06b6d4;
+  --cyan-light: #22d3ee;
+  --amber: #f59e0b;
+  --emerald: #10b981;
+  --violet: #8b5cf6;
+
+  --grad-main: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%);
+  --grad-cool: linear-gradient(135deg, #2563eb 0%, #06b6d4 100%);
+  --grad-warm: linear-gradient(135deg, #f59e0b 0%, #ec4899 100%);
+  --grad-tri: linear-gradient(120deg, #7c3aed 0%, #2563eb 50%, #06b6d4 100%);
+  --grad-text: linear-gradient(135deg, #a855f7 0%, #ec4899 50%, #22d3ee 100%);
+
+  --text: #f5f5fa;
+  --text-muted: #a5a5be;
+  --text-dim: #71718a;
+  --text-faint: #4a4a63;
+
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 36px;
+
+  --shadow-glow-purple: 0 0 60px rgba(124, 58, 237, 0.35);
+  --shadow-glow-pink: 0 0 60px rgba(236, 72, 153, 0.30);
+  --shadow-glow-cyan: 0 0 60px rgba(6, 182, 212, 0.25);
+  --shadow-card: 0 24px 60px rgba(0, 0, 0, 0.45);
+  --shadow-card-hover: 0 40px 90px rgba(124, 58, 237, 0.25);
+
+  --maxw: 1240px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  font-weight: 400;
+  overflow-x: hidden;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Global background ambient layers */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(900px 700px at 12% -5%, rgba(124, 58, 237, 0.20), transparent 60%),
+    radial-gradient(800px 600px at 88% 8%, rgba(236, 72, 153, 0.16), transparent 60%),
+    radial-gradient(700px 700px at 50% 110%, rgba(6, 182, 212, 0.12), transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 64px 64px;
+  pointer-events: none;
+  z-index: 0;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 40%, #000 30%, transparent 100%);
+}
+
+img { display: none; } /* Safety net: ensure no images ever render */
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+ul { list-style: none; }
+
+.container {
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 28px;
+  position: relative;
+  z-index: 1;
+}
+
+.section { padding: 120px 0; position: relative; z-index: 1; }
+.section-sm { padding: 80px 0; }
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--pink-light);
+  padding: 8px 16px;
+  border: 1px solid var(--panel-border-strong);
+  border-radius: 100px;
+  background: rgba(124, 58, 237, 0.08);
+  backdrop-filter: blur(10px);
+}
+.eyebrow::before {
+  content: "";
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--pink);
+  box-shadow: 0 0 10px var(--pink);
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(1.4); } }
+
+.section-title {
+  font-size: clamp(34px, 5vw, 60px);
+  margin: 22px 0 18px;
+  background: linear-gradient(180deg, #ffffff 0%, #b9b9d6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.section-title .grad {
+  background: var(--grad-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.section-sub {
+  max-width: 640px;
+  font-size: 17px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+.section-head { margin-bottom: 60px; }
+.section-head.center { text-align: center; margin-left: auto; margin-right: auto; }
+.section-head.center .section-sub { margin-left: auto; margin-right: auto; }
+
+/* ===================== BUTTONS ===================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 14px 26px;
+  border-radius: 100px;
+  transition: all 0.35s var(--ease);
+  position: relative;
+  white-space: nowrap;
+  cursor: pointer;
+  letter-spacing: 0.01em;
+}
+.btn-primary {
+  background: var(--grad-main);
+  color: #fff;
+  box-shadow: 0 12px 30px rgba(124, 58, 237, 0.40), inset 0 1px 0 rgba(255,255,255,0.25);
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 18px 45px rgba(236, 72, 153, 0.50), inset 0 1px 0 rgba(255,255,255,0.3); }
+.btn-ghost {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  border: 1px solid var(--panel-border-strong);
+  backdrop-filter: blur(12px);
+}
+.btn-ghost:hover { background: rgba(255, 255, 255, 0.08); border-color: rgba(255,255,255,0.3); transform: translateY(-2px); }
+.btn-lg { padding: 18px 34px; font-size: 16px; }
+.btn .arrow { transition: transform 0.35s var(--ease); }
+.btn:hover .arrow { transform: translateX(4px); }
+
+/* ===================== NAVBAR ===================== */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 18px 0;
+  transition: all 0.4s var(--ease);
+}
+.nav.scrolled {
+  padding: 12px 0;
+  background: rgba(10, 10, 20, 0.75);
+  backdrop-filter: blur(20px) saturate(140%);
+  border-bottom: 1px solid var(--panel-border);
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: -0.02em;
+}
+.brand-mark {
+  width: 38px; height: 38px;
+  border-radius: 11px;
+  background: var(--grad-main);
+  position: relative;
+  box-shadow: var(--shadow-glow-purple);
+  display: grid;
+  place-items: center;
+}
+.brand-mark::before {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border-radius: 7px;
+  background: var(--bg);
+}
+.brand-mark::after {
+  content: "";
+  position: absolute;
+  width: 14px; height: 14px;
+  border-radius: 4px;
+  background: var(--grad-main);
+  transform: rotate(45deg);
+}
+.brand-name { display: flex; flex-direction: column; line-height: 1; }
+.brand-name b { font-size: 17px; }
+.brand-name span { font-size: 10px; color: var(--text-dim); letter-spacing: 0.25em; text-transform: uppercase; font-weight: 500; margin-top: 3px; }
+
+.nav-links { display: flex; align-items: center; gap: 4px; }
+.nav-links a {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-muted);
+  padding: 8px 14px;
+  border-radius: 100px;
+  transition: all 0.25s ease;
+}
+.nav-links a:hover { color: var(--text); background: rgba(255,255,255,0.05); }
+.nav-cta { display: flex; align-items: center; gap: 12px; }
+.nav-cta .btn { padding: 11px 20px; font-size: 14px; }
+
+.nav-toggle { display: none; flex-direction: column; gap: 5px; padding: 8px; }
+.nav-toggle span { width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: all 0.3s ease; }
+.nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; }
+.nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.mobile-menu {
+  position: fixed;
+  top: 70px; left: 16px; right: 16px;
+  background: rgba(15, 15, 30, 0.95);
+  backdrop-filter: blur(24px);
+  border: 1px solid var(--panel-border-strong);
+  border-radius: var(--radius-md);
+  padding: 18px;
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 99;
+  box-shadow: var(--shadow-card);
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  padding: 12px 14px;
+  border-radius: 10px;
+  color: var(--text-muted);
+  font-weight: 500;
+  font-size: 15px;
+  transition: 0.2s;
+}
+.mobile-menu a:hover { background: rgba(255,255,255,0.05); color: var(--text); }
+.mobile-menu .btn { margin-top: 8px; }
+
+/* ===================== HERO ===================== */
+.hero {
+  position: relative;
+  padding: 180px 0 100px;
+  overflow: hidden;
+  z-index: 1;
+}
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.55;
+  pointer-events: none;
+  animation: drift 18s ease-in-out infinite;
+}
+.orb-1 { width: 460px; height: 460px; background: radial-gradient(circle, #7c3aed, transparent 70%); top: -120px; left: -120px; }
+.orb-2 { width: 380px; height: 380px; background: radial-gradient(circle, #ec4899, transparent 70%); top: 30px; right: -80px; animation-delay: -6s; }
+.orb-3 { width: 320px; height: 320px; background: radial-gradient(circle, #06b6d4, transparent 70%); bottom: -60px; left: 30%; animation-delay: -12s; }
+@keyframes drift {
+  0%, 100% { transform: translate(0,0) scale(1); }
+  33% { transform: translate(40px, -30px) scale(1.08); }
+  66% { transform: translate(-30px, 40px) scale(0.95); }
+}
+
+.hero-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(124,58,237,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124,58,237,0.06) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(ellipse 60% 80% at 50% 30%, #000, transparent 80%);
+  pointer-events: none;
+}
+
+.hero-deco { position: absolute; pointer-events: none; }
+.deco-ring {
+  width: 240px; height: 240px;
+  border-radius: 50%;
+  border: 1px dashed rgba(168,85,247,0.35);
+  top: 120px; right: 8%;
+  animation: spin 40s linear infinite;
+}
+.deco-ring::before {
+  content: ""; position: absolute;
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--grad-main);
+  top: -7px; left: 50%; transform: translateX(-50%);
+  box-shadow: var(--shadow-glow-pink);
+}
+.deco-ring::after {
+  content: ""; position: absolute;
+  inset: 30px;
+  border-radius: 50%;
+  border: 1px solid rgba(236,72,153,0.20);
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.deco-square {
+  width: 70px; height: 70px;
+  border: 1.5px solid rgba(6,182,212,0.45);
+  border-radius: 14px;
+  top: 60%; left: 5%;
+  transform: rotate(20deg);
+  animation: floaty 8s ease-in-out infinite;
+}
+.deco-tri {
+  width: 0; height: 0;
+  border-left: 32px solid transparent;
+  border-right: 32px solid transparent;
+  border-bottom: 56px solid rgba(245,158,11,0.30);
+  top: 25%; right: 18%;
+  filter: drop-shadow(0 0 20px rgba(245,158,11,0.4));
+  animation: floaty 10s ease-in-out infinite reverse;
+}
+@keyframes floaty { 0%,100% { transform: translateY(0) rotate(20deg); } 50% { transform: translateY(-20px) rotate(20deg); } }
+
+.hero-content { position: relative; z-index: 2; max-width: 920px; }
+.hero-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 20px 10px 14px;
+  border-radius: 100px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--panel-border-strong);
+  backdrop-filter: blur(14px);
+  margin-bottom: 32px;
+  font-size: 13px;
+}
+.hero-meta .badge {
+  background: var(--grad-main);
+  color: #fff;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 100px;
+}
+.hero-meta .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--text-faint); }
+.hero-meta .meta-text { color: var(--text-muted); font-weight: 500; }
+
+.hero h1 {
+  font-size: clamp(54px, 9.5vw, 132px);
+  line-height: 0.92;
+  letter-spacing: -0.045em;
+  margin-bottom: 28px;
+  font-weight: 700;
+}
+.hero h1 .line { display: block; }
+.hero h1 .grad {
+  background: var(--grad-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+}
+.hero h1 .outline {
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(255,255,255,0.5);
+}
+
+.hero-tagline {
+  font-size: clamp(17px, 2vw, 21px);
+  color: var(--text-muted);
+  max-width: 600px;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+.hero-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 36px;
+  margin-bottom: 40px;
+  padding: 24px 0;
+  border-top: 1px solid var(--panel-border);
+  border-bottom: 1px solid var(--panel-border);
+}
+.hero-info-item { display: flex; align-items: center; gap: 14px; }
+.hero-info-icon {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  background: rgba(124,58,237,0.12);
+  border: 1px solid rgba(124,58,237,0.25);
+  display: grid; place-items: center;
+  color: var(--purple-light);
+}
+.hero-info-icon svg { width: 20px; height: 20px; }
+.hero-info-item .lbl { font-size: 11px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--text-dim); }
+.hero-info-item .val { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 16px; }
+
+.hero-cta { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; margin-bottom: 60px; }
+.hero-cta-meta { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-dim); }
+.hero-cta-meta .star { color: var(--amber); letter-spacing: 2px; }
+
+/* Countdown */
+.countdown {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.countdown-block {
+  background: var(--panel);
+  border: 1px solid var(--panel-border-strong);
+  backdrop-filter: blur(14px);
+  border-radius: var(--radius-md);
+  padding: 22px 26px;
+  min-width: 110px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+.countdown-block:hover { transform: translateY(-3px); border-color: rgba(236,72,153,0.4); }
+.countdown-block::before {
+  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: var(--grad-main);
+  opacity: 0.8;
+}
+.countdown-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(36px, 5vw, 52px);
+  font-weight: 700;
+  line-height: 1;
+  background: var(--grad-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-variant-numeric: tabular-nums;
+}
+.countdown-lbl {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--text-dim);
+  margin-top: 8px;
+  font-weight: 600;
+}
+
+/* ===================== MARQUEE / STATS ===================== */
+.stats-strip {
+  position: relative;
+  padding: 60px 0;
+  border-top: 1px solid var(--panel-border);
+  border-bottom: 1px solid var(--panel-border);
+  background: rgba(15,15,30,0.4);
+  backdrop-filter: blur(10px);
+  z-index: 2;
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+.stat {
+  text-align: center;
+  position: relative;
+  padding: 0 20px;
+}
+.stat:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: -15px; top: 15%; bottom: 15%;
+  width: 1px;
+  background: var(--panel-border);
+}
+.stat-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(40px, 5vw, 64px);
+  font-weight: 700;
+  line-height: 1;
+  background: var(--grad-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-variant-numeric: tabular-nums;
+}
+.stat-num .suffix { -webkit-text-fill-color: var(--cyan-light); background: none; }
+.stat-lbl {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-weight: 500;
+}
+
+/* ===================== ABOUT ===================== */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 70px;
+  align-items: center;
+}
+.about-text p {
+  color: var(--text-muted);
+  font-size: 17px;
+  line-height: 1.8;
+  margin-bottom: 22px;
+}
+.about-text p:first-of-type { font-size: 19px; color: var(--text); }
+.about-text .lead-mark {
+  display: inline-block;
+  width: 40px; height: 3px;
+  background: var(--grad-main);
+  margin-bottom: 22px;
+  border-radius: 2px;
+}
+.about-highlights {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 32px;
+}
+.highlight {
+  padding: 22px;
+  border-radius: var(--radius-md);
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+.highlight:hover { border-color: rgba(236,72,153,0.4); transform: translateY(-3px); }
+.highlight-ico {
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  background: var(--grad-main);
+  display: grid; place-items: center;
+  color: #fff;
+  margin-bottom: 14px;
+  box-shadow: 0 8px 20px rgba(124,58,237,0.3);
+}
+.highlight-ico.cool { background: var(--grad-cool); box-shadow: 0 8px 20px rgba(37,99,235,0.3); }
+.highlight-ico.warm { background: var(--grad-warm); box-shadow: 0 8px 20px rgba(245,158,11,0.3); }
+.highlight-ico.cyan { background: linear-gradient(135deg, #06b6d4, #10b981); box-shadow: 0 8px 20px rgba(6,182,212,0.3); }
+.highlight-ico svg { width: 20px; height: 20px; }
+.highlight h4 { font-size: 16px; margin-bottom: 6px; }
+.highlight p { font-size: 13px; color: var(--text-muted); line-height: 1.5; margin: 0; }
+
+/* About visual card */
+.about-visual {
+  position: relative;
+  aspect-ratio: 1;
+  max-width: 460px;
+  margin-left: auto;
+}
+.about-visual .ring-stack {
+  position: absolute; inset: 0;
+  display: grid; place-items: center;
+}
+.ring-stack .r {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid var(--panel-border-strong);
+}
+.ring-stack .r1 { width: 100%; height: 100%; animation: spin 60s linear infinite; border-color: rgba(124,58,237,0.25); }
+.ring-stack .r2 { width: 75%; height: 75%; animation: spin 45s linear infinite reverse; border-color: rgba(236,72,153,0.25); border-style: dashed; }
+.ring-stack .r3 { width: 50%; height: 50%; animation: spin 30s linear infinite; border-color: rgba(6,182,212,0.3); }
+.ring-stack .core {
+  width: 28%; height: 28%;
+  border-radius: 50%;
+  background: var(--grad-main);
+  box-shadow: var(--shadow-glow-purple), inset 0 -8px 24px rgba(0,0,0,0.3);
+  position: relative;
+}
+.ring-stack .core::after {
+  content: "FC";
+  position: absolute; inset: 0;
+  display: grid; place-items: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  color: rgba(255,255,255,0.9);
+  letter-spacing: -0.02em;
+}
+.ring-stack .dot {
+  position: absolute;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: var(--grad-cool);
+  box-shadow: 0 0 14px var(--cyan);
+}
+.ring-stack .d1 { top: 0; left: 50%; transform: translateX(-50%); }
+.ring-stack .d2 { bottom: 12%; right: 12%; background: var(--grad-main); box-shadow: 0 0 14px var(--pink); }
+.ring-stack .d3 { bottom: 22%; left: 8%; background: linear-gradient(135deg, #f59e0b, #ec4899); box-shadow: 0 0 14px var(--amber); }
+
+.about-stat-floats {
+  position: absolute;
+  z-index: 3;
+}
+.about-stat-floats .f {
+  position: absolute;
+  background: rgba(20,20,43,0.85);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--panel-border-strong);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  font-family: 'Space Grotesk', sans-serif;
+}
+.about-stat-floats .f .n { font-size: 20px; font-weight: 700; color: var(--text); }
+.about-stat-floats .f .l { font-size: 11px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.14em; }
+.about-stat-floats .f1 { top: 8%; left: -10%; }
+.about-stat-floats .f2 { bottom: 16%; right: -8%; }
+
+/* ===================== SPEAKERS ===================== */
+.speakers-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+.speaker-card {
+  position: relative;
+  padding: 28px 22px 24px;
+  border-radius: var(--radius-lg);
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  backdrop-filter: blur(14px);
+  transition: all 0.4s var(--ease);
+  overflow: hidden;
+}
+.speaker-card::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(124,58,237,0.18), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+.speaker-card:hover { transform: translateY(-6px); border-color: rgba(236,72,153,0.35); box-shadow: var(--shadow-card-hover); }
+.speaker-card:hover::before { opacity: 1; }
+.speaker-avatar {
+  width: 88px; height: 88px;
+  border-radius: 50%;
+  display: grid; place-items: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  color: #fff;
+  margin-bottom: 20px;
+  position: relative;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4), inset 0 -6px 16px rgba(0,0,0,0.2), inset 0 4px 12px rgba(255,255,255,0.2);
+}
+.speaker-avatar::after {
+  content: ""; position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1px dashed rgba(255,255,255,0.18);
+}
+.av-1 { background: linear-gradient(135deg, #7c3aed, #ec4899); }
+.av-2 { background: linear-gradient(135deg, #2563eb, #06b6d4); }
+.av-3 { background: linear-gradient(135deg, #f59e0b, #ec4899); }
+.av-4 { background: linear-gradient(135deg, #10b981, #06b6d4); }
+.av-5 { background: linear-gradient(135deg, #ec4899, #f59e0b); }
+.av-6 { background: linear-gradient(135deg, #8b5cf6, #2563eb); }
+.av-7 { background: linear-gradient(135deg, #06b6d4, #7c3aed); }
+.av-8 { background: linear-gradient(135deg, #f472b6, #8b5cf6); }
+
+.speaker-card h3 { font-size: 18px; margin-bottom: 4px; }
+.speaker-role { font-size: 13px; color: var(--pink-light); font-weight: 500; margin-bottom: 4px; }
+.speaker-company { font-size: 13px; color: var(--text-dim); margin-bottom: 16px; }
+.speaker-topic {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  padding-top: 16px;
+  border-top: 1px solid var(--panel-border);
+  position: relative;
+  z-index: 1;
+}
+.speaker-topic::before {
+  content: "TALK";
+  display: block;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--text-faint);
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+.speaker-social {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+  position: relative; z-index: 1;
+}
+.speaker-social a {
+  width: 32px; height: 32px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--panel-border);
+  display: grid; place-items: center;
+  color: var(--text-muted);
+  transition: all 0.25s ease;
+}
+.speaker-social a:hover { background: var(--grad-main); color: #fff; border-color: transparent; transform: translateY(-2px); }
+.speaker-social svg { width: 14px; height: 14px; }
+
+/* ===================== SCHEDULE ===================== */
+.schedule-tabs {
+  display: inline-flex;
+  padding: 6px;
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 100px;
+  margin-bottom: 40px;
+  backdrop-filter: blur(12px);
+}
+.schedule-tab {
+  padding: 10px 22px;
+  border-radius: 100px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--text-muted);
+  transition: all 0.3s ease;
+  display: flex; align-items: center; gap: 8px;
+}
+.schedule-tab .day-num {
+  font-size: 11px;
+  color: var(--text-dim);
+  font-weight: 500;
+}
+.schedule-tab.active {
+  background: var(--grad-main);
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(124,58,237,0.4);
+}
+.schedule-tab.active .day-num { color: rgba(255,255,255,0.7); }
+.schedule-tab:not(.active):hover { color: var(--text); }
+
+.schedule-list {
+  display: none;
+  flex-direction: column;
+  gap: 14px;
+}
+.schedule-list.active { display: flex; animation: fadeUp 0.5s ease both; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+
+.session {
+  display: grid;
+  grid-template-columns: 130px 1fr auto;
+  gap: 28px;
+  align-items: center;
+  padding: 24px 28px;
+  border-radius: var(--radius-md);
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+.session:hover { border-color: rgba(236,72,153,0.3); transform: translateX(4px); }
+.session-time {
+  font-family: 'Space Grotesk', sans-serif;
+}
+.session-time .t { font-size: 18px; font-weight: 700; color: var(--text); display: block; }
+.session-time .d { font-size: 12px; color: var(--text-dim); margin-top: 4px; }
+.session-body h4 { font-size: 17px; margin-bottom: 6px; }
+.session-speaker { font-size: 13px; color: var(--text-muted); display: flex; align-items: center; gap: 8px; }
+.session-speaker .mini-av {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  display: grid; place-items: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 10px;
+  color: #fff;
+}
+.session-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  text-align: right;
+}
+.track-badge {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 100px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.track-ai { background: rgba(124,58,237,0.18); color: var(--purple-light); border: 1px solid rgba(124,58,237,0.3); }
+.track-web { background: rgba(37,99,235,0.18); color: var(--blue-light); border: 1px solid rgba(37,99,235,0.3); }
+.track-devops { background: rgba(6,182,212,0.18); color: var(--cyan-light); border: 1px solid rgba(6,182,212,0.3); }
+.track-design { background: rgba(236,72,153,0.18); color: var(--pink-light); border: 1px solid rgba(236,72,153,0.3); }
+.track-lead { background: rgba(245,158,11,0.18); color: var(--amber); border: 1px solid rgba(245,158,11,0.3); }
+.session-room { font-size: 12px; color: var(--text-dim); }
+.session-room::before { content: "● "; color: var(--text-faint); }
+
+.session.keynote {
+  background: linear-gradient(135deg, rgba(124,58,237,0.14), rgba(236,72,153,0.10));
+  border-color: rgba(236,72,153,0.3);
+}
+.session.keynote .session-body h4::before {
+  content: "KEYNOTE";
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--amber);
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: rgba(245,158,11,0.15);
+  border: 1px solid rgba(245,158,11,0.3);
+  margin-right: 10px;
+  vertical-align: middle;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+/* ===================== TRACKS ===================== */
+.tracks-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 18px;
+}
+.track-card {
+  padding: 32px 24px;
+  border-radius: var(--radius-lg);
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  backdrop-filter: blur(14px);
+  transition: all 0.4s var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+.track-card::before {
+  content: ""; position: absolute;
+  top: 0; left: 0; right: 0; height: 3px;
+  background: var(--grad-main);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+.track-card:hover { transform: translateY(-6px); border-color: rgba(124,58,237,0.35); }
+.track-card:hover::before { transform: scaleX(1); }
+.track-icon {
+  width: 56px; height: 56px;
+  border-radius: 14px;
+  display: grid; place-items: center;
+  margin-bottom: 20px;
+  position: relative;
+}
+.track-icon svg { width: 26px; height: 26px; color: #fff; position: relative; z-index: 1; }
+.track-icon::before {
+  content: ""; position: absolute; inset: 0;
+  border-radius: 14px;
+  background: var(--grad-main);
+}
+.track-icon::after {
+  content: ""; position: absolute; inset: 1px;
+  border-radius: 13px;
+  background: var(--bg-2);
+}
+.track-icon svg { z-index: 2; }
+.track-icon.cool::before { background: var(--grad-cool); }
+.track-icon.cyan::before { background: linear-gradient(135deg, #06b6d4, #10b981); }
+.track-icon.warm::before { background: var(--grad-warm); }
+.track-icon.pink::before { background: linear-gradient(135deg, #ec4899, #8b5cf6); }
+
+.track-card h3 { font-size: 19px; margin-bottom: 6px; }
+.track-card .count { font-size: 12px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 14px; font-weight: 600; }
+.track-card p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+
+/* ===================== SPONSORS ===================== */
+.sponsor-tier { margin-bottom: 56px; }
+.sponsor-tier-head {
+  display: flex; align-items: center; gap: 18px;
+  margin-bottom: 26px;
+}
+.tier-badge {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 100px;
+}
+.tier-platinum { background: linear-gradient(135deg, #e5e7eb, #9ca3af); color: #0a0a14; }
+.tier-gold { background: linear-gradient(135deg, #fbbf24, #f59e0b); color: #0a0a14; }
+.tier-silver { background: linear-gradient(135deg, #cbd5e1, #94a3b8); color: #0a0a14; }
+.tier-line { flex: 1; height: 1px; background: var(--panel-border); }
+
+.sponsor-row {
+  display: grid;
+  gap: 18px;
+}
+.sponsor-row.platinum { grid-template-columns: repeat(2, 1fr); }
+.sponsor-row.gold { grid-template-columns: repeat(3, 1fr); }
+.sponsor-row.silver { grid-template-columns: repeat(5, 1fr); }
+.sponsor-logo {
+  height: 110px;
+  border-radius: var(--radius-md);
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  display: grid; place-items: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  color: var(--text-muted);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.sponsor-row.platinum .sponsor-logo { height: 140px; font-size: 28px; }
+.sponsor-row.silver .sponsor-logo { height: 90px; font-size: 17px; }
+.sponsor-logo:hover { color: var(--text); border-color: rgba(236,72,153,0.4); background: rgba(124,58,237,0.06); transform: translateY(-3px); }
+.sponsor-logo .mark {
+  display: inline-flex; align-items: center; gap: 10px;
+}
+.sponsor-logo .mark .glyph {
+  width: 30px; height: 30px;
+  border-radius: 8px;
+  background: var(--grad-main);
+  position: relative;
+  display: inline-block;
+}
+.sponsor-logo .mark .glyph.sq { border-radius: 6px; }
+.sponsor-logo .mark .glyph.circle { border-radius: 50%; }
+.sponsor-logo .mark .glyph.tri { background: transparent; border-left: 15px solid transparent; border-right: 15px solid transparent; border-bottom: 26px solid var(--cyan); width: 0; height: 0; border-radius: 0; }
+.sponsor-logo .mark .glyph.diamond { transform: rotate(45deg); border-radius: 4px; }
+.sponsor-logo .mark .glyph.bars { background: linear-gradient(180deg, var(--cyan) 33%, var(--pink) 33% 66%, var(--purple) 66%); }
+
+/* ===================== VENUE ===================== */
+.venue-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+.venue-map {
+  position: relative;
+  aspect-ratio: 4/3;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, #0d0d1c, #15152e);
+  border: 1px solid var(--panel-border-strong);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+.venue-map::before {
+  content: ""; position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+.venue-map .street {
+  position: absolute;
+  background: rgba(255,255,255,0.10);
+}
+.venue-map .street.h { left: 0; right: 0; height: 8px; }
+.venue-map .street.v { top: 0; bottom: 0; width: 8px; }
+.venue-map .s1 { top: 24%; }
+.venue-map .s2 { top: 60%; }
+.venue-map .s3 { top: 84%; }
+.venue-map .v1 { left: 28%; }
+.venue-map .v2 { left: 64%; }
+.venue-map .v3 { left: 86%; }
+
+.venue-map .park {
+  position: absolute;
+  background: rgba(16,185,129,0.15);
+  border: 1px solid rgba(16,185,129,0.3);
+  border-radius: 6px;
+}
+.venue-map .park-1 { top: 28%; left: 30%; width: 32%; height: 28%; }
+.venue-map .park-2 { top: 62%; left: 66%; width: 18%; height: 18%; }
+
+.venue-map .water {
+  position: absolute;
+  bottom: 0; left: 0; right: 0; height: 16%;
+  background: linear-gradient(180deg, rgba(6,182,212,0.18), rgba(37,99,235,0.28));
+  border-top: 1px solid rgba(6,182,212,0.4);
+}
+.venue-map .water::after {
+  content: "~ ~ ~";
+  position: absolute; top: 14px; left: 24px;
+  color: rgba(6,182,212,0.45);
+  font-size: 14px;
+  letter-spacing: 8px;
+}
+
+.venue-map .block {
+  position: absolute;
+  background: rgba(124,58,237,0.10);
+  border: 1px solid rgba(124,58,237,0.22);
+  border-radius: 4px;
+}
+.venue-map .b1 { top: 26%; left: 6%; width: 18%; height: 30%; }
+.venue-map .b2 { top: 62%; left: 30%; width: 30%; height: 18%; }
+.venue-map .b3 { top: 6%; left: 66%; width: 18%; height: 14%; }
+
+.venue-map .pin {
+  position: absolute;
+  top: 44%; left: 46%;
+  width: 36px; height: 36px;
+  transform: translate(-50%, -100%);
+  z-index: 3;
+}
+.venue-map .pin .head {
+  width: 36px; height: 36px;
+  border-radius: 50% 50% 50% 0;
+  background: var(--grad-main);
+  transform: rotate(-45deg);
+  box-shadow: 0 8px 24px rgba(236,72,153,0.6), inset 0 4px 10px rgba(255,255,255,0.3);
+  position: relative;
+  animation: pinBounce 2s ease-in-out infinite;
+}
+.venue-map .pin .head::after {
+  content: ""; position: absolute;
+  top: 9px; left: 9px;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: #fff;
+}
+@keyframes pinBounce { 0%,100% { transform: rotate(-45deg) translateY(0); } 50% { transform: rotate(-45deg) translateY(-6px); } }
+.venue-map .pin-pulse {
+  position: absolute;
+  top: 44%; left: 46%;
+  transform: translate(-50%, -50%);
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: rgba(236,72,153,0.5);
+  z-index: 1;
+  animation: pinPulse 2s ease-out infinite;
+}
+@keyframes pinPulse { 0% { transform: translate(-50%,-50%) scale(1); opacity: 0.7; } 100% { transform: translate(-50%,-50%) scale(5); opacity: 0; } }
+
+.venue-map .label {
+  position: absolute;
+  top: calc(44% + 8px); left: 46%;
+  transform: translateX(-50%);
+  background: rgba(20,20,43,0.95);
+  border: 1px solid var(--panel-border-strong);
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  white-space: nowrap;
+  z-index: 3;
+  backdrop-filter: blur(8px);
+}
+.venue-map .compass {
+  position: absolute;
+  top: 18px; right: 18px;
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  border: 1px solid var(--panel-border-strong);
+  background: rgba(20,20,43,0.7);
+  display: grid; place-items: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  color: var(--text-muted);
+  backdrop-filter: blur(8px);
+}
+.venue-map .compass::before {
+  content: ""; position: absolute;
+  top: 4px; left: 50%; transform: translateX(-50%);
+  width: 0; height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 12px solid var(--pink);
+}
+
+.venue-info h3 { font-size: clamp(28px, 3vw, 38px); margin-bottom: 18px; }
+.venue-info p { color: var(--text-muted); font-size: 16px; line-height: 1.7; margin-bottom: 24px; }
+.venue-features { display: grid; gap: 14px; margin-bottom: 30px; }
+.venue-feature {
+  display: flex; gap: 14px;
+  padding: 14px;
+  border-radius: var(--radius-sm);
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--panel-border);
+}
+.venue-feature .fi {
+  flex-shrink: 0;
+  width: 38px; height: 38px;
+  border-radius: 10px;
+  background: rgba(124,58,237,0.15);
+  border: 1px solid rgba(124,58,237,0.3);
+  display: grid; place-items: center;
+  color: var(--purple-light);
+}
+.venue-feature .fi svg { width: 18px; height: 18px; }
+.venue-feature h4 { font-size: 14px; margin-bottom: 2px; }
+.venue-feature p { font-size: 13px; color: var(--text-dim); margin: 0; line-height: 1.4; }
+
+/* ===================== TESTIMONIALS ===================== */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+.testimonial {
+  padding: 32px 28px;
+  border-radius: var(--radius-lg);
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  backdrop-filter: blur(14px);
+  position: relative;
+  transition: all 0.3s ease;
+}
+.testimonial:hover { transform: translateY(-4px); border-color: rgba(236,72,153,0.3); }
+.testimonial .quote-mark {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 64px;
+  line-height: 0.7;
+  color: var(--purple);
+  opacity: 0.5;
+  margin-bottom: 8px;
+}
+.testimonial p {
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+.testimonial-foot { display: flex; align-items: center; gap: 14px; }
+.testimonial-av {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  display: grid; place-items: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 17px;
+  color: #fff;
+  flex-shrink: 0;
+  box-shadow: inset 0 -4px 10px rgba(0,0,0,0.2), inset 0 3px 8px rgba(255,255,255,0.2);
+}
+.testimonial-meta .n { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 14px; }
+.testimonial-meta .r { font-size: 12px; color: var(--text-dim); }
+
+/* ===================== TICKETS ===================== */
+.tickets-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  align-items: stretch;
+}
+.ticket {
+  padding: 32px 26px;
+  border-radius: var(--radius-lg);
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  backdrop-filter: blur(14px);
+  position: relative;
+  transition: all 0.4s var(--ease);
+  display: flex;
+  flex-direction: column;
+}
+.ticket:hover { transform: translateY(-6px); border-color: rgba(124,58,237,0.4); }
+.ticket.featured {
+  background: linear-gradient(180deg, rgba(124,58,237,0.16), rgba(236,72,153,0.08));
+  border-color: rgba(236,72,153,0.5);
+  box-shadow: 0 24px 60px rgba(124,58,237,0.25);
+}
+.ticket.featured::before {
+  content: "MOST POPULAR";
+  position: absolute;
+  top: -11px; left: 50%; transform: translateX(-50%);
+  background: var(--grad-main);
+  color: #fff;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  padding: 5px 14px;
+  border-radius: 100px;
+  white-space: nowrap;
+  box-shadow: 0 6px 16px rgba(124,58,237,0.5);
+}
+.ticket-tier {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--pink-light);
+  margin-bottom: 12px;
+}
+.ticket.featured .ticket-tier { color: var(--cyan-light); }
+.ticket-price {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 1;
+  margin-bottom: 4px;
+  background: var(--grad-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.ticket-price .cur { font-size: 22px; vertical-align: top; margin-right: 2px; -webkit-text-fill-color: var(--text-muted); background: none; }
+.ticket-note { font-size: 12px; color: var(--text-dim); margin-bottom: 22px; }
+.ticket-includes { list-style: none; margin-bottom: 26px; flex: 1; }
+.ticket-includes li {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  padding: 8px 0;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  border-bottom: 1px dashed var(--panel-border);
+}
+.ticket-includes li:last-child { border-bottom: none; }
+.ticket-includes li::before {
+  content: "";
+  flex-shrink: 0;
+  width: 16px; height: 16px;
+  margin-top: 3px;
+  border-radius: 50%;
+  background: var(--grad-main);
+  position: relative;
+  background-image:
+    linear-gradient(135deg, #7c3aed, #ec4899),
+    linear-gradient(135deg, #7c3aed, #ec4899);
+}
+.ticket-includes li::after {
+  content: "✓";
+  position: absolute;
+  margin-left: -16px;
+  margin-top: 3px;
+  width: 16px; height: 16px;
+  display: grid; place-items: center;
+  color: #fff;
+  font-size: 9px;
+  font-weight: 800;
+}
+.ticket .btn { width: 100%; }
+.ticket.featured .btn-primary { background: linear-gradient(135deg, #ec4899, #f59e0b); }
+
+/* ===================== FAQ ===================== */
+.faq-list { max-width: 880px; margin: 0 auto; }
+.faq-item {
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius-md);
+  margin-bottom: 12px;
+  overflow: hidden;
+  background: var(--panel);
+  backdrop-filter: blur(10px);
+  transition: border-color 0.3s ease;
+}
+.faq-item.open { border-color: rgba(236,72,153,0.4); }
+.faq-q {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 22px 26px;
+  text-align: left;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 16.5px;
+  color: var(--text);
+  transition: color 0.3s ease;
+}
+.faq-q:hover { color: var(--pink-light); }
+.faq-q .toggle {
+  flex-shrink: 0;
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  background: rgba(124,58,237,0.15);
+  border: 1px solid rgba(124,58,237,0.3);
+  display: grid; place-items: center;
+  position: relative;
+  transition: all 0.3s ease;
+}
+.faq-q .toggle::before, .faq-q .toggle::after {
+  content: ""; position: absolute;
+  background: var(--pink-light);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+.faq-q .toggle::before { width: 12px; height: 2px; }
+.faq-q .toggle::after { width: 2px; height: 12px; }
+.faq-item.open .faq-q .toggle { background: var(--grad-main); border-color: transparent; }
+.faq-item.open .faq-q .toggle::before, .faq-item.open .faq-q .toggle::after { background: #fff; }
+.faq-item.open .faq-q .toggle::after { transform: rotate(90deg); opacity: 0; }
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s var(--ease), padding 0.4s var(--ease);
+  padding: 0 26px;
+}
+.faq-item.open .faq-a { max-height: 320px; padding: 0 26px 22px; }
+.faq-a p { color: var(--text-muted); font-size: 14.5px; line-height: 1.7; }
+
+/* ===================== FINAL CTA ===================== */
+.final-cta {
+  position: relative;
+  padding: 110px 0;
+  overflow: hidden;
+  z-index: 1;
+}
+.final-cta-box {
+  position: relative;
+  padding: 80px 50px;
+  border-radius: var(--radius-xl);
+  background:
+    radial-gradient(ellipse at top, rgba(124,58,237,0.25), transparent 60%),
+    radial-gradient(ellipse at bottom, rgba(236,72,153,0.20), transparent 60%),
+    rgba(15,15,30,0.7);
+  border: 1px solid var(--panel-border-strong);
+  backdrop-filter: blur(20px);
+  text-align: center;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+.final-cta-box::before {
+  content: ""; position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+}
+.final-cta h2 {
+  font-size: clamp(38px, 5.5vw, 72px);
+  margin-bottom: 18px;
+  position: relative;
+}
+.final-cta h2 .grad {
+  background: var(--grad-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.final-cta p {
+  font-size: 18px;
+  color: var(--text-muted);
+  max-width: 580px;
+  margin: 0 auto 36px;
+  position: relative;
+}
+.final-cta .countdown { justify-content: center; margin-bottom: 40px; position: relative; }
+.final-cta-cta { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; position: relative; }
+
+/* ===================== FOOTER ===================== */
+.footer {
+  position: relative;
+  padding: 80px 0 30px;
+  border-top: 1px solid var(--panel-border);
+  background: rgba(10,10,20,0.6);
+  backdrop-filter: blur(10px);
+  z-index: 1;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr 1.2fr;
+  gap: 40px;
+  margin-bottom: 60px;
+}
+.footer-brand p {
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.7;
+  margin: 20px 0 22px;
+  max-width: 320px;
+}
+.footer-social { display: flex; gap: 10px; }
+.footer-social a {
+  width: 38px; height: 38px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--panel-border);
+  display: grid; place-items: center;
+  color: var(--text-muted);
+  transition: all 0.3s ease;
+}
+.footer-social a:hover { background: var(--grad-main); color: #fff; border-color: transparent; transform: translateY(-2px); }
+.footer-social svg { width: 16px; height: 16px; }
+
+.footer-col h5 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text);
+  margin-bottom: 18px;
+  font-weight: 600;
+}
+.footer-col ul li { margin-bottom: 11px; }
+.footer-col ul li a {
+  font-size: 14px;
+  color: var(--text-muted);
+  transition: color 0.25s ease;
+}
+.footer-col ul li a:hover { color: var(--pink-light); }
+
+.footer-news input {
+  width: 100%;
+  padding: 12px 14px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--panel-border);
+  border-radius: 10px;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 13px;
+  margin-bottom: 12px;
+  outline: none;
+  transition: border-color 0.25s ease;
+}
+.footer-news input:focus { border-color: var(--purple); }
+.footer-news input::placeholder { color: var(--text-faint); }
+.footer-news .btn { width: 100%; padding: 12px; font-size: 14px; }
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding-top: 26px;
+  border-top: 1px solid var(--panel-border);
+  font-size: 13px;
+  color: var(--text-dim);
+}
+.footer-bottom a { color: var(--pink-light); }
+.footer-bottom a:hover { text-decoration: underline; }
+.footer-bottom .links { display: flex; gap: 20px; }
+
+/* ===================== FLOATING DOWNLOAD BUTTON ===================== */
+.download-fab {
+  position: fixed;
+  bottom: 24px; right: 24px;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 22px;
+  border-radius: 100px;
+  background: var(--grad-main);
+  color: #fff;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  box-shadow: 0 14px 36px rgba(124,58,237,0.55), inset 0 1px 0 rgba(255,255,255,0.3);
+  cursor: pointer;
+  transition: all 0.3s var(--ease);
+}
+.download-fab:hover { transform: translateY(-3px); box-shadow: 0 20px 50px rgba(236,72,153,0.65), inset 0 1px 0 rgba(255,255,255,0.3); }
+.download-fab svg { width: 18px; height: 18px; }
+.download-fab::before {
+  content: ""; position: absolute;
+  inset: -4px;
+  border-radius: 100px;
+  border: 1px solid rgba(236,72,153,0.4);
+  animation: fabPulse 2.5s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes fabPulse { 0%,100% { opacity: 0; transform: scale(1); } 50% { opacity: 1; transform: scale(1.08); } }
+
+/* ===================== ANIMATIONS / OBSERVER ===================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal.delay-1 { transition-delay: 0.1s; }
+.reveal.delay-2 { transition-delay: 0.2s; }
+.reveal.delay-3 { transition-delay: 0.3s; }
+.reveal.delay-4 { transition-delay: 0.4s; }
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 1080px) {
+  .speakers-grid { grid-template-columns: repeat(3, 1fr); }
+  .tracks-grid { grid-template-columns: repeat(3, 1fr); }
+  .tickets-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: 1fr 1fr 1fr; }
+  .sponsor-row.platinum { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 880px) {
+  .nav-links { display: none; }
+  .nav-toggle { display: flex; }
+  .hero { padding: 140px 0 70px; }
+  .hero-info { gap: 22px; }
+  .about-grid, .venue-grid { grid-template-columns: 1fr; gap: 40px; }
+  .about-visual { max-width: 360px; margin: 0 auto; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 36px 16px; }
+  .stat:nth-child(2)::after { display: none; }
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .schedule-tabs { width: 100%; justify-content: center; }
+  .session { grid-template-columns: 90px 1fr; gap: 16px; }
+  .session-meta { grid-column: 1 / -1; flex-direction: row; justify-content: space-between; align-items: center; text-align: left; }
+  .final-cta-box { padding: 50px 26px; }
+}
+@media (max-width: 640px) {
+  .container { padding: 0 18px; }
+  .section { padding: 80px 0; }
+  .speakers-grid { grid-template-columns: repeat(2, 1fr); }
+  .tracks-grid { grid-template-columns: repeat(2, 1fr); }
+  .tickets-grid { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+  .sponsor-row.platinum, .sponsor-row.gold, .sponsor-row.silver { grid-template-columns: 1fr 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .footer-brand { grid-column: 1 / -1; }
+  .countdown-block { min-width: 80px; padding: 16px 14px; flex: 1; }
+  .hero-cta { flex-direction: column; align-items: stretch; }
+  .hero-cta .btn { width: 100%; }
+  .hero-meta { flex-wrap: wrap; }
+  .download-fab span { display: none; }
+  .download-fab { padding: 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.001s !important; transition-duration: 0.001s !important; }
+  html { scroll-behavior: auto; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===================== NAVBAR ===================== -->
+<nav class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#top" class="brand" aria-label="FrontierConf 2026 home">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-name">
+        <b>FrontierConf</b>
+        <span>2026 · San Francisco</span>
+      </span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#speakers">Speakers</a></li>
+      <li><a href="#schedule">Schedule</a></li>
+      <li><a href="#sponsors">Sponsors</a></li>
+      <li><a href="#venue">Venue</a></li>
+      <li><a href="#tickets">Tickets</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="#tickets" class="btn btn-primary">Get tickets <span class="arrow">→</span></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#speakers">Speakers</a>
+  <a href="#schedule">Schedule</a>
+  <a href="#sponsors">Sponsors</a>
+  <a href="#venue">Venue</a>
+  <a href="#tickets">Tickets</a>
+  <a href="#tickets" class="btn btn-primary">Get tickets</a>
+</div>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero" id="top">
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="hero-orb orb-1" aria-hidden="true"></div>
+  <div class="hero-orb orb-2" aria-hidden="true"></div>
+  <div class="hero-orb orb-3" aria-hidden="true"></div>
+  <div class="hero-deco deco-ring" aria-hidden="true"></div>
+  <div class="hero-deco deco-square" aria-hidden="true"></div>
+  <div class="hero-deco deco-tri" aria-hidden="true"></div>
+
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-meta reveal">
+        <span class="badge">Sept 15–17</span>
+        <span class="dot"></span>
+        <span class="meta-text">Aurora Convention Center · San Francisco, CA</span>
+      </div>
+
+      <h1>
+        <span class="line">FRONTIER</span>
+        <span class="line grad">CONF 2026</span>
+        <span class="line outline">BEYOND CODE.</span>
+      </h1>
+
+      <p class="hero-tagline reveal delay-1">
+        Three days at the edge of what's next — where AI researchers, web pioneers, DevOps mavericks,
+        designers, and engineering leaders converge to chart the next decade of building.
+      </p>
+
+      <div class="hero-info reveal delay-2">
+        <div class="hero-info-item">
+          <span class="hero-info-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          </span>
+          <div>
+            <div class="lbl">When</div>
+            <div class="val">Sept 15 – 17, 2026</div>
+          </div>
+        </div>
+        <div class="hero-info-item">
+          <span class="hero-info-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </span>
+          <div>
+            <div class="lbl">Where</div>
+            <div class="val">San Francisco, CA</div>
+          </div>
+        </div>
+        <div class="hero-info-item">
+          <span class="hero-info-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </span>
+          <div>
+            <div class="lbl">Audience</div>
+            <div class="val">6,000+ builders</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-cta reveal delay-3">
+        <a href="#tickets" class="btn btn-primary btn-lg">Get your ticket <span class="arrow">→</span></a>
+        <a href="#schedule" class="btn btn-ghost btn-lg">View schedule</a>
+        <div class="hero-cta-meta">
+          <span class="star">★★★★★</span>
+          <span>4.9 / 5 from 2,400+ past attendees</span>
+        </div>
+      </div>
+
+      <div class="reveal delay-4">
+        <div class="countdown" id="countdown" aria-live="polite" aria-label="Countdown to FrontierConf 2026">
+          <div class="countdown-block">
+            <div class="countdown-num" id="cd-days">00</div>
+            <div class="countdown-lbl">Days</div>
+          </div>
+          <div class="countdown-block">
+            <div class="countdown-num" id="cd-hours">00</div>
+            <div class="countdown-lbl">Hours</div>
+          </div>
+          <div class="countdown-block">
+            <div class="countdown-num" id="cd-mins">00</div>
+            <div class="countdown-lbl">Minutes</div>
+          </div>
+          <div class="countdown-block">
+            <div class="countdown-num" id="cd-secs">00</div>
+            <div class="countdown-lbl">Seconds</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== STATS STRIP ===================== -->
+<section class="stats-strip">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat reveal">
+        <div class="stat-num" data-count="80" data-suffix="+">0</div>
+        <div class="stat-lbl">World-class speakers</div>
+      </div>
+      <div class="stat reveal delay-1">
+        <div class="stat-num" data-count="120" data-suffix="+">0</div>
+        <div class="stat-lbl">Sessions & workshops</div>
+      </div>
+      <div class="stat reveal delay-2">
+        <div class="stat-num" data-count="3" data-suffix="">0</div>
+        <div class="stat-lbl">Days of frontier talks</div>
+      </div>
+      <div class="stat reveal delay-3">
+        <div class="stat-num" data-count="6000" data-suffix="+">0</div>
+        <div class="stat-lbl">Attendees expected</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ABOUT ===================== -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <span class="eyebrow">About the event</span>
+        <h2 class="section-title">A conference for people who <span class="grad">build the future</span>.</h2>
+        <span class="lead-mark" aria-hidden="true"></span>
+        <p>FrontierConf is where the conversations that define the next year of technology actually happen — not on a stage removed from the audience, but in the hallways, workshops, and late-night demos between sessions.</p>
+        <p>Across three days and five tracks, you'll hear from researchers shipping production LLM systems, engineers running 50-million-user platforms, designers rethinking interface paradigms, and leaders building teams that ship — not just talk about shipping.</p>
+        <p>Every talk is curated. Every workshop is hands-on. Every evening ends with the kind of networking that turns into next year's partnerships, hires, and side projects.</p>
+        <div class="about-highlights">
+          <div class="highlight">
+            <div class="highlight-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+            <h4>5 deep tracks</h4>
+            <p>AI & ML, Web, DevOps, Design, and Leadership.</p>
+          </div>
+          <div class="highlight">
+            <div class="highlight-ico cool"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg></div>
+            <h4>Hands-on workshops</h4>
+            <p>Half-day sessions with limited seats and real outcomes.</p>
+          </div>
+          <div class="highlight">
+            <div class="highlight-ico warm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/></svg></div>
+            <h4>Curated networking</h4>
+            <p>Matchmaking, mentor hours, and an after-party on the bay.</p>
+          </div>
+          <div class="highlight">
+            <div class="highlight-ico cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div>
+            <h4>Builder-first demos</h4>
+            <p>Live, on-stage deployments and uncensored Q&A.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-visual reveal delay-2" aria-hidden="true">
+        <div class="ring-stack">
+          <div class="r r1"></div>
+          <div class="r r2"></div>
+          <div class="r r3"></div>
+          <div class="core"></div>
+          <div class="dot d1"></div>
+          <div class="dot d2"></div>
+          <div class="dot d3"></div>
+        </div>
+        <div class="about-stat-floats">
+          <div class="f f1"><div class="n">120+</div><div class="l">Sessions</div></div>
+          <div class="f f2"><div class="n">5</div><div class="l">Tracks</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SPEAKERS ===================== -->
+<section class="section" id="speakers">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Featured speakers</span>
+      <h2 class="section-title">The people <span class="grad">shipping it</span>.</h2>
+      <p class="section-sub">A curated lineup of researchers, engineers, designers, and leaders — each on stage for one reason: they're building things the rest of us will be talking about next year.</p>
+    </div>
+
+    <div class="speakers-grid">
+      <article class="speaker-card reveal">
+        <div class="speaker-avatar av-1">AO</div>
+        <h3>Dr. Amara Okafor</h3>
+        <div class="speaker-role">Principal Research Scientist</div>
+        <div class="speaker-company">DeepForge Labs</div>
+        <p class="speaker-topic">Beyond Transformers: Architecting Reasoning Systems That Actually Generalize</p>
+        <div class="speaker-social">
+          <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5.001A2.5 2.5 0 014.98 3.5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.75V21h-4v-5.4c0-1.3 0-2.95-1.8-2.95s-2.07 1.4-2.07 2.85V21H9z"/></svg></a>
+          <a href="#" aria-label="Website"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/></svg></a>
+        </div>
+      </article>
+
+      <article class="speaker-card reveal delay-1">
+        <div class="speaker-avatar av-2">LW</div>
+        <h3>Liang Wei</h3>
+        <div class="speaker-role">Distinguished Engineer</div>
+        <div class="speaker-company">Nimbus Cloud</div>
+        <p class="speaker-topic">Edge-Native Architectures: Running Stateful Workloads at 50ms p99 Globally</p>
+        <div class="speaker-social">
+          <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5.001A2.5 2.5 0 014.98 3.5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.75V21h-4v-5.4c0-1.3 0-2.95-1.8-2.95s-2.07 1.4-2.07 2.85V21H9z"/></svg></a>
+          <a href="#" aria-label="Website"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/></svg></a>
+        </div>
+      </article>
+
+      <article class="speaker-card reveal delay-2">
+        <div class="speaker-avatar av-3">SM</div>
+        <h3>Sofia Marchetti</h3>
+        <div class="speaker-role">VP of Design</div>
+        <div class="speaker-company">Lumen Studio</div>
+        <p class="speaker-topic">Designing for Trust: Interfaces That Survive the Age of Generated Everything</p>
+        <div class="speaker-social">
+          <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5.001A2.5 2.5 0 014.98 3.5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.75V21h-4v-5.4c0-1.3 0-2.95-1.8-2.95s-2.07 1.4-2.07 2.85V21H9z"/></svg></a>
+          <a href="#" aria-label="Website"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/></svg></a>
+        </div>
+      </article>
+
+      <article class="speaker-card reveal delay-3">
+        <div class="speaker-avatar av-4">MB</div>
+        <h3>Marcus Bell</h3>
+        <div class="speaker-role">Platform Engineering Lead</div>
+        <div class="speaker-company">Quanta Systems</div>
+        <p class="speaker-topic">The Platform Team of One: Scaling Internal DevEx Without Scaling Headcount</p>
+        <div class="speaker-social">
+          <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5.001A2.5 2.5 0 014.98 3.5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.75V21h-4v-5.4c0-1.3 0-2.95-1.8-2.95s-2.07 1.4-2.07 2.85V21H9z"/></svg></a>
+          <a href="#" aria-label="Website"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/></svg></a>
+        </div>
+      </article>
+
+      <article class="speaker-card reveal">
+        <div class="speaker-avatar av-5">PR</div>
+        <h3>Priya Raman</h3>
+        <div class="speaker-role">Director of Developer Relations</div>
+        <div class="speaker-company">Helios Open Source</div>
+        <p class="speaker-topic">The Maintainer's Dilemma: Funding, Burnout, and the Future of Open Source</p>
+        <div class="speaker-social">
+          <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5.001A2.5 2.5 0 014.98 3.5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.75V21h-4v-5.4c0-1.3 0-2.95-1.8-2.95s-2.07 1.4-2.07 2.85V21H9z"/></svg></a>
+          <a href="#" aria-label="Website"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/></svg></a>
+        </div>
+      </article>
+
+      <article class="speaker-card reveal delay-1">
+        <div class="speaker-avatar av-6">DK</div>
+        <h3>Daniel Kowalski</h3>
+        <div class="speaker-role">Staff Security Engineer</div>
+        <div class="speaker-company">Sentinel Networks</div>
+        <p class="speaker-topic">Zero-Trust at Scale: Lessons From Defending a 200B-Request-Per-Day Edge</p>
+        <div class="speaker-social">
+          <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5.001A2.5 2.5 0 014.98 3.5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.75V21h-4v-5.4c0-1.3 0-2.95-1.8-2.95s-2.07 1.4-2.07 2.85V21H9z"/></svg></a>
+          <a href="#" aria-label="Website"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/></svg></a>
+        </div>
+      </article>
+
+      <article class="speaker-card reveal delay-2">
+        <div class="speaker-avatar av-7">YN</div>
+        <h3>Yuki Nakamura</h3>
+        <div class="speaker-role">Founder & CTO</div>
+        <div class="speaker-company">Tessera Robotics</div>
+        <p class="speaker-topic">From Demo to Deployment: Shipping Embodied AI Systems That Don't Embarrass You</p>
+        <div class="speaker-social">
+          <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5.001A2.5 2.5 0 014.98 3.5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.75V21h-4v-5.4c0-1.3 0-2.95-1.8-2.95s-2.07 1.4-2.07 2.85V21H9z"/></svg></a>
+          <a href="#" aria-label="Website"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/></svg></a>
+        </div>
+      </article>
+
+      <article class="speaker-card reveal delay-3">
+        <div class="speaker-avatar av-8">EH</div>
+        <h3>Elena Hartmann</h3>
+        <div class="speaker-role">Head of Engineering Excellence</div>
+        <div class="speaker-company">Vantage Group</div>
+        <p class="speaker-topic">Leading Through Uncertainty: What 1,000 Engineering Skip-Levels Taught Me</p>
+        <div class="speaker-social">
+          <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5.001A2.5 2.5 0 014.98 3.5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.75V21h-4v-5.4c0-1.3 0-2.95-1.8-2.95s-2.07 1.4-2.07 2.85V21H9z"/></svg></a>
+          <a href="#" aria-label="Website"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/></svg></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SCHEDULE ===================== -->
+<section class="section" id="schedule">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Three-day schedule</span>
+      <h2 class="section-title">Every minute <span class="grad">earns its place</span>.</h2>
+      <p class="section-sub">A curated agenda across five tracks — no filler panels, no recycled decks. Switch days to preview what's on each stage.</p>
+    </div>
+
+    <div class="reveal" style="text-align:center;">
+      <div class="schedule-tabs" role="tablist">
+        <button class="schedule-tab active" data-day="1" role="tab" aria-selected="true">
+          Day 1 <span class="day-num">Sept 15</span>
+        </button>
+        <button class="schedule-tab" data-day="2" role="tab" aria-selected="false">
+          Day 2 <span class="day-num">Sept 16</span>
+        </button>
+        <button class="schedule-tab" data-day="3" role="tab" aria-selected="false">
+          Day 3 <span class="day-num">Sept 17</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- DAY 1 -->
+    <div class="schedule-list active" id="day-1" role="tabpanel">
+      <div class="session keynote reveal">
+        <div class="session-time"><span class="t">09:00</span><span class="d">60 min</span></div>
+        <div class="session-body">
+          <h4>The Frontier Is Closer Than You Think</h4>
+          <div class="session-speaker"><span class="mini-av av-1">AO</span> Dr. Amara Okafor · DeepForge Labs</div>
+        </div>
+        <div class="session-meta"><span class="track-badge track-ai">AI & ML</span><span class="session-room">Main Hall</span></div>
+      </div>
+      <div class="session reveal delay-1">
+        <div class="session-time"><span class="t">10:30</span><span class="d">45 min</span></div>
+        <div class="session-body">
+          <h4>Edge-Native Architectures at Global Scale</h4>
+          <div class="session-speaker"><span class="mini-av av-2">LW</span> Liang Wei · Nimbus Cloud</div>
+        </div>
+        <div class="session-meta"><span class="track-badge track-devops">DevOps</span><span class="session-room">Stage B</span></div>
+      </div>
+      <div class="session reveal delay-1">
+        <div class="session-time"><span class="t">11:30</span><span class="d">45 min</span></div>
+        <div class="session-body">
+          <h4>Designing for Trust in the Age of Generated Everything</h4>
+          <div class="session-speaker"><span class="mini-av av-3">SM</span> Sofia Marchetti · Lumen Studio</div>
+        </div>
+        <div class="session-meta"><span class="track-badge track-design">Design</span><span class="session-room">Studio 1</span></div>
+      </div>
+      <div class="session reveal delay-2">
+        <div class="session-time"><span class="t">13:30</span><span class="d">90 min</span></div>
+        <div class="session-body">
+          <h4>Workshop: Shipping Your First LLM App to Production</h4>
+          <div class="session-speaker"><span class="mini-av av-1">AO</span> Dr. Amara Okafor · DeepForge Labs</div>
+        </div>
+        <div class="session-meta"><span class="track-badge track-ai">AI & ML</span><span class="session-room">Lab A</span></div>
+      </div>
+      <div class="session reveal delay-2">
+        <div class="session-time"><span class="t">15:30</span><span class="d">45 min</span></div>
+        <div class="session-body">
+          <h4>The Platform Team of One</h4>
+          <div class="session-speaker"><span class="mini-av av-4">MB</span> Marcus Bell · Quanta Systems</div>
+        </div>
+        <div class="session-meta"><span class="track-badge track-devops">DevOps</span><span class="session-room">Stage B</span></div>
+      </div>
+      <div class="session reveal delay-3">
+        <div class="session-time"><span class="t">17:00</span><span class="d">60 min</span></div>
+        <div class="session-body">
+          <h4>Fireside: Building in Public, Honestly</h4>
+          <div class="session-speaker"><span class="mini-av av-7">YN</span> Yuki Nakamura · Tessera Robotics</div>
+        </div>
+        <div class="session-meta"><span class="track-badge track-lead">Leadership</span><span class="session-room">Main Hall</span></div>
+      </div>
+    </div>
+
+    <!-- DAY 2 -->
+    <div class="schedule-list" id="day-2" role="tabpanel">
+      <div class="session keynote reveal">
+        <div class="session-time"><span class="t">09:00</span><span class="d">60 min</span></div>
+        <div class="session-body">
+          <h4>The Web Isn't Dead. It's Just Getting Started.</h4>
+          <div class="session-speaker"><span class="mini-av av-6">DK</span> Daniel Kowalski · Sentinel Networks</div>
+        </div>
+        <div class="session-meta"><span class="track-badge track-web">Web</span><span class="session-room">Main Hall</span></div>
+      </div>
+      <div class="session reveal delay-1">
+        <div class="session-time"><span class="t">10:30</span><span class="d">45 min</span></div>
+        <div class="session-body">
+          <h4>Zero-Trust at 200B Requests Per Day</h4>
+          <div class="session-speaker"><span class="mini-av av-6">DK</span> Daniel Kowalski · Sentinel Networks</div>
+        </div>
+        <div class="session-meta"><span class="track-badge track-devops">DevOps</span><span class="session-room">Stage B</span></div>
+      </div>
+      <div class="session reveal delay-1">
+        <div class="session-time"><span class="t">11:30</span><span class="d">45 min</span></div>
+        <div class="session-body">
+          <h4>The Maintainer's Dilemma</h4>
+          <div class="session-speaker"><span class="mini-av av-5">PR</span> Priya Raman · Helios Open Source</div>
+        </div>
+        <div class="session-meta"><span class="track-badge track-web">Web</span><span class="session-room">Stage A</span></div>
+      </div>
+      <div class="session reveal delay-2">
+        <div class="session-time"><span class="t">13:30</span><span class="d">90 min</span></div>
+        <div class="session-body">
+          <h4>Workshop: Design Systems That Survive Reorgs</h4>
+          <div class="session-speaker"><span class="mini-av av-3">SM</span> Sofia Marchetti · Lumen Studio</div>
+        </div>
+        <div class="session-meta"><span class="track-badge track-design">Design</span><span class="session-room">Studio 1</span></div>
+      </div>
+      <div class="session reveal delay-2">
+        <div class="session-time"><span class="t">15:30</span><span class="d">45 min</span></div>
+        <div class="session-body">
+          <h4>Leading Through Uncertainty</h4>
+          <div class="session-speaker"><span class="mini-av av-8">EH</span> Elena Hartmann · Vantage Group</div>
+        </div>
+        <div class="session-meta"><span class="track-badge track-lead">Leadership</span><span class="session-room">Stage C</span></div>
+      </div>
+      <div class="session reveal delay-3">
+        <div class="session-time"><span class="t">17:00</span><span class="d">60 min</span></div>
+        <div class="session-body">
+          <h4>Panel: The Next Decade of Computing</h4>
+          <div class="session-speaker"><span class="mini-av av-1">AO</span> Dr. Amara Okafor + guests</div>
+        </div>
+        <div class="session-meta"><span class="track-badge track-ai">AI & ML</span><span class="session-room">Main Hall</span></div>
+      </div>
+    </div>
+
+    <!-- DAY 3 -->
+    <div class="schedule-list" id="day-3" role="tabpanel">
+      <div class="session keynote reveal">
+        <div class="session-time"><span class="t">09:00</span><span class="d">60 min</span></div>
+        <div class="session-body">
+          <h4>From Demo to Deployment: Embodied AI in the Wild</h4>
+          <div class="session-speaker"><span class="mini-av av-7">YN</span> Yuki Nakamura · Tessera Robotics</div>
+        </div>
+        <div class="session-meta"><span class="track-badge track-ai">AI & ML</span><span class="session-room">Main Hall</span></div>
+      </div>
+      <div class="session reveal delay-1">
+        <div class="session-time"><span class="t">10:30</span><span class="d">45 min</span></div>
+        <div class="session-body">
+          <h4>Observability Without the Noise</h4>
+          <div class="session-speaker"><span class="mini-av av-4">MB</span> Marcus Bell · Quanta Systems</div>
+        </div>
+        <div class="session-meta"><span class="track-badge track-devops">DevOps</span><span class="session-room">Stage B</span></div>
+      </div>
+      <div class="session reveal delay-1">
+        <div class="session-time"><span class="t">11:30</span><span class="d">45 min</span></div>
+        <div class="session-body">
+          <h4>Motion Design for Engineers Who Hate Motion Design</h4>
+          <div class="session-speaker"><span class="mini-av av-3">SM</span> Sofia Marchetti · Lumen Studio</div>
+        </div>
+        <div class="session-meta"><span class="track-badge track-design">Design</span><span class="session-room">Studio 1</span></div>
+      </div>
+      <div class="session reveal delay-2">
+        <div class="session-time"><span class="t">13:30</span><span class="d">120 min</span></div>
+        <div class="session-body">
+          <h4>Workshop: Hardening Your Edge in 2 Hours</h4>
+          <div class="session-speaker"><span class="mini-av av-2">LW</span> Liang Wei · Nimbus Cloud</div>
+        </div>
+        <div class="session-meta"><span class="track-badge track-web">Web</span><span class="session-room">Lab B</span></div>
+      </div>
+      <div class="session reveal delay-2">
+        <div class="session-time"><span class="t">15:30</span><span class="d">45 min</span></div>
+        <div class="session-body">
+          <h4>Hiring Senior Engineers Without Losing Your Soul</h4>
+          <div class="session-speaker"><span class="mini-av av-8">EH</span> Elena Hartmann · Vantage Group</div>
+        </div>
+        <div class="session-meta"><span class="track-badge track-lead">Leadership</span><span class="session-room">Stage C</span></div>
+      </div>
+      <div class="session keynote reveal delay-3">
+        <div class="session-time"><span class="t">17:00</span><span class="d">60 min</span></div>
+        <div class="session-body">
+          <h4>Closing Keynote: What Comes After Frontier</h4>
+          <div class="session-speaker"><span class="mini-av av-5">PR</span> Priya Raman · Helios Open Source</div>
+        </div>
+        <div class="session-meta"><span class="track-badge track-lead">Leadership</span><span class="session-room">Main Hall</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TRACKS ===================== -->
+<section class="section" id="tracks">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Five tracks</span>
+      <h2 class="section-title">Pick your <span class="grad">frontier</span>.</h2>
+      <p class="section-sub">Every track runs in parallel across three days — switch freely, or commit deep. Either way, you'll leave with notes you'll actually use.</p>
+    </div>
+
+    <div class="tracks-grid">
+      <div class="track-card reveal">
+        <div class="track-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg></div>
+        <h3>AI & ML</h3>
+        <div class="count">32 sessions</div>
+        <p>From reasoning architectures to RLHF at scale — the production side of intelligence.</p>
+      </div>
+      <div class="track-card reveal delay-1">
+        <div class="track-icon cool"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+        <h3>Web</h3>
+        <div class="count">28 sessions</div>
+        <p>Edge runtimes, island architectures, web standards, and the future of the browser.</p>
+      </div>
+      <div class="track-card reveal delay-2">
+        <div class="track-icon cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
+        <h3>DevOps</h3>
+        <div class="count">24 sessions</div>
+        <p>Platforms, observability, zero-trust, and the economics of running things at scale.</p>
+      </div>
+      <div class="track-card reveal delay-3">
+        <div class="track-icon pink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="13.5" cy="6.5" r="2.5"/><circle cx="19" cy="13" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="10" cy="20" r="2.5"/><path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/></svg></div>
+        <h3>Design</h3>
+        <div class="count">20 sessions</div>
+        <p>Trust, motion, systems, and the craft of interfaces that age well.</p>
+      </div>
+      <div class="track-card reveal delay-4">
+        <div class="track-icon warm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+        <h3>Leadership</h3>
+        <div class="count">16 sessions</div>
+        <p>Hiring, leading, scaling — and the unglamorous craft of shipping with humans.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SPONSORS ===================== -->
+<section class="section" id="sponsors">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Sponsors</span>
+      <h2 class="section-title">Backed by the <span class="grad">best</span>.</h2>
+      <p class="section-sub">The companies building frontier infrastructure, tooling, and platforms — and the ones who make FrontierConf possible.</p>
+    </div>
+
+    <div class="sponsor-tier reveal">
+      <div class="sponsor-tier-head">
+        <span class="tier-badge tier-platinum">Platinum</span>
+        <span class="tier-line"></span>
+      </div>
+      <div class="sponsor-row platinum">
+        <div class="sponsor-logo"><span class="mark"><span class="glyph diamond"></span>Nimbus</span></div>
+        <div class="sponsor-logo"><span class="mark"><span class="glyph circle"></span>DeepForge</span></div>
+      </div>
+    </div>
+
+    <div class="sponsor-tier reveal">
+      <div class="sponsor-tier-head">
+        <span class="tier-badge tier-gold">Gold</span>
+        <span class="tier-line"></span>
+      </div>
+      <div class="sponsor-row gold">
+        <div class="sponsor-logo"><span class="mark"><span class="glyph sq"></span>Quanta</span></div>
+        <div class="sponsor-logo"><span class="mark"><span class="glyph tri"></span>Sentinel</span></div>
+        <div class="sponsor-logo"><span class="mark"><span class="glyph bars"></span>Helios</span></div>
+      </div>
+    </div>
+
+    <div class="sponsor-tier reveal">
+      <div class="sponsor-tier-head">
+        <span class="tier-badge tier-silver">Silver</span>
+        <span class="tier-line"></span>
+      </div>
+      <div class="sponsor-row silver">
+        <div class="sponsor-logo"><span class="mark"><span class="glyph sq"></span>Lumen</span></div>
+        <div class="sponsor-logo"><span class="mark"><span class="glyph circle"></span>Tessera</span></div>
+        <div class="sponsor-logo"><span class="mark"><span class="glyph diamond"></span>Vantage</span></div>
+        <div class="sponsor-logo"><span class="mark"><span class="glyph bars"></span>Aurora</span></div>
+        <div class="sponsor-logo"><span class="mark"><span class="glyph tri"></span>Polaris</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== VENUE ===================== -->
+<section class="section" id="venue">
+  <div class="container">
+    <div class="venue-grid">
+      <div class="venue-map reveal" aria-hidden="true">
+        <div class="block b1"></div>
+        <div class="block b2"></div>
+        <div class="block b3"></div>
+        <div class="street h s1"></div>
+        <div class="street h s2"></div>
+        <div class="street h s3"></div>
+        <div class="street v v1"></div>
+        <div class="street v v2"></div>
+        <div class="street v v3"></div>
+        <div class="park park-1"></div>
+        <div class="park park-2"></div>
+        <div class="water"></div>
+        <div class="compass">N</div>
+        <div class="pin-pulse"></div>
+        <div class="pin"><div class="head"></div></div>
+        <div class="label">Aurora Convention Center</div>
+      </div>
+
+      <div class="venue-info reveal delay-1">
+        <span class="eyebrow">The venue</span>
+        <h2 class="section-title">Aurora Convention Center</h2>
+        <p>Perched on the Embarcadero with bay views from every main hall, Aurora is San Francisco's newest purpose-built conference space — 240,000 sq ft of stages, labs, lounges, and a rooftop terrace built for after-hours conversations.</p>
+        <div class="venue-features">
+          <div class="venue-feature">
+            <div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div><h4>1 Harbor Boulevard</h4><p>Embarcadero waterfront · 8 min from BART Embarcadero</p></div>
+          </div>
+          <div class="venue-feature">
+            <div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+            <div><h4>4 stages · 6 labs · 2 studios</h4><p>Every track gets its own purpose-built room</p></div>
+          </div>
+          <div class="venue-feature">
+            <div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4z"/><line x1="6" y1="1" x2="6" y2="4M10" y1="1" x2="10" y2="4M14" y1="1" x2="14" y2="4"/></svg></div>
+            <div><h4>Rooftop terrace & lounge</h4><p>Bay-view after-parties, mentor hours, and demos</p></div>
+          </div>
+        </div>
+        <a href="#tickets" class="btn btn-primary">Plan your trip <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TESTIMONIALS ===================== -->
+<section class="section">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">From past attendees</span>
+      <h2 class="section-title">What people <span class="grad">actually said</span>.</h2>
+      <p class="section-sub">Three quotes from three different years — pulled straight from post-event surveys. No marketing edits.</p>
+    </div>
+
+    <div class="testimonials-grid">
+      <article class="testimonial reveal">
+        <div class="quote-mark">"</div>
+        <p>I came for the AI track and stayed for the hallway track. Walked away with two collaborators, one job offer, and a notebook full of things I'm still implementing six months later.</p>
+        <div class="testimonial-foot">
+          <div class="testimonial-av av-1">RM</div>
+          <div class="testimonial-meta">
+            <div class="n">Rohan Mehta</div>
+            <div class="r">Staff Engineer ·attended 2025</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="testimonial reveal delay-1">
+        <div class="quote-mark">"</div>
+        <p>The curation is genuinely different. No vendor pitches disguised as talks, no panels of people who agree with each other. Just builders showing their work and answering hard questions.</p>
+        <div class="testimonial-foot">
+          <div class="testimonial-av av-2">JC</div>
+          <div class="testimonial-meta">
+            <div class="n">Jenna Cole</div>
+            <div class="r">Design Lead · attended 2024</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="testimonial reveal delay-2">
+        <div class="quote-mark">"</div>
+        <p>Worth the ticket price for the workshops alone. The LLM-in-production session paid for itself within a week of getting back to the office. Already booked next year.</p>
+        <div class="testimonial-foot">
+          <div class="testimonial-av av-4">TA</div>
+          <div class="testimonial-meta">
+            <div class="n">Tomás Alvarez</div>
+            <div class="r">VP Engineering · attended 2025</div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TICKETS ===================== -->
+<section class="section" id="tickets">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Tickets</span>
+      <h2 class="section-title">Get your <span class="grad">pass</span>.</h2>
+      <p class="section-sub">Early Bird pricing closes when the countdown hits zero — or when seats sell out, whichever comes first. All passes include the after-party.</p>
+    </div>
+
+    <div class="tickets-grid">
+      <article class="ticket reveal">
+        <div class="ticket-tier">Early Bird</div>
+        <div class="ticket-price"><span class="cur">$</span>499</div>
+        <div class="ticket-note">Closes when timer hits zero</div>
+        <ul class="ticket-includes">
+          <li>All 3 days · all 5 tracks</li>
+          <li>Access to all session recordings</li>
+          <li>Conference swag bag</li>
+          <li>After-party access</li>
+          <li>Lunch & coffee included</li>
+        </ul>
+        <a href="#" class="btn btn-ghost">Get Early Bird</a>
+      </article>
+
+      <article class="ticket featured reveal delay-1">
+        <div class="ticket-tier">General</div>
+        <div class="ticket-price"><span class="cur">$</span>799</div>
+        <div class="ticket-note">Most popular · standard pricing</div>
+        <ul class="ticket-includes">
+          <li>Everything in Early Bird</li>
+          <li>2 hands-on workshop seats</li>
+          <li>1:1 mentor hour signup</li>
+          <li>Exclusive networking lounge</li>
+          <li>Speaker meet-and-greet</li>
+          <li>Printed program & notebook</li>
+        </ul>
+        <a href="#" class="btn btn-primary">Get General Pass</a>
+      </article>
+
+      <article class="ticket reveal delay-2">
+        <div class="ticket-tier">VIP</div>
+        <div class="ticket-price"><span class="cur">$</span>1,499</div>
+        <div class="ticket-note">Limited to 200 seats</div>
+        <ul class="ticket-includes">
+          <li>Everything in General</li>
+          <li>Front-row reserved seating</li>
+          <li>Private VIP dinner with speakers</li>
+          <li>Unlimited workshop seats</li>
+          <li>Green room access</li>
+          <li>Concierge logistics support</li>
+        </ul>
+        <a href="#" class="btn btn-ghost">Get VIP Pass</a>
+      </article>
+
+      <article class="ticket reveal delay-3">
+        <div class="ticket-tier">Team · 5+</div>
+        <div class="ticket-price"><span class="cur">$</span>649<span style="font-size:18px; -webkit-text-fill-color: var(--text-muted); background: none;">/ea</span></div>
+        <div class="ticket-note">Bring the squad, save together</div>
+        <ul class="ticket-includes">
+          <li>Everything in General, per seat</li>
+          <li>Reserved team table in lounge</li>
+          <li>1 extra workshop seat per 5</li>
+          <li>Team invoice & consolidated receipt</li>
+          <li>Private team photo with hosts</li>
+        </ul>
+        <a href="#" class="btn btn-ghost">Get Team Pass</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">FAQ</span>
+      <h2 class="section-title">Questions, <span class="grad">answered</span>.</h2>
+      <p class="section-sub">If something's not here, our team replies to every email within one business day.</p>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false">
+          <span>When and where does FrontierConf 2026 take place?</span>
+          <span class="toggle" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a"><p>FrontierConf 2026 runs September 15–17, 2026 at the Aurora Convention Center, 1 Harbor Boulevard, San Francisco, CA. Doors open at 8:00 AM PT each day, with the first keynotes starting at 9:00 AM.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false">
+          <span>What's included in my ticket?</span>
+          <span class="toggle" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a"><p>Every pass includes access to all three days, all five tracks, the after-party, lunch and coffee, and the full session recording library. Higher tiers add workshop seats, mentor hours, networking access, and VIP experiences — see the tickets section above for the full breakdown.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false">
+          <span>Can I switch tracks or sessions mid-conference?</span>
+          <span class="toggle" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a"><p>Absolutely — every track runs in parallel and seating is first-come, first-served (VIP gets reserved front rows). Workshops require a seat reservation because capacity is limited; you can reserve when you check in or via the attendee app.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false">
+          <span>Is there a refund or transfer policy?</span>
+          <span class="toggle" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a"><p>Full refunds are available up to 60 days before the event. Between 60 and 14 days out, tickets can be transferred to another attendee for a small fee. Within 14 days, transfers are still allowed but no refunds — we're happy to help with name changes via email.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false">
+          <span>Will sessions be recorded?</span>
+          <span class="toggle" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a"><p>Yes — every talk on every stage is recorded and published to the attendee library within 48 hours of the session. Recordings remain available to ticket holders for 12 months after the event. Workshops are not recorded, to keep them hands-on and candid.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false">
+          <span>Do you offer travel or accommodation discounts?</span>
+          <span class="toggle" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a"><p>Yes — we have partnered rates with three hotels within walking distance of the venue, plus discounted BART and airport shuttle codes. Full details and booking links are emailed to all ticket holders immediately after purchase.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false">
+          <span>Are there accessibility accommodations?</span>
+          <span class="toggle" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a"><p>Aurora Convention Center is fully ADA-compliant with step-free access to every stage and lab. We also provide ASL interpretation, live captioning on all main-stage talks, quiet rooms, and dietary accommodations at every meal — just note your needs at checkout or email us anytime.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FINAL CTA ===================== -->
+<section class="final-cta">
+  <div class="container">
+    <div class="final-cta-box reveal">
+      <span class="eyebrow">Don't miss it</span>
+      <h2>The countdown is on.<br><span class="grad">Be there when it hits zero.</span></h2>
+      <p>Early Bird pricing disappears the moment the timer runs out. Lock in your seat — and we'll see you on the frontier.</p>
+      <div class="countdown" id="countdown2" aria-live="polite" aria-label="Countdown to FrontierConf 2026">
+        <div class="countdown-block"><div class="countdown-num" id="cd2-days">00</div><div class="countdown-lbl">Days</div></div>
+        <div class="countdown-block"><div class="countdown-num" id="cd2-hours">00</div><div class="countdown-lbl">Hours</div></div>
+        <div class="countdown-block"><div class="countdown-num" id="cd2-mins">00</div><div class="countdown-lbl">Minutes</div></div>
+        <div class="countdown-block"><div class="countdown-num" id="cd2-secs">00</div><div class="countdown-lbl">Seconds</div></div>
+      </div>
+      <div class="final-cta-cta">
+        <a href="#tickets" class="btn btn-primary btn-lg">Get your ticket <span class="arrow">→</span></a>
+        <a href="#schedule" class="btn btn-ghost btn-lg">Browse the schedule</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#top" class="brand">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-name"><b>FrontierConf</b><span>2026 · San Francisco</span></span>
+        </a>
+        <p>Three days at the edge of what's next. FrontierConf is where the people building the next decade of technology gather to compare notes, ship demos, and start the partnerships that define the year ahead.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5.001A2.5 2.5 0 014.98 3.5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.75V21h-4v-5.4c0-1.3 0-2.95-1.8-2.95s-2.07 1.4-2.07 2.85V21H9z"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 7s-.2-1.6-.9-2.3c-.8-.9-1.7-.9-2.1-.9C16.7 3.5 12 3.5 12 3.5s-4.7 0-7.9.2c-.4 0-1.3 0-2.1.9C1.2 5.4 1 7 1 7S.8 8.9.8 10.8v1.7c0 1.9.2 3.7.2 3.7s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1 1.7.2 7.7.2 7.7.2s4.7 0 7.9-.2c.4 0 1.3 0 2.1-.9.7-.7.9-2.3.9-2.3s.2-1.9.2-3.7v-1.7C23.2 8.9 23 7 23 7zM9.8 14.6V8.4l6.2 3.1-6.2 3.1z"/></svg></a>
+          <a href="#" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.7.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 016 0C17.3 4.7 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h5>Event</h5>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#speakers">Speakers</a></li>
+          <li><a href="#schedule">Schedule</a></li>
+          <li><a href="#tracks">Tracks</a></li>
+          <li><a href="#venue">Venue</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Attend</h5>
+        <ul>
+          <li><a href="#tickets">Buy tickets</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#">Travel & hotels</a></li>
+          <li><a href="#">Accessibility</a></li>
+          <li><a href="#">Code of conduct</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Connect</h5>
+        <ul>
+          <li><a href="#sponsors">Become a sponsor</a></li>
+          <li><a href="#">Press & media</a></li>
+          <li><a href="#">Past editions</a></li>
+          <li><a href="#">Speaker submissions</a></li>
+          <li><a href="#">Contact us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-news">
+        <h5>Stay in the loop</h5>
+        <p style="font-size:13px; color:var(--text-muted); margin-bottom:14px; line-height:1.5;">Speaker drops, ticket waves, and schedule updates — one email a month, no spam.</p>
+        <input type="email" placeholder="you@company.com" aria-label="Email address">
+        <button class="btn btn-primary" onclick="alert('Thanks! Check your inbox to confirm.');">Subscribe</button>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© 2026 FrontierConf. Template by <a href="https://excusemeweb.com/landing-pages" target="_blank" rel="noopener">ExcuseMeWeb</a>.</div>
+      <div class="links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Cookies</a>
+        <a href="#">Press kit</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ===================== FLOATING DOWNLOAD BUTTON ===================== -->
+<button class="download-fab" onclick="downloadPage()" aria-label="Download this page as HTML">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+  <span>Download HTML</span>
+</button>
+
+<!-- ===================== SCRIPT ===================== -->
+<script>
+/* ===== Nav scroll state ===== */
+(function(){
+  const nav = document.getElementById('nav');
+  const onScroll = () => {
+    if (window.scrollY > 30) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+
+/* ===== Mobile menu ===== */
+(function(){
+  const toggle = document.getElementById('navToggle');
+  const menu = document.getElementById('mobileMenu');
+  toggle.addEventListener('click', () => {
+    const open = toggle.classList.toggle('open');
+    menu.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', open);
+  });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    toggle.classList.remove('open');
+    menu.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }));
+})();
+
+/* ===== Countdown timer (counts down to Sept 15, 2026 09:00 PT) ===== */
+(function(){
+  // Dynamically compute the next occurrence of Sept 15 2026 09:00 local-time-equivalent.
+  // If we're already past it, push to a year ahead so the timer always runs forward.
+  const target = new Date('2026-09-15T09:00:00-07:00').getTime();
+  const els = {
+    d: document.getElementById('cd-days'),
+    h: document.getElementById('cd-hours'),
+    m: document.getElementById('cd-mins'),
+    s: document.getElementById('cd-secs')
+  };
+  const els2 = {
+    d: document.getElementById('cd2-days'),
+    h: document.getElementById('cd2-hours'),
+    m: document.getElementById('cd2-mins'),
+    s: document.getElementById('cd2-secs')
+  };
+  const pad = (n) => String(n).padStart(2, '0');
+  function tick() {
+    const now = Date.now();
+    let diff = target - now;
+    if (diff < 0) diff = 0;
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const secs = Math.floor((diff % (1000 * 60)) / 1000);
+    const values = [pad(days), pad(hours), pad(mins), pad(secs)];
+    [els, els2].forEach(group => {
+      if (!group.d) return;
+      group.d.textContent = values[0];
+      group.h.textContent = values[1];
+      group.m.textContent = values[2];
+      group.s.textContent = values[3];
+    });
+  }
+  tick();
+  setInterval(tick, 1000);
+})();
+
+/* ===== Schedule tabs ===== */
+(function(){
+  const tabs = document.querySelectorAll('.schedule-tab');
+  const panels = document.querySelectorAll('.schedule-list');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const day = tab.dataset.day;
+      tabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected','true');
+      panels.forEach(p => p.classList.remove('active'));
+      const target = document.getElementById('day-' + day);
+      if (target) {
+        target.classList.add('active');
+        // Re-trigger reveal animation for the visible sessions
+        target.querySelectorAll('.session').forEach((s, i) => {
+          s.classList.remove('visible');
+          s.style.transitionDelay = (i * 0.05) + 's';
+          requestAnimationFrame(() => s.classList.add('visible'));
+        });
+      }
+    });
+  });
+})();
+
+/* ===== FAQ accordion ===== */
+(function(){
+  const items = document.querySelectorAll('.faq-item');
+  items.forEach(item => {
+    const q = item.querySelector('.faq-q');
+    q.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      items.forEach(i => { i.classList.remove('open'); i.querySelector('.faq-q').setAttribute('aria-expanded','false'); });
+      if (!isOpen) {
+        item.classList.add('open');
+        q.setAttribute('aria-expanded','true');
+      }
+    });
+  });
+})();
+
+/* ===== Intersection Observer for reveal animations ===== */
+(function(){
+  const revealEls = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) {
+    revealEls.forEach(el => el.classList.add('visible'));
+    return;
+  }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+  revealEls.forEach(el => io.observe(el));
+})();
+
+/* ===== Animated counters ===== */
+(function(){
+  const counters = document.querySelectorAll('[data-count]');
+  const animate = (el) => {
+    const target = parseInt(el.dataset.count, 10);
+    const suffix = el.dataset.suffix || '';
+    const duration = 1800;
+    const start = performance.now();
+    const easeOut = (t) => 1 - Math.pow(1 - t, 3);
+    const fmt = (n) => n >= 1000 ? n.toLocaleString('en-US') : String(n);
+    function step(now) {
+      const p = Math.min((now - start) / duration, 1);
+      const val = Math.floor(easeOut(p) * target);
+      el.innerHTML = fmt(val) + (suffix ? '<span class="suffix">' + suffix + '</span>' : '');
+      if (p < 1) requestAnimationFrame(step);
+      else el.innerHTML = fmt(target) + (suffix ? '<span class="suffix">' + suffix + '</span>' : '');
+    }
+    requestAnimationFrame(step);
+  };
+  if (!('IntersectionObserver' in window)) {
+    counters.forEach(animate);
+    return;
+  }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animate(entry.target);
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  counters.forEach(el => io.observe(el));
+})();
+
+/* ===== Smooth scroll for anchor links (nav offset fallback) ===== */
+(function(){
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const id = a.getAttribute('href');
+      if (id.length <= 1) return;
+      const el = document.querySelector(id);
+      if (!el) return;
+      e.preventDefault();
+      const y = el.getBoundingClientRect().top + window.scrollY - 70;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    });
+  });
+})();
+
+/* ===== Download the page as HTML ===== */
+function downloadPage(){
+  const html='<!DOCTYPE html>\n'+document.documentElement.outerHTML;
+  const blob=new Blob([html],{type:'text/html'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;
+  a.download='premium-event-landing-page.html';
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+}
+</script>
+</body>
+</html>
