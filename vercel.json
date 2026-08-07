@@ -301,30 +301,6 @@
       "dest": "/sitemap.html"
     },
     {
-      "src": "/discount-calculator",
-      "dest": "/discount-calculator.html"
-    },
-    {
-      "src": "/gpa-calculator",
-      "dest": "/gpa-calculator.html"
-    },
-    {
-      "src": "/paycheck-calculator",
-      "dest": "/paycheck-calculator.html"
-    },
-    {
-      "src": "/calorie-calculator",
-      "dest": "/calorie-calculator.html"
-    },
-    {
-      "src": "/pregnancy-due-date-calculator",
-      "dest": "/pregnancy-due-date-calculator.html"
-    },
-    {
-      "src": "/time-zone-calculator",
-      "dest": "/time-zone-calculator.html"
-    },
-    {
       "src": "/(.*)",
       "dest": "/$1.html"
     }

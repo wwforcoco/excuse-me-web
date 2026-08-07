@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="fa026cc1-8f84-44f5-b2fb-9ccf29374a38"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clock Tools — Online Timer, Stopwatch, Alarm, Pomodoro & More | ExcuseMeWeb</title>
+<meta name="description" content="10 online clock tools in one page: countdown timer with presets, stopwatch, alarm clock, Pomodoro timer, chess clock, world clock, count-up timer, interval timer, sleep calculator, and Unix timestamp converter.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Clock Tools — Online Timer, Stopwatch, Alarm, Pomodoro & More | ExcuseMeWeb">
+<meta property="og:description" content="10 online clock tools in one page: countdown timer with presets, stopwatch, alarm clock, Pomodoro timer, chess clock, world clock, count-up timer, interval timer, sleep calculator, and Unix timestamp converter.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://excusemeweb.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Clock Tools — Online Timer, Stopwatch, Alarm, Pomodoro & More | ExcuseMeWeb">
+<meta name="twitter:description" content="10 online clock tools in one page: countdown timer with presets, stopwatch, alarm clock, Pomodoro timer, chess clock, world clock, count-up timer, interval timer, sleep calculator, and Unix timestamp converter.">
+<link rel="canonical" href="https://excusemeweb.com/clock-tools">
+<link rel="icon" href="/favicon.ico">
+<meta name="theme-color" content="#ffffff">
+<meta property="og:url" content="https://excusemeweb.com/clock-tools">
+
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Clock Tools — Online Timer, Stopwatch, Alarm, Pomodoro & More",
+  "url": "https://excusemeweb.com/clock-tools",
+  "description": "10 online clock tools in one page: countdown timer with presets, stopwatch, alarm clock, Pomodoro timer, chess clock, world clock, count-up timer, interval timer, sleep calculator, and Unix timestamp converter.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "All",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": { "@type": "Organization", "name": "ExcuseMeWeb" },
+  "dateModified": "2026-08-07"
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://excusemeweb.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Clock Tools", "item": "https://excusemeweb.com/clock-tools" }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Does the online alarm clock work if I close the browser?","acceptedAnswer":{"@type":"Answer","text":"No. The alarm runs inside your browser tab using JavaScript. If you close the tab or the browser, the alarm stops. Keep the tab open and your computer awake for the alarm to sound at the set time."}},
+    {"@type":"Question","name":"Does the online timer work without internet after the page loads?","acceptedAnswer":{"@type":"Answer","text":"Yes. Once the page is loaded, all clock tools run entirely in your browser using JavaScript. No server connection is needed to keep the timer, stopwatch, or alarm running."}},
+    {"@type":"Question","name":"What is a Pomodoro timer and how does it work?","acceptedAnswer":{"@type":"Answer","text":"A Pomodoro timer uses the Pomodoro Technique: you work for 25 minutes, then take a 5-minute break. After four work sessions, you take a longer 15-minute break. This cycle helps maintain focus and prevent burnout during study or work sessions."}},
+    {"@type":"Question","name":"How does the chess clock work for two players?","acceptedAnswer":{"@type":"Answer","text":"Each player starts with the same amount of time. Press your side button to start your opponent clock and stop yours. Optional increment adds seconds after each move. When a player time reaches zero, they lose on time."}},
+    {"@type":"Question","name":"What is a Unix timestamp and why is it used?","acceptedAnswer":{"@type":"Answer","text":"A Unix timestamp is the number of seconds elapsed since January 1, 1970 at 00:00:00 UTC. It is widely used in computing for date storage, API requests, and database records because it represents any moment in time as a single integer."}},
+    {"@type":"Question","name":"How does the sleep calculator determine the best bedtime?","acceptedAnswer":{"@type":"Answer","text":"The sleep calculator works on 90-minute sleep cycles. It counts backward from your desired wake time in 90-minute increments, plus a 15-minute buffer to fall asleep. Waking at the end of a cycle helps you feel more refreshed."}},
+    {"@type":"Question","name":"What is an interval timer used for?","acceptedAnswer":{"@type":"Answer","text":"An interval timer alternates between work and rest periods in repeated rounds. It is commonly used for HIIT workouts, circuit training, Tabata, and any exercise routine that requires timed sets with fixed rest periods."}},
+    {"@type":"Question","name":"Can I use the stopwatch to record lap times?","acceptedAnswer":{"@type":"Answer","text":"Yes. The stopwatch includes a lap feature. Click or tap the Lap button while the stopwatch is running to record the current elapsed time. All laps show individual split times and cumulative times."}}
+  ]
+}</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg-primary:#ffffff;--bg-secondary:#f8fafc;--bg-tertiary:#f1f5f9;
+--text-primary:#0f172a;--text-secondary:#64748b;--accent:#6366f1;
+--accent-hover:#4f46e5;--accent-light:#eef2ff;--danger:#ef4444;--success:#22c55e;
+--warning:#f59e0b;--border:#e2e8f0;--shadow:rgba(0,0,0,0.08);
+--font-body:'Inter',sans-serif;--font-brand:'Inter',sans-serif;--border-radius:12px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:var(--font-body);background:var(--bg-primary);color:var(--text-primary);min-height:100vh;display:flex;flex-direction:column;}
+.header{background:var(--bg-secondary);border-bottom:1px solid var(--border);padding:0 24px;position:sticky;top:0;z-index:1000;}
+.header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;}
+.logo{font-family:var(--font-brand);font-size:1.5rem;font-weight:700;color:var(--accent);text-decoration:none;}
+.logo span{color:var(--text-primary);}
+.nav-desktop{display:flex;gap:28px;}
+.nav-desktop a{color:var(--text-secondary);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color 0.2s;white-space:nowrap;}
+.nav-desktop a:hover{color:var(--accent);}
+.nav-desktop a.active{color:var(--accent);}
+.header-right{display:flex;align-items:center;gap:16px;}
+.hamburger{display:none;background:none;border:none;color:var(--text-primary);font-size:1.5rem;cursor:pointer;}
+.mobile-nav{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg-secondary);border-bottom:1px solid var(--border);padding:16px 24px;flex-direction:column;gap:16px;z-index:999;}
+.mobile-nav.show{display:flex;}
+.mobile-nav a{color:var(--text-secondary);text-decoration:none;font-size:1rem;font-weight:500;}
+.mobile-nav a.active{color:var(--accent);}
+.main-content{flex:1;max-width:1100px;width:100%;margin:0 auto;padding:40px 24px;}
+.breadcrumb{display:flex;align-items:center;flex-wrap:wrap;gap:6px;font-size:0.85rem;color:var(--text-secondary);margin-bottom:20px;}
+.breadcrumb a{color:var(--text-secondary);text-decoration:none;}
+.breadcrumb a:hover{color:var(--accent);text-decoration:underline;}
+.breadcrumb .bc-sep{color:var(--border);}
+.breadcrumb .bc-current{color:var(--text-primary);font-weight:600;}
+.page-header{text-align:center;margin-bottom:28px;}
+.page-header h1{font-size:2.3rem;font-weight:700;margin-bottom:8px;}
+.page-header p{color:var(--text-secondary);font-size:1.05rem;max-width:640px;margin:0 auto;}
+
+.tool-tabs{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:32px;}
+.tool-tab{padding:10px 18px;border-radius:10px;border:1px solid var(--border);background:var(--bg-primary);color:var(--text-secondary);font-size:0.88rem;font-weight:500;cursor:pointer;transition:all 0.15s;font-family:var(--font-body);}
+.tool-tab:hover{border-color:var(--accent);color:var(--accent);}
+.tool-tab.active{background:var(--accent);color:#fff;border-color:var(--accent);}
+.tool-panel{display:none;}
+.tool-panel.active{display:block;}
+
+.tool-box{background:var(--bg-secondary);border:1px solid var(--border);border-radius:var(--border-radius);padding:28px;max-width:700px;margin:0 auto 24px;}
+.time-display{font-size:3.2rem;font-weight:700;text-align:center;font-variant-numeric:tabular-nums;letter-spacing:0.02em;margin-bottom:20px;color:var(--text-primary);}
+.time-display.sm{font-size:2.2rem;}
+.time-display.accent{color:var(--accent);}
+.time-display.danger{color:var(--danger);}
+.btn-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:16px;}
+.btn{padding:12px 28px;border-radius:10px;border:none;font-size:0.95rem;font-weight:600;cursor:pointer;transition:all 0.15s;font-family:var(--font-body);}
+.btn-p{background:var(--accent);color:#fff;}
+.btn-p:hover{background:var(--accent-hover);}
+.btn-s{background:var(--bg-tertiary);color:var(--text-primary);border:1px solid var(--border);}
+.btn-s:hover{border-color:var(--accent);color:var(--accent);}
+.btn-d{background:var(--danger);color:#fff;}
+.btn-d:hover{opacity:0.9;}
+.btn-sm{padding:8px 16px;font-size:0.85rem;}
+
+.preset-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px;margin-bottom:20px;max-width:700px;margin-left:auto;margin-right:auto;}
+.preset-btn{padding:14px 8px;border-radius:10px;border:1px solid var(--border);background:var(--bg-primary);color:var(--text-primary);font-size:0.95rem;font-weight:600;cursor:pointer;transition:all 0.15s;text-align:center;font-family:var(--font-body);}
+.preset-btn:hover{border-color:var(--accent);background:var(--accent-light);color:var(--accent);}
+.preset-btn.active{background:var(--accent);color:#fff;border-color:var(--accent);}
+.preset-label{font-size:0.75rem;color:var(--text-secondary);margin-top:2px;font-weight:400;}
+
+.timer-inputs{display:flex;gap:10px;justify-content:center;align-items:center;margin-bottom:16px;flex-wrap:wrap;}
+.timer-inputs input{width:70px;text-align:center;font-size:1.2rem;padding:10px;border-radius:10px;border:1px solid var(--border);font-family:var(--font-body);font-weight:600;}
+.timer-inputs input:focus{outline:2px solid var(--accent);}
+.timer-inputs span{font-size:1.1rem;color:var(--text-secondary);font-weight:600;}
+
+.lap-list{max-height:240px;overflow-y:auto;margin-top:12px;}
+.lap-item{display:flex;justify-content:space-between;padding:8px 14px;border-bottom:1px solid var(--border);font-size:0.9rem;}
+.lap-item:last-child{border-bottom:none;}
+.lap-num{color:var(--text-secondary);}
+.lap-time{font-weight:600;font-variant-numeric:tabular-nums;}
+.lap-diff{color:var(--accent);font-variant-numeric:tabular-nums;}
+
+.alarm-inputs{display:flex;gap:10px;justify-content:center;align-items:center;margin-bottom:16px;flex-wrap:wrap;}
+.alarm-inputs input[type="time"]{font-size:1.4rem;padding:10px 14px;border-radius:10px;border:1px solid var(--border);font-family:var(--font-body);font-weight:600;}
+.alarm-inputs input[type="text"]{font-size:0.95rem;padding:10px 14px;border-radius:10px;border:1px solid var(--border);font-family:var(--font-body);width:160px;}
+.alarm-inputs input:focus{outline:2px solid var(--accent);}
+.alarm-list{margin-top:16px;}
+.alarm-item{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border:1px solid var(--border);border-radius:10px;margin-bottom:8px;background:var(--bg-primary);}
+.alarm-item-time{font-size:1.2rem;font-weight:700;}
+.alarm-item-label{font-size:0.85rem;color:var(--text-secondary);}
+.alarm-ringing{animation:pulse-ring 0.5s ease-in-out infinite alternate;}
+@keyframes pulse-ring{from{box-shadow:0 0 0 0 rgba(239,68,68,0.4);}to{box-shadow:0 0 0 15px rgba(239,68,68,0);}}
+
+.pomo-session{text-align:center;margin-bottom:12px;}
+.pomo-session .label{font-size:0.85rem;color:var(--text-secondary);text-transform:uppercase;letter-spacing:0.05em;font-weight:600;}
+.pomo-dots{display:flex;gap:8px;justify-content:center;margin-bottom:16px;}
+.pomo-dot{width:12px;height:12px;border-radius:50%;background:var(--border);}
+.pomo-dot.filled{background:var(--accent);}
+
+.chess-players{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
+.chess-player{text-align:center;padding:24px 16px;border-radius:var(--border-radius);border:2px solid var(--border);background:var(--bg-primary);transition:all 0.15s;cursor:pointer;}
+.chess-player.active-turn{border-color:var(--accent);background:var(--accent-light);}
+.chess-player .player-label{font-size:0.9rem;font-weight:600;color:var(--text-secondary);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.04em;}
+.chess-player .player-time{font-size:2.8rem;font-weight:700;font-variant-numeric:tabular-nums;}
+.chess-player.active-turn .player-time{color:var(--accent);}
+.chess-player.low-time .player-time{color:var(--danger);}
+.chess-settings{display:flex;gap:10px;justify-content:center;align-items:center;flex-wrap:wrap;margin-bottom:16px;}
+.chess-settings label{font-size:0.85rem;font-weight:600;color:var(--text-secondary);}
+.chess-settings input{padding:8px 12px;border-radius:8px;border:1px solid var(--border);font-family:var(--font-body);font-size:0.9rem;width:70px;text-align:center;}
+
+.wc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-bottom:16px;}
+.wc-card{padding:16px;border-radius:10px;border:1px solid var(--border);background:var(--bg-primary);text-align:center;}
+.wc-city{font-size:0.85rem;font-weight:600;color:var(--text-secondary);margin-bottom:4px;}
+.wc-time{font-size:1.6rem;font-weight:700;font-variant-numeric:tabular-nums;}
+.wc-date{font-size:0.8rem;color:var(--text-secondary);margin-top:2px;}
+.wc-offset{font-size:0.75rem;color:var(--accent);margin-top:4px;}
+.wc-add{display:flex;gap:8px;justify-content:center;margin-bottom:16px;flex-wrap:wrap;}
+.wc-add select{padding:8px 12px;border-radius:8px;border:1px solid var(--border);font-family:var(--font-body);}
+
+.interval-config{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:400px;margin:0 auto 16px;}
+.interval-config label{font-size:0.82rem;font-weight:600;color:var(--text-secondary);display:block;margin-bottom:4px;}
+.interval-config input{width:100%;padding:10px;border-radius:8px;border:1px solid var(--border);font-family:var(--font-body);font-size:0.95rem;text-align:center;}
+.interval-config input:focus{outline:2px solid(var(--accent));}
+.interval-round{text-align:center;margin-bottom:8px;}
+.interval-round .label{font-size:0.85rem;color:var(--text-secondary);font-weight:600;}
+.interval-phase{text-align:center;font-size:1rem;font-weight:700;margin-bottom:8px;padding:8px;border-radius:8px;}
+.interval-phase.work{background:#fef2f2;color:var(--danger);}
+.interval-phase.rest{background:#f0fdf4;color:var(--success);}
+
+.sleep-calc-row{display:flex;gap:12px;justify-content:center;align-items:center;margin-bottom:20px;flex-wrap:wrap;}
+.sleep-calc-row label{font-size:0.85rem;font-weight:600;color:var(--text-secondary);}
+.sleep-calc-row select,.sleep-calc-row input{padding:10px 14px;border-radius:10px;border:1px solid var(--border);font-family:var(--font-body);font-size:1rem;}
+.sleep-calc-row input:focus,.sleep-calc-row select:focus{outline:2px solid var(--accent);}
+.sleep-results{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;}
+.sleep-card{padding:16px;border-radius:10px;border:1px solid var(--border);background:var(--bg-primary);text-align:center;}
+.sleep-card .cycles{font-size:0.8rem;color:var(--text-secondary);margin-bottom:4px;}
+.sleep-card .time{font-size:1.4rem;font-weight:700;color:var(--accent);}
+.sleep-card .note{font-size:0.78rem;color:var(--text-secondary);margin-top:4px;}
+.sleep-card.optimal{border-color:var(--accent);background:var(--accent-light);}
+
+.unix-live{text-align:center;margin-bottom:20px;padding:20px;background:var(--bg-primary);border-radius:10px;border:1px solid var(--border);}
+.unix-live .label{font-size:0.85rem;color:var(--text-secondary);font-weight:600;text-transform:uppercase;letter-spacing:0.04em;}
+.unix-live .value{font-size:2.4rem;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums;margin-top:4px;}
+.unix-convert{display:flex;gap:12px;justify-content:center;align-items:flex-end;flex-wrap:wrap;margin-bottom:12px;}
+.unix-convert label{font-size:0.82rem;font-weight:600;color:var(--text-secondary);display:block;margin-bottom:4px;}
+.unix-convert input{padding:10px 14px;border-radius:8px;border:1px solid var(--border);font-family:var(--font-body);font-size:0.95rem;width:220px;}
+.unix-convert input:focus{outline:2px solid var(--accent);}
+.unix-result{text-align:center;font-size:1rem;color:var(--text-primary);font-weight:500;min-height:24px;}
+
+.progress-bar{width:100%;height:6px;background:var(--bg-tertiary);border-radius:3px;margin-bottom:20px;overflow:hidden;}
+.progress-bar .fill{height:100%;background:var(--accent);border-radius:3px;transition:width 0.3s linear;}
+.progress-bar .fill.danger{background:var(--danger);}
+
+.info-section{background:var(--bg-secondary);border-radius:var(--border-radius);padding:32px;margin-bottom:24px;border:1px solid var(--border);}
+.info-section h2{font-size:1.4rem;margin-bottom:14px;}
+.info-section h3{margin-top:28px;margin-bottom:14px;color:var(--accent);font-size:1.1rem;}
+.info-section p,.info-section li{color:var(--text-secondary);line-height:1.7;}
+.info-section ul,.info-section ol{padding-left:22px;margin-bottom:10px;}
+.info-section a{color:var(--accent);text-decoration:none;}
+.info-section a:hover{text-decoration:underline;}
+details{margin-bottom:10px;border:1px solid var(--border);border-radius:8px;padding:14px 16px;background:var(--bg-primary);}
+summary{font-weight:600;color:var(--text-primary);cursor:pointer;}
+details p{margin-top:10px;margin-bottom:0;}
+
+.footer{background:var(--bg-secondary);border-top:1px solid var(--border);padding:32px 24px;text-align:center;color:var(--text-secondary);font-size:0.9rem;}
+.footer a{color:var(--accent);text-decoration:none;}
+
+@media(max-width:768px){
+.nav-desktop{display:none;}.hamburger{display:block;}
+.page-header h1{font-size:1.7rem;}
+.main-content{padding:24px 16px;}
+.time-display{font-size:2.4rem;}
+.time-display.sm{font-size:1.8rem;}
+.chess-players{grid-template-columns:1fr;}
+.chess-player .player-time{font-size:2.2rem;}
+.tool-tab{padding:8px 12px;font-size:0.82rem;}
+.preset-grid{grid-template-columns:repeat(auto-fill,minmax(90px,1fr));}
+.interval-config{grid-template-columns:1fr;}
+}
+</style>
+</head><body>
+<header class="header">
+<div class="header-inner">
+<a href="/" class="logo">Excuse<span>Me</span>Web</a>
+<nav class="nav-desktop">
+<a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a><a href="/all-in-one-toolkit" class="active">Toolkits</a>
+</nav>
+<div class="header-right">
+<button class="hamburger" onclick="document.getElementById('mobileNav').classList.toggle('show')">&#9776;</button>
+</div>
+</div>
+<nav class="mobile-nav" id="mobileNav">
+<a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a><a href="/all-in-one-toolkit" class="active">Toolkits</a>
+</nav>
+</header>
+
+<main class="main-content">
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="bc-sep">/</span><a href="/all-in-one-toolkit">Toolkits</a><span class="bc-sep">/</span><span class="bc-current">Clock Tools</span></nav>
+
+<div class="page-header">
+<h1>Clock Tools</h1>
+<p>Timer, stopwatch, alarm, Pomodoro, chess clock, world clock, and more — all running in your browser.</p>
+</div>
+
+<div class="tool-tabs" id="toolTabs">
+<button class="tool-tab active" onclick="switchTool('timer',this)">&#9202; Timer</button>
+<button class="tool-tab" onclick="switchTool('stopwatch',this)">&#9201; Stopwatch</button>
+<button class="tool-tab" onclick="switchTool('alarm',this)">&#128276; Alarm</button>
+<button class="tool-tab" onclick="switchTool('pomodoro',this)">&#127813; Pomodoro</button>
+<button class="tool-tab" onclick="switchTool('chess',this)">&#9822; Chess Clock</button>
+<button class="tool-tab" onclick="switchTool('world',this)">&#127758; World Clock</button>
+<button class="tool-tab" onclick="switchTool('countup',this)">&#9650; Count Up</button>
+<button class="tool-tab" onclick="switchTool('interval',this)">&#127947; Interval</button>
+<button class="tool-tab" onclick="switchTool('sleep',this)">&#128564; Sleep Calc</button>
+<button class="tool-tab" onclick="switchTool('unix',this)">&#128187; Unix Time</button>
+</div>
+<!-- 1. COUNTDOWN TIMER -->
+<div class="tool-panel active" id="panel-timer">
+<div class="tool-box">
+<div class="progress-bar"><div class="fill" id="timerProgress" style="width:100%"></div></div>
+<div class="time-display" id="timerDisplay">00:00</div>
+<div class="preset-grid" id="presetGrid">
+<button class="preset-btn" onclick="startPreset(60,this)">1 min<span class="preset-label">Quick task</span></button>
+<button class="preset-btn" onclick="startPreset(180,this)">3 min<span class="preset-label">Egg timer</span></button>
+<button class="preset-btn" onclick="startPreset(300,this)">5 min<span class="preset-label">Break</span></button>
+<button class="preset-btn" onclick="startPreset(600,this)">10 min<span class="preset-label">Stretch</span></button>
+<button class="preset-btn" onclick="startPreset(900,this)">15 min<span class="preset-label">Coffee break</span></button>
+<button class="preset-btn" onclick="startPreset(1200,this)">20 min<span class="preset-label">Quick read</span></button>
+<button class="preset-btn" onclick="startPreset(1500,this)">25 min<span class="preset-label">Pomodoro</span></button>
+<button class="preset-btn" onclick="startPreset(1800,this)">30 min<span class="preset-label">Exercise</span></button>
+<button class="preset-btn" onclick="startPreset(2700,this)">45 min<span class="preset-label">Deep work</span></button>
+<button class="preset-btn" onclick="startPreset(3600,this)">60 min<span class="preset-label">Meeting</span></button>
+<button class="preset-btn" onclick="startPreset(5400,this)">90 min<span class="preset-label">Lecture</span></button>
+<button class="preset-btn" onclick="startPreset(7200,this)">2 hr<span class="preset-label">Study block</span></button>
+</div>
+<div class="timer-inputs">
+<span>Custom:</span>
+<input type="number" id="timerH" placeholder="H" min="0" max="23" value="0">
+<span>:</span>
+<input type="number" id="timerM" placeholder="M" min="0" max="59" value="5">
+<span>:</span>
+<input type="number" id="timerS" placeholder="S" min="0" max="59" value="0">
+</div>
+<div class="btn-row">
+<button class="btn btn-p" onclick="startCustomTimer()" id="timerStartBtn">Start</button>
+<button class="btn btn-s" onclick="pauseTimer()" id="timerPauseBtn" disabled>Pause</button>
+<button class="btn btn-s" onclick="resetTimer()">Reset</button>
+</div>
+</div>
+</div>
+
+<!-- 2. STOPWATCH -->
+<div class="tool-panel" id="panel-stopwatch">
+<div class="tool-box">
+<div class="time-display" id="swDisplay">00:00.00</div>
+<div class="btn-row">
+<button class="btn btn-p" onclick="swStart()" id="swStartBtn">Start</button>
+<button class="btn btn-s" onclick="swLap()" id="swLapBtn" disabled>Lap</button>
+<button class="btn btn-d" onclick="swStop()" id="swStopBtn" disabled>Stop</button>
+<button class="btn btn-s" onclick="swReset()">Reset</button>
+</div>
+<div class="lap-list" id="swLaps"></div>
+</div>
+</div>
+
+<!-- 3. ALARM CLOCK -->
+<div class="tool-panel" id="panel-alarm">
+<div class="tool-box">
+<div class="alarm-inputs">
+<input type="time" id="alarmTime" value="08:00">
+<input type="text" id="alarmLabel" placeholder="Label (optional)" maxlength="40">
+<button class="btn btn-p btn-sm" onclick="addAlarm()">Set Alarm</button>
+</div>
+<div class="alarm-list" id="alarmList">
+<p style="text-align:center;color:var(--text-secondary);font-size:0.9rem;">No alarms set. Choose a time and click Set Alarm.</p>
+</div>
+</div>
+</div>
+
+<!-- 4. POMODORO -->
+<div class="tool-panel" id="panel-pomodoro">
+<div class="tool-box">
+<div class="pomo-session"><div class="label" id="pomoPhase">Focus Time</div></div>
+<div class="pomo-dots" id="pomoDots"><div class="pomo-dot"></div><div class="pomo-dot"></div><div class="pomo-dot"></div><div class="pomo-dot"></div></div>
+<div class="time-display accent" id="pomoDisplay">25:00</div>
+<div class="btn-row">
+<button class="btn btn-p" onclick="pomoStart()" id="pomoStartBtn">Start</button>
+<button class="btn btn-s" onclick="pomoPause()" id="pomoPauseBtn" disabled>Pause</button>
+<button class="btn btn-s" onclick="pomoReset()">Reset</button>
+<button class="btn btn-s" onclick="pomoSkip()">Skip</button>
+</div>
+</div>
+</div>
+
+<!-- 5. CHESS CLOCK -->
+<div class="tool-panel" id="panel-chess">
+<div class="tool-box">
+<div class="chess-settings">
+<label>Minutes:</label>
+<input type="number" id="chessMin" value="10" min="1" max="120">
+<label>Increment (s):</label>
+<input type="number" id="chessInc" value="0" min="0" max="60">
+<button class="btn btn-p btn-sm" onclick="chessInit()">Reset</button>
+</div>
+<div class="chess-players">
+<div class="chess-player" id="chessP1" onclick="chessSwitch(1)">
+<div class="player-label">Player 1</div>
+<div class="player-time" id="chessT1">10:00</div>
+</div>
+<div class="chess-player" id="chessP2" onclick="chessSwitch(2)">
+<div class="player-label">Player 2</div>
+<div class="player-time" id="chessT2">10:00</div>
+</div>
+</div>
+<div class="btn-row">
+<button class="btn btn-p" onclick="chessToggle()" id="chessStartBtn">Start</button>
+<button class="btn btn-s" onclick="chessInit()">New Game</button>
+</div>
+</div>
+</div>
+
+<!-- 6. WORLD CLOCK -->
+<div class="tool-panel" id="panel-world">
+<div class="tool-box">
+<div class="wc-add">
+<select id="wcTzSelect">
+<option value="">Add a timezone...</option>
+<option value="America/New_York">New York (EST)</option>
+<option value="America/Chicago">Chicago (CST)</option>
+<option value="America/Denver">Denver (MST)</option>
+<option value="America/Los_Angeles">Los Angeles (PST)</option>
+<option value="America/Toronto">Toronto</option>
+<option value="America/Sao_Paulo">Sao Paulo</option>
+<option value="Europe/London">London (GMT)</option>
+<option value="Europe/Paris">Paris (CET)</option>
+<option value="Europe/Berlin">Berlin</option>
+<option value="Europe/Moscow">Moscow</option>
+<option value="Asia/Dubai">Dubai</option>
+<option value="Asia/Karachi">Karachi</option>
+<option value="Asia/Kolkata">Mumbai</option>
+<option value="Asia/Bangkok">Bangkok</option>
+<option value="Asia/Shanghai">Shanghai</option>
+<option value="Asia/Tokyo">Tokyo</option>
+<option value="Asia/Seoul">Seoul</option>
+<option value="Australia/Sydney">Sydney</option>
+<option value="Pacific/Auckland">Auckland</option>
+<option value="Pacific/Honolulu">Honolulu</option>
+</select>
+<button class="btn btn-p btn-sm" onclick="wcAdd()">Add</button>
+</div>
+<div class="wc-grid" id="wcGrid"></div>
+</div>
+</div>
+
+<!-- 7. COUNT UP -->
+<div class="tool-panel" id="panel-countup">
+<div class="tool-box">
+<div class="time-display" id="cuDisplay">00:00:00</div>
+<div class="btn-row">
+<button class="btn btn-p" onclick="cuStart()" id="cuStartBtn">Start</button>
+<button class="btn btn-s" onclick="cuPause()" id="cuPauseBtn" disabled>Pause</button>
+<button class="btn btn-d" onclick="cuStop()" id="cuStopBtn" disabled>Stop</button>
+<button class="btn btn-s" onclick="cuReset()">Reset</button>
+</div>
+</div>
+</div>
+
+<!-- 8. INTERVAL TIMER -->
+<div class="tool-panel" id="panel-interval">
+<div class="tool-box">
+<div class="interval-config">
+<div><label>Work (sec)</label><input type="number" id="intWork" value="30" min="1" max="3600"></div>
+<div><label>Rest (sec)</label><input type="number" id="intRest" value="10" min="1" max="3600"></div>
+<div><label>Rounds</label><input type="number" id="intRounds" value="8" min="1" max="100"></div>
+<div><label>Prep (sec)</label><input type="number" id="intPrep" value="5" min="0" max="60"></div>
+</div>
+<div class="interval-phase" id="intPhase" style="background:var(--bg-primary);color:var(--text-secondary);">Ready</div>
+<div class="interval-round"><span class="label" id="intRound">Round 0 / 0</span></div>
+<div class="progress-bar"><div class="fill" id="intProgress" style="width:0%"></div></div>
+<div class="time-display sm" id="intDisplay">00:00</div>
+<div class="btn-row">
+<button class="btn btn-p" onclick="intStart()" id="intStartBtn">Start</button>
+<button class="btn btn-s" onclick="intPause()" id="intPauseBtn" disabled>Pause</button>
+<button class="btn btn-s" onclick="intReset()">Reset</button>
+</div>
+</div>
+</div>
+
+<!-- 9. SLEEP CALCULATOR -->
+<div class="tool-panel" id="panel-sleep">
+<div class="tool-box">
+<p style="text-align:center;color:var(--text-secondary);margin-bottom:16px;">Calculate optimal bedtimes based on 90-minute sleep cycles. Waking at the end of a cycle helps you feel more refreshed.</p>
+<div class="sleep-calc-row">
+<label for="sleepMode">I want to:</label>
+<select id="sleepMode" onchange="calcSleep()">
+<option value="wake">wake up at</option>
+<option value="sleep">go to sleep at</option>
+</select>
+<input type="time" id="sleepTime" value="07:00" onchange="calcSleep()">
+</div>
+<div class="sleep-results" id="sleepResults"></div>
+</div>
+</div>
+
+<!-- 10. UNIX TIMESTAMP -->
+<div class="tool-panel" id="panel-unix">
+<div class="tool-box">
+<div class="unix-live">
+<div class="label">Current Unix Timestamp</div>
+<div class="value" id="unixLive">—</div>
+<div style="font-size:0.85rem;color:var(--text-secondary);margin-top:6px;" id="unixLiveDate">—</div>
+</div>
+<div class="unix-convert">
+<div><label>Timestamp to Date</label><input type="text" id="unixToDate" placeholder="e.g. 1723000000"></div>
+<button class="btn btn-p btn-sm" onclick="convertUnixToDate()">Convert</button>
+</div>
+<div class="unix-result" id="unixToDateResult"></div>
+<hr style="border:none;border-top:1px solid var(--border);margin:16px 0;">
+<div class="unix-convert">
+<div><label>Date to Timestamp</label><input type="datetime-local" id="dateToUnix"></div>
+<button class="btn btn-p btn-sm" onclick="convertDateToUnix()">Convert</button>
+</div>
+<div class="unix-result" id="dateToUnixResult"></div>
+</div>
+</div><!-- SEO Content -->
+<div class="info-section">
+<h2>10 Clock Tools in One Page</h2>
+<p>This page combines ten of the most commonly searched online clock tools into a single, fast-loading interface. Every tool runs entirely in your browser — no data leaves your device, no server calls, no installs.</p>
+
+<h3>Countdown Timer with Presets</h3>
+<p>The countdown timer includes twelve one-click presets covering the most common durations people search for: 1 minute, 3 minutes, 5 minutes, 10 minutes, 15 minutes, 20 minutes, 25 minutes (Pomodoro), 30 minutes, 45 minutes, 60 minutes, 90 minutes, and 2 hours. Each preset is labeled with its most popular use case so you can tap and go. You can also enter any custom duration using the hour, minute, and second fields.</p>
+
+<h3>Stopwatch with Lap Times</h3>
+<p>A precise stopwatch measuring to hundredths of a second. Start, stop, and record lap splits to track individual segment times. The lap list shows both the split time for each lap and the cumulative elapsed time, making it useful for tracking splits during runs, workouts, or lab experiments.</p>
+
+<h3>Online Alarm Clock</h3>
+<p>Set one or more alarms by choosing a time and an optional label. The alarm uses your browser's built-in audio to alert you when the time is reached. Set multiple alarms for different reminders throughout the day. The alarm will sound as long as the browser tab stays open.</p>
+
+<h3>Pomodoro Timer</h3>
+<p>Follows the standard Pomodoro Technique: 25 minutes of focused work followed by a 5-minute break. After four work sessions, a longer 15-minute break begins automatically. The dot indicators show your progress through each four-session cycle.</p>
+
+<h3>Chess Clock</h3>
+<p>A two-player chess clock with configurable starting time and increment per move. Tap or click your side of the board to pass control to your opponent. Supports Fischer-style increment (seconds added after each move). The active player's side highlights, and the display turns red when time is running low.</p>
+
+<h3>World Clock</h3>
+<p>Add multiple time zones from a list of 20 major cities spanning the Americas, Europe, Asia, and Oceania. Each clock updates live and shows the current time, date, and UTC offset. Useful for scheduling meetings across different regions or tracking international event times.</p>
+
+<h3>Count Up Timer</h3>
+<p>Measures elapsed time from zero upward. Start it when an event begins — a meeting, a cooking process, or a parking meter — and stop it whenever you need to see how much time has passed. Displays hours, minutes, and seconds.</p>
+
+<h3>Interval Timer (HIIT / Workout)</h3>
+<p>Designed for high-intensity interval training, circuit workouts, Tabata, or any activity that alternates between work and rest periods. Configure your work duration, rest duration, number of rounds, and an optional preparation countdown. The display shows the current phase (work or rest), the round number, and a progress bar for each interval.</p>
+
+<h3>Sleep Calculator</h3>
+<p>Uses the 90-minute sleep cycle model to suggest optimal bedtimes or wake times. Choose whether you want to wake up at a specific time or go to sleep at a specific time, and the calculator shows six options ranging from three to six full sleep cycles, plus a 15-minute buffer to account for falling asleep.</p>
+
+<h3>Unix Timestamp Converter</h3>
+<p>Displays the current Unix epoch timestamp updating in real time, along with the corresponding human-readable date. Convert any Unix timestamp to a readable date, or convert any date and time to its Unix timestamp equivalent. Widely used for debugging APIs, working with databases, and handling date values in programming.</p>
+
+<h3>Frequently Asked Questions</h3>
+<details>
+<summary>Does the online alarm clock work if I close the browser?</summary>
+<p>No. The alarm runs inside your browser tab using JavaScript. If you close the tab or the browser, the alarm stops. Keep the tab open and your computer awake for the alarm to sound at the set time.</p>
+</details>
+<details>
+<summary>Does the online timer work without internet after the page loads?</summary>
+<p>Yes. Once the page is loaded, all clock tools run entirely in your browser using JavaScript. No server connection is needed to keep the timer, stopwatch, or alarm running.</p>
+</details>
+<details>
+<summary>What is a Pomodoro timer and how does it work?</summary>
+<p>A Pomodoro timer uses the Pomodoro Technique: you work for 25 minutes, then take a 5-minute break. After four work sessions, you take a longer 15-minute break. This cycle helps maintain focus and prevent burnout during study or work sessions.</p>
+</details>
+<details>
+<summary>How does the chess clock work for two players?</summary>
+<p>Each player starts with the same amount of time. Press your side button to start your opponent clock and stop yours. Optional increment adds seconds after each move. When a player time reaches zero, they lose on time.</p>
+</details>
+<details>
+<summary>What is a Unix timestamp and why is it used?</summary>
+<p>A Unix timestamp is the number of seconds elapsed since January 1, 1970 at 00:00:00 UTC. It is widely used in computing for date storage, API requests, and database records because it represents any moment in time as a single integer.</p>
+</details>
+<details>
+<summary>How does the sleep calculator determine the best bedtime?</summary>
+<p>The sleep calculator works on 90-minute sleep cycles. It counts backward from your desired wake time in 90-minute increments, plus a 15-minute buffer to fall asleep. Waking at the end of a cycle helps you feel more refreshed.</p>
+</details>
+<details>
+<summary>What is an interval timer used for?</summary>
+<p>An interval timer alternates between work and rest periods in repeated rounds. It is commonly used for HIIT workouts, circuit training, Tabata, and any exercise routine that requires timed sets with fixed rest periods.</p>
+</details>
+<details>
+<summary>Can I use the stopwatch to record lap times?</summary>
+<p>Yes. The stopwatch includes a lap feature. Click or tap the Lap button while the stopwatch is running to record the current elapsed time. All laps show individual split times and cumulative times.</p>
+</details>
+
+<h3>Related Tools</h3>
+<p><a href="/time-converter">Time Converter</a> &middot; <a href="/date-calculator">Date Calculator</a> &middot; <a href="/age-calculator">Age Calculator</a></p>
+</div>
+</main>
+
+<footer class="footer">
+<p>&copy; 2026 ExcuseMeWeb.com &mdash; Online Tools for Everyone</p>
+<p style="margin-top:8px"><a href="/calculators">Calculators</a> &middot; <a href="/converters">Converters</a> &middot; <a href="/image-tools">Image Tools</a> &middot; <a href="/generators">Generators</a> &middot; <a href="/templates">Templates</a> &middot; <a href="/games">Games</a> &middot; <a href="/all-in-one-toolkit">Toolkits</a></p>
+<p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p>
+</footer><script>
+/* Tab switching */
+function switchTool(id,el){
+    document.querySelectorAll('.tool-panel').forEach(function(p){p.classList.remove('active');});
+    document.querySelectorAll('.tool-tab').forEach(function(t){t.classList.remove('active');});
+    document.getElementById('panel-'+id).classList.add('active');
+    el.classList.add('active');
+    if(id==='world')wcTick();
+    if(id==='unix')unixTick();
+}
+
+/* Audio */
+var audioCtx=null;
+function beep(freq,dur,vol){
+    try{if(!audioCtx)audioCtx=new(window.AudioContext||window.webkitAudioContext)();
+    var o=audioCtx.createOscillator(),g=audioCtx.createGain();
+    o.connect(g);g.connect(audioCtx.destination);
+    o.frequency.value=freq||800;o.type='sine';g.gain.value=vol||0.3;
+    o.start();o.stop(audioCtx.currentTime+(dur||0.3));}catch(e){}
+}
+function alarmSound(){
+    try{if(!audioCtx)audioCtx=new(window.AudioContext||window.webkitAudioContext)();
+    for(var i=0;i<3;i++){(function(i){
+        setTimeout(function(){
+            var o=audioCtx.createOscillator(),g=audioCtx.createGain();
+            o.connect(g);g.connect(audioCtx.destination);
+            o.frequency.value=i%2===0?880:660;o.type='square';g.gain.value=0.25;
+            o.start(audioCtx.currentTime);o.stop(audioCtx.currentTime+0.25);
+        },i*350);
+    })(i);}
+}catch(e){}
+}
+
+/* Format helpers */
+function fmtTimer(s){s=Math.max(0,Math.floor(s));var m=Math.floor(s/60),sec=s%60;return(m<10?'0':'')+m+':'+(sec<10?'0':'')+sec;}
+function fmtSW(ms){var t=Math.floor(ms/1000),m=Math.floor(t/60),s=t%60,h=Math.floor(m/60);m%=60;var cs=Math.floor((ms%1000)/10);
+if(h>0)return(h<10?'0':'')+h+':'+(m<10?'0':'')+m+':'+(s<10?'0':'')+s+'.'+(cs<10?'0':'')+cs;
+return(m<10?'0':'')+m+':'+(s<10?'0':'')+s+'.'+(cs<10?'0':'')+cs;}
+function fmtCU(s){s=Math.floor(s);var h=Math.floor(s/3600),m=Math.floor((s%3600)/60),sec=s%60;return(h<10?'0':'')+h+':'+(m<10?'0':'')+m+':'+(sec<10?'0':'')+sec;}
+function fmtChess(s){s=Math.max(0,Math.ceil(s));var m=Math.floor(s/60),sec=s%60;return(m<10?'0':'')+m+':'+(sec<10?'0':'')+sec;}
+
+/* ===== 1. COUNTDOWN TIMER ===== */
+var timerIV=null,timerRem=0,timerTot=0,timerRun=false;
+function startPreset(sec,el){
+    timerTot=sec;timerRem=sec;timerRun=true;
+    updTimerDisp();
+    document.getElementById('timerProgress').style.width='100%';
+    document.getElementById('timerProgress').classList.remove('danger');
+    document.getElementById('timerStartBtn').disabled=true;
+    document.getElementById('timerPauseBtn').disabled=false;
+    document.querySelectorAll('.preset-btn').forEach(function(b){b.classList.remove('active');});
+    if(el)el.classList.add('active');
+    clearInterval(timerIV);timerIV=setInterval(timerTick,1000);
+}
+function startCustomTimer(){
+    var h=parseInt(document.getElementById('timerH').value)||0;
+    var m=parseInt(document.getElementById('timerM').value)||0;
+    var s=parseInt(document.getElementById('timerS').value)||0;
+    var total=h*3600+m*60+s;if(total<=0)return;
+    document.querySelectorAll('.preset-btn').forEach(function(b){b.classList.remove('active');});
+    startPreset(total,null);
+}
+function timerTick(){
+    timerRem--;
+    if(timerRem<=0){timerRem=0;clearInterval(timerIV);timerRun=false;
+    beep(880,0.5,0.4);setTimeout(function(){beep(880,0.5,0.4);},300);
+    document.getElementById('timerStartBtn').disabled=false;
+    document.getElementById('timerPauseBtn').disabled=true;}
+    var pct=timerTot>0?(timerRem/timerTot)*100:0;
+    var bar=document.getElementById('timerProgress');
+    bar.style.width=pct+'%';
+    if(pct<10)bar.classList.add('danger');else bar.classList.remove('danger');
+    updTimerDisp();
+}
+function updTimerDisp(){
+    var d=document.getElementById('timerDisplay');
+    d.textContent=fmtTimer(timerRem);
+    d.className='time-display'+(timerRem<=10&&timerRem>0&&timerRun?' danger':'');
+}
+function pauseTimer(){
+    if(timerRun){clearInterval(timerIV);timerRun=false;
+    document.getElementById('timerPauseBtn').textContent='Resume';
+    document.getElementById('timerStartBtn').disabled=false;
+    }else if(timerRem>0){timerRun=true;
+    timerIV=setInterval(timerTick,1000);
+    document.getElementById('timerPauseBtn').textContent='Pause';
+    document.getElementById('timerStartBtn').disabled=true;}
+}
+function resetTimer(){
+    clearInterval(timerIV);timerRun=false;timerRem=0;timerTot=0;
+    updTimerDisp();
+    document.getElementById('timerProgress').style.width='100%';
+    document.getElementById('timerProgress').classList.remove('danger');
+    document.getElementById('timerStartBtn').disabled=false;
+    document.getElementById('timerPauseBtn').disabled=true;
+    document.getElementById('timerPauseBtn').textContent='Pause';
+    document.querySelectorAll('.preset-btn').forEach(function(b){b.classList.remove('active');});
+}
+
+/* ===== 2. STOPWATCH ===== */
+var swIV=null,swMs=0,swRun=false,swLapN=0,swLastLap=0;
+function swStart(){
+    if(swRun)return;swRun=true;
+    var start=Date.now()-swMs;
+    swIV=setInterval(function(){swMs=Date.now()-start;
+    document.getElementById('swDisplay').textContent=fmtSW(swMs);},30);
+    document.getElementById('swStartBtn').disabled=true;
+    document.getElementById('swLapBtn').disabled=false;
+    document.getElementById('swStopBtn').disabled=false;
+}
+function swStop(){
+    if(!swRun)return;swRun=false;clearInterval(swIV);
+    document.getElementById('swStartBtn').disabled=false;
+    document.getElementById('swStartBtn').textContent='Resume';
+    document.getElementById('swLapBtn').disabled=true;
+    document.getElementById('swStopBtn').disabled=true;
+}
+function swLap(){
+    if(!swRun)return;swLapN++;
+    var diff=swMs-swLastLap;swLastLap=swMs;
+    var list=document.getElementById('swLaps');
+    var item=document.createElement('div');item.className='lap-item';
+    item.innerHTML='<span class="lap-num">Lap '+swLapN+'</span><span class="lap-diff">+'+fmtSW(diff)+'</span><span class="lap-time">'+fmtSW(swMs)+'</span>';
+    list.insertBefore(item,list.firstChild);
+}
+function swReset(){
+    clearInterval(swIV);swRun=false;swMs=0;swLapN=0;swLastLap=0;
+    document.getElementById('swDisplay').textContent='00:00.00';
+    document.getElementById('swLaps').innerHTML='';
+    document.getElementById('swStartBtn').disabled=false;
+    document.getElementById('swStartBtn').textContent='Start';
+    document.getElementById('swLapBtn').disabled=true;
+    document.getElementById('swStopBtn').disabled=true;
+}
+
+/* ===== 3. ALARM CLOCK ===== */
+var alarms=[];
+function addAlarm(){
+    var t=document.getElementById('alarmTime').value;if(!t)return;
+    var label=document.getElementById('alarmLabel').value||'Alarm';
+    var id=Date.now();
+    alarms.push({id:id,time:t,label:label,ringing:false});
+    renderAlarms();document.getElementById('alarmLabel').value='';
+}
+function removeAlarm(id){alarms=alarms.filter(function(a){return a.id!==id;});renderAlarms();}
+function dismissAlarm(id){alarms.forEach(function(a){if(a.id===id)a.ringing=false;});renderAlarms();}
+function renderAlarms(){
+    var c=document.getElementById('alarmList');
+    if(alarms.length===0){c.innerHTML='<p style="text-align:center;color:var(--text-secondary);font-size:0.9rem;">No alarms set. Choose a time and click Set Alarm.</p>';return;}
+    var h='';
+    alarms.forEach(function(a){
+        h+='<div class="alarm-item'+(a.ringing?' alarm-ringing':'')+'"><div><div class="alarm-item-time">'+a.time+'</div><div class="alarm-item-label">'+a.label+'</div></div><div>'+(a.ringing?'<button class="btn btn-d btn-sm" onclick="dismissAlarm('+a.id+')">Dismiss</button> ':'')+'<button class="btn btn-s btn-sm" onclick="removeAlarm('+a.id+')">Delete</button></div></div>';
+    });c.innerHTML=h;
+}
+setInterval(function(){
+    var now=new Date();
+    var hh=(now.getHours()<10?'0':'')+now.getHours();
+    var mm=(now.getMinutes()<10?'0':'')+now.getMinutes();
+    var cur=hh+':'+mm;
+    alarms.forEach(function(a){
+        if(a.time===cur&&now.getSeconds()===0&&!a.ringing){
+            a.ringing=true;alarmSound();renderAlarms();
+        }
+    });
+},1000);
+
+/* ===== 4. POMODORO ===== */
+var pomoIV=null,pomoRem=0,pomoTot=0,pomoRun=false,pomoPhase='work',pomoSess=0;
+var POMO_W=1500,POMO_B=300,POMO_L=900;
+function pomoStart(){
+    if(pomoRun)return;pomoRun=true;
+    document.getElementById('pomoStartBtn').disabled=true;
+    document.getElementById('pomoPauseBtn').disabled=false;
+    pomoIV=setInterval(pomoTick,1000);
+}
+function pomoTick(){
+    pomoRem--;
+    if(pomoRem<=0){beep(660,0.3,0.3);pomoNextPhase();}
+    document.getElementById('pomoDisplay').textContent=fmtTimer(pomoRem);
+}
+function pomoNextPhase(){
+    if(pomoPhase==='work'){
+        pomoSess++;updPomoDots();
+        if(pomoSess%4===0){pomoPhase='longbreak';pomoRem=POMO_L;pomoTot=POMO_L;
+        document.getElementById('pomoPhase').textContent='Long Break';}
+        else{pomoPhase='break';pomoRem=POMO_B;pomoTot=POMO_B;
+        document.getElementById('pomoPhase').textContent='Break Time';}
+    }else{pomoPhase='work';pomoRem=POMO_W;pomoTot=POMO_W;
+    document.getElementById('pomoPhase').textContent='Focus Time';}
+}
+function pomoPause(){
+    if(pomoRun){clearInterval(pomoIV);pomoRun=false;
+    document.getElementById('pomoPauseBtn').textContent='Resume';
+    document.getElementById('pomoStartBtn').disabled=false;
+    }else{pomoRun=true;pomoIV=setInterval(pomoTick,1000);
+    document.getElementById('pomoPauseBtn').textContent='Pause';
+    document.getElementById('pomoStartBtn').disabled=true;}
+}
+function pomoReset(){
+    clearInterval(pomoIV);pomoRun=false;pomoPhase='work';pomoSess=0;
+    pomoRem=POMO_W;pomoTot=POMO_W;
+    document.getElementById('pomoDisplay').textContent='25:00';
+    document.getElementById('pomoPhase').textContent='Focus Time';
+    document.getElementById('pomoStartBtn').disabled=false;
+    document.getElementById('pomoPauseBtn').disabled=true;
+    document.getElementById('pomoPauseBtn').textContent='Pause';
+    updPomoDots();
+}
+function pomoSkip(){pomoNextPhase();document.getElementById('pomoDisplay').textContent=fmtTimer(pomoRem);}
+function updPomoDots(){
+    var dots=document.querySelectorAll('.pomo-dot');
+    var f=pomoSess%4;
+    dots.forEach(function(d,i){d.classList.toggle('filled',i<f);});
+}
+
+/* ===== 5. CHESS CLOCK ===== */
+var chessIV=null,chessRun=false,chessTurn=0,chessT=[0,0,0],chessIncVal=0;
+function chessInit(){
+    clearInterval(chessIV);chessRun=false;chessTurn=0;
+    var min=parseInt(document.getElementById('chessMin').value)||10;
+    chessIncVal=parseInt(document.getElementById('chessInc').value)||0;
+    chessT[1]=min*60;chessT[2]=min*60;
+    document.getElementById('chessT1').textContent=fmtChess(chessT[1]);
+    document.getElementById('chessT2').textContent=fmtChess(chessT[2]);
+    document.getElementById('chessP1').classList.remove('active-turn','low-time');
+    document.getElementById('chessP2').classList.remove('active-turn','low-time');
+    document.getElementById('chessStartBtn').textContent='Start';
+}
+function chessToggle(){
+    if(chessRun){clearInterval(chessIV);chessRun=false;
+    document.getElementById('chessStartBtn').textContent='Resume';
+    }else{
+        if(chessTurn===0){chessTurn=1;document.getElementById('chessP1').classList.add('active-turn');}
+        chessRun=true;chessIV=setInterval(chessTick,100);
+        document.getElementById('chessStartBtn').textContent='Pause';
+    }
+}
+function chessTick(){
+    if(chessTurn===0)return;
+    chessT[chessTurn]-=0.1;
+    if(chessT[chessTurn]<=0){
+        chessT[chessTurn]=0;clearInterval(chessIV);chessRun=false;alarmSound();
+        document.getElementById('chessStartBtn').textContent='Player '+(chessTurn===1?'2':'1')+' Wins!';
+    }
+    document.getElementById('chessT'+chessTurn).textContent=fmtChess(chessT[chessTurn]);
+    document.getElementById('chessP'+chessTurn).classList.toggle('low-time',chessT[chessTurn]<30);
+}
+function chessSwitch(p){
+    if(!chessRun||chessTurn===p)return;
+    chessT[chessTurn]+=chessIncVal;
+    document.getElementById('chessP'+chessTurn).classList.remove('active-turn');
+    chessTurn=p;
+    document.getElementById('chessP'+p).classList.add('active-turn');
+    document.getElementById('chessT'+chessTurn).textContent=fmtChess(chessT[chessTurn]);
+}
+chessInit();
+
+/* ===== 6. WORLD CLOCK ===== */
+var wcTzList=['America/New_York','Europe/London','Asia/Tokyo','Asia/Karachi','Australia/Sydney'];
+function wcAdd(){
+    var sel=document.getElementById('wcTzSelect');var tz=sel.value;
+    if(!tz||wcTzList.indexOf(tz)!==-1)return;
+    wcTzList.push(tz);sel.value='';wcTick();
+}
+function wcRemove(idx){wcTzList.splice(idx,1);wcTick();}
+function wcTick(){
+    var grid=document.getElementById('wcGrid');var h='';
+    wcTzList.forEach(function(tz,i){
+        var now=new Date();
+        var time=now.toLocaleTimeString('en-US',{timeZone:tz,hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:true});
+        var date=now.toLocaleDateString('en-US',{timeZone:tz,weekday:'short',month:'short',day:'numeric'});
+        var parts=new Intl.DateTimeFormat('en-US',{timeZone:tz,timeZoneName:'shortOffset'}).formatToParts(now);
+        var offset='';parts.forEach(function(p){if(p.type==='timeZoneName')offset=p.value;});
+        var city=tz.split('/').pop().replace(/_/g,' ');
+        h+='<div class="wc-card"><div class="wc-city">'+city+'</div><div class="wc-time">'+time+'</div><div class="wc-date">'+date+'</div><div class="wc-offset">'+offset+'</div><button class="btn btn-s btn-sm" style="margin-top:8px" onclick="wcRemove('+i+')">Remove</button></div>';
+    });grid.innerHTML=h;
+}
+setInterval(function(){if(document.getElementById('panel-world').classList.contains('active'))wcTick();},1000);
+wcTick();
+
+/* ===== 7. COUNT UP ===== */
+var cuIV=null,cuSec=0,cuRun=false,cuStartTs=0;
+function cuStart(){
+    if(cuRun)return;cuRun=true;
+    cuStartTs=Date.now()-cuSec*1000;
+    cuIV=setInterval(function(){
+        cuSec=Math.floor((Date.now()-cuStartTs)/1000);
+        document.getElementById('cuDisplay').textContent=fmtCU(cuSec);
+    },200);
+    document.getElementById('cuStartBtn').disabled=true;
+    document.getElementById('cuPauseBtn').disabled=false;
+    document.getElementById('cuStopBtn').disabled=false;
+}
+function cuPause(){
+    if(cuRun){clearInterval(cuIV);cuRun=false;
+    document.getElementById('cuStartBtn').disabled=false;
+    document.getElementById('cuStartBtn').textContent='Resume';
+    }else{cuStart();}
+}
+function cuStop(){
+    clearInterval(cuIV);cuRun=false;
+    document.getElementById('cuStartBtn').disabled=false;
+    document.getElementById('cuStartBtn').textContent='Start';
+    document.getElementById('cuPauseBtn').disabled=true;
+    document.getElementById('cuStopBtn').disabled=true;
+}
+function cuReset(){
+    clearInterval(cuIV);cuRun=false;cuSec=0;
+    document.getElementById('cuDisplay').textContent='00:00:00';
+    document.getElementById('cuStartBtn').disabled=false;
+    document.getElementById('cuStartBtn').textContent='Start';
+    document.getElementById('cuPauseBtn').disabled=true;
+    document.getElementById('cuStopBtn').disabled=true;
+}
+
+/* ===== 8. INTERVAL TIMER ===== */
+var intIV=null,intRun=false,intPhT='prep',intCR=0,intRem=0,intPhTot=0;
+function intStart(){
+    if(intRun)return;intRun=true;
+    var work=parseInt(document.getElementById('intWork').value)||30;
+    var rest=parseInt(document.getElementById('intRest').value)||10;
+    var rounds=parseInt(document.getElementById('intRounds').value)||8;
+    var prep=parseInt(document.getElementById('intPrep').value)||5;
+    if(intPhT==='ready'||intPhT==='done'){
+        intCR=0;intPhT='prep';intRem=prep;intPhTot=prep;
+        document.getElementById('intRound').textContent='Get Ready';
+    }
+    document.getElementById('intStartBtn').disabled=true;
+    document.getElementById('intPauseBtn').disabled=false;
+    ['intWork','intRest','intRounds','intPrep'].forEach(function(id){document.getElementById(id).disabled=true;});
+    intIV=setInterval(intTick,1000);
+}
+function intTick(){
+    intRem--;
+    var work=parseInt(document.getElementById('intWork').value)||30;
+    var rest=parseInt(document.getElementById('intRest').value)||10;
+    var rounds=parseInt(document.getElementById('intRounds').value)||8;
+    if(intRem<=0){
+        beep(660,0.2,0.3);
+        if(intPhT==='prep'){intPhT='work';intCR=1;intRem=work;intPhTot=work;}
+        else if(intPhT==='work'){intPhT='rest';intRem=rest;intPhTot=rest;}
+        else if(intPhT==='rest'){
+            if(intCR>=rounds){
+                intPhT='done';intRun=false;clearInterval(intIV);
+                beep(880,0.5,0.4);
+                document.getElementById('intStartBtn').disabled=false;
+                document.getElementById('intPauseBtn').disabled=true;
+                ['intWork','intRest','intRounds','intPrep'].forEach(function(id){document.getElementById(id).disabled=false;});
+                document.getElementById('intPhase').textContent='Complete!';
+                document.getElementById('intPhase').className='interval-phase';
+                document.getElementById('intPhase').style.background='var(--bg-primary)';
+                document.getElementById('intPhase').style.color='var(--success)';
+                document.getElementById('intRound').textContent=rounds+' / '+rounds+' rounds finished';
+                document.getElementById('intProgress').style.width='100%';return;
+            }
+            intPhT='work';intCR++;intRem=work;intPhTot=work;
+        }
+    }
+    updIntDisp();
+}
+function updIntDisp(){
+    document.getElementById('intDisplay').textContent=fmtTimer(intRem);
+    var phase=document.getElementById('intPhase');
+    var rounds=parseInt(document.getElementById('intRounds').value)||8;
+    if(intPhT==='prep'){phase.textContent='Get Ready';phase.className='interval-phase';phase.style.background='var(--bg-tertiary)';phase.style.color='var(--text-secondary)';}
+    else if(intPhT==='work'){phase.textContent='WORK';phase.className='interval-phase work';}
+    else if(intPhT==='rest'){phase.textContent='REST';phase.className='interval-phase rest';}
+    document.getElementById('intRound').textContent='Round '+Math.min(intCR,rounds)+' / '+rounds;
+    var pct=intPhTot>0?((intPhTot-intRem)/intPhTot)*100:0;
+    document.getElementById('intProgress').style.width=pct+'%';
+}
+function intPause(){
+    if(intRun){clearInterval(intIV);intRun=false;
+    document.getElementById('intPauseBtn').textContent='Resume';
+    document.getElementById('intStartBtn').disabled=false;
+    }else{intRun=true;intIV=setInterval(intTick,1000);
+    document.getElementById('intPauseBtn').textContent='Pause';
+    document.getElementById('intStartBtn').disabled=true;}
+}
+function intReset(){
+    clearInterval(intIV);intRun=false;intPhT='ready';intCR=0;intRem=0;intPhTot=0;
+    document.getElementById('intDisplay').textContent='00:00';
+    document.getElementById('intPhase').textContent='Ready';
+    document.getElementById('intPhase').className='interval-phase';
+    document.getElementById('intPhase').style.background='var(--bg-primary)';
+    document.getElementById('intPhase').style.color='var(--text-secondary)';
+    document.getElementById('intRound').textContent='Round 0 / 0';
+    document.getElementById('intProgress').style.width='0%';
+    document.getElementById('intStartBtn').disabled=false;
+    document.getElementById('intPauseBtn').disabled=true;
+    document.getElementById('intPauseBtn').textContent='Pause';
+    ['intWork','intRest','intRounds','intPrep'].forEach(function(id){document.getElementById(id).disabled=false;});
+}
+
+/* ===== 9. SLEEP CALCULATOR ===== */
+function calcSleep(){
+    var mode=document.getElementById('sleepMode').value;
+    var tv=document.getElementById('sleepTime').value;if(!tv)return;
+    var parts=tv.split(':');var bH=parseInt(parts[0]);var bM=parseInt(parts[1]);
+    var bMin=bH*60+bM;
+    var c=document.getElementById('sleepResults');var h='';
+    if(mode==='wake'){
+        for(var cy=6;cy>=3;cy--){
+            var sMin=bMin-cy*90-15;if(sMin<0)sMin+=1440;
+            var sh=Math.floor(sMin/60);var sm=sMin%60;
+            var opt=cy>=5&&cy<=6;
+            h+='<div class="sleep-card'+(opt?' optimal':'')+'"><div class="cycles">'+cy+' cycles ('+(cy*1.5)+'h)</div><div class="time">'+(sh<10?'0':'')+sh+':'+(sm<10?'0':'')+sm+'</div><div class="note">'+(opt?'Recommended':'')+' fall asleep by this time</div></div>';
+        }
+    }else{
+        for(var cy=3;cy<=6;cy++){
+            var wMin=bMin+cy*90+15;if(wMin>=1440)wMin-=1440;
+            var wh=Math.floor(wMin/60);var wm=wMin%60;
+            var opt=cy>=5&&cy<=6;
+            h+='<div class="sleep-card'+(opt?' optimal':'')+'"><div class="cycles">'+cy+' cycles ('+(cy*1.5)+'h)</div><div class="time">'+(wh<10?'0':'')+wh+':'+(wm<10?'0':'')+wm+'</div><div class="note">'+(opt?'Recommended':'')+' wake up at this time</div></div>';
+        }
+    }
+    c.innerHTML=h;
+}
+calcSleep();
+
+/* ===== 10. UNIX TIMESTAMP ===== */
+function unixTick(){
+    var now=Math.floor(Date.now()/1000);
+    document.getElementById('unixLive').textContent=now;
+    document.getElementById('unixLiveDate').textContent=new Date().toISOString().replace('T',' ').substring(0,19)+' UTC';
+}
+setInterval(unixTick,1000);unixTick();
+function convertUnixToDate(){
+    var val=document.getElementById('unixToDate').value.trim();
+    if(!val||isNaN(val)){document.getElementById('unixToDateResult').textContent='Enter a valid Unix timestamp.';return;}
+    var ts=parseInt(val);var d=new Date(ts*1000);
+    if(isNaN(d.getTime())){document.getElementById('unixToDateResult').textContent='Invalid timestamp.';return;}
+    document.getElementById('unixToDateResult').textContent=d.toLocaleString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric',hour:'2-digit',minute:'2-digit',second:'2-digit',timeZoneName:'short'});
+}
+function convertDateToUnix(){
+    var val=document.getElementById('dateToUnix').value;
+    if(!val){document.getElementById('dateToUnixResult').textContent='Select a date and time.';return;}
+    var ts=Math.floor(new Date(val).getTime()/1000);
+    document.getElementById('dateToUnixResult').textContent='Unix Timestamp: '+ts;
+}
+</script>
+</body>
+</html>
