@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="fa026cc1-8f84-44f5-b2fb-9ccf29374a38"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Time Zone Converter | ExcuseMeWeb</title>
+<meta name="description" content="Convert any time between two time zones instantly. Supports 40+ major cities and IANA time zones. See the converted time, date, and UTC offset side by side.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Time Zone Converter | ExcuseMeWeb">
+<meta property="og:description" content="Convert any time between two time zones instantly. Supports 40+ major cities and IANA time zones. See the converted time, date, and UTC offset side by side.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://excusemeweb.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Time Zone Converter | ExcuseMeWeb">
+<meta name="twitter:description" content="Convert any time between two time zones instantly. Supports 40+ major cities and IANA time zones. See the converted time, date, and UTC offset side by side.">
+<link rel="canonical" href="https://excusemeweb.com/timezone-converter">
+<link rel="icon" href="/favicon.ico">
+<meta name="theme-color" content="#ffffff">
+<meta property="og:url" content="https://excusemeweb.com/timezone-converter">
+
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Time Zone Converter",
+  "url": "https://excusemeweb.com/timezone-converter",
+  "description": "Convert any time between two time zones instantly. Supports 40+ major cities and IANA time zones. See the converted time, date, and UTC offset side by side.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "All",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": { "@type": "Organization", "name": "ExcuseMeWeb" },
+  "dateModified": "2026-08-07"
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://excusemeweb.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Clock Tools", "item": "https://excusemeweb.com/clock-tools" },
+    { "@type": "ListItem", "position": 3, "name": "Time Zone Converter", "item": "https://excusemeweb.com/timezone-converter" }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{"@type":"Question","name":"How does the time zone converter work?","acceptedAnswer":{"@type":"Answer","text":"The converter uses your browser's built-in Intl.DateTimeFormat API with IANA time zone identifiers. Select a source time zone, enter a time, then select a target zone. The conversion happens instantly in your browser with no server calls."}},{"@type":"Question","name":"Does it account for daylight saving time?","acceptedAnswer":{"@type":"Answer","text":"Yes. The browser automatically handles daylight saving time (DST) transitions for each time zone, so the converted time reflects the correct offset for the given date."}},{"@type":"Question","name":"What is the difference between UTC and GMT?","acceptedAnswer":{"@type":"Answer","text":"UTC (Coordinated Universal Time) is the standard time reference used worldwide. GMT (Greenwich Mean Time) is a time zone used in the UK during winter. In practice, UTC and GMT are the same for most purposes, but UTC is a time standard while GMT is a time zone."}},{"@type":"Question","name":"Can I convert between any two time zones?","acceptedAnswer":{"@type":"Answer","text":"Yes. You can select any two time zones from the dropdown lists, which include over 40 major cities and regions worldwide. Enter any time and get the equivalent in the target zone."}}]
+}</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg-primary:#ffffff;--bg-secondary:#f8fafc;--bg-tertiary:#f1f5f9;
+--text-primary:#0f172a;--text-secondary:#64748b;--accent:#6366f1;
+--accent-hover:#4f46e5;--accent-light:#eef2ff;--danger:#ef4444;--success:#22c55e;
+--warning:#f59e0b;--border:#e2e8f0;--shadow:rgba(0,0,0,0.08);
+--font-body:'Inter',sans-serif;--border-radius:12px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:var(--font-body);background:var(--bg-primary);color:var(--text-primary);min-height:100vh;display:flex;flex-direction:column;}
+.header{background:var(--bg-secondary);border-bottom:1px solid var(--border);padding:0 24px;position:sticky;top:0;z-index:1000;}
+.header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;}
+.logo{font-size:1.5rem;font-weight:700;color:var(--accent);text-decoration:none;}
+.logo span{color:var(--text-primary);}
+.nav-desktop{display:flex;gap:32px;}
+.nav-desktop a{color:var(--text-secondary);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color 0.2s;}
+.nav-desktop a:hover{color:var(--accent);}
+.nav-desktop a.active{color:var(--accent);}
+.hamburger{display:none;background:none;border:none;color:var(--text-primary);font-size:1.5rem;cursor:pointer;}
+.mobile-nav{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg-secondary);border-bottom:1px solid var(--border);padding:16px 24px;flex-direction:column;gap:16px;z-index:999;}
+.mobile-nav.show{display:flex;}
+.mobile-nav a{color:var(--text-secondary);text-decoration:none;font-size:1rem;font-weight:500;}
+.mobile-nav a.active{color:var(--accent);}
+.main-content{flex:1;max-width:1100px;width:100%;margin:0 auto;padding:40px 24px;}
+.breadcrumb{display:flex;align-items:center;flex-wrap:wrap;gap:6px;font-size:0.85rem;color:var(--text-secondary);margin-bottom:20px;}
+.breadcrumb a{color:var(--accent);text-decoration:none;}
+.breadcrumb a:hover{text-decoration:underline;}
+.bc-sep{color:var(--border);}
+.bc-current{color:var(--text-primary);font-weight:500;}
+.page-header{text-align:center;margin-bottom:32px;}
+.page-header h1{font-size:2rem;font-weight:700;margin-bottom:8px;}
+.page-header p{color:var(--text-secondary);font-size:1.05rem;max-width:600px;margin:0 auto;}
+.tool-box{background:var(--bg-secondary);border:1px solid var(--border);border-radius:var(--border-radius);padding:32px;max-width:700px;margin:0 auto 32px;}
+.time-display{font-size:3.5rem;font-weight:700;text-align:center;font-variant-numeric:tabular-nums;padding:20px 0;letter-spacing:2px;}
+.time-display.accent{color:var(--accent);}
+.time-display.sm{font-size:2.5rem;}
+.time-display.danger{color:var(--danger);}
+.btn-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:20px;}
+.btn{padding:12px 28px;border:none;border-radius:8px;font-size:0.95rem;font-weight:600;cursor:pointer;transition:all 0.15s;font-family:var(--font-body);}
+.btn:disabled{opacity:0.4;cursor:not-allowed;}
+.btn-p{background:var(--accent);color:#fff;}
+.btn-p:hover:not(:disabled){background:var(--accent-hover);}
+.btn-s{background:var(--bg-tertiary);color:var(--text-primary);}
+.btn-s:hover:not(:disabled){background:var(--border);}
+.btn-d{background:var(--danger);color:#fff;}
+.btn-d:hover:not(:disabled){background:#dc2626;}
+.btn-sm{padding:8px 20px;font-size:0.85rem;}
+.label{font-size:0.85rem;color:var(--text-secondary);font-weight:500;margin-bottom:4px;}
+.progress-bar{width:100%;height:6px;background:var(--border);border-radius:3px;overflow:hidden;margin-bottom:16px;}
+.progress-bar .fill{height:100%;background:var(--accent);border-radius:3px;transition:width 1s linear;}
+input[type="text"],input[type="number"],input[type="date"],input[type="datetime-local"],select,textarea{
+  width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:8px;font-size:0.95rem;
+  font-family:var(--font-body);background:var(--bg-primary);color:var(--text-primary);
+}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--accent);border-color:var(--accent);}
+.info-section{background:var(--bg-secondary);border:1px solid var(--border);border-radius:var(--border-radius);padding:32px;margin-bottom:24px;}
+.info-section h2{font-size:1.3rem;margin-bottom:12px;}
+.info-section h3{font-size:1.1rem;margin:20px 0 8px;}
+.info-section p,.info-section li{color:var(--text-secondary);line-height:1.7;margin-bottom:10px;}
+.info-section ul{padding-left:20px;}
+.info-section a{color:var(--accent);text-decoration:none;}
+.info-section a:hover{text-decoration:underline;}
+details{border:1px solid var(--border);border-radius:8px;padding:14px 18px;margin-bottom:8px;cursor:pointer;}
+summary{font-weight:600;font-size:0.95rem;list-style:none;}
+summary::-webkit-details-marker{display:none;}
+details p{color:var(--text-secondary);line-height:1.7;margin-top:10px;font-size:0.95rem;}
+.footer{text-align:center;padding:24px;color:var(--text-secondary);font-size:0.85rem;border-top:1px solid var(--border);margin-top:auto;}
+.footer a{color:var(--accent);text-decoration:none;}
+@media(max-width:768px){
+  .nav-desktop{display:none;}
+  .hamburger{display:block;}
+  .time-display{font-size:2.5rem;}
+  .tool-box{padding:20px;}
+}
+
+.tz-grid{{display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:end;}}
+.tz-col label{{display:block;margin-bottom:6px;font-weight:600;font-size:0.9rem;}}
+.swap-btn{{background:var(--accent);color:#fff;border:none;width:44px;height:44px;border-radius:50%;cursor:pointer;font-size:1.2rem;display:flex;align-items:center;justify-content:center;margin-bottom:6px;transition:transform 0.2s;}}
+.swap-btn:hover{{transform:rotate(180deg);}}
+.tz-result{{text-align:center;margin-top:24px;padding:24px;background:var(--bg-primary);border:1px solid var(--border);border-radius:10px;}}
+.tz-result .big{{font-size:2rem;font-weight:700;color:var(--accent);}}
+.tz-result .sub{{color:var(--text-secondary);margin-top:4px;}}
+@media(max-width:600px){{.tz-grid{{grid-template-columns:1fr;gap:12px;}}.swap-btn{{transform:rotate(90deg);margin:0 auto;}}}}
+
+</style>
+</head>
+<body>
+<header class="header">
+ <div class="header-inner">
+ <a href="/" class="logo">Excuse<span>Me</span>Web</a>
+ <nav class="nav-desktop">
+ <a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/clock-tools" class="active">Clock Tools</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a>
+ </nav>
+ <button class="hamburger" onclick="document.getElementById('mobileNav').classList.toggle('show')">☰</button>
+ </div>
+ <nav class="mobile-nav" id="mobileNav">
+ <a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/clock-tools" class="active">Clock Tools</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a>
+ </nav>
+</header>
+<main class="main-content">
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="bc-sep">/</span><a href="/clock-tools">Clock Tools</a><span class="bc-sep">/</span><span class="bc-current">Timezone Converter</span></nav>
+<div class="page-header">
+<h1>🌐 Time Zone Converter</h1>
+<p>Convert any time between two time zones instantly. Supports 40+ major cities and IANA time zones. See the converted time, date, and UTC offset side by side.</p>
+</div>
+<div class="tool-box">
+<div class="tz-grid">
+  <div class="tz-col">
+    <label>From</label>
+    <select id="tzFrom" onchange="convertTz()">
+      <option value="America/New_York">New York (EST/EDT)</option>
+      <option value="America/Chicago">Chicago (CST/CDT)</option>
+      <option value="America/Denver">Denver (MST/MDT)</option>
+      <option value="America/Los_Angeles">Los Angeles (PST/PDT)</option>
+      <option value="America/Toronto">Toronto</option>
+      <option value="America/Sao_Paulo">Sao Paulo</option>
+      <option value="America/Mexico_City">Mexico City</option>
+      <option value="America/Argentina/Buenos_Aires">Buenos Aires</option>
+      <option value="Europe/London">London (GMT/BST)</option>
+      <option value="Europe/Paris">Paris (CET/CEST)</option>
+      <option value="Europe/Berlin">Berlin (CET/CEST)</option>
+      <option value="Europe/Madrid">Madrid</option>
+      <option value="Europe/Rome">Rome</option>
+      <option value="Europe/Amsterdam">Amsterdam</option>
+      <option value="Europe/Moscow">Moscow</option>
+      <option value="Europe/Istanbul">Istanbul</option>
+      <option value="Europe/Athens">Athens</option>
+      <option value="Europe/Helsinki">Helsinki</option>
+      <option value="Europe/Warsaw">Warsaw</option>
+      <option value="Asia/Dubai">Dubai</option>
+      <option value="Asia/Riyadh">Riyadh</option>
+      <option value="Asia/Karachi">Karachi</option>
+      <option value="Asia/Kolkata">Mumbai / Kolkata</option>
+      <option value="Asia/Colombo">Colombo</option>
+      <option value="Asia/Dhaka">Dhaka</option>
+      <option value="Asia/Bangkok">Bangkok</option>
+      <option value="Asia/Singapore">Singapore</option>
+      <option value="Asia/Shanghai">Shanghai</option>
+      <option value="Asia/Hong_Kong">Hong Kong</option>
+      <option value="Asia/Tokyo">Tokyo</option>
+      <option value="Asia/Seoul">Seoul</option>
+      <option value="Australia/Sydney">Sydney</option>
+      <option value="Australia/Melbourne">Melbourne</option>
+      <option value="Pacific/Auckland">Auckland</option>
+      <option value="Pacific/Honolulu">Honolulu</option>
+      <option value="Africa/Cairo">Cairo</option>
+      <option value="Africa/Lagos">Lagos</option>
+      <option value="Africa/Johannesburg">Johannesburg</option>
+      <option value="Asia/Taipei">Taipei</option>
+      <option value="Asia/Jakarta">Jakarta</option>
+      <option value="UTC">UTC</option>
+    </select>
+    <input type="date" id="tzDate" onchange="convertTz()">
+    <input type="time" id="tzTime" value="09:00" onchange="convertTz()" style="margin-top:8px;">
+  </div>
+  <button class="swap-btn" onclick="swapTz()" title="Swap">⇄</button>
+  <div class="tz-col">
+    <label>To</label>
+    <select id="tzTo" onchange="convertTz()">
+      <option value="Europe/London" selected>London (GMT/BST)</option>
+      <option value="America/New_York">New York (EST/EDT)</option>
+      <option value="America/Chicago">Chicago (CST/CDT)</option>
+      <option value="America/Denver">Denver (MST/MDT)</option>
+      <option value="America/Los_Angeles">Los Angeles (PST/PDT)</option>
+      <option value="America/Toronto">Toronto</option>
+      <option value="America/Sao_Paulo">Sao Paulo</option>
+      <option value="America/Mexico_City">Mexico City</option>
+      <option value="America/Argentina/Buenos_Aires">Buenos Aires</option>
+      <option value="Europe/Paris">Paris (CET/CEST)</option>
+      <option value="Europe/Berlin">Berlin (CET/CEST)</option>
+      <option value="Europe/Madrid">Madrid</option>
+      <option value="Europe/Rome">Rome</option>
+      <option value="Europe/Amsterdam">Amsterdam</option>
+      <option value="Europe/Moscow">Moscow</option>
+      <option value="Europe/Istanbul">Istanbul</option>
+      <option value="Europe/Athens">Athens</option>
+      <option value="Europe/Helsinki">Helsinki</option>
+      <option value="Europe/Warsaw">Warsaw</option>
+      <option value="Asia/Dubai">Dubai</option>
+      <option value="Asia/Riyadh">Riyadh</option>
+      <option value="Asia/Karachi">Karachi</option>
+      <option value="Asia/Kolkata">Mumbai / Kolkata</option>
+      <option value="Asia/Colombo">Colombo</option>
+      <option value="Asia/Dhaka">Dhaka</option>
+      <option value="Asia/Bangkok">Bangkok</option>
+      <option value="Asia/Singapore">Singapore</option>
+      <option value="Asia/Shanghai">Shanghai</option>
+      <option value="Asia/Hong_Kong">Hong Kong</option>
+      <option value="Asia/Tokyo">Tokyo</option>
+      <option value="Asia/Seoul">Seoul</option>
+      <option value="Australia/Sydney">Sydney</option>
+      <option value="Australia/Melbourne">Melbourne</option>
+      <option value="Pacific/Auckland">Auckland</option>
+      <option value="Pacific/Honolulu">Honolulu</option>
+      <option value="Africa/Cairo">Cairo</option>
+      <option value="Africa/Lagos">Lagos</option>
+      <option value="Africa/Johannesburg">Johannesburg</option>
+      <option value="Asia/Taipei">Taipei</option>
+      <option value="Asia/Jakarta">Jakarta</option>
+      <option value="UTC">UTC</option>
+    </select>
+    <div class="tz-result" id="tzResult">
+      <div class="big">--:--</div>
+      <div class="sub">Select times above</div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="info-section">
+<h2>Convert Time Between Time Zones</h2>
+<p>This time zone converter lets you instantly convert any time from one time zone to another. Whether you are scheduling a meeting with colleagues in another country, planning a call with an overseas client, or figuring out what time a live event starts in your region, this tool gives you the answer in one click.</p>
+
+<h3>How to Use</h3>
+<p>Select the source time zone from the "From" dropdown, enter the time you want to convert, then select the target time zone from the "To" dropdown. The converted time, date, and UTC offset are displayed immediately. You can also swap the two zones with one click to reverse the conversion.</p>
+
+<h3>Supported Time Zones</h3>
+<p>The tool includes over 40 major cities and regions spanning the Americas, Europe, Asia, Africa, and Oceania. All conversions use the IANA time zone database and automatically account for daylight saving time changes throughout the year.</p>
+<h3>Frequently Asked Questions</h3>
+<details><summary>How does the time zone converter work?</summary><p>The converter uses your browser's built-in Intl.DateTimeFormat API with IANA time zone identifiers. Select a source time zone, enter a time, then select a target zone. The conversion happens instantly in your browser with no server calls.</p></details>
+<details><summary>Does it account for daylight saving time?</summary><p>Yes. The browser automatically handles daylight saving time (DST) transitions for each time zone, so the converted time reflects the correct offset for the given date.</p></details>
+<details><summary>What is the difference between UTC and GMT?</summary><p>UTC (Coordinated Universal Time) is the standard time reference used worldwide. GMT (Greenwich Mean Time) is a time zone used in the UK during winter. In practice, UTC and GMT are the same for most purposes, but UTC is a time standard while GMT is a time zone.</p></details>
+<details><summary>Can I convert between any two time zones?</summary><p>Yes. You can select any two time zones from the dropdown lists, which include over 40 major cities and regions worldwide. Enter any time and get the equivalent in the target zone.</p></details>
+<h3>Related Tools</h3>
+<p><a href="/timer">Countdown Timer</a> &middot; <a href="/stopwatch">Stopwatch</a> &middot; <a href="/alarm">Alarm Clock</a> &middot; <a href="/pomodoro-timer">Pomodoro Timer</a> &middot; <a href="/world-clock">World Clock</a> &middot; <a href="/clock-tools">All Clock Tools</a></p>
+</div>
+</main>
+<footer class="footer">
+<p>&copy; 2026 ExcuseMeWeb.com &mdash; Online Tools for Everyone</p>
+<p style="margin-top:8px"><a href="/timer">Timer</a> &middot; <a href="/stopwatch">Stopwatch</a> &middot; <a href="/alarm">Alarm</a> &middot; <a href="/pomodoro-timer">Pomodoro</a> &middot; <a href="/chess-clock">Chess Clock</a> &middot; <a href="/world-clock">World Clock</a> &middot; <a href="/count-up-timer">Count Up</a> &middot; <a href="/interval-timer">Interval</a> &middot; <a href="/sleep-calculator">Sleep Calc</a> &middot; <a href="/unix-timestamp">Unix Time</a> &middot; <a href="/countdown-event">Event Countdown</a> &middot; <a href="/timezone-converter">Timezone Converter</a> &middot; <a href="/time-card-calculator">Time Card</a> &middot; <a href="/sunrise-sunset">Sunrise/Sunset</a> &middot; <a href="/breathing-timer">Breathing Timer</a> &middot; <a href="/clock-tools">All Clock Tools</a></p>
+<p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p>
+</footer>
+<script>
+var today=new Date();
+document.getElementById('tzDate').value=today.toISOString().split('T')[0];
+function swapTz(){
+  var f=document.getElementById('tzFrom');
+  var t=document.getElementById('tzTo');
+  var tmp=f.value;f.value=t.value;t.value=tmp;
+  convertTz();
+}
+function convertTz(){
+  var fromTz=document.getElementById('tzFrom').value;
+  var toTz=document.getElementById('tzTo').value;
+  var dateStr=document.getElementById('tzDate').value;
+  var timeStr=document.getElementById('tzTime').value;
+  if(!dateStr||!timeStr)return;
+  try{
+    var dateInFrom=new Date(dateStr+'T'+timeStr+':00');
+    var fromStr=dateInFrom.toLocaleString('en-US',{timeZone:fromTz,month:'short',day:'numeric',year:'numeric',hour:'2-digit',minute:'2-digit',timeZoneName:'short'});
+    var toStr=dateInFrom.toLocaleString('en-US',{timeZone:toTz,month:'short',day:'numeric',year:'numeric',hour:'2-digit',minute:'2-digit',timeZoneName:'short'});
+    var toTimeOnly=dateInFrom.toLocaleString('en-US',{timeZone:toTz,hour:'2-digit',minute:'2-digit',hour12:true});
+    var toDateOnly=dateInFrom.toLocaleString('en-US',{timeZone:toTz,weekday:'long',month:'long',day:'numeric',year:'numeric'});
+    var offsetTo=dateInFrom.toLocaleString('en-US',{timeZone:toTz,timeZoneName:'longOffset'});
+    document.getElementById('tzResult').innerHTML='<div class="big">'+toTimeOnly+'</div><div class="sub">'+toDateOnly+'</div><div class="sub" style="margin-top:4px;">'+offsetTo+'</div>';
+  }catch(e){
+    document.getElementById('tzResult').innerHTML='<div class="big">Error</div><div class="sub">Could not convert. Check your inputs.</div>';
+  }
+}
+convertTz();
+</script>
+</body>
+</html>

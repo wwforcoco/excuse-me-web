@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="fa026cc1-8f84-44f5-b2fb-9ccf29374a38"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Breathing Exercise Timer | ExcuseMeWeb</title>
+<meta name="description" content="Guided breathing exercise timer with presets for 4-7-8 breathing, box breathing, coherent breathing, and relax breathing. Follow the visual circle animation and audio cues.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Breathing Exercise Timer | ExcuseMeWeb">
+<meta property="og:description" content="Guided breathing exercise timer with presets for 4-7-8 breathing, box breathing, coherent breathing, and relax breathing. Follow the visual circle animation and audio cues.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://excusemeweb.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Breathing Exercise Timer | ExcuseMeWeb">
+<meta name="twitter:description" content="Guided breathing exercise timer with presets for 4-7-8 breathing, box breathing, coherent breathing, and relax breathing. Follow the visual circle animation and audio cues.">
+<link rel="canonical" href="https://excusemeweb.com/breathing-timer">
+<link rel="icon" href="/favicon.ico">
+<meta name="theme-color" content="#ffffff">
+<meta property="og:url" content="https://excusemeweb.com/breathing-timer">
+
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Breathing Exercise Timer",
+  "url": "https://excusemeweb.com/breathing-timer",
+  "description": "Guided breathing exercise timer with presets for 4-7-8 breathing, box breathing, coherent breathing, and relax breathing. Follow the visual circle animation and audio cues.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "All",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": { "@type": "Organization", "name": "ExcuseMeWeb" },
+  "dateModified": "2026-08-07"
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://excusemeweb.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Clock Tools", "item": "https://excusemeweb.com/clock-tools" },
+    { "@type": "ListItem", "position": 3, "name": "Breathing Exercise Timer", "item": "https://excusemeweb.com/breathing-timer" }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{"@type":"Question","name":"What is the 4-7-8 breathing technique?","acceptedAnswer":{"@type":"Answer","text":"The 4-7-8 technique involves inhaling for 4 seconds, holding your breath for 7 seconds, and exhaling slowly for 8 seconds. Developed by Dr. Andrew Weil, it is used to reduce anxiety and help with falling asleep."}},{"@type":"Question","name":"What is box breathing?","acceptedAnswer":{"@type":"Answer","text":"Box breathing (also called square breathing) involves four equal phases: inhale for 4 seconds, hold for 4 seconds, exhale for 4 seconds, and hold empty for 4 seconds. Each phase forms one side of a 'box.' It is used by Navy SEALs and first responders to stay calm under stress."}},{"@type":"Question","name":"How does the breathing timer help with anxiety?","acceptedAnswer":{"@type":"Answer","text":"Slow, controlled breathing activates the parasympathetic nervous system, which counteracts the fight-or-flight response. By following the timed visual and audio cues, you slow your breathing rate, which can lower heart rate and reduce feelings of anxiety."}},{"@type":"Question","name":"Can I use this for meditation?","acceptedAnswer":{"@type":"Answer","text":"Yes. The breathing timer works well as a meditation anchor. Choose the 'Relax' preset (5-0-5) or the 'Coherent' preset (5-5) for a gentle, even rhythm that supports mindfulness meditation."}}]
+}</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg-primary:#ffffff;--bg-secondary:#f8fafc;--bg-tertiary:#f1f5f9;
+--text-primary:#0f172a;--text-secondary:#64748b;--accent:#6366f1;
+--accent-hover:#4f46e5;--accent-light:#eef2ff;--danger:#ef4444;--success:#22c55e;
+--warning:#f59e0b;--border:#e2e8f0;--shadow:rgba(0,0,0,0.08);
+--font-body:'Inter',sans-serif;--border-radius:12px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:var(--font-body);background:var(--bg-primary);color:var(--text-primary);min-height:100vh;display:flex;flex-direction:column;}
+.header{background:var(--bg-secondary);border-bottom:1px solid var(--border);padding:0 24px;position:sticky;top:0;z-index:1000;}
+.header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;}
+.logo{font-size:1.5rem;font-weight:700;color:var(--accent);text-decoration:none;}
+.logo span{color:var(--text-primary);}
+.nav-desktop{display:flex;gap:32px;}
+.nav-desktop a{color:var(--text-secondary);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color 0.2s;}
+.nav-desktop a:hover{color:var(--accent);}
+.nav-desktop a.active{color:var(--accent);}
+.hamburger{display:none;background:none;border:none;color:var(--text-primary);font-size:1.5rem;cursor:pointer;}
+.mobile-nav{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg-secondary);border-bottom:1px solid var(--border);padding:16px 24px;flex-direction:column;gap:16px;z-index:999;}
+.mobile-nav.show{display:flex;}
+.mobile-nav a{color:var(--text-secondary);text-decoration:none;font-size:1rem;font-weight:500;}
+.mobile-nav a.active{color:var(--accent);}
+.main-content{flex:1;max-width:1100px;width:100%;margin:0 auto;padding:40px 24px;}
+.breadcrumb{display:flex;align-items:center;flex-wrap:wrap;gap:6px;font-size:0.85rem;color:var(--text-secondary);margin-bottom:20px;}
+.breadcrumb a{color:var(--accent);text-decoration:none;}
+.breadcrumb a:hover{text-decoration:underline;}
+.bc-sep{color:var(--border);}
+.bc-current{color:var(--text-primary);font-weight:500;}
+.page-header{text-align:center;margin-bottom:32px;}
+.page-header h1{font-size:2rem;font-weight:700;margin-bottom:8px;}
+.page-header p{color:var(--text-secondary);font-size:1.05rem;max-width:600px;margin:0 auto;}
+.tool-box{background:var(--bg-secondary);border:1px solid var(--border);border-radius:var(--border-radius);padding:32px;max-width:700px;margin:0 auto 32px;}
+.time-display{font-size:3.5rem;font-weight:700;text-align:center;font-variant-numeric:tabular-nums;padding:20px 0;letter-spacing:2px;}
+.time-display.accent{color:var(--accent);}
+.time-display.sm{font-size:2.5rem;}
+.time-display.danger{color:var(--danger);}
+.btn-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:20px;}
+.btn{padding:12px 28px;border:none;border-radius:8px;font-size:0.95rem;font-weight:600;cursor:pointer;transition:all 0.15s;font-family:var(--font-body);}
+.btn:disabled{opacity:0.4;cursor:not-allowed;}
+.btn-p{background:var(--accent);color:#fff;}
+.btn-p:hover:not(:disabled){background:var(--accent-hover);}
+.btn-s{background:var(--bg-tertiary);color:var(--text-primary);}
+.btn-s:hover:not(:disabled){background:var(--border);}
+.btn-d{background:var(--danger);color:#fff;}
+.btn-d:hover:not(:disabled){background:#dc2626;}
+.btn-sm{padding:8px 20px;font-size:0.85rem;}
+.label{font-size:0.85rem;color:var(--text-secondary);font-weight:500;margin-bottom:4px;}
+.progress-bar{width:100%;height:6px;background:var(--border);border-radius:3px;overflow:hidden;margin-bottom:16px;}
+.progress-bar .fill{height:100%;background:var(--accent);border-radius:3px;transition:width 1s linear;}
+input[type="text"],input[type="number"],input[type="date"],input[type="datetime-local"],select,textarea{
+  width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:8px;font-size:0.95rem;
+  font-family:var(--font-body);background:var(--bg-primary);color:var(--text-primary);
+}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--accent);border-color:var(--accent);}
+.info-section{background:var(--bg-secondary);border:1px solid var(--border);border-radius:var(--border-radius);padding:32px;margin-bottom:24px;}
+.info-section h2{font-size:1.3rem;margin-bottom:12px;}
+.info-section h3{font-size:1.1rem;margin:20px 0 8px;}
+.info-section p,.info-section li{color:var(--text-secondary);line-height:1.7;margin-bottom:10px;}
+.info-section ul{padding-left:20px;}
+.info-section a{color:var(--accent);text-decoration:none;}
+.info-section a:hover{text-decoration:underline;}
+details{border:1px solid var(--border);border-radius:8px;padding:14px 18px;margin-bottom:8px;cursor:pointer;}
+summary{font-weight:600;font-size:0.95rem;list-style:none;}
+summary::-webkit-details-marker{display:none;}
+details p{color:var(--text-secondary);line-height:1.7;margin-top:10px;font-size:0.95rem;}
+.footer{text-align:center;padding:24px;color:var(--text-secondary);font-size:0.85rem;border-top:1px solid var(--border);margin-top:auto;}
+.footer a{color:var(--accent);text-decoration:none;}
+@media(max-width:768px){
+  .nav-desktop{display:none;}
+  .hamburger{display:block;}
+  .time-display{font-size:2.5rem;}
+  .tool-box{padding:20px;}
+}
+
+.breath-presets{{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:20px 0;}}
+.breath-preset{{padding:10px 20px;border:2px solid var(--border);border-radius:10px;background:var(--bg-primary);cursor:pointer;font-family:var(--font-body);font-size:0.9rem;font-weight:500;transition:all 0.15s;}}
+.breath-preset:hover,.breath-preset.active{{border-color:var(--accent);color:var(--accent);background:var(--accent-light);}}
+.breath-circle-wrap{{display:flex;justify-content:center;align-items:center;margin:40px 0;position:relative;height:220px;}}
+.breath-circle{{width:180px;height:180px;border-radius:50%;background:var(--accent-light);border:3px solid var(--accent);display:flex;align-items:center;justify-content:center;transition:transform 4s ease-in-out,background 4s;}}
+.breath-circle.inhale{{transform:scale(1.4);background:rgba(99,102,241,0.15);}}
+.breath-circle.hold{{transform:scale(1.4);background:rgba(99,102,241,0.15);}}
+.breath-circle.exhale{{transform:scale(0.7);background:var(--bg-secondary);}}
+.breath-circle.hold-empty{{transform:scale(0.7);background:var(--bg-secondary);}}
+.breath-text{{font-size:1.2rem;font-weight:600;color:var(--accent);text-align:center;z-index:1;}}
+.breath-timer-num{{font-size:2.5rem;font-weight:700;color:var(--text-primary);text-align:center;margin:10px 0;font-variant-numeric:tabular-nums;}}
+.breath-cycles{{text-align:center;color:var(--text-secondary);margin:8px 0;}}
+.breath-custom{{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;align-items:end;margin:16px 0;}}
+.breath-custom>div{{display:flex;flex-direction:column;gap:4px;}}
+.breath-custom input{{width:80px;text-align:center;}}
+
+</style>
+</head>
+<body>
+<header class="header">
+ <div class="header-inner">
+ <a href="/" class="logo">Excuse<span>Me</span>Web</a>
+ <nav class="nav-desktop">
+ <a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/clock-tools" class="active">Clock Tools</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a>
+ </nav>
+ <button class="hamburger" onclick="document.getElementById('mobileNav').classList.toggle('show')">☰</button>
+ </div>
+ <nav class="mobile-nav" id="mobileNav">
+ <a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/clock-tools" class="active">Clock Tools</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a>
+ </nav>
+</header>
+<main class="main-content">
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="bc-sep">/</span><a href="/clock-tools">Clock Tools</a><span class="bc-sep">/</span><span class="bc-current">Breathing Timer</span></nav>
+<div class="page-header">
+<h1>🫁 Breathing Exercise Timer</h1>
+<p>Guided breathing exercise timer with presets for 4-7-8 breathing, box breathing, coherent breathing, and relax breathing. Follow the visual circle animation and audio cues.</p>
+</div>
+<div class="tool-box">
+<div class="breath-presets">
+  <button class="breath-preset active" onclick="setBreathPreset(4,7,8,0,this)">4-7-8 Relaxing</button>
+  <button class="breath-preset" onclick="setBreathPreset(4,4,4,4,this)">Box Breathing</button>
+  <button class="breath-preset" onclick="setBreathPreset(5,0,5,0,this)">Relax (5-5)</button>
+  <button class="breath-preset" onclick="setBreathPreset(5,5,5,0,this)">Coherent (5-5)</button>
+</div>
+<div class="breath-custom">
+  <div><label class="label">Inhale (s)</label><input type="number" id="brIn" value="4" min="1" max="30"></div>
+  <div><label class="label">Hold (s)</label><input type="number" id="brHold" value="7" min="0" max="30"></div>
+  <div><label class="label">Exhale (s)</label><input type="number" id="brOut" value="8" min="1" max="30"></div>
+  <div><label class="label">Hold Empty (s)</label><input type="number" id="brHoldE" value="0" min="0" max="30"></div>
+</div>
+<div class="breath-circle-wrap">
+  <div class="breath-circle" id="brCircle"><div class="breath-text" id="brPhaseText">Ready</div></div>
+</div>
+<div class="breath-timer-num" id="brCount">0</div>
+<div class="breath-cycles">Cycle <span id="brCycle">0</span> / <span id="brTotalCycles">10</span>
+  &nbsp;|&nbsp; <label class="label" style="display:inline;">Cycles:</label> <input type="number" id="brCycles" value="10" min="1" max="100" style="width:60px;padding:4px 6px;text-align:center;"></div>
+<div class="btn-row">
+  <button class="btn btn-p" onclick="brStart()" id="brStartBtn">Start</button>
+  <button class="btn btn-s" onclick="brPause()" id="brPauseBtn" disabled>Pause</button>
+  <button class="btn btn-s" onclick="brReset()">Reset</button>
+</div>
+</div>
+<div class="info-section">
+<h2>Guided Breathing Exercise Timer</h2>
+<p>This breathing exercise timer guides you through structured breathing patterns using a visual circle animation and optional audio cues. It includes four well-known breathing techniques that are used for relaxation, stress relief, focus, and sleep preparation.</p>
+
+<h3>Breathing Presets</h3>
+<ul>
+<li><strong>4-7-8 (Relaxing):</strong> Inhale 4 seconds, hold 7 seconds, exhale 8 seconds. Best for calming down and preparing for sleep.</li>
+<li><strong>Box Breathing (4-4-4-4):</strong> Inhale 4, hold 4, exhale 4, hold 4. Used by athletes, military personnel, and first responders for focus and stress management.</li>
+<li><strong>Coherent Breathing (5-5):</strong> Inhale 5 seconds, exhale 5 seconds. Resonance breathing at about 6 breaths per minute, which can help synchronize heart rate variability.</li>
+<li><strong>Relax (5-0-5):</strong> Simple inhale 5 seconds, exhale 5 seconds with no hold. Great for beginners and meditation.</li>
+</ul>
+
+<h3>How to Use</h3>
+<p>Select a breathing preset or enter custom phase durations. Press Start and follow the expanding and shrinking circle along with the text prompts. The circle grows during inhale, stays full during hold, and shrinks during exhale. Audio tones mark each phase transition.</p>
+<h3>Frequently Asked Questions</h3>
+<details><summary>What is the 4-7-8 breathing technique?</summary><p>The 4-7-8 technique involves inhaling for 4 seconds, holding your breath for 7 seconds, and exhaling slowly for 8 seconds. Developed by Dr. Andrew Weil, it is used to reduce anxiety and help with falling asleep.</p></details>
+<details><summary>What is box breathing?</summary><p>Box breathing (also called square breathing) involves four equal phases: inhale for 4 seconds, hold for 4 seconds, exhale for 4 seconds, and hold empty for 4 seconds. Each phase forms one side of a 'box.' It is used by Navy SEALs and first responders to stay calm under stress.</p></details>
+<details><summary>How does the breathing timer help with anxiety?</summary><p>Slow, controlled breathing activates the parasympathetic nervous system, which counteracts the fight-or-flight response. By following the timed visual and audio cues, you slow your breathing rate, which can lower heart rate and reduce feelings of anxiety.</p></details>
+<details><summary>Can I use this for meditation?</summary><p>Yes. The breathing timer works well as a meditation anchor. Choose the 'Relax' preset (5-0-5) or the 'Coherent' preset (5-5) for a gentle, even rhythm that supports mindfulness meditation.</p></details>
+<h3>Related Tools</h3>
+<p><a href="/timer">Countdown Timer</a> &middot; <a href="/stopwatch">Stopwatch</a> &middot; <a href="/alarm">Alarm Clock</a> &middot; <a href="/pomodoro-timer">Pomodoro Timer</a> &middot; <a href="/world-clock">World Clock</a> &middot; <a href="/clock-tools">All Clock Tools</a></p>
+</div>
+</main>
+<footer class="footer">
+<p>&copy; 2026 ExcuseMeWeb.com &mdash; Online Tools for Everyone</p>
+<p style="margin-top:8px"><a href="/timer">Timer</a> &middot; <a href="/stopwatch">Stopwatch</a> &middot; <a href="/alarm">Alarm</a> &middot; <a href="/pomodoro-timer">Pomodoro</a> &middot; <a href="/chess-clock">Chess Clock</a> &middot; <a href="/world-clock">World Clock</a> &middot; <a href="/count-up-timer">Count Up</a> &middot; <a href="/interval-timer">Interval</a> &middot; <a href="/sleep-calculator">Sleep Calc</a> &middot; <a href="/unix-timestamp">Unix Time</a> &middot; <a href="/countdown-event">Event Countdown</a> &middot; <a href="/timezone-converter">Timezone Converter</a> &middot; <a href="/time-card-calculator">Time Card</a> &middot; <a href="/sunrise-sunset">Sunrise/Sunset</a> &middot; <a href="/breathing-timer">Breathing Timer</a> &middot; <a href="/clock-tools">All Clock Tools</a></p>
+<p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p>
+</footer>
+<script>
+var brInterval=null,brTimeout=null,brRunning=false,brCycleCount=0,brCurrentPhase=0,brPhaseTimeLeft=0;
+var brPhases=[],brPhaseNames=['Inhale','Hold','Exhale','Hold'];
+var audioCtx=null;
+function beep(freq,dur){
+  try{
+    if(!audioCtx)audioCtx=new(window.AudioContext||window.webkitAudioContext)();
+    var o=audioCtx.createOscillator();var g=audioCtx.createGain();
+    o.connect(g);g.connect(audioCtx.destination);o.frequency.value=freq||660;o.type='sine';g.gain.value=0.2;
+    o.start();setTimeout(function(){o.stop();},dur||200);
+  }catch(e){}
+}
+function setBreathPreset(i,h,o,he,btn){
+  document.getElementById('brIn').value=i;
+  document.getElementById('brHold').value=h;
+  document.getElementById('brOut').value=o;
+  document.getElementById('brHoldE').value=he;
+  var btns=document.querySelectorAll('.breath-preset');
+  for(var x=0;x<btns.length;x++)btns[x].classList.remove('active');
+  if(btn)btn.classList.add('active');
+}
+function brStart(){
+  if(brRunning){brResume();return;}
+  var i=parseInt(document.getElementById('brIn').value)||4;
+  var h=parseInt(document.getElementById('brHold').value)||0;
+  var o=parseInt(document.getElementById('brOut').value)||8;
+  var he=parseInt(document.getElementById('brHoldE').value)||0;
+  brPhases=[
+    {name:'Inhale',dur:i,cls:'inhale'},
+    {name:'Hold',dur:h,cls:'hold'},
+    {name:'Exhale',dur:o,cls:'exhale'},
+    {name:'Hold',dur:he,cls:'hold-empty'}
+  ];
+  brCycleCount=0;brCurrentPhase=0;
+  document.getElementById('brStartBtn').disabled=true;
+  document.getElementById('brPauseBtn').disabled=false;
+  brRunning=true;
+  beep(880,150);
+  runPhase();
+}
+function runPhase(){
+  var total=parseInt(document.getElementById('brCycles').value)||10;
+  if(brCurrentPhase>=brPhases.length){brCurrentPhase=0;brCycleCount++;}
+  if(brCycleCount>=total){brFinish();return;}
+  document.getElementById('brCycle').textContent=brCycleCount+1;
+  var p=brPhases[brCurrentPhase];
+  var circle=document.getElementById('brCircle');
+  circle.className='breath-circle '+p.cls;
+  circle.style.transitionDuration=p.dur+'s';
+  document.getElementById('brPhaseText').textContent=p.name;
+  if(p.dur===0){brCurrentPhase++;runPhase();return;}
+  brPhaseTimeLeft=p.dur;
+  document.getElementById('brCount').textContent=brPhaseTimeLeft;
+  beep(p.cls==='exhale'||p.cls==='hold-empty'?440:660,100);
+ clearInterval(brInterval);
+  brInterval=setInterval(function(){
+    brPhaseTimeLeft--;
+    document.getElementById('brCount').textContent=Math.max(0,brPhaseTimeLeft);
+    if(brPhaseTimeLeft<=0){clearInterval(brInterval);brCurrentPhase++;runPhase();}
+  },1000);
+}
+function brPause(){
+  clearInterval(brInterval);brRunning=false;
+  document.getElementById('brStartBtn').disabled=false;
+  document.getElementById('brPauseBtn').disabled=true;
+  document.getElementById('brStartBtn').textContent='Resume';
+}
+function brResume(){
+  brRunning=true;
+  document.getElementById('brStartBtn').disabled=true;
+  document.getElementById('brPauseBtn').disabled=false;
+  var p=brPhases[brCurrentPhase];
+  brInterval=setInterval(function(){
+    brPhaseTimeLeft--;
+    document.getElementById('brCount').textContent=Math.max(0,brPhaseTimeLeft);
+    if(brPhaseTimeLeft<=0){clearInterval(brInterval);brCurrentPhase++;runPhase();}
+  },1000);
+}
+function brReset(){
+  clearInterval(brInterval);brRunning=false;brCycleCount=0;brCurrentPhase=0;
+  document.getElementById('brCircle').className='breath-circle';
+  document.getElementById('brCircle').style.transitionDuration='1s';
+  document.getElementById('brPhaseText').textContent='Ready';
+  document.getElementById('brCount').textContent='0';
+  document.getElementById('brCycle').textContent='0';
+  document.getElementById('brStartBtn').disabled=false;
+  document.getElementById('brPauseBtn').disabled=true;
+  document.getElementById('brStartBtn').textContent='Start';
+}
+function brFinish(){
+  clearInterval(brInterval);brRunning=false;
+  document.getElementById('brCircle').className='breath-circle';
+  document.getElementById('brCircle').style.transitionDuration='1s';
+  document.getElementById('brPhaseText').textContent='Done';
+  document.getElementById('brCount').textContent='✓';
+  document.getElementById('brStartBtn').disabled=false;
+  document.getElementById('brPauseBtn').disabled=true;
+  document.getElementById('brStartBtn').textContent='Start';
+  beep(880,400);
+}
+</script>
+</body>
+</html>

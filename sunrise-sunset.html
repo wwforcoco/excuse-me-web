@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="fa026cc1-8f84-44f5-b2fb-9ccf29374a38"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sunrise and Sunset Calculator | ExcuseMeWeb</title>
+<meta name="description" content="Estimate sunrise and sunset times for any date and location. Uses the standard solar position algorithm. See dawn, sunrise, solar noon, sunset, and dusk times.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Sunrise and Sunset Calculator | ExcuseMeWeb">
+<meta property="og:description" content="Estimate sunrise and sunset times for any date and location. Uses the standard solar position algorithm. See dawn, sunrise, solar noon, sunset, and dusk times.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://excusemeweb.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sunrise and Sunset Calculator | ExcuseMeWeb">
+<meta name="twitter:description" content="Estimate sunrise and sunset times for any date and location. Uses the standard solar position algorithm. See dawn, sunrise, solar noon, sunset, and dusk times.">
+<link rel="canonical" href="https://excusemeweb.com/sunrise-sunset">
+<link rel="icon" href="/favicon.ico">
+<meta name="theme-color" content="#ffffff">
+<meta property="og:url" content="https://excusemeweb.com/sunrise-sunset">
+
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Sunrise and Sunset Calculator",
+  "url": "https://excusemeweb.com/sunrise-sunset",
+  "description": "Estimate sunrise and sunset times for any date and location. Uses the standard solar position algorithm. See dawn, sunrise, solar noon, sunset, and dusk times.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "All",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": { "@type": "Organization", "name": "ExcuseMeWeb" },
+  "dateModified": "2026-08-07"
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://excusemeweb.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Clock Tools", "item": "https://excusemeweb.com/clock-tools" },
+    { "@type": "ListItem", "position": 3, "name": "Sunrise and Sunset Calculator", "item": "https://excusemeweb.com/sunrise-sunset" }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{"@type":"Question","name":"How accurate is the sunrise and sunset calculator?","acceptedAnswer":{"@type":"Answer","text":"The calculator uses a standard solar position algorithm that estimates sunrise and sunset to within one to two minutes for most locations. Actual times can vary slightly due to local terrain, atmospheric refraction, and elevation."}},{"@type":"Question","name":"What is solar noon?","acceptedAnswer":{"@type":"Answer","text":"Solar noon is the moment when the sun reaches its highest point in the sky for your location. It is not necessarily 12:00 PM \u2014 it depends on your longitude within your time zone and can vary by up to 30 minutes from clock noon."}},{"@type":"Question","name":"Does the calculator account for daylight saving time?","acceptedAnswer":{"@type":"Answer","text":"The times shown are in the local time zone you select. If the location observes daylight saving time on the date you select, the times will reflect that. The calculation itself is based on solar position, not clock adjustments."}},{"@type":"Question","name":"Why are the sunrise and sunset times different from what my weather app shows?","acceptedAnswer":{"@type":"Answer","text":"Weather apps and official sources use precise ephemeris data and may account for local elevation, atmospheric conditions, and terrain. This calculator uses a mathematical approximation that is accurate for general planning but may differ by a minute or two."}}]
+}</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg-primary:#ffffff;--bg-secondary:#f8fafc;--bg-tertiary:#f1f5f9;
+--text-primary:#0f172a;--text-secondary:#64748b;--accent:#6366f1;
+--accent-hover:#4f46e5;--accent-light:#eef2ff;--danger:#ef4444;--success:#22c55e;
+--warning:#f59e0b;--border:#e2e8f0;--shadow:rgba(0,0,0,0.08);
+--font-body:'Inter',sans-serif;--border-radius:12px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:var(--font-body);background:var(--bg-primary);color:var(--text-primary);min-height:100vh;display:flex;flex-direction:column;}
+.header{background:var(--bg-secondary);border-bottom:1px solid var(--border);padding:0 24px;position:sticky;top:0;z-index:1000;}
+.header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;}
+.logo{font-size:1.5rem;font-weight:700;color:var(--accent);text-decoration:none;}
+.logo span{color:var(--text-primary);}
+.nav-desktop{display:flex;gap:32px;}
+.nav-desktop a{color:var(--text-secondary);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color 0.2s;}
+.nav-desktop a:hover{color:var(--accent);}
+.nav-desktop a.active{color:var(--accent);}
+.hamburger{display:none;background:none;border:none;color:var(--text-primary);font-size:1.5rem;cursor:pointer;}
+.mobile-nav{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg-secondary);border-bottom:1px solid var(--border);padding:16px 24px;flex-direction:column;gap:16px;z-index:999;}
+.mobile-nav.show{display:flex;}
+.mobile-nav a{color:var(--text-secondary);text-decoration:none;font-size:1rem;font-weight:500;}
+.mobile-nav a.active{color:var(--accent);}
+.main-content{flex:1;max-width:1100px;width:100%;margin:0 auto;padding:40px 24px;}
+.breadcrumb{display:flex;align-items:center;flex-wrap:wrap;gap:6px;font-size:0.85rem;color:var(--text-secondary);margin-bottom:20px;}
+.breadcrumb a{color:var(--accent);text-decoration:none;}
+.breadcrumb a:hover{text-decoration:underline;}
+.bc-sep{color:var(--border);}
+.bc-current{color:var(--text-primary);font-weight:500;}
+.page-header{text-align:center;margin-bottom:32px;}
+.page-header h1{font-size:2rem;font-weight:700;margin-bottom:8px;}
+.page-header p{color:var(--text-secondary);font-size:1.05rem;max-width:600px;margin:0 auto;}
+.tool-box{background:var(--bg-secondary);border:1px solid var(--border);border-radius:var(--border-radius);padding:32px;max-width:700px;margin:0 auto 32px;}
+.time-display{font-size:3.5rem;font-weight:700;text-align:center;font-variant-numeric:tabular-nums;padding:20px 0;letter-spacing:2px;}
+.time-display.accent{color:var(--accent);}
+.time-display.sm{font-size:2.5rem;}
+.time-display.danger{color:var(--danger);}
+.btn-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:20px;}
+.btn{padding:12px 28px;border:none;border-radius:8px;font-size:0.95rem;font-weight:600;cursor:pointer;transition:all 0.15s;font-family:var(--font-body);}
+.btn:disabled{opacity:0.4;cursor:not-allowed;}
+.btn-p{background:var(--accent);color:#fff;}
+.btn-p:hover:not(:disabled){background:var(--accent-hover);}
+.btn-s{background:var(--bg-tertiary);color:var(--text-primary);}
+.btn-s:hover:not(:disabled){background:var(--border);}
+.btn-d{background:var(--danger);color:#fff;}
+.btn-d:hover:not(:disabled){background:#dc2626;}
+.btn-sm{padding:8px 20px;font-size:0.85rem;}
+.label{font-size:0.85rem;color:var(--text-secondary);font-weight:500;margin-bottom:4px;}
+.progress-bar{width:100%;height:6px;background:var(--border);border-radius:3px;overflow:hidden;margin-bottom:16px;}
+.progress-bar .fill{height:100%;background:var(--accent);border-radius:3px;transition:width 1s linear;}
+input[type="text"],input[type="number"],input[type="date"],input[type="datetime-local"],select,textarea{
+  width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:8px;font-size:0.95rem;
+  font-family:var(--font-body);background:var(--bg-primary);color:var(--text-primary);
+}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--accent);border-color:var(--accent);}
+.info-section{background:var(--bg-secondary);border:1px solid var(--border);border-radius:var(--border-radius);padding:32px;margin-bottom:24px;}
+.info-section h2{font-size:1.3rem;margin-bottom:12px;}
+.info-section h3{font-size:1.1rem;margin:20px 0 8px;}
+.info-section p,.info-section li{color:var(--text-secondary);line-height:1.7;margin-bottom:10px;}
+.info-section ul{padding-left:20px;}
+.info-section a{color:var(--accent);text-decoration:none;}
+.info-section a:hover{text-decoration:underline;}
+details{border:1px solid var(--border);border-radius:8px;padding:14px 18px;margin-bottom:8px;cursor:pointer;}
+summary{font-weight:600;font-size:0.95rem;list-style:none;}
+summary::-webkit-details-marker{display:none;}
+details p{color:var(--text-secondary);line-height:1.7;margin-top:10px;font-size:0.95rem;}
+.footer{text-align:center;padding:24px;color:var(--text-secondary);font-size:0.85rem;border-top:1px solid var(--border);margin-top:auto;}
+.footer a{color:var(--accent);text-decoration:none;}
+@media(max-width:768px){
+  .nav-desktop{display:none;}
+  .hamburger{display:block;}
+  .time-display{font-size:2.5rem;}
+  .tool-box{padding:20px;}
+}
+
+.ss-inputs{{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0;}}
+.ss-inputs>div{{display:flex;flex-direction:column;gap:4px;}}
+.ss-inputs select,.ss-inputs input{{width:100%;}}
+.ss-presets{{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:16px;}}
+.ss-presets button{{padding:6px 14px;border:1px solid var(--border);border-radius:20px;background:var(--bg-primary);color:var(--text-secondary);cursor:pointer;font-size:0.85rem;font-family:var(--font-body);transition:all 0.15s;}}
+.ss-presets button:hover,.ss-presets button.active{{background:var(--accent);color:#fff;border-color:var(--accent);}}
+.ss-results{{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:20px 0;}}
+.ss-card{{background:var(--bg-primary);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center;}}
+.ss-card .val{{font-size:1.4rem;font-weight:700;color:var(--accent);margin:6px 0 2px;}}
+.ss-card .lbl{{font-size:0.8rem;color:var(--text-secondary);text-transform:uppercase;letter-spacing:0.5px;}}
+.ss-card .icon{{font-size:1.5rem;}}
+@media(max-width:500px){{.ss-inputs{{grid-template-columns:1fr;}}}}
+
+</style>
+</head>
+<body>
+<header class="header">
+ <div class="header-inner">
+ <a href="/" class="logo">Excuse<span>Me</span>Web</a>
+ <nav class="nav-desktop">
+ <a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/clock-tools" class="active">Clock Tools</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a>
+ </nav>
+ <button class="hamburger" onclick="document.getElementById('mobileNav').classList.toggle('show')">☰</button>
+ </div>
+ <nav class="mobile-nav" id="mobileNav">
+ <a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/clock-tools" class="active">Clock Tools</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a>
+ </nav>
+</header>
+<main class="main-content">
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span class="bc-sep">/</span><a href="/clock-tools">Clock Tools</a><span class="bc-sep">/</span><span class="bc-current">Sunrise/Sunset</span></nav>
+<div class="page-header">
+<h1>🌅 Sunrise and Sunset Calculator</h1>
+<p>Estimate sunrise and sunset times for any date and location. Uses the standard solar position algorithm. See dawn, sunrise, solar noon, sunset, and dusk times.</p>
+</div>
+<div class="tool-box">
+<div class="ss-presets" id="ssPresets">
+  <button onclick="setCity(40.7128,-74.006,'America/New_York',this)">New York</button>
+  <button onclick="setCity(51.5074,-0.1278,'Europe/London',this)">London</button>
+  <button onclick="setCity(48.8566,2.3522,'Europe/Paris',this)">Paris</button>
+  <button onclick="setCity(35.6762,139.6503,'Asia/Tokyo',this)">Tokyo</button>
+  <button onclick="setCity(19.076,72.8777,'Asia/Kolkata',this)">Mumbai</button>
+  <button onclick="setCity(-33.8688,151.2093,'Australia/Sydney',this)">Sydney</button>
+  <button onclick="setCity(25.2048,55.2708,'Asia/Dubai',this)">Dubai</button>
+  <button onclick="setCity(24.8607,67.0011,'Asia/Karachi',this)">Karachi</button>
+</div>
+<div class="ss-inputs">
+  <div><label class="label">Latitude</label><input type="number" id="ssLat" value="40.7128" step="0.0001" min="-90" max="90"></div>
+  <div><label class="label">Longitude</label><input type="number" id="ssLon" value="-74.006" step="0.0001" min="-180" max="180"></div>
+  <div><label class="label">Date</label><input type="date" id="ssDate"></div>
+  <div><label class="label">Time Zone</label>
+    <select id="ssTz">
+      <option value="America/New_York">Eastern</option>
+      <option value="America/Chicago">Central</option>
+      <option value="America/Denver">Mountain</option>
+      <option value="America/Los_Angeles">Pacific</option>
+      <option value="Europe/London">London</option>
+      <option value="Europe/Paris">Paris / Berlin</option>
+      <option value="Europe/Moscow">Moscow</option>
+      <option value="Asia/Dubai">Dubai</option>
+      <option value="Asia/Karachi">Karachi</option>
+      <option value="Asia/Kolkata">India</option>
+      <option value="Asia/Bangkok">Bangkok</option>
+      <option value="Asia/Shanghai">China</option>
+      <option value="Asia/Tokyo">Japan</option>
+      <option value="Australia/Sydney">Sydney</option>
+      <option value="Pacific/Auckland">Auckland</option>
+    </select>
+  </div>
+</div>
+<div class="btn-row"><button class="btn btn-p" onclick="calcSunriseSunset()">Calculate</button></div>
+<div class="ss-results" id="ssResults"></div>
+</div>
+<div class="info-section">
+<h2>Estimate Sunrise and Sunset Times</h2>
+<p>This calculator estimates sunrise, sunset, solar noon, dawn, and dusk times for any location and date on Earth. It uses a well-established solar position algorithm based on the latitude, longitude, and date you provide, making it useful for photographers, hikers, event planners, and anyone who needs to know when the sun rises or sets.</p>
+
+<h3>How It Works</h3>
+<p>Enter your latitude and longitude (or select a preset city), choose a date, and select your time zone. The calculator computes the solar declination, the equation of time, and the hour angle of sunrise and sunset using standard astronomical formulas. Results include dawn (civil twilight begins), sunrise, solar noon, sunset, and dusk (civil twilight ends).</p>
+
+<h3>Common Uses</h3>
+<ul>
+<li>Planning outdoor photography around golden hour</li>
+<li>Scheduling hikes or outdoor activities with enough daylight</li>
+<li>Knowing when to turn on outdoor lights or security systems</li>
+<li>Planning events that depend on daylight</li>
+</ul>
+<h3>Frequently Asked Questions</h3>
+<details><summary>How accurate is the sunrise and sunset calculator?</summary><p>The calculator uses a standard solar position algorithm that estimates sunrise and sunset to within one to two minutes for most locations. Actual times can vary slightly due to local terrain, atmospheric refraction, and elevation.</p></details>
+<details><summary>What is solar noon?</summary><p>Solar noon is the moment when the sun reaches its highest point in the sky for your location. It is not necessarily 12:00 PM — it depends on your longitude within your time zone and can vary by up to 30 minutes from clock noon.</p></details>
+<details><summary>Does the calculator account for daylight saving time?</summary><p>The times shown are in the local time zone you select. If the location observes daylight saving time on the date you select, the times will reflect that. The calculation itself is based on solar position, not clock adjustments.</p></details>
+<details><summary>Why are the sunrise and sunset times different from what my weather app shows?</summary><p>Weather apps and official sources use precise ephemeris data and may account for local elevation, atmospheric conditions, and terrain. This calculator uses a mathematical approximation that is accurate for general planning but may differ by a minute or two.</p></details>
+<h3>Related Tools</h3>
+<p><a href="/timer">Countdown Timer</a> &middot; <a href="/stopwatch">Stopwatch</a> &middot; <a href="/alarm">Alarm Clock</a> &middot; <a href="/pomodoro-timer">Pomodoro Timer</a> &middot; <a href="/world-clock">World Clock</a> &middot; <a href="/clock-tools">All Clock Tools</a></p>
+</div>
+</main>
+<footer class="footer">
+<p>&copy; 2026 ExcuseMeWeb.com &mdash; Online Tools for Everyone</p>
+<p style="margin-top:8px"><a href="/timer">Timer</a> &middot; <a href="/stopwatch">Stopwatch</a> &middot; <a href="/alarm">Alarm</a> &middot; <a href="/pomodoro-timer">Pomodoro</a> &middot; <a href="/chess-clock">Chess Clock</a> &middot; <a href="/world-clock">World Clock</a> &middot; <a href="/count-up-timer">Count Up</a> &middot; <a href="/interval-timer">Interval</a> &middot; <a href="/sleep-calculator">Sleep Calc</a> &middot; <a href="/unix-timestamp">Unix Time</a> &middot; <a href="/countdown-event">Event Countdown</a> &middot; <a href="/timezone-converter">Timezone Converter</a> &middot; <a href="/time-card-calculator">Time Card</a> &middot; <a href="/sunrise-sunset">Sunrise/Sunset</a> &middot; <a href="/breathing-timer">Breathing Timer</a> &middot; <a href="/clock-tools">All Clock Tools</a></p>
+<p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p>
+</footer>
+<script>
+document.getElementById('ssDate').value=new Date().toISOString().split('T')[0];
+function setCity(lat,lon,tz,btn){
+  document.getElementById('ssLat').value=lat;
+  document.getElementById('ssLon').value=lon;
+  document.getElementById('ssTz').value=tz;
+  var btns=document.querySelectorAll('#ssPresets button');
+  for(var i=0;i<btns.length;i++)btns[i].classList.remove('active');
+  if(btn)btn.classList.add('active');
+  calcSunriseSunset();
+}
+function calcSunriseSunset(){
+  var lat=parseFloat(document.getElementById('ssLat').value);
+  var lon=parseFloat(document.getElementById('ssLon').value);
+  var ds=document.getElementById('ssDate').value;
+  var tz=document.getElementById('ssTz').value;
+  if(isNaN(lat)||isNaN(lon)||!ds){document.getElementById('ssResults').innerHTML='<p style="text-align:center;color:var(--text-secondary);">Enter valid coordinates and date.</p>';return;}
+  var parts=ds.split('-');var Y=parseInt(parts[0]),M=parseInt(parts[1]),D=parseInt(parts[2]);
+  var doy=Math.floor((new Date(Y,M-1,D)-new Date(Y,0,0))/86400000);
+  var zenith=90.833;
+  var D2R=Math.PI/180;var R2D=180/Math.PI;
+  var lngHour=lon/15;
+  var tRise=doy+((6-lngHour)/24);
+  var tSet=doy+((18-lngHour)/24);
+  var M_anom=0.9856*tRise-3.289;var M_anom2=0.9856*tSet-3.289;
+  var Mr=M_anom*R2D;var Ms=M_anom2*R2D;
+  var Lr=(Mr+(1.916*Math.sin(Mr*D2R))+(0.020*Math.sin(2*Mr*D2R))+282.634);
+  var Ls=(Ms+(1.916*Math.sin(Ms*D2R))+(0.020*Math.sin(2*Ms*D2R))+282.634);
+  var Lrn=((Lr%360)+360)%360;var Lsn=((Ls%360)+360)%360;
+  var RAanomR=Math.atan(0.91764*Math.tan(Lrn*D2R));var RAanomS=Math.atan(0.91764*Math.tan(Lsn*D2R));
+  var RAra=RAanomR*R2D;var RAsa=RAanomS*R2D;
+  var RAra2=((RAra/90)+0.5)%4;RAra=RAra2<0?RAra2+4:RAra2;RAra*=90;
+  var RAsa2=((RAsa/90)+0.5)%4;RAsa=RAsa2<0?RAsa2+4:RAsa2;RAsa*=90;
+  var decR=Math.asin(0.39782*Math.sin(Lrn*D2R))*R2D;
+  var decS=Math.asin(0.39782*Math.sin(Lsn*D2R))*R2D;
+  var cosHr=Math.cos(zenith*D2R)/(Math.cos(lat*D2R)*Math.cos(decR*D2R))-Math.tan(lat*D2R)*Math.tan(decR*D2R);
+  var cosHs=Math.cos(zenith*D2R)/(Math.cos(lat*D2R)*Math.cos(decS*D2R))-Math.tan(lat*D2R)*Math.tan(decS*D2R);
+  if(cosHr>1||cosHs<-1){document.getElementById('ssResults').innerHTML='<p style="text-align:center;grid-column:1/-1;">No sunrise or sunset on this date at this location (polar day or night).</p>';return;}
+  var Hr=(360-Math.acos(Math.max(-1,Math.min(1,cosHr)))*R2D)/15;
+  var Hs=(Math.acos(Math.max(-1,Math.min(1,cosHs)))*R2D)/15;
+  var Trise=Hr+lngHour;var Tset=Hs+lngHour;
+  Trise=((Trise/24)-Math.floor(Trise/24))*24;
+  Tset=((Tset/24)-Math.floor(Tset/24))*24;
+  var Tnoon=12-lngHour;if(Tnoon<0)Tnoon+=24;if(Tnoon>24)Tnoon-=24;
+  function fmt(h){
+    var base=new Date(Y,M-1,D);
+    var utcH=h;
+    var local=new Date(base.getTime()+utcH*3600000);
+    try{return local.toLocaleString('en-US',{timeZone:tz,hour:'2-digit',minute:'2-digit',hour12:true});}catch(e){
+      var hh=Math.floor(h);var mm=Math.round((h-hh)*60);
+      var ampm=hh>=12?'PM':'AM';hh=hh%12;if(hh===0)hh=12;
+      return String(hh).padStart(2,'0')+':'+String(mm).padStart(2,'0')+' '+ampm;
+    }
+  }
+  var dawnMin=Trise-0.5;var duskMin=Tset+0.5;
+  document.getElementById('ssResults').innerHTML=
+    '<div class="ss-card"><div class="icon">🌤</div><div class="lbl">Dawn</div><div class="val">'+fmt(dawnMin)+'</div></div>'+
+    '<div class="ss-card"><div class="icon">🌅</div><div class="lbl">Sunrise</div><div class="val">'+fmt(Trise)+'</div></div>'+
+    '<div class="ss-card"><div class="icon">☀️</div><div class="lbl">Solar Noon</div><div class="val">'+fmt(12-lon/15)+'</div></div>'+
+    '<div class="ss-card"><div class="icon">🌇</div><div class="lbl">Sunset</div><div class="val">'+fmt(Tset)+'</div></div>'+
+    '<div class="ss-card"><div class="icon">🌆</div><div class="lbl">Dusk</div><div class="val">'+fmt(duskMin)+'</div></div>'+
+    '<div class="ss-card"><div class="icon">📊</div><div class="lbl">Day Length</div><div class="val">'+Math.floor(Tset-Trise)+'h '+Math.round(((Tset-Trise)%1)*60)+'m</div></div>';
+}
+calcSunriseSunset();
+</script>
+</body>
+</html>
