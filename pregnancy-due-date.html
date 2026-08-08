@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="fa026cc1-8f84-44f5-b2fb-9ccf29374a38"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pregnancy Due Date Calculator | ExcuseMeWeb</title>
+<meta name="description" content="Calculate your pregnancy due date from last menstrual period, conception date, or IVF transfer date. See current week, trimester, and days remaining.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Pregnancy Due Date Calculator | ExcuseMeWeb">
+<meta property="og:description" content="Calculate your pregnancy due date from last menstrual period, conception date, or IVF transfer date.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://excusemeweb.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pregnancy Due Date Calculator | ExcuseMeWeb">
+<meta name="twitter:description" content="Calculate your pregnancy due date from LMP, conception, or IVF transfer.">
+<link rel="canonical" href="https://excusemeweb.com/pregnancy-due-date">
+<link rel="icon" href="/favicon.ico">
+<meta name="theme-color" content="#ffffff">
+<meta property="og:url" content="https://excusemeweb.com/pregnancy-due-date">
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Pregnancy Due Date Calculator",
+  "url": "https://excusemeweb.com/pregnancy-due-date",
+  "description": "Calculate your pregnancy due date from last menstrual period, conception date, or IVF transfer date. See current week, trimester, and days remaining.",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "All",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": { "@type": "Organization", "name": "ExcuseMeWeb" },
+  "dateModified": "2026-08-07"
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://excusemeweb.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Health Tools", "item": "https://excusemeweb.com/health-tools" },
+    { "@type": "ListItem", "position": 3, "name": "Pregnancy Due Date Calculator", "item": "https://excusemeweb.com/pregnancy-due-date" }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"How accurate is a due date calculator?","acceptedAnswer":{"@type":"Answer","text":"A due date calculator based on the last menstrual period is accurate to within about 5 days for women with regular 28-day cycles. Ultrasound dating in the first trimester is more accurate (within 3-5 days). Only about 5% of babies are born exactly on their due date."}},
+    {"@type":"Question","name":"What is the 280-day rule?","acceptedAnswer":{"@type":"Answer","text":"The 280-day rule (or Naegele's rule) estimates the due date by adding 280 days (40 weeks) to the first day of the last menstrual period. This assumes a 28-day cycle with ovulation on day 14. It is the most commonly used method for estimating due dates."}},
+    {"@type":"Question","name":"Can my due date change?","acceptedAnswer":{"@type":"Answer","text":"Yes. Your due date may be adjusted during pregnancy based on ultrasound measurements, especially in the first trimester. If the ultrasound-based due date differs significantly from the LMP-based date, your healthcare provider may update it. Irregular cycles can also cause the initial estimate to be adjusted."}}
+  ]
+}</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--bg2:#f8fafc;--bg3:#f1f5f9;--text:#0f172a;--text2:#64748b;--accent:#6366f1;--accent-h:#4f46e5;--accent-l:#eef2ff;--danger:#ef4444;--success:#22c55e;--border:#e2e8f0;--radius:12px;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column;}
+.header{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 24px;position:sticky;top:0;z-index:1000;}
+.header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;}
+.logo{font-size:1.5rem;font-weight:700;color:var(--accent);text-decoration:none;}
+.logo span{color:var(--text);}
+.nav-d{display:flex;gap:28px;}
+.nav-d a{color:var(--text2);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color 0.2s;white-space:nowrap;}
+.nav-d a:hover{color:var(--accent);}
+.nav-d a.act{color:var(--accent);}
+.hamburger{display:none;background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer;}
+.mob-nav{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);padding:16px 24px;flex-direction:column;gap:16px;z-index:999;}
+.mob-nav.show{display:flex;}
+.mob-nav a{color:var(--text2);text-decoration:none;font-size:1rem;font-weight:500;}
+.mob-nav a.act{color:var(--accent);}
+main{flex:1;max-width:1100px;width:100%;margin:0 auto;padding:40px 24px;}
+.br{display:flex;align-items:center;flex-wrap:wrap;gap:6px;font-size:0.85rem;color:var(--text2);margin-bottom:20px;}
+.br a{color:var(--accent);text-decoration:none;}
+.br a:hover{text-decoration:underline;}
+.br .sep{color:var(--border);}
+.br .cur{color:var(--text);font-weight:600;}
+.ph{text-align:center;margin-bottom:28px;}
+.ph h1{font-size:2rem;font-weight:700;margin-bottom:8px;}
+.ph p{color:var(--text2);font-size:1.05rem;max-width:640px;margin:0 auto;}
+.box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:28px;max-width:700px;margin:0 auto 24px;}
+.row{display:flex;gap:12px;align-items:end;flex-wrap:wrap;margin-bottom:16px;}
+.row>div{flex:1;min-width:140px;}
+.lbl{font-size:0.85rem;color:var(--text2);font-weight:500;margin-bottom:4px;display:block;}
+input,select,textarea{width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:8px;font-size:0.95rem;font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--accent);border-color:var(--accent);}
+.btn{padding:10px 24px;border:none;border-radius:8px;font-size:0.95rem;font-weight:600;cursor:pointer;transition:all 0.15s;font-family:'Inter',sans-serif;display:inline-block;}
+.btn-p{background:var(--accent);color:#fff;}
+.btn-p:hover{background:var(--accent-h);}
+.btn-s{background:var(--bg3);color:var(--text);}
+.btn-s:hover{background:var(--border);}
+.btn-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:20px;}
+.result{margin-top:20px;padding:20px;background:var(--bg);border-radius:8px;border:1px solid var(--border);display:none;}
+.result.show{display:block;}
+.sg{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;margin-top:16px;}
+.sc{padding:16px;border-radius:8px;border:1px solid var(--border);background:var(--bg);text-align:center;}
+.sc .val{font-size:1.3rem;font-weight:700;color:var(--accent);}
+.sc .sl{font-size:0.8rem;color:var(--text2);margin-top:4px;}
+.due-date-big{font-size:2rem;font-weight:700;color:var(--accent);text-align:center;margin:12px 0;}
+.trimester-bar{display:flex;height:24px;border-radius:6px;overflow:hidden;margin:12px 0;}
+.trimester-bar>div{display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:600;color:#fff;}
+.info{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:28px;margin-bottom:24px;}
+.info h2{font-size:1.3rem;margin-bottom:12px;}
+.info h3{font-size:1.1rem;margin:20px 0 8px;color:var(--accent);}
+.info p,.info li{color:var(--text2);line-height:1.7;margin-bottom:10px;}
+.info ul{padding-left:20px;}
+.info a{color:var(--accent);text-decoration:none;}
+.info a:hover{text-decoration:underline;}
+details{border:1px solid var(--border);border-radius:8px;padding:14px 18px;margin-bottom:8px;cursor:pointer;background:var(--bg);}
+summary{font-weight:600;font-size:0.95rem;list-style:none;}
+summary::-webkit-details-marker{display:none;}
+details p{color:var(--text2);line-height:1.7;margin-top:10px;font-size:0.95rem;}
+.footer{text-align:center;padding:24px;color:var(--text2);font-size:0.85rem;border-top:1px solid var(--border);margin-top:auto;}
+.footer a{color:var(--accent);text-decoration:none;}
+.mode-tabs{display:flex;gap:0;margin-bottom:20px;border-radius:8px;overflow:hidden;border:1px solid var(--border);}
+.mode-tab{flex:1;padding:10px;text-align:center;cursor:pointer;font-weight:600;font-size:0.9rem;background:var(--bg);border:none;font-family:'Inter',sans-serif;transition:all 0.15s;}
+.mode-tab.active{background:var(--accent);color:#fff;}
+.mode-tab:hover:not(.active){background:var(--bg3);}
+@media(max-width:768px){
+.nav-d{display:none;}.hamburger{display:block;}
+.ph h1{font-size:1.7rem;}main{padding:24px 16px;}.box{padding:20px;}
+}
+</style>
+</head>
+<body>
+<header class="header">
+<div class="header-inner">
+<a href="/" class="logo">Excuse<span>Me</span>Web</a>
+<nav class="nav-d">
+<a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/clock-tools">Clock Tools</a><a href="/health-tools" class="act">Health Tools</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a>
+</nav>
+<button class="hamburger" onclick="document.getElementById('mobNav').classList.toggle('show')">☰</button>
+</div>
+<nav class="mob-nav" id="mobNav">
+<a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/clock-tools">Clock Tools</a><a href="/health-tools" class="act">Health Tools</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a>
+</nav>
+</header>
+<main>
+<nav class="br" aria-label="Breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="/health-tools">Health Tools</a><span class="sep">/</span><span class="cur">Pregnancy Due Date Calculator</span></nav>
+<div class="ph">
+<h1>🤰 Pregnancy Due Date Calculator</h1>
+<p>Calculate your estimated due date from last menstrual period, conception date, or IVF transfer date. Track your current week and trimester.</p>
+</div>
+<div class="box">
+<div class="mode-tabs">
+<button class="mode-tab active" onclick="setMode('lmp',this)">Last Period (LMP)</button>
+<button class="mode-tab" onclick="setMode('conception',this)">Conception Date</button>
+<button class="mode-tab" onclick="setMode('ivf',this)">IVF Transfer</button>
+</div>
+<div id="lmpInputs">
+<div class="row"><div style="flex:1;min-width:200px"><label class="lbl">First Day of Last Period</label><input type="date" id="lmpDate"></div></div>
+</div>
+<div id="conceptionInputs" style="display:none">
+<div class="row"><div style="flex:1;min-width:200px"><label class="lbl">Conception Date</label><input type="date" id="conceptionDate"></div></div>
+</div>
+<div id="ivfInputs" style="display:none">
+<div class="row">
+<div style="flex:1;min-width:200px"><label class="lbl">IVF Transfer Date</label><input type="date" id="ivfDate"></div>
+<div><label class="lbl">Transfer Type</label><select id="ivfType"><option value="5day">5-Day Blastocyst</option><option value="3day">3-Day Embryo</option></select></div>
+</div>
+</div>
+<div class="btn-row"><button class="btn btn-p" onclick="calculate()">Calculate Due Date</button><button class="btn btn-s" onclick="document.getElementById('result').classList.remove('show')">Reset</button></div>
+<div class="result" id="result">
+<div class="due-date-big" id="rDue">--</div>
+<p style="text-align:center;color:var(--text2);margin-bottom:16px" id="rDueLabel">Estimated Due Date</p>
+<div class="trimester-bar" id="triBar"><div style="width:33.3%;background:#6366f1">T1 (1-13w)</div><div style="width:33.3%;background:#22c55e">T2 (14-27w)</div><div style="width:33.3%;background:#f59e0b">T3 (28-40w)</div></div>
+<div class="sg">
+<div class="sc"><div class="val" id="rWeek">--</div><div class="sl">Current Week</div></div>
+<div class="sc"><div class="val" id="rDay">--</div><div class="sl">Current Day</div></div>
+<div class="sc"><div class="val" id="rTri">--</div><div class="sl">Trimester</div></div>
+<div class="sc"><div class="val" id="rRemain">--</div><div class="sl">Days Remaining</div></div>
+</div>
+</div>
+</div>
+<div class="info">
+<h2>Pregnancy Due Date Calculator</h2>
+<p>This calculator estimates your due date using three different methods. The most common method uses the first day of your last menstrual period (LMP) and adds 280 days (40 weeks). You can also calculate from a known conception date or an IVF transfer date.</p>
+<h3>How It Works</h3>
+<ul>
+<li><strong>LMP method:</strong> Adds 280 days (Naegele's rule)</li>
+<li><strong>Conception:</strong> Adds 266 days (38 weeks of gestation)</li>
+<li><strong>IVF 5-day transfer:</strong> Adds 261 days (266 − 5)</li>
+<li><strong>IVF 3-day transfer:</strong> Adds 263 days (266 − 3)</li>
+</ul>
+<h3>Frequently Asked Questions</h3>
+<details><summary>How accurate is a due date calculator?</summary><p>A due date calculator based on the last menstrual period is accurate to within about 5 days for women with regular 28-day cycles. Ultrasound dating in the first trimester is more accurate (within 3–5 days). Only about 5% of babies are born exactly on their due date.</p></details>
+<details><summary>What is the 280-day rule?</summary><p>The 280-day rule (or Naegele's rule) estimates the due date by adding 280 days (40 weeks) to the first day of the last menstrual period. This assumes a 28-day cycle with ovulation on day 14. It is the most commonly used method for estimating due dates.</p></details>
+<details><summary>Can my due date change?</summary><p>Yes. Your due date may be adjusted during pregnancy based on ultrasound measurements, especially in the first trimester. If the ultrasound-based due date differs significantly from the LMP-based date, your healthcare provider may update it. Irregular cycles can also cause the initial estimate to be adjusted.</p></details>
+<h3>Related Tools</h3>
+<p><a href="/date-calculator">Date Calculator</a> · <a href="/age-calculator">Age Calculator</a> · <a href="/countdown-event">Event Countdown</a> · <a href="/calorie-calculator">Calorie Calculator</a> · <a href="/water-intake-calculator">Water Intake Calculator</a></p>
+</div>
+</main>
+<footer class="footer">
+<p>&copy; 2026 ExcuseMeWeb.com</p>
+<p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p>
+</footer>
+<script>
+var currentMode='lmp';
+function setMode(mode,btn){
+  currentMode=mode;
+  var tabs=document.querySelectorAll('.mode-tab');
+  for(var i=0;i<tabs.length;i++)tabs[i].classList.remove('active');
+  btn.classList.add('active');
+  document.getElementById('lmpInputs').style.display=mode==='lmp'?'block':'none';
+  document.getElementById('conceptionInputs').style.display=mode==='conception'?'block':'none';
+  document.getElementById('ivfInputs').style.display=mode==='ivf'?'block':'none';
+  document.getElementById('result').classList.remove('show');
+}
+function calculate(){
+  var dateStr,daysToAdd;
+  if(currentMode==='lmp'){
+    dateStr=document.getElementById('lmpDate').value;
+    if(!dateStr){alert('Please select the first day of your last period.');return;}
+    daysToAdd=280;
+  }else if(currentMode==='conception'){
+    dateStr=document.getElementById('conceptionDate').value;
+    if(!dateStr){alert('Please select the conception date.');return;}
+    daysToAdd=266;
+  }else{
+    dateStr=document.getElementById('ivfDate').value;
+    if(!dateStr){alert('Please select the IVF transfer date.');return;}
+    daysToAdd=document.getElementById('ivfType').value==='5day'?261:263;
+  }
+  var start=new Date(dateStr+'T00:00:00');
+  var due=new Date(start.getTime()+daysToAdd*24*60*60*1000);
+  var opts={weekday:'long',year:'numeric',month:'long',day:'numeric'};
+  document.getElementById('rDue').textContent=due.toLocaleDateString('en-US',opts);
+  var today=new Date();today.setHours(0,0,0,0);
+  var diffMs=today-start.getTime();
+  var diffDays=Math.floor(diffMs/(24*60*60*1000));
+  var weeks=Math.floor(diffDays/7);
+  var days=diffDays%7;
+  if(weeks<0)weeks=0;if(days<0)days=0;
+  document.getElementById('rWeek').textContent='Week '+weeks;
+  document.getElementById('rDay').textContent='Day '+days;
+  var tri=weeks<=13?'1st Trimester':weeks<=27?'2nd Trimester':'3rd Trimester';
+  document.getElementById('rTri').textContent=tri;
+  var remain=Math.max(0,Math.ceil((due-today)/(24*60*60*1000)));
+  document.getElementById('rRemain').textContent=remain+' days';
+  document.getElementById('result').classList.add('show');
+}
+</script>
+</body>
+</html>

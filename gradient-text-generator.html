@@ -1,0 +1,97 @@
+<!DOCTYPE html><html lang="en"><head>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="fa026cc1-8f84-44f5-b2fb-9ccf29374a38"></script>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Gradient Text Generator | ExcuseMeWeb</title>
+<meta name="description" content="Create stunning CSS gradient text effects. Choose colors, direction, and font size to generate ready-to-use CSS code for gradient text. Free online tool.">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="Gradient Text Generator | ExcuseMeWeb"><meta property="og:description" content="Create stunning CSS gradient text effects with ready-to-use CSS code.">
+<meta property="og:type" content="website"><meta property="og:image" content="https://excusemeweb.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Gradient Text Generator | ExcuseMeWeb"><meta name="twitter:description" content="Create stunning CSS gradient text effects with ready-to-use CSS code.">
+<link rel="canonical" href="https://excusemeweb.com/gradient-text-generator"><link rel="icon" href="/favicon.ico"><meta name="theme-color" content="#ffffff"><meta property="og:url" content="https://excusemeweb.com/gradient-text-generator">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Gradient Text Generator","url":"https://excusemeweb.com/gradient-text-generator","description":"Create stunning CSS gradient text effects with ready-to-use CSS code.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Organization","name":"ExcuseMeWeb"},"dateModified":"2026-08-08"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://excusemeweb.com/"},{"@type":"ListItem","position":2,"name":"Color Tools","item":"https://excusemeweb.com/color-tools"},{"@type":"ListItem","position":3,"name":"Gradient Text Generator","item":"https://excusemeweb.com/gradient-text-generator"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does CSS gradient text work?","acceptedAnswer":{"@type":"Answer","text":"CSS gradient text uses background-clip: text combined with -webkit-text-fill-color: transparent to display a gradient as the text color instead of a solid color."}},{"@type":"Question","name":"Is the generated CSS compatible with all browsers?","acceptedAnswer":{"@type":"Answer","text":"The CSS uses -webkit- prefixes for broader support. It works in all modern browsers including Chrome, Firefox, Safari, and Edge."}}]}</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--bg2:#f8fafc;--bg3:#f1f5f9;--text:#0f172a;--text2:#64748b;--accent:#6366f1;--accent-h:#4f46e5;--border:#e2e8f0;--radius:12px;}
+*{margin:0;padding:0;box-sizing:border-box;}body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column;}
+.header{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 24px;position:sticky;top:0;z-index:1000;}.header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;}
+.logo{font-size:1.5rem;font-weight:700;color:var(--accent);text-decoration:none;}.logo span{color:var(--text);}
+.nav-d{display:flex;gap:24px;}.nav-d a{color:var(--text2);text-decoration:none;font-size:.85rem;font-weight:500;white-space:nowrap;}.nav-d a:hover,.nav-d a.act{color:var(--accent);}
+.hamburger{display:none;background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer;}
+.mob-nav{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);padding:16px 24px;flex-direction:column;gap:16px;z-index:999;}.mob-nav.show{display:flex;}.mob-nav a{color:var(--text2);text-decoration:none;font-size:1rem;}.mob-nav a.act{color:var(--accent);}
+.main{flex:1;max-width:1100px;width:100%;margin:0 auto;padding:40px 24px;}
+.bc{display:flex;gap:6px;font-size:.85rem;color:var(--text2);margin-bottom:20px;flex-wrap:wrap;}.bc a{color:var(--accent);text-decoration:none;}.bc-s{color:var(--border);}.bc-c{color:var(--text);font-weight:500;}
+.ph{text-align:center;margin-bottom:32px;}.ph h1{font-size:2rem;font-weight:700;margin-bottom:8px;}.ph p{color:var(--text2);max-width:600px;margin:0 auto;}
+.box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:32px;max-width:900px;margin:0 auto 32px;}
+.btn{padding:12px 28px;border:none;border-radius:8px;font-size:.95rem;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;transition:all .15s;}.btn-p{background:var(--accent);color:#fff;}.btn-p:hover{background:var(--accent-h);}.btn-s{background:var(--bg3);color:var(--text);}.btn-s:hover{background:var(--border);}
+.lbl{font-size:.85rem;color:var(--text2);font-weight:500;margin-bottom:4px;display:block;}
+input[type=text],input[type=number],select,textarea{width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:8px;font-size:.95rem;font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);}input:focus,select:focus,textarea:focus{outline:2px solid var(--accent);border-color:var(--accent);}
+input[type=color]{width:60px;height:40px;border:1px solid var(--border);border-radius:8px;cursor:pointer;padding:2px;}
+.ig{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
+.preview{text-align:center;padding:40px 20px;border:2px dashed var(--border);border-radius:var(--radius);margin:20px 0;min-height:120px;display:flex;align-items:center;justify-content:center;}
+.gradient-text{font-weight:800;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;line-height:1.2;}
+.code-block{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:16px;font-family:monospace;font-size:.85rem;white-space:pre-wrap;word-break:break-all;max-height:200px;overflow-y:auto;position:relative;}
+.info{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:32px;margin-bottom:24px;}.info h2{font-size:1.3rem;margin-bottom:12px;}.info h3{font-size:1.1rem;margin:20px 0 8px;}.info p,.info li{color:var(--text2);line-height:1.7;margin-bottom:10px;}.info ul{padding-left:20px;}.info a{color:var(--accent);text-decoration:none;}
+details{border:1px solid var(--border);border-radius:8px;padding:14px 18px;margin-bottom:8px;cursor:pointer;}summary{font-weight:600;font-size:.95rem;list-style:none;}summary::-webkit-details-marker{display:none;}details p{color:var(--text2);line-height:1.7;margin-top:10px;font-size:.95rem;}
+.footer{text-align:center;padding:24px;color:var(--text2);font-size:.85rem;border-top:1px solid var(--border);margin-top:auto;}.footer a{color:var(--accent);text-decoration:none;}
+@media(max-width:768px){.nav-d{display:none;}.hamburger{display:block;}.ig{grid-template-columns:1fr;}}
+</style></head><body>
+<header class="header"><div class="header-inner">
+<a href="/" class="logo">Excuse<span>Me</span>Web</a>
+<nav class="nav-d"><a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/clock-tools">Clock Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a><a href="/color-tools" class="act">Color Tools</a></nav>
+<button class="hamburger" onclick="document.getElementById('mobileNav').classList.toggle('show')">☰</button>
+</div>
+<nav class="mob-nav" id="mobileNav"><a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/clock-tools">Clock Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a><a href="/color-tools" class="act">Color Tools</a></nav>
+</header>
+<main class="main">
+<nav class="bc"><a href="/">Home</a><span class="bc-s">/</span><a href="/color-tools">Color Tools</a><span class="bc-s">/</span><span class="bc-c">Gradient Text Generator</span></nav>
+<div class="ph"><h1>✨ Gradient Text Generator</h1><p>Create stunning CSS gradient text effects. Pick colors, set direction, and copy the CSS code.</p></div>
+<div class="box">
+<div class="ig">
+<div><label class="lbl">Your Text</label><input type="text" id="txt" value="Gradient Text" oninput="update()"></div>
+<div><label class="lbl">Font Size</label><input type="number" id="fs" value="64" min="12" max="200" oninput="update()"></div>
+</div>
+<div class="ig">
+<div><label class="lbl">Color 1</label><div style="display:flex;align-items:center;gap:8px"><input type="color" id="c1" value="#6366f1" oninput="update()"><input type="text" id="c1t" value="#6366f1" style="width:110px" oninput="fromText('c1','c1t')"></div></div>
+<div><label class="lbl">Color 2</label><div style="display:flex;align-items:center;gap:8px"><input type="color" id="c2" value="#ec4899" oninput="update()"><input type="text" id="c2t" value="#ec4899" style="width:110px" oninput="fromText('c2','c2t')"></div></div>
+</div>
+<div class="ig">
+<div><label class="lbl">Color 3 (optional)</label><div style="display:flex;align-items:center;gap:8px"><input type="checkbox" id="c3e" onchange="update()"><input type="color" id="c3" value="#f59e0b" oninput="update()" disabled><input type="text" id="c3t" value="#f59e0b" style="width:110px" oninput="fromText('c3','c3t')"></div></div>
+<div><label class="lbl">Direction</label><select id="dir" onchange="update()"><option value="to right">Left to Right</option><option value="to left">Right to Left</option><option value="to bottom">Top to Bottom</option><option value="to top">Bottom to Top</option><option value="to bottom right">Diagonal</option><option value="to top right">Diagonal Up</option><option value="135deg">135 Degrees</option><option value="45deg">45 Degrees</option></select></div>
+</div>
+<div class="preview" id="prev"></div>
+<label class="lbl">CSS Code</label>
+<div class="code-block" id="code"></div>
+<div style="text-align:center;margin-top:16px"><button class="btn btn-p" onclick="navigator.clipboard.writeText(document.getElementById('code').textContent);this.textContent='Copied!';var b=this;setTimeout(function(){b.textContent='Copy CSS';},1500)" style="padding:10px 24px">Copy CSS</button></div>
+</div>
+<div class="info"><h2>CSS Gradient Text Generator</h2><p>Create eye-catching gradient text effects for your website. Simply enter your text, choose colors and direction, then copy the generated CSS code.</p>
+<h3>Frequently Asked Questions</h3>
+<details><summary>How does CSS gradient text work?</summary><p>CSS gradient text uses background-clip: text combined with -webkit-text-fill-color: transparent to display a gradient as the text color instead of a solid color.</p></details>
+<details><summary>Is the generated CSS compatible with all browsers?</summary><p>The CSS uses -webkit- prefixes for broader support. It works in all modern browsers including Chrome, Firefox, Safari, and Edge.</p></details>
+</div>
+</main>
+<footer class="footer"><p>© 2026 ExcuseMeWeb.com</p><p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p></footer>
+<script>
+function update(){
+var txt=document.getElementById('txt').value||'Gradient Text';
+var fs=document.getElementById('fs').value||64;
+var c1=document.getElementById('c1').value;
+var c2=document.getElementById('c2').value;
+var c3e=document.getElementById('c3e').checked;
+var c3=document.getElementById('c3').value;
+var dir=document.getElementById('dir').value;
+document.getElementById('c1t').value=c1;
+document.getElementById('c2t').value=c2;
+document.getElementById('c3t').value=c3;
+document.getElementById('c3').disabled=!c3e;
+var colors=c3e?c1+', '+c2+', '+c3:c1+', '+c2;
+var gradient='linear-gradient('+dir+', '+colors+')';
+var prev=document.getElementById('prev');
+prev.innerHTML='<div class="gradient-text" style="font-size:'+fs+'px;background:'+gradient+'">'+txt.replace(/</g,'&lt;')+'</div>';
+var css='.gradient-text {\n  font-size: '+fs+'px;\n  font-weight: 800;\n  background: '+gradient+';\n  -webkit-background-clip: text;\n  background-clip: text;\n  -webkit-text-fill-color: transparent;\n}';
+document.getElementById('code').textContent=css;
+}
+function fromText(picker,textId){var v=document.getElementById(textId).value;if(/^#[0-9a-f]{6}$/i.test(v)){document.getElementById(picker).value=v;update();}}
+update();
+</script></body></html>

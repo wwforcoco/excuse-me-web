@@ -1,0 +1,101 @@
+<!DOCTYPE html><html lang="en"><head>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="fa026cc1-8f84-44f5-b2fb-9ccf29374a38"></script>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Accessible Color Palette Generator | ExcuseMeWeb</title>
+<meta name="description" content="Generate WCAG-compliant accessible color palettes. Check contrast ratios for text and background combinations. Ensure AA and AAA accessibility standards are met.">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="Accessible Color Palette Generator | ExcuseMeWeb"><meta property="og:description" content="Generate WCAG-compliant accessible color palettes with contrast ratio checking.">
+<meta property="og:type" content="website"><meta property="og:image" content="https://excusemeweb.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Accessible Color Palette Generator | ExcuseMeWeb"><meta name="twitter:description" content="Generate WCAG-compliant accessible color palettes with contrast ratio checking.">
+<link rel="canonical" href="https://excusemeweb.com/accessible-color-palette"><link rel="icon" href="/favicon.ico"><meta name="theme-color" content="#ffffff"><meta property="og:url" content="https://excusemeweb.com/accessible-color-palette">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Accessible Color Palette Generator","url":"https://excusemeweb.com/accessible-color-palette","description":"Generate WCAG-compliant accessible color palettes with contrast ratio checking.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Organization","name":"ExcuseMeWeb"},"dateModified":"2026-08-08"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://excusemeweb.com/"},{"@type":"ListItem","position":2,"name":"Color Tools","item":"https://excusemeweb.com/color-tools"},{"@type":"ListItem","position":3,"name":"Accessible Color Palette Generator","item":"https://excusemeweb.com/accessible-color-palette"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is WCAG contrast ratio?","acceptedAnswer":{"@type":"Answer","text":"WCAG contrast ratio measures the difference in luminance between text and background colors. AA requires 4.5:1 for normal text and 3:1 for large text."}},{"@type":"Question","name":"What does AA and AAA mean?","acceptedAnswer":{"@type":"Answer","text":"AA is the minimum recommended level for most web content. AAA is the enhanced level for maximum readability."}}]}</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--bg2:#f8fafc;--bg3:#f1f5f9;--text:#0f172a;--text2:#64748b;--accent:#6366f1;--accent-h:#4f46e5;--border:#e2e8f0;--radius:12px;--success:#22c55e;--danger:#ef4444;}
+*{margin:0;padding:0;box-sizing:border-box;}body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column;}
+.header{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 24px;position:sticky;top:0;z-index:1000;}.header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;}
+.logo{font-size:1.5rem;font-weight:700;color:var(--accent);text-decoration:none;}.logo span{color:var(--text);}
+.nav-d{display:flex;gap:24px;}.nav-d a{color:var(--text2);text-decoration:none;font-size:.85rem;font-weight:500;white-space:nowrap;}.nav-d a:hover,.nav-d a.act{color:var(--accent);}
+.hamburger{display:none;background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer;}
+.mob-nav{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);padding:16px 24px;flex-direction:column;gap:16px;z-index:999;}.mob-nav.show{display:flex;}.mob-nav a{color:var(--text2);text-decoration:none;font-size:1rem;}.mob-nav a.act{color:var(--accent);}
+.main{flex:1;max-width:1100px;width:100%;margin:0 auto;padding:40px 24px;}
+.bc{display:flex;gap:6px;font-size:.85rem;color:var(--text2);margin-bottom:20px;flex-wrap:wrap;}.bc a{color:var(--accent);text-decoration:none;}.bc-s{color:var(--border);}.bc-c{color:var(--text);font-weight:500;}
+.ph{text-align:center;margin-bottom:32px;}.ph h1{font-size:2rem;font-weight:700;margin-bottom:8px;}.ph p{color:var(--text2);max-width:600px;margin:0 auto;}
+.box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:32px;max-width:900px;margin:0 auto 32px;}
+.lbl{font-size:.85rem;color:var(--text2);font-weight:500;margin-bottom:4px;display:block;}
+input[type=color]{width:60px;height:40px;border:1px solid var(--border);border-radius:8px;cursor:pointer;padding:2px;}
+input[type=text]{padding:10px 14px;border:1px solid var(--border);border-radius:8px;font-size:.95rem;font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);}input:focus{outline:2px solid var(--accent);border-color:var(--accent);}
+.ig{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
+.cd{text-align:center;padding:32px;border-radius:var(--radius);margin:20px 0;border:1px solid var(--border);}
+.cd .ra{font-size:3rem;font-weight:800;}.cd .la{font-size:1rem;margin-top:4px;}
+.badge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:.8rem;font-weight:600;color:#fff;margin:4px;}
+.bp{background:var(--success);}.bf{background:var(--danger);}
+.sg{display:grid;grid-template-columns:repeat(auto-fill,minmax(70px,1fr));gap:8px;margin-top:8px;}
+.sw{aspect-ratio:1;border-radius:10px;cursor:pointer;transition:transform .15s;display:flex;align-items:flex-end;justify-content:center;padding:4px;border:2px solid var(--border);}.sw:hover{transform:scale(1.08);}.sw span{font-size:.6rem;font-family:monospace;font-weight:600;}
+.cb{display:flex;align-items:center;gap:12px;padding:10px;border:1px solid var(--border);border-radius:8px;margin-bottom:6px;}.cb .cw{width:40px;height:40px;border-radius:8px;border:1px solid var(--border);flex-shrink:0;}.cb .ci{flex:1;font-size:.9rem;}
+.info{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:32px;margin-bottom:24px;}.info h2{font-size:1.3rem;margin-bottom:12px;}.info h3{font-size:1.1rem;margin:20px 0 8px;}.info p,.info li{color:var(--text2);line-height:1.7;margin-bottom:10px;}.info ul{padding-left:20px;}.info a{color:var(--accent);text-decoration:none;}
+details{border:1px solid var(--border);border-radius:8px;padding:14px 18px;margin-bottom:8px;cursor:pointer;}summary{font-weight:600;font-size:.95rem;list-style:none;}summary::-webkit-details-marker{display:none;}details p{color:var(--text2);line-height:1.7;margin-top:10px;font-size:.95rem;}
+.footer{text-align:center;padding:24px;color:var(--text2);font-size:.85rem;border-top:1px solid var(--border);margin-top:auto;}.footer a{color:var(--accent);text-decoration:none;}
+@media(max-width:768px){.nav-d{display:none;}.hamburger{display:block;}.ig{grid-template-columns:1fr;}}
+</style></head><body>
+<header class="header"><div class="header-inner">
+<a href="/" class="logo">Excuse<span>Me</span>Web</a>
+<nav class="nav-d"><a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/clock-tools">Clock Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a><a href="/color-tools" class="act">Color Tools</a></nav>
+<button class="hamburger" onclick="document.getElementById('mobN').classList.toggle('show')">☰</button>
+</div>
+<nav class="mob-nav" id="mobN"><a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/clock-tools">Clock Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a><a href="/color-tools" class="act">Color Tools</a></nav>
+</header>
+<main class="main">
+<nav class="bc"><a href="/">Home</a><span class="bc-s">/</span><a href="/color-tools">Color Tools</a><span class="bc-s">/</span><span class="bc-c">Accessible Color Palette</span></nav>
+<div class="ph"><h1>♿ Accessible Color Palette</h1><p>Generate WCAG-compliant color combinations with contrast ratio checking for AA and AAA accessibility.</p></div>
+<div class="box">
+<div class="ig">
+<div><label class="lbl">Background Color</label><div style="display:flex;align-items:center;gap:8px"><input type="color" id="bgC" value="#ffffff" oninput="upd()"><input type="text" id="bgT" value="#ffffff" style="width:110px" oninput="fh('bgC','bgT')"></div></div>
+<div><label class="lbl">Text Color</label><div style="display:flex;align-items:center;gap:8px"><input type="color" id="fgC" value="#0f172a" oninput="upd()"><input type="text" id="fgT" value="#0f172a" style="width:110px" oninput="fh('fgC','fgT')"></div></div>
+</div>
+<div id="res"></div>
+<div id="sugFg"></div>
+<div id="sugBg"></div>
+<div id="cmbs"></div>
+</div>
+<div class="info"><h2>WCAG Accessible Color Palette Tool</h2><p>Check if your text and background color combinations meet WCAG 2.1 accessibility standards. The tool calculates contrast ratios and shows which AA and AAA levels are satisfied.</p>
+<h3>Frequently Asked Questions</h3>
+<details><summary>What is WCAG contrast ratio?</summary><p>WCAG contrast ratio measures the difference in luminance between text and background colors. AA requires 4.5:1 for normal text and 3:1 for large text.</p></details>
+<details><summary>What does AA and AAA mean?</summary><p>AA is the minimum recommended level for most web content. AAA is the enhanced level for maximum readability.</p></details>
+</div>
+</main>
+<footer class="footer"><p>© 2026 ExcuseMeWeb.com</p><p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p></footer>
+<script>
+function h2r(h){return[parseInt(h.slice(1,3),16),parseInt(h.slice(3,5),16),parseInt(h.slice(5,7),16)];}
+function rl(rgb){var s=rgb.map(function(v){v/=255;return v<=0.03928?v/12.92:Math.pow((v+0.055)/1.055,2.4);});return 0.2126*s[0]+0.7152*s[1]+0.0722*s[2];}
+function cr(a,b){var l1=rl(h2r(a)),l2=rl(h2r(b));return(Math.max(l1,l2)+0.05)/(Math.min(l1,l2)+0.05);}
+function h2h(h){var r=h2r(h),mx=Math.max.apply(null,r),mn=Math.min.apply(null,r),d=mx-mn,l=(mx+mn)/2,s=d?d/(l>0.5?2-mx-mn:mx+mn):0,hu=0;if(d){if(mx===r[0])hu=((r[1]-r[2])/d+(r[1]<r[2]?6:0))/6;if(mx===r[1])hu=((r[2]-r[0])/d+2)/6;if(mx===r[2])hu=((r[0]-r[1])/d+4)/6;}return[hu*360,s*100,l*100];}
+function h2x(h,s,l){h=((h%360)+360)%360;s/=100;l/=100;var c=(1-Math.abs(2*l-1))*s,x=c*(1-Math.abs((h/60)%2-1)),m=l-c/2,r,g,b;if(h<60){r=c;g=x;}else if(h<120){r=x;g=c;}else if(h<180){g=c;b=x;}else if(h<240){g=x;b=c;}else if(h<300){r=x;b=c;}else{r=c;b=x;}return '#'+[Math.round((r+m)*255),Math.round((g+m)*255),Math.round((b+m)*255)].map(function(v){return v.toString(16).padStart(2,'0');}).join('');}
+function b(lu){return(0.299*h2r(lu)[0]+0.587*h2r(lu)[1]+0.114*h2r(lu)[2])/255<0.55;}
+function sw(hx,txt){var dk=b(hx);return '<div class="sw" style="background:'+hx+';color:'+(dk?'#fff':'#000')+'" onclick="navigator.clipboard.writeText(\''+hx+'\')" title="'+txt+'"><span>'+hx.toUpperCase()+'</span></div>';}
+function upd(){
+var bg=document.getElementById('bgC').value,fg=document.getElementById('fgC').value;
+document.getElementById('bgT').value=bg;document.getElementById('fgT').value=fg;
+var r=cr(bg,fg),rs=r.toFixed(2);
+var aN=r>=4.5,aL=r>=3,nN=r>=7,nL=r>=4.5;
+var dk=b(fg),tc=dk?'#fff':'#000';
+var h='<div class="cd" style="background:'+bg+'"><div class="ra" style="color:'+fg+'">'+rs+':1</div><div class="la" style="color:'+fg+'">Contrast Ratio</div><div style="margin-top:12px"><span class="badge '+(aN?'bp':'bf')+'">AA Normal '+(aN?'Pass':'Fail')+'</span><span class="badge '+(aL?'bp':'bf')+'">AA Large '+(aL?'Pass':'Fail')+'</span><span class="badge '+(nN?'bp':'bf')+'">AAA Normal '+(nN?'Pass':'Fail')+'</span><span class="badge '+(nL?'bp':'bf')+'">AAA Large '+(nL?'Pass':'Fail')+'</span></div></div>';
+document.getElementById('res').innerHTML=h;
+var hsl=h2h(fg),hh=hsl[0],ss=hsl[1];
+var fgs='<h3 style="margin-top:20px;font-size:1rem">Suggested Text Colors on '+bg.toUpperCase()+'</h3><div class="sg">';
+for(var i=5;i<=40;i+=5){var c=h2x(hh,ss,i);var ratio=cr(bg,c);var pass=ratio>=4.5;fgs+='<div class="sw" style="background:'+c+';color:'+(b(c)?'#fff':'#000')+';border-color:'+(pass?'var(--success)':'var(--danger)')+'" onclick="navigator.clipboard.writeText(\''+c+'\');document.getElementById(\'fgC\').value=\''+c+'\';upd()" title="'+ratio.toFixed(1)+':1"><span>'+(pass?'✓':'✗')+'</span></div>';}
+fgs+='</div>';document.getElementById('sugFg').innerHTML=fgs;
+var bhsl=h2h(bg),bhh=bhsl[0],bss=bhsl[1];
+var bgs='<h3 style="margin-top:20px;font-size:1rem">Suggested Backgrounds for '+fg.toUpperCase()+'</h3><div class="sg">';
+for(var i=60;i<=100;i+=5){var c=h2x(bhh,bss,i);var ratio=cr(c,fg);var pass=ratio>=4.5;bgs+='<div class="sw" style="background:'+c+';color:'+(b(c)?'#fff':'#000')+';border-color:'+(pass?'var(--success)':'var(--danger)')+'" onclick="navigator.clipboard.writeText(\''+c+'\');document.getElementById(\'bgC\').value=\''+c+'\';upd()" title="'+ratio.toFixed(1)+':1"><span>'+(pass?'✓':'✗')+'</span></div>';}
+bgs+='</div>';document.getElementById('sugBg').innerHTML=bgs;
+var combs=[['#000000','#ffffff'],['#1e293b','#f8fafc'],['#0f172a','#e2e8f0'],['#6366f1','#ffffff'],['#0ea5e9','#0f172a'],['#22c55e','#ffffff'],['#f59e0b','#0f172a']];
+var ch='<div style="margin-top:24px"><h3 style="margin-bottom:12px;font-size:1rem">Common Combinations</h3>';
+combs.forEach(function(c){var r2=cr(c[0],c[1]);var p=r2>=4.5;ch+='<div class="cb"><div class="cw" style="background:'+c[1]+'"></div><div class="cw" style="background:'+c[0]+'"></div><div class="ci"><strong>'+r2.toFixed(2)+':1</strong> <span style="color:'+(p?'var(--success)':'var(--danger)')+'">'+(p?'AA Pass':'AA Fail')+'</span><br><span style="font-size:.8rem;color:var(--text2)">'+c[0]+' on '+c[1]+'</span></div></div>';});
+ch+='</div>';document.getElementById('cmbs').innerHTML=ch;
+}
+function fh(p,t){var v=document.getElementById(t).value;if(/^#[0-9a-f]{6}$/i.test(v)){document.getElementById(p).value=v;upd();}}
+upd();
+</script></body></html>

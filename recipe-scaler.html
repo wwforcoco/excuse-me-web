@@ -1,0 +1,132 @@
+<!DOCTYPE html><html lang="en"><head>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="fa026cc1-8f84-44f5-b2fb-9ccf29374a38"></script>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Recipe Scaler | ExcuseMeWeb</title>
+<meta name="description" content="Scale recipe ingredients up or down easily. Enter your recipe and desired servings to get perfectly adjusted amounts. Free recipe scaling tool for cooks and bakers.">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="Recipe Scaler | ExcuseMeWeb"><meta property="og:description" content="Scale recipe ingredients up or down easily. Enter your recipe and desired servings to get perfectly adjusted amounts.">
+<meta property="og:type" content="website"><meta property="og:image" content="https://excusemeweb.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Recipe Scaler | ExcuseMeWeb"><meta name="twitter:description" content="Scale recipe ingredients up or down easily. Enter your recipe and desired servings to get perfectly adjusted amounts.">
+<link rel="canonical" href="https://excusemeweb.com/recipe-scaler"><link rel="icon" href="/favicon.ico"><meta name="theme-color" content="#ffffff"><meta property="og:url" content="https://excusemeweb.com/recipe-scaler">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Recipe Scaler","url":"https://excusemeweb.com/recipe-scaler","description":"Scale recipe ingredients up or down by changing the number of servings.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Organization","name":"ExcuseMeWeb"},"dateModified":"2026-08-08"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://excusemeweb.com/"},{"@type":"ListItem","position":2,"name":"Everyday Tools","item":"https://excusemeweb.com/everyday-tools"},{"@type":"ListItem","position":3,"name":"Recipe Scaler","item":"https://excusemeweb.com/recipe-scaler"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does recipe scaling work?","acceptedAnswer":{"@type":"Answer","text":"Recipe scaling works by calculating a ratio between your desired servings and the original servings, then multiplying every ingredient quantity by that ratio. For example, scaling from 4 to 8 servings uses a 2x multiplier."}},{"@type":"Question","name":"Does scaling work for all recipes?","acceptedAnswer":{"@type":"Answer","text":"Scaling works well for most recipes, especially simple ones like soups, sauces, and casseroles. Baking recipes can be trickier because the chemistry of leavening agents, spices, and pan sizes may need adjustment. For baked goods, it's best to scale in moderate amounts."}},{"@type":"Question","name":"What about spices and seasonings when scaling?","acceptedAnswer":{"@type":"Answer","text":"Spices and seasonings don't always scale linearly. When doubling a recipe, you may want to use only 1.5x the spices, then taste and adjust. Large-scale scaling can make spices overwhelming, so always taste as you go."}}]}</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--bg2:#f8fafc;--bg3:#f1f5f9;--text:#0f172a;--text2:#64748b;--accent:#6366f1;--accent-h:#4f46e5;--accent-l:#eef2ff;--danger:#ef4444;--success:#22c55e;--border:#e2e8f0;--radius:12px;}
+*{margin:0;padding:0;box-sizing:border-box;}body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column;}
+.header{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 24px;position:sticky;top:0;z-index:1000;}.header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;}
+.logo{font-size:1.5rem;font-weight:700;color:var(--accent);text-decoration:none;}.logo span{color:var(--text);}
+.nav-d{display:flex;gap:24px;}.nav-d a{color:var(--text2);text-decoration:none;font-size:.85rem;font-weight:500;white-space:nowrap;}.nav-d a:hover,.nav-d a.act{color:var(--accent);}
+.hamburger{display:none;background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer;}
+.mob-nav{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);padding:16px 24px;flex-direction:column;gap:16px;z-index:999;}.mob-nav.show{display:flex;}.mob-nav a{color:var(--text2);text-decoration:none;font-size:1rem;}.mob-nav a.act{color:var(--accent);}
+.main{flex:1;max-width:1100px;width:100%;margin:0 auto;padding:40px 24px;}
+.bc{display:flex;gap:6px;font-size:.85rem;color:var(--text2);margin-bottom:20px;flex-wrap:wrap;}.bc a{color:var(--accent);text-decoration:none;}.bc-s{color:var(--border);}.bc-c{color:var(--text);font-weight:500;}
+.ph{text-align:center;margin-bottom:32px;}.ph h1{font-size:2rem;font-weight:700;margin-bottom:8px;}.ph p{color:var(--text2);max-width:600px;margin:0 auto;}
+.box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:32px;max-width:800px;margin:0 auto 32px;}
+.row{margin-bottom:16px;}.row:last-child{margin-bottom:0;}
+.lbl{font-size:.85rem;color:var(--text2);font-weight:500;margin-bottom:4px;display:block;}
+input[type=text],input[type=number],input[type=url],select,textarea{width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:8px;font-size:.95rem;font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);}input:focus,select:focus,textarea:focus{outline:2px solid var(--accent);border-color:var(--accent);}
+textarea{resize:vertical;min-height:200px;font-family:'Inter',sans-serif;}
+.btn{padding:12px 28px;border:none;border-radius:8px;font-size:.95rem;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;transition:all .15s;}.btn-p{background:var(--accent);color:#fff;}.btn-p:hover{background:var(--accent-h);}.btn-s{background:var(--bg3);color:var(--text);}.btn-s:hover{background:var(--border);}
+.br{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:16px;}
+.servings-row{display:flex;gap:16px;align-items:flex-end;flex-wrap:wrap;}.servings-row .fg{flex:1;min-width:120px;}.servings-row .fg label{font-size:.85rem;color:var(--text2);font-weight:500;margin-bottom:4px;display:block;}.servings-row .fg input{width:100%;}
+.scale-info{text-align:center;padding:12px;background:var(--accent-l);border-radius:8px;margin-bottom:16px;font-weight:600;color:var(--accent);font-size:.95rem;}
+.result-list{margin-top:20px;}.result-list li{padding:10px 14px;border-bottom:1px solid var(--border);font-size:.95rem;list-style:none;}.result-list li:last-child{border-bottom:none;}.result-list li strong{color:var(--accent);}
+.info{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:32px;margin-bottom:24px;}.info h2{font-size:1.3rem;margin-bottom:12px;}.info h3{font-size:1.1rem;margin:20px 0 8px;}.info p,.info li{color:var(--text2);line-height:1.7;margin-bottom:10px;}.info ul{padding-left:20px;}.info a{color:var(--accent);text-decoration:none;}
+details{border:1px solid var(--border);border-radius:8px;padding:14px 18px;margin-bottom:8px;cursor:pointer;}summary{font-weight:600;font-size:.95rem;list-style:none;}summary::-webkit-details-marker{display:none;}details p{color:var(--text2);line-height:1.7;margin-top:10px;font-size:.95rem;}
+.footer{text-align:center;padding:24px;color:var(--text2);font-size:.85rem;border-top:1px solid var(--border);margin-top:auto;}.footer a{color:var(--accent);text-decoration:none;}
+@media(max-width:768px){.nav-d{display:none;}.hamburger{display:block;}.servings-row{flex-direction:column;}}
+</style></head><body>
+<header class="header"><div class="header-inner">
+<a href="/" class="logo">Excuse<span>Me</span>Web</a>
+<nav class="nav-d"><a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/clock-tools">Clock Tools</a><a href="/everyday-tools" class="act">Everyday Tools</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a></nav>
+<button class="hamburger" onclick="document.getElementById('mobileNav').classList.toggle('show')">☰</button>
+</div>
+<nav class="mob-nav" id="mobileNav"><a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/clock-tools">Clock Tools</a><a href="/everyday-tools" class="act">Everyday Tools</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a></nav>
+</header>
+<main class="main">
+<nav class="bc"><a href="/">Home</a><span class="bc-s">/</span><a href="/everyday-tools">Everyday Tools</a><span class="bc-s">/</span><span class="bc-c">Recipe Scaler</span></nav>
+<div class="ph"><h1>🧑‍🍳 Recipe Scaler</h1><p>Scale recipe ingredients up or down by adjusting the number of servings.</p></div>
+<div class="box">
+<div class="servings-row">
+<div class="fg"><label>Original Servings</label><input type="number" id="origServ" value="4" min="1"></div>
+<div class="fg"><label>Desired Servings</label><input type="number" id="newServ" value="8" min="1"></div>
+</div>
+<div class="row" style="margin-top:16px">
+<label class="lbl">Ingredients (one per line, e.g. "2 cups flour")</label>
+<textarea id="ingredients" placeholder="2 cups flour
+1 tsp salt
+3 eggs
+1 cup milk
+1/2 cup sugar
+2 tbsp butter">2 cups flour
+1 tsp salt
+3 eggs
+1 cup milk
+1/2 cup sugar
+2 tbsp butter</textarea>
+</div>
+<div class="br"><button class="btn btn-p" onclick="scaleRecipe()">Scale Recipe</button><button class="btn btn-s" onclick="document.getElementById('results').style.display='none'">Clear Results</button></div>
+<div class="scale-info" id="scaleInfo" style="display:none"></div>
+<ul class="result-list" id="results" style="display:none;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:0;overflow:hidden;"></ul>
+</div>
+<div class="info"><h2>Recipe Scaler</h2>
+<p>Easily scale any recipe to serve more or fewer people. Enter your ingredients with quantities and units, then set your desired number of servings. The tool calculates the adjusted amounts using a simple ratio.</p>
+<h3>Frequently Asked Questions</h3>
+<details><summary>How does recipe scaling work?</summary><p>Recipe scaling works by calculating a ratio between your desired servings and the original servings, then multiplying every ingredient quantity by that ratio. For example, scaling from 4 to 8 servings uses a 2x multiplier.</p></details>
+<details><summary>Does scaling work for all recipes?</summary><p>Scaling works well for most recipes, especially simple ones like soups, sauces, and casseroles. Baking recipes can be trickier because the chemistry of leavening agents, spices, and pan sizes may need adjustment. For baked goods, it's best to scale in moderate amounts.</p></details>
+<details><summary>What about spices and seasonings when scaling?</summary><p>Spices and seasonings don't always scale linearly. When doubling a recipe, you may want to use only 1.5x the spices, then taste and adjust. Large-scale scaling can make spices overwhelming, so always taste as you go.</p></details>
+</div>
+</main>
+<footer class="footer"><p>© 2026 ExcuseMeWeb.com</p><p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p></footer>
+<script>
+function parseFraction(s){
+if(s.includes('/')){var parts=s.split('/');return parseFloat(parts[0])/parseFloat(parts[1]);}
+return parseFloat(s);
+}
+function fmtNum(n){
+if(n===0)return '0';
+if(Number.isInteger(n))return n.toString();
+var whole=Math.floor(n);
+var frac=n-whole;
+var rounded=Math.round(frac*100)/100;
+if(rounded===0)return whole.toString();
+if(whole===0){
+for(var d=2;d<=100;d++){var num=rounded*d;if(Math.abs(num-Math.round(num))<0.001){var numR=Math.round(num);var g=gcd(numR,d);return (numR/g)+'/'+(d/g);}}
+return rounded.toFixed(2).replace(/\.?0+$/,'');
+}
+var fracPart=rounded;
+for(var d2=2;d2<=100;d2++){var num2=fracPart*d2;if(Math.abs(num2-Math.round(num2))<0.001){var numR2=Math.round(num2);var g2=gcd(numR2,d2);return whole+' '+(numR2/g2)+'/'+(d2/g2);}}
+return n.toFixed(2).replace(/\.?0+$/,'');
+}
+function gcd(a,b){a=Math.abs(a);b=Math.abs(b);while(b){var t=b;b=a%b;a=t;}return a;}
+function scaleRecipe(){
+var orig=parseInt(document.getElementById('origServ').value)||1;
+var desired=parseInt(document.getElementById('newServ').value)||1;
+var text=document.getElementById('ingredients').value.trim();
+if(!text){alert('Please enter your ingredients.');return;}
+var lines=text.split('\n').filter(function(l){return l.trim();});
+var ratio=desired/orig;
+var results=[];
+lines.forEach(function(line){
+var trimmed=line.trim();
+var match=trimmed.match(/^([\d./]+)\s+(.*)/i);
+if(match){
+var num=parseFraction(match[1]);
+var rest=match[2];
+var scaled=num*ratio;
+results.push(fmtNum(scaled)+' '+rest);
+}else{
+results.push(trimmed);
+}
+});
+var html='';
+results.forEach(function(r){html+='<li>'+r+'</li>';});
+document.getElementById('results').innerHTML=html;
+document.getElementById('results').style.display='block';
+var info=document.getElementById('scaleInfo');
+info.textContent='Scaling factor: '+ratio.toFixed(2)+'x ('+orig+' → '+desired+' servings)';
+info.style.display='block';
+}
+</script></body></html>

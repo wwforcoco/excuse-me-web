@@ -1,0 +1,113 @@
+<!DOCTYPE html><html lang="en"><head>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="fa026cc1-8f84-44f5-b2fb-9ccf29374a38"></script>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Robots.txt Generator | ExcuseMeWeb</title>
+<meta name="description" content="Generate a robots.txt file for your website. Add allow/disallow rules for user-agents, set sitemap URLs, and control search engine crawling. Free robots.txt generator.">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="Robots.txt Generator | ExcuseMeWeb"><meta property="og:description" content="Generate a robots.txt file for your website. Add allow/disallow rules for user-agents, set sitemap URLs, and control search engine crawling.">
+<meta property="og:type" content="website"><meta property="og:image" content="https://excusemeweb.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Robots.txt Generator | ExcuseMeWeb"><meta name="twitter:description" content="Generate a robots.txt file for your website. Add allow/disallow rules for user-agents, set sitemap URLs, and control search engine crawling.">
+<link rel="canonical" href="https://excusemeweb.com/robots-txt-generator"><link rel="icon" href="/favicon.ico"><meta name="theme-color" content="#ffffff"><meta property="og:url" content="https://excusemeweb.com/robots-txt-generator">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Robots.txt Generator","url":"https://excusemeweb.com/robots-txt-generator","description":"Generate a robots.txt file for your website with custom allow/disallow rules and sitemap URLs.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Organization","name":"ExcuseMeWeb"},"dateModified":"2026-08-08"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://excusemeweb.com/"},{"@type":"ListItem","position":2,"name":"SEO Tools","item":"https://excusemeweb.com/seo-tools"},{"@type":"ListItem","position":3,"name":"Robots.txt Generator","item":"https://excusemeweb.com/robots-txt-generator"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is robots.txt?","acceptedAnswer":{"@type":"Answer","text":"Robots.txt is a text file placed in the root directory of a website that tells search engine crawlers which pages or sections they can or cannot crawl. It uses the Robots Exclusion Protocol to communicate with web robots."}},{"@type":"Question","name":"Where should I put the robots.txt file?","acceptedAnswer":{"@type":"Answer","text":"The robots.txt file must be placed in the root directory of your website, accessible at yourdomain.com/robots.txt. It cannot be placed in a subdirectory — search engines only look for it at the root level."}},{"@type":"Question","name":"What are common robots.txt rules?","acceptedAnswer":{"@type":"Answer","text":"Common rules include: User-agent: * (applies to all crawlers), Allow: / (allow everything), Disallow: /admin/ (block admin pages), Disallow: /private/ (block private content), Sitemap: URL (point to sitemap). You can also target specific bots like Googlebot."}}]}</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--bg2:#f8fafc;--bg3:#f1f5f9;--text:#0f172a;--text2:#64748b;--accent:#6366f1;--accent-h:#4f46e5;--accent-l:#eef2ff;--danger:#ef4444;--success:#22c55e;--border:#e2e8f0;--radius:12px;}
+*{margin:0;padding:0;box-sizing:border-box;}body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column;}
+.header{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 24px;position:sticky;top:0;z-index:1000;}.header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;}
+.logo{font-size:1.5rem;font-weight:700;color:var(--accent);text-decoration:none;}.logo span{color:var(--text);}
+.nav-d{display:flex;gap:24px;}.nav-d a{color:var(--text2);text-decoration:none;font-size:.85rem;font-weight:500;white-space:nowrap;}.nav-d a:hover,.nav-d a.act{color:var(--accent);}
+.hamburger{display:none;background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer;}
+.mob-nav{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);padding:16px 24px;flex-direction:column;gap:16px;z-index:999;}.mob-nav.show{display:flex;}.mob-nav a{color:var(--text2);text-decoration:none;font-size:1rem;}.mob-nav a.act{color:var(--accent);}
+.main{flex:1;max-width:1100px;width:100%;margin:0 auto;padding:40px 24px;}
+.bc{display:flex;gap:6px;font-size:.85rem;color:var(--text2);margin-bottom:20px;flex-wrap:wrap;}.bc a{color:var(--accent);text-decoration:none;}.bc-s{color:var(--border);}.bc-c{color:var(--text);font-weight:500;}
+.ph{text-align:center;margin-bottom:32px;}.ph h1{font-size:2rem;font-weight:700;margin-bottom:8px;}.ph p{color:var(--text2);max-width:600px;margin:0 auto;}
+.box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:32px;max-width:800px;margin:0 auto 32px;}
+.row{margin-bottom:16px;}.row:last-child{margin-bottom:0;}
+.lbl{font-size:.85rem;color:var(--text2);font-weight:500;margin-bottom:4px;display:block;}
+input[type=text],input[type=url],select,textarea{width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:8px;font-size:.95rem;font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);}input:focus,select:focus,textarea:focus{outline:2px solid var(--accent);border-color:var(--accent);}
+.btn{padding:12px 28px;border:none;border-radius:8px;font-size:.95rem;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;transition:all .15s;}.btn-p{background:var(--accent);color:#fff;}.btn-p:hover{background:var(--accent-h);}.btn-s{background:var(--bg3);color:var(--text);}.btn-s:hover{background:var(--border);}
+.br{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:16px;}
+.rule-row{display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap;margin-bottom:10px;padding:12px;background:var(--bg);border:1px solid var(--border);border-radius:8px;}
+.rule-row .fg{flex:1;min-width:120px;}.rule-row .fg label{font-size:.8rem;color:var(--text2);font-weight:500;margin-bottom:2px;display:block;}
+.rule-row .fg select,.rule-row .fg input{width:100%;padding:8px 10px;font-size:.9rem;}
+.btn-remove{background:var(--danger);color:#fff;border:none;border-radius:6px;padding:8px 12px;cursor:pointer;font-size:.85rem;font-weight:600;}.btn-remove:hover{opacity:.85;}
+.code-out{background:#1e293b;color:#e2e8f0;border-radius:8px;padding:16px;font-family:monospace;font-size:.9rem;white-space:pre-wrap;word-break:break-all;margin-top:20px;line-height:1.8;}
+.info{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:32px;margin-bottom:24px;}.info h2{font-size:1.3rem;margin-bottom:12px;}.info h3{font-size:1.1rem;margin:20px 0 8px;}.info p,.info li{color:var(--text2);line-height:1.7;margin-bottom:10px;}.info ul{padding-left:20px;}.info a{color:var(--accent);text-decoration:none;}
+details{border:1px solid var(--border);border-radius:8px;padding:14px 18px;margin-bottom:8px;cursor:pointer;}summary{font-weight:600;font-size:.95rem;list-style:none;}summary::-webkit-details-marker{display:none;}details p{color:var(--text2);line-height:1.7;margin-top:10px;font-size:.95rem;}
+.footer{text-align:center;padding:24px;color:var(--text2);font-size:.85rem;border-top:1px solid var(--border);margin-top:auto;}.footer a{color:var(--accent);text-decoration:none;}
+@media(max-width:768px){.nav-d{display:none;}.hamburger{display:block;}}
+</style></head><body>
+<header class="header"><div class="header-inner">
+<a href="/" class="logo">Excuse<span>Me</span>Web</a>
+<nav class="nav-d"><a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/clock-tools">Clock Tools</a><a href="/seo-tools" class="act">SEO Tools</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a></nav>
+<button class="hamburger" onclick="document.getElementById('mobileNav').classList.toggle('show')">☰</button>
+</div>
+<nav class="mob-nav" id="mobileNav"><a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/clock-tools">Clock Tools</a><a href="/seo-tools" class="act">SEO Tools</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a></nav>
+</header>
+<main class="main">
+<nav class="bc"><a href="/">Home</a><span class="bc-s">/</span><a href="/seo-tools">SEO Tools</a><span class="bc-s">/</span><span class="bc-c">Robots.txt Generator</span></nav>
+<div class="ph"><h1>🤖 Robots.txt Generator</h1><p>Create a robots.txt file to control how search engines crawl your website.</p></div>
+<div class="box">
+<h3 style="margin-bottom:12px;font-size:1rem;">Crawl Rules</h3>
+<div id="rulesContainer">
+<div class="rule-row">
+<div class="fg"><label>User-agent</label><select class="ua-sel"><option value="*">* (All crawlers)</option><option value="Googlebot">Googlebot</option><option value="Bingbot">Bingbot</option><option value="Slurp">Slurp (Yahoo)</option><option value="DuckDuckBot">DuckDuckBot</option><option value="Baiduspider">Baiduspider</option><option value="YandexBot">YandexBot</option></select></div>
+<div class="fg"><label>Directive</label><select class="dir-sel"><option value="Disallow">Disallow</option><option value="Allow">Allow</option></select></div>
+<div class="fg"><label>Path</label><input type="text" class="path-inp" placeholder="/admin/"></div>
+<button class="btn-remove" onclick="this.parentElement.remove()">✕</button>
+</div>
+</div>
+<button class="btn btn-s" style="margin-bottom:20px;font-size:.85rem;padding:8px 16px" onclick="addRule()">+ Add Rule</button>
+<div class="row">
+<label class="lbl">Sitemap URL</label>
+<input type="url" id="sitemapUrl" placeholder="https://example.com/sitemap.xml">
+</div>
+<div class="br"><button class="btn btn-p" onclick="generate()">Generate robots.txt</button><button class="btn btn-s" onclick="copyOutput()">Copy</button><button class="btn btn-s" onclick="clearAll()">Clear</button></div>
+<div class="code-out" id="output"># robots.txt will appear here
+# Add rules above and click Generate</div>
+</div>
+<div class="info"><h2>Robots.txt Generator</h2>
+<p>Generate a robots.txt file that controls search engine access to your website. Specify which user-agents (crawlers) should be allowed or disallowed from specific paths, and include your sitemap URL. The generated file should be placed in your website's root directory.</p>
+<h3>Frequently Asked Questions</h3>
+<details><summary>What is robots.txt?</summary><p>Robots.txt is a text file placed in the root directory of a website that tells search engine crawlers which pages or sections they can or cannot crawl. It uses the Robots Exclusion Protocol to communicate with web robots.</p></details>
+<details><summary>Where should I put the robots.txt file?</summary><p>The robots.txt file must be placed in the root directory of your website, accessible at yourdomain.com/robots.txt. It cannot be placed in a subdirectory — search engines only look for it at the root level.</p></details>
+<details><summary>What are common robots.txt rules?</summary><p>Common rules include: User-agent: * (applies to all crawlers), Allow: / (allow everything), Disallow: /admin/ (block admin pages), Disallow: /private/ (block private content), Sitemap: URL (point to sitemap). You can also target specific bots like Googlebot.</p></details>
+</div>
+</main>
+<footer class="footer"><p>© 2026 ExcuseMeWeb.com</p><p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p></footer>
+<script>
+function addRule(){
+var c=document.getElementById('rulesContainer');
+var d=document.createElement('div');d.className='rule-row';
+d.innerHTML='<div class="fg"><label>User-agent</label><select class="ua-sel"><option value="*">* (All crawlers)</option><option value="Googlebot">Googlebot</option><option value="Bingbot">Bingbot</option><option value="Slurp">Slurp (Yahoo)</option><option value="DuckDuckBot">DuckDuckBot</option><option value="Baiduspider">Baiduspider</option><option value="YandexBot">YandexBot</option></select></div><div class="fg"><label>Directive</label><select class="dir-sel"><option value="Disallow">Disallow</option><option value="Allow">Allow</option></select></div><div class="fg"><label>Path</label><input type="text" class="path-inp" placeholder="/path/"></div><button class="btn-remove" onclick="this.parentElement.remove()">✕</button>';
+c.appendChild(d);
+}
+function generate(){
+var rules=document.querySelectorAll('.rule-row');
+var groups={};
+var out='# Generated by ExcuseMeWeb Robots.txt Generator\n\n';
+var sm=document.getElementById('sitemapUrl').value.trim();
+rules.forEach(function(r){
+var ua=r.querySelector('.ua-sel').value;
+var dir=r.querySelector('.dir-sel').value;
+var path=r.querySelector('.path-inp').value.trim()||'/';
+if(!groups[ua])groups[ua]=[];
+groups[ua].push(dir+': '+path);
+});
+Object.keys(groups).forEach(function(ua){
+out+='User-agent: '+ua+'\n';
+groups[ua].forEach(function(line){out+=line+'\n';});
+out+='\n';
+});
+if(sm)out+='Sitemap: '+sm+'\n';
+document.getElementById('output').textContent=out;
+}
+function copyOutput(){var t=document.getElementById('output').textContent;navigator.clipboard.writeText(t).then(function(){var b=event.target;b.textContent='Copied!';setTimeout(function(){b.textContent='Copy';},1500);});}
+function clearAll(){
+document.getElementById('rulesContainer').innerHTML='<div class="rule-row"><div class="fg"><label>User-agent</label><select class="ua-sel"><option value="*">* (All crawlers)</option><option value="Googlebot">Googlebot</option><option value="Bingbot">Bingbot</option><option value="Slurp">Slurp (Yahoo)</option><option value="DuckDuckBot">DuckDuckBot</option><option value="Baiduspider">Baiduspider</option><option value="YandexBot">YandexBot</option></select></div><div class="fg"><label>Directive</label><select class="dir-sel"><option value="Disallow">Disallow</option><option value="Allow">Allow</option></select></div><div class="fg"><label>Path</label><input type="text" class="path-inp" placeholder="/admin/"></div><button class="btn-remove" onclick="this.parentElement.remove()">✕</button></div>';
+document.getElementById('sitemapUrl').value='';
+document.getElementById('output').textContent='# robots.txt will appear here';
+}
+</script></body></html>

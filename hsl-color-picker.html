@@ -1,0 +1,97 @@
+<!DOCTYPE html><html lang="en"><head>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="fa026cc1-8f84-44f5-b2fb-9ccf29374a38"></script>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>HSL Color Picker | ExcuseMeWeb</title>
+<meta name="description" content="Pick colors using HSL (Hue, Saturation, Lightness) sliders. Explore the full color space with real-time preview, HEX, RGB, and HSL output. Free online HSL color picker.">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="HSL Color Picker | ExcuseMeWeb"><meta property="og:description" content="Pick colors using HSL sliders. Explore the full color space with real-time preview, HEX, RGB, and HSL output.">
+<meta property="og:type" content="website"><meta property="og:image" content="https://excusemeweb.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="HSL Color Picker | ExcuseMeWeb"><meta name="twitter:description" content="Pick colors using HSL sliders. Explore the full color space with real-time preview.">
+<link rel="canonical" href="https://excusemeweb.com/hsl-color-picker"><link rel="icon" href="/favicon.ico"><meta name="theme-color" content="#ffffff"><meta property="og:url" content="https://excusemeweb.com/hsl-color-picker">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"HSL Color Picker","url":"https://excusemeweb.com/hsl-color-picker","description":"Pick colors using HSL sliders with real-time preview, HEX, RGB, and HSL output.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Organization","name":"ExcuseMeWeb"},"dateModified":"2026-08-08"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://excusemeweb.com/"},{"@type":"ListItem","position":2,"name":"Color Tools","item":"https://excusemeweb.com/color-tools"},{"@type":"ListItem","position":3,"name":"HSL Color Picker","item":"https://excusemeweb.com/hsl-color-picker"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is HSL color model?","acceptedAnswer":{"@type":"Answer","text":"HSL stands for Hue, Saturation, and Lightness. Hue (0-360) is the color angle on the wheel, Saturation (0-100%) controls color intensity, and Lightness (0-100%) controls brightness."}},{"@type":"Question","name":"Why use HSL instead of RGB?","acceptedAnswer":{"@type":"Answer","text":"HSL is more intuitive for designers because it separates color (hue) from intensity (saturation) and brightness (lightness). It is easier to create color variations and harmonies."}}]}</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--bg2:#f8fafc;--bg3:#f1f5f9;--text:#0f172a;--text2:#64748b;--accent:#6366f1;--accent-h:#4f46e5;--accent-l:#eef2ff;--danger:#ef4444;--success:#22c55e;--border:#e2e8f0;--radius:12px;}
+*{margin:0;padding:0;box-sizing:border-box;}body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column;}
+.header{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 24px;position:sticky;top:0;z-index:1000;}.header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;}
+.logo{font-size:1.5rem;font-weight:700;color:var(--accent);text-decoration:none;}.logo span{color:var(--text);}
+.nav-d{display:flex;gap:24px;}.nav-d a{color:var(--text2);text-decoration:none;font-size:.85rem;font-weight:500;white-space:nowrap;}.nav-d a:hover,.nav-d a.act{color:var(--accent);}
+.hamburger{display:none;background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer;}
+.mob-nav{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);padding:16px 24px;flex-direction:column;gap:16px;z-index:999;}.mob-nav.show{display:flex;}.mob-nav a{color:var(--text2);text-decoration:none;font-size:1rem;}.mob-nav a.act{color:var(--accent);}
+.main{flex:1;max-width:1100px;width:100%;margin:0 auto;padding:40px 24px;}
+.bc{display:flex;gap:6px;font-size:.85rem;color:var(--text2);margin-bottom:20px;flex-wrap:wrap;}.bc a{color:var(--accent);text-decoration:none;}.bc-s{color:var(--border);}.bc-c{color:var(--text);font-weight:500;}
+.ph{text-align:center;margin-bottom:32px;}.ph h1{font-size:2rem;font-weight:700;margin-bottom:8px;}.ph p{color:var(--text2);max-width:600px;margin:0 auto;}
+.box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:32px;max-width:900px;margin:0 auto 32px;}
+.btn{padding:12px 28px;border:none;border-radius:8px;font-size:.95rem;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;transition:all .15s;}.btn-p{background:var(--accent);color:#fff;}.btn-p:hover{background:var(--accent-h);}.btn-s{background:var(--bg3);color:var(--text);}.btn-s:hover{background:var(--border);}
+.lbl{font-size:.85rem;color:var(--text2);font-weight:500;margin-bottom:4px;display:block;}
+input[type=range]{width:100%;accent-color:var(--accent);cursor:pointer;}
+.sr{display:flex;align-items:center;gap:12px;}.sr span{width:48px;text-align:right;font-size:.9rem;font-weight:600;color:var(--text2);font-family:monospace;}
+.preview-area{display:flex;gap:24px;align-items:center;margin-top:24px;flex-wrap:wrap;justify-content:center;}
+.color-preview{width:160px;height:160px;border-radius:var(--radius);border:2px solid var(--border);cursor:pointer;transition:transform .15s;}.color-preview:hover{transform:scale(1.05);}
+.val-grid{display:grid;grid-template-columns:auto 1fr;gap:8px 12px;font-size:.9rem;}.val-grid .k{color:var(--text2);font-weight:500;}.val-grid .v{font-family:monospace;background:var(--bg);padding:4px 10px;border-radius:6px;border:1px solid var(--border);cursor:pointer;}.val-grid .v:hover{background:var(--bg3);}
+.hue-track{height:20px;border-radius:10px;background:linear-gradient(to right,hsl(0,100%,50%),hsl(60,100%,50%),hsl(120,100%,50%),hsl(180,100%,50%),hsl(240,100%,50%),hsl(300,100%,50%),hsl(360,100%,50%));}
+.info{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:32px;margin-bottom:24px;}.info h2{font-size:1.3rem;margin-bottom:12px;}.info h3{font-size:1.1rem;margin:20px 0 8px;}.info p,.info li{color:var(--text2);line-height:1.7;margin-bottom:10px;}.info ul{padding-left:20px;}.info a{color:var(--accent);text-decoration:none;}
+details{border:1px solid var(--border);border-radius:8px;padding:14px 18px;margin-bottom:8px;cursor:pointer;}summary{font-weight:600;font-size:.95rem;list-style:none;}summary::-webkit-details-marker{display:none;}details p{color:var(--text2);line-height:1.7;margin-top:10px;font-size:.95rem;}
+.footer{text-align:center;padding:24px;color:var(--text2);font-size:.85rem;border-top:1px solid var(--border);margin-top:auto;}.footer a{color:var(--accent);text-decoration:none;}
+@media(max-width:768px){.nav-d{display:none;}.hamburger{display:block;}.color-preview{width:120px;height:120px;}}
+</style></head><body>
+<header class="header"><div class="header-inner">
+<a href="/" class="logo">Excuse<span>Me</span>Web</a>
+<nav class="nav-d"><a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/clock-tools">Clock Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a><a href="/color-tools" class="act">Color Tools</a></nav>
+<button class="hamburger" onclick="document.getElementById('mobileNav').classList.toggle('show')">☰</button>
+</div>
+<nav class="mob-nav" id="mobileNav"><a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/clock-tools">Clock Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a><a href="/color-tools" class="act">Color Tools</a></nav>
+</header>
+<main class="main">
+<nav class="bc"><a href="/">Home</a><span class="bc-s">/</span><a href="/color-tools">Color Tools</a><span class="bc-s">/</span><span class="bc-c">HSL Color Picker</span></nav>
+<div class="ph"><h1>🎨 HSL Color Picker</h1><p>Pick colors using Hue, Saturation, and Lightness sliders. Explore the full color space intuitively.</p></div>
+<div class="box">
+<div style="margin-bottom:20px"><label class="lbl">Hue (0-360)</label><div class="hue-track"></div><div class="sr"><input type="range" id="h" min="0" max="360" value="239" oninput="update()"><span id="hv">239</span></div></div>
+<div style="margin-bottom:20px"><label class="lbl">Saturation (0-100%)</label><div class="sr"><input type="range" id="s" min="0" max="100" value="84" oninput="update()"><span id="sv">84%</span></div></div>
+<div style="margin-bottom:20px"><label class="lbl">Lightness (0-100%)</label><div class="sr"><input type="range" id="l" min="0" max="100" value="67" oninput="update()"><span id="lv">67%</span></div></div>
+<div class="preview-area">
+<div class="color-preview" id="prev" onclick="navigator.clipboard.writeText(document.getElementById('hex').textContent)" title="Click to copy HEX"></div>
+<div class="val-grid">
+<span class="k">HEX</span><span class="v" id="hex" onclick="navigator.clipboard.writeText(this.textContent)"></span>
+<span class="k">RGB</span><span class="v" id="rgb" onclick="navigator.clipboard.writeText(this.textContent)"></span>
+<span class="k">HSL</span><span class="v" id="hsl" onclick="navigator.clipboard.writeText(this.textContent)"></span>
+<span class="k">CSS</span><span class="v" id="css" onclick="navigator.clipboard.writeText(this.textContent)"></span>
+</div>
+</div>
+<div style="text-align:center;margin-top:20px"><button class="btn btn-p" style="padding:8px 20px;font-size:.85rem" onclick="randomColor()">Random Color</button></div>
+</div>
+<div class="info"><h2>HSL Color Picker Tool</h2><p>Pick any color using intuitive HSL sliders. See the result in HEX, RGB, and HSL formats simultaneously. Click any value to copy it to your clipboard.</p>
+<h3>Frequently Asked Questions</h3>
+<details><summary>What is HSL color model?</summary><p>HSL stands for Hue, Saturation, and Lightness. Hue (0-360) is the color angle on the wheel, Saturation (0-100%) controls color intensity, and Lightness (0-100%) controls brightness.</p></details>
+<details><summary>Why use HSL instead of RGB?</summary><p>HSL is more intuitive for designers because it separates color (hue) from intensity (saturation) and brightness (lightness). It is easier to create color variations and harmonies.</p></details>
+</div>
+</main>
+<footer class="footer"><p>© 2026 ExcuseMeWeb.com</p><p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p></footer>
+<script>
+function hslToRgb(h,s,l){h/=360;s/=100;l/=100;var r,g,b;if(s===0){r=g=b=l;}else{function hue2rgb(p,q,t){if(t<0)t+=1;if(t>1)t-=1;if(t<1/6)return p+(q-p)*6*t;if(t<1/2)return q;if(t<2/3)return p+(q-p)*(2/3-t)*6;return p;}var q=l<0.5?l*(1+s):l+s-l*s;var p=2*l-q;r=hue2rgb(p,q,h+1/3);g=hue2rgb(p,q,h);b=hue2rgb(p,q,h-1/3);}return[Math.round(r*255),Math.round(g*255),Math.round(b*255)];}
+function update(){
+var h=parseInt(document.getElementById('h').value);
+var s=parseInt(document.getElementById('s').value);
+var l=parseInt(document.getElementById('l').value);
+document.getElementById('hv').textContent=h+'\u00b0';
+document.getElementById('sv').textContent=s+'%';
+document.getElementById('lv').textContent=l+'%';
+var rgb=hslToRgb(h,s,l);
+var hex='#'+rgb.map(function(v){return v.toString(16).padStart(2,'0');}).join('');
+var hslStr='hsl('+h+', '+s+'%, '+l+'%)';
+var rgbStr='rgb('+rgb[0]+', '+rgb[1]+', '+rgb[2]+')';
+document.getElementById('prev').style.background=hslStr;
+document.getElementById('hex').textContent=hex.toUpperCase();
+document.getElementById('rgb').textContent=rgbStr;
+document.getElementById('hsl').textContent=hslStr;
+document.getElementById('css').textContent=hex.toUpperCase();
+}
+function randomColor(){
+document.getElementById('h').value=Math.floor(Math.random()*361);
+document.getElementById('s').value=Math.floor(Math.random()*61)+40;
+document.getElementById('l').value=Math.floor(Math.random()*41)+30;
+update();}
+update();
+</script></body></html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="fa026cc1-8f84-44f5-b2fb-9ccf29374a38"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Regex Tester | ExcuseMeWeb</title>
+<meta name="description" content="Test regular expressions online with real-time highlighting, match count, and captured groups. Supports global, case-insensitive, and multiline flags.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Regex Tester | ExcuseMeWeb">
+<meta property="og:description" content="Test regular expressions online with real-time highlighting, match count, and captured groups.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://excusemeweb.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Regex Tester | ExcuseMeWeb">
+<meta name="twitter:description" content="Test regular expressions online with match highlighting.">
+<link rel="canonical" href="https://excusemeweb.com/regex-tester">
+<link rel="icon" href="/favicon.ico">
+<meta name="theme-color" content="#ffffff">
+<meta property="og:url" content="https://excusemeweb.com/regex-tester">
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Regex Tester",
+  "url": "https://excusemeweb.com/regex-tester",
+  "description": "Test regular expressions online with real-time highlighting, match count, and captured groups. Supports global, case-insensitive, and multiline flags.",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "All",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": { "@type": "Organization", "name": "ExcuseMeWeb" },
+  "dateModified": "2026-08-07"
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://excusemeweb.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Developer Tools", "item": "https://excusemeweb.com/developer-tools" },
+    { "@type": "ListItem", "position": 3, "name": "Regex Tester", "item": "https://excusemeweb.com/regex-tester" }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"What is a regular expression?","acceptedAnswer":{"@type":"Answer","text":"A regular expression (regex) is a sequence of characters that defines a search pattern. It is used in programming for string matching, validation, search-and-replace, and data extraction. Common use cases include email validation, URL parsing, and log analysis."}},
+    {"@type":"Question","name":"What are common regex patterns?","acceptedAnswer":{"@type":"Answer","text":"Common patterns include: email validation ([^\\s@]+@[^\\s@]+\\.[^\\s@]+), phone numbers (\\+?\\d{1,3}[-.\\s]?\\d{3,4}[-.\\s]?\\d{4}), URLs (https?://[\\w\\-._~:/?#\\[\\]@!$&'()*+,;=]+), and date formats (\\d{4}-\\d{2}-\\d{2})."}},
+    {"@type":"Question","name":"Why should I test my regex?","acceptedAnswer":{"@type":"Answer","text":"Testing regex helps you verify it matches the intended patterns without false positives or missed matches. This tool provides instant visual feedback with highlighting and shows all captured groups, making it easy to debug complex patterns."}}
+  ]
+}</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--bg2:#f8fafc;--bg3:#f1f5f9;--text:#0f172a;--text2:#64748b;--accent:#6366f1;--accent-h:#4f46e5;--accent-l:#eef2ff;--danger:#ef4444;--success:#22c55e;--border:#e2e8f0;--radius:12px;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column;}
+.header{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 24px;position:sticky;top:0;z-index:1000;}
+.header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;}
+.logo{font-size:1.5rem;font-weight:700;color:var(--accent);text-decoration:none;}
+.logo span{color:var(--text);}
+.nav-d{display:flex;gap:28px;}
+.nav-d a{color:var(--text2);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color 0.2s;white-space:nowrap;}
+.nav-d a:hover{color:var(--accent);}
+.nav-d a.act{color:var(--accent);}
+.hamburger{display:none;background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer;}
+.mob-nav{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);padding:16px 24px;flex-direction:column;gap:16px;z-index:999;}
+.mob-nav.show{display:flex;}
+.mob-nav a{color:var(--text2);text-decoration:none;font-size:1rem;font-weight:500;}
+.mob-nav a.act{color:var(--accent);}
+main{flex:1;max-width:1100px;width:100%;margin:0 auto;padding:40px 24px;}
+.br{display:flex;align-items:center;flex-wrap:wrap;gap:6px;font-size:0.85rem;color:var(--text2);margin-bottom:20px;}
+.br a{color:var(--accent);text-decoration:none;}
+.br a:hover{text-decoration:underline;}
+.br .sep{color:var(--border);}
+.br .cur{color:var(--text);font-weight:600;}
+.ph{text-align:center;margin-bottom:28px;}
+.ph h1{font-size:2rem;font-weight:700;margin-bottom:8px;}
+.ph p{color:var(--text2);font-size:1.05rem;max-width:640px;margin:0 auto;}
+.box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:28px;max-width:900px;margin:0 auto 24px;}
+.lbl{font-size:0.85rem;color:var(--text2);font-weight:500;margin-bottom:4px;display:block;}
+input[type="text"],textarea{width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:8px;font-size:0.95rem;font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);}
+input:focus,textarea:focus{outline:2px solid var(--accent);border-color:var(--accent);}
+textarea{font-family:'Courier New',monospace;resize:vertical;min-height:120px;}
+.btn{padding:10px 24px;border:none;border-radius:8px;font-size:0.95rem;font-weight:600;cursor:pointer;transition:all 0.15s;font-family:'Inter',sans-serif;display:inline-block;}
+.btn-p{background:var(--accent);color:#fff;}
+.btn-p:hover{background:var(--accent-h);}
+.btn-s{background:var(--bg3);color:var(--text);}
+.btn-s:hover{background:var(--border);}
+.btn-row{display:flex;gap:12px;flex-wrap:wrap;margin:12px 0;align-items:center;}
+.flag-row{display:flex;gap:16px;align-items:center;margin:8px 0;}
+.flag-row label{display:flex;align-items:center;gap:4px;font-size:0.9rem;cursor:pointer;}
+.flag-row input[type="checkbox"]{width:auto;}
+.regex-input{font-family:'Courier New',monospace !important;font-weight:600;}
+.highlight-box{margin-top:12px;padding:16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;min-height:60px;line-height:1.8;white-space:pre-wrap;word-break:break-word;font-family:'Courier New',monospace;font-size:0.95rem;}
+.highlight-box mark{background:var(--accent-l);color:var(--accent);padding:2px 4px;border-radius:3px;border-bottom:2px solid var(--accent);}
+.match-info{margin-top:12px;display:flex;gap:16px;flex-wrap:wrap;align-items:center;}
+.match-info .badge{padding:6px 14px;border-radius:20px;font-weight:600;font-size:0.9rem;}
+.match-info .badge-ok{background:rgba(34,197,94,0.15);color:#16a34a;}
+.match-info .badge-err{background:rgba(239,68,68,0.15);color:#dc2626;}
+.groups-list{margin-top:12px;max-height:200px;overflow-y:auto;}
+.group-item{padding:8px 12px;border-bottom:1px solid var(--border);font-family:'Courier New',monospace;font-size:0.85rem;}
+.group-item:last-child{border-bottom:none;}
+.group-item span{color:var(--text2);font-family:'Inter',sans-serif;}
+.error-msg{padding:12px;background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.3);border-radius:8px;color:var(--danger);font-size:0.9rem;margin-top:12px;display:none;}
+.error-msg.show{display:block;}
+.info{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:28px;margin-bottom:24px;}
+.info h2{font-size:1.3rem;margin-bottom:12px;}
+.info h3{font-size:1.1rem;margin:20px 0 8px;color:var(--accent);}
+.info p,.info li{color:var(--text2);line-height:1.7;margin-bottom:10px;}
+.info ul{padding-left:20px;}
+.info a{color:var(--accent);text-decoration:none;}
+.info a:hover{text-decoration:underline;}
+details{border:1px solid var(--border);border-radius:8px;padding:14px 18px;margin-bottom:8px;cursor:pointer;background:var(--bg);}
+summary{font-weight:600;font-size:0.95rem;list-style:none;}
+summary::-webkit-details-marker{display:none;}
+details p{color:var(--text2);line-height:1.7;margin-top:10px;font-size:0.95rem;}
+.footer{text-align:center;padding:24px;color:var(--text2);font-size:0.85rem;border-top:1px solid var(--border);margin-top:auto;}
+.footer a{color:var(--accent);text-decoration:none;}
+@media(max-width:768px){
+.nav-d{display:none;}.hamburger{display:block;}
+.ph h1{font-size:1.7rem;}main{padding:24px 16px;}.box{padding:20px;}
+}
+</style>
+</head>
+<body>
+<header class="header">
+<div class="header-inner">
+<a href="/" class="logo">Excuse<span>Me</span>Web</a>
+<nav class="nav-d">
+<a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/clock-tools">Clock Tools</a><a href="/developer-tools" class="act">Developer Tools</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a>
+</nav>
+<button class="hamburger" onclick="document.getElementById('mobNav').classList.toggle('show')">☰</button>
+</div>
+<nav class="mob-nav" id="mobNav">
+<a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/clock-tools">Clock Tools</a><a href="/developer-tools" class="act">Developer Tools</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a>
+</nav>
+</header>
+<main>
+<nav class="br" aria-label="Breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="/developer-tools">Developer Tools</a><span class="sep">/</span><span class="cur">Regex Tester</span></nav>
+<div class="ph">
+<h1>🔍 Regex Tester</h1>
+<p>Test regular expressions with real-time match highlighting, match count, and captured groups. Supports global, case-insensitive, and multiline flags.</p>
+</div>
+<div class="box">
+<label class="lbl">Regular Expression</label>
+<input type="text" id="regexInput" class="regex-input" placeholder="e.g. \\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,}\\b" value="\\b\\w+@\\w+\\.\\w+\\b">
+<div class="flag-row">
+<label><input type="checkbox" id="flagG" checked> g (global)</label>
+<label><input type="checkbox" id="flagI"> i (case-insensitive)</label>
+<label><input type="checkbox" id="flagM"> m (multiline)</label>
+</div>
+<label class="lbl">Test String</label>
+<textarea id="testString" placeholder="Enter text to test against...">Contact us at hello@example.com or support@test.org for help. Spam emails go to fake@bad.net</textarea>
+<div class="btn-row"><button class="btn btn-p" onclick="testRegex()">Test Regex</button><button class="btn btn-s" onclick="clearAll()">Clear</button></div>
+<div class="match-info" id="matchInfo"></div>
+<div class="highlight-box" id="highlightBox" style="display:none"></div>
+<div class="groups-list" id="groupsList" style="display:none"></div>
+<div class="error-msg" id="errorMsg"></div>
+</div>
+<div class="info">
+<h2>Regular Expression Tester</h2>
+<p>This tool lets you test and debug regular expressions against any text input. Matches are highlighted in real time, and all captured groups are listed below. You can toggle flags for global, case-insensitive, and multiline matching.</p>
+<h3>Common Patterns</h3>
+<ul>
+<li><strong>Email:</strong> <code>\b[\w.-]+@[\w.-]+\.\w+\b</code></li>
+<li><strong>URL:</strong> <code>https?://[\w\-._~:/?#\[\]@!$&amp;'()*+,;=]+</code></li>
+<li><strong>Phone (US):</strong> <code>\(\d{3}\)\s?\d{3}-\d{4}</code></li>
+<li><strong>Date (YYYY-MM-DD):</strong> <code>\d{4}-\d{2}-\d{2}</code></li>
+</ul>
+<h3>Frequently Asked Questions</h3>
+<details><summary>What is a regular expression?</summary><p>A regular expression (regex) is a sequence of characters that defines a search pattern. It is used in programming for string matching, validation, search-and-replace, and data extraction. Common use cases include email validation, URL parsing, and log analysis.</p></details>
+<details><summary>What are common regex patterns?</summary><p>Common patterns include: email validation, phone number formats, URL matching, date/time formats, and IP addresses. Each pattern uses special characters like <code>.</code> <code>*</code> <code>+</code> <code>?</code> <code>^</code> <code>$</code> <code>[]</code> and <code>()</code> to define matching rules.</p></details>
+<details><summary>Why should I test my regex?</summary><p>Testing regex helps you verify it matches the intended patterns without false positives or missed matches. This tool provides instant visual feedback with highlighting and shows all captured groups, making it easy to debug complex patterns.</p></details>
+<h3>Related Tools</h3>
+<p><a href="/json-formatter">JSON Formatter</a> · <a href="/html-minifier">HTML Minifier</a> · <a href="/base64-image-encoder">Base64 Image Encoder</a> · <a href="/url-encoder">URL Encoder</a> · <a href="/developer-tools">All Developer Tools</a></p>
+</div>
+</main>
+<footer class="footer">
+<p>&copy; 2026 ExcuseMeWeb.com</p>
+<p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p>
+</footer>
+<script>
+function testRegex(){
+  document.getElementById('errorMsg').classList.remove('show');
+  var pattern=document.getElementById('regexInput').value;
+  var testStr=document.getElementById('testString').value;
+  var flags='';
+  if(document.getElementById('flagG').checked)flags+='g';
+  if(document.getElementById('flagI').checked)flags+='i';
+  if(document.getElementById('flagM').checked)flags+='m';
+  if(!pattern){showError('Please enter a regex pattern.');return;}
+  try{
+    var regex=new RegExp(pattern,flags);
+  }catch(e){showError('Invalid regex: '+e.message);return;}
+  var matches=[];var match;
+  if(flags.indexOf('g')>=0){while((match=regex.exec(testStr))!==null){matches.push({text:match[0],index:match.index,groups:match.slice(1)});if(match.index===regex.lastIndex)regex.lastIndex++;}}
+  else{match=regex.exec(testStr);if(match)matches.push({text:match[0],index:match.index,groups:match.slice(1)});}
+  var info=document.getElementById('matchInfo');
+  if(matches.length>0){
+    info.innerHTML='<span class="badge badge-ok">'+matches.length+' match'+(matches.length>1?'es':'')+' found</span>';
+  }else{
+    info.innerHTML='<span class="badge badge-err">No matches found</span>';
+  }
+  var box=document.getElementById('highlightBox');box.style.display='block';
+  if(matches.length>0){
+    var html='';var lastIdx=0;
+    for(var i=0;i<matches.length;i++){
+      html+=escHtml(testStr.substring(lastIdx,matches[i].index));
+      html+='<mark>'+escHtml(matches[i].text)+'</mark>';
+      lastIdx=matches[i].index+matches[i].text.length;
+    }
+    html+=escHtml(testStr.substring(lastIdx));
+    box.innerHTML=html;
+  }else{box.innerHTML=escHtml(testStr);}
+  var groupsDiv=document.getElementById('groupsList');
+  if(matches.length>0&&matches[0].groups.length>0){
+    groupsDiv.style.display='block';
+    var gh='<div class="lbl" style="margin-bottom:8px">Captured Groups</div>';
+    for(var i=0;i<matches.length;i++){
+      for(var j=0;j<matches[i].groups.length;j++){
+        gh+='<div class="group-item"><span>Match '+(i+1)+' Group '+(j+1)+':</span> '+escHtml(matches[i].groups[j]||'(empty)')+'</div>';
+      }
+    }
+    groupsDiv.innerHTML=gh;
+  }else{groupsDiv.style.display='none';}
+}
+function escHtml(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\"/g,'&quot;');}
+function showError(msg){var el=document.getElementById('errorMsg');el.textContent=msg;el.classList.add('show');}
+function clearAll(){
+  document.getElementById('regexInput').value='';
+  document.getElementById('testString').value='';
+  document.getElementById('highlightBox').style.display='none';
+  document.getElementById('matchInfo').innerHTML='';
+  document.getElementById('groupsList').style.display='none';
+  document.getElementById('errorMsg').classList.remove('show');
+}
+testRegex();
+</script>
+</body>
+</html>

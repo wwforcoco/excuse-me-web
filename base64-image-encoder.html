@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="fa026cc1-8f84-44f5-b2fb-9ccf29374a38"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Base64 Image Encoder | ExcuseMeWeb</title>
+<meta name="description" content="Encode images to base64 data URIs or decode base64 strings back to images. Upload any image file and get the base64 output instantly.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Base64 Image Encoder | ExcuseMeWeb">
+<meta property="og:description" content="Encode images to base64 data URIs or decode base64 strings back to images. Upload any image file and get the base64 output instantly.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://excusemeweb.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Base64 Image Encoder | ExcuseMeWeb">
+<meta name="twitter:description" content="Encode images to base64 or decode base64 back to images.">
+<link rel="canonical" href="https://excusemeweb.com/base64-image-encoder">
+<link rel="icon" href="/favicon.ico">
+<meta name="theme-color" content="#ffffff">
+<meta property="og:url" content="https://excusemeweb.com/base64-image-encoder">
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Base64 Image Encoder",
+  "url": "https://excusemeweb.com/base64-image-encoder",
+  "description": "Encode images to base64 data URIs or decode base64 strings back to images. Upload any image file and get the base64 output instantly.",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "All",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": { "@type": "Organization", "name": "ExcuseMeWeb" },
+  "dateModified": "2026-08-07"
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://excusemeweb.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Developer Tools", "item": "https://excusemeweb.com/developer-tools" },
+    { "@type": "ListItem", "position": 3, "name": "Base64 Image Encoder", "item": "https://excusemeweb.com/base64-image-encoder" }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"What is base64 encoding?","acceptedAnswer":{"@type":"Answer","text":"Base64 is a binary-to-text encoding scheme that represents binary data using 64 printable ASCII characters. It is commonly used to embed images directly in HTML, CSS, or JSON files as data URIs, eliminating the need for separate image files."}},
+    {"@type":"Question","name":"Why encode images as base64?","acceptedAnswer":{"@type":"Answer","text":"Base64-encoded images can be embedded directly in HTML or CSS using data URIs, reducing the number of HTTP requests. This is useful for small icons, email templates, and single-file applications. However, it is not recommended for large images."}},
+    {"@type":"Question","name":"How much larger is a base64-encoded image?","acceptedAnswer":{"@type":"Answer","text":"Base64 encoding increases file size by approximately 33%. For example, a 100 KB image will become about 133 KB when base64-encoded. This is because every 3 bytes of binary data become 4 characters in base64. For large images, this size increase can significantly impact performance."}}
+  ]
+}</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--bg2:#f8fafc;--bg3:#f1f5f9;--text:#0f172a;--text2:#64748b;--accent:#6366f1;--accent-h:#4f46e5;--accent-l:#eef2ff;--danger:#ef4444;--success:#22c55e;--border:#e2e8f0;--radius:12px;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column;}
+.header{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 24px;position:sticky;top:0;z-index:1000;}
+.header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;}
+.logo{font-size:1.5rem;font-weight:700;color:var(--accent);text-decoration:none;}
+.logo span{color:var(--text);}
+.nav-d{display:flex;gap:28px;}
+.nav-d a{color:var(--text2);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color 0.2s;white-space:nowrap;}
+.nav-d a:hover{color:var(--accent);}
+.nav-d a.act{color:var(--accent);}
+.hamburger{display:none;background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer;}
+.mob-nav{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);padding:16px 24px;flex-direction:column;gap:16px;z-index:999;}
+.mob-nav.show{display:flex;}
+.mob-nav a{color:var(--text2);text-decoration:none;font-size:1rem;font-weight:500;}
+.mob-nav a.act{color:var(--accent);}
+main{flex:1;max-width:1100px;width:100%;margin:0 auto;padding:40px 24px;}
+.br{display:flex;align-items:center;flex-wrap:wrap;gap:6px;font-size:0.85rem;color:var(--text2);margin-bottom:20px;}
+.br a{color:var(--accent);text-decoration:none;}
+.br a:hover{text-decoration:underline;}
+.br .sep{color:var(--border);}
+.br .cur{color:var(--text);font-weight:600;}
+.ph{text-align:center;margin-bottom:28px;}
+.ph h1{font-size:2rem;font-weight:700;margin-bottom:8px;}
+.ph p{color:var(--text2);font-size:1.05rem;max-width:640px;margin:0 auto;}
+.box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:28px;max-width:900px;margin:0 auto 24px;}
+.lbl{font-size:0.85rem;color:var(--text2);font-weight:500;margin-bottom:4px;display:block;}
+input[type="file"]{padding:8px;border:1px solid var(--border);border-radius:8px;background:var(--bg);width:100%;}
+textarea{width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:8px;font-size:0.85rem;font-family:'Courier New',monospace;background:var(--bg);color:var(--text);resize:vertical;min-height:120px;}
+textarea:focus{outline:2px solid var(--accent);border-color:var(--accent);}
+.btn{padding:10px 24px;border:none;border-radius:8px;font-size:0.95rem;font-weight:600;cursor:pointer;transition:all 0.15s;font-family:'Inter',sans-serif;display:inline-block;}
+.btn-p{background:var(--accent);color:#fff;}
+.btn-p:hover{background:var(--accent-h);}
+.btn-s{background:var(--bg3);color:var(--text);}
+.btn-s:hover{background:var(--border);}
+.btn-row{display:flex;gap:12px;flex-wrap:wrap;margin:16px 0;}
+.mode-tabs{display:flex;gap:0;margin-bottom:20px;border-radius:8px;overflow:hidden;border:1px solid var(--border);}
+.mode-tab{flex:1;padding:10px;text-align:center;cursor:pointer;font-weight:600;font-size:0.9rem;background:var(--bg);border:none;font-family:'Inter',sans-serif;transition:all 0.15s;}
+.mode-tab.active{background:var(--accent);color:#fff;}
+.mode-tab:hover:not(.active){background:var(--bg3);}
+.sg{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;margin-top:12px;}
+.sc{padding:14px;border-radius:8px;border:1px solid var(--border);background:var(--bg);text-align:center;}
+.sc .val{font-size:1.2rem;font-weight:700;color:var(--accent);}
+.sc .sl{font-size:0.8rem;color:var(--text2);margin-top:4px;}
+.preview-area{margin-top:16px;text-align:center;}
+.preview-area img{max-width:100%;max-height:300px;border-radius:8px;border:1px solid var(--border);}
+.error-msg{padding:12px;background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.3);border-radius:8px;color:var(--danger);font-size:0.9rem;margin-top:12px;display:none;}
+.error-msg.show{display:block;}
+.info{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:28px;margin-bottom:24px;}
+.info h2{font-size:1.3rem;margin-bottom:12px;}
+.info h3{font-size:1.1rem;margin:20px 0 8px;color:var(--accent);}
+.info p,.info li{color:var(--text2);line-height:1.7;margin-bottom:10px;}
+.info ul{padding-left:20px;}
+.info a{color:var(--accent);text-decoration:none;}
+.info a:hover{text-decoration:underline;}
+details{border:1px solid var(--border);border-radius:8px;padding:14px 18px;margin-bottom:8px;cursor:pointer;background:var(--bg);}
+summary{font-weight:600;font-size:0.95rem;list-style:none;}
+summary::-webkit-details-marker{display:none;}
+details p{color:var(--text2);line-height:1.7;margin-top:10px;font-size:0.95rem;}
+.footer{text-align:center;padding:24px;color:var(--text2);font-size:0.85rem;border-top:1px solid var(--border);margin-top:auto;}
+.footer a{color:var(--accent);text-decoration:none;}
+@media(max-width:768px){
+.nav-d{display:none;}.hamburger{display:block;}
+.ph h1{font-size:1.7rem;}main{padding:24px 16px;}.box{padding:20px;}
+}
+</style>
+</head>
+<body>
+<header class="header">
+<div class="header-inner">
+<a href="/" class="logo">Excuse<span>Me</span>Web</a>
+<nav class="nav-d">
+<a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/clock-tools">Clock Tools</a><a href="/developer-tools" class="act">Developer Tools</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a>
+</nav>
+<button class="hamburger" onclick="document.getElementById('mobNav').classList.toggle('show')">☰</button>
+</div>
+<nav class="mob-nav" id="mobNav">
+<a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/clock-tools">Clock Tools</a><a href="/developer-tools" class="act">Developer Tools</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a>
+</nav>
+</header>
+<main>
+<nav class="br" aria-label="Breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="/developer-tools">Developer Tools</a><span class="sep">/</span><span class="cur">Base64 Image Encoder</span></nav>
+<div class="ph">
+<h1>🖼️ Base64 Image Encoder</h1>
+<p>Encode images to base64 data URIs or decode base64 strings back to previewable images. All processing happens in your browser.</p>
+</div>
+<div class="box">
+<div class="mode-tabs">
+<button class="mode-tab active" onclick="setMode('encode',this)">Encode (Image → Base64)</button>
+<button class="mode-tab" onclick="setMode('decode',this)">Decode (Base64 → Image)</button>
+</div>
+<div id="encodeSection">
+<label class="lbl">Upload an Image</label>
+<input type="file" id="fileInput" accept="image/*">
+<div class="btn-row"><button class="btn btn-p" onclick="encodeFile()">Encode to Base64</button><button class="btn btn-s" onclick="copyOutput()">Copy</button></div>
+</div>
+<div id="decodeSection" style="display:none">
+<label class="lbl">Paste Base64 String (with or without data URI prefix)</label>
+<textarea id="b64Input" placeholder="data:image/png;base64,iVBORw0KGgo..."></textarea>
+<div class="btn-row"><button class="btn btn-p" onclick="decodeBase64()">Decode to Image</button></div>
+</div>
+<div class="sg" id="statsGrid" style="display:none">
+<div class="sc"><div class="val" id="sOrig">--</div><div class="sl">Original Size</div></div>
+<div class="sc"><div class="val" id="sB64">--</div><div class="sl">Base64 Size</div></div>
+<div class="sc"><div class="val" id="sRatio">--</div><div class="sl">Size Increase</div></div>
+</div>
+<div id="outputArea" style="display:none">
+<label class="lbl">Base64 Output</label>
+<textarea id="b64Output" readonly></textarea>
+</div>
+<div class="preview-area" id="previewArea" style="display:none">
+<label class="lbl">Image Preview</label><br>
+<img id="previewImg" alt="Preview">
+</div>
+<div class="error-msg" id="errorMsg"></div>
+</div>
+<div class="info">
+<h2>Base64 Image Encoder & Decoder</h2>
+<p>This tool converts images to base64-encoded data URIs and back. Encoding images as base64 allows you to embed them directly in HTML, CSS, or JSON without separate file references. All processing is done locally in your browser.</p>
+<h3>Use Cases</h3>
+<ul>
+<li><strong>Email templates:</strong> Embed images directly in HTML emails.</li>
+<li><strong>Single-file apps:</strong> Include small icons inline.</li>
+<li><strong>API responses:</strong> Return images as base64 strings in JSON.</li>
+<li><strong>CSS backgrounds:</strong> Use data URIs for small background images.</li>
+</ul>
+<h3>Frequently Asked Questions</h3>
+<details><summary>What is base64 encoding?</summary><p>Base64 is a binary-to-text encoding scheme that represents binary data using 64 printable ASCII characters. It is commonly used to embed images directly in HTML, CSS, or JSON files as data URIs, eliminating the need for separate image files.</p></details>
+<details><summary>Why encode images as base64?</summary><p>Base64-encoded images can be embedded directly in HTML or CSS using data URIs, reducing the number of HTTP requests. This is useful for small icons, email templates, and single-file applications. However, it is not recommended for large images.</p></details>
+<details><summary>How much larger is a base64-encoded image?</summary><p>Base64 encoding increases file size by approximately 33%. For example, a 100 KB image will become about 133 KB when base64-encoded. This is because every 3 bytes of binary data become 4 characters in base64. For large images, this size increase can significantly impact performance.</p></details>
+<h3>Related Tools</h3>
+<p><a href="/json-formatter">JSON Formatter</a> · <a href="/html-minifier">HTML Minifier</a> · <a href="/regex-tester">Regex Tester</a> · <a href="/url-encoder">URL Encoder</a> · <a href="/developer-tools">All Developer Tools</a></p>
+</div>
+</main>
+<footer class="footer">
+<p>&copy; 2026 ExcuseMeWeb.com</p>
+<p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p>
+</footer>
+<script>
+var currentMode='encode';
+function setMode(m,btn){
+  currentMode=m;
+  var tabs=document.querySelectorAll('.mode-tab');
+  for(var i=0;i<tabs.length;i++)tabs[i].classList.remove('active');
+  btn.classList.add('active');
+  document.getElementById('encodeSection').style.display=m==='encode'?'block':'none';
+  document.getElementById('decodeSection').style.display=m==='decode'?'block':'none';
+  document.getElementById('statsGrid').style.display='none';
+  document.getElementById('outputArea').style.display='none';
+  document.getElementById('previewArea').style.display='none';
+  document.getElementById('errorMsg').classList.remove('show');
+}
+function showError(msg){var el=document.getElementById('errorMsg');el.textContent=msg;el.classList.add('show');}
+function formatSize(bytes){if(bytes<1024)return bytes+' B';if(bytes<1048576)return(bytes/1024).toFixed(1)+' KB';return(bytes/1048576).toFixed(1)+' MB';}
+function encodeFile(){
+  document.getElementById('errorMsg').classList.remove('show');
+  var file=document.getElementById('fileInput').files[0];
+  if(!file){showError('Please select an image file.');return;}
+  if(!file.type.startsWith('image/')){showError('Please select a valid image file.');return;}
+  var reader=new FileReader();
+  reader.onload=function(e){
+    var b64=e.target.result;
+    document.getElementById('b64Output').value=b64;
+    document.getElementById('outputArea').style.display='block';
+    document.getElementById('previewArea').style.display='block';
+    document.getElementById('previewImg').src=b64;
+    var origSize=file.size;
+    var b64Size=b64.length;
+    document.getElementById('sOrig').textContent=formatSize(origSize);
+    document.getElementById('sB64').textContent=formatSize(b64Size);
+    document.getElementById('sRatio').textContent='+'+Math.round((b64Size/origSize-1)*100)+'%';
+    document.getElementById('statsGrid').style.display='grid';
+  };
+  reader.readAsDataURL(file);
+}
+function decodeBase64(){
+  document.getElementById('errorMsg').classList.remove('show');
+  var input=document.getElementById('b64Input').value.trim();
+  if(!input){showError('Please paste a base64 string.');return;}
+  var src=input;
+  if(!input.startsWith('data:image')){src='data:image/png;base64,'+input;}
+  try{
+    var img=new Image();
+    img.onload=function(){
+      document.getElementById('previewArea').style.display='block';
+      document.getElementById('previewImg').src=src;
+      document.getElementById('statsGrid').style.display='none';
+      document.getElementById('outputArea').style.display='none';
+    };
+    img.onerror=function(){showError('Could not decode the base64 string. Please check the input is a valid base64-encoded image.');};
+    img.src=src;
+  }catch(e){showError('Invalid base64 string.');}
+}
+function copyOutput(){
+  var val=document.getElementById('b64Output').value;
+  if(!val)return;
+  navigator.clipboard.writeText(val).then(function(){showError('Copied to clipboard!');document.getElementById('errorMsg').style.background='rgba(34,197,94,0.1)';document.getElementById('errorMsg').style.borderColor='rgba(34,197,94,0.3)';document.getElementById('errorMsg').style.color='var(--success)';});
+}
+</script>
+</body>
+</html>

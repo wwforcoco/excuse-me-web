@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="fa026cc1-8f84-44f5-b2fb-9ccf29374a38"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Water Intake Calculator | ExcuseMeWeb</title>
+<meta name="description" content="Calculate your recommended daily water intake based on weight, activity level, and climate. Get results in ml, liters, glasses, and ounces.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Water Intake Calculator | ExcuseMeWeb">
+<meta property="og:description" content="Calculate your recommended daily water intake based on weight, activity level, and climate.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://excusemeweb.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Water Intake Calculator | ExcuseMeWeb">
+<meta name="twitter:description" content="Calculate your recommended daily water intake based on weight, activity level, and climate.">
+<link rel="canonical" href="https://excusemeweb.com/water-intake-calculator">
+<link rel="icon" href="/favicon.ico">
+<meta name="theme-color" content="#ffffff">
+<meta property="og:url" content="https://excusemeweb.com/water-intake-calculator">
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Water Intake Calculator",
+  "url": "https://excusemeweb.com/water-intake-calculator",
+  "description": "Calculate your recommended daily water intake based on weight, activity level, and climate. Get results in ml, liters, glasses, and ounces.",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "All",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": { "@type": "Organization", "name": "ExcuseMeWeb" },
+  "dateModified": "2026-08-07"
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://excusemeweb.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Health Tools", "item": "https://excusemeweb.com/health-tools" },
+    { "@type": "ListItem", "position": 3, "name": "Water Intake Calculator", "item": "https://excusemeweb.com/water-intake-calculator" }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"How much water should I drink per day?","acceptedAnswer":{"@type":"Answer","text":"A common guideline is 35 ml per kg of body weight, adjusted for activity and climate. This calculator provides a personalized estimate. The old '8 glasses a day' rule is a reasonable starting point but may not suit everyone."}},
+    {"@type":"Question","name":"Does coffee or tea count toward water intake?","acceptedAnswer":{"@type":"Answer","text":"Yes, moderate consumption of caffeinated beverages like coffee and tea does count toward your daily fluid intake. While caffeine is a mild diuretic, the water content in these drinks still contributes to hydration. However, water should remain your primary fluid source."}},
+    {"@type":"Question","name":"Can I drink too much water?","acceptedAnswer":{"@type":"Answer","text":"Yes. Drinking excessive amounts of water can lead to hyponatremia, a dangerous condition where sodium levels in the blood become too low. This is rare in healthy adults but can occur during endurance events. Listen to your body's thirst signals."}}
+  ]
+}</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--bg2:#f8fafc;--bg3:#f1f5f9;--text:#0f172a;--text2:#64748b;--accent:#6366f1;--accent-h:#4f46e5;--accent-l:#eef2ff;--danger:#ef4444;--success:#22c55e;--border:#e2e8f0;--radius:12px;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column;}
+.header{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 24px;position:sticky;top:0;z-index:1000;}
+.header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;}
+.logo{font-size:1.5rem;font-weight:700;color:var(--accent);text-decoration:none;}
+.logo span{color:var(--text);}
+.nav-d{display:flex;gap:28px;}
+.nav-d a{color:var(--text2);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color 0.2s;white-space:nowrap;}
+.nav-d a:hover{color:var(--accent);}
+.nav-d a.act{color:var(--accent);}
+.hamburger{display:none;background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer;}
+.mob-nav{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);padding:16px 24px;flex-direction:column;gap:16px;z-index:999;}
+.mob-nav.show{display:flex;}
+.mob-nav a{color:var(--text2);text-decoration:none;font-size:1rem;font-weight:500;}
+.mob-nav a.act{color:var(--accent);}
+main{flex:1;max-width:1100px;width:100%;margin:0 auto;padding:40px 24px;}
+.br{display:flex;align-items:center;flex-wrap:wrap;gap:6px;font-size:0.85rem;color:var(--text2);margin-bottom:20px;}
+.br a{color:var(--accent);text-decoration:none;}
+.br a:hover{text-decoration:underline;}
+.br .sep{color:var(--border);}
+.br .cur{color:var(--text);font-weight:600;}
+.ph{text-align:center;margin-bottom:28px;}
+.ph h1{font-size:2rem;font-weight:700;margin-bottom:8px;}
+.ph p{color:var(--text2);font-size:1.05rem;max-width:640px;margin:0 auto;}
+.box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:28px;max-width:700px;margin:0 auto 24px;}
+.row{display:flex;gap:12px;align-items:end;flex-wrap:wrap;margin-bottom:16px;}
+.row>div{flex:1;min-width:140px;}
+.lbl{font-size:0.85rem;color:var(--text2);font-weight:500;margin-bottom:4px;display:block;}
+input,select,textarea{width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:8px;font-size:0.95rem;font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--accent);border-color:var(--accent);}
+.btn{padding:10px 24px;border:none;border-radius:8px;font-size:0.95rem;font-weight:600;cursor:pointer;transition:all 0.15s;font-family:'Inter',sans-serif;display:inline-block;}
+.btn-p{background:var(--accent);color:#fff;}
+.btn-p:hover{background:var(--accent-h);}
+.btn-s{background:var(--bg3);color:var(--text);}
+.btn-s:hover{background:var(--border);}
+.btn-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:20px;}
+.result{margin-top:20px;padding:20px;background:var(--bg);border-radius:8px;border:1px solid var(--border);display:none;}
+.result.show{display:block;}
+.sg{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px;margin-top:16px;}
+.sc{padding:16px;border-radius:8px;border:1px solid var(--border);background:var(--bg);text-align:center;}
+.sc .val{font-size:1.4rem;font-weight:700;color:var(--accent);}
+.sc .sl{font-size:0.8rem;color:var(--text2);margin-top:4px;}
+.note{margin-top:12px;padding:12px;background:var(--accent-l);border-radius:8px;font-size:0.9rem;color:var(--text2);}
+.info{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:28px;margin-bottom:24px;}
+.info h2{font-size:1.3rem;margin-bottom:12px;}
+.info h3{font-size:1.1rem;margin:20px 0 8px;color:var(--accent);}
+.info p,.info li{color:var(--text2);line-height:1.7;margin-bottom:10px;}
+.info ul{padding-left:20px;}
+.info a{color:var(--accent);text-decoration:none;}
+.info a:hover{text-decoration:underline;}
+details{border:1px solid var(--border);border-radius:8px;padding:14px 18px;margin-bottom:8px;cursor:pointer;background:var(--bg);}
+summary{font-weight:600;font-size:0.95rem;list-style:none;}
+summary::-webkit-details-marker{display:none;}
+details p{color:var(--text2);line-height:1.7;margin-top:10px;font-size:0.95rem;}
+.footer{text-align:center;padding:24px;color:var(--text2);font-size:0.85rem;border-top:1px solid var(--border);margin-top:auto;}
+.footer a{color:var(--accent);text-decoration:none;}
+@media(max-width:768px){
+.nav-d{display:none;}.hamburger{display:block;}
+.ph h1{font-size:1.7rem;}main{padding:24px 16px;}.box{padding:20px;}
+}
+</style>
+</head>
+<body>
+<header class="header">
+<div class="header-inner">
+<a href="/" class="logo">Excuse<span>Me</span>Web</a>
+<nav class="nav-d">
+<a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/clock-tools">Clock Tools</a><a href="/health-tools" class="act">Health Tools</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a>
+</nav>
+<button class="hamburger" onclick="document.getElementById('mobNav').classList.toggle('show')">☰</button>
+</div>
+<nav class="mob-nav" id="mobNav">
+<a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/clock-tools">Clock Tools</a><a href="/health-tools" class="act">Health Tools</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a>
+</nav>
+</header>
+<main>
+<nav class="br" aria-label="Breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="/health-tools">Health Tools</a><span class="sep">/</span><span class="cur">Water Intake Calculator</span></nav>
+<div class="ph">
+<h1>💧 Water Intake Calculator</h1>
+<p>Calculate your recommended daily water intake based on your weight, activity level, and climate. Results shown in ml, liters, glasses, and ounces.</p>
+</div>
+<div class="box">
+<div class="row">
+<div><label class="lbl">Weight</label><input type="number" id="weight" placeholder="e.g. 70" min="20" max="500" step="0.1"></div>
+<div><label class="lbl">Unit</label><select id="wUnit"><option value="kg">kg</option><option value="lb">lb</option></select></div>
+</div>
+<div class="row">
+<div><label class="lbl">Activity Level</label><select id="activity"><option value="low">Low (sedentary)</option><option value="moderate" selected>Moderate (3-5 days/week)</option><option value="high">High (intense daily)</option></select></div>
+<div><label class="lbl">Climate</label><select id="climate"><option value="cool">Cool / Temperate</option><option value="moderate" selected>Moderate</option><option value="hot">Hot / Humid</option></select></div>
+</div>
+<div class="btn-row"><button class="btn btn-p" onclick="calculate()">Calculate Water Intake</button><button class="btn btn-s" onclick="document.getElementById('result').classList.remove('show')">Reset</button></div>
+<div class="result" id="result">
+<h3 style="margin-bottom:4px">Your Daily Water Intake</h3>
+<div class="sg">
+<div class="sc"><div class="val" id="rMl">--</div><div class="sl">Milliliters</div></div>
+<div class="sc"><div class="val" id="rL">--</div><div class="sl">Liters</div></div>
+<div class="sc"><div class="val" id="rGlasses">--</div><div class="sl">Glasses (250ml)</div></div>
+<div class="sc"><div class="val" id="rOz">--</div><div class="sl">Ounces</div></div>
+</div>
+<div class="note" id="rNote"></div>
+</div>
+</div>
+<div class="info">
+<h2>Daily Water Intake Calculator</h2>
+<p>Staying properly hydrated is essential for health. This calculator estimates your daily water needs using your body weight as a base, then adjusts for physical activity and environmental climate. The standard recommendation is approximately 35 ml per kg of body weight.</p>
+<h3>How It Works</h3>
+<ul>
+<li><strong>Base:</strong> 35 ml per kg of body weight</li>
+<li><strong>Activity adjustment:</strong> Low +0%, Moderate +25%, High +50%</li>
+<li><strong>Climate adjustment:</strong> Cool +0%, Moderate +10%, Hot +25%</li>
+</ul>
+<h3>Frequently Asked Questions</h3>
+<details><summary>How much water should I drink per day?</summary><p>A common guideline is 35 ml per kg of body weight, adjusted for activity and climate. This calculator provides a personalized estimate. The old '8 glasses a day' rule is a reasonable starting point but may not suit everyone.</p></details>
+<details><summary>Does coffee or tea count toward water intake?</summary><p>Yes, moderate consumption of caffeinated beverages like coffee and tea does count toward your daily fluid intake. While caffeine is a mild diuretic, the water content in these drinks still contributes to hydration. However, water should remain your primary fluid source.</p></details>
+<details><summary>Can I drink too much water?</summary><p>Yes. Drinking excessive amounts of water can lead to hyponatremia, a dangerous condition where sodium levels in the blood become too low. This is rare in healthy adults but can occur during endurance events. Listen to your body's thirst signals.</p></details>
+<details><summary>What about exercise and water intake?</summary><p>During exercise, you lose water through sweat. It's recommended to drink 200–300 ml every 15–20 minutes of exercise. For intense or long-duration activities, you may also need electrolytes. The activity adjustment in this calculator provides a daily baseline that accounts for regular training.</p></details>
+<h3>Related Tools</h3>
+<p><a href="/calorie-calculator">Calorie Calculator</a> · <a href="/bmi-calculator">BMI Calculator</a> · <a href="/macro-calculator">Macro Calculator</a> · <a href="/ideal-weight-calculator">Ideal Weight Calculator</a> · <a href="/body-fat-estimator">Body Fat Estimator</a></p>
+</div>
+</main>
+<footer class="footer">
+<p>&copy; 2026 ExcuseMeWeb.com</p>
+<p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p>
+</footer>
+<script>
+function calculate(){
+  var w=parseFloat(document.getElementById('weight').value);
+  if(!w||w<=0){alert('Please enter your weight.');return;}
+  var u=document.getElementById('wUnit').value;
+  if(u==='lb')w=w*0.453592;
+  var act=document.getElementById('activity').value;
+  var clim=document.getElementById('climate').value;
+  var base=w*35;
+  var actMul=act==='low'?1:act==='moderate'?1.25:1.5;
+  var climMul=clim==='cool'?1:clim==='moderate'?1.1:1.25;
+  var total=Math.round(base*actMul*climMul);
+  document.getElementById('rMl').textContent=total.toLocaleString()+' ml';
+  document.getElementById('rL').textContent=(total/1000).toFixed(1)+' L';
+  document.getElementById('rGlasses').textContent=Math.ceil(total/250)+' glasses';
+  document.getElementById('rOz').textContent=Math.round(total/29.5735)+' oz';
+  document.getElementById('rNote').innerHTML='<strong>Note:</strong> This is an estimate. Adjust based on thirst, urine color (aim for pale yellow), and how you feel. Increase intake during illness, pregnancy, or hot weather.';
+  document.getElementById('result').classList.add('show');
+}
+</script>
+</body>
+</html>

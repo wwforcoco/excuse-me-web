@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="fa026cc1-8f84-44f5-b2fb-9ccf29374a38"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Macro Calculator | ExcuseMeWeb</title>
+<meta name="description" content="Calculate your daily macronutrient breakdown based on calories and goals. Choose from balanced, low carb, high protein, or keto macro split presets.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Macro Calculator | ExcuseMeWeb">
+<meta property="og:description" content="Calculate your daily macronutrient breakdown based on calories and goals. Choose from balanced, low carb, high protein, or keto macro split presets.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://excusemeweb.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Macro Calculator | ExcuseMeWeb">
+<meta name="twitter:description" content="Calculate your daily macronutrient breakdown based on calories and goals.">
+<link rel="canonical" href="https://excusemeweb.com/macro-calculator">
+<link rel="icon" href="/favicon.ico">
+<meta name="theme-color" content="#ffffff">
+<meta property="og:url" content="https://excusemeweb.com/macro-calculator">
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Macro Calculator",
+  "url": "https://excusemeweb.com/macro-calculator",
+  "description": "Calculate your daily macronutrient breakdown based on calories and goals. Choose from balanced, low carb, high protein, or keto macro split presets.",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "All",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": { "@type": "Organization", "name": "ExcuseMeWeb" },
+  "dateModified": "2026-08-07"
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://excusemeweb.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Health Tools", "item": "https://excusemeweb.com/health-tools" },
+    { "@type": "ListItem", "position": 3, "name": "Macro Calculator", "item": "https://excusemeweb.com/macro-calculator" }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"What are macronutrients?","acceptedAnswer":{"@type":"Answer","text":"Macronutrients (macros) are the three main types of nutrients that provide energy: protein (4 cal/g), carbohydrates (4 cal/g), and fat (9 cal/g). Your body needs all three in varying amounts for optimal health, muscle repair, and energy production."}},
+    {"@type":"Question","name":"How much protein do I need per day?","acceptedAnswer":{"@type":"Answer","text":"The general recommendation is 0.8g per kg of body weight for sedentary adults. For active individuals, 1.2–2.0g per kg is often recommended. Athletes and those in a calorie deficit may benefit from even higher intake (1.6–2.2g per kg) to preserve muscle mass."}},
+    {"@type":"Question","name":"What is the keto diet?","acceptedAnswer":{"@type":"Answer","text":"The ketogenic (keto) diet is a very low-carb, high-fat diet. Typically it involves consuming 5% of calories from carbs, 25% from protein, and 70% from fat. This puts the body into a state of ketosis, where it burns fat for fuel instead of carbohydrates."}}
+  ]
+}</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--bg2:#f8fafc;--bg3:#f1f5f9;--text:#0f172a;--text2:#64748b;--accent:#6366f1;--accent-h:#4f46e5;--accent-l:#eef2ff;--danger:#ef4444;--success:#22c55e;--border:#e2e8f0;--radius:12px;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column;}
+.header{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 24px;position:sticky;top:0;z-index:1000;}
+.header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;}
+.logo{font-size:1.5rem;font-weight:700;color:var(--accent);text-decoration:none;}
+.logo span{color:var(--text);}
+.nav-d{display:flex;gap:28px;}
+.nav-d a{color:var(--text2);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color 0.2s;white-space:nowrap;}
+.nav-d a:hover{color:var(--accent);}
+.nav-d a.act{color:var(--accent);}
+.hamburger{display:none;background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer;}
+.mob-nav{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);padding:16px 24px;flex-direction:column;gap:16px;z-index:999;}
+.mob-nav.show{display:flex;}
+.mob-nav a{color:var(--text2);text-decoration:none;font-size:1rem;font-weight:500;}
+.mob-nav a.act{color:var(--accent);}
+main{flex:1;max-width:1100px;width:100%;margin:0 auto;padding:40px 24px;}
+.br{display:flex;align-items:center;flex-wrap:wrap;gap:6px;font-size:0.85rem;color:var(--text2);margin-bottom:20px;}
+.br a{color:var(--accent);text-decoration:none;}
+.br a:hover{text-decoration:underline;}
+.br .sep{color:var(--border);}
+.br .cur{color:var(--text);font-weight:600;}
+.ph{text-align:center;margin-bottom:28px;}
+.ph h1{font-size:2rem;font-weight:700;margin-bottom:8px;}
+.ph p{color:var(--text2);font-size:1.05rem;max-width:640px;margin:0 auto;}
+.box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:28px;max-width:700px;margin:0 auto 24px;}
+.row{display:flex;gap:12px;align-items:end;flex-wrap:wrap;margin-bottom:16px;}
+.row>div{flex:1;min-width:140px;}
+.lbl{font-size:0.85rem;color:var(--text2);font-weight:500;margin-bottom:4px;display:block;}
+input,select,textarea{width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:8px;font-size:0.95rem;font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--accent);border-color:var(--accent);}
+.btn{padding:10px 24px;border:none;border-radius:8px;font-size:0.95rem;font-weight:600;cursor:pointer;transition:all 0.15s;font-family:'Inter',sans-serif;display:inline-block;}
+.btn-p{background:var(--accent);color:#fff;}
+.btn-p:hover{background:var(--accent-h);}
+.btn-s{background:var(--bg3);color:var(--text);}
+.btn-s:hover{background:var(--border);}
+.btn-sm{padding:8px 16px;font-size:0.85rem;}
+.btn-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:20px;}
+.result{margin-top:20px;padding:20px;background:var(--bg);border-radius:8px;border:1px solid var(--border);display:none;}
+.result.show{display:block;}
+.sg{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;margin-top:16px;}
+.sc{padding:16px;border-radius:8px;border:1px solid var(--border);background:var(--bg);text-align:center;}
+.sc .val{font-size:1.4rem;font-weight:700;color:var(--accent);}
+.sc .sl{font-size:0.8rem;color:var(--text2);margin-top:4px;}
+.macro-bar{display:flex;height:28px;border-radius:6px;overflow:hidden;margin:12px 0;}
+.macro-bar>div{display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:600;color:#fff;}
+.preset-btns{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;}
+.preset-btn{padding:8px 16px;border:2px solid var(--border);border-radius:8px;background:var(--bg);cursor:pointer;font-family:'Inter',sans-serif;font-size:0.85rem;font-weight:500;transition:all 0.15s;}
+.preset-btn:hover,.preset-btn.active{border-color:var(--accent);color:var(--accent);background:var(--accent-l);}
+.info{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:28px;margin-bottom:24px;}
+.info h2{font-size:1.3rem;margin-bottom:12px;}
+.info h3{font-size:1.1rem;margin:20px 0 8px;color:var(--accent);}
+.info p,.info li{color:var(--text2);line-height:1.7;margin-bottom:10px;}
+.info ul{padding-left:20px;}
+.info a{color:var(--accent);text-decoration:none;}
+.info a:hover{text-decoration:underline;}
+details{border:1px solid var(--border);border-radius:8px;padding:14px 18px;margin-bottom:8px;cursor:pointer;background:var(--bg);}
+summary{font-weight:600;font-size:0.95rem;list-style:none;}
+summary::-webkit-details-marker{display:none;}
+details p{color:var(--text2);line-height:1.7;margin-top:10px;font-size:0.95rem;}
+.footer{text-align:center;padding:24px;color:var(--text2);font-size:0.85rem;border-top:1px solid var(--border);margin-top:auto;}
+.footer a{color:var(--accent);text-decoration:none;}
+@media(max-width:768px){
+.nav-d{display:none;}.hamburger{display:block;}
+.ph h1{font-size:1.7rem;}main{padding:24px 16px;}.box{padding:20px;}
+}
+</style>
+</head>
+<body>
+<header class="header">
+<div class="header-inner">
+<a href="/" class="logo">Excuse<span>Me</span>Web</a>
+<nav class="nav-d">
+<a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/clock-tools">Clock Tools</a><a href="/health-tools" class="act">Health Tools</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a>
+</nav>
+<button class="hamburger" onclick="document.getElementById('mobNav').classList.toggle('show')">☰</button>
+</div>
+<nav class="mob-nav" id="mobNav">
+<a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/clock-tools">Clock Tools</a><a href="/health-tools" class="act">Health Tools</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a>
+</nav>
+</header>
+<main>
+<nav class="br" aria-label="Breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="/health-tools">Health Tools</a><span class="sep">/</span><span class="cur">Macro Calculator</span></nav>
+<div class="ph">
+<h1>🥗 Macro Calculator</h1>
+<p>Calculate your daily macronutrient breakdown based on calories and fitness goals. Choose from balanced, low carb, high protein, or keto presets.</p>
+</div>
+<div class="box">
+<div class="row"><div style="flex:1;min-width:200px"><label class="lbl">Daily Calories</label><input type="number" id="calories" placeholder="e.g. 2000" min="500" max="10000"></div></div>
+<div class="row"><div style="flex:1;min-width:200px"><label class="lbl">Goal</label><select id="goal"><option value="maintain">Maintain Weight</option><option value="lose">Lose Weight (-500 cal)</option><option value="gain">Gain Weight (+500 cal)</option></select></div></div>
+<label class="lbl" style="margin-bottom:8px">Macro Split Preset</label>
+<div class="preset-btns">
+<button class="preset-btn active" onclick="setPreset(30,40,30,this)">Balanced (30/40/30)</button>
+<button class="preset-btn" onclick="setPreset(40,30,30,this)">Low Carb (40/30/30)</button>
+<button class="preset-btn" onclick="setPreset(40,30,30,this)">High Protein (40/30/30)</button>
+<button class="preset-btn" onclick="setPreset(5,25,70,this)">Keto (5/25/70)</button>
+</div>
+<div class="btn-row"><button class="btn btn-p" onclick="calculate()">Calculate Macros</button><button class="btn btn-s" onclick="document.getElementById('result').classList.remove('show')">Reset</button></div>
+<div class="result" id="result">
+<h3 style="margin-bottom:4px">Macro Breakdown</h3>
+<p style="color:var(--text2);font-size:0.9rem;margin-bottom:12px" id="rAdjCal"></p>
+<div class="macro-bar" id="macroBar"></div>
+<div class="sg">
+<div class="sc"><div class="val" id="rProtein">--</div><div class="sl">Protein</div></div>
+<div class="sc"><div class="val" id="rCarbs">--</div><div class="sl">Carbs</div></div>
+<div class="sc"><div class="val" id="rFat">--</div><div class="sl">Fat</div></div>
+</div>
+<div class="sg" style="margin-top:12px">
+<div class="sc"><div class="val" id="rPCal">--</div><div class="sl">Protein cal</div></div>
+<div class="sc"><div class="val" id="rCCal">--</div><div class="sl">Carbs cal</div></div>
+<div class="sc"><div class="val" id="rFCal">--</div><div class="sl">Fat cal</div></div>
+</div>
+</div>
+</div>
+<div class="info">
+<h2>Macro Nutrient Calculator</h2>
+<p>This calculator breaks down your daily calorie intake into three macronutrients — protein, carbohydrates, and fat — based on a selected preset ratio. You can adjust your base calories and select a goal (maintain, lose, or gain) to see the adjusted macro targets.</p>
+<h3>Macro Split Presets</h3>
+<ul>
+<li><strong>Balanced (30/40/30):</strong> Good for general health and maintenance. Moderate protein, higher carbs for energy, moderate fat.</li>
+<li><strong>Low Carb (40/30/30):</strong> Higher protein, reduced carbs. Popular for fat loss while preserving muscle.</li>
+<li><strong>High Protein (40/30/30):</strong> Same as low carb — prioritizes protein for muscle building and satiety.</li>
+<li><strong>Keto (5/25/70):</strong> Very low carb, high fat. Designed for ketosis.</li>
+</ul>
+<h3>Frequently Asked Questions</h3>
+<details><summary>What are macronutrients?</summary><p>Macronutrients (macros) are the three main types of nutrients that provide energy: protein (4 cal/g), carbohydrates (4 cal/g), and fat (9 cal/g). Your body needs all three in varying amounts for optimal health, muscle repair, and energy production.</p></details>
+<details><summary>How much protein do I need per day?</summary><p>The general recommendation is 0.8g per kg of body weight for sedentary adults. For active individuals, 1.2–2.0g per kg is often recommended. Athletes and those in a calorie deficit may benefit from even higher intake (1.6–2.2g per kg) to preserve muscle mass.</p></details>
+<details><summary>What is the keto diet?</summary><p>The ketogenic (keto) diet is a very low-carb, high-fat diet. Typically it involves consuming 5% of calories from carbs, 25% from protein, and 70% from fat. This puts the body into a state of ketosis, where it burns fat for fuel instead of carbohydrates.</p></details>
+<details><summary>Can I customize the macro percentages?</summary><p>This calculator provides preset splits for convenience. For a custom split, use the results as a starting point and manually adjust. A registered dietitian can help you determine the optimal macro ratio for your specific needs and health conditions.</p></details>
+<h3>Related Tools</h3>
+<p><a href="/calorie-calculator">Calorie Calculator</a> · <a href="/bmi-calculator">BMI Calculator</a> · <a href="/ideal-weight-calculator">Ideal Weight Calculator</a> · <a href="/body-fat-estimator">Body Fat Estimator</a> · <a href="/water-intake-calculator">Water Intake Calculator</a></p>
+</div>
+</main>
+<footer class="footer">
+<p>&copy; 2026 ExcuseMeWeb.com</p>
+<p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p>
+</footer>
+<script>
+var pPct=30,cPct=40,fPct=30;
+function setPreset(p,c,f,btn){
+  pPct=p;cPct=c;fPct=f;
+  var btns=document.querySelectorAll('.preset-btn');
+  for(var i=0;i<btns.length;i++)btns[i].classList.remove('active');
+  if(btn)btn.classList.add('active');
+}
+function calculate(){
+  var cal=parseFloat(document.getElementById('calories').value);
+  if(!cal||cal<500){alert('Please enter valid calories (min 500).');return;}
+  var goal=document.getElementById('goal').value;
+  var adj=cal;
+  if(goal==='lose')adj=cal-500;
+  else if(goal==='gain')adj=cal+500;
+  adj=Math.max(500,adj);
+  var pGrams=Math.round((adj*pPct/100)/4);
+  var cGrams=Math.round((adj*cPct/100)/4);
+  var fGrams=Math.round((adj*fPct/100)/9);
+  var pCal=Math.round(adj*pPct/100);
+  var cCal=Math.round(adj*cPct/100);
+  var fCal=Math.round(adj*fPct/100);
+  document.getElementById('rAdjCal').textContent='Adjusted calories: '+adj.toLocaleString()+' kcal/day';
+  document.getElementById('rProtein').textContent=pGrams+'g';
+  document.getElementById('rCarbs').textContent=cGrams+'g';
+  document.getElementById('rFat').textContent=fGrams+'g';
+  document.getElementById('rPCal').textContent=pCal+' kcal';
+  document.getElementById('rCCal').textContent=cCal+' kcal';
+  document.getElementById('rFCal').textContent=fCal+' kcal';
+  document.getElementById('macroBar').innerHTML='<div style="width:'+pPct+'%;background:#6366f1">P '+pPct+'%</div><div style="width:'+cPct+'%;background:#22c55e">C '+cPct+'%</div><div style="width:'+fPct+'%;background:#f59e0b">F '+fPct+'%</div>';
+  document.getElementById('result').classList.add('show');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html><html lang="en"><head>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="fa026cc1-8f84-44f5-b2fb-9ccf29374a38"></script>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Markdown Preview | ExcuseMeWeb</title>
+<meta name="description" content="Live Markdown editor with instant HTML preview. Write Markdown and see the rendered output in real time. Free online Markdown previewer.">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="Markdown Preview | ExcuseMeWeb"><meta property="og:description" content="Live Markdown editor with instant HTML preview. Write Markdown and see the rendered output in real time. Free online Markdown previewer.">
+<meta property="og:type" content="website"><meta property="og:image" content="https://excusemeweb.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Markdown Preview | ExcuseMeWeb"><meta name="twitter:description" content="Live Markdown editor with instant HTML preview. Write Markdown and see the rendered output in real time. Free online Markdown previewer.">
+<link rel="canonical" href="https://excusemeweb.com/markdown-preview"><link rel="icon" href="/favicon.ico"><meta name="theme-color" content="#ffffff"><meta property="og:url" content="https://excusemeweb.com/markdown-preview">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Markdown Preview","url":"https://excusemeweb.com/markdown-preview","description":"Live Markdown editor with instant HTML preview. Write Markdown and see the rendered output in real time. Free online Markdown previewer.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Organization","name":"ExcuseMeWeb"},"dateModified":"2026-08-08"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://excusemeweb.com/"},{"@type":"ListItem","position":2,"name":"Text Tools","item":"https://excusemeweb.com/text-tools"},{"@type":"ListItem","position":3,"name":"Markdown Preview","item":"https://excusemeweb.com/markdown-preview"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What Markdown syntax is supported?","acceptedAnswer":{"@type":"Answer","text":"The previewer supports headings, bold, italic, links, images, code blocks, lists (ordered and unordered), blockquotes, horizontal rules, and inline code."}},{"@type":"Question","name":"Is my Markdown stored anywhere?","acceptedAnswer":{"@type":"Answer","text":"No. Everything is processed in your browser. Your content never leaves your device."}}]}</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--bg2:#f8fafc;--bg3:#f1f5f9;--text:#0f172a;--text2:#64748b;--accent:#6366f1;--accent-h:#4f46e5;--accent-l:#eef2ff;--danger:#ef4444;--success:#22c55e;--border:#e2e8f0;--radius:12px;}
+*{margin:0;padding:0;box-sizing:border-box;}body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column;}
+.header{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 24px;position:sticky;top:0;z-index:1000;}.header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;}
+.logo{font-size:1.5rem;font-weight:700;color:var(--accent);text-decoration:none;}.logo span{color:var(--text);}
+.nav-d{display:flex;gap:24px;}.nav-d a{color:var(--text2);text-decoration:none;font-size:.85rem;font-weight:500;white-space:nowrap;}.nav-d a:hover,.nav-d a.act{color:var(--accent);}
+.hamburger{display:none;background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer;}
+.mob-nav{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);padding:16px 24px;flex-direction:column;gap:16px;z-index:999;}.mob-nav.show{display:flex;}.mob-nav a{color:var(--text2);text-decoration:none;font-size:1rem;}.mob-nav a.act{color:var(--accent);}
+.main{flex:1;max-width:1200px;width:100%;margin:0 auto;padding:40px 24px;}
+.bc{display:flex;gap:6px;font-size:.85rem;color:var(--text2);margin-bottom:20px;flex-wrap:wrap;}.bc a{color:var(--accent);text-decoration:none;}.bc-s{color:var(--border);}.bc-c{color:var(--text);font-weight:500;}
+.ph{text-align:center;margin-bottom:32px;}.ph h1{font-size:2rem;font-weight:700;margin-bottom:8px;}.ph p{color:var(--text2);max-width:600px;margin:0 auto;}
+.box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:24px;max-width:1100px;margin:0 auto 32px;}
+.btn{padding:10px 24px;border:none;border-radius:8px;font-size:.9rem;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;transition:all .15s;}.btn-p{background:var(--accent);color:#fff;}.btn-p:hover{background:var(--accent-h);}.btn-s{background:var(--bg3);color:var(--text);}.btn-s:hover{background:var(--border);}
+.br{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:16px;}
+.lbl{font-size:.85rem;color:var(--text2);font-weight:500;margin-bottom:4px;display:block;}
+.tg{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.tg textarea{width:100%;padding:12px;border:1px solid var(--border);border-radius:8px;font-size:.88rem;font-family:'Courier New',monospace;background:var(--bg);color:var(--text);resize:vertical;min-height:350px;}.tg textarea:focus{outline:2px solid var(--accent);border-color:var(--accent);}
+.preview{padding:16px;border:1px solid var(--border);border-radius:8px;background:var(--bg);min-height:350px;overflow-y:auto;font-size:.92rem;line-height:1.7;}
+.preview h1,.preview h2,.preview h3,.preview h4,.preview h5,.preview h6{margin:16px 0 8px;font-weight:600;}.preview h1{font-size:1.8rem;}.preview h2{font-size:1.4rem;}.preview h3{font-size:1.15rem;}
+.preview p{margin-bottom:10px;}.preview ul,.preview ol{margin:8px 0 8px 24px;}.preview li{margin-bottom:4px;}.preview code{background:var(--bg3);padding:2px 6px;border-radius:4px;font-size:.85rem;font-family:'Courier New',monospace;}.preview pre{background:var(--bg3);padding:12px;border-radius:8px;overflow-x:auto;margin:12px 0;}.preview pre code{background:none;padding:0;}.preview blockquote{border-left:4px solid var(--accent);padding:8px 16px;margin:12px 0;color:var(--text2);}.preview a{color:var(--accent);}.preview img{max-width:100%;border-radius:8px;}.preview hr{border:none;border-top:1px solid var(--border);margin:16px 0;}
+.info{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:32px;margin-bottom:24px;}.info h2{font-size:1.3rem;margin-bottom:12px;}.info h3{font-size:1.1rem;margin:20px 0 8px;}.info p,.info li{color:var(--text2);line-height:1.7;margin-bottom:10px;}.info ul{padding-left:20px;}.info a{color:var(--accent);text-decoration:none;}
+details{border:1px solid var(--border);border-radius:8px;padding:14px 18px;margin-bottom:8px;cursor:pointer;}summary{font-weight:600;font-size:.95rem;list-style:none;}summary::-webkit-details-marker{display:none;}details p{color:var(--text2);line-height:1.7;margin-top:10px;font-size:.95rem;}
+.footer{text-align:center;padding:24px;color:var(--text2);font-size:.85rem;border-top:1px solid var(--border);margin-top:auto;}.footer a{color:var(--accent);text-decoration:none;}
+@media(max-width:768px){.nav-d{display:none;}.hamburger{display:block;}.tg{grid-template-columns:1fr;}}
+</style></head><body>
+<header class="header"><div class="header-inner">
+<a href="/" class="logo">Excuse<span>Me</span>Web</a>
+<nav class="nav-d"><a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/clock-tools">Clock Tools</a><a href="/text-tools" class="act">Text Tools</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a></nav>
+<button class="hamburger" onclick="document.getElementById('mobileNav').classList.toggle('show')">☰</button>
+</div>
+<nav class="mob-nav" id="mobileNav"><a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/clock-tools">Clock Tools</a><a href="/text-tools" class="act">Text Tools</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a></nav>
+</header>
+<main class="main">
+<nav class="bc"><a href="/">Home</a><span class="bc-s">/</span><a href="/text-tools">Text Tools</a><span class="bc-s">/</span><span class="bc-c">Markdown Preview</span></nav>
+<div class="ph"><h1>📝 Markdown Preview</h1><p>Write Markdown on the left and see the rendered HTML preview on the right in real time.</p></div>
+<div class="box">
+<div class="tg">
+<div><label class="lbl">Markdown Input</label><textarea id="md" oninput="render()" placeholder="# Hello World
+
+Write your **Markdown** here...
+
+- List item 1
+- List item 2
+
+> A blockquote
+
+`inline code`"></textarea></div>
+<div><label class="lbl">HTML Preview</label><div class="preview" id="prev"></div></div>
+</div>
+<div class="br"><button class="btn btn-s" onclick="loadSample()">Load Sample</button><button class="btn btn-s" onclick="document.getElementById('md').value='';render()">Clear</button><button class="btn btn-p" onclick="copyHtml()">Copy HTML</button></div>
+</div>
+<div class="info"><h2>Live Markdown Editor</h2><p>Write Markdown syntax and see it rendered as HTML instantly. Supports headings, bold, italic, links, images, code blocks, lists, blockquotes, and more.</p>
+<h3>Frequently Asked Questions</h3>
+<details><summary>What Markdown syntax is supported?</summary><p>The previewer supports headings (#, ##, ###), bold (**text**), italic (*text*), links ([text](url)), images (![alt](url)), inline code (`code`), code blocks (```), ordered/unordered lists, blockquotes (>), and horizontal rules (---).</p></details>
+<details><summary>Is my Markdown stored anywhere?</summary><p>No. Everything is processed in your browser. Your content never leaves your device.</p></details>
+</div>
+</main>
+<footer class="footer"><p>© 2026 ExcuseMeWeb.com</p><p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p></footer>
+<script>
+function render(){
+var t=document.getElementById('md').value;
+var h=t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+h=h.replace(/^### (.*$)/gm,'<h3>$1</h3>');
+h=h.replace(/^## (.*$)/gm,'<h2>$1</h2>');
+h=h.replace(/^# (.*$)/gm,'<h1>$1</h1>');
+h=h.replace(/^#### (.*$)/gm,'<h4>$1</h4>');
+h=h.replace(/^##### (.*$)/gm,'<h5>$1</h5>');
+h=h.replace(/^###### (.*$)/gm,'<h6>$1</h6>');
+h=h.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>');
+h=h.replace(/\*(.*?)\*/g,'<em>$1</em>');
+h=h.replace(/~~(.*?)~~/g,'<del>$1</del>');
+h=h.replace(/`([^`]+)`/g,'<code>$1</code>');
+h=h.replace(/```([\s\S]*?)```/g,'<pre><code>$1</code></pre>');
+h=h.replace(/^> (.*$)/gm,'<blockquote>$1</blockquote>');
+h=h.replace(/!\[([^\]]*)\]\(([^)]+)\)/g,'<img src="$2" alt="$1">');
+h=h.replace(/\[([^\]]+)\]\(([^)]+)\)/g,'<a href="$2">$1</a>');
+h=h.replace(/^---$/gm,'<hr>');
+h=h.replace(/^\- (.*$)/gm,'<ul><li>$1</li></ul>');
+h=h.replace(/^\* (.*$)/gm,'<ul><li>$1</li></ul>');
+h=h.replace(/^\d+\. (.*$)/gm,'<ol><li>$1</li></ol>');
+h=h.replace(/<\/ul>\s*<ul>/g,'');
+h=h.replace(/<\/ol>\s*<ol>/g,'');
+h=h.replace(/<\/blockquote>\s*<blockquote>/g,'');
+var lines=h.split('\n');var inP=false;var out=[];
+for(var i=0;i<lines.length;i++){var l=lines[i];
+if(l.match(/^<(h[1-6]|ul|ol|li|blockquote|pre|hr|div)/)||l.trim()===''){if(inP){out.push('</p>');inP=false;}out.push(l);}
+else{if(!inP){out.push('<p>');inP=true;}else{out.push('<br>');}out.push(l.replace(/^<p>/,''));}}
+if(inP)out.push('</p>');
+document.getElementById('prev').innerHTML=out.join('\n');
+}
+function loadSample(){
+document.getElementById('md').value='# Markdown Preview\n\nThis is a **live Markdown editor** with *real-time* preview.\n\n## Features\n\n- Bold and italic text\n- [Links](https://excusemeweb.com)\n- Inline `code` and code blocks\n- Blockquotes\n\n### Code Example\n\n```javascript\nfunction hello() {\n  console.log("Hello, World!");\n}\n```\n\n> This is a blockquote. Use it for callouts.\n\n---\n\n1. First item\n2. Second item\n3. Third item\n\nVisit [ExcuseMeWeb](https://excusemeweb.com) for more tools!';
+render();}
+function copyHtml(){var h=document.getElementById('prev').innerHTML;navigator.clipboard.writeText(h).then(function(){var b=event.target;b.textContent='Copied!';setTimeout(function(){b.textContent='Copy HTML';},1500);});}
+</script></body></html>

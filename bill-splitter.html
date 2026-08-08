@@ -1,0 +1,164 @@
+<!DOCTYPE html><html lang="en"><head>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="fa026cc1-8f84-44f5-b2fb-9ccf29374a38"></script>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Bill Splitter | ExcuseMeWeb</title>
+<meta name="description" content="Split restaurant bills with tip and custom shares. Divide evenly or assign custom amounts per person. Free bill splitting calculator for groups.">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="Bill Splitter | ExcuseMeWeb"><meta property="og:description" content="Split restaurant bills with tip and custom shares. Divide evenly or assign custom amounts per person.">
+<meta property="og:type" content="website"><meta property="og:image" content="https://excusemeweb.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Bill Splitter | ExcuseMeWeb"><meta name="twitter:description" content="Split restaurant bills with tip and custom shares. Divide evenly or assign custom amounts per person.">
+<link rel="canonical" href="https://excusemeweb.com/bill-splitter"><link rel="icon" href="/favicon.ico"><meta name="theme-color" content="#ffffff"><meta property="og:url" content="https://excusemeweb.com/bill-splitter">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Bill Splitter","url":"https://excusemeweb.com/bill-splitter","description":"Split bills with tip and custom shares between multiple people.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Organization","name":"ExcuseMeWeb"},"dateModified":"2026-08-08"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://excusemeweb.com/"},{"@type":"ListItem","position":2,"name":"Everyday Tools","item":"https://excusemeweb.com/everyday-tools"},{"@type":"ListItem","position":3,"name":"Bill Splitter","item":"https://excusemeweb.com/bill-splitter"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Should I include tax when splitting the bill?","acceptedAnswer":{"@type":"Answer","text":"Yes, typically you split the full bill total including tax. The bill amount field should include any taxes. The tip is calculated on top of that total, and then everything is divided among the people."}},{"@type":"Question","name":"How do I handle uneven splits?","acceptedAnswer":{"@type":"Answer","text":"Use the custom shares section to assign specific amounts to each person. For example, if someone ordered a much more expensive dish, enter their item cost directly. The remaining balance is split evenly among the rest."}},{"@type":"Question","name":"How is rounding handled?","acceptedAnswer":{"@type":"Answer","text":"The tool calculates to two decimal places for each person. If the sum of all shares doesn't exactly match the total due to rounding, the first person absorbs the small difference (usually a few cents)."}}]}</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--bg2:#f8fafc;--bg3:#f1f5f9;--text:#0f172a;--text2:#64748b;--accent:#6366f1;--accent-h:#4f46e5;--accent-l:#eef2ff;--danger:#ef4444;--success:#22c55e;--border:#e2e8f0;--radius:12px;}
+*{margin:0;padding:0;box-sizing:border-box;}body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column;}
+.header{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 24px;position:sticky;top:0;z-index:1000;}.header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;}
+.logo{font-size:1.5rem;font-weight:700;color:var(--accent);text-decoration:none;}.logo span{color:var(--text);}
+.nav-d{display:flex;gap:24px;}.nav-d a{color:var(--text2);text-decoration:none;font-size:.85rem;font-weight:500;white-space:nowrap;}.nav-d a:hover,.nav-d a.act{color:var(--accent);}
+.hamburger{display:none;background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer;}
+.mob-nav{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);padding:16px 24px;flex-direction:column;gap:16px;z-index:999;}.mob-nav.show{display:flex;}.mob-nav a{color:var(--text2);text-decoration:none;font-size:1rem;}.mob-nav a.act{color:var(--accent);}
+.main{flex:1;max-width:1100px;width:100%;margin:0 auto;padding:40px 24px;}
+.bc{display:flex;gap:6px;font-size:.85rem;color:var(--text2);margin-bottom:20px;flex-wrap:wrap;}.bc a{color:var(--accent);text-decoration:none;}.bc-s{color:var(--border);}.bc-c{color:var(--text);font-weight:500;}
+.ph{text-align:center;margin-bottom:32px;}.ph h1{font-size:2rem;font-weight:700;margin-bottom:8px;}.ph p{color:var(--text2);max-width:600px;margin:0 auto;}
+.box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:32px;max-width:800px;margin:0 auto 32px;}
+.row{margin-bottom:16px;}.row:last-child{margin-bottom:0;}
+.lbl{font-size:.85rem;color:var(--text2);font-weight:500;margin-bottom:4px;display:block;}
+input[type=text],input[type=number],input[type=url],select,textarea{width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:8px;font-size:.95rem;font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);}input:focus,select:focus,textarea:focus{outline:2px solid var(--accent);border-color:var(--accent);}
+.btn{padding:12px 28px;border:none;border-radius:8px;font-size:.95rem;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;transition:all .15s;}.btn-p{background:var(--accent);color:#fff;}.btn-p:hover{background:var(--accent-h);}.btn-s{background:var(--bg3);color:var(--text);}.btn-s:hover{background:var(--border);}
+.btn-sm{padding:8px 16px;font-size:.85rem;}
+.br{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:16px;}
+.sg{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px;}
+.sc{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:16px;text-align:center;}
+.sc .num{font-size:1.5rem;font-weight:700;color:var(--accent);}.sc .lab{font-size:.8rem;color:var(--text2);margin-top:4px;}
+.tip-btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px;}.tip-btn{padding:8px 14px;border:1px solid var(--border);background:var(--bg);border-radius:8px;cursor:pointer;font-size:.85rem;font-weight:600;transition:all .15s;}.tip-btn.active,.tip-btn:hover{background:var(--accent);color:#fff;border-color:var(--accent);}
+.custom-row{display:flex;gap:8px;align-items:center;margin-bottom:8px;}.custom-row input{flex:1;}.custom-row .name-inp{max-width:150px;}.custom-row .amt-inp{max-width:120px;}
+.btn-remove{background:var(--danger);color:#fff;border:none;border-radius:6px;padding:8px 12px;cursor:pointer;font-size:.8rem;font-weight:600;white-space:nowrap;}.btn-remove:hover{opacity:.85;}
+.result-table{width:100%;margin-top:16px;border-collapse:collapse;}.result-table th,.result-table td{padding:10px 14px;text-align:left;border-bottom:1px solid var(--border);font-size:.9rem;}.result-table th{color:var(--text2);font-weight:600;font-size:.8rem;text-transform:uppercase;letter-spacing:.5px;}.result-table td:last-child{text-align:right;font-weight:600;color:var(--accent);}
+.info{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:32px;margin-bottom:24px;}.info h2{font-size:1.3rem;margin-bottom:12px;}.info h3{font-size:1.1rem;margin:20px 0 8px;}.info p,.info li{color:var(--text2);line-height:1.7;margin-bottom:10px;}.info ul{padding-left:20px;}.info a{color:var(--accent);text-decoration:none;}
+details{border:1px solid var(--border);border-radius:8px;padding:14px 18px;margin-bottom:8px;cursor:pointer;}summary{font-weight:600;font-size:.95rem;list-style:none;}summary::-webkit-details-marker{display:none;}details p{color:var(--text2);line-height:1.7;margin-top:10px;font-size:.95rem;}
+.footer{text-align:center;padding:24px;color:var(--text2);font-size:.85rem;border-top:1px solid var(--border);margin-top:auto;}.footer a{color:var(--accent);text-decoration:none;}
+@media(max-width:768px){.nav-d{display:none;}.hamburger{display:block;}.sg{grid-template-columns:1fr;}.custom-row{flex-wrap:wrap;}.custom-row .name-inp,.custom-row .amt-inp{max-width:100%;}}
+</style></head><body>
+<header class="header"><div class="header-inner">
+<a href="/" class="logo">Excuse<span>Me</span>Web</a>
+<nav class="nav-d"><a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/clock-tools">Clock Tools</a><a href="/everyday-tools" class="act">Everyday Tools</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a></nav>
+<button class="hamburger" onclick="document.getElementById('mobileNav').classList.toggle('show')">☰</button>
+</div>
+<nav class="mob-nav" id="mobileNav"><a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/clock-tools">Clock Tools</a><a href="/everyday-tools" class="act">Everyday Tools</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a></nav>
+</header>
+<main class="main">
+<nav class="bc"><a href="/">Home</a><span class="bc-s">/</span><a href="/everyday-tools">Everyday Tools</a><span class="bc-s">/</span><span class="bc-c">Bill Splitter</span></nav>
+<div class="ph"><h1>💰 Bill Splitter</h1><p>Split the bill with tip, evenly or with custom amounts for each person.</p></div>
+<div class="box">
+<div style="display:flex;gap:16px;flex-wrap:wrap">
+<div style="flex:1;min-width:140px">
+<label class="lbl">Bill Amount ($)</label>
+<input type="number" id="billAmt" placeholder="e.g. 120" step="0.01" value="120">
+</div>
+<div style="flex:1;min-width:100px">
+<label class="lbl">People</label>
+<input type="number" id="numPeople" placeholder="4" min="1" value="4">
+</div>
+</div>
+<div class="row">
+<label class="lbl">Tip Percentage</label>
+<div class="tip-btns">
+<button class="tip-btn" onclick="setTip(10)">10%</button>
+<button class="tip-btn" onclick="setTip(15)">15%</button>
+<button class="tip-btn active" onclick="setTip(18)">18%</button>
+<button class="tip-btn" onclick="setTip(20)">20%</button>
+<button class="tip-btn" onclick="setTip(25)">25%</button>
+<input type="number" id="customTip" placeholder="Custom %" style="width:90px;padding:8px 10px;font-size:.85rem" onchange="setTip(this.value)">
+</div>
+</div>
+<h3 style="font-size:.95rem;margin:16px 0 8px;color:var(--text2)">Custom Shares (optional)</h3>
+<p style="font-size:.8rem;color:var(--text2);margin-bottom:10px">Enter names and custom amounts. Remaining balance splits evenly among others.</p>
+<div id="customRows"></div>
+<button class="btn btn-s btn-sm" onclick="addCustomRow()">+ Add Person</button>
+<div class="br"><button class="btn btn-p" onclick="calculate()">Split Bill</button><button class="btn btn-s" onclick="clearAll()">Clear</button></div>
+<div class="sg" id="summary" style="display:none">
+<div class="sc"><div class="num" id="rTotal">—</div><div class="lab">Total with Tip</div></div>
+<div class="sc"><div class="num" id="rPerPerson">—</div><div class="lab">Per Person</div></div>
+<div class="sc"><div class="num" id="rTipPer">—</div><div class="lab">Tip Per Person</div></div>
+</div>
+<table class="result-table" id="detailTable" style="display:none">
+<thead><tr><th>Person</th><th>Share</th><th>Tip</th><th>Total</th></tr></thead>
+<tbody id="detailBody"></tbody>
+</table>
+</div>
+<div class="info"><h2>Bill Splitter</h2>
+<p>Split restaurant and group bills fairly with tip included. Divide the total evenly among everyone, or assign custom amounts to individuals who ordered more or less. The tool calculates each person's share including their portion of the tip.</p>
+<h3>Frequently Asked Questions</h3>
+<details><summary>Should I include tax when splitting the bill?</summary><p>Yes, typically you split the full bill total including tax. The bill amount field should include any taxes. The tip is calculated on top of that total, and then everything is divided among the people.</p></details>
+<details><summary>How do I handle uneven splits?</summary><p>Use the custom shares section to assign specific amounts to each person. For example, if someone ordered a much more expensive dish, enter their item cost directly. The remaining balance is split evenly among the rest.</p></details>
+<details><summary>How is rounding handled?</summary><p>The tool calculates to two decimal places for each person. If the sum of all shares doesn't exactly match the total due to rounding, the first person absorbs the small difference (usually a few cents).</p></details>
+</div>
+</main>
+<footer class="footer"><p>© 2026 ExcuseMeWeb.com</p><p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p></footer>
+<script>
+var tipPct=18;
+function setTip(v){
+tipPct=parseFloat(v)||0;
+document.querySelectorAll('.tip-btn').forEach(function(b){b.classList.remove('active');});
+if([10,15,18,20,25].indexOf(tipPct)!==-1){document.querySelectorAll('.tip-btn').forEach(function(b){if(b.textContent===tipPct+'%')b.classList.add('active');});}
+}
+function addCustomRow(){
+var c=document.getElementById('customRows');
+var d=document.createElement('div');d.className='custom-row';
+d.innerHTML='<input type="text" class="name-inp" placeholder="Name"><input type="number" class="amt-inp" placeholder="$ amount" step="0.01"><button class="btn-remove" onclick="this.parentElement.remove()">Remove</button>';
+c.appendChild(d);
+}
+function calculate(){
+var bill=parseFloat(document.getElementById('billAmt').value)||0;
+var people=parseInt(document.getElementById('numPeople').value)||1;
+if(bill<=0){alert('Enter a valid bill amount.');return;}
+var tip=bill*(tipPct/100);
+var total=bill+tip;
+var customRows=document.querySelectorAll('.custom-row');
+var customTotal=0;var customNames=[];var customAmts=[];
+customRows.forEach(function(r){
+var name=r.querySelector('.name-inp').value.trim()||'Person';
+var amt=parseFloat(r.querySelector('.amt-inp').value)||0;
+if(amt>0){customTotal+=amt;customNames.push(name);customAmts.push(amt);}
+});
+var remaining=total-customTotal;
+var remainingPeople=people-customNames.length;
+if(remainingPeople<=0&&customTotal<total){remainingPeople=1;}
+var perRemaining=remainingPeople>0?remaining/remainingPeople:0;
+var tipPerRemaining=remainingPeople>0?tip/remainingPeople:0;
+var evenPerPerson=people>0?total/people:0;
+var evenTipPer=people>0?tip/people:0;
+var allPeople=[];
+for(var i=0;i<people;i++){
+if(i<customNames.length){
+var cTip=total>0?(customAmts[i]/total)*tip:0;
+allPeople.push({name:customNames[i],share:customAmts[i],tip:cTip,total:customAmts[i]+cTip});
+}else{
+allPeople.push({name:'Person '+(i+1),share:perRemaining,tip:tipPerRemaining,total:perRemaining+tipPerRemaining});
+}
+}
+function fmt(x){return '$'+x.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,',');}
+document.getElementById('rTotal').textContent=fmt(total);
+document.getElementById('rPerPerson').textContent=fmt(evenPerPerson);
+document.getElementById('rTipPer').textContent=fmt(evenTipPer);
+document.getElementById('summary').style.display='grid';
+var body=document.getElementById('detailBody');body.innerHTML='';
+allPeople.forEach(function(p){
+var tr=document.createElement('tr');
+tr.innerHTML='<td>'+p.name+'</td><td>'+fmt(p.share)+'</td><td>'+fmt(p.tip)+'</td><td>'+fmt(p.total)+'</td>';
+body.appendChild(tr);
+});
+document.getElementById('detailTable').style.display='table';
+}
+function clearAll(){
+document.getElementById('billAmt').value='';
+document.getElementById('numPeople').value='4';
+document.getElementById('customRows').innerHTML='';
+document.getElementById('summary').style.display='none';
+document.getElementById('detailTable').style.display='none';
+setTip(18);
+}
+</script></body></html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html><html lang="en"><head>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="fa026cc1-8f84-44f5-b2fb-9ccf29374a38"></script>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Age Difference Calculator | ExcuseMeWeb</title>
+<meta name="description" content="Calculate the age difference between two people or dates. Get results in years, months, days plus fun facts like weeks apart and days apart. Free age difference calculator.">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="Age Difference Calculator | ExcuseMeWeb"><meta property="og:description" content="Calculate the age difference between two people. Get results in years, months, days plus fun facts.">
+<meta property="og:type" content="website"><meta property="og:image" content="https://excusemeweb.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Age Difference Calculator | ExcuseMeWeb"><meta name="twitter:description" content="Calculate the age difference between two people. Get results in years, months, days plus fun facts.">
+<link rel="canonical" href="https://excusemeweb.com/age-difference-calculator"><link rel="icon" href="/favicon.ico"><meta name="theme-color" content="#ffffff"><meta property="og:url" content="https://excusemeweb.com/age-difference-calculator">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Age Difference Calculator","url":"https://excusemeweb.com/age-difference-calculator","description":"Calculate the age difference between two people or dates with results in years, months, days and fun facts.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Organization","name":"ExcuseMeWeb"},"dateModified":"2026-08-08"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://excusemeweb.com/"},{"@type":"ListItem","position":2,"name":"Everyday Tools","item":"https://excusemeweb.com/everyday-tools"},{"@type":"ListItem","position":3,"name":"Age Difference Calculator","item":"https://excusemeweb.com/age-difference-calculator"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How is the age difference calculated?","acceptedAnswer":{"@type":"Answer","text":"The calculator finds the absolute difference between two birth dates, broken down into years, months, and days. It accounts for varying month lengths to give an accurate result."}},{"@type":"Question","name":"Does this account for leap years?","acceptedAnswer":{"@type":"Answer","text":"Yes, the calculation uses JavaScript's built-in Date object which properly handles leap years. February 29th birthdays and leap year differences are calculated correctly."}},{"@type":"Question","name":"What if both people have the same birthday?","acceptedAnswer":{"@type":"Answer","text":"If both dates are the same, the calculator will show 0 years, 0 months, 0 days difference and note that both people share the exact same birthday. It will still show fun facts like the day of the week they were born."}}]}</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--bg2:#f8fafc;--bg3:#f1f5f9;--text:#0f172a;--text2:#64748b;--accent:#6366f1;--accent-h:#4f46e5;--accent-l:#eef2ff;--danger:#ef4444;--success:#22c55e;--border:#e2e8f0;--radius:12px;}
+*{margin:0;padding:0;box-sizing:border-box;}body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column;}
+.header{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 24px;position:sticky;top:0;z-index:1000;}.header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;}
+.logo{font-size:1.5rem;font-weight:700;color:var(--accent);text-decoration:none;}.logo span{color:var(--text);}
+.nav-d{display:flex;gap:24px;}.nav-d a{color:var(--text2);text-decoration:none;font-size:.85rem;font-weight:500;white-space:nowrap;}.nav-d a:hover,.nav-d a.act{color:var(--accent);}
+.hamburger{display:none;background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer;}
+.mob-nav{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);padding:16px 24px;flex-direction:column;gap:16px;z-index:999;}.mob-nav.show{display:flex;}.mob-nav a{color:var(--text2);text-decoration:none;font-size:1rem;}.mob-nav a.act{color:var(--accent);}
+.main{flex:1;max-width:1100px;width:100%;margin:0 auto;padding:40px 24px;}
+.bc{display:flex;gap:6px;font-size:.85rem;color:var(--text2);margin-bottom:20px;flex-wrap:wrap;}.bc a{color:var(--accent);text-decoration:none;}.bc-s{color:var(--border);}.bc-c{color:var(--text);font-weight:500;}
+.ph{text-align:center;margin-bottom:32px;}.ph h1{font-size:2rem;font-weight:700;margin-bottom:8px;}.ph p{color:var(--text2);max-width:600px;margin:0 auto;}
+.box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:32px;max-width:800px;margin:0 auto 32px;}
+.row{margin-bottom:16px;}.row:last-child{margin-bottom:0;}
+.lbl{font-size:.85rem;color:var(--text2);font-weight:500;margin-bottom:4px;display:block;}
+input[type=text],input[type=number],input[type=date],input[type=url],select,textarea{width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:8px;font-size:.95rem;font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);}input:focus,select:focus,textarea:focus{outline:2px solid var(--accent);border-color:var(--accent);}
+.btn{padding:12px 28px;border:none;border-radius:8px;font-size:.95rem;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;transition:all .15s;}.btn-p{background:var(--accent);color:#fff;}.btn-p:hover{background:var(--accent-h);}.btn-s{background:var(--bg3);color:var(--text);}.btn-s:hover{background:var(--border);}
+.br{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:16px;}
+.sg{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px;}
+.sc{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:16px;text-align:center;}
+.sc .num{font-size:1.5rem;font-weight:700;color:var(--accent);}.sc .lab{font-size:.8rem;color:var(--text2);margin-top:4px;}
+.who-older{text-align:center;padding:16px;background:var(--accent-l);border-radius:8px;margin-top:16px;font-weight:600;color:var(--accent);font-size:1.05rem;}
+.fun-facts{margin-top:20px;padding:16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;}
+.fun-facts h3{font-size:.95rem;margin-bottom:10px;}.fun-facts .fact{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border);font-size:.9rem;}.fun-facts .fact:last-child{border-bottom:none;}.fun-facts .fact .val{font-weight:600;color:var(--accent);}
+.info{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:32px;margin-bottom:24px;}.info h2{font-size:1.3rem;margin-bottom:12px;}.info h3{font-size:1.1rem;margin:20px 0 8px;}.info p,.info li{color:var(--text2);line-height:1.7;margin-bottom:10px;}.info ul{padding-left:20px;}.info a{color:var(--accent);text-decoration:none;}
+details{border:1px solid var(--border);border-radius:8px;padding:14px 18px;margin-bottom:8px;cursor:pointer;}summary{font-weight:600;font-size:.95rem;list-style:none;}summary::-webkit-details-marker{display:none;}details p{color:var(--text2);line-height:1.7;margin-top:10px;font-size:.95rem;}
+.footer{text-align:center;padding:24px;color:var(--text2);font-size:.85rem;border-top:1px solid var(--border);margin-top:auto;}.footer a{color:var(--accent);text-decoration:none;}
+@media(max-width:768px){.nav-d{display:none;}.hamburger{display:block;}.sg{grid-template-columns:1fr;}.fun-facts .fact{flex-wrap:wrap;gap:4px;}}
+</style></head><body>
+<header class="header"><div class="header-inner">
+<a href="/" class="logo">Excuse<span>Me</span>Web</a>
+<nav class="nav-d"><a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/clock-tools">Clock Tools</a><a href="/everyday-tools" class="act">Everyday Tools</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a></nav>
+<button class="hamburger" onclick="document.getElementById('mobileNav').classList.toggle('show')">☰</button>
+</div>
+<nav class="mob-nav" id="mobileNav"><a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/clock-tools">Clock Tools</a><a href="/everyday-tools" class="act">Everyday Tools</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a></nav>
+</header>
+<main class="main">
+<nav class="bc"><a href="/">Home</a><span class="bc-s">/</span><a href="/everyday-tools">Everyday Tools</a><span class="bc-s">/</span><span class="bc-c">Age Difference Calculator</span></nav>
+<div class="ph"><h1>🎂 Age Difference Calculator</h1><p>Find the exact age difference between two people in years, months, and days.</p></div>
+<div class="box">
+<div class="row">
+<label class="lbl">First Person's Birth Date</label>
+<input type="date" id="date1">
+</div>
+<div class="row">
+<label class="lbl">Second Person's Birth Date</label>
+<input type="date" id="date2">
+</div>
+<div class="br"><button class="btn btn-p" onclick="calculate()">Calculate Difference</button><button class="btn btn-s" onclick="clearAll()">Clear</button></div>
+<div id="results" style="display:none">
+<div class="who-older" id="whoOlder"></div>
+<div class="sg">
+<div class="sc"><div class="num" id="rYears">—</div><div class="lab">Years</div></div>
+<div class="sc"><div class="num" id="rMonths">—</div><div class="lab">Months</div></div>
+<div class="sc"><div class="num" id="rDays">—</div><div class="lab">Days</div></div>
+</div>
+<div class="fun-facts" id="funFacts"></div>
+</div>
+</div>
+<div class="info"><h2>Age Difference Calculator</h2>
+<p>Calculate the exact age difference between two people. Enter their birth dates and get a precise breakdown in years, months, and days, along with fun facts about their age gap including total days, weeks, hours apart, and more.</p>
+<h3>Frequently Asked Questions</h3>
+<details><summary>How is the age difference calculated?</summary><p>The calculator finds the absolute difference between two birth dates, broken down into years, months, and days. It accounts for varying month lengths to give an accurate result.</p></details>
+<details><summary>Does this account for leap years?</summary><p>Yes, the calculation uses JavaScript's built-in Date object which properly handles leap years. February 29th birthdays and leap year differences are calculated correctly.</p></details>
+<details><summary>What if both people have the same birthday?</summary><p>If both dates are the same, the calculator will show 0 years, 0 months, 0 days difference and note that both people share the exact same birthday. It will still show fun facts like the day of the week they were born.</p></details>
+</div>
+</main>
+<footer class="footer"><p>© 2026 ExcuseMeWeb.com</p><p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p></footer>
+<script>
+function calculate(){
+var d1=new Date(document.getElementById('date1').value);
+var d2=new Date(document.getElementById('date2').value);
+if(isNaN(d1)||isNaN(d2)){alert('Please select both dates.');return;}
+var older=d1<=d2?d1:d2;
+var younger=d1<=d2?d2:d1;
+var p1Name=d1<=d2?'First person':'Second person';
+var p2Name=d1<=d2?'Second person':'First person';
+// Calculate difference in years, months, days
+var years=younger.getFullYear()-older.getFullYear();
+var months=younger.getMonth()-older.getMonth();
+var days=younger.getDate()-older.getDate();
+if(days<0){months--;var prevMonth=new Date(younger.getFullYear(),younger.getMonth(),0);days+=prevMonth.getDate();}
+if(months<0){years--;months+=12;}
+// Total days diff
+var diffMs=Math.abs(younger-older);
+var totalDays=Math.floor(diffMs/(1000*60*60*24));
+var totalWeeks=Math.floor(totalDays/7);
+var totalHours=totalDays*24;
+var totalMinutes=totalHours*60;
+// Who is older
+var whoEl=document.getElementById('whoOlder');
+if(totalDays===0){
+whoEl.textContent='Both share the exact same birthday!';
+}else{
+whoEl.textContent=p1Name+' is older by '+years+' year'+(years!==1?'s':'')+', '+months+' month'+(months!==1?'s':'')+', '+days+' day'+(days!==1?'s':'');
+}
+document.getElementById('rYears').textContent=years;
+document.getElementById('rMonths').textContent=months;
+document.getElementById('rDays').textContent=days;
+// Fun facts
+var daysOfWeek=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+var day1=daysOfWeek[older.getDay()];
+var day2=daysOfWeek[younger.getDay()];
+var funHtml='<h3>Fun Facts</h3>';
+funHtml+='<div class="fact"><span>Total days apart</span><span class="val">'+totalDays.toLocaleString()+'</span></div>';
+funHtml+='<div class="fact"><span>Total weeks apart</span><span class="val">'+totalWeeks.toLocaleString()+'</span></div>';
+funHtml+='<div class="fact"><span>Total hours apart</span><span class="val">'+totalHours.toLocaleString()+'</span></div>';
+funHtml+='<div class="fact"><span>Total minutes apart</span><span class="val">'+totalMinutes.toLocaleString()+'</span></div>';
+if(totalDays>0){
+funHtml+='<div class="fact"><span>Older born on</span><span class="val">'+day1+'</span></div>';
+funHtml+='<div class="fact"><span>Younger born on</span><span class="val">'+day2+'</span></div>';
+}
+// Approximate full years diff
+var approxFullYears=Math.round(totalDays/365.25*10)/10;
+funHtml+='<div class="fact"><span>Approximate difference</span><span class="val">~'+approxFullYears+' years</span></div>';
+// Moon cycles
+var moonCycles=Math.round(totalDays/29.53);
+funHtml+='<div class="fact"><span>Full moon cycles</span><span class="val">~'+moonCycles+'</span></div>';
+document.getElementById('funFacts').innerHTML=funHtml;
+document.getElementById('results').style.display='block';
+}
+function clearAll(){
+document.getElementById('date1').value='';
+document.getElementById('date2').value='';
+document.getElementById('results').style.display='none';
+}
+</script></body></html>

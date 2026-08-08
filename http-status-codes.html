@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="fa026cc1-8f84-44f5-b2fb-9ccf29374a38"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HTTP Status Codes Reference | ExcuseMeWeb</title>
+<meta name="description" content="Complete HTTP status code reference with search. Browse all 1xx, 2xx, 3xx, 4xx, and 5xx status codes with descriptions.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="HTTP Status Codes Reference | ExcuseMeWeb">
+<meta property="og:description" content="Complete HTTP status code reference with search and descriptions for all common codes.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://excusemeweb.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="HTTP Status Codes Reference | ExcuseMeWeb">
+<meta name="twitter:description" content="Complete HTTP status code reference with search.">
+<link rel="canonical" href="https://excusemeweb.com/http-status-codes">
+<link rel="icon" href="/favicon.ico">
+<meta name="theme-color" content="#ffffff">
+<meta property="og:url" content="https://excusemeweb.com/http-status-codes">
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "HTTP Status Codes Reference",
+  "url": "https://excusemeweb.com/http-status-codes",
+  "description": "Complete HTTP status code reference with search. Browse all 1xx, 2xx, 3xx, 4xx, and 5xx status codes with descriptions.",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "All",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": { "@type": "Organization", "name": "ExcuseMeWeb" },
+  "dateModified": "2026-08-07"
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://excusemeweb.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Developer Tools", "item": "https://excusemeweb.com/developer-tools" },
+    { "@type": "ListItem", "position": 3, "name": "HTTP Status Codes", "item": "https://excusemeweb.com/http-status-codes" }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"What are HTTP status codes?","acceptedAnswer":{"@type":"Answer","text":"HTTP status codes are three-digit numbers returned by a server in response to a client's request. They indicate the outcome of the request: 1xx informational, 2xx success, 3xx redirection, 4xx client error, and 5xx server error."}},
+    {"@type":"Question","name":"What are the most common HTTP status codes?","acceptedAnswer":{"@type":"Answer","text":"The most common codes are: 200 OK (successful request), 201 Created (resource created), 301 Moved Permanently (permanent redirect), 302 Found (temporary redirect), 304 Not Modified (cached version valid), 400 Bad Request (malformed request), 401 Unauthorized (authentication required), 403 Forbidden (access denied), 404 Not Found (resource missing), 500 Internal Server Error, and 502 Bad Gateway."}},
+    {"@type":"Question","name":"What is the difference between 301 and 302?","acceptedAnswer":{"@type":"Answer","text":"301 (Moved Permanently) tells browsers and search engines that a resource has permanently moved to a new URL. Search engines update their index to the new URL. 302 (Found) indicates a temporary redirect — the original URL should still be used for future requests. Search engines keep the original URL indexed."}}
+  ]
+}</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--bg2:#f8fafc;--bg3:#f1f5f9;--text:#0f172a;--text2:#64748b;--accent:#6366f1;--accent-h:#4f46e5;--accent-l:#eef2ff;--danger:#ef4444;--success:#22c55e;--warning:#f59e0b;--border:#e2e8f0;--radius:12px;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column;}
+.header{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 24px;position:sticky;top:0;z-index:1000;}
+.header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;}
+.logo{font-size:1.5rem;font-weight:700;color:var(--accent);text-decoration:none;}
+.logo span{color:var(--text);}
+.nav-d{display:flex;gap:28px;}
+.nav-d a{color:var(--text2);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color 0.2s;white-space:nowrap;}
+.nav-d a:hover{color:var(--accent);}
+.nav-d a.act{color:var(--accent);}
+.hamburger{display:none;background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer;}
+.mob-nav{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);padding:16px 24px;flex-direction:column;gap:16px;z-index:999;}
+.mob-nav.show{display:flex;}
+.mob-nav a{color:var(--text2);text-decoration:none;font-size:1rem;font-weight:500;}
+.mob-nav a.act{color:var(--accent);}
+main{flex:1;max-width:1100px;width:100%;margin:0 auto;padding:40px 24px;}
+.br{display:flex;align-items:center;flex-wrap:wrap;gap:6px;font-size:0.85rem;color:var(--text2);margin-bottom:20px;}
+.br a{color:var(--accent);text-decoration:none;}
+.br a:hover{text-decoration:underline;}
+.br .sep{color:var(--border);}
+.br .cur{color:var(--text);font-weight:600;}
+.ph{text-align:center;margin-bottom:28px;}
+.ph h1{font-size:2rem;font-weight:700;margin-bottom:8px;}
+.ph p{color:var(--text2);font-size:1.05rem;max-width:640px;margin:0 auto;}
+.box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:28px;max-width:900px;margin:0 auto 24px;}
+.lbl{font-size:0.85rem;color:var(--text2);font-weight:500;margin-bottom:4px;display:block;}
+input[type="text"]{width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:8px;font-size:0.95rem;font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);}
+input:focus{outline:2px solid var(--accent);border-color:var(--accent);}
+.filter-btns{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0;}
+.filter-btn{padding:6px 14px;border:1px solid var(--border);border-radius:6px;background:var(--bg);cursor:pointer;font-family:'Inter',sans-serif;font-size:0.85rem;font-weight:500;transition:all 0.15s;}
+.filter-btn:hover,.filter-btn.active{background:var(--accent-l);border-color:var(--accent);color:var(--accent);}
+.section-title{font-size:1.1rem;font-weight:700;margin:24px 0 12px;padding-bottom:8px;border-bottom:2px solid var(--border);display:flex;align-items:center;gap:8px;}
+.section-title .badge{font-size:0.7rem;padding:2px 8px;border-radius:10px;color:#fff;font-weight:600;}
+.badge-1{background:var(--text2);}
+.badge-2{background:var(--success);}
+.badge-3{background:var(--accent);}
+.badge-4{background:var(--warning);}
+.badge-5{background:var(--danger);}
+.status-table{width:100%;border-collapse:collapse;margin-bottom:16px;}
+.status-table th{text-align:left;padding:10px 12px;background:var(--bg3);font-size:0.85rem;font-weight:600;color:var(--text2);border-bottom:2px solid var(--border);}
+.status-table th:first-child{width:80px;}
+.status-table th:nth-child(2){width:220px;}
+.status-table td{padding:10px 12px;border-bottom:1px solid var(--border);font-size:0.9rem;color:var(--text2);vertical-align:top;}
+.status-table tr:hover{background:var(--bg3);}
+.status-table .code{font-weight:700;font-family:'Courier New',monospace;color:var(--text);}
+.status-table .name{font-weight:600;color:var(--text);}
+.code-1{color:var(--text2);}.code-2{color:var(--success);}.code-3{color:var(--accent);}.code-4{color:var(--warning);}.code-5{color:var(--danger);}
+.info{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:28px;margin-bottom:24px;}
+.info h2{font-size:1.3rem;margin-bottom:12px;}
+.info h3{font-size:1.1rem;margin:20px 0 8px;color:var(--accent);}
+.info p,.info li{color:var(--text2);line-height:1.7;margin-bottom:10px;}
+.info ul{padding-left:20px;}
+.info a{color:var(--accent);text-decoration:none;}
+.info a:hover{text-decoration:underline;}
+details{border:1px solid var(--border);border-radius:8px;padding:14px 18px;margin-bottom:8px;cursor:pointer;background:var(--bg);}
+summary{font-weight:600;font-size:0.95rem;list-style:none;}
+summary::-webkit-details-marker{display:none;}
+details p{color:var(--text2);line-height:1.7;margin-top:10px;font-size:0.95rem;}
+.footer{text-align:center;padding:24px;color:var(--text2);font-size:0.85rem;border-top:1px solid var(--border);margin-top:auto;}
+.footer a{color:var(--accent);text-decoration:none;}
+@media(max-width:768px){
+.nav-d{display:none;}.hamburger{display:block;}
+.ph h1{font-size:1.7rem;}main{padding:24px 16px;}.box{padding:20px;}
+.status-table th,.status-table td{padding:8px;font-size:0.8rem;}
+}
+</style>
+</head>
+<body>
+<header class="header">
+<div class="header-inner">
+<a href="/" class="logo">Excuse<span>Me</span>Web</a>
+<nav class="nav-d">
+<a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/clock-tools">Clock Tools</a><a href="/developer-tools" class="act">Developer Tools</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a>
+</nav>
+<button class="hamburger" onclick="document.getElementById('mobNav').classList.toggle('show')">☰</button>
+</div>
+<nav class="mob-nav" id="mobNav">
+<a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/clock-tools">Clock Tools</a><a href="/developer-tools" class="act">Developer Tools</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a>
+</nav>
+</header>
+<main>
+<nav class="br" aria-label="Breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="/developer-tools">Developer Tools</a><span class="sep">/</span><span class="cur">HTTP Status Codes</span></nav>
+<div class="ph">
+<h1>🌐 HTTP Status Codes</h1>
+<p>Complete reference of all HTTP status codes. Search, filter by category, and find the code you need instantly.</p>
+</div>
+<div class="box">
+<label class="lbl">Search Status Codes</label>
+<input type="text" id="searchInput" placeholder="Search by code, name, or description..." oninput="filterCodes()">
+<div class="filter-btns">
+<button class="filter-btn active" onclick="setFilter('all',this)">All</button>
+<button class="filter-btn" onclick="setFilter('1',this)">1xx Informational</button>
+<button class="filter-btn" onclick="setFilter('2',this)">2xx Success</button>
+<button class="filter-btn" onclick="setFilter('3',this)">3xx Redirection</button>
+<button class="filter-btn" onclick="setFilter('4',this)">4xx Client Error</button>
+<button class="filter-btn" onclick="setFilter('5',this)">5xx Server Error</button>
+</div>
+<div id="codesContainer"></div>
+</div>
+<div class="info">
+<h2>HTTP Status Codes Reference</h2>
+<p>HTTP status codes are standardized response codes returned by web servers to indicate the result of an HTTP request. They are grouped into five classes based on the first digit of the three-digit code.</p>
+<h3>Status Code Classes</h3>
+<ul>
+<li><strong>1xx (Informational):</strong> Request received, continuing process.</li>
+<li><strong>2xx (Success):</strong> Request successfully received, understood, and accepted.</li>
+<li><strong>3xx (Redirection):</strong> Further action needed to complete the request.</li>
+<li><strong>4xx (Client Error):</strong> Request contains bad syntax or cannot be fulfilled.</li>
+<li><strong>5xx (Server Error):</strong> Server failed to fulfill a valid request.</li>
+</ul>
+<h3>Frequently Asked Questions</h3>
+<details><summary>What are HTTP status codes?</summary><p>HTTP status codes are three-digit numbers returned by a server in response to a client's request. They indicate the outcome of the request: 1xx informational, 2xx success, 3xx redirection, 4xx client error, and 5xx server error.</p></details>
+<details><summary>What are the most common HTTP status codes?</summary><p>The most common codes are: 200 OK (successful request), 201 Created (resource created), 301 Moved Permanently (permanent redirect), 302 Found (temporary redirect), 304 Not Modified (cached version valid), 400 Bad Request (malformed request), 401 Unauthorized (authentication required), 403 Forbidden (access denied), 404 Not Found (resource missing), 500 Internal Server Error, and 502 Bad Gateway.</p></details>
+<details><summary>What is the difference between 301 and 302?</summary><p>301 (Moved Permanently) tells browsers and search engines that a resource has permanently moved to a new URL. Search engines update their index to the new URL. 302 (Found) indicates a temporary redirect — the original URL should still be used for future requests. Search engines keep the original URL indexed.</p></details>
+<h3>Related Tools</h3>
+<p><a href="/json-formatter">JSON Formatter</a> · <a href="/html-minifier">HTML Minifier</a> · <a href="/regex-tester">Regex Tester</a> · <a href="/url-encoder">URL Encoder</a> · <a href="/developer-tools">All Developer Tools</a></p>
+</div>
+</main>
+<footer class="footer">
+<p>&copy; 2026 ExcuseMeWeb.com</p>
+<p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p>
+</footer>
+<script>
+var codes=[
+['1xx','Informational',[
+[100,'Continue','Server has received the request headers and the client should proceed to send the request body.'],
+[101,'Switching Protocols','Server is switching protocols as requested by the client via the Upgrade header.'],
+[102,'Processing','Server has received and is processing the request, but no response is available yet.'],
+[103,'Early Hints','Used to return some response headers before final HTTP message.']
+]],
+['2xx','Success',[
+[200,'OK','Request succeeded. The meaning depends on the HTTP method used.'],
+[201,'Created','Request succeeded and a new resource was created.'],
+[202,'Accepted','Request received but not yet processed (asynchronous operation).'],
+[203,'Non-Authoritative Information','Response metadata is not from the origin server.'],
+[204,'No Content','Request succeeded but no content to return (e.g., after DELETE).'],
+[205,'Reset Content','Server asks the client to reset the document view.'],
+[206,'Partial Content','Server is delivering only part of the resource due to a range header.'],
+[207,'Multi-Status','Conveys information about multiple resources in situations where multiple status codes might be appropriate.'],
+[208,'Already Reported','Members of a DAV binding have already been enumerated in a previous reply.'],
+[226,'IM Used','Server has fulfilled a GET request for the resource, and the response represents the result of instance-manipulations.']
+]],
+['3xx','Redirection',[
+[300,'Multiple Choices','The request has more than one possible response.'],
+[301,'Moved Permanently','The URL of the requested resource has been changed permanently.'],
+[302,'Found','The URI of requested resource has been changed temporarily.'],
+[303,'See Other','Server sent this response to direct client to get the requested resource at another URI.'],
+[304,'Not Modified','Resource has not been modified since the last request (cached version is valid).'],
+[305,'Use Proxy','Requested resource must be accessed through the proxy given by the Location field.'],
+[307,'Temporary Redirect','Server sends this response to direct client to get requested resource at another URI with same method.'],
+[308,'Permanent Redirect','Resource is now permanently located at another URI, same method should be used.']
+]],
+['4xx','Client Error',[
+[400,'Bad Request','Server cannot process the request due to client-side error (malformed syntax).'],
+[401,'Unauthorized','Request requires user authentication.'],
+[402,'Payment Required','Reserved for future use (originally for digital payment systems).'],
+[403,'Forbidden','Client does not have access rights to the content.'],
+[404,'Not Found','Server cannot find the requested resource.'],
+[405,'Method Not Allowed','Request method is not supported for the requested resource.'],
+[406,'Not Acceptable','Server cannot produce a response matching the Accept headers.'],
+[407,'Proxy Authentication Required','Client must first authenticate itself with the proxy.'],
+[408,'Request Timeout','Server timed out waiting for the request.'],
+[409,'Conflict','Request conflicts with the current state of the server.'],
+[410,'Gone','Content has been permanently deleted from the server.'],
+[411,'Length Required','Server rejected the request because the Content-Length header is not defined.'],
+[412,'Precondition Failed','Client has indicated preconditions in its headers which the server does not meet.'],
+[413,'Payload Too Large','Request entity is larger than limits defined by server.'],
+[414,'URI Too Long','The URI requested by the client is longer than the server is willing to interpret.'],
+[415,'Unsupported Media Type','Media format of the requested data is not supported by the server.'],
+[416,'Range Not Satisfiable','The range specified by the Range header in the request cannot be fulfilled.'],
+[417,'Expectation Failed','Expectation indicated by the Expect request header cannot be met by the server.'],
+[418,'I\'m a Teapot','Server refuses to brew coffee because it is a teapot (RFC 2324).'],
+[421,'Misdirected Request','Request was directed at a server that is not able to produce a response.'],
+[422,'Unprocessable Entity','Request was well-formed but was unable to be followed due to semantic errors.'],
+[423,'Locked','Resource being accessed is locked.'],
+[424,'Failed Dependency','Request failed due to failure of a previous request.'],
+[425,'Too Early','Server is unwilling to risk processing a request that might be replayed.'],
+[426,'Upgrade Required','Server refuses to perform the request using the current protocol.'],
+[428,'Precondition Required','Server requires the request to be conditional.'],
+[429,'Too Many Requests','User has sent too many requests in a given amount of time (rate limiting).'],
+[431,'Request Header Fields Too Large','Request header fields are too large.'],
+[451','Unavailable For Legal Reasons','User agent requested a resource that is not available due to legal reasons.']
+]],
+['5xx','Server Error',[
+[500,'Internal Server Error','Server encountered an unexpected condition that prevented it from fulfilling the request.'],
+[501,'Not Implemented','Server does not support the functionality required to fulfill the request.'],
+[502,'Bad Gateway','Server received an invalid response from the upstream server.'],
+[503,'Service Unavailable','Server is not ready to handle the request (overloaded or maintenance).'],
+[504,'Gateway Timeout','Server acting as a gateway did not receive a timely response from the upstream server.'],
+[505,'HTTP Version Not Supported','HTTP version used in the request is not supported by the server.'],
+[506,'Variant Also Negotiates','Server has an internal configuration error (Transparent Content Negotiation).'],
+[507,'Insufficient Storage','Server is unable to store the representation needed to complete the request.'],
+[508,'Loop Detected','Server detected an infinite loop while processing the request.'],
+[510,'Not Extended','Further extensions to the request are required for the server to fulfill it.'],
+[511,'Network Authentication Required','Client needs to authenticate to gain network access.']
+]]
+];
+var currentFilter='all';
+function setFilter(f,btn){
+  currentFilter=f;
+  var btns=document.querySelectorAll('.filter-btn');
+  for(var i=0;i<btns.length;i++)btns[i].classList.remove('active');
+  btn.classList.add('active');
+  renderCodes();
+}
+function filterCodes(){renderCodes();}
+function renderCodes(){
+  var q=document.getElementById('searchInput').value.toLowerCase();
+  var container=document.getElementById('codesContainer');
+  var html='';
+  for(var g=0;g<codes.length;g++){
+    var group=codes[g];
+    var catNum=group[0].charAt(0);
+    if(currentFilter!=='all'&&currentFilter!==catNum)continue;
+    var filteredItems=[];
+    for(var i=0;i<group[2].length;i++){
+      var item=group[2][i];
+      var str=item[0]+' '+item[1]+' '+item[2];
+      if(!q||str.toLowerCase().indexOf(q)>=0){
+        filteredItems.push(item);
+      }
+    }
+    if(filteredItems.length===0)continue;
+    html+='<div class="section-title"><span class="badge badge-'+catNum+'">'+group[0]+'</span> '+group[1]+'</div>';
+    html+='<table class="status-table"><thead><tr><th>Code</th><th>Name</th><th>Description</th></tr></thead><tbody>';
+    for(var i=0;i<filteredItems.length;i++){
+      var item=filteredItems[i];
+      html+='<tr><td class="code code-'+catNum+'">'+item[0]+'</td><td class="name">'+item[1]+'</td><td>'+item[2]+'</td></tr>';
+    }
+    html+='</tbody></table>';
+  }
+  if(!html)html='<p style="text-align:center;color:var(--text2);padding:40px">No status codes match your search.</p>';
+  container.innerHTML=html;
+}
+renderCodes();
+</script>
+</body>
+</html>

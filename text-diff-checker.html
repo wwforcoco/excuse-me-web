@@ -1,0 +1,87 @@
+<!DOCTYPE html><html lang="en"><head>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="fa026cc1-8f84-44f5-b2fb-9ccf29374a38"></script>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Text Diff Checker | ExcuseMeWeb</title>
+<meta name="description" content="Compare two texts side by side and highlight differences instantly. Free online text diff checker finds added, removed, and changed lines.">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="Text Diff Checker | ExcuseMeWeb"><meta property="og:description" content="Compare two texts side by side and highlight differences instantly. Free online text diff checker finds added, removed, and changed lines.">
+<meta property="og:type" content="website"><meta property="og:image" content="https://excusemeweb.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Text Diff Checker | ExcuseMeWeb"><meta name="twitter:description" content="Compare two texts side by side and highlight differences instantly. Free online text diff checker finds added, removed, and changed lines.">
+<link rel="canonical" href="https://excusemeweb.com/text-diff-checker"><link rel="icon" href="/favicon.ico"><meta name="theme-color" content="#ffffff"><meta property="og:url" content="https://excusemeweb.com/text-diff-checker">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Text Diff Checker","url":"https://excusemeweb.com/text-diff-checker","description":"Compare two texts side by side and highlight differences instantly. Free online text diff checker finds added, removed, and changed lines.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Organization","name":"ExcuseMeWeb"},"dateModified":"2026-08-08"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://excusemeweb.com/"},{"@type":"ListItem","position":2,"name":"Text Tools","item":"https://excusemeweb.com/text-tools"},{"@type":"ListItem","position":3,"name":"Text Diff Checker","item":"https://excusemeweb.com/text-diff-checker"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does the text diff work?","acceptedAnswer":{"@type":"Answer","text":"The tool compares two texts line by line and highlights lines that have been added, removed, or modified. It uses a longest common subsequence algorithm to find the minimal set of changes."}},{"@type":"Question","name":"Is my text stored or sent to a server?","acceptedAnswer":{"@type":"Answer","text":"No. All text comparison happens entirely in your browser. No data is sent to any server."}},{"@type":"Question","name":"Can I compare large texts?","acceptedAnswer":{"@type":"Answer","text":"Yes, the diff algorithm handles large texts efficiently. For very large documents with thousands of lines, results may take a moment to compute."}}]}</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--bg2:#f8fafc;--bg3:#f1f5f9;--text:#0f172a;--text2:#64748b;--accent:#6366f1;--accent-h:#4f46e5;--accent-l:#eef2ff;--danger:#ef4444;--success:#22c55e;--border:#e2e8f0;--radius:12px;}
+*{margin:0;padding:0;box-sizing:border-box;}body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column;}
+.header{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 24px;position:sticky;top:0;z-index:1000;}.header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;}
+.logo{font-size:1.5rem;font-weight:700;color:var(--accent);text-decoration:none;}.logo span{color:var(--text);}
+.nav-d{display:flex;gap:24px;}.nav-d a{color:var(--text2);text-decoration:none;font-size:.85rem;font-weight:500;white-space:nowrap;}.nav-d a:hover,.nav-d a.act{color:var(--accent);}
+.hamburger{display:none;background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer;}
+.mob-nav{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);padding:16px 24px;flex-direction:column;gap:16px;z-index:999;}.mob-nav.show{display:flex;}.mob-nav a{color:var(--text2);text-decoration:none;font-size:1rem;}.mob-nav a.act{color:var(--accent);}
+.main{flex:1;max-width:1100px;width:100%;margin:0 auto;padding:40px 24px;}
+.bc{display:flex;gap:6px;font-size:.85rem;color:var(--text2);margin-bottom:20px;flex-wrap:wrap;}.bc a{color:var(--accent);text-decoration:none;}.bc-s{color:var(--border);}.bc-c{color:var(--text);font-weight:500;}
+.ph{text-align:center;margin-bottom:32px;}.ph h1{font-size:2rem;font-weight:700;margin-bottom:8px;}.ph p{color:var(--text2);max-width:600px;margin:0 auto;}
+.box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:32px;max-width:900px;margin:0 auto 32px;}
+.btn{padding:12px 28px;border:none;border-radius:8px;font-size:.95rem;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;transition:all .15s;}.btn-p{background:var(--accent);color:#fff;}.btn-p:hover{background:var(--accent-h);}.btn-s{background:var(--bg3);color:var(--text);}.btn-s:hover{background:var(--border);}
+textarea{width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:8px;font-size:.9rem;font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);resize:vertical;min-height:150px;}textarea:focus{outline:2px solid var(--accent);border-color:var(--accent);}
+.tg{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
+.lbl{font-size:.85rem;color:var(--text2);font-weight:500;margin-bottom:4px;display:block;}
+.br{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:16px;}
+.result{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:16px;margin-top:16px;max-height:400px;overflow-y:auto;font-family:monospace;font-size:.85rem;line-height:1.8;}
+.diff-add{background:#dcfce7;color:#166534;padding:2px 6px;border-radius:4px;display:block;}.diff-del{background:#fee2e2;color:#991b1b;padding:2px 6px;border-radius:4px;display:block;text-decoration:line-through;}.diff-line{padding:2px 6px;display:block;}
+.summary-bar{display:flex;gap:16px;justify-content:center;margin-top:12px;flex-wrap:wrap;}.summary-bar span{font-size:.9rem;font-weight:600;}.s-add{color:var(--success);}.s-del{color:var(--danger);}.s-same{color:var(--text2);}
+.info{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:32px;margin-bottom:24px;}.info h2{font-size:1.3rem;margin-bottom:12px;}.info h3{font-size:1.1rem;margin:20px 0 8px;}.info p,.info li{color:var(--text2);line-height:1.7;margin-bottom:10px;}.info ul{padding-left:20px;}.info a{color:var(--accent);text-decoration:none;}
+details{border:1px solid var(--border);border-radius:8px;padding:14px 18px;margin-bottom:8px;cursor:pointer;}summary{font-weight:600;font-size:.95rem;list-style:none;}summary::-webkit-details-marker{display:none;}details p{color:var(--text2);line-height:1.7;margin-top:10px;font-size:.95rem;}
+.footer{text-align:center;padding:24px;color:var(--text2);font-size:.85rem;border-top:1px solid var(--border);margin-top:auto;}.footer a{color:var(--accent);text-decoration:none;}
+@media(max-width:768px){.nav-d{display:none;}.hamburger{display:block;}.tg{grid-template-columns:1fr;}}
+</style></head><body>
+<header class="header"><div class="header-inner">
+<a href="/" class="logo">Excuse<span>Me</span>Web</a>
+<nav class="nav-d"><a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/clock-tools">Clock Tools</a><a href="/text-tools" class="act">Text Tools</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a></nav>
+<button class="hamburger" onclick="document.getElementById('mobileNav').classList.toggle('show')">☰</button>
+</div>
+<nav class="mob-nav" id="mobileNav"><a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/clock-tools">Clock Tools</a><a href="/text-tools" class="act">Text Tools</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a></nav>
+</header>
+<main class="main">
+<nav class="bc"><a href="/">Home</a><span class="bc-s">/</span><a href="/text-tools">Text Tools</a><span class="bc-s">/</span><span class="bc-c">Text Diff Checker</span></nav>
+<div class="ph"><h1>🔍 Text Diff Checker</h1><p>Compare two texts side by side and instantly see added, removed, and changed lines highlighted.</p></div>
+<div class="box">
+<div class="tg">
+<div><label class="lbl">Original Text</label><textarea id="t1" placeholder="Paste original text here..."></textarea></div>
+<div><label class="lbl">Modified Text</label><textarea id="t2" placeholder="Paste modified text here..."></textarea></div>
+</div>
+<div class="br"><button class="btn btn-p" onclick="diff()">Compare Texts</button><button class="btn btn-s" onclick="document.getElementById('t1').value='';document.getElementById('t2').value='';document.getElementById('out').innerHTML='';document.getElementById('sum').innerHTML=''">Clear</button></div>
+<div class="summary-bar" id="sum"></div>
+<div class="result" id="out" style="display:none;"></div>
+</div>
+<div class="info"><h2>Online Text Diff Checker</h2><p>Paste any two versions of text to see exactly what changed between them. Lines are compared using a longest common subsequence algorithm for accurate results.</p>
+<h3>Frequently Asked Questions</h3>
+<details><summary>How does the text diff work?</summary><p>The tool compares two texts line by line and highlights lines that have been added, removed, or modified. It uses a longest common subsequence algorithm to find the minimal set of changes.</p></details>
+<details><summary>Is my text stored or sent to a server?</summary><p>No. All text comparison happens entirely in your browser. No data is sent to any server.</p></details>
+<details><summary>Can I compare large texts?</summary><p>Yes, the diff algorithm handles large texts efficiently. For very large documents with thousands of lines, results may take a moment to compute.</p></details>
+</div>
+</main>
+<footer class="footer"><p>© 2026 ExcuseMeWeb.com</p><p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p></footer>
+<script>
+function diff(){
+var a=document.getElementById('t1').value.split('\n');
+var b=document.getElementById('t2').value.split('\n');
+var m=a.length,n=b.length;
+var dp=[];for(var i=0;i<=m;i++){dp[i]=[];for(var j=0;j<=n;j++){if(i===0||j===0)dp[i][j]=0;else if(a[i-1]===b[j-1])dp[i][j]=dp[i-1][j-1]+1;else dp[i][j]=Math.max(dp[i-1][j],dp[i][j-1]);}}
+var i=m,j=n;var ops=[];
+while(i>0||j>0){
+if(i>0&&j>0&&a[i-1]===b[j-1]){ops.unshift({t:'same',l:a[i-1]});i--;j--;}
+else if(j>0&&(i===0||dp[i][j-1]>=dp[i-1][j])){ops.unshift({t:'add',l:b[j-1]});j--;}
+else{ops.unshift({t:'del',l:a[i-1]});i--;}
+}
+var addC=0,delC=0,sameC=0,html='';
+ops.forEach(function(o){if(o.t==='add'){html+='<span class="diff-add">+ '+esc(o.l)+'</span>';addC++;}
+else if(o.t==='del'){html+='<span class="diff-del">- '+esc(o.l)+'</span>';delC++;}
+else{html+='<span class="diff-line">  '+esc(o.l)+'</span>';sameC++;}});
+document.getElementById('out').innerHTML=html;document.getElementById('out').style.display='block';
+document.getElementById('sum').innerHTML='<span class="s-add">+'+addC+' added</span><span class="s-del">-'+delC+' removed</span><span class="s-same">'+sameC+' unchanged</span>';
+}
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+</script></body></html>

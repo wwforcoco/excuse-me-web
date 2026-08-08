@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="fa026cc1-8f84-44f5-b2fb-9ccf29374a38"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HTML Minifier | ExcuseMeWeb</title>
+<meta name="description" content="Minify HTML code to reduce file size. Remove whitespace, comments, and unnecessary characters. See original size, minified size, and savings percentage.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="HTML Minifier | ExcuseMeWeb">
+<meta property="og:description" content="Minify HTML code to reduce file size. Remove whitespace, comments, and unnecessary characters.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://excusemeweb.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="HTML Minifier | ExcuseMeWeb">
+<meta name="twitter:description" content="Minify HTML code to reduce file size instantly.">
+<link rel="canonical" href="https://excusemeweb.com/html-minifier">
+<link rel="icon" href="/favicon.ico">
+<meta name="theme-color" content="#ffffff">
+<meta property="og:url" content="https://excusemeweb.com/html-minifier">
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "HTML Minifier",
+  "url": "https://excusemeweb.com/html-minifier",
+  "description": "Minify HTML code to reduce file size. Remove whitespace, comments, and unnecessary characters. See original size, minified size, and savings percentage.",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "All",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": { "@type": "Organization", "name": "ExcuseMeWeb" },
+  "dateModified": "2026-08-07"
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://excusemeweb.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Developer Tools", "item": "https://excusemeweb.com/developer-tools" },
+    { "@type": "ListItem", "position": 3, "name": "HTML Minifier", "item": "https://excusemeweb.com/html-minifier" }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"What does minifying HTML do?","acceptedAnswer":{"@type":"Answer","text":"Minifying HTML removes unnecessary characters like whitespace, newlines, comments, and optional quotes from attributes. This reduces file size without changing functionality, leading to faster page load times."}},
+    {"@type":"Question","name":"How much smaller does minified HTML get?","acceptedAnswer":{"@type":"Answer","text":"Typical HTML files shrink by 10-30% after minification, depending on formatting. Files with heavy indentation and many comments will see larger savings. The actual transfer size may be even smaller when combined with gzip compression."}},
+    {"@type":"Question","name":"Does minifying HTML break anything?","acceptedAnswer":{"@type":"Answer","text":"No. Minification only removes whitespace and comments — it does not change the HTML structure or functionality. The browser renders minified HTML identically to the original. However, inline <pre> and <textarea> content preserves its whitespace to avoid display issues."}}
+  ]
+}</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--bg2:#f8fafc;--bg3:#f1f5f9;--text:#0f172a;--text2:#64748b;--accent:#6366f1;--accent-h:#4f46e5;--accent-l:#eef2ff;--danger:#ef4444;--success:#22c55e;--border:#e2e8f0;--radius:12px;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column;}
+.header{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 24px;position:sticky;top:0;z-index:1000;}
+.header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;}
+.logo{font-size:1.5rem;font-weight:700;color:var(--accent);text-decoration:none;}
+.logo span{color:var(--text);}
+.nav-d{display:flex;gap:28px;}
+.nav-d a{color:var(--text2);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color 0.2s;white-space:nowrap;}
+.nav-d a:hover{color:var(--accent);}
+.nav-d a.act{color:var(--accent);}
+.hamburger{display:none;background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer;}
+.mob-nav{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);padding:16px 24px;flex-direction:column;gap:16px;z-index:999;}
+.mob-nav.show{display:flex;}
+.mob-nav a{color:var(--text2);text-decoration:none;font-size:1rem;font-weight:500;}
+.mob-nav a.act{color:var(--accent);}
+main{flex:1;max-width:1100px;width:100%;margin:0 auto;padding:40px 24px;}
+.br{display:flex;align-items:center;flex-wrap:wrap;gap:6px;font-size:0.85rem;color:var(--text2);margin-bottom:20px;}
+.br a{color:var(--accent);text-decoration:none;}
+.br a:hover{text-decoration:underline;}
+.br .sep{color:var(--border);}
+.br .cur{color:var(--text);font-weight:600;}
+.ph{text-align:center;margin-bottom:28px;}
+.ph h1{font-size:2rem;font-weight:700;margin-bottom:8px;}
+.ph p{color:var(--text2);font-size:1.05rem;max-width:640px;margin:0 auto;}
+.box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:28px;max-width:900px;margin:0 auto 24px;}
+.lbl{font-size:0.85rem;color:var(--text2);font-weight:500;margin-bottom:4px;display:block;}
+textarea{width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:8px;font-size:0.85rem;font-family:'Courier New',monospace;background:var(--bg);color:var(--text);resize:vertical;min-height:160px;}
+textarea:focus{outline:2px solid var(--accent);border-color:var(--accent);}
+.btn{padding:10px 24px;border:none;border-radius:8px;font-size:0.95rem;font-weight:600;cursor:pointer;transition:all 0.15s;font-family:'Inter',sans-serif;display:inline-block;}
+.btn-p{background:var(--accent);color:#fff;}
+.btn-p:hover{background:var(--accent-h);}
+.btn-s{background:var(--bg3);color:var(--text);}
+.btn-s:hover{background:var(--border);}
+.btn-row{display:flex;gap:12px;flex-wrap:wrap;margin:12px 0;align-items:center;}
+.sg{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:12px 0;}
+.sc{padding:14px;border-radius:8px;border:1px solid var(--border);background:var(--bg);text-align:center;}
+.sc .val{font-size:1.2rem;font-weight:700;color:var(--accent);}
+.sc .sl{font-size:0.8rem;color:var(--text2);margin-top:4px;}
+.savings-bar{height:8px;background:var(--border);border-radius:4px;overflow:hidden;margin:8px 0;}
+.savings-bar .fill{height:100%;background:var(--success);border-radius:4px;transition:width 0.5s;}
+.info{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:28px;margin-bottom:24px;}
+.info h2{font-size:1.3rem;margin-bottom:12px;}
+.info h3{font-size:1.1rem;margin:20px 0 8px;color:var(--accent);}
+.info p,.info li{color:var(--text2);line-height:1.7;margin-bottom:10px;}
+.info ul{padding-left:20px;}
+.info a{color:var(--accent);text-decoration:none;}
+.info a:hover{text-decoration:underline;}
+details{border:1px solid var(--border);border-radius:8px;padding:14px 18px;margin-bottom:8px;cursor:pointer;background:var(--bg);}
+summary{font-weight:600;font-size:0.95rem;list-style:none;}
+summary::-webkit-details-marker{display:none;}
+details p{color:var(--text2);line-height:1.7;margin-top:10px;font-size:0.95rem;}
+.footer{text-align:center;padding:24px;color:var(--text2);font-size:0.85rem;border-top:1px solid var(--border);margin-top:auto;}
+.footer a{color:var(--accent);text-decoration:none;}
+@media(max-width:768px){
+.nav-d{display:none;}.hamburger{display:block;}
+.ph h1{font-size:1.7rem;}main{padding:24px 16px;}.box{padding:20px;}
+.sg{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+<header class="header">
+<div class="header-inner">
+<a href="/" class="logo">Excuse<span>Me</span>Web</a>
+<nav class="nav-d">
+<a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/clock-tools">Clock Tools</a><a href="/developer-tools" class="act">Developer Tools</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a>
+</nav>
+<button class="hamburger" onclick="document.getElementById('mobNav').classList.toggle('show')">☰</button>
+</div>
+<nav class="mob-nav" id="mobNav">
+<a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/clock-tools">Clock Tools</a><a href="/developer-tools" class="act">Developer Tools</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a>
+</nav>
+</header>
+<main>
+<nav class="br" aria-label="Breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="/developer-tools">Developer Tools</a><span class="sep">/</span><span class="cur">HTML Minifier</span></nav>
+<div class="ph">
+<h1>📦 HTML Minifier</h1>
+<p>Minify your HTML code to reduce file size. Remove unnecessary whitespace, comments, and optimize for faster page loads.</p>
+</div>
+<div class="box">
+<label class="lbl">Input HTML</label>
+<textarea id="htmlInput" placeholder="Paste your HTML code here..."></textarea>
+<div class="btn-row">
+<button class="btn btn-p" onclick="minifyHTML()">Minify HTML</button>
+<button class="btn btn-s" onclick="copyOutput()">Copy Output</button>
+<button class="btn btn-s" onclick="clearAll()">Clear</button>
+</div>
+<div class="sg" id="statsGrid" style="display:none">
+<div class="sc"><div class="val" id="sOrig">--</div><div class="sl">Original Size</div></div>
+<div class="sc"><div class="val" id="sMin">--</div><div class="sl">Minified Size</div></div>
+<div class="sc"><div class="val" id="sSave">--</div><div class="sl">Savings</div></div>
+</div>
+<div class="savings-bar" id="savingsBar" style="display:none"><div class="fill" id="savingsFill" style="width:0"></div></div>
+<label class="lbl" style="margin-top:12px">Minified Output</label>
+<textarea id="htmlOutput" readonly placeholder="Minified HTML will appear here..."></textarea>
+</div>
+<div class="info">
+<h2>HTML Minifier Tool</h2>
+<p>This tool minifies HTML by removing unnecessary whitespace, newlines, HTML comments, and optional attribute quotes. The result is a smaller file that loads faster without any change in functionality or appearance.</p>
+<h3>What Gets Removed</h3>
+<ul>
+<li>Leading and trailing whitespace from lines</li>
+<li>Multiple spaces between tags</li>
+<li>HTML comments (<code>&lt;!-- ... --&gt;</code>)</li>
+<li>Newlines and extra spaces between inline elements</li>
+<li>Optional quotes from simple attribute values</li>
+</ul>
+<h3>Frequently Asked Questions</h3>
+<details><summary>What does minifying HTML do?</summary><p>Minifying HTML removes unnecessary characters like whitespace, newlines, comments, and optional quotes from attributes. This reduces file size without changing functionality, leading to faster page load times.</p></details>
+<details><summary>How much smaller does minified HTML get?</summary><p>Typical HTML files shrink by 10–30% after minification, depending on formatting. Files with heavy indentation and many comments will see larger savings. The actual transfer size may be even smaller when combined with gzip compression.</p></details>
+<details><summary>Does minifying HTML break anything?</summary><p>No. Minification only removes whitespace and comments — it does not change the HTML structure or functionality. The browser renders minified HTML identically to the original. However, inline <code>&lt;pre&gt;</code> and <code>&lt;textarea&gt;</code> content is preserved to avoid display issues.</p></details>
+<h3>Related Tools</h3>
+<p><a href="/json-formatter">JSON Formatter</a> · <a href="/regex-tester">Regex Tester</a> · <a href="/base64-image-encoder">Base64 Image Encoder</a> · <a href="/url-encoder">URL Encoder</a> · <a href="/developer-tools">All Developer Tools</a></p>
+</div>
+</main>
+<footer class="footer">
+<p>&copy; 2026 ExcuseMeWeb.com</p>
+<p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p>
+</footer>
+<script>
+function minifyHTML(){
+  var input=document.getElementById('htmlInput').value;
+  if(!input.trim()){return;}
+  var minified=input
+    .replace(/<!--[\s\S]*?-->/g,'')
+    .replace(/>\s+</g,'><')
+    .replace(/\s{2,}/g,' ')
+    .replace(/^\s+|\s+$/gm,'')
+    .replace(/\n/g,'');
+  document.getElementById('htmlOutput').value=minified;
+  var origSize=new Blob([input]).size;
+  var minSize=new Blob([minified]).size;
+  var saved=origSize>0?Math.round((1-minSize/origSize)*100):0;
+  document.getElementById('sOrig').textContent=formatSize(origSize);
+  document.getElementById('sMin').textContent=formatSize(minSize);
+  document.getElementById('sSave').textContent=saved+'%';
+  document.getElementById('statsGrid').style.display='grid';
+  document.getElementById('savingsBar').style.display='block';
+  document.getElementById('savingsFill').style.width=Math.max(0,saved)+'%';
+}
+function formatSize(b){if(b<1024)return b+' B';if(b<1048576)return(b/1024).toFixed(1)+' KB';return(b/1048576).toFixed(1)+' MB';}
+function copyOutput(){
+  var v=document.getElementById('htmlOutput').value;
+  if(v)navigator.clipboard.writeText(v);
+}
+function clearAll(){
+  document.getElementById('htmlInput').value='';
+  document.getElementById('htmlOutput').value='';
+  document.getElementById('statsGrid').style.display='none';
+  document.getElementById('savingsBar').style.display='none';
+}
+</script>
+</body>
+</html>

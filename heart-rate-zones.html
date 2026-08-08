@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="fa026cc1-8f84-44f5-b2fb-9ccf29374a38"></script>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Heart Rate Zones Calculator | ExcuseMeWeb</title>
+<meta name="description" content="Calculate your 5 heart rate training zones using the Karvonen formula. Enter your age and resting heart rate to find your optimal training zones.">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="Heart Rate Zones Calculator | ExcuseMeWeb"><meta property="og:description" content="Calculate your 5 heart rate training zones using the Karvonen formula. Enter your age and resting heart rate.">
+<meta property="og:type" content="website"><meta property="og:image" content="https://excusemeweb.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Heart Rate Zones Calculator | ExcuseMeWeb"><meta name="twitter:description" content="Calculate your 5 heart rate training zones using the Karvonen formula.">
+<link rel="canonical" href="https://excusemeweb.com/heart-rate-zones"><link rel="icon" href="/favicon.ico"><meta name="theme-color" content="#ffffff"><meta property="og:url" content="https://excusemeweb.com/heart-rate-zones">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Heart Rate Zones Calculator","url":"https://excusemeweb.com/heart-rate-zones","description":"Calculate your 5 heart rate training zones using the Karvonen formula. Enter your age and resting heart rate to find your optimal training zones.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Organization","name":"ExcuseMeWeb"},"dateModified":"2026-08-08"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://excusemeweb.com/"},{"@type":"ListItem","position":2,"name":"Health Tools","item":"https://excusemeweb.com/health-tools"},{"@type":"ListItem","position":3,"name":"Heart Rate Zones Calculator","item":"https://excusemeweb.com/heart-rate-zones"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What are heart rate training zones?","acceptedAnswer":{"@type":"Answer","text":"Heart rate zones are ranges of heart rate expressed as percentages of your maximum heart rate. Each zone targets a different physiological system, from recovery (Zone 1) to maximum effort (Zone 5)."}},{"@type":"Question","name":"What is the Karvonen formula?","acceptedAnswer":{"@type":"Answer","text":"The Karvonen formula (Heart Rate Reserve method) calculates target heart rate as: Target HR = ((Max HR − Resting HR) × Intensity%) + Resting HR. It is more accurate than percentage of max HR alone because it accounts for your resting fitness level."}},{"@type":"Question","name":"How do I find my resting heart rate?","acceptedAnswer":{"@type":"Answer","text":"Measure your heart rate first thing in the morning before getting out of bed. Use a heart rate monitor, fitness tracker, or count your pulse for 60 seconds. Take measurements over 3–5 mornings and average them for accuracy."}}]}</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--bg2:#f8fafc;--bg3:#f1f5f9;--text:#0f172a;--text2:#64748b;--accent:#6366f1;--accent-h:#4f46e5;--accent-l:#eef2ff;--danger:#ef4444;--success:#22c55e;--border:#e2e8f0;--radius:12px;}
+*{margin:0;padding:0;box-sizing:border-box;}body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column;}
+.header{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 24px;position:sticky;top:0;z-index:1000;}.header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;}
+.logo{font-size:1.5rem;font-weight:700;color:var(--accent);text-decoration:none;}.logo span{color:var(--text);}
+.nav-d{display:flex;gap:24px;}.nav-d a{color:var(--text2);text-decoration:none;font-size:.85rem;font-weight:500;white-space:nowrap;}.nav-d a:hover,.nav-d a.act{color:var(--accent);}
+.hamburger{display:none;background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer;}
+.mob-nav{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);padding:16px 24px;flex-direction:column;gap:16px;z-index:999;}.mob-nav.show{display:flex;}.mob-nav a{color:var(--text2);text-decoration:none;font-size:1rem;}.mob-nav a.act{color:var(--accent);}
+.main{flex:1;max-width:1100px;width:100%;margin:0 auto;padding:40px 24px;}
+.bc{display:flex;gap:6px;font-size:.85rem;color:var(--text2);margin-bottom:20px;flex-wrap:wrap;}.bc a{color:var(--accent);text-decoration:none;}.bc-s{color:var(--border);}.bc-c{color:var(--text);font-weight:500;}
+.ph{text-align:center;margin-bottom:32px;}.ph h1{font-size:2rem;font-weight:700;margin-bottom:8px;}.ph p{color:var(--text2);max-width:600px;margin:0 auto;}
+.box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:32px;max-width:750px;margin:0 auto 32px;}
+.btn{padding:12px 28px;border:none;border-radius:8px;font-size:.95rem;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;transition:all .15s;}.btn:disabled{opacity:.4;cursor:not-allowed;}.btn-p{background:var(--accent);color:#fff;}.btn-p:hover:not(:disabled){background:var(--accent-h);}.btn-s{background:var(--bg3);color:var(--text);}.btn-s:hover:not(:disabled){background:var(--border);}.btn-sm{padding:8px 20px;font-size:.85rem;}
+.br{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:20px;}
+.lbl{font-size:.85rem;color:var(--text2);font-weight:500;margin-bottom:4px;display:block;}
+input[type=text],input[type=number],input[type=date],input[type=color],select,textarea{width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:8px;font-size:.95rem;font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--accent);border-color:var(--accent);}textarea{resize:vertical;min-height:120px;}
+.info{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:32px;margin-bottom:24px;}.info h2{font-size:1.3rem;margin-bottom:12px;}.info h3{font-size:1.1rem;margin:20px 0 8px;}.info p,.info li{color:var(--text2);line-height:1.7;margin-bottom:10px;}.info ul{padding-left:20px;}.info a{color:var(--accent);text-decoration:none;}.info a:hover{text-decoration:underline;}
+details{border:1px solid var(--border);border-radius:8px;padding:14px 18px;margin-bottom:8px;cursor:pointer;}summary{font-weight:600;font-size:.95rem;list-style:none;}summary::-webkit-details-marker{display:none;}details p{color:var(--text2);line-height:1.7;margin-top:10px;font-size:.95rem;}
+.footer{text-align:center;padding:24px;color:var(--text2);font-size:.85rem;border-top:1px solid var(--border);margin-top:auto;}.footer a{color:var(--accent);text-decoration:none;}
+.sg{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0;}.sc{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center;}.sc .n{font-size:1.8rem;font-weight:700;color:var(--accent);}.sc .l{font-size:.8rem;color:var(--text2);margin-top:4px;}
+.row{display:flex;gap:12px;align-items:end;margin-bottom:16px;}.row>div{flex:1;}
+.zone-table{width:100%;border-collapse:collapse;margin-top:16px;}.zone-table th,.zone-table td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--border);font-size:.9rem;}.zone-table th{font-weight:600;color:var(--text2);font-size:.8rem;text-transform:uppercase;letter-spacing:.5px;background:var(--bg3);}.zone-table td{background:var(--bg);}.zone-table tr:last-child td{border-bottom:none;}.zone-dot{display:inline-block;width:14px;height:14px;border-radius:50%;margin-right:8px;vertical-align:middle;}.zone-bpm{font-weight:700;color:var(--accent);font-size:1.05rem;}
+@media(max-width:768px){.nav-d{display:none;}.hamburger{display:block;}.sg{grid-template-columns:repeat(2,1fr);}.row{flex-direction:column;}.zone-table th,.zone-table td{padding:10px 12px;font-size:.8rem;}}
+</style></head><body>
+<header class="header"><div class="header-inner">
+<a href="/" class="logo">Excuse<span>Me</span>Web</a>
+<nav class="nav-d"><a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/clock-tools">Clock Tools</a><a href="/health-tools" class="act">Health Tools</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a></nav>
+<button class="hamburger" onclick="document.getElementById('mobileNav').classList.toggle('show')">☰</button>
+</div>
+<nav class="mob-nav" id="mobileNav"><a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/clock-tools">Clock Tools</a><a href="/health-tools" class="act">Health Tools</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a></nav>
+</header>
+<main class="main">
+<nav class="bc"><a href="/">Home</a><span class="bc-s">/</span><a href="/health-tools">Health Tools</a><span class="bc-s">/</span><span class="bc-c">Heart Rate Zones Calculator</span></nav>
+<div class="ph"><h1>❤️ Heart Rate Zones Calculator</h1><p>Calculate your 5 training heart rate zones using the Karvonen formula. Optimize your workouts with accurate zone-based training.</p></div>
+<div class="box">
+<div class="row">
+<div><label class="lbl" for="age">Your Age</label><input type="number" id="age" value="30" min="1" max="120"></div>
+<div><label class="lbl" for="rhr">Resting Heart Rate (bpm)</label><input type="number" id="rhr" value="60" min="30" max="120"></div>
+</div>
+<div class="br"><button class="btn btn-p" onclick="calcZones()">Calculate Zones</button></div>
+<div class="sg" id="stats" style="display:none">
+<div class="sc"><div class="n" id="sMax">—</div><div class="l">Max Heart Rate</div></div>
+<div class="sc"><div class="n" id="sHRR">—</div><div class="l">Heart Rate Reserve</div></div>
+<div class="sc"><div class="n" id="sRHR">—</div><div class="l">Resting HR</div></div>
+</div>
+<table class="zone-table" id="zoneTable" style="display:none">
+<thead><tr><th>Zone</th><th>Intensity</th><th>Heart Rate</th><th>Benefit</th></tr></thead>
+<tbody id="zoneBody"></tbody>
+</table>
+</div>
+<div class="info"><h2>Heart Rate Training Zones</h2><p>Training in specific heart rate zones helps you target different energy systems. The Karvonen formula (Heart Rate Reserve method) is more personalized than simple percentage of max heart rate because it factors in your resting fitness level.</p><h3>Frequently Asked Questions</h3>
+<details><summary>What are heart rate training zones?</summary><p>Heart rate zones are ranges of heart rate expressed as percentages of your maximum heart rate. Each zone targets a different physiological system, from recovery (Zone 1) to maximum effort (Zone 5).</p></details>
+<details><summary>What is the Karvonen formula?</summary><p>The Karvonen formula (Heart Rate Reserve method) calculates target heart rate as: Target HR = ((Max HR − Resting HR) × Intensity%) + Resting HR. It is more accurate than percentage of max HR alone because it accounts for your resting fitness level.</p></details>
+<details><summary>How do I find my resting heart rate?</summary><p>Measure your heart rate first thing in the morning before getting out of bed. Use a heart rate monitor, fitness tracker, or count your pulse for 60 seconds. Take measurements over 3–5 mornings and average them for accuracy.</p></details></div>
+</main>
+<footer class="footer"><p>© 2026 ExcuseMeWeb.com</p><p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p></footer>
+<script>
+function calcZones(){var age=parseInt(document.getElementById('age').value);var rhr=parseInt(document.getElementById('rhr').value);if(isNaN(age)||isNaN(rhr)||age<1||rhr<30){alert('Please enter valid age and resting heart rate.');return;}var maxHR=220-age;var hrr=maxHR-rhr;document.getElementById('sMax').textContent=maxHR+' bpm';document.getElementById('sHRR').textContent=hrr+' bpm';document.getElementById('sRHR').textContent=rhr+' bpm';document.getElementById('stats').style.display='grid';var zones=[{name:'Zone 1 – Recovery',lo:50,hi:60,color:'#22c55e',desc:'Warm-up, recovery, fat burn foundation'},{name:'Zone 2 – Fat Burn',lo:60,hi:70,color:'#84cc16',desc:'Improved endurance, fat metabolism'},{name:'Zone 3 – Cardio',lo:70,hi:80,color:'#eab308',desc:'Aerobic capacity, cardiovascular fitness'},{name:'Zone 4 – Anaerobic',lo:80,hi:90,color:'#f97316',desc:'Speed, power, lactate threshold'},{name:'Zone 5 – Maximum',lo:90,hi:100,color:'#ef4444',desc:'Peak performance, VO2 max'}];var body=document.getElementById('zoneBody');body.innerHTML='';zones.forEach(function(z){var lo=Math.round(hrr*z.lo/100+rhr);var hi=Math.round(hrr*z.hi/100+rhr);body.innerHTML+='<tr><td><span class="zone-dot" style="background:'+z.color+'"></span>'+z.name+'</td><td>'+z.lo+'% – '+z.hi+'%</td><td class="zone-bpm">'+lo+' – '+hi+' bpm</td><td>'+z.desc+'</td></tr>';});document.getElementById('zoneTable').style.display='table';}
+</script>
+</body></html>

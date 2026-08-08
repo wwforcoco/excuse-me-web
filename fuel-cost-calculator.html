@@ -1,0 +1,122 @@
+<!DOCTYPE html><html lang="en"><head>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="fa026cc1-8f84-44f5-b2fb-9ccf29374a38"></script>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Fuel Cost Calculator | ExcuseMeWeb</title>
+<meta name="description" content="Estimate fuel costs for any trip. Calculate total fuel needed, trip cost, and cost per distance using km or miles with L/100km or MPG. Free fuel cost estimator.">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="Fuel Cost Calculator | ExcuseMeWeb"><meta property="og:description" content="Estimate fuel costs for any trip. Calculate total fuel needed, trip cost, and cost per distance.">
+<meta property="og:type" content="website"><meta property="og:image" content="https://excusemeweb.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Fuel Cost Calculator | ExcuseMeWeb"><meta name="twitter:description" content="Estimate fuel costs for any trip. Calculate total fuel needed, trip cost, and cost per distance.">
+<link rel="canonical" href="https://excusemeweb.com/fuel-cost-calculator"><link rel="icon" href="/favicon.ico"><meta name="theme-color" content="#ffffff"><meta property="og:url" content="https://excusemeweb.com/fuel-cost-calculator">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Fuel Cost Calculator","url":"https://excusemeweb.com/fuel-cost-calculator","description":"Estimate fuel costs for any trip by entering distance, fuel efficiency, and fuel price.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Organization","name":"ExcuseMeWeb"},"dateModified":"2026-08-08"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://excusemeweb.com/"},{"@type":"ListItem","position":2,"name":"Everyday Tools","item":"https://excusemeweb.com/everyday-tools"},{"@type":"ListItem","position":3,"name":"Fuel Cost Calculator","item":"https://excusemeweb.com/fuel-cost-calculator"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How accurate is the fuel cost estimate?","acceptedAnswer":{"@type":"Answer","text":"The estimate is based on the values you provide. Actual fuel consumption varies with driving conditions, traffic, speed, weather, vehicle load, and AC usage. Use it as a reasonable estimate, not an exact prediction."}},{"@type":"Question","name":"Does this calculator account for traffic?","acceptedAnswer":{"@type":"Answer","text":"No, this calculator uses a flat fuel efficiency number. Stop-and-go traffic typically reduces fuel efficiency by 10-30%. If you expect heavy traffic, consider using a slightly higher (worse) fuel consumption value for a more realistic estimate."}},{"@type":"Question","name":"How do I find my vehicle's fuel efficiency?","acceptedAnswer":{"@type":"Answer","text":"Check your vehicle's manual, the manufacturer's website, or look up your car model on fueleconomy.gov (US) or your country's equivalent. You can also calculate it manually: fill your tank, reset the trip meter, drive until empty, fill again, and divide miles driven by gallons used."}}]}</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--bg2:#f8fafc;--bg3:#f1f5f9;--text:#0f172a;--text2:#64748b;--accent:#6366f1;--accent-h:#4f46e5;--accent-l:#eef2ff;--danger:#ef4444;--success:#22c55e;--border:#e2e8f0;--radius:12px;}
+*{margin:0;padding:0;box-sizing:border-box;}body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column;}
+.header{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 24px;position:sticky;top:0;z-index:1000;}.header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;}
+.logo{font-size:1.5rem;font-weight:700;color:var(--accent);text-decoration:none;}.logo span{color:var(--text);}
+.nav-d{display:flex;gap:24px;}.nav-d a{color:var(--text2);text-decoration:none;font-size:.85rem;font-weight:500;white-space:nowrap;}.nav-d a:hover,.nav-d a.act{color:var(--accent);}
+.hamburger{display:none;background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer;}
+.mob-nav{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);padding:16px 24px;flex-direction:column;gap:16px;z-index:999;}.mob-nav.show{display:flex;}.mob-nav a{color:var(--text2);text-decoration:none;font-size:1rem;}.mob-nav a.act{color:var(--accent);}
+.main{flex:1;max-width:1100px;width:100%;margin:0 auto;padding:40px 24px;}
+.bc{display:flex;gap:6px;font-size:.85rem;color:var(--text2);margin-bottom:20px;flex-wrap:wrap;}.bc a{color:var(--accent);text-decoration:none;}.bc-s{color:var(--border);}.bc-c{color:var(--text);font-weight:500;}
+.ph{text-align:center;margin-bottom:32px;}.ph h1{font-size:2rem;font-weight:700;margin-bottom:8px;}.ph p{color:var(--text2);max-width:600px;margin:0 auto;}
+.box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:32px;max-width:800px;margin:0 auto 32px;}
+.row{margin-bottom:16px;}.row:last-child{margin-bottom:0;}
+.lbl{font-size:.85rem;color:var(--text2);font-weight:500;margin-bottom:4px;display:block;}
+input[type=text],input[type=number],input[type=url],select,textarea{width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:8px;font-size:.95rem;font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);}input:focus,select:focus,textarea:focus{outline:2px solid var(--accent);border-color:var(--accent);}
+.btn{padding:12px 28px;border:none;border-radius:8px;font-size:.95rem;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;transition:all .15s;}.btn-p{background:var(--accent);color:#fff;}.btn-p:hover{background:var(--accent-h);}.btn-s{background:var(--bg3);color:var(--text);}.btn-s:hover{background:var(--border);}
+.br{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:16px;}
+.sg{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px;}
+.sc{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:16px;text-align:center;}
+.sc .num{font-size:1.5rem;font-weight:700;color:var(--accent);}.sc .lab{font-size:.8rem;color:var(--text2);margin-top:4px;}
+.toggle-row{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap;}
+.toggle-btn{padding:8px 16px;border:1px solid var(--border);background:var(--bg);border-radius:8px;cursor:pointer;font-size:.85rem;font-weight:500;transition:all .15s;}.toggle-btn.active{background:var(--accent);color:#fff;border-color:var(--accent);}
+.info{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:32px;margin-bottom:24px;}.info h2{font-size:1.3rem;margin-bottom:12px;}.info h3{font-size:1.1rem;margin:20px 0 8px;}.info p,.info li{color:var(--text2);line-height:1.7;margin-bottom:10px;}.info ul{padding-left:20px;}.info a{color:var(--accent);text-decoration:none;}
+details{border:1px solid var(--border);border-radius:8px;padding:14px 18px;margin-bottom:8px;cursor:pointer;}summary{font-weight:600;font-size:.95rem;list-style:none;}summary::-webkit-details-marker{display:none;}details p{color:var(--text2);line-height:1.7;margin-top:10px;font-size:.95rem;}
+.footer{text-align:center;padding:24px;color:var(--text2);font-size:.85rem;border-top:1px solid var(--border);margin-top:auto;}.footer a{color:var(--accent);text-decoration:none;}
+@media(max-width:768px){.nav-d{display:none;}.hamburger{display:block;}.sg{grid-template-columns:1fr;}}
+</style></head><body>
+<header class="header"><div class="header-inner">
+<a href="/" class="logo">Excuse<span>Me</span>Web</a>
+<nav class="nav-d"><a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/clock-tools">Clock Tools</a><a href="/everyday-tools" class="act">Everyday Tools</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a></nav>
+<button class="hamburger" onclick="document.getElementById('mobileNav').classList.toggle('show')">☰</button>
+</div>
+<nav class="mob-nav" id="mobileNav"><a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/clock-tools">Clock Tools</a><a href="/everyday-tools" class="act">Everyday Tools</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a></nav>
+</header>
+<main class="main">
+<nav class="bc"><a href="/">Home</a><span class="bc-s">/</span><a href="/everyday-tools">Everyday Tools</a><span class="bc-s">/</span><span class="bc-c">Fuel Cost Calculator</span></nav>
+<div class="ph"><h1>⛽ Fuel Cost Calculator</h1><p>Estimate how much fuel you'll need and what it will cost for any trip.</p></div>
+<div class="box">
+<div class="row">
+<label class="lbl">Distance</label>
+<div style="display:flex;gap:8px"><input type="number" id="distance" placeholder="e.g. 500" min="0" step="0.1" style="flex:1"><div class="toggle-row" style="margin:0"><button class="toggle-btn active" id="kmBtn" onclick="setUnit('km')">km</button><button class="toggle-btn" id="miBtn" onclick="setUnit('mi')">mi</button></div></div>
+</div>
+<div class="row">
+<label class="lbl">Fuel Efficiency</label>
+<div style="display:flex;gap:8px"><input type="number" id="efficiency" placeholder="e.g. 8" min="0" step="0.1" style="flex:1"><div class="toggle-row" style="margin:0"><button class="toggle-btn active" id="lperkmBtn" onclick="setEffUnit('lperkm')">L/100km</button><button class="toggle-btn" id="mpgBtn" onclick="setEffUnit('mpg')">MPG</button></div></div>
+</div>
+<div class="row">
+<label class="lbl">Fuel Price</label>
+<div style="display:flex;gap:8px;align-items:center"><input type="number" id="fuelPrice" placeholder="e.g. 1.50" min="0" step="0.01" style="flex:1"><span style="font-size:.85rem;color:var(--text2);white-space:nowrap" id="priceLabel">per liter</span></div>
+</div>
+<div class="br"><button class="btn btn-p" onclick="calculate()">Calculate</button><button class="btn btn-s" onclick="clearAll()">Clear</button></div>
+<div class="sg" id="results" style="display:none">
+<div class="sc"><div class="num" id="rFuel">—</div><div class="lab" id="rFuelUnit">Fuel Needed (L)</div></div>
+<div class="sc"><div class="num" id="rCost">—</div><div class="lab">Total Cost</div></div>
+<div class="sc"><div class="num" id="rPerKm">—</div><div class="lab" id="rPerKmUnit">Cost per km</div></div>
+</div>
+</div>
+<div class="info"><h2>Fuel Cost Calculator</h2>
+<p>Quickly estimate the fuel cost for any road trip. Enter your trip distance, vehicle fuel efficiency, and current fuel price to get the total fuel needed, total trip cost, and cost per kilometer or mile.</p>
+<h3>Frequently Asked Questions</h3>
+<details><summary>How accurate is the fuel cost estimate?</summary><p>The estimate is based on the values you provide. Actual fuel consumption varies with driving conditions, traffic, speed, weather, vehicle load, and AC usage. Use it as a reasonable estimate, not an exact prediction.</p></details>
+<details><summary>Does this calculator account for traffic?</summary><p>No, this calculator uses a flat fuel efficiency number. Stop-and-go traffic typically reduces fuel efficiency by 10-30%. If you expect heavy traffic, consider using a slightly higher (worse) fuel consumption value for a more realistic estimate.</p></details>
+<details><summary>How do I find my vehicle's fuel efficiency?</summary><p>Check your vehicle's manual, the manufacturer's website, or look up your car model on fueleconomy.gov (US) or your country's equivalent. You can also calculate it manually: fill your tank, reset the trip meter, drive until empty, fill again, and divide miles driven by gallons used.</p></details>
+</div>
+</main>
+<footer class="footer"><p>© 2026 ExcuseMeWeb.com</p><p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p></footer>
+<script>
+var distUnit='km',effUnit='lperkm';
+function setUnit(u){distUnit=u;document.getElementById('kmBtn').classList.toggle('active',u==='km');document.getElementById('miBtn').classList.toggle('active',u==='mi');}
+function setEffUnit(u){effUnit=u;document.getElementById('lperkmBtn').classList.toggle('active',u==='lperkm');document.getElementById('mpgBtn').classList.toggle('active',u==='mpg');document.getElementById('priceLabel').textContent=u==='lperkm'?'per liter':'per gallon';}
+function calculate(){
+var dist=parseFloat(document.getElementById('distance').value);
+var eff=parseFloat(document.getElementById('efficiency').value);
+var price=parseFloat(document.getElementById('fuelPrice').value);
+if(!dist||!eff||!price||dist<=0||eff<=0||price<=0){alert('Please enter valid positive numbers.');return;}
+var fuelL,costPerDist,totalCost;
+if(effUnit==='lperkm'){
+if(distUnit==='km'){fuelL=dist*eff/100;}
+else{var km=dist*1.60934;fuelL=km*eff/100;}
+totalCost=fuelL*price;
+costPerDist=distUnit==='km'?totalCost/dist:totalCost/dist;
+}else{
+var gallons,mi;
+if(distUnit==='km'){mi=dist/1.60934;}else{mi=dist;}
+gallons=mi/eff;
+totalCost=gallons*price;
+costPerDist=totalCost/dist;
+}
+var fuelDisplay=effUnit==='mpg'?(distUnit==='km'?(dist/1.60934)/eff:dist/eff):fuelL;
+var fuelUnit=effUnit==='mpg'?'gallons':(distUnit==='km'?'liters':'liters');
+var f=fuelDisplay.toFixed(2);
+var c='$'+totalCost.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,',');
+var cpd='$'+costPerDist.toFixed(4).replace(/\B(?=(\d{3})+(?!\d))/g,',');
+var distLabel=distUnit==='km'?'km':'mi';
+document.getElementById('rFuel').textContent=f;
+document.getElementById('rFuelUnit').textContent='Fuel Needed ('+fuelUnit+')';
+document.getElementById('rCost').textContent=c;
+document.getElementById('rPerKm').textContent=cpd;
+document.getElementById('rPerKmUnit').textContent='Cost per '+distLabel;
+document.getElementById('results').style.display='grid';
+}
+function clearAll(){
+document.getElementById('distance').value='';
+document.getElementById('efficiency').value='';
+document.getElementById('fuelPrice').value='';
+document.getElementById('results').style.display='none';
+}
+</script></body></html>

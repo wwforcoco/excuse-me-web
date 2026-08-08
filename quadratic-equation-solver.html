@@ -1,0 +1,85 @@
+<!DOCTYPE html><html lang="en"><head>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="fa026cc1-8f84-44f5-b2fb-9ccf29374a38"></script>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Quadratic Equation Solver | ExcuseMeWeb</title>
+<meta name="description" content="Solve any quadratic equation ax²+bx+c=0 instantly. Get roots (real or complex), discriminant, vertex, axis of symmetry, and factored form.">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="Quadratic Equation Solver | ExcuseMeWeb"><meta property="og:description" content="Solve any quadratic equation ax²+bx+c=0 instantly. Get roots, discriminant, vertex, axis of symmetry, and factored form.">
+<meta property="og:type" content="website"><meta property="og:image" content="https://excusemeweb.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Quadratic Equation Solver | ExcuseMeWeb"><meta name="twitter:description" content="Solve any quadratic equation ax²+bx+c=0 instantly. Get roots, discriminant, vertex, axis of symmetry, and factored form.">
+<link rel="canonical" href="https://excusemeweb.com/quadratic-equation-solver"><link rel="icon" href="/favicon.ico"><meta name="theme-color" content="#ffffff"><meta property="og:url" content="https://excusemeweb.com/quadratic-equation-solver">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Quadratic Equation Solver","url":"https://excusemeweb.com/quadratic-equation-solver","description":"Solve any quadratic equation ax²+bx+c=0 instantly. Get roots (real or complex), discriminant, vertex, axis of symmetry, and factored form.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Organization","name":"ExcuseMeWeb"},"dateModified":"2026-08-08"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://excusemeweb.com/"},{"@type":"ListItem","position":2,"name":"Math Tools","item":"https://excusemeweb.com/math-tools"},{"@type":"ListItem","position":3,"name":"Quadratic Equation Solver","item":"https://excusemeweb.com/quadratic-equation-solver"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the discriminant of a quadratic equation?","acceptedAnswer":{"@type":"Answer","text":"The discriminant is the value b² - 4ac. It determines the nature of the roots: if positive, there are two distinct real roots; if zero, there is one repeated real root; if negative, there are two complex conjugate roots."}},{"@type":"Question","name":"What if the discriminant is negative?","acceptedAnswer":{"@type":"Answer","text":"When the discriminant is negative, the quadratic equation has no real roots. Instead, it has two complex conjugate roots of the form (-b ± i√|D|) / 2a, where i is the imaginary unit and |D| is the absolute value of the discriminant."}},{"@type":"Question","name":"What is the vertex of a parabola?","acceptedAnswer":{"@type":"Answer","text":"The vertex is the highest or lowest point on the parabola defined by y = ax² + bx + c. Its x-coordinate is -b/(2a) and its y-coordinate is found by substituting that x-value back into the equation. If a > 0, the vertex is a minimum; if a < 0, it is a maximum."}}]}</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--bg2:#f8fafc;--bg3:#f1f5f9;--text:#0f172a;--text2:#64748b;--accent:#6366f1;--accent-h:#4f46e5;--accent-l:#eef2ff;--danger:#ef4444;--success:#22c55e;--border:#e2e8f0;--radius:12px;}
+*{margin:0;padding:0;box-sizing:border-box;}body{font-family:Inter,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column;}
+.header{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 24px;position:sticky;top:0;z-index:1000;}.header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;}
+.logo{font-size:1.5rem;font-weight:700;color:var(--accent);text-decoration:none;}.logo span{color:var(--text);}
+.nav-d{display:flex;gap:20px;}.nav-d a{color:var(--text2);text-decoration:none;font-size:.82rem;font-weight:500;white-space:nowrap;}.nav-d a:hover{color:var(--accent);}
+.hamburger{display:none;background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer;}
+.mob-nav{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);padding:16px 24px;flex-direction:column;gap:12px;z-index:999;}.mob-nav.show{display:flex;}.mob-nav a{color:var(--text2);text-decoration:none;font-size:1rem;}
+.main{flex:1;max-width:1100px;width:100%;margin:0 auto;padding:40px 24px;}
+.bc{display:flex;gap:6px;font-size:.85rem;color:var(--text2);margin-bottom:20px;flex-wrap:wrap;}.bc a{color:var(--accent);text-decoration:none;}.bc-s{color:var(--border);}.bc-c{color:var(--text);font-weight:500;}
+.ph{text-align:center;margin-bottom:32px;}.ph h1{font-size:2rem;font-weight:700;margin-bottom:8px;}.ph p{color:var(--text2);max-width:600px;margin:0 auto;}
+.box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:32px;max-width:750px;margin:0 auto 32px;}
+.btn{padding:12px 28px;border:none;border-radius:8px;font-size:.95rem;font-weight:600;cursor:pointer;font-family:Inter,sans-serif;transition:all .15s;}.btn:disabled{opacity:.4;cursor:not-allowed;}.btn-p{background:var(--accent);color:#fff;}.btn-p:hover:not(:disabled){background:var(--accent-h);}.btn-s{background:var(--bg3);color:var(--text);}.btn-s:hover:not(:disabled){background:var(--border);}.btn-sm{padding:8px 20px;font-size:.85rem;}
+.br{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:20px;}
+.lbl{font-size:.85rem;color:var(--text2);font-weight:500;margin-bottom:4px;display:block;}
+input[type=text],input[type=number],input[type=date],input[type=color],select,textarea{width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:8px;font-size:.95rem;font-family:Inter,sans-serif;background:var(--bg);color:var(--text);}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--accent);border-color:var(--accent);}textarea{resize:vertical;min-height:120px;}
+.info{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:32px;margin-bottom:24px;}.info h2{font-size:1.3rem;margin-bottom:12px;}.info h3{font-size:1.1rem;margin:20px 0 8px;}.info p,.info li{color:var(--text2);line-height:1.7;margin-bottom:10px;}.info ul{padding-left:20px;}.info a{color:var(--accent);text-decoration:none;}.info a:hover{text-decoration:underline;}
+details{border:1px solid var(--border);border-radius:8px;padding:14px 18px;margin-bottom:8px;cursor:pointer;}summary{font-weight:600;font-size:.95rem;list-style:none;}summary::-webkit-details-marker{display:none;}details p{color:var(--text2);line-height:1.7;margin-top:10px;font-size:.95rem;}
+.footer{text-align:center;padding:24px;color:var(--text2);font-size:.85rem;border-top:1px solid var(--border);margin-top:auto;}.footer a{color:var(--accent);text-decoration:none;}
+.rb{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:16px;margin-top:16px;min-height:60px;white-space:pre-wrap;word-break:break-word;font-family:monospace;font-size:.9rem;}
+.sg{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0;}.sc{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center;}.sc .n{font-size:1.4rem;font-weight:700;color:var(--accent);}.sc .l{font-size:.8rem;color:var(--text2);margin-top:4px;}
+.row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:12px;}
+.result{margin-top:16px;}
+@media(max-width:768px){.nav-d{display:none;}.hamburger{display:block;}.sg{grid-template-columns:repeat(2,1fr);}.row{grid-template-columns:1fr;}}
+</style></head><body>
+<header class="header"><div class="header-inner"><a href="/" class="logo">Excuse<span>Me</span>Web</a><nav class="nav-d"><a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/clock-tools">Clock Tools</a><a href="/text-tools">Text</a><a href="/color-tools">Colors</a><a href="/math-tools">Math</a><a href="/finance-tools">Finance</a><a href="/health-tools">Health</a><a href="/image-tools">Image</a><a href="/generators">Generators</a><a href="/dev-tools">Dev</a><a href="/seo-tools">SEO</a><a href="/life-tools">Life</a><a href="/templates">Templates</a><a href="/games">Games</a></nav><button class="hamburger" onclick="document.getElementById('mn').classList.toggle('show')">☰</button></div><nav class="mob-nav" id="mn"><a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/clock-tools">Clock Tools</a><a href="/text-tools">Text</a><a href="/color-tools">Colors</a><a href="/math-tools">Math</a><a href="/finance-tools">Finance</a><a href="/health-tools">Health</a><a href="/image-tools">Image</a><a href="/generators">Generators</a><a href="/dev-tools">Dev</a><a href="/seo-tools">SEO</a><a href="/life-tools">Life</a><a href="/templates">Templates</a><a href="/games">Games</a></nav></header>
+<main class="main"><nav class="bc"><a href="/">Home</a><span class="bc-s">/</span><a href="/math-tools">Math Tools</a><span class="bc-s">/</span><span class="bc-c">Quadratic Equation Solver</span></nav><div class="ph"><h1>🧮 Quadratic Equation Solver</h1><p>Solve ax² + bx + c = 0 and get roots, discriminant, vertex, axis of symmetry, and factored form.</p></div>
+<div class="box">
+<p style="text-align:center;font-size:1.3rem;margin-bottom:20px;font-weight:600"><span id="eqDisplay">ax² + bx + c = 0</span></p>
+<div class="row"><div><label class="lbl">a (coefficient of x²)</label><input type="number" id="qa" value="1" step="any" oninput="solveQuad()"></div><div><label class="lbl">b (coefficient of x)</label><input type="number" id="qb" value="-5" step="any" oninput="solveQuad()"></div><div><label class="lbl">c (constant)</label><input type="number" id="qc" value="6" step="any" oninput="solveQuad()"></div></div>
+<div class="sg" id="qResults"></div>
+<div class="rb" id="qDetail" style="display:none"></div>
+</div>
+<div class="info"><h2>Quadratic Equation Solver</h2>
+<p>This tool solves any quadratic equation of the form ax² + bx + c = 0. Enter the three coefficients a, b, and c to instantly compute the roots, discriminant, vertex coordinates, axis of symmetry, and the factored form of the equation.</p>
+<p>The quadratic formula x = (-b ± √(b² - 4ac)) / 2a is used to find the roots. The discriminant (b² - 4ac) determines whether the roots are real and distinct, real and repeated, or complex conjugates. The vertex represents the turning point of the parabola.</p>
+<p>This solver is useful for students studying algebra, calculus, physics, and engineering. It works with integer and decimal coefficients, and handles both real and complex roots with full precision.</p>
+<h3>Frequently Asked Questions</h3>
+<details><summary>What is the discriminant of a quadratic equation?</summary><p>The discriminant is the value b² - 4ac. It determines the nature of the roots: if positive, there are two distinct real roots; if zero, there is one repeated real root; if negative, there are two complex conjugate roots.</p></details>
+<details><summary>What if the discriminant is negative?</summary><p>When the discriminant is negative, the quadratic equation has no real roots. Instead, it has two complex conjugate roots of the form (-b ± i√|D|) / 2a, where i is the imaginary unit and |D| is the absolute value of the discriminant.</p></details>
+<details><summary>What is the vertex of a parabola?</summary><p>The vertex is the highest or lowest point on the parabola defined by y = ax² + bx + c. Its x-coordinate is -b/(2a) and its y-coordinate is found by substituting that x-value back into the equation. If a > 0, the vertex is a minimum; if a < 0, it is a maximum.</p></details>
+</div></main><footer class="footer"><p>© 2026 ExcuseMeWeb.com</p><p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p></footer>
+<script>
+function fmt(n){if(Number.isInteger(n))return n.toString();return parseFloat(n.toFixed(6)).toString();}
+function solveQuad(){
+var a=parseFloat(document.getElementById('qa').value);var b=parseFloat(document.getElementById('qb').value);var c=parseFloat(document.getElementById('qc').value);
+var el=document.getElementById('qResults');var det=document.getElementById('qDetail');
+if(isNaN(a)||isNaN(b)||isNaN(c)||a===0){el.innerHTML='<div class="sc"><div class="n" style="font-size:.9rem;color:var(--danger)">a cannot be zero</div><div class="l">Error</div></div>';det.style.display='none';return;}
+var disc=b*b-4*a*c;
+var vx=-b/(2*a);var vy=a*vx*vx+b*vx+c;
+var axSym='-b/(2a) = '+fmt(vx);
+var discStr=fmt(disc);
+var discType=disc>0?'Two Real Roots':disc===0?'One Repeated Root':'Two Complex Roots';
+var discColor=disc>0?'var(--success)':disc===0?'var(--accent)':'var(--danger)';
+var html='<div class="sc"><div class="n" style="color:'+discColor+';font-size:1.1rem">'+discStr+'</div><div class="l">Discriminant ('+discType+')</div></div>';
+html+='<div class="sc"><div class="n" style="font-size:1.1rem">('+fmt(vx)+', '+fmt(vy)+')</div><div class="l">Vertex</div></div>';
+html+='<div class="sc"><div class="n" style="font-size:1.1rem">x = '+fmt(vx)+'</div><div class="l">Axis of Symmetry</div></div>';
+if(disc>0){var r1=(-b+Math.sqrt(disc))/(2*a);var r2=(-b-Math.sqrt(disc))/(2*a);html+='<div class="sc"><div class="n" style="font-size:1.1rem">'+fmt(r1)+'</div><div class="l">Root 1 (x₁)</div></div>';html+='<div class="sc"><div class="n" style="font-size:1.1rem">'+fmt(r2)+'</div><div class="l">Root 2 (x₂)</div></div>';}
+else if(disc===0){var r=(-b)/(2*a);html+='<div class="sc"><div class="n" style="font-size:1.1rem">'+fmt(r)+'</div><div class="l">Repeated Root</div></div>';}else{var rp=-b/(2*a);var ip=Math.sqrt(-disc)/(2*a);html+='<div class="sc"><div class="n" style="font-size:.9rem">'+fmt(rp)+' + '+fmt(ip)+'i</div><div class="l">Root 1</div></div>';html+='<div class="sc"><div class="n" style="font-size:.9rem">'+fmt(rp)+' - '+fmt(ip)+'i</div><div class="l">Root 2</div></div>';}
+el.innerHTML=html;
+var detail='Equation: '+a+'x² + ('+b+')x + ('+c+') = 0\n';
+detail+='Discriminant: b² - 4ac = ('+b+')² - 4('+a+')('+c+') = '+discStr+'\n';
+if(disc>=0){if(disc>0)detail+='Roots: x₁ = '+fmt((-b+Math.sqrt(disc))/(2*a))+', x₂ = '+fmt((-b-Math.sqrt(disc))/(2*a))+'\n';else detail+='Root: x = '+fmt(-b/(2*a))+' (repeated)\n';
+var g=1;function gcf(x,y){x=Math.abs(Math.round(x));y=Math.abs(Math.round(y));while(y){var t=y;y=x%y;x=t;}return x||1;}
+if(disc>0){var r1n=-b+Math.sqrt(disc);var r2n=-b-Math.sqrt(disc);var den=2*a;if(Number.isInteger(r1n)&&Number.isInteger(r2n)&&Number.isInteger(den)){var g1=gcf(Math.abs(r1n),Math.abs(den));var g2=gcf(Math.abs(r2n),Math.abs(den));detail+='Factored form: '+a+'(x - ('+fmt(r1n)+'))(x - ('+fmt(r2n)+'))';}else{detail+='Factored form: '+a+'(x - '+fmt((-b+Math.sqrt(disc))/(2*a))+')(x - '+fmt((-b-Math.sqrt(disc))/(2*a))+')';}}else{detail+='Factored form: '+a+'(x - '+fmt(-b/(2*a))+')²';}}else{detail+='Complex roots: x = '+fmt(rp)+' ± '+fmt(ip)+'i';}
+detail+='\nVertex: ('+fmt(vx)+', '+fmt(vy)+')';
+det.style.display='block';det.textContent=detail;
+}
+solveQuad();
+</script></body></html>

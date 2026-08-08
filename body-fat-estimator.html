@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="fa026cc1-8f84-44f5-b2fb-9ccf29374a38"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Body Fat Estimator | ExcuseMeWeb</title>
+<meta name="description" content="Estimate your body fat percentage using the U.S. Navy method. Enter your waist, neck, and height measurements for a quick body composition estimate.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Body Fat Estimator | ExcuseMeWeb">
+<meta property="og:description" content="Estimate your body fat percentage using the U.S. Navy method with waist, neck, and height measurements.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://excusemeweb.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Body Fat Estimator | ExcuseMeWeb">
+<meta name="twitter:description" content="Estimate body fat percentage using the U.S. Navy method.">
+<link rel="canonical" href="https://excusemeweb.com/body-fat-estimator">
+<link rel="icon" href="/favicon.ico">
+<meta name="theme-color" content="#ffffff">
+<meta property="og:url" content="https://excusemeweb.com/body-fat-estimator">
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Body Fat Estimator",
+  "url": "https://excusemeweb.com/body-fat-estimator",
+  "description": "Estimate your body fat percentage using the U.S. Navy method. Enter your waist, neck, and height measurements for a quick body composition estimate.",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "All",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": { "@type": "Organization", "name": "ExcuseMeWeb" },
+  "dateModified": "2026-08-07"
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://excusemeweb.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Health Tools", "item": "https://excusemeweb.com/health-tools" },
+    { "@type": "ListItem", "position": 3, "name": "Body Fat Estimator", "item": "https://excusemeweb.com/body-fat-estimator" }
+  ]
+}</script>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"How accurate is the Navy method for body fat?","acceptedAnswer":{"@type":"Answer","text":"The U.S. Navy method is accurate to within 3-4% of DEXA scan results for most people. It is more accurate for individuals within normal body fat ranges and less reliable for very lean or very overweight individuals. It is considered one of the best non-clinical estimation methods."}},
+    {"@type":"Question","name":"What is body fat percentage?","acceptedAnswer":{"@type":"Answer","text":"Body fat percentage is the proportion of your total body weight that is fat. It differs from BMI because it distinguishes between fat mass and lean mass (muscle, bone, organs, water). A healthy body fat percentage depends on age and gender."}},
+    {"@type":"Question","name":"What are healthy body fat ranges?","acceptedAnswer":{"@type":"Answer","text":"For men: Essential fat 2-5%, Athletes 6-13%, Fitness 14-17%, Average 18-24%, Obese 25%+. For women: Essential fat 10-13%, Athletes 14-20%, Fitness 21-24%, Average 25-31%, Obese 32%+. Women naturally carry more essential fat for reproductive health."}}
+  ]
+}</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--bg2:#f8fafc;--bg3:#f1f5f9;--text:#0f172a;--text2:#64748b;--accent:#6366f1;--accent-h:#4f46e5;--accent-l:#eef2ff;--danger:#ef4444;--success:#22c55e;--border:#e2e8f0;--radius:12px;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column;}
+.header{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 24px;position:sticky;top:0;z-index:1000;}
+.header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;}
+.logo{font-size:1.5rem;font-weight:700;color:var(--accent);text-decoration:none;}
+.logo span{color:var(--text);}
+.nav-d{display:flex;gap:28px;}
+.nav-d a{color:var(--text2);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color 0.2s;white-space:nowrap;}
+.nav-d a:hover{color:var(--accent);}
+.nav-d a.act{color:var(--accent);}
+.hamburger{display:none;background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer;}
+.mob-nav{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);padding:16px 24px;flex-direction:column;gap:16px;z-index:999;}
+.mob-nav.show{display:flex;}
+.mob-nav a{color:var(--text2);text-decoration:none;font-size:1rem;font-weight:500;}
+.mob-nav a.act{color:var(--accent);}
+main{flex:1;max-width:1100px;width:100%;margin:0 auto;padding:40px 24px;}
+.br{display:flex;align-items:center;flex-wrap:wrap;gap:6px;font-size:0.85rem;color:var(--text2);margin-bottom:20px;}
+.br a{color:var(--accent);text-decoration:none;}
+.br a:hover{text-decoration:underline;}
+.br .sep{color:var(--border);}
+.br .cur{color:var(--text);font-weight:600;}
+.ph{text-align:center;margin-bottom:28px;}
+.ph h1{font-size:2rem;font-weight:700;margin-bottom:8px;}
+.ph p{color:var(--text2);font-size:1.05rem;max-width:640px;margin:0 auto;}
+.box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:28px;max-width:700px;margin:0 auto 24px;}
+.row{display:flex;gap:12px;align-items:end;flex-wrap:wrap;margin-bottom:16px;}
+.row>div{flex:1;min-width:120px;}
+.lbl{font-size:0.85rem;color:var(--text2);font-weight:500;margin-bottom:4px;display:block;}
+input,select,textarea{width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:8px;font-size:0.95rem;font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--accent);border-color:var(--accent);}
+.btn{padding:10px 24px;border:none;border-radius:8px;font-size:0.95rem;font-weight:600;cursor:pointer;transition:all 0.15s;font-family:'Inter',sans-serif;display:inline-block;}
+.btn-p{background:var(--accent);color:#fff;}
+.btn-p:hover{background:var(--accent-h);}
+.btn-s{background:var(--bg3);color:var(--text);}
+.btn-s:hover{background:var(--border);}
+.btn-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:20px;}
+.result{margin-top:20px;padding:20px;background:var(--bg);border-radius:8px;border:1px solid var(--border);display:none;}
+.result.show{display:block;}
+.sg{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;margin-top:16px;}
+.sc{padding:16px;border-radius:8px;border:1px solid var(--border);background:var(--bg);text-align:center;}
+.sc .val{font-size:1.4rem;font-weight:700;color:var(--accent);}
+.sc .sl{font-size:0.8rem;color:var(--text2);margin-top:4px;}
+.category-badge{display:inline-block;padding:8px 20px;border-radius:20px;font-weight:600;font-size:1rem;margin-top:12px;}
+.cat-athletes{background:rgba(34,197,94,0.15);color:#16a34a;}
+.cat-fitness{background:rgba(99,102,241,0.15);color:#4f46e5;}
+.cat-average{background:rgba(245,158,11,0.15);color:#d97706;}
+.cat-obese{background:rgba(239,68,68,0.15);color:#dc2626;}
+.cat-essential{background:rgba(99,102,241,0.15);color:#4f46e5;}
+.info{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:28px;margin-bottom:24px;}
+.info h2{font-size:1.3rem;margin-bottom:12px;}
+.info h3{font-size:1.1rem;margin:20px 0 8px;color:var(--accent);}
+.info p,.info li{color:var(--text2);line-height:1.7;margin-bottom:10px;}
+.info ul{padding-left:20px;}
+.info a{color:var(--accent);text-decoration:none;}
+.info a:hover{text-decoration:underline;}
+details{border:1px solid var(--border);border-radius:8px;padding:14px 18px;margin-bottom:8px;cursor:pointer;background:var(--bg);}
+summary{font-weight:600;font-size:0.95rem;list-style:none;}
+summary::-webkit-details-marker{display:none;}
+details p{color:var(--text2);line-height:1.7;margin-top:10px;font-size:0.95rem;}
+.footer{text-align:center;padding:24px;color:var(--text2);font-size:0.85rem;border-top:1px solid var(--border);margin-top:auto;}
+.footer a{color:var(--accent);text-decoration:none;}
+@media(max-width:768px){
+.nav-d{display:none;}.hamburger{display:block;}
+.ph h1{font-size:1.7rem;}main{padding:24px 16px;}.box{padding:20px;}
+}
+</style>
+</head>
+<body>
+<header class="header">
+<div class="header-inner">
+<a href="/" class="logo">Excuse<span>Me</span>Web</a>
+<nav class="nav-d">
+<a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/clock-tools">Clock Tools</a><a href="/health-tools" class="act">Health Tools</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a>
+</nav>
+<button class="hamburger" onclick="document.getElementById('mobNav').classList.toggle('show')">☰</button>
+</div>
+<nav class="mob-nav" id="mobNav">
+<a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/clock-tools">Clock Tools</a><a href="/health-tools" class="act">Health Tools</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a>
+</nav>
+</header>
+<main>
+<nav class="br" aria-label="Breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="/health-tools">Health Tools</a><span class="sep">/</span><span class="cur">Body Fat Estimator</span></nav>
+<div class="ph">
+<h1>📏 Body Fat Estimator</h1>
+<p>Estimate your body fat percentage using the U.S. Navy method. Requires a measuring tape for waist, neck, and height measurements.</p>
+</div>
+<div class="box">
+<div class="row">
+<div><label class="lbl">Gender</label><select id="gender" onchange="toggleHip()"><option value="m">Male</option><option value="f">Female</option></select></div>
+<div><label class="lbl">Unit</label><select id="unit"><option value="cm">cm</option><option value="in">inches</option></select></div>
+</div>
+<div class="row">
+<div><label class="lbl">Waist</label><input type="number" id="waist" placeholder="at navel" min="20" max="200" step="0.1"></div>
+<div><label class="lbl">Neck</label><input type="number" id="neck" placeholder="below larynx" min="10" max="100" step="0.1"></div>
+</div>
+<div class="row">
+<div id="hipRow" style="display:none"><label class="lbl">Hip (widest point)</label><input type="number" id="hip" placeholder="widest" min="20" max="200" step="0.1"></div>
+<div><label class="lbl">Height</label><input type="number" id="height" placeholder="your height" min="50" max="300" step="0.1"></div>
+<div><label class="lbl">Weight (optional)</label><input type="number" id="weight" placeholder="for lean mass" min="20" max="500" step="0.1"></div>
+</div>
+<div class="btn-row"><button class="btn btn-p" onclick="calculate()">Estimate Body Fat</button><button class="btn btn-s" onclick="document.getElementById('result').classList.remove('show')">Reset</button></div>
+<div class="result" id="result">
+<div style="text-align:center">
+<div style="font-size:3rem;font-weight:700;color:var(--accent)" id="rBf">--</div>
+<div style="color:var(--text2);margin:4px 0">Body Fat Percentage</div>
+<div class="category-badge" id="rCat">--</div>
+</div>
+<div class="sg">
+<div class="sc"><div class="val" id="rLbm">--</div><div class="sl">Lean Body Mass</div></div>
+<div class="sc"><div class="val" id="rFm">--</div><div class="sl">Fat Mass</div></div>
+</div>
+</div>
+</div>
+<div class="info">
+<h2>U.S. Navy Body Fat Estimator</h2>
+<p>This calculator uses the U.S. Navy body fat estimation method, which relies on circumference measurements. For men, it uses waist and neck measurements. For women, it also includes hip measurement. The method was developed by the U.S. Department of Defense and is widely used as a field-tested estimation tool.</p>
+<h3>How to Measure</h3>
+<ul>
+<li><strong>Waist (men):</strong> Measure at the navel (belly button), at the narrowest point.</li>
+<li><strong>Waist (women):</strong> Measure at the narrowest point, typically above the navel.</li>
+<li><strong>Neck:</strong> Measure just below the larynx (Adam's apple), with the tape sloping slightly downward at the front.</li>
+<li><strong>Hip (women):</strong> Measure at the widest point of the hips/buttocks.</li>
+</ul>
+<h3>Frequently Asked Questions</h3>
+<details><summary>How accurate is the Navy method for body fat?</summary><p>The U.S. Navy method is accurate to within 3–4% of DEXA scan results for most people. It is more accurate for individuals within normal body fat ranges and less reliable for very lean or very overweight individuals. It is considered one of the best non-clinical estimation methods.</p></details>
+<details><summary>What is body fat percentage?</summary><p>Body fat percentage is the proportion of your total body weight that is fat. It differs from BMI because it distinguishes between fat mass and lean mass (muscle, bone, organs, water). A healthy body fat percentage depends on age and gender.</p></details>
+<details><summary>What are healthy body fat ranges?</summary><p>For men: Essential fat 2–5%, Athletes 6–13%, Fitness 14–17%, Average 18–24%, Obese 25%+. For women: Essential fat 10–13%, Athletes 14–20%, Fitness 21–24%, Average 25–31%, Obese 32%+. Women naturally carry more essential fat for reproductive health.</p></details>
+<h3>Related Tools</h3>
+<p><a href="/bmi-calculator">BMI Calculator</a> · <a href="/ideal-weight-calculator">Ideal Weight Calculator</a> · <a href="/calorie-calculator">Calorie Calculator</a> · <a href="/macro-calculator">Macro Calculator</a> · <a href="/water-intake-calculator">Water Intake Calculator</a></p>
+</div>
+</main>
+<footer class="footer">
+<p>&copy; 2026 ExcuseMeWeb.com</p>
+<p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p>
+</footer>
+<script>
+function toggleHip(){
+  document.getElementById('hipRow').style.display=document.getElementById('gender').value==='f'?'block':'none';
+}
+function calculate(){
+  var g=document.getElementById('gender').value;
+  var u=document.getElementById('unit').value;
+  var waist=parseFloat(document.getElementById('waist').value);
+  var neck=parseFloat(document.getElementById('neck').value);
+  var height=parseFloat(document.getElementById('height').value);
+  var hip=parseFloat(document.getElementById('hip').value)||0;
+  var weight=parseFloat(document.getElementById('weight').value)||0;
+  if(!waist||!neck||!height){alert('Please fill in all required measurements.');return;}
+  if(g==='f'&&!hip){alert('Please enter hip measurement.');return;}
+  if(u==='in'){waist*=2.54;neck*=2.54;height*=2.54;hip*=2.54;}
+  var bf;
+  if(g==='m'){
+    bf=495/(1.0324-0.19077*Math.log10(waist-neck)+0.15456*Math.log10(height))-450;
+  }else{
+    bf=495/(1.29579-0.35004*Math.log10(waist+hip-neck)+0.22100*Math.log10(height))-450;
+  }
+  bf=Math.round(bf*10)/10;
+  document.getElementById('rBf').textContent=bf+'%';
+  var cat,catCls;
+  if(g==='m'){
+    if(bf<=5){cat='Essential Fat';catCls='cat-essential';}
+    else if(bf<=13){cat='Athletes';catCls='cat-athletes';}
+    else if(bf<=17){cat='Fitness';catCls='cat-fitness';}
+    else if(bf<=24){cat='Average';catCls='cat-average';}
+    else{cat='Obese';catCls='cat-obese';}
+  }else{
+    if(bf<=13){cat='Essential Fat';catCls='cat-essential';}
+    else if(bf<=20){cat='Athletes';catCls='cat-athletes';}
+    else if(bf<=24){cat='Fitness';catCls='cat-fitness';}
+    else if(bf<=31){cat='Average';catCls='cat-average';}
+    else{cat='Obese';catCls='cat-obese';}
+  }
+  var badge=document.getElementById('rCat');
+  badge.textContent=cat;badge.className='category-badge '+catCls;
+  if(weight>0){
+    if(u==='lb')weight*=0.453592;
+    var fatMass=Math.round(weight*bf/100*10)/10;
+    var leanMass=Math.round((weight-fatMass)*10)/10;
+    document.getElementById('rLbm').textContent=leanMass+' kg';
+    document.getElementById('rFm').textContent=fatMass+' kg';
+  }else{
+    document.getElementById('rLbm').textContent='--';
+    document.getElementById('rFm').textContent='--';
+  }
+  document.getElementById('result').classList.add('show');
+}
+</script>
+</body>
+</html>

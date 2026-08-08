@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="fa026cc1-8f84-44f5-b2fb-9ccf29374a38"></script>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Pace Calculator | ExcuseMeWeb</title>
+<meta name="description" content="Calculate running or walking pace per km/mile, finish time, or distance. Supports pace, time, and distance calculations with km/mi unit toggle. Free pace calculator.">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="Pace Calculator | ExcuseMeWeb"><meta property="og:description" content="Calculate running or walking pace per km/mile, finish time, or distance. Free pace calculator.">
+<meta property="og:type" content="website"><meta property="og:image" content="https://excusemeweb.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Pace Calculator | ExcuseMeWeb"><meta name="twitter:description" content="Calculate running or walking pace per km/mile, finish time, or distance. Free pace calculator.">
+<link rel="canonical" href="https://excusemeweb.com/pace-calculator"><link rel="icon" href="/favicon.ico"><meta name="theme-color" content="#ffffff"><meta property="og:url" content="https://excusemeweb.com/pace-calculator">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Pace Calculator","url":"https://excusemeweb.com/pace-calculator","description":"Calculate running or walking pace per km/mile, finish time, or distance. Supports pace, time, and distance calculations with km/mi unit toggle.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Organization","name":"ExcuseMeWeb"},"dateModified":"2026-08-08"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://excusemeweb.com/"},{"@type":"ListItem","position":2,"name":"Health Tools","item":"https://excusemeweb.com/health-tools"},{"@type":"ListItem","position":3,"name":"Pace Calculator","item":"https://excusemeweb.com/pace-calculator"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is running pace?","acceptedAnswer":{"@type":"Answer","text":"Running pace is the time it takes to cover one unit of distance, typically expressed as minutes per kilometer (min/km) or minutes per mile (min/mi). For example, a 5:00 min/km pace means you run 1 km in 5 minutes."}},{"@type":"Question","name":"How do I measure my running pace?","acceptedAnswer":{"@type":"Answer","text":"Use a GPS watch, smartphone running app (like Strava or Nike Run Club), or a treadmill. Most devices track distance and time automatically and calculate your pace in real time."}},{"@type":"Question","name":"What is a good pace for beginners?","acceptedAnswer":{"@type":"Answer","text":"For beginners, a comfortable running pace is typically 6:00–7:30 min/km (9:40–12:00 min/mi). Start with a run-walk approach and gradually increase your running portions. The best pace is one where you can hold a conversation."}}]}</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--bg2:#f8fafc;--bg3:#f1f5f9;--text:#0f172a;--text2:#64748b;--accent:#6366f1;--accent-h:#4f46e5;--accent-l:#eef2ff;--danger:#ef4444;--success:#22c55e;--border:#e2e8f0;--radius:12px;}
+*{margin:0;padding:0;box-sizing:border-box;}body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column;}
+.header{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 24px;position:sticky;top:0;z-index:1000;}.header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;}
+.logo{font-size:1.5rem;font-weight:700;color:var(--accent);text-decoration:none;}.logo span{color:var(--text);}
+.nav-d{display:flex;gap:24px;}.nav-d a{color:var(--text2);text-decoration:none;font-size:.85rem;font-weight:500;white-space:nowrap;}.nav-d a:hover,.nav-d a.act{color:var(--accent);}
+.hamburger{display:none;background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer;}
+.mob-nav{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);padding:16px 24px;flex-direction:column;gap:16px;z-index:999;}.mob-nav.show{display:flex;}.mob-nav a{color:var(--text2);text-decoration:none;font-size:1rem;}.mob-nav a.act{color:var(--accent);}
+.main{flex:1;max-width:1100px;width:100%;margin:0 auto;padding:40px 24px;}
+.bc{display:flex;gap:6px;font-size:.85rem;color:var(--text2);margin-bottom:20px;flex-wrap:wrap;}.bc a{color:var(--accent);text-decoration:none;}.bc-s{color:var(--border);}.bc-c{color:var(--text);font-weight:500;}
+.ph{text-align:center;margin-bottom:32px;}.ph h1{font-size:2rem;font-weight:700;margin-bottom:8px;}.ph p{color:var(--text2);max-width:600px;margin:0 auto;}
+.box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:32px;max-width:750px;margin:0 auto 32px;}
+.btn{padding:12px 28px;border:none;border-radius:8px;font-size:.95rem;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;transition:all .15s;}.btn:disabled{opacity:.4;cursor:not-allowed;}.btn-p{background:var(--accent);color:#fff;}.btn-p:hover:not(:disabled){background:var(--accent-h);}.btn-s{background:var(--bg3);color:var(--text);}.btn-s:hover:not(:disabled){background:var(--border);}.btn-sm{padding:8px 20px;font-size:.85rem;}
+.br{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:20px;}
+.lbl{font-size:.85rem;color:var(--text2);font-weight:500;margin-bottom:4px;display:block;}
+input[type=text],input[type=number],input[type=date],input[type=color],select,textarea{width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:8px;font-size:.95rem;font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--accent);border-color:var(--accent);}textarea{resize:vertical;min-height:120px;}
+.info{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:32px;margin-bottom:24px;}.info h2{font-size:1.3rem;margin-bottom:12px;}.info h3{font-size:1.1rem;margin:20px 0 8px;}.info p,.info li{color:var(--text2);line-height:1.7;margin-bottom:10px;}.info ul{padding-left:20px;}.info a{color:var(--accent);text-decoration:none;}.info a:hover{text-decoration:underline;}
+details{border:1px solid var(--border);border-radius:8px;padding:14px 18px;margin-bottom:8px;cursor:pointer;}summary{font-weight:600;font-size:.95rem;list-style:none;}summary::-webkit-details-marker{display:none;}details p{color:var(--text2);line-height:1.7;margin-top:10px;font-size:.95rem;}
+.footer{text-align:center;padding:24px;color:var(--text2);font-size:.85rem;border-top:1px solid var(--border);margin-top:auto;}.footer a{color:var(--accent);text-decoration:none;}
+.sg{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0;}.sc{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center;}.sc .n{font-size:1.8rem;font-weight:700;color:var(--accent);}.sc .l{font-size:.8rem;color:var(--text2);margin-top:4px;}
+.row{display:flex;gap:12px;align-items:end;margin-bottom:16px;}.row>div{flex:1;}
+.mode-btns{display:flex;gap:8px;margin-bottom:20px;}.mode-btn{padding:10px 20px;border:2px solid var(--border);border-radius:8px;font-size:.85rem;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;background:var(--bg);color:var(--text2);transition:all .15s;}.mode-btn.active{background:var(--accent);color:#fff;border-color:var(--accent);}
+.unit-toggle{display:flex;gap:8px;margin-bottom:20px;}.unit-btn{padding:8px 20px;border:2px solid var(--border);border-radius:8px;font-size:.85rem;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;background:var(--bg);color:var(--text2);transition:all .15s;}.unit-btn.active{background:var(--accent);color:#fff;border-color:var(--accent);}
+.result-box{margin-top:16px;padding:20px;background:var(--bg);border:1px solid var(--border);border-radius:10px;text-align:center;display:none;}.result-box.show{display:block;}.result-box .big{font-size:2rem;font-weight:700;color:var(--accent);}.result-box .sub{font-size:.9rem;color:var(--text2);margin-top:4px;}
+@media(max-width:768px){.nav-d{display:none;}.hamburger{display:block;}.sg{grid-template-columns:repeat(2,1fr);}.row{flex-direction:column;}.mode-btns{flex-direction:column;}.unit-toggle{flex-direction:column;}}
+</style></head><body>
+<header class="header"><div class="header-inner">
+<a href="/" class="logo">Excuse<span>Me</span>Web</a>
+<nav class="nav-d"><a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/clock-tools">Clock Tools</a><a href="/health-tools" class="act">Health Tools</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a></nav>
+<button class="hamburger" onclick="document.getElementById('mobileNav').classList.toggle('show')">☰</button>
+</div>
+<nav class="mob-nav" id="mobileNav"><a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/clock-tools">Clock Tools</a><a href="/health-tools" class="act">Health Tools</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a></nav>
+</header>
+<main class="main">
+<nav class="bc"><a href="/">Home</a><span class="bc-s">/</span><a href="/health-tools">Health Tools</a><span class="bc-s">/</span><span class="bc-c">Pace Calculator</span></nav>
+<div class="ph"><h1>🏃 Pace Calculator</h1><p>Calculate running or walking pace, finish time, or distance. Switch between km and miles instantly.</p></div>
+<div class="box">
+<div class="mode-btns">
+<button class="mode-btn active" id="mPace" onclick="setMode('pace')">Calculate Pace</button>
+<button class="mode-btn" id="mTime" onclick="setMode('time')">Calculate Time</button>
+<button class="mode-btn" id="mDist" onclick="setMode('dist')">Calculate Distance</button>
+</div>
+<div class="unit-toggle">
+<button class="unit-btn active" id="uKm" onclick="setUnit('km')">Kilometers</button>
+<button class="unit-btn" id="uMi" onclick="setUnit('mi')">Miles</button>
+</div>
+<div id="inputPace">
+<div class="row"><div><label class="lbl" for="dist">Distance (<span id="uDist">km</span>)</label><input type="number" id="dist" value="5" min="0" step="any"></div></div>
+<div class="row" style="margin-top:12px"><div><label class="lbl" for="th">Hours</label><input type="number" id="th" value="0" min="0"></div><div><label class="lbl" for="tm">Minutes</label><input type="number" id="tm" value="25" min="0" max="59"></div><n class="lbl" style="display:flex;align-items:end;padding-bottom:10px;">:</n><div><label class="lbl" for="ts">Seconds</label><input type="number" id="ts" value="0" min="0" max="59"></div></div>
+</div>
+<div id="inputTime">
+<div class="row"><div><label class="lbl" for="dist2">Distance (<span id="uDist2">km</span>)</label><input type="number" id="dist2" value="5" min="0" step="any"></div></div>
+<div class="row" style="margin-top:12px"><div><label class="lbl" for="pm">Pace Min/<span class="uP">km</span></label><input type="number" id="pm" value="5" min="0"></div><div><label class="lbl" for="ps">Pace Sec/<span class="uP">km</span></label><input type="number" id="ps" value="0" min="0" max="59"></div></div>
+</div>
+<div id="inputDist">
+<div class="row" style="margin-top:12px"><div><label class="lbl" for="th2">Hours</label><input type="number" id="th2" value="0" min="0"></div><div><label class="lbl" for="tm2">Minutes</label><input type="number" id="tm2" value="25" min="0" max="59"></div><div><label class="lbl" for="ts2">Seconds</label><input type="number" id="ts2" value="0" min="0" max="59"></div></div>
+<div class="row" style="margin-top:12px"><div><label class="lbl" for="pm2">Pace Min/<span class="uP2">km</span></label><input type="number" id="pm2" value="5" min="0"></div><div><label class="lbl" for="ps2">Pace Sec/<span class="uP2">km</span></label><input type="number" id="ps2" value="0" min="0" max="59"></div></div>
+</div>
+<div class="br"><button class="btn btn-p" onclick="calc()">Calculate</button></div>
+<div class="result-box" id="res"><div class="big" id="resBig"></div><div class="sub" id="resSub"></div></div>
+<div class="sg" id="stats" style="display:none">
+<div class="sc"><div class="n" id="sPace">—</div><div class="l">Pace</div></div>
+<div class="sc"><div class="n" id="sSpeed">—</div><div class="l">Speed</div></div>
+<div class="sc"><div class="n" id="sTime">—</div><div class="l">Total Time</div></div>
+</div>
+</div>
+<div class="info"><h2>Running Pace Calculator</h2><p>Calculate your running or walking pace in three ways: find pace from distance and time, find finish time from distance and pace, or find distance from time and pace. All calculations support both kilometers and miles.</p><h3>Frequently Asked Questions</h3>
+<details><summary>What is running pace?</summary><p>Running pace is the time it takes to cover one unit of distance, typically expressed as minutes per kilometer (min/km) or minutes per mile (min/mi). For example, a 5:00 min/km pace means you run 1 km in 5 minutes.</p></details>
+<details><summary>How do I measure my running pace?</summary><p>Use a GPS watch, smartphone running app (like Strava or Nike Run Club), or a treadmill. Most devices track distance and time automatically and calculate your pace in real time.</p></details>
+<details><summary>What is a good pace for beginners?</summary><p>For beginners, a comfortable running pace is typically 6:00–7:30 min/km (9:40–12:00 min/mi). Start with a run-walk approach and gradually increase your running portions. The best pace is one where you can hold a conversation.</p></details></div>
+</main>
+<footer class="footer"><p>© 2026 ExcuseMeWeb.com</p><p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p></footer>
+<script>
+var mode='pace',unit='km';
+function setMode(m){mode=m;['pace','time','dist'].forEach(function(x){document.getElementById('m'+x.charAt(0).toUpperCase()+x.slice(1)).classList.toggle('active',x===m);document.getElementById('input'+x.charAt(0).toUpperCase()+x.slice(1)).style.display=x===m?'block':'none';});document.getElementById('res').classList.remove('show');document.getElementById('stats').style.display='none';}
+function setUnit(u){unit=u;document.getElementById('uKm').classList.toggle('active',u==='km');document.getElementById('uMi').classList.toggle('active',u==='mi');var labels=document.querySelectorAll('.uP,.uP2');labels.forEach(function(el){el.textContent=u;});document.getElementById('uDist').textContent=u;document.getElementById('uDist2').textContent=u;}
+function fmtTime(totalSec){var h=Math.floor(totalSec/3600);var m=Math.floor((totalSec%3600)/60);var s=Math.round(totalSec%60);if(h>0)return h+':'+String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');return m+':'+String(s).padStart(2,'0');}
+function calc(){var dist,paceSec,totalSec,speedKmh,resultPaceSec,resultTotalSec;
+if(mode==='pace'){dist=parseFloat(document.getElementById('dist').value);var h=parseInt(document.getElementById('th').value)||0;var m=parseInt(document.getElementById('tm').value)||0;var s=parseInt(document.getElementById('ts').value)||0;if(!dist||dist<=0){alert('Enter a valid distance.');return;}totalSec=h*3600+m*60+s;if(totalSec<=0){alert('Enter a valid time.');return;}paceSec=totalSec/dist;var pm=Math.floor(paceSec/60);var ps=Math.round(paceSec%60);document.getElementById('resBig').textContent=pm+':'+String(ps).padStart(2,'0')+' min/'+unit;document.getElementById('resSub').textContent='Your pace for '+dist+' '+unit+' in '+fmtTime(totalSec);speedKmh=dist/(totalSec/3600);if(unit==='mi')speedKmh=speedKmh*1.60934;document.getElementById('sPace').textContent=pm+':'+String(ps).padStart(2,'0')+'/'+unit;document.getElementById('sSpeed').textContent=speedKmh.toFixed(1)+' km/h';document.getElementById('sTime').textContent=fmtTime(totalSec);}else if(mode==='time'){dist=parseFloat(document.getElementById('dist2').value);var pm=parseInt(document.getElementById('pm').value)||0;var ps=parseInt(document.getElementById('ps').value)||0;if(!dist||dist<=0){alert('Enter a valid distance.');return;}paceSec=pm*60+ps;if(paceSec<=0){alert('Enter a valid pace.');return;}totalSec=paceSec*dist;document.getElementById('resBig').textContent=fmtTime(totalSec);document.getElementById('resSub').textContent='Estimated time for '+dist+' '+unit+' at '+pm+':'+String(ps).padStart(2,'0')+' min/'+unit;speedKmh=dist/(totalSec/3600);if(unit==='mi')speedKmh=speedKmh*1.60934;document.getElementById('sPace').textContent=pm+':'+String(ps).padStart(2,'0')+'/'+unit;document.getElementById('sSpeed').textContent=speedKmh.toFixed(1)+' km/h';document.getElementById('sTime').textContent=fmtTime(totalSec);}else{var h=parseInt(document.getElementById('th2').value)||0;var m=parseInt(document.getElementById('tm2').value)||0;var s=parseInt(document.getElementById('ts2').value)||0;var pm=parseInt(document.getElementById('pm2').value)||0;var ps=parseInt(document.getElementById('ps2').value)||0;totalSec=h*3600+m*60+s;paceSec=pm*60+ps;if(totalSec<=0||paceSec<=0){alert('Enter valid time and pace.');return;}dist=totalSec/paceSec;document.getElementById('resBig').textContent=dist.toFixed(2)+' '+unit;document.getElementById('resSub').textContent='Distance covered in '+fmtTime(totalSec)+' at '+pm+':'+String(ps).padStart(2,'0')+' min/'+unit;speedKmh=dist/(totalSec/3600);if(unit==='mi')speedKmh=speedKmh*1.60934;document.getElementById('sPace').textContent=pm+':'+String(ps).padStart(2,'0')+'/'+unit;document.getElementById('sSpeed').textContent=speedKmh.toFixed(1)+' km/h';document.getElementById('sTime').textContent=fmtTime(totalSec);}
+document.getElementById('res').classList.add('show');document.getElementById('stats').style.display='grid';}
+setMode('pace');
+</script>
+</body></html>

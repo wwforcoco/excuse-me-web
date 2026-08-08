@@ -1,0 +1,79 @@
+<!DOCTYPE html><html lang="en"><head>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="fa026cc1-8f84-44f5-b2fb-9ccf29374a38"></script>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Average Calculator | ExcuseMeWeb</title>
+<meta name="description" content="Calculate mean, median, mode, range, min, max, and sum from a set of numbers. Free online average and statistics calculator.">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="Average Calculator | ExcuseMeWeb"><meta property="og:description" content="Calculate mean, median, mode, range, min, max, and sum from a set of numbers.">
+<meta property="og:type" content="website"><meta property="og:image" content="https://excusemeweb.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Average Calculator | ExcuseMeWeb"><meta name="twitter:description" content="Calculate mean, median, mode, range, min, max, and sum.">
+<link rel="canonical" href="https://excusemeweb.com/average-calculator"><link rel="icon" href="/favicon.ico"><meta name="theme-color" content="#ffffff"><meta property="og:url" content="https://excusemeweb.com/average-calculator">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Average Calculator","url":"https://excusemeweb.com/average-calculator","description":"Calculate mean, median, mode, range, min, max, and sum from a set of numbers.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Organization","name":"ExcuseMeWeb"},"dateModified":"2026-08-08"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://excusemeweb.com/"},{"@type":"ListItem","position":2,"name":"Math Tools","item":"https://excusemeweb.com/math-tools"},{"@type":"ListItem","position":3,"name":"Average Calculator","item":"https://excusemeweb.com/average-calculator"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the difference between mean, median, and mode?","acceptedAnswer":{"@type":"Answer","text":"The mean is the average (sum divided by count). The median is the middle value when data is sorted. The mode is the most frequently occurring value. For example, in {2, 3, 3, 5, 12}: mean = 5, median = 3, mode = 3."}},{"@type":"Question","name":"What is the range?","acceptedAnswer":{"@type":"Answer","text":"The range is the difference between the highest and lowest values in a data set. For {4, 8, 15, 23, 42}, the range is 42 - 4 = 38. It gives a quick measure of how spread out the data is."}},{"@type":"Question","name":"When should I use median instead of mean?","acceptedAnswer":{"@type":"Answer","text":"Use the median when your data has outliers or is skewed (e.g., income data where a few very high earners pull the mean up). The median is more resistant to extreme values and better represents the "typical" value in such cases."}}]}</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--bg2:#f8fafc;--bg3:#f1f5f9;--text:#0f172a;--text2:#64748b;--accent:#6366f1;--accent-h:#4f46e5;--accent-l:#eef2ff;--danger:#ef4444;--success:#22c55e;--border:#e2e8f0;--radius:12px;}
+*{margin:0;padding:0;box-sizing:border-box;}body{font-family:Inter,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column;}
+.header{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 24px;position:sticky;top:0;z-index:1000;}.header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;}
+.logo{font-size:1.5rem;font-weight:700;color:var(--accent);text-decoration:none;}.logo span{color:var(--text);}
+.nav-d{display:flex;gap:20px;}.nav-d a{color:var(--text2);text-decoration:none;font-size:.82rem;font-weight:500;white-space:nowrap;}.nav-d a:hover{color:var(--accent);}
+.hamburger{display:none;background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer;}
+.mob-nav{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);padding:16px 24px;flex-direction:column;gap:12px;z-index:999;}.mob-nav.show{display:flex;}.mob-nav a{color:var(--text2);text-decoration:none;font-size:1rem;}
+.main{flex:1;max-width:1100px;width:100%;margin:0 auto;padding:40px 24px;}
+.bc{display:flex;gap:6px;font-size:.85rem;color:var(--text2);margin-bottom:20px;flex-wrap:wrap;}.bc a{color:var(--accent);text-decoration:none;}.bc-s{color:var(--border);}.bc-c{color:var(--text);font-weight:500;}
+.ph{text-align:center;margin-bottom:32px;}.ph h1{font-size:2rem;font-weight:700;margin-bottom:8px;}.ph p{color:var(--text2);max-width:600px;margin:0 auto;}
+.box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:32px;max-width:750px;margin:0 auto 32px;}
+.btn{padding:12px 28px;border:none;border-radius:8px;font-size:.95rem;font-weight:600;cursor:pointer;font-family:Inter,sans-serif;transition:all .15s;}.btn:disabled{opacity:.4;cursor:not-allowed;}.btn-p{background:var(--accent);color:#fff;}.btn-p:hover:not(:disabled){background:var(--accent-h);}.btn-s{background:var(--bg3);color:var(--text);}.btn-s:hover:not(:disabled){background:var(--border);}.btn-sm{padding:8px 20px;font-size:.85rem;}
+.br{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:20px;}
+.lbl{font-size:.85rem;color:var(--text2);font-weight:500;margin-bottom:4px;display:block;}
+input[type=text],input[type=number],input[type=date],input[type=color],select,textarea{width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:8px;font-size:.95rem;font-family:Inter,sans-serif;background:var(--bg);color:var(--text);}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--accent);border-color:var(--accent);}textarea{resize:vertical;min-height:120px;}
+.info{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:32px;margin-bottom:24px;}.info h2{font-size:1.3rem;margin-bottom:12px;}.info h3{font-size:1.1rem;margin:20px 0 8px;}.info p,.info li{color:var(--text2);line-height:1.7;margin-bottom:10px;}.info ul{padding-left:20px;}.info a{color:var(--accent);text-decoration:none;}.info a:hover{text-decoration:underline;}
+details{border:1px solid var(--border);border-radius:8px;padding:14px 18px;margin-bottom:8px;cursor:pointer;}summary{font-weight:600;font-size:.95rem;list-style:none;}summary::-webkit-details-marker{display:none;}details p{color:var(--text2);line-height:1.7;margin-top:10px;font-size:.95rem;}
+.footer{text-align:center;padding:24px;color:var(--text2);font-size:.85rem;border-top:1px solid var(--border);margin-top:auto;}.footer a{color:var(--accent);text-decoration:none;}
+.rb{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:16px;margin-top:16px;min-height:60px;white-space:pre-wrap;word-break:break-word;font-family:monospace;font-size:.9rem;}
+.sg{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0;}.sc{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center;}.sc .n{font-size:1.4rem;font-weight:700;color:var(--accent);}.sc .l{font-size:.8rem;color:var(--text2);margin-top:4px;}
+@media(max-width:768px){.nav-d{display:none;}.hamburger{display:block;}.sg{grid-template-columns:repeat(2,1fr);}}
+</style></head><body>
+<header class="header"><div class="header-inner"><a href="/" class="logo">Excuse<span>Me</span>Web</a><nav class="nav-d"><a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/clock-tools">Clock Tools</a><a href="/text-tools">Text</a><a href="/color-tools">Colors</a><a href="/math-tools">Math</a><a href="/finance-tools">Finance</a><a href="/health-tools">Health</a><a href="/image-tools">Image</a><a href="/generators">Generators</a><a href="/dev-tools">Dev</a><a href="/seo-tools">SEO</a><a href="/life-tools">Life</a><a href="/templates">Templates</a><a href="/games">Games</a></nav><button class="hamburger" onclick="document.getElementById('mn').classList.toggle('show')">☰</button></div><nav class="mob-nav" id="mn"><a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/clock-tools">Clock Tools</a><a href="/text-tools">Text</a><a href="/color-tools">Colors</a><a href="/math-tools">Math</a><a href="/finance-tools">Finance</a><a href="/health-tools">Health</a><a href="/image-tools">Image</a><a href="/generators">Generators</a><a href="/dev-tools">Dev</a><a href="/seo-tools">SEO</a><a href="/life-tools">Life</a><a href="/templates">Templates</a><a href="/games">Games</a></nav></header>
+<main class="main"><nav class="bc"><a href="/">Home</a><span class="bc-s">/</span><a href="/math-tools">Math Tools</a><span class="bc-s">/</span><span class="bc-c">Average Calculator</span></nav><div class="ph"><h1>📈 Average Calculator</h1><p>Calculate mean, median, mode, range, and more from any set of numbers.</p></div>
+<div class="box">
+<label class="lbl">Enter Numbers (comma or newline separated)</label>
+<textarea id="avgInput" oninput="calcAvg()">10, 20, 30, 40, 50, 60, 70</textarea>
+<div class="sg" id="avgResults" style="margin-top:20px"></div>
+</div>
+<div class="info"><h2>Average Calculator</h2>
+<p>This calculator computes multiple measures of central tendency and spread for any data set. Enter your numbers to get the count, sum, mean (arithmetic average), median, mode, range, minimum, and maximum values instantly.</p>
+<p>Understanding these different averages helps you analyze data more effectively. The mean is the most common average, but it can be skewed by outliers. The median gives the middle value and is more robust. The mode shows the most frequent value. Together, they give a complete picture of your data's distribution.</p>
+<h3>Frequently Asked Questions</h3>
+<details><summary>What is the difference between mean, median, and mode?</summary><p>The mean is the average (sum divided by count). The median is the middle value when data is sorted. The mode is the most frequently occurring value. For example, in {2, 3, 3, 5, 12}: mean = 5, median = 3, mode = 3.</p></details>
+<details><summary>What is the range?</summary><p>The range is the difference between the highest and lowest values in a data set. For {4, 8, 15, 23, 42}, the range is 42 - 4 = 38. It gives a quick measure of how spread out the data is.</p></details>
+<details><summary>When should I use median instead of mean?</summary><p>Use the median when your data has outliers or is skewed (e.g., income data where a few very high earners pull the mean up). The median is more resistant to extreme values and better represents the "typical" value in such cases.</p></details>
+</div></main><footer class="footer"><p>© 2026 ExcuseMeWeb.com</p><p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p></footer>
+<script>
+function fmt(n){if(Number.isInteger(n))return n.toString();return parseFloat(n.toFixed(6)).toString();}
+function calcAvg(){
+var v=document.getElementById('avgInput').value.trim();var el=document.getElementById('avgResults');
+if(!v){el.innerHTML='';return;}
+var nums=v.split(/[,\n]+/).map(function(s){return parseFloat(s.trim());}).filter(function(n){return !isNaN(n);});
+if(nums.length===0){el.innerHTML='<div class="sc" style="grid-column:1/-1"><div class="n" style="font-size:.9rem;color:var(--danger)">Enter at least 1 number</div><div class="l"></div></div>';return;}
+var n=nums.length;var sorted=nums.slice().sort(function(a,b){return a-b;});
+var sum=nums.reduce(function(a,b){return a+b;},0);var mean=sum/n;
+var median=n%2===0?(sorted[n/2-1]+sorted[n/2])/2:sorted[Math.floor(n/2)];
+var freq={};sorted.forEach(function(x){freq[x]=(freq[x]||0)+1;});
+var maxFreq=0;var modes=[];for(var k in freq){if(freq[k]>maxFreq){maxFreq=freq[k];modes=[parseFloat(k)];}else if(freq[k]===maxFreq){modes.push(parseFloat(k));}}
+var modeStr=maxFreq===1?'No mode':modes.join(', ');
+var range=sorted[n-1]-sorted[0];
+var html='<div class="sc"><div class="n">'+n+'</div><div class="l">Count</div></div>';
+html+='<div class="sc"><div class="n">'+fmt(sum)+'</div><div class="l">Sum</div></div>';
+html+='<div class="sc"><div class="n">'+fmt(mean)+'</div><div class="l">Mean</div></div>';
+html+='<div class="sc"><div class="n">'+fmt(median)+'</div><div class="l">Median</div></div>';
+html+='<div class="sc"><div class="n" style="font-size:1rem">'+modeStr+'</div><div class="l">Mode</div></div>';
+html+='<div class="sc"><div class="n">'+fmt(range)+'</div><div class="l">Range</div></div>';
+html+='<div class="sc"><div class="n">'+fmt(sorted[0])+'</div><div class="l">Min</div></div>';
+html+='<div class="sc"><div class="n">'+fmt(sorted[n-1])+'</div><div class="l">Max</div></div>';
+if(n>1){var geoMean=Math.pow(sorted.reduce(function(a,b){return a*b;},1),1/n);html+='<div class="sc"><div class="n">'+fmt(geoMean)+'</div><div class="l">Geometric Mean</div></div>';}
+el.innerHTML=html;}
+calcAvg();
+</script></body></html>

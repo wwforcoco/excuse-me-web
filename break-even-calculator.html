@@ -1,0 +1,68 @@
+<!DOCTYPE html><html lang="en"><head>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="fa026cc1-8f84-44f5-b2fb-9ccf29374a38"></script>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Break Even Calculator | ExcuseMeWeb</title>
+<meta name="description" content="Calculate your break-even point in units and revenue. Enter fixed costs, price per unit, and variable cost per unit to find when you start making a profit.">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="Break Even Calculator | ExcuseMeWeb"><meta property="og:description" content="Calculate your break-even point in units and revenue from fixed costs, price, and variable costs.">
+<meta property="og:type" content="website"><meta property="og:image" content="https://excusemeweb.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Break Even Calculator | ExcuseMeWeb"><meta name="twitter:description" content="Find your break-even point in units and revenue.">
+<link rel="canonical" href="https://excusemeweb.com/break-even-calculator"><link rel="icon" href="/favicon.ico"><meta name="theme-color" content="#ffffff"><meta property="og:url" content="https://excusemeweb.com/break-even-calculator">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Break Even Calculator","url":"https://excusemeweb.com/break-even-calculator","description":"Calculate your break-even point in units and revenue. Enter fixed costs, price per unit, and variable cost per unit to find when you start making a profit.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Organization","name":"ExcuseMeWeb"},"dateModified":"2026-08-08"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://excusemeweb.com/"},{"@type":"ListItem","position":2,"name":"Finance Tools","item":"https://excusemeweb.com/finance-tools"},{"@type":"ListItem","position":3,"name":"Break Even Calculator","item":"https://excusemeweb.com/break-even-calculator"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What are fixed costs?","acceptedAnswer":{"@type":"Answer","text":"Fixed costs are expenses that do not change regardless of how many units you produce or sell. Examples include rent, insurance, salaries of permanent staff, equipment leases, and loan payments."}},{"@type":"Question","name":"What are variable costs?","acceptedAnswer":{"@type":"Answer","text":"Variable costs are expenses that increase or decrease proportionally with production volume. Examples include raw materials, direct labor, packaging, and shipping costs per unit."}},{"@type":"Question","name":"What is the contribution margin?","acceptedAnswer":{"@type":"Answer","text":"The contribution margin is the selling price per unit minus the variable cost per unit. It represents how much each unit sold contributes toward covering fixed costs and generating profit. Break-even occurs when total contribution margin equals total fixed costs."}}]}</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--bg2:#f8fafc;--bg3:#f1f5f9;--text:#0f172a;--text2:#64748b;--accent:#6366f1;--accent-h:#4f46e5;--accent-l:#eef2ff;--danger:#ef4444;--success:#22c55e;--border:#e2e8f0;--radius:12px;}
+*{margin:0;padding:0;box-sizing:border-box;}body{font-family:Inter,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column;}
+.header{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 24px;position:sticky;top:0;z-index:1000;}.header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;}
+.logo{font-size:1.5rem;font-weight:700;color:var(--accent);text-decoration:none;}.logo span{color:var(--text);}
+.nav-d{display:flex;gap:20px;}.nav-d a{color:var(--text2);text-decoration:none;font-size:.82rem;font-weight:500;white-space:nowrap;}.nav-d a:hover{color:var(--accent);}
+.hamburger{display:none;background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer;}
+.mob-nav{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);padding:16px 24px;flex-direction:column;gap:12px;z-index:999;}.mob-nav.show{display:flex;}.mob-nav a{color:var(--text2);text-decoration:none;font-size:1rem;}
+.main{flex:1;max-width:1100px;width:100%;margin:0 auto;padding:40px 24px;}
+.bc{display:flex;gap:6px;font-size:.85rem;color:var(--text2);margin-bottom:20px;flex-wrap:wrap;}.bc a{color:var(--accent);text-decoration:none;}.bc-s{color:var(--border);}.bc-c{color:var(--text);font-weight:500;}
+.ph{text-align:center;margin-bottom:32px;}.ph h1{font-size:2rem;font-weight:700;margin-bottom:8px;}.ph p{color:var(--text2);max-width:600px;margin:0 auto;}
+.box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:32px;max-width:750px;margin:0 auto 32px;}
+.btn{padding:12px 28px;border:none;border-radius:8px;font-size:.95rem;font-weight:600;cursor:pointer;font-family:Inter,sans-serif;transition:all .15s;}.btn:disabled{opacity:.4;cursor:not-allowed;}.btn-p{background:var(--accent);color:#fff;}.btn-p:hover:not(:disabled){background:var(--accent-h);}.btn-s{background:var(--bg3);color:var(--text);}.btn-s:hover:not(:disabled){background:var(--border);}.btn-sm{padding:8px 20px;font-size:.85rem;}
+.br{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:20px;}
+.lbl{font-size:.85rem;color:var(--text2);font-weight:500;margin-bottom:4px;display:block;}
+input[type=text],input[type=number],input[type=date],input[type=color],select,textarea{width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:8px;font-size:.95rem;font-family:Inter,sans-serif;background:var(--bg);color:var(--text);}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--accent);border-color:var(--accent);}textarea{resize:vertical;min-height:120px;}
+.info{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:32px;margin-bottom:24px;}.info h2{font-size:1.3rem;margin-bottom:12px;}.info h3{font-size:1.1rem;margin:20px 0 8px;}.info p,.info li{color:var(--text2);line-height:1.7;margin-bottom:10px;}.info ul{padding-left:20px;}.info a{color:var(--accent);text-decoration:none;}.info a:hover{text-decoration:underline;}
+details{border:1px solid var(--border);border-radius:8px;padding:14px 18px;margin-bottom:8px;cursor:pointer;}summary{font-weight:600;font-size:.95rem;list-style:none;}summary::-webkit-details-marker{display:none;}details p{color:var(--text2);line-height:1.7;margin-top:10px;font-size:.95rem;}
+.footer{text-align:center;padding:24px;color:var(--text2);font-size:.85rem;border-top:1px solid var(--border);margin-top:auto;}.footer a{color:var(--accent);text-decoration:none;}
+.rb{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:16px;margin-top:16px;min-height:60px;white-space:pre-wrap;word-break:break-word;font-family:monospace;font-size:.9rem;}
+.sg{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0;}.sc{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center;}.sc .n{font-size:1.4rem;font-weight:700;color:var(--accent);}.sc .l{font-size:.8rem;color:var(--text2);margin-top:4px;}
+.row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:12px;}
+@media(max-width:768px){.nav-d{display:none;}.hamburger{display:block;}.sg{grid-template-columns:repeat(2,1fr);}.row{grid-template-columns:1fr;}}
+</style></head><body>
+<header class="header"><div class="header-inner"><a href="/" class="logo">Excuse<span>Me</span>Web</a><nav class="nav-d"><a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/clock-tools">Clock Tools</a><a href="/text-tools">Text</a><a href="/color-tools">Colors</a><a href="/math-tools">Math</a><a href="/finance-tools">Finance</a><a href="/health-tools">Health</a><a href="/image-tools">Image</a><a href="/generators">Generators</a><a href="/dev-tools">Dev</a><a href="/seo-tools">SEO</a><a href="/life-tools">Life</a><a href="/templates">Templates</a><a href="/games">Games</a></nav><button class="hamburger" onclick="document.getElementById('mn').classList.toggle('show')">☰</button></div><nav class="mob-nav" id="mn"><a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/clock-tools">Clock Tools</a><a href="/text-tools">Text</a><a href="/color-tools">Colors</a><a href="/math-tools">Math</a><a href="/finance-tools">Finance</a><a href="/health-tools">Health</a><a href="/image-tools">Image</a><a href="/generators">Generators</a><a href="/dev-tools">Dev</a><a href="/seo-tools">SEO</a><a href="/life-tools">Life</a><a href="/templates">Templates</a><a href="/games">Games</a></nav></header>
+<main class="main"><nav class="bc"><a href="/">Home</a><span class="bc-s">/</span><a href="/finance-tools">Finance Tools</a><span class="bc-s">/</span><span class="bc-c">Break Even Calculator</span></nav><div class="ph"><h1>📊 Break Even Calculator</h1><p>Find the break-even point in units and revenue from your fixed costs, price, and variable costs.</p></div>
+<div class="box">
+<div class="row"><div><label class="lbl">Fixed Costs ($)</label><input type="number" id="beFixed" value="10000" oninput="calcBE()"></div><div><label class="lbl">Price per Unit ($)</label><input type="number" id="bePrice" value="50" oninput="calcBE()"></div><div><label class="lbl">Variable Cost per Unit ($)</label><input type="number" id="beVar" value="20" oninput="calcBE()"></div></div>
+<div class="sg" id="beResults" style="margin-top:20px"></div>
+<div class="rb" id="beDetail" style="display:none"></div>
+</div>
+<div class="info"><h2>Break Even Calculator</h2>
+<p>This calculator determines your break-even point — the number of units you must sell (and the revenue you must generate) to cover all your costs. Enter your fixed costs, selling price per unit, and variable cost per unit to see the exact break-even figures and contribution margin.</p>
+<p>The break-even analysis is one of the most important tools for business planning. It helps you set sales targets, evaluate pricing strategies, and understand the minimum performance needed to avoid losses. The contribution margin tells you how much each unit contributes to covering fixed costs.</p>
+<h3>Frequently Asked Questions</h3>
+<details><summary>What are fixed costs?</summary><p>Fixed costs are expenses that do not change regardless of how many units you produce or sell. Examples include rent, insurance, salaries of permanent staff, equipment leases, and loan payments.</p></details>
+<details><summary>What are variable costs?</summary><p>Variable costs are expenses that increase or decrease proportionally with production volume. Examples include raw materials, direct labor, packaging, and shipping costs per unit.</p></details>
+<details><summary>What is the contribution margin?</summary><p>The contribution margin is the selling price per unit minus the variable cost per unit. It represents how much each unit sold contributes toward covering fixed costs and generating profit. Break-even occurs when total contribution margin equals total fixed costs.</p></details>
+</div></main><footer class="footer"><p>© 2026 ExcuseMeWeb.com</p><p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p></footer>
+<script>
+function fmt(n){return n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});}
+function calcBE(){
+var fixed=parseFloat(document.getElementById('beFixed').value);var price=parseFloat(document.getElementById('bePrice').value);var vcost=parseFloat(document.getElementById('beVar').value);
+var el=document.getElementById('beResults');var det=document.getElementById('beDetail');
+if(isNaN(fixed)||isNaN(price)||isNaN(vcost)){el.innerHTML='';det.style.display='none';return;}
+var cm=price-vcost;
+if(cm<=0){el.innerHTML='<div class="sc" style="grid-column:1/-1"><div class="n" style="font-size:.9rem;color:var(--danger)">Price must exceed variable cost</div><div class="l"></div></div>';det.style.display='none';return;}
+var units=Math.ceil(fixed/cm);var revenue=units*price;var cmPct=cm/price*100;
+el.innerHTML='<div class="sc"><div class="n">'+units.toLocaleString()+'</div><div class="l">Break-Even Units</div></div><div class="sc"><div class="n">$'+fmt(revenue)+'</div><div class="l">Break-Even Revenue</div></div><div class="sc"><div class="n">$'+fmt(cm)+' ('+cmPct.toFixed(1)+'%)</div><div class="l">Contribution Margin</div></div>';
+det.style.display='block';
+det.textContent='Break-Even Analysis:\n  Fixed Costs: $'+fmt(fixed)+'\n  Price per Unit: $'+fmt(price)+'\n  Variable Cost per Unit: $'+fmt(vcost)+'\n  Contribution Margin: $'+fmt(cm)+'\n  Break-Even Units: '+units.toLocaleString()+'\n  Break-Even Revenue: $'+fmt(revenue)+'\n  Formula: Fixed Costs / (Price - Variable Cost)\n  = '+fmt(fixed)+' / ('+fmt(price)+' - '+fmt(vcost)+') = '+units;}
+calcBE();
+</script></body></html>

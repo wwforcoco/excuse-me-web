@@ -1,0 +1,144 @@
+<!DOCTYPE html><html lang="en"><head>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="fa026cc1-8f84-44f5-b2fb-9ccf29374a38"></script>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Text Statistics Analyzer | ExcuseMeWeb</title>
+<meta name="description" content="Analyze text readability with Flesch-Kincaid, Gunning Fog, and more. Get detailed statistics: average word length, sentence length, unique words, and reading level.">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="Text Statistics Analyzer | ExcuseMeWeb"><meta property="og:description" content="Analyze text readability with Flesch-Kincaid, Gunning Fog, and more. Get detailed statistics: average word length, sentence length, unique words, and reading level.">
+<meta property="og:type" content="website"><meta property="og:image" content="https://excusemeweb.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Text Statistics Analyzer | ExcuseMeWeb"><meta name="twitter:description" content="Analyze text readability with Flesch-Kincaid, Gunning Fog, and more. Get detailed statistics: average word length, sentence length, unique words, and reading level.">
+<link rel="canonical" href="https://excusemeweb.com/text-statistics-analyzer"><link rel="icon" href="/favicon.ico"><meta name="theme-color" content="#ffffff"><meta property="og:url" content="https://excusemeweb.com/text-statistics-analyzer">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Text Statistics Analyzer","url":"https://excusemeweb.com/text-statistics-analyzer","description":"Analyze text readability with Flesch-Kincaid, Gunning Fog, and more. Get detailed statistics: average word length, sentence length, unique words, and reading level.","applicationCategory":"UtilitiesApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Organization","name":"ExcuseMeWeb"},"dateModified":"2026-08-08"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://excusemeweb.com/"},{"@type":"ListItem","position":2,"name":"Text Tools","item":"https://excusemeweb.com/text-tools"},{"@type":"ListItem","position":3,"name":"Text Statistics Analyzer","item":"https://excusemeweb.com/text-statistics-analyzer"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the Flesch-Kincaid readability score?","acceptedAnswer":{"@type":"Answer","text":"The Flesch-Kincaid score measures text readability on a scale of 0-100. Higher scores indicate easier readability. Scores above 60 are considered easily understood by 13-15 year old students."}},{"@type":"Question","name":"What does the Gunning Fog index measure?","acceptedAnswer":{"@type":"Answer","text":"The Gunning Fog index estimates the years of formal education needed to understand the text on the first reading. It accounts for sentence length and complex words (3+ syllables)."}},{"@type":"Question","name":"How is average word length calculated?","acceptedAnswer":{"@type":"Answer","text":"Average word length is the total number of characters in all words divided by the total number of words, excluding spaces and punctuation."}}]}</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--bg2:#f8fafc;--bg3:#f1f5f9;--text:#0f172a;--text2:#64748b;--accent:#6366f1;--accent-h:#4f46e5;--accent-l:#eef2ff;--danger:#ef4444;--success:#22c55e;--border:#e2e8f0;--radius:12px;}
+*{margin:0;padding:0;box-sizing:border-box;}body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column;}
+.header{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 24px;position:sticky;top:0;z-index:1000;}.header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;}
+.logo{font-size:1.5rem;font-weight:700;color:var(--accent);text-decoration:none;}.logo span{color:var(--text);}
+.nav-d{display:flex;gap:24px;}.nav-d a{color:var(--text2);text-decoration:none;font-size:.85rem;font-weight:500;white-space:nowrap;}.nav-d a:hover,.nav-d a.act{color:var(--accent);}
+.hamburger{display:none;background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer;}
+.mob-nav{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);padding:16px 24px;flex-direction:column;gap:16px;z-index:999;}.mob-nav.show{display:flex;}.mob-nav a{color:var(--text2);text-decoration:none;font-size:1rem;}.mob-nav a.act{color:var(--accent);}
+.main{flex:1;max-width:1100px;width:100%;margin:0 auto;padding:40px 24px;}
+.bc{display:flex;gap:6px;font-size:.85rem;color:var(--text2);margin-bottom:20px;flex-wrap:wrap;}.bc a{color:var(--accent);text-decoration:none;}.bc-s{color:var(--border);}.bc-c{color:var(--text);font-weight:500;}
+.ph{text-align:center;margin-bottom:32px;}.ph h1{font-size:2rem;font-weight:700;margin-bottom:8px;}.ph p{color:var(--text2);max-width:600px;margin:0 auto;}
+.box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:32px;max-width:800px;margin:0 auto 32px;}
+.btn{padding:12px 28px;border:none;border-radius:8px;font-size:.95rem;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;transition:all .15s;}.btn-p{background:var(--accent);color:#fff;}.btn-p:hover{background:var(--accent-h);}.btn-s{background:var(--bg3);color:var(--text);}.btn-s:hover{background:var(--border);}
+textarea{width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:8px;font-size:.95rem;font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);resize:vertical;min-height:150px;}textarea:focus{outline:2px solid var(--accent);border-color:var(--accent);}
+.sg{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0;}.sc{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center;}.sc .n{font-size:1.8rem;font-weight:700;color:var(--accent);}.sc .l{font-size:.8rem;color:var(--text2);margin-top:4px;}
+.score-bar{height:10px;border-radius:5px;background:var(--bg3);margin-top:8px;overflow:hidden;}.score-fill{height:100%;border-radius:5px;transition:width .3s;}
+.score-green{background:var(--success);}.score-yellow{background:#f59e0b;}.score-red{background:var(--danger);}
+.info{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:32px;margin-bottom:24px;}.info h2{font-size:1.3rem;margin-bottom:12px;}.info h3{font-size:1.1rem;margin:20px 0 8px;}.info p,.info li{color:var(--text2);line-height:1.7;margin-bottom:10px;}.info ul{padding-left:20px;}.info a{color:var(--accent);text-decoration:none;}.info a:hover{text-decoration:underline;}
+details{border:1px solid var(--border);border-radius:8px;padding:14px 18px;margin-bottom:8px;cursor:pointer;}summary{font-weight:600;font-size:.95rem;list-style:none;}summary::-webkit-details-marker{display:none;}details p{color:var(--text2);line-height:1.7;margin-top:10px;font-size:.95rem;}
+.footer{text-align:center;padding:24px;color:var(--text2);font-size:.85rem;border-top:1px solid var(--border);margin-top:auto;}.footer a{color:var(--accent);text-decoration:none;}
+@media(max-width:768px){.nav-d{display:none;}.hamburger{display:block;}.sg{grid-template-columns:repeat(2,1fr);}}
+</style></head><body>
+<header class="header"><div class="header-inner">
+<a href="/" class="logo">Excuse<span>Me</span>Web</a>
+<nav class="nav-d"><a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/clock-tools">Clock Tools</a><a href="/text-tools" class="act">Text Tools</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a></nav>
+<button class="hamburger" onclick="document.getElementById('mobileNav').classList.toggle('show')">☰</button>
+</div>
+<nav class="mob-nav" id="mobileNav"><a href="/">Tools</a><a href="/calculators">Calculators</a><a href="/converters">Converters</a><a href="/clock-tools">Clock Tools</a><a href="/text-tools" class="act">Text Tools</a><a href="/image-tools">Image Tools</a><a href="/generators">Generators</a><a href="/templates">Templates</a><a href="/games">Games</a></nav>
+</header>
+<main class="main">
+<nav class="bc"><a href="/">Home</a><span class="bc-s">/</span><a href="/text-tools">Text Tools</a><span class="bc-s">/</span><span class="bc-c">Text Statistics Analyzer</span></nav>
+<div class="ph"><h1>📊 Text Statistics Analyzer</h1><p>Analyze text readability with Flesch-Kincaid, Gunning Fog, and more. Get detailed statistics and reading level assessment.</p></div>
+<div class="box">
+<textarea id="input" placeholder="Paste or type your text here to analyze its statistics and readability..." oninput="analyze()"></textarea>
+<div class="sg">
+<div class="sc"><div class="n" id="w">0</div><div class="l">Words</div></div>
+<div class="sc"><div class="n" id="c">0</div><div class="l">Characters</div></div>
+<div class="sc"><div class="n" id="s">0</div><div class="l">Sentences</div></div>
+<div class="sc"><div class="n" id="p">0</div><div class="l">Paragraphs</div></div>
+<div class="sc"><div class="n" id="awl">0</div><div class="l">Avg Word Len</div></div>
+<div class="sc"><div class="n" id="asl">0</div><div class="l">Avg Sent Len</div></div>
+<div class="sc"><div class="n" id="uw">0</div><div class="l">Unique Words</div></div>
+<div class="sc"><div class="n" id="rt">0 min</div><div class="l">Read Time</div></div>
+<div class="sc"><div class="n" id="lex">0</div><div class="l">Lexical Density</div></div>
+</div>
+<div style="margin-top:20px;">
+<h3 style="font-size:1rem;margin-bottom:12px;">Readability Scores</h3>
+<div class="sg" style="grid-template-columns:repeat(3,1fr);">
+<div class="sc"><div class="n" id="fk">--</div><div class="l">Flesch-Kincaid</div><div class="score-bar"><div class="score-fill" id="fk-bar" style="width:0%"></div></div></div>
+<div class="sc"><div class="n" id="gf">--</div><div class="l">Gunning Fog</div><div class="score-bar"><div class="score-fill" id="gf-bar" style="width:0%"></div></div></div>
+<div class="sc"><div class="n" id="ari">--</div><div class="l">ARI Grade</div><div class="score-bar"><div class="score-fill" id="ari-bar" style="width:0%"></div></div></div>
+</div>
+<div id="level" style="text-align:center;margin-top:16px;padding:12px;border-radius:8px;background:var(--bg);border:1px solid var(--border);font-weight:600;color:var(--text2);">Enter text to see reading level</div>
+</div>
+</div>
+<div class="info"><h2>Text Statistics &amp; Readability Analyzer</h2><p>Get comprehensive statistics about your text including word count, character count, sentence length, unique words, and multiple readability indices to assess how accessible your writing is.</p>
+<h3>Frequently Asked Questions</h3>
+<details><summary>What is the Flesch-Kincaid readability score?</summary><p>The Flesch-Kincaid score measures text readability on a scale of 0-100. Higher scores indicate easier readability. Scores above 60 are considered easily understood by 13-15 year old students. The formula uses average sentence length and average syllables per word.</p></details>
+<details><summary>What does the Gunning Fog index measure?</summary><p>The Gunning Fog index estimates the years of formal education needed to understand the text on the first reading. It accounts for sentence length and complex words (3+ syllables). A score of 6-8 is ideal for general audiences.</p></details>
+<details><summary>How is average word length calculated?</summary><p>Average word length is the total number of letters in all words divided by the total number of words, excluding spaces and punctuation from the letter count.</p></details>
+<details><summary>What is lexical density?</summary><p>Lexical density is the percentage of unique words (content words) in your text. Higher density means more varied vocabulary. Typical English text has 40-50% lexical density.</p></details>
+</div>
+</main>
+<footer class="footer"><p>© 2026 ExcuseMeWeb.com</p><p style="margin-top:8px"><a href="/sitemap">Sitemap</a></p></footer>
+<script>
+function countSyllables(w){w=w.toLowerCase().replace(/[^a-z]/g,'');if(!w)return 0;if(w.length<=3)return 1;w=w.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/,'');w=w.replace(/^y/,'');var m=w.match(/[aeiouy]{1,2}/g);return m?m.length:1;}
+function analyze(){
+var t=document.getElementById('input').value;
+var words=t.trim()?t.trim().split(/\s+/):[];
+var wc=words.length;
+var cc=t.length;
+var sentences=t.trim()?t.split(/[.!?]+/).filter(function(x){return x.trim().length>0}):[];
+var sc=sentences.length;
+var paras=t.trim()?t.split(/\n\n+/).filter(function(x){return x.trim().length>0}):[];
+var pc=Math.max(paras.length,t.trim()?1:0);
+var totalLetters=words.reduce(function(a,w){return a+w.replace(/[^a-zA-Z]/g,'').length;},0);
+var awl=wc?totalLetters/wc:0;
+var asl=sc?wc/sc:0;
+var unique=new Set(words.map(function(w){return w.toLowerCase().replace(/[^a-z]/g,'');}).filter(Boolean));
+var uw=unique.size;
+var lex=wc?(uw/wc*100):0;
+var rt=Math.ceil(wc/200);
+var totalSyllables=words.reduce(function(a,w){return a+countSyllables(w);},0);
+var aspw=wc?totalSyllables/wc:0;
+var fk=wc&&sc?Math.round((206.835-(1.015*asl)-(84.6*aspw))*10)/10:0;
+var gf=wc&&sc?Math.round(((0.4*(asl+100*(words.filter(function(w){return countSyllables(w)>=3;}).length/wc))))*10)/10:0;
+var ari=wc&&sc?Math.round((4.71*(totalLetters/wc)+0.5*asl-21.43)*10)/10:0;
+document.getElementById('w').textContent=wc;
+document.getElementById('c').textContent=cc;
+document.getElementById('s').textContent=sc;
+document.getElementById('p').textContent=pc;
+document.getElementById('awl').textContent=awl.toFixed(1);
+document.getElementById('asl').textContent=asl.toFixed(1);
+document.getElementById('uw').textContent=uw;
+document.getElementById('rt').textContent=rt+' min';
+document.getElementById('lex').textContent=lex.toFixed(1)+'%';
+if(wc>0){
+document.getElementById('fk').textContent=fk;
+var fkPct=Math.min(100,Math.max(0,fk));
+var fkBar=document.getElementById('fk-bar');
+fkBar.style.width=fkPct+'%';
+fkBar.className='score-fill '+(fk>=60?'score-green':fk>=30?'score-yellow':'score-red');
+document.getElementById('gf').textContent=gf;
+var gfPct=Math.min(100,Math.max(0,100-gf*5));
+var gfBar=document.getElementById('gf-bar');
+gfBar.style.width=gfPct+'%';
+gfBar.className='score-fill '+(gf<=8?'score-green':gf<=12?'score-yellow':'score-red');
+document.getElementById('ari').textContent=ari;
+var ariPct=Math.min(100,Math.max(0,100-ari*5));
+var ariBar=document.getElementById('ari-bar');
+ariBar.style.width=ariPct+'%';
+ariBar.className='score-fill '+(ari<=8?'score-green':ari<=12?'score-yellow':'score-red');
+var lvl=document.getElementById('level');
+if(fk>=80){lvl.textContent='Very Easy – 5th Grade';lvl.style.color='var(--success)';}
+else if(fk>=60){lvl.textContent='Standard – 8th-9th Grade';lvl.style.color='var(--success)';}
+else if(fk>=40){lvl.textContent='Fairly Difficult – 10th-12th Grade';lvl.style.color='#f59e0b';}
+else if(fk>=20){lvl.textContent='Difficult – College Level';lvl.style.color='var(--danger)';}
+else{lvl.textContent='Very Difficult – Graduate Level';lvl.style.color='var(--danger)';}
+}else{
+document.getElementById('fk').textContent='--';
+document.getElementById('gf').textContent='--';
+document.getElementById('ari').textContent='--';
+document.getElementById('fk-bar').style.width='0%';
+document.getElementById('gf-bar').style.width='0%';
+document.getElementById('ari-bar').style.width='0%';
+document.getElementById('level').textContent='Enter text to see reading level';
+document.getElementById('level').style.color='var(--text2)';
+}
+}
+</script></body></html>
